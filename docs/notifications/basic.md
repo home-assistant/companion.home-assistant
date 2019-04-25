@@ -2,7 +2,7 @@
 title: "Introduction"
 ---
 
-The iOS notify platform accepts the standard `title`, `message` and `target` parameters. The iOS notify platform supports targets as services. Assuming that you did not set a `name` when configuring the platform you should find all your registered and notification-enabled iOS devices available as notify targets as services with names prefixed "notify.ios_" and then the device name you entered at setup.
+The mobile_app notify platform accepts the standard `title`, `message` and `target` parameters. The mobile_app notify platform supports targets as services. Assuming that you did not set a `name` when configuring the platform you should find all your registered and notification-enabled iOS devices available as notify targets as services with names prefixed "notify.mobile_app_" and then the device name you entered at setup.
 
 Notes:
 
@@ -19,11 +19,11 @@ You can set the icon badge in the payload:
 
 ```yaml
 automation:
-  - alias: Notify iOS app
+  - alias: Notify Mobile app
     trigger:
       ...
     action:
-      service: notify.ios_<your_device_id_here>
+      service: notify.mobile_app_<your_device_id_here>
       data:
         title: "Smart Home Alerts"
         message: "Something happened at home!"
@@ -37,11 +37,11 @@ Starting with iOS 10, a subtitle is supported in addition to the title:
 
 ```yaml
 automation
-  - alias: Notify iOS app
+  - alias: Notify Mobile app
     trigger:
       ...
     action:
-      service: notify.ios_<your_device_id_here>
+      service: notify.mobile_app_<your_device_id_here>
       data:
         title: "Smart Home Alerts"
         message: "Something happened at home!"
@@ -54,11 +54,11 @@ Starting with iOS 12, grouping of notifications is supported. All notifications 
 
 ```yaml
 automation:
-  - alias: Notify iOS app
+  - alias: Notify Mobile app
     trigger:
       ...
     action:
-      service: notify.ios_<your_device_id_here>
+      service: notify.mobile_app_<your_device_id_here>
       data:
         title: "Smart Home Alerts"
         message: "Something happened at home!"
@@ -68,24 +68,25 @@ automation:
 ```
 
 
-### Sending notifications to multiple phones
-To send notifications to multiple phones, create a [notification group](https://www.home-assistant.io/components/notify.group/):
+### Sending notifications to multiple devices
+To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/components/notify.group/):
 ```yaml
 notify:
-  - name: NOTIFIER_NAME
+  - name: ALL_DEVICES
     platform: group
     services:
       - service: ios_iphone_one
       - service: ios_iphone_two
+      - service: ios_ipad_one
 ```
 Now, you can send notifications to everyone in the group using:
 ```yaml
   automation:
-    - alias: Notify iOS app
+    - alias: Notify Mobile app
       trigger:
         ...
       action:
-        service: notify.NOTIFIER_NAME
+        service: notify.ALL_DEVICES
         data:
           message: "Something happened at home!"
           data:
