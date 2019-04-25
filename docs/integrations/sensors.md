@@ -24,6 +24,11 @@ Along with providing [location services](location/index.md), the companion app a
 
 If iOS is unable to calculate an activity from motion data, `Unknown` will be given.
 
+The `Confidence` attribute corresponds how accurate iOS believes the report of the current activity is. Possible values are:
+* Low
+* Medium
+* High
+
 ## Battery Sensor
 The primary state of `sensor.device_ID_battery` gives whether or not the device is currently charging. The possible values are `Charging` or `Not_Charging`. The current battery level of the device can be accessed through the `Level` attribute. If you wish to create a sensor specifically for the battery level, this can be done with a [`template_sensor`](https://www.home-assistant.io/components/template/). For example, by adding the following to your `configuration.yaml`:
 
