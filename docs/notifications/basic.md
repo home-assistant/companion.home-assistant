@@ -4,9 +4,6 @@ title: "Introduction"
 
 The mobile_app notify platform accepts the standard `title`, `message` and `target` parameters. The mobile_app notify platform supports targets as services. Assuming that you did not set a `name` when configuring the platform you should find all your registered and notification-enabled iOS devices available as notify targets as services with names prefixed "notify.mobile_app_" and then the device name you entered at setup.
 
-Notes:
-* `target` can be used to specific a single device using its PushID, found in `ios.conf`. The preferred way of providing a target is through a target specific notify service.
-
 ![A push notification showing all of the basic options `title` and `message` as well as `subtitle` and actions.](assets/ios/example.png)
 
 ### Enhancing basic notifications
