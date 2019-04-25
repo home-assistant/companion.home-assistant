@@ -5,9 +5,6 @@ title: "Introduction"
 The mobile_app notify platform accepts the standard `title`, `message` and `target` parameters. The mobile_app notify platform supports targets as services. Assuming that you did not set a `name` when configuring the platform you should find all your registered and notification-enabled iOS devices available as notify targets as services with names prefixed "notify.mobile_app_" and then the device name you entered at setup.
 
 Notes:
-
-* `title` only displays on Apple Watch and devices with iOS 10 or above.
-
 * `target` can be used to specific a single device using its PushID, found in `ios.conf`. The preferred way of providing a target is through a target specific notify service.
 
 ![A push notification showing all of the basic options `title` and `message` as well as `subtitle` and actions.](assets/ios/example.png)
@@ -15,7 +12,7 @@ Notes:
 ### Enhancing basic notifications
 
 #### Badge
-You can set the icon badge in the payload:
+You can set the icon badge in the payload. The below example will make the badge icon say 5:
 
 ```yaml
 automation:
@@ -33,10 +30,10 @@ automation:
 ```
 
 #### Subtitle
-Starting with iOS 10, a subtitle is supported in addition to the title:
+A subtitle is supported in addition to the title:
 
 ```yaml
-automation
+automation:
   - alias: Notify Mobile app
     trigger:
       ...
@@ -50,7 +47,7 @@ automation
 ```
 
 #### Thread-id (grouping notifications)
-Starting with iOS 12, grouping of notifications is supported. All notifications with the same thread-id will be grouped together in the notification center. Without a thread-id, all notifications from the app will be placed in a single group.
+Grouping of notifications is supported on iOS 12 and above. All notifications with the same thread-id will be grouped together in the notification center. Without a thread-id, all notifications from the app will be placed in a single group.
 
 ```yaml
 automation:
@@ -67,6 +64,23 @@ automation:
             thread-id: "example-notification-group"
 ```
 
+#### Replacing notifications
+Existing notifications can be replaced using `apns-collapse-id`. This will continue to send you notifications but replace an existing one with that same `apns-collapse-id`. This is especially useful for motion and door sensor notifications. 
+
+```yaml
+automation:
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        title: "Motion Detected in Backyard"
+        message: "Someone might be in the backyard."
+          data:
+            apns_headers:
+              'apns-collapse-id': 'backyard-motion-detected'
+```
 
 ### Sending notifications to multiple devices
 To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/components/notify.group/):
