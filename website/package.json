@@ -6,7 +6,9 @@
     "publish-gh-pages": "docusaurus-publish",
     "write-translations": "docusaurus-write-translations",
     "version": "docusaurus-version",
-    "rename-version": "docusaurus-rename-version"
+    "rename-version": "docusaurus-rename-version",
+    "crowdin-upload": "java -jar /usr/local/bin/crowdin-cli.jar --config ../crowdin.yaml upload sources --auto-update -b master",
+    "crowdin-download": "java -jar /usr/local/bin/crowdin-cli.jar --config ../crowdin.yaml download -b master"
   },
   "devDependencies": {
     "docusaurus": "1.8.3"
