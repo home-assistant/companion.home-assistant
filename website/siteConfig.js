@@ -43,8 +43,7 @@ const siteConfig = {
     {doc: 'location/index', label: 'Location'},
     {doc: 'notifications/basic', label: 'Notifications'},
     {doc: 'integrations/index', label: 'Integrations'},
-    {page: 'help', label: 'Help'},
-    {blog: true, label: 'Blog'},
+    {page: 'help', label: 'Help'}
   ],
 
   // If you have users set above, you add it here:
