@@ -1,0 +1,27 @@
+{
+  "Getting Started": {
+    "Getting Started": [
+      "getting_started/index"
+    ]
+  },
+  "Notifications": {
+    "The Basics": [
+      "notifications/basic",
+      "notifications/sounds",
+      "notifications/architecture",
+      "notifications/details"
+    ],
+    "Advanced": [
+      "notifications/attachments",
+      "notifications/dynamic-content",
+      "notifications/actionable",
+      "notifications/location"
+    ]
+  },
+  "Integrations": {
+    "Integrations": [
+      "integrations/index",
+      "integrations/url-handler"
+    ]
+  }
+}
