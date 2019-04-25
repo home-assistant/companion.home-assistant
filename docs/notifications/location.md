@@ -6,15 +6,15 @@ title: "Requesting location updates"
 **Do not rely on this functionality due to the time limits mentioned below.**
 </p>
 
-You can force a device to attempt to report its location by sending a special notification.
+You can force a device to attempt to report its location by sending a special notification. 
 
 ```yaml
 automation
-  - alias: Notify iOS app
+  - alias: Notify Mobile app
     trigger:
       ...
     action:
-      service: notify.ios_<your_device_id_here>
+      service: notify.mobile_app_<your_device_id_here>
       data:
         message: "request_location_update"
 ```
