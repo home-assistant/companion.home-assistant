@@ -21,7 +21,8 @@
   "Integrations": {
     "Integrations": [
       "integrations/index",
-      "integrations/url-handler"
+      "integrations/url-handler",
+      "integrations/sensors"
     ]
   }
 }
