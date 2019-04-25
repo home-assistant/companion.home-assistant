@@ -11,6 +11,9 @@
       "integrations/index": {
         "title": "Integrations"
       },
+      "integrations/sensors": {
+        "title": "Sensors"
+      },
       "integrations/url-handler": {
         "title": "URL Handler"
       },
