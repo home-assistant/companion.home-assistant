@@ -8,7 +8,6 @@
     "The Basics": [
       "notifications/basic",
       "notifications/sounds",
-      "notifications/architecture",
       "notifications/details"
     ],
     "Advanced": [
@@ -16,6 +15,7 @@
       "notifications/dynamic-content",
       "notifications/actionable",
       "notifications/location"
+      "notifications/architecture",
     ]
   },
   "Integrations": {
