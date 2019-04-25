@@ -31,7 +31,7 @@ const siteConfig = {
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: 'home-assistant',
+  projectName: 'home-assistant-companion-docs',
   organizationName: 'home-assistant-iOS',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
