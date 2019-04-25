@@ -14,8 +14,8 @@
       "notifications/attachments",
       "notifications/dynamic-content",
       "notifications/actionable",
-      "notifications/location"
-      "notifications/architecture",
+      "notifications/location",
+      "notifications/architecture"
     ]
   },
   "Integrations": {
