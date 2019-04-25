@@ -1,15 +1,14 @@
 ---
 title: "Dynamic content"
 ---
-
-With the new Content Extension feature found in iOS 10, dynamic content can now be displayed as part of a notification without opening an app.
+Dynamic content such as maps and camera streams can be displayed as part of a notification without needing to open an app.
 
 # Map
-Will show a map with a red tipped pin at the coordinates given.
+Will show a map with a red pin at the coordinates given.
 The map will be centered at the coordinates given.
 
 ```yaml
-service: notify.ios_<your_device_id_here>
+service: notify.mobile_app_<your_device_id_here>
 data:
   message: Something happened at home!
   data:
@@ -22,15 +21,15 @@ data:
 
 ## Showing a second pin
 
-You can use the following properties under `action_data` to display a second pin. If used, the first pin will be red and the second green.
+You can use the following properties under `action_data` to display a second pin. If used, the first pin will be red and the second pin green.
 
 - **second_latitude**: The latitude of the second pin. **Must be a string!**
 - **second_longitude**: The longitude of the second pin. **Must be a string!**
-- **shows_line_between_points**: A Boolean value indicating whether a line should be drawn between the first and second pin.
+- **shows_line_between_points**: A boolean (`true` / `false`) value indicating whether a line should be drawn between the first and second pin.
 
 ## Extra configuration
 
-You can also pass the following properties under `action_data` to modify the map in various ways. All are expected to be boolean values unless otherwise noted:
+You can also pass the following properties under `action_data` to modify the map in various ways. All are expected to be boolean (`true` / `false`) values unless otherwise noted:
 
 - **shows_compass**: A Boolean indicating whether the map displays a compass control.
 - **shows_points_of_interest**: A Boolean indicating whether the map displays point-of-interest information.
@@ -52,7 +51,7 @@ You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 Note: This functionality is only available from iOS 11 onwards.
 
 ```yaml
-service: notify.ios_<your_device_id_here>
+service: notify.mobile_app_<your_device_id_here>
 data:
   message: Motion detected in the Living Room
   data:
@@ -94,4 +93,4 @@ ios:
 
 # Troubleshooting
 
-If you are having problems with receiving these special notifications try restarting your phone first. The extensions somewhat often fail to register properly until a restart.
+If you are having problems with receiving these special notifications try restarting your phone first. The extensions sometimes fail to register properly until a restart.
