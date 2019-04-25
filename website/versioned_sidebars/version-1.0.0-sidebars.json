@@ -1,0 +1,27 @@
+{
+  "version-1.0.0-Getting Started": {
+    "Getting Started": [
+      "version-1.0.0-getting_started/index"
+    ]
+  },
+  "version-1.0.0-Notifications": {
+    "The Basics": [
+      "version-1.0.0-notifications/basic",
+      "version-1.0.0-notifications/sounds",
+      "version-1.0.0-notifications/architecture",
+      "version-1.0.0-notifications/details"
+    ],
+    "Advanced": [
+      "version-1.0.0-notifications/attachments",
+      "version-1.0.0-notifications/dynamic-content",
+      "version-1.0.0-notifications/actionable",
+      "version-1.0.0-notifications/location"
+    ]
+  },
+  "version-1.0.0-Integrations": {
+    "Integrations": [
+      "version-1.0.0-integrations/index",
+      "version-1.0.0-integrations/url-handler"
+    ]
+  }
+}

@@ -43,6 +43,45 @@
       },
       "notifications/sounds": {
         "title": "Sounds"
+      },
+      "version-1.0.0/getting_started/version-1.0.0-index": {
+        "title": "Welcome"
+      },
+      "version-1.0.0/integrations/version-1.0.0-index": {
+        "title": "Integrations"
+      },
+      "version-1.0.0/integrations/version-1.0.0-url-handler": {
+        "title": "URL Handler"
+      },
+      "version-1.0.0/location/version-1.0.0-index": {
+        "title": "Location"
+      },
+      "version-1.0.0/notifications/version-1.0.0-actionable": {
+        "title": "Actionable notifications"
+      },
+      "version-1.0.0/notifications/version-1.0.0-architecture": {
+        "title": "Architecture"
+      },
+      "version-1.0.0/notifications/version-1.0.0-attachments": {
+        "title": "Attachments"
+      },
+      "version-1.0.0/notifications/version-1.0.0-basic": {
+        "title": "Introduction"
+      },
+      "version-1.0.0/notifications/version-1.0.0-details": {
+        "title": "Privacy, rate limiting and security"
+      },
+      "version-1.0.0/notifications/version-1.0.0-dynamic-content": {
+        "title": "Dynamic content"
+      },
+      "version-1.0.0/notifications/version-1.0.0-index": {
+        "title": "Introduction"
+      },
+      "version-1.0.0/notifications/version-1.0.0-location": {
+        "title": "Requesting location updates"
+      },
+      "version-1.0.0/notifications/version-1.0.0-sounds": {
+        "title": "Sounds"
       }
     },
     "links": {
