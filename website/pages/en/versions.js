@@ -16,7 +16,7 @@ const CWD = process.cwd();
 const siteConfig = require(CWD + '/siteConfig.js');
 const versions = require(CWD + '/versions.json');
 
-const versionUrl = (language, version) => `${siteConfig.baseUrl}docs/${language}/${version}/architecture_index.html`
+const versionUrl = (language, version) => `${siteConfig.baseUrl}docs/${language}/${version}/getting_started/`
 
 class Versions extends React.Component {
   render() {
