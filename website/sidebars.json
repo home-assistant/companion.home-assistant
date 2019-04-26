@@ -23,5 +23,11 @@
       "integrations/index",
       "integrations/url-handler"
     ]
+  },
+  "Misc": {
+    "Miscellaneous": [
+      "misc/index",
+      "misc/errors"
+    ]
   }
 }
