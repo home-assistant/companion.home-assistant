@@ -20,6 +20,12 @@
       "location/index": {
         "title": "Location"
       },
+      "misc/errors": {
+        "title": "Errors"
+      },
+      "misc/index": {
+        "title": "Introduction"
+      },
       "notifications/actionable": {
         "title": "Actionable notifications"
       },
@@ -92,13 +98,15 @@
       "Location": "Location",
       "Notifications": "Notifications",
       "Integrations": "Integrations",
+      "Misc": "Misc",
       "Help": "Help"
     },
     "categories": {
       "Getting Started": "Getting Started",
       "The Basics": "The Basics",
       "Advanced": "Advanced",
-      "Integrations": "Integrations"
+      "Integrations": "Integrations",
+      "Miscellaneous": "Miscellaneous"
     }
   },
   "pages-strings": {
