@@ -33,7 +33,7 @@
         "title": "URL Handler"
       },
       "integrations/x-callback-url": {
-        "title": "integrations/x-callback-url"
+        "title": "X-Callback-URL"
       },
       "location/index": {
         "title": "Location"
@@ -82,6 +82,9 @@
       },
       "version-1.0.0/location/version-1.0.0-index": {
         "title": "Location"
+      },
+      "version-1.0.0/misc/version-1.0.0-index": {
+        "title": "Introduction"
       },
       "version-1.0.0/notifications/version-1.0.0-actionable": {
         "title": "Actionable notifications"
