@@ -108,7 +108,7 @@ const siteConfig = {
   docsUrl: '',
   gaTrackingId: 'UA-57927901-7',
   scrollToTop: true,
-  translationRecruitingLink: '',
+  translationRecruitingLink: 'https://crwd.in/home-assistant-companion-docs',
   twitter: true,
   twitterUsername: 'home_assistant',
   docsSideNavCollapsible: true
