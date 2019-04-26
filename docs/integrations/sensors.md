@@ -11,7 +11,7 @@ Along with providing [location services](location/index.md), the companion app a
 | `sensor.device_ID_battery` | `level`, `state` | The current charging state (either `Charging` or `Not Charging`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
 | `sensor.device_ID_connection_type` | `cell_tech_type` | The current data connection being used by the phone. |
 | `sensor.device_ID_last_update_trigger` | _`None`_ | The cause of the last update of location and sensor data from the device to Home Assistant |
-| `sensor.device_ID_ssid` | _`None`_ | The human-readable name of the Wi-Fi network the device is currently connected to. When of Wi-Fi, this sensor will continue to give the SSID of the last Wi-Fi network the device was connected to. |
+| `sensor.device_ID_ssid` | None | The human-readable name of the Wi-Fi network the device is currently connected to. When of Wi-Fi, this sensor will continue to give the SSID of the last Wi-Fi network the device was connected to. |
 `device_ID` corresponds to the Device ID specified in App Configuration within the app.
 
 ## Actvity Sensor
