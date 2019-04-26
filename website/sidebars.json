@@ -24,5 +24,11 @@
       "integrations/url-handler",
       "integrations/sensors"
     ]
+  },
+  "Misc": {
+    "Miscellaneous": [
+      "misc/index",
+      "misc/errors"
+    ]
   }
 }
