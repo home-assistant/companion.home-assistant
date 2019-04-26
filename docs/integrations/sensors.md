@@ -5,7 +5,7 @@ title: "Sensors"
 Along with providing [location services](location/index.md), the companion app also adds several additional sensors to Home Assistant. **It is important to know that these sensors are only updated when a location is pushed to Home Assistant or the web view is refreshed**. The sensors provided by the companion app are:
 
 | Sensor | Attributes | Description |
-| --------- | --- | ----------- |
+| --------- | --------- | ----------- |
 | `sensor.device_ID_activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
 | `sensor.device_ID_bssid` | None |  The MAC address of the wireless access point your phone is connected to. When off Wi-Fi, this sensor will continue to report the last access point you were connected to. |
 | `sensor.device_ID_battery` | `level`, `state` | The current charging state (either `Charging` or `Not Charging`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
@@ -15,7 +15,7 @@ Along with providing [location services](location/index.md), the companion app a
 `device_ID` corresponds to the Device ID specified in App Configuration within the app.
 
 ## Actvity Sensor
-`sensor.device_ID_activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. It is possible for multiple activities to be returned, such as `Cycling` and `Stationary` (if you are cycling but at a stop light). Activities known by iOS and given by `sensor.device_ID_activity` are:
+`sensor.device_ID_activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.device_ID_activity` are:
 *   `Stationary`
 *   `Walking`
 *   `Running`
@@ -24,7 +24,9 @@ Along with providing [location services](location/index.md), the companion app a
 
 If iOS is unable to calculate an activity from motion data, `Unknown` will be given.
 
-The `Confidence` attribute corresponds how accurate iOS believes the report of the current activity is. Possible values are:
+It is possible for multiple activities to be returned, such as `Cycling` and `Stationary` (if you are cycling but at a stop light), the state of the sensor is simply the first of these return by iOS (not necessarily the most likely). A complete list of calculated activities is given by the `types` attribute. See [this post](https://nshipster.com/cmmotionactivity/#traveling-without-moving) by [@Mattt](https://twitter.com/mattt) over at [nshipster](https://nshipster.com/) for a description of how different scenarios yield multiple activities.
+
+The `confidence` attribute corresponds how accurate iOS believes the report of the current activity is. Possible values are:
 *   `Low`
 *   `Medium`
 *   `High`
@@ -56,4 +58,4 @@ A more specific description of the data connection can be found in the `cell_tec
 *   `Cellular`
 *   `No Connection`
 
-If the connection type is not recognised, either `Unknown` or `Unknown Technology` will be returned.
+If the connection type is not recognized, either `Unknown` or `Unknown Technology` will be returned.
