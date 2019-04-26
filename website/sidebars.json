@@ -23,6 +23,13 @@
       "integrations/index",
       "integrations/url-handler",
       "integrations/sensors"
+      "integrations/actions",
+      "integrations/apple-watch",
+      "integrations/siri-shortcuts",
+      "integrations/theming",
+      "integrations/universal-links",
+      "integrations/url-handler",
+      "integrations/x-callback-url"
     ]
   },
   "Misc": {
