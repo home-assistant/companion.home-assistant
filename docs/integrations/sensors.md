@@ -2,15 +2,15 @@
 title: "Sensors"
 ---
 
-Along with providing [location services](location/index.md), the companion app also adds several additional sensors to Home Assistant. **It is important to know that these sensors are only updated when a location is pushed to Home Assistant**. The sensors provided by the companion app are:
+Along with providing [location services](location/index.md), the companion app also adds several additional sensors to Home Assistant. **It is important to know that these sensors are only updated when a location is pushed to Home Assistant or the web view is refreshed**. The sensors provided by the companion app are:
 
 | Sensor | Attributes | Description |
 | --------- | --- | ----------- |
 | `sensor.device_ID_activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
-| `sensor.device_ID_bssid` | _`None`_ |  The MAC address of the wireless access point your phone is connected to. When off Wi-Fi, this sensor will continue to report the last access point you were connected to. |
+| `sensor.device_ID_bssid` | None |  The MAC address of the wireless access point your phone is connected to. When off Wi-Fi, this sensor will continue to report the last access point you were connected to. |
 | `sensor.device_ID_battery` | `level`, `state` | The current charging state (either `Charging` or `Not Charging`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
 | `sensor.device_ID_connection_type` | `cell_tech_type` | The current data connection being used by the phone. |
-| `sensor.device_ID_last_update_trigger` | _`None`_ | The cause of the last update of location and sensor data from the device to Home Assistant |
+| `sensor.device_ID_last_update_trigger` | None | The cause of the last update of location and sensor data from the device to Home Assistant |
 | `sensor.device_ID_ssid` | None | The human-readable name of the Wi-Fi network the device is currently connected to. When of Wi-Fi, this sensor will continue to give the SSID of the last Wi-Fi network the device was connected to. |
 `device_ID` corresponds to the Device ID specified in App Configuration within the app.
 
