@@ -17,6 +17,9 @@
       "integrations/index": {
         "title": "Integrations"
       },
+      "integrations/sensors": {
+        "title": "Sensors"
+      },
       "integrations/siri-shortcuts": {
         "title": "Siri Shortcuts"
       },
@@ -116,7 +119,6 @@
       "Location": "Location",
       "Notifications": "Notifications",
       "Integrations": "Integrations",
-      "Misc": "Misc",
       "Help": "Help"
     },
     "categories": {
