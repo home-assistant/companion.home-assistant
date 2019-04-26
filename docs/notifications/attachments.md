@@ -2,16 +2,18 @@
 title: "Attachments"
 ---
 
-iOS 10 adds _attachments_ to notifications. An attachment is an image, video, or audio file which is downloaded to the device when a notification is received and shown alongside the notification. A thumbnail is shown when the notification is not expanded. The full size attachment is shown when the notification is expanded.
+Notifications may contain an image, video, or audio file attachment that is displayed alongside the notification. A thumbnail is shown on the notification preview and the full size attachment is displayed after the notification is expanded.
+
+An attachment is an image, video, or audio file which is downloaded to the device when a notification is received and shown alongside the notification. A thumbnail is shown when the notification is not expanded. The full size attachment is shown when the notification is expanded.
 
 > To expand a notification on 3D Touch devices simply force touch any notification. On non-3D Touch devices swipe and tap the "View" button.
 
 ```yaml
-- alias: Notify iOS app
+- alias: Notify Mobile app
     trigger:
       ...
     action:
-      service: notify.ios_robbies_iphone_7_plus
+      service: notify.mobile_app_<your_device_id_here>
       data:
         message: "Something happened at home!"
         data:
@@ -28,35 +30,24 @@ Notes:
 
 ## Example
 
-An unexpanded push notification with an attachment.
+An unexpanded push notification with an image attachment:
 
 ![An unexpanded push notification with an attachment.](assets/ios/attachment.png)
 
-The same notification but expanded to show the full size attachment
+The same notification but expanded to show the full size image attachment:
 
 ![The same notification but expanded to show the full size attachment](assets/ios/expanded_attachment.png)
 
 ## Supported media types
 
-If the attachment does not appear please ensure it is in one of the following formats:
+Please ensure your attachment meets the criteria below, otherwise it will not show. 
 
-### Audio attachments
+| Attachment Type  | Maximum file size | Allowed Formats                                                                                              |
+| :-------: | --------------- | -------------------------------------------------------------------------------------------------------- |
+|    Image    | 10 MB             | JPEG, GIF, PNG                                                                     |
+|   Video    | 50 MB             | MPEG, MPEG2, MPEG4, AVI                                                            |
+|   Audio    | 5 MB  | AIFF, WAV, MP3, MPEG4 Audio |
 
-Maximum file size: 5 MB
-
-Allowed Formats: AIFF, WAV, MP3, MPEG4 Audio
-
-### Image attachments
-
-Maximum file size: 10 MB
-
-Allowed Formats: JPEG, GIF, PNG
-
-### Video attachments
-
-Maximum file size: 50 MB
-
-Allowed Formats: MPEG, MPEG2, MPEG4, AVI
 
 ## Configuration
 
