@@ -22,7 +22,7 @@
     "Integrations": [
       "integrations/index",
       "integrations/url-handler",
-      "integrations/sensors"
+      "integrations/sensors",
       "integrations/actions",
       "integrations/apple-watch",
       "integrations/siri-shortcuts",
