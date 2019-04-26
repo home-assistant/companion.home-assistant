@@ -8,6 +8,9 @@
       "getting_started/index": {
         "title": "Welcome"
       },
+      "integrations/actions": {
+        "title": "Actions"
+      },
       "integrations/apple-watch": {
         "title": "Apple Watch"
       },
@@ -20,8 +23,17 @@
       "integrations/siri-shortcuts": {
         "title": "Siri Shortcuts"
       },
+      "integrations/theming": {
+        "title": "Theming"
+      },
+      "integrations/universal-links": {
+        "title": "Universal Links"
+      },
       "integrations/url-handler": {
         "title": "URL Handler"
+      },
+      "integrations/x-callback-url": {
+        "title": "integrations/x-callback-url"
       },
       "location/index": {
         "title": "Location"
