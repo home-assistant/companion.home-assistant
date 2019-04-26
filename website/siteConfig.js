@@ -31,8 +31,8 @@ const siteConfig = {
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
-  projectName: 'home-assistant-companion-docs',
-  organizationName: 'home-assistant-iOS',
+  projectName: 'companion.home-assistant',
+  organizationName: 'home-assistant',
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
@@ -44,7 +44,8 @@ const siteConfig = {
     {doc: 'notifications/basic', label: 'Notifications'},
     {doc: 'integrations/index', label: 'Integrations'},
     {doc: 'misc/index', label: 'Misc'},
-    {page: 'help', label: 'Help'}
+    {page: 'help', label: 'Help'},
+    { languages: true }
   ],
 
   // If you have users set above, you add it here:
@@ -96,14 +97,21 @@ const siteConfig = {
   twitterImage: 'img/default-social.png',
 
   // Show documentation's last contributor's name.
-  // enableUpdateBy: true,
+  enableUpdateBy: true,
 
   // Show documentation's last update time.
-  // enableUpdateTime: true,
+  enableUpdateTime: true,
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
   //   repoUrl: 'https://github.com/facebook/test-site',
+  docsUrl: '',
+  gaTrackingId: 'UA-57927901-7',
+  scrollToTop: true,
+  translationRecruitingLink: '',
+  twitter: true,
+  twitterUsername: 'home_assistant',
+  docsSideNavCollapsible: true
 };
 
 module.exports = siteConfig;
