@@ -8,14 +8,41 @@
       "getting_started/index": {
         "title": "Welcome"
       },
+      "integrations/actions": {
+        "title": "Actions"
+      },
+      "integrations/apple-watch": {
+        "title": "Apple Watch"
+      },
       "integrations/index": {
         "title": "Integrations"
+      },
+      "integrations/sensors": {
+        "title": "Sensors"
+      },
+      "integrations/siri-shortcuts": {
+        "title": "Siri Shortcuts"
+      },
+      "integrations/theming": {
+        "title": "Theming"
+      },
+      "integrations/universal-links": {
+        "title": "Universal Links"
       },
       "integrations/url-handler": {
         "title": "URL Handler"
       },
+      "integrations/x-callback-url": {
+        "title": "X-Callback-URL"
+      },
       "location/index": {
         "title": "Location"
+      },
+      "misc/errors": {
+        "title": "Errors"
+      },
+      "misc/index": {
+        "title": "Introduction"
       },
       "notifications/actionable": {
         "title": "Actionable notifications"
@@ -56,6 +83,9 @@
       "version-1.0.0/location/version-1.0.0-index": {
         "title": "Location"
       },
+      "version-1.0.0/misc/version-1.0.0-index": {
+        "title": "Introduction"
+      },
       "version-1.0.0/notifications/version-1.0.0-actionable": {
         "title": "Actionable notifications"
       },
@@ -89,13 +119,15 @@
       "Location": "Location",
       "Notifications": "Notifications",
       "Integrations": "Integrations",
+      "Misc": "Misc",
       "Help": "Help"
     },
     "categories": {
       "Getting Started": "Getting Started",
       "The Basics": "The Basics",
       "Advanced": "Advanced",
-      "Integrations": "Integrations"
+      "Integrations": "Integrations",
+      "Miscellaneous": "Miscellaneous"
     }
   },
   "pages-strings": {
