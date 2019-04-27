@@ -1,4 +1,6 @@
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f1545d94-366e-4ece-a718-0c6f903662ab/deploy-status)](https://app.netlify.com/sites/home-assistant-companion-docs/deploys)
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/home-assistant-companion-docs/localized.svg)](https://crowdin.com/project/home-assistant-companion-docs)
 
 # Home Assistant Companion Documentation
 
