@@ -4,8 +4,7 @@ title: "Dynamic content"
 Dynamic content such as maps and camera streams can be displayed as part of a notification without needing to open an app.
 
 # Map
-Will show a map with a red pin at the coordinates given.
-The map will be centered at the coordinates given.
+Will show a centered map with a red pin at the given coordinates.
 
 ```yaml
 service: notify.mobile_app_<your_device_id_here>
@@ -19,48 +18,53 @@ data:
       longitude: "-73.968285"
 ```
 
+You may also use a device_tracker for the latitude and longitude coordinates like so: `"{{states.device_tracker.<your_device_id_here>.attributes.latitude}}"` but make sure to use `data_template` in that case. 
+
 ## Showing a second pin
 
 You can use the following properties under `action_data` to display a second pin. If used, the first pin will be red and the second pin green.
 
-- **second_latitude**: The latitude of the second pin. **Must be a string!**
-- **second_longitude**: The longitude of the second pin. **Must be a string!**
-- **shows_line_between_points**: A boolean (`true` / `false`) value indicating whether a line should be drawn between the first and second pin.
+Name | Type | Description
+------------ | ------------- | -------------  
+`second_latitude:` | string | The latitude of the second pin.
+`second_longitude:` | string | The longitude of the second pin.
+`shows_line_between_points:` | boolean | Displays a line connecting the first and second pin.
 
 ## Extra configuration
 
-You can also pass the following properties under `action_data` to modify the map in various ways. All are expected to be boolean (`true` / `false`) values unless otherwise noted:
+You can also pass the following option properties under `action_data` to modify the map in various ways. All options listed here accept boolean (`true` / `false`) values.
 
-- **shows_compass**: A Boolean indicating whether the map displays a compass control.
-- **shows_points_of_interest**: A Boolean indicating whether the map displays point-of-interest information.
-- **shows_scale**: A Boolean indicating whether the map shows scale information.
-- **shows_traffic**: A Boolean value indicating whether the map displays traffic information.
-- **shows_user_location**: A Boolean value indicating whether the map should try to display the user’s location.
+Name | Type | Description
+------------ | ------------- | -------------  
+`shows_compass:` | boolean | Displays a compass control on the map.
+`shows_points_of_interest:` | boolean | Displays point-of-interest (POI) information on the map.
+`shows_scale:` | boolean | Shows scale information on the map.
+`shows_traffic:` | boolean | Displays traffic information on the map.
+`shows_user_location:` | boolean | Attempts to display user's location on the map.
 
 ![An example of the map dynamic content.](assets/ios/map.png)
 
 # Camera Stream
 
-The notification thumbnail will be a still image from the camera.
-The notification content is a real time MJPEG stream of a camera (assuming the camera supports it).
+The preview thumbnail of the notification will display a still image from the camera. When expanded, the notification content displays a real time MJPEG stream if the camera supports it.
 
 You can use the attachment parameters `content-type` and `hide-thumbnail` with camera to control the thumbnail.
-
-You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
-
-Note: This functionality is only available from iOS 11 onwards.
 
 ```yaml
 service: notify.mobile_app_<your_device_id_here>
 data:
-  message: Motion detected in the Living Room
+  message: Motion Detected in the Living Room
   data:
     attachment:
       content-type: jpeg
     push:
       category: camera
-    entity_id: camera.demo_camera
+    entity_id: camera.living_room_camera
 ```
+
+> Note: This functionality is not available on iOS 10.
+
+You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LmYwpxPKW0g" frameborder="0" allowfullscreen></iframe>
@@ -93,4 +97,4 @@ ios:
 
 # Troubleshooting
 
-If you are having problems with receiving these special notifications try restarting your phone first. The extensions sometimes fail to register properly until a restart.
+If you are having problems with receiving these special notifications, try restarting your phone first. The extensions sometimes fail to register properly until a restart.
