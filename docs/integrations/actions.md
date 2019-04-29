@@ -69,7 +69,7 @@ You can use the Events page within Home Assistant's developer tools to show all 
 The [Apple Watch App](integrations/apple-watch.md) provides access to actions you have created. Once you have created an action within the Actions page, you can load it into the watch app by tapping "Send now" on the Apple Watch page within App Configuration.
 
 # Home Screen Quick Actions
-[Home Screen Quick Actions](https://support.apple.com/en-gb/guide/iphone/keep-apps-handy-iph414564dba/ios) provides a convenient shortcut to your actions and is accessed by 3D Touching the Home Assistant companion app icon on your home screen.
+[Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions and is accessed by 3D Touching the Home Assistant companion app icon on your home screen.
 
 # Today View Widget
 The [Today View Widget](https://support.apple.com/en-gb/HT207122) is another route through which actions can be fired. To the Home Assistant widget to your Today View swipe down from the top of the screen to open Notification Center and then swipe right to bring up Today View. At the bottom of the Today View tap "edit" to bring up a list of available widgets. Under More Widgets click the add symbol next to Home Assistant. Activated widgets can also be rearranged on this screen.
