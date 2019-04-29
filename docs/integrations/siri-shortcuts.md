@@ -29,11 +29,10 @@ You can send a special push notification to your device, that when tapped, will 
 ```yaml
 ---
 data:
-  push:
-    shortcut:
-      name: XCU
-      input: text1
-      text: soup1
+  shortcut:
+    name: XCU
+    input: text1
+    text: soup1
 ```
 
 The `input` key will be passed into the shortcut as well and accepts a dictionary.
