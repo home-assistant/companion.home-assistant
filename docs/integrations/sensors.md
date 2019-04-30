@@ -113,7 +113,7 @@ The pedometer sensors provide step-counting data from the devices built-in motio
 > Note: These pedometer sensors get reset upon each update and do not keep a running tally of the full day activity.
 
 ## Cellular Provider Sensor
-The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network.
+The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.device_ID_cellular_provider_0000000100000001` corresponds to the physical SIM card installed and `sensor.device_ID_cellular_provider_0000000100000002` corresponds to the eSIM (this is only shown if the eSIM is enabled).
 
 | Attribute | Description | 
 | --------- | --------- | 
