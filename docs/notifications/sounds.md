@@ -74,6 +74,9 @@ Apart from the tri-tone—the default text tone, which can be accessed with `sou
 
 ## Pre-installed notification sounds
 
+<details><summary>For a full list of sounds installed with the app, click here.</summary>
+<p>
+
 ```
 US-EN-Alexa-Back-Door-Opened.wav
 US-EN-Alexa-Back-Door-Unlocked.wav
@@ -203,3 +206,5 @@ US-EN-Morgan-Freeman-Water-Detected-In-Kitchen.wav
 US-EN-Morgan-Freeman-Welcome-Home.wav
 US-EN-Morgan-Freeman-Wife-Is-Arriving.wav
 ```
+</p>
+</details>
