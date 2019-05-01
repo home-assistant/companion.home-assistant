@@ -21,9 +21,12 @@ Here is an example notification that uses one of the pre-installed sounds.
 
 > You must use the full filename (including extension) in the payload.
 
-### Custom push notification sounds
+## Custom push notification sounds
 
 The app allows you to use your own custom sounds in push notifications. The sounds must be formatted as 32bit float 48000Hz wav files. Make sure you know the filename of the sound as you will need to reference it in the `sound` field of the notification payload. To add sounds follow either of the two following methods:
+
+> *   You may need to restart your entire device before notification sounds can be played.
+> *   Uploading a file with the same name as an existing one will overwrite the original.
 
 ### Via iTunes
 
@@ -52,10 +55,6 @@ For this method you need to have a cloud storage app (such as [Dropbox](https://
 6.  Navigate to the folder containing the sound or sounds you wish to add. Note you can switch between cloud providers using the Locations button in the upper-left corner.
 7.  Tap Select and then the files you wish to add. When you've selected all the files you want tap Done.
 8.  Restart your device.
-
-
-> *   You may need to restart your entire device before notification sounds can be played.
-> *   Uploading a file with the same name as an existing one will overwrite the original.
 
 ## Importing sounds from iOS
 
