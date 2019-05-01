@@ -100,7 +100,7 @@ automation:
             my_custom_data: foo_bar
 ```
 
-When an action is selected an event named `ios.notification_action_fired` will be emitted on the Home Assistant event bus. Below is an example payload.
+When an action is selected an event named `mobile_app.notification_action_fired` will be emitted on the Home Assistant event bus. Below is an example payload.
 
 ```json
 {
