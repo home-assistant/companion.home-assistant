@@ -19,8 +19,7 @@ Here is an example notification that uses one of the pre-installed sounds.
           sound: "US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav"
 ```
 
-Notes:
-*   You must use the full filename (including extension) in the payload.
+> You must use the full filename (including extension) in the payload.
 
 ### Custom push notification sounds
 
@@ -55,11 +54,8 @@ For this method you need to have a cloud storage app (such as [Dropbox](https://
 8.  Restart your device.
 
 
-Notes:
-
-*   **You may need to restart your entire device before notification sounds can be played. This should hopefully be fixed by Apple soon.**
-*   Uploading a file with the same name as an existing one will overwrite the original.
-*   You can view what sounds are installed on each device by inspecting the `ios.conf` file in your configuration directory. They are listed in the `pushSounds` array.
+> *   You may need to restart your entire device before notification sounds can be played.
+> *   Uploading a file with the same name as an existing one will overwrite the original.
 
 ## Importing sounds from iOS
 
