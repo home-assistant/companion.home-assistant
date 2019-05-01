@@ -20,32 +20,47 @@ Here is an example notification that uses one of the pre-installed sounds.
 ```
 
 Notes:
-* You must use the full filename (including extension) in the payload.
+*   You must use the full filename (including extension) in the payload.
 
-## Custom push notification sounds
+### Custom push notification sounds
 
-The app allows you to use your own custom sounds in push notifications. The sounds must be formatted as 32bit float 48000Hz wav files. You set the filename of the sound in the notification payload. To add sounds:
+The app allows you to use your own custom sounds in push notifications. The sounds must be formatted as 32bit float 48000Hz wav files. Make sure you know the filename of the sound as you will need to reference it in the `sound` field of the notification payload. To add sounds follow either of the two following methods:
 
-1. Connect the device to a PC or Mac running the latest version of iTunes.
-2. Go to the device in iTunes.
-3. Select "File Sharing" in the left-hand menu.
-4. Select Home Assistant.
-5. Drag and drop properly formatted sounds (32bit float 48000Hz wav files).
-6. Click Sync in the lower right.
-7. Once the sync is complete, disconnect the device from the computer.
-8. On your iOS device, open the Home Assistant app.
-9. Go to Settings -> Notification Settings.
+### Via iTunes
+
+1.  Connect the device to a PC or Mac running the latest version of iTunes.
+2.  Go to the device in iTunes.
+3.  Select "File Sharing" in the left-hand menu.
+4.  Select Home Assistant.
+5.  Drag and drop properly formatted sounds (32bit float 48000Hz wav files).
+6.  Click Sync in the lower right.
+7.  Once the sync is complete, disconnect the device from the computer.
+8.  On your iOS device, open the Home Assistant app.
+9.  Go to Settings -> Notification Settings.
 10. Select "Import sounds from iTunes".
 
 Assuming that you correctly formatted the sounds they are now available to use in push notifications.
 
+### Via Cloud Storage:
+
+For this method you need to have a cloud storage app (such as [Dropbox](https://www.dropbox.com), [Google Drive](https://www.google.com/drive/), [iCloud](iCloud), [OneDrive](https://onedrive.live.com/) etc.)
+
+1.  If you don't already have the iOS app for your cloud storage setup, find the appropriate app in the App Store, install and log in to it.
+2.  Upload your desired notification sounds to a convenient location on your cloud storage.
+3.  In the Home Assistant app, open the App Configuration page from the sidebar.
+4.  Under Settings, tap Notifications and then Sounds.
+5.  Tap "Import custom sound".
+6.  Navigate to the folder containing the sound or sounds you wish to add. Note you can switch between cloud providers using the Locations button in the upper-left corner.
+7.  Tap Select and then the files you wish to add. When you've selected all the files you want tap Done.
+
+
 Notes:
 
-* **Please note that due to a bug in iOS 10 you may need to restart your entire device before notification sounds can be played. This should hopefully be fixed by Apple soon.**
-* Uploading a file with the same name as an existing one will overwrite the original.
-* You can view what sounds are installed on each device by inspecting the `ios.conf` file in your configuration directory. They are listed in the `pushSounds` array.
+*   **Please note that due to a bug in iOS 10 you may need to restart your entire device before notification sounds can be played. This should hopefully be fixed by Apple soon.**
+*   Uploading a file with the same name as an existing one will overwrite the original.
+*   You can view what sounds are installed on each device by inspecting the `ios.conf` file in your configuration directory. They are listed in the `pushSounds` array.
 
-### Preinstalled notification sounds
+## Preinstalled notification sounds
 
 ```
 US-EN-Alexa-Back-Door-Opened.wav
