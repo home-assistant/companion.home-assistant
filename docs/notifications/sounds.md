@@ -57,7 +57,7 @@ For this method you need to have a cloud storage app (such as [Dropbox](https://
 
 Notes:
 
-*   **Please note that due to a bug in iOS 10 you may need to restart your entire device before notification sounds can be played. This should hopefully be fixed by Apple soon.**
+*   **You may need to restart your entire device before notification sounds can be played. This should hopefully be fixed by Apple soon.**
 *   Uploading a file with the same name as an existing one will overwrite the original.
 *   You can view what sounds are installed on each device by inspecting the `ios.conf` file in your configuration directory. They are listed in the `pushSounds` array.
 
