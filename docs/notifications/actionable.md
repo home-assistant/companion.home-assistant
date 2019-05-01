@@ -25,7 +25,7 @@ When sending a notification:
 2. Push notification delivered to device
 3. User opens notification.
 3. Action tapped
-4. Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
+4. Identifier of action sent back to HA as the `actionName` property of the event `mobile_app.notification_action_fired`, along with other metadata such as the device and category name.
 
 ![How the iOS device and Home Assistant work together to enable actionable notifications.](assets/NotificationActionFlow.png)
 
@@ -119,7 +119,7 @@ automation:
   - alias: Sound the alarm
     trigger:
       platform: event
-      event_type: ios.notification_action_fired
+      event_type: mobile_app.notification_action_fired
       event_data:
         actionName: SOUND_ALARM
     action:
