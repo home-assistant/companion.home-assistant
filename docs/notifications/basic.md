@@ -2,13 +2,31 @@
 title: "Introduction"
 ---
 
-The mobile_app notify platform accepts the standard `title`, `message` and `target` parameters. The mobile_app notify platform supports targets as services. Assuming that you did not set a `name` when configuring the platform you should find all your registered and notification-enabled iOS devices available as notify targets as services with names prefixed "notify.mobile_app_" and then the device name you entered at setup.
+The mobile_app notify platform accepts the standard `title`, `message` and `target` parameters. The mobile_app notify platform supports targets as services. As long as you granted notifications permissions during setup, you will find all your devices listed as targets for the notify service with names prefixed `notify.mobile_app_` followed by the Device ID of you device. This can be checked in the App Configuration menu of the sidebar and defaults to the name specified in the General>About within the iOS settings app (with spaces and non alphanumeric characters replaced by underscores).
+
 
 ![A push notification showing all of the basic options `title` and `message` as well as `subtitle` and actions.](assets/ios/example.png)
 
-### Enhancing basic notifications
+## Enhancing basic notifications
 
-#### Badge
+### Notification Sounds
+By default no notification sound is sent in the payload. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be played by adding it to the data payload:
+
+```yaml
+automation:
+  - alias: Make some noise
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        title: "Ding-dong"
+        data:
+          push:
+            sounds: default
+```
+
+### Badge
 You can set the icon badge in the payload. The below example will make the badge icon say 5:
 
 ```yaml
@@ -26,7 +44,7 @@ automation:
             badge: 5
 ```
 
-#### Subtitle
+### Subtitle
 A subtitle is supported in addition to the title:
 
 ```yaml
@@ -43,7 +61,7 @@ automation:
           subtitle: "Subtitle goes here"
 ```
 
-#### Thread-id (grouping notifications)
+### Thread-id (grouping notifications)
 Grouping of notifications is supported on iOS 12 and above. All notifications with the same thread-id will be grouped together in the notification center. Without a thread-id, all notifications from the app will be placed in a single group.
 
 ```yaml
@@ -61,8 +79,8 @@ automation:
             thread-id: "example-notification-group"
 ```
 
-#### Replacing notifications
-Existing notifications can be replaced using `apns-collapse-id`. This will continue to send you notifications but replace an existing one with that same `apns-collapse-id`. This is especially useful for motion and door sensor notifications. 
+### Replacing notifications
+Existing notifications can be replaced using `apns-collapse-id`. This will continue to send you notifications but replace an existing one with that same `apns-collapse-id`. When sending consecutive messages with the same `apns-collapse-id` to the same device, only the most recent will be shown. This is especially useful for motion and door sensor notifications.
 
 ```yaml
 automation:
@@ -86,9 +104,9 @@ notify:
   - name: ALL_DEVICES
     platform: group
     services:
-      - service: ios_iphone_one
-      - service: ios_iphone_two
-      - service: ios_ipad_one
+      - service: mobile_app_iphone_one
+      - service: mobile_app_iphone_two
+      - service: mobile_app_ipad_one
 ```
 Now, you can send notifications to everyone in the group using:
 ```yaml
