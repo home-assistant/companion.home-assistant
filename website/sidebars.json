@@ -15,6 +15,7 @@
       "notifications/dynamic-content",
       "notifications/actionable",
       "notifications/location",
+      "notifications/critical",
       "notifications/architecture"
     ]
   },
