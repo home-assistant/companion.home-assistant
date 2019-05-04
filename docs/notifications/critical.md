@@ -18,7 +18,6 @@ automations:
         message: "The house is on fire and the cat's stuck in the dried!"
         data:
           push:
-            category: alarm
             sound:
               name: default
               critical: 1
