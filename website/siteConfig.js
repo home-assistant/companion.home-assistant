@@ -45,7 +45,8 @@ const siteConfig = {
     {doc: 'integrations/index', label: 'Integrations'},
     {doc: 'misc/index', label: 'Misc'},
     {page: 'help', label: 'Help'},
-    { languages: true }
+    { languages: true },
+    { search: true }
   ],
 
   // If you have users set above, you add it here:
@@ -111,7 +112,12 @@ const siteConfig = {
   translationRecruitingLink: 'https://crwd.in/home-assistant-companion-docs',
   twitter: true,
   twitterUsername: 'home_assistant',
-  docsSideNavCollapsible: true
+  docsSideNavCollapsible: true,
+  algolia: {
+    apiKey: '07eb926ba58945e17a895f6ca531e3c2',
+    indexName: 'companion-home-assistant',
+    algoliaOptions: {} // Optional, if provided by Algolia
+  }
 };
 
 module.exports = siteConfig;
