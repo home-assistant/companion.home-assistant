@@ -2,9 +2,19 @@
 title: "Introduction"
 ---
 
-The mobile_app notify platform accepts the standard `title`, `message` and `target` parameters. The mobile_app notify platform supports targets as services. As long as you granted notifications permissions during setup, you will find all your devices listed as targets for the notify service with names prefixed `notify.mobile_app_` followed by the Device ID of you device. This can be checked in the App Configuration menu of the sidebar and defaults to the name specified in the General>About within the iOS settings app (with spaces and non alphanumeric characters replaced by underscores).
+The mobile_app notify platform accepts the standard `title`, `message` and `target` parameters used by the notify platform. The mobile_app notify platform supports targets as services. As long as you granted notifications permissions during setup, you will find all your devices listed as targets for the notify service with names prefixed `notify.mobile_app_` followed by the Device ID of you device. This can be checked in the App Configuration menu of the sidebar and defaults to the name specified in the General>About within the iOS settings app (with spaces and non alphanumeric characters replaced by underscores). A requirement of the notify platform is that you must specify at least `message:` in your payload. A minimum working example of a notification is:
 
+```yaml
+automation:
+  - alias: 'Send Notification'
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+        message: 'Notification text'
+```
 
+The mobile_app platform provides many enhancements to the simple notification generated above. The image below, for example, shows an [actionable notification](actionable.md) allowing you to trigger different automations from each button.
 ![A push notification showing all of the basic options `title` and `message` as well as `subtitle` and actions.](assets/ios/example.png)
 
 ## Enhancing basic notifications
@@ -20,7 +30,7 @@ automation:
     action:
       service: notify.mobile_app_<your_device_id_here>
       data:
-        title: "Ding-dong"
+        message: "Ding-dong"
         data:
           push:
             sounds: default
