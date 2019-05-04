@@ -2,7 +2,7 @@
 title: "Actionable notifications"
 ---
 
-Actionable notifications allow you to attach up to four buttons underneath an expanded iOS notification. These buttons are associated with automations of your choice, allowing you to perform powerful tasks with literally the press of a button!
+Notifications can be grouped by category, this allows for different types of notifications from Home Assistant be placed in a appropriate stacks on the lock screen and even custom summary text to be used on the notification stack. Categories also you to create actionable notifications to which you can attach up to four buttons underneath an expanded iOS notification. These buttons are associated with automations of your choice, allowing you to perform powerful tasks with literally the press of a button!
 
 Some useful examples of actionable notifications:
 
@@ -22,9 +22,9 @@ In advance of sending a notification:
 When sending a notification:
 
 1.  Send a notification with `data.push.category` set to a pre-defined notification category identifier.
-2.  Push notification delivered to device
+2.  Push notification delivered to device.
 3.  User opens notification.
-3.  Action tapped
+3.  Action tapped.
 4.  Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
 
 ![How the iOS device and Home Assistant work together to enable actionable notifications.](assets/NotificationActionFlow.png)
@@ -78,6 +78,10 @@ ios:
             textInputPlaceholder: 'Placeholder'
 ```
 
+Rather than defining categories using YAML within `configuration.yaml`, you can create them directly within the Companion App. This can be done from the Notifications page of the App Configuration Menu (accessed from the sidebar menu).
+
+Two variables are available for use in the `Hidden preview placeholder` and `Category summary`. `%u` will give the total number of notifications which have been sent under the same thread ID (see [this document](basic.md#thread-id-grouping-notifications) for more details). `%@` will give the text specified with `summary:` in the `push:` section of the notification payload.
+
 ## Building automations for notification actions
 Here is an example automation to send a notification with a category in the payload:
 
@@ -130,7 +134,7 @@ Notes:
 
 *   `textInput` will only exist if `behavior` was set to `textInput`.
 *   `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
-*   When adding or updating push categories be sure to update push settings within the Home Assistant iOS app. This can be found within the app at **Settings** (gear icon) > **Notification Settings**.
+*   When adding or updating push categories in `configuration.yaml` be sure to update push settings within the Home Assistant iOS app. This can be found within the Notifications page of the App Configuration menu (accessed from the sidebar menu). You may have to exit the Notifications page and reopen it before new categories are shown. If they are still not listed, restart the Home Assistant Companion App.
 
 ## Compatibility with different devices
 
