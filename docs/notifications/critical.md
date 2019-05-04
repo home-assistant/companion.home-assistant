@@ -2,7 +2,7 @@
 title: "Critical notifications"
 ---
 
-Critical notifications were introduced in iOS 12 and are designed for sending high-priority notifications that you don't want to miss. They will ignore both do not disturb status and silent settings. A simple example of sending a critical notification is:
+Critical notifications were introduced in iOS 12 and are designed for sending high-priority notifications that you don't want to miss. They will ignore both do not disturb status and silent settings; critical notifications will also be displayed prominently on the lock screen until there are opened. A simple example of sending a critical notification is:
 
 ```yaml
 automations:
