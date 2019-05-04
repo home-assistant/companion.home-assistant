@@ -10,10 +10,11 @@ Along with providing [location services](location/index.md), the companion app a
 | `sensor.device_ID_bssid` | None |  The MAC address of the wireless access point your phone is connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
 | `sensor.device_ID_battery_level` | `state` | The current battery level of the device. Current battery state is available from the `State` attribute of this sensor. |
 | `sensor.device_ID_battery_state` | `level` | The current charging state (either `Charging`, `Not Charging`, or `Full`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
-| `sensor.device_ID_cellular_provider_0000000100000001` | See Below |  |
-| `sensor.device_ID_cellular_provider_0000000100000002` | See Below |  |
+| `sensor.device_ID_sim_1` | See Below |  |
+| `sensor.device_ID_sim_2` | See Below |  |
 | `sensor.device_ID_connection_type` | `cell_tech_type` | The current data connection being used by the phone. |
 | `sensor.device_ID_distance` | None | The estimated distance (in meters) traveled by the user. |
+| `sensor.device_ID_average_active_pace` | None | The average pace of the user, measured in seconds per meter. |
 | `sensor.device_ID_floors_ascended` | None | The approximate number of floors ascended by walking. |
 | `sensor.device_ID_floors_descended` | None | The approximate number of floors descended by walking. |
 | `sensor.device_ID_geocoded_location` | See Below |  |
@@ -107,13 +108,15 @@ The pedometer sensors provide step-counting data from the devices built-in motio
 | --------- | --------- | 
 | `sensor.device_ID_steps` | The number of steps taken by the user. |
 | `sensor.device_ID_distance` | The estimated distance (in meters) traveled by the user. |
+| `sensor.device_ID_average_active_pace` | The average pace of the user, measured in seconds per meter. |
 | `sensor.device_ID_floors_ascended` | The approximate number of floors ascended by walking. |
 | `sensor.device_ID_floors_descended` | The approximate number of floors descended by walking. |
+
 
 > Note: These pedometer sensors get reset upon each update and do not keep a running tally of the full day activity.
 
 ## Cellular Provider Sensor
-The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.device_ID_cellular_provider_0000000100000001` corresponds to the physical SIM card installed and `sensor.device_ID_cellular_provider_0000000100000002` corresponds to the eSIM (this is only shown if the eSIM is enabled).
+The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.device_ID_sim_1` corresponds to the physical SIM card installed and `sensor.device_ID_sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
 
 | Attribute | Description | 
 | --------- | --------- | 
