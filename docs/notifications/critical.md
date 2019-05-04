@@ -2,7 +2,7 @@
 title: "Critical notifications"
 ---
 
-Critical notifications were introduced in iOS 12 and are designed for sending high-priority notifications that you don't want to miss. They will ignore both do not disturb status and silent settings; critical notifications will also be displayed prominently on the lock screen until there are opened. A simple example of sending a critical notification is:
+Critical notifications were introduced in iOS 12 and are designed for sending high-priority notifications that you don't want to miss. They will ignore both do not disturb status and silent settings. Critical notifications will also be displayed prominently on the lock screen until there are opened. A simple example of sending a critical notification is:
 
 ```yaml
 automations:
@@ -25,4 +25,4 @@ automations:
 
 ```
 
-If you have previously read the [sounds documentation](sounds.md), this syntax should be mostly familiar. Note that we have now added `category: alarm` to the payload and expanded the `sound` attribute to include the `critical: 1` flag and `volume: 1.0` to set the volume at 100 %.
+If you have previously read the [sounds documentation](sounds.md), this syntax should be mostly familiar. Note that have expanded the `sound` attribute to include the `critical: 1` flag and `volume: 1.0` to set the volume at 100 %.
