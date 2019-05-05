@@ -62,8 +62,6 @@ data:
     entity_id: camera.living_room_camera
 ```
 
-> Note: This functionality is not available on iOS 10.
-
 You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 
 <div class='videoWrapper'>
