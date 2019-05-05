@@ -38,6 +38,9 @@
       "location/index": {
         "title": "Location"
       },
+      "misc/beta-cleaning": {
+        "title": "Beta testing: cleaning between builds"
+      },
       "misc/errors": {
         "title": "Errors"
       },
