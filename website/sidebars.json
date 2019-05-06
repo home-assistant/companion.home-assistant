@@ -36,7 +36,8 @@
   "Misc": {
     "Miscellaneous": [
       "misc/index",
-      "misc/errors"
+      "misc/errors",
+      "misc/beta-cleaning"
     ]
   }
 }
