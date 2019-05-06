@@ -128,7 +128,4 @@ Now, you can send notifications to everyone in the group using:
         service: notify.ALL_DEVICES
         data:
           message: "Something happened at home!"
-          data:
-            push:
-              badge: 5
 ```
