@@ -2,9 +2,25 @@
 title: "Location"
 ---
 
+## Overview
+
+Location updates are sent from your device to Home Assistant in a number of situations:
+*   When you enter or exit a [zone](https://www.home-assistant.io/components/zone/) defined in Home Assistant.
+*   When an iBeacon is detected or lost (see [below](#ibeacons)).
+*   When the app is opened and it was not already open in the background.
+*   Via an automated background fetch.
+*   When an update is requested via [special notification](notifications/location.md)
+*   When a [URL Handler](integrations/url-handler.md) link is opened.
+*   When the app is called via a [X-Callback-URL](integrations/x-callback-url.md).
+*   When your devices detects a [_significant location change_](#location-tracking-when-outside-a-home-assistant-zone).
+*   Manually when the app is refreshed (swipe down when at the top of a page) or from the shortcut menu opened from 3D touching the app icon.
+
+Depending on your set up, location data is sent directly from your phone to you Home Assistant instances or via the Home Assistant Cloud Service. This will depend on the URLs specified in the Connection section of the App Configuration menu. Location data is not sent via any other servers or organisations.
+**Check this is true for notification updates**
+
 ## Location tracking when outside a Home Assistant zone
 
-Home Assistant for iOS receives _significant location updates_ from iOS. Whenever an update is received, it is sent to Home Assistant. Roughly, an update is received every time that your device transfers to a new cellular tower, a significant amount of time has passed (usually a couple hours) or a connection state changes and the system notices your location recently changed.
+The Home Assistant Companion App receives _significant location updates_ from iOS. Whenever an update is received, it is sent to Home Assistant. Roughly, an update is received every time that your device transfers to a new cellular tower, a significant amount of time has passed (usually a couple hours) or a connection state changes and the system notices your location recently changed.
 
 Apple [defines][apple-location-programming-guide] significant significant-change location updates as:
 
@@ -30,7 +46,7 @@ Add `track_ios: false` to your zone configurations to disable zone location trac
 
 ### iBeacons
 
-As of 1.0.3 the app has basic support for using iBeacons to trigger enter/exit updates. To configure them, add your iBeacon details to your zone like this:
+The app has basic support for using iBeacons to trigger enter/exit updates. To configure them, add your iBeacon details to your zone like this:
 
 ```yaml
 zone.home:
