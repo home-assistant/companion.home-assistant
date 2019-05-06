@@ -96,8 +96,6 @@ automation:
         message: "Something happened at home!"
         data:
           push:
-            badge: 5
-            sound: <SOUND FILE HERE>
             category: "alarm" # Needs to match the top level identifier you used in the ios configuration
           action_data: # Anything passed in action_data will get echoed back to Home Assistant.
             entity_id: light.test
