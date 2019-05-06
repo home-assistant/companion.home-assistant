@@ -102,7 +102,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `InlandWater` | The name of the inland water body associated with the placemark. |
 
 ## Pedometer Sensors
-The pedometer sensors provide step-counting data from the devices built-in motion processor. Requires motion permissions to be enabled.
+The pedometer sensors provide step-counting data from the devices built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
 
 | Sensor | Description | 
 | --------- | --------- | 
@@ -112,8 +112,6 @@ The pedometer sensors provide step-counting data from the devices built-in motio
 | `sensor.device_ID_floors_ascended` | The approximate number of floors ascended by walking. |
 | `sensor.device_ID_floors_descended` | The approximate number of floors descended by walking. |
 
-
-> Note: These pedometer sensors get reset upon each update and do not keep a running tally of the full day activity.
 
 ## Cellular Provider Sensor
 The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.device_ID_sim_1` corresponds to the physical SIM card installed and `sensor.device_ID_sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
