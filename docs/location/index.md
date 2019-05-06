@@ -15,8 +15,32 @@ Location updates are sent from your device to Home Assistant in a number of situ
 *   When your devices detects a [_significant location change_](#location-tracking-when-outside-a-home-assistant-zone).
 *   Manually when the app is refreshed (swipe down when at the top of a page) or from the shortcut menu opened from 3D touching the app icon.
 
-Depending on your set up, location data is sent directly from your phone to you Home Assistant instances or via the Home Assistant Cloud Service. This will depend on the URLs specified in the Connection section of the App Configuration menu. Location data is not sent via any other servers or organisations.
+You can check the cause of the most recent location update by checking the value of `sensor.last_update_trigger`
+
+Depending on your set up, location data is sent directly from your phone to you Home Assistant instances or via the Home Assistant Cloud Service. This will depend on the URLs specified in the Connection section of the App Configuration menu. Location data is not sent via any other servers or organisations. Of course, if you decide not grant the Home Assistant Companion App location permission or if you subsequently remove the location permissions (via iOS Settings>Privacy>Location Services), no location data will be sent from your device to Home Assistant.
 **Check this is true for notification updates**
+
+## Getting started
+
+Once you have installed and opened the Home Assistant Companion App for the first time, a new `device_tracker` entity will be created. To check the entity ID your device has been assigned, open `known_devices.yaml` in your `config` directory and scroll to the bottom. The entry you are looking for will have 32-character UUID (universally unique identifier) as both the top-level ID and the `name`. You will probably wish to change the value of `name:` to something a little more relevant. Also, if you wish the device to be tracked by Home Assistant (which if you're reading this you presumably do) make sure the entry has `track: true` set. Once you have found the UUID you can use the device tracker as [described in the Home Assistant docs](https://www.home-assistant.io/components/device_tracker/). In a future version, the UUID will be replaced by a more user-friendly ID.
+
+The following is a basic example to switch a light on when you enter your _home_ zone after dark.
+
+```yaml
+automation:
+  - alias: 'Turn door light on when getting home'
+    trigger:
+      platform: state
+      entity_id: device_tracker.<UUID_here>
+      to: 'home'
+    condition:
+      condition: sun
+      after: sunset
+    action:
+      - service: light.turn_on
+        data:
+          entity_id: light.frontdoor
+```
 
 ## Location tracking when outside a Home Assistant zone
 
