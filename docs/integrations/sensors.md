@@ -13,7 +13,7 @@ Along with providing [location services](location/index.md), the companion app a
 | `sensor.device_ID_sim_1` | See Below |  |
 | `sensor.device_ID_sim_2` | See Below |  |
 | `sensor.device_ID_connection_type` | `cell_tech_type` | The current data connection being used by the phone. |
-| `sensor.device_ID_distance` | None | The estimated distance (in meters) traveled by the user. |
+| `sensor.device_ID_distance` | None | The estimated distance (in meters) walked by the user. |
 | `sensor.device_ID_average_active_pace` | None | The average pace of the user, measured in seconds per meter. |
 | `sensor.device_ID_floors_ascended` | None | The approximate number of floors ascended by walking. |
 | `sensor.device_ID_floors_descended` | None | The approximate number of floors descended by walking. |
@@ -21,7 +21,7 @@ Along with providing [location services](location/index.md), the companion app a
 | `sensor.device_ID_last_update_trigger` | None | The cause of the last update of location and sensor data from the device to Home Assistant |
 | `sensor.device_ID_ssid` | None | The human-readable name of the Wi-Fi network the device is currently connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
 | `sensor.device_ID_steps` | None | The number of steps taken by the user. |
-`device_ID` corresponds to the Device ID specified in App Configuration within the app.
+`device_ID` corresponds to the device name specified in iOS settings -> General -> Info -> Name.
 
 ## Actvity Sensor
 `sensor.device_ID_activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.device_ID_activity` are:
@@ -43,7 +43,7 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 ## Battery Sensors
 The Battery State sensor (`sensor.device_ID_battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100% charged.
 
-The Battery Level sensor (`sensor.device_ID_battery_level`) reports the current battery level of the device from 0-100%.
+The Battery Level sensor (`sensor.device_ID_battery_level`) reports the current battery level of the device from 0-100%. The charge level is reflected in the sensor icon.
 
 ## Connection Type Sensor
 The following connection types are known by the companion app:
@@ -76,6 +76,7 @@ This sensor displays exactly what caused the last update of location and sensor 
 | Push Notification | [Requesting location updates](notifications/location.md) via push notification.  |
 | Background Fetch | When the app refreshes sensor information in the background. |
 | Siri | Location updates triggered via the [Siri Shortcuts](siri-shortcuts.md) "Send Location" shortcut. |
+| iBeacon Region Entered | Triggered when an iBeacon is seen that corresponds to a known zone. |
 
 
 ## Geocoded Location Sensor
