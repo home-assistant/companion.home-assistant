@@ -37,6 +37,7 @@
     "Miscellaneous": [
       "misc/index",
       "misc/errors",
+      "misc/app-events",
       "misc/beta-cleaning"
     ]
   }
