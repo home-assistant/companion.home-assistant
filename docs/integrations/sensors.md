@@ -7,21 +7,27 @@ Along with providing [location services](location/index.md), the companion app a
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
 | `sensor.device_ID_activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
+| `sensor.device_ID_average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
+| `sensor.device_ID_battery_level` | `Battery State` | The current battery level of the device. Current battery state is available from the `Battery State` attribute of this sensor. |
+| `sensor.device_ID_battery_state` | `Battery Level` | The current charging state (either `Charging`, `Not Charging`, or `Full`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
 | `sensor.device_ID_bssid` | None |  The MAC address of the wireless access point your phone is connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
-| `sensor.device_ID_battery_level` | `state` | The current battery level of the device. Current battery state is available from the `State` attribute of this sensor. |
-| `sensor.device_ID_battery_state` | `level` | The current charging state (either `Charging`, `Not Charging`, or `Full`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
-| `sensor.device_ID_sim_1` | See Below |  |
-| `sensor.device_ID_sim_2` | See Below |  |
-| `sensor.device_ID_connection_type` | `cell_tech_type` | The current data connection being used by the phone. |
-| `sensor.device_ID_distance` | None | The estimated distance (in meters) walked by the user. |
-| `sensor.device_ID_average_active_pace` | None | The average pace of the user, measured in seconds per meter. |
-| `sensor.device_ID_floors_ascended` | None | The approximate number of floors ascended by walking. |
-| `sensor.device_ID_floors_descended` | None | The approximate number of floors descended by walking. |
-| `sensor.device_ID_geocoded_location` | See Below |  |
+| `sensor.device_ID_connection_type` | `Cellular Technology` | The current data connection being used by the phone. |
+| `sensor.device_ID_distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
+| `sensor.device_ID_floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
+| `sensor.device_ID_floors_descended` | None | The approximate number of floors descended by walking. Since |
+| `sensor.device_ID_geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `sensor.device_ID_last_update_trigger` | None | The cause of the last update of location and sensor data from the device to Home Assistant |
+| `sensor.device_ID_sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
+| `sensor.device_ID_sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.device_ID_ssid` | None | The human-readable name of the Wi-Fi network the device is currently connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
 | `sensor.device_ID_steps` | None | The number of steps taken by the user. |
 `device_ID` corresponds to the device name specified in iOS settings -> General -> Info -> Name.
+
+Attributes such as `Cellular Technology` can be accessed with a template such as:
+
+```
+{{ states.sensor.device_ID_connection_type.attributes['Cellular Technology'] }}
+```
 
 ## Actvity Sensor
 `sensor.device_ID_activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.device_ID_activity` are:
@@ -51,7 +57,7 @@ The following connection types are known by the companion app:
 *   `Cellular`
 *   `No Connection`
 
-A more specific description of the data connection can be found in the `cell_tech_type` attribute of the sensor. Possible values for this attribute are:
+A more specific description of the data connection can be found in the `Cellular Technology` attribute of the sensor. Possible values for this attribute are:
 
 *   `Wi-Fi`
 *   `4G`
@@ -66,8 +72,8 @@ If the connection type is not recognized, either `Unknown` or `Unknown Technolog
 ## Last Update Trigger Sensor
 This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
 
-| State | Description | 
-| --------- | --------- | 
+| State | Description |
+| --------- | --------- |
 | Manual | A manual update is triggered when the user pulls to refresh. |
 | Initial | Sensors are updated upon initial app launch. |
 | Significant Location Update | Triggers when there has been a significant change in the device’s location, such as 500 meters or more. See [location](location/index.md) for additional details. |
@@ -84,8 +90,8 @@ The [geocoded](https://.wikipedia.org/wiki/Geocoding) location sensor provides a
 
 Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/documentation/mapkit) and [Core Location](https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names) services.
 
-| Attribute | Description | 
-| --------- | --------- | 
+| Attribute | Description |
+| --------- | --------- |
 | `Location` | The latitude and longitude coordinates of the placemark. |
 | `Name` | The name of the placemark. |
 | `Country` | The name of the country associated with the placemark. |
@@ -105,8 +111,8 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 ## Pedometer Sensors
 The pedometer sensors provide step-counting data from the devices built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
 
-| Sensor | Description | 
-| --------- | --------- | 
+| Sensor | Description |
+| --------- | --------- |
 | `sensor.device_ID_steps` | The number of steps taken by the user. |
 | `sensor.device_ID_distance` | The estimated distance (in meters) traveled by the user. |
 | `sensor.device_ID_average_active_pace` | The average pace of the user, measured in seconds per meter. |
@@ -117,8 +123,8 @@ The pedometer sensors provide step-counting data from the devices built-in motio
 ## Cellular Provider Sensor
 The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.device_ID_sim_1` corresponds to the physical SIM card installed and `sensor.device_ID_sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
 
-| Attribute | Description | 
-| --------- | --------- | 
+| Attribute | Description |
+| --------- | --------- |
 | `Carrier Name` | The name of the user’s home cellular service provider. |
 | `Current Radio Technology` |  |
 | `ISO Country Code` | The ISO country code for the user’s cellular service provider. |
