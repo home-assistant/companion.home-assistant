@@ -6,31 +6,30 @@ Along with providing [location services](location/index.md), the companion app a
 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
-| `sensor.device_ID_activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
-| `sensor.device_ID_average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
-| `sensor.device_ID_battery_level` | `Battery State` | The current battery level of the device. Current battery state is available from the `Battery State` attribute of this sensor. |
-| `sensor.device_ID_battery_state` | `Battery Level` | The current charging state (either `Charging`, `Not Charging`, or `Full`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
-| `sensor.device_ID_bssid` | None |  The MAC address of the wireless access point your phone is connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
-| `sensor.device_ID_connection_type` | `Cellular Technology` | The current data connection being used by the phone. |
-| `sensor.device_ID_distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
-| `sensor.device_ID_floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
-| `sensor.device_ID_floors_descended` | None | The approximate number of floors descended by walking. Since |
-| `sensor.device_ID_geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
-| `sensor.device_ID_last_update_trigger` | None | The cause of the last update of location and sensor data from the device to Home Assistant |
-| `sensor.device_ID_sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
-| `sensor.device_ID_sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
-| `sensor.device_ID_ssid` | None | The human-readable name of the Wi-Fi network the device is currently connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
-| `sensor.device_ID_steps` | None | The number of steps taken by the user. |
-`device_ID` corresponds to the device name specified in iOS settings -> General -> Info -> Name.
+| `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
+| `sensor.average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
+| `sensor.battery_level` | `Battery State` | The current battery level of the device. Current battery state is available from the `Battery State` attribute of this sensor. |
+| `sensor.battery_state` | `Battery Level` | The current charging state (either `Charging`, `Not Charging`, or `Full`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
+| `sensor.bssid` | None |  The MAC address of the wireless access point your phone is connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
+| `sensor.connection_type` | `Cellular Technology` | The current data connection being used by the phone. |
+| `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
+| `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
+| `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
+| `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
+| `sensor.last_update_trigger` | None | The cause of the last update of location and sensor data from the device to Home Assistant |
+| `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
+| `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
+| `sensor.ssid` | None | The human-readable name of the Wi-Fi network the device is currently connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
+| `sensor.steps` | None | The number of steps taken by the user. |
 
 Attributes such as `Cellular Technology` can be accessed with a template such as:
 
 ```
-{{ states.sensor.device_ID_connection_type.attributes['Cellular Technology'] }}
+{{ states.sensor.connection_type.attributes['Cellular Technology'] }}
 ```
 
 ## Actvity Sensor
-`sensor.device_ID_activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.device_ID_activity` are:
+`sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
 *   `Stationary`
 *   `Walking`
 *   `Running`
@@ -47,9 +46,9 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 *   `High`
 
 ## Battery Sensors
-The Battery State sensor (`sensor.device_ID_battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100% charged.
+The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100% charged.
 
-The Battery Level sensor (`sensor.device_ID_battery_level`) reports the current battery level of the device from 0-100%. The charge level is reflected in the sensor icon.
+The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0-100%. The charge level is reflected in the sensor icon.
 
 ## Connection Type Sensor
 The following connection types are known by the companion app:
@@ -113,15 +112,15 @@ The pedometer sensors provide step-counting data from the devices built-in motio
 
 | Sensor | Description |
 | --------- | --------- |
-| `sensor.device_ID_steps` | The number of steps taken by the user. |
-| `sensor.device_ID_distance` | The estimated distance (in meters) traveled by the user. |
-| `sensor.device_ID_average_active_pace` | The average pace of the user, measured in seconds per meter. |
-| `sensor.device_ID_floors_ascended` | The approximate number of floors ascended by walking. |
-| `sensor.device_ID_floors_descended` | The approximate number of floors descended by walking. |
+| `sensor.steps` | The number of steps taken by the user. |
+| `sensor.distance` | The estimated distance (in meters) traveled by the user. |
+| `sensor.average_active_pace` | The average pace of the user, measured in seconds per meter. |
+| `sensor.floors_ascended` | The approximate number of floors ascended by walking. |
+| `sensor.floors_descended` | The approximate number of floors descended by walking. |
 
 
 ## Cellular Provider Sensor
-The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.device_ID_sim_1` corresponds to the physical SIM card installed and `sensor.device_ID_sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
+The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
 
 | Attribute | Description |
 | --------- | --------- |
