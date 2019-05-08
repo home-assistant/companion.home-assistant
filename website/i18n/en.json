@@ -38,6 +38,9 @@
       "location/index": {
         "title": "Location"
       },
+      "misc/app-events": {
+        "title": "misc/app-events"
+      },
       "misc/beta-cleaning": {
         "title": "Beta testing: cleaning between builds"
       },
