@@ -11,7 +11,8 @@ User who have been taking part in the beta testing of 2.0 have likely been throu
 4.  Return to the Home Assistant Configuration page and open the Entity Registry.
 5.  Delete all entries with `mobile_app` listed to the right of them.
 6.  Using your preferred method of editing files on Home Assistant instance, open the `.storage` folder and delete the `mobile_app` file.
-7.  Restart Home Assistant.
-8.  Delete the Home Assistant App from your device.
-9.  Reinstall the Home Assistant App from TestFlight (during beta testing) or AppStore.
-10. Open the app and follow the setup process.
+7.  Open known_devices.yaml and delete the (probably last) entry consisting of a 32-character unique ID, representing the device_tracker of your device.
+8.  Restart Home Assistant.
+9.  Delete the Home Assistant App from your device.
+10.  Reinstall the Home Assistant App from TestFlight (during beta testing) or AppStore.
+11. Open the app and follow the setup process.
