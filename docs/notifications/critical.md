@@ -2,7 +2,11 @@
 title: "Critical notifications"
 ---
 
-Critical notifications were introduced in iOS 12 and are designed for sending high-priority notifications that you don't want to miss. They will ignore both do not disturb status and silent settings. Critical notifications will also be displayed prominently on the lock screen until there are opened. A simple example of sending a critical notification is:
+Critical notifications were introduced in iOS 12 and are designed for sending high-priority notifications that you don't want to miss - for example security system, water leak sensor, and smoke/CO2 alarm alerts.
+
+iOS gives special priority to this type of notification. Critical alerts always appear at the top of your lock screen above all other notifications, and play a sound even if Do Not Disturb is enabled or the iPhone is muted. Because we never want you to miss a critical notification, they are allowed to bypass the app [notification rate limits](details.md) as well.
+
+A simple example of sending a critical notification is:
 
 ```yaml
 automations:
@@ -15,7 +19,7 @@ automations:
     - service: notify.mobile_app_<your_device_id_here>
       data:
         title: "Wake up!"
-        message: "The house is on fire and the cat's stuck in the dried!"
+        message: "The house is on fire and the cat's stuck in the dryer!"
         data:
           push:
             sound:
