@@ -112,7 +112,7 @@ const siteConfig = {
   translationRecruitingLink: 'https://crwd.in/home-assistant-companion-docs',
   twitter: true,
   twitterUsername: 'home_assistant',
-  docsSideNavCollapsible: true,
+  docsSideNavCollapsible: false,
   algolia: {
     apiKey: '07eb926ba58945e17a895f6ca531e3c2',
     indexName: 'companion-home-assistant',
