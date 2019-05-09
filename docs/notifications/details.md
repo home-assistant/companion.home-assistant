@@ -12,7 +12,9 @@ Currently, you are allowed to send a maximum of 150 push notifications per day p
 
 The in-app Notifications settings screen displays your current rate limits for the day broken out into the following categories: Attempts, Delivered, Errors, Total, and the exact time until next daily reset. The rate limit resets at midnight UTC daily.
 
-If an error occurs while sending a notification, it does not count towards your rate limit.
+If an error occurs while sending a notification, it does not count towards your rate limit. Requesting location updates [via push notiifcation](notifications/location.md) and the special `clear_badge` notification type also do not count towards your rate limit.
+
+
 
 ## Security
 
