@@ -43,9 +43,8 @@ const siteConfig = {
     {doc: 'core/index', label: 'Core Features'},
     {doc: 'notifications/basic', label: 'Notifications'},
     {doc: 'integrations/index', label: 'Integrations'},
-    {doc: 'other/index', label: 'Other'},
-    {doc: 'troubleshooting/index', label: 'Troubleshooting'},
     {doc: 'misc/index', label: 'Misc'},
+    {doc: 'troubleshooting/index', label: 'Troubleshooting'},
     {page: 'help', label: 'Help'},
     { languages: true },
     { search: true }
