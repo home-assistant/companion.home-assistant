@@ -45,7 +45,7 @@
         "title": "Complications"
       },
       "integrations/watch/index": {
-        "title": "Apple Watch"
+        "title": "Overview"
       },
       "integrations/x-callback-url": {
         "title": "X-Callback-URL"
@@ -53,14 +53,14 @@
       "misc/app-events": {
         "title": "App Events"
       },
-      "misc/beta-cleaning": {
-        "title": "Beta testing: cleaning between builds"
-      },
-      "misc/errors": {
-        "title": "Errors"
+      "misc/haptics": {
+        "title": "Haptics"
       },
       "misc/index": {
         "title": "Introduction"
+      },
+      "misc/theming": {
+        "title": "Theming"
       },
       "notifications/actionable": {
         "title": "Actionable notifications"
@@ -92,8 +92,14 @@
       "notifications/sounds": {
         "title": "Sounds"
       },
-      "troubleshooting/index": {
-        "title": "troubleshooting/index"
+      "troubleshooting/beta-cleaning": {
+        "title": "Beta testing: cleaning between builds"
+      },
+      "troubleshooting/errors": {
+        "title": "Errors"
+      },
+      "troubleshooting/setup": {
+        "title": "Troubleshooting"
       },
       "version-1.0.0/core/version-1.0.0-index": {
         "title": "Troubleshooting"
@@ -140,8 +146,8 @@
       "version-1.0.0/notifications/version-1.0.0-sounds": {
         "title": "Sounds"
       },
-      "version-1.0.0/troubleshooting/version-1.0.0-index": {
-        "title": "Core Features"
+      "version-1.0.0/troubleshooting/version-1.0.0-setup": {
+        "title": "Setup issues"
       }
     },
     "links": {
@@ -159,6 +165,7 @@
       "Notifications": "Notifications",
       "Integrations": "Integrations",
       "Miscellaneous": "Miscellaneous",
+      "Troubleshooting": "Troubleshooting",
       "The Basics": "The Basics",
       "Advanced": "Advanced"
     }
