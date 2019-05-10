@@ -5,6 +5,9 @@
     "previous": "Previous",
     "tagline": "Everything you need to know to use Home Assistant Companion",
     "docs": {
+      "core/index": {
+        "title": "core/index"
+      },
       "getting_started/index": {
         "title": "Welcome"
       },
@@ -13,6 +16,9 @@
       },
       "integrations/apple-watch": {
         "title": "Apple Watch"
+      },
+      "integrations/haptics": {
+        "title": "Haptics"
       },
       "integrations/index": {
         "title": "Integrations"
@@ -80,6 +86,12 @@
       "notifications/sounds": {
         "title": "Sounds"
       },
+      "troubleshooting/index": {
+        "title": "troubleshooting/index"
+      },
+      "version-1.0.0/core/version-1.0.0-index": {
+        "title": "Troubleshooting"
+      },
       "version-1.0.0/getting_started/version-1.0.0-index": {
         "title": "Welcome"
       },
@@ -121,13 +133,21 @@
       },
       "version-1.0.0/notifications/version-1.0.0-sounds": {
         "title": "Sounds"
+      },
+      "version-1.0.0/other/version-1.0.0-index": {
+        "title": "Other Information"
+      },
+      "version-1.0.0/troubleshooting/version-1.0.0-index": {
+        "title": "Core Features"
       }
     },
     "links": {
       "Getting Started": "Getting Started",
-      "Location": "Location",
+      "Core Features": "Core Features",
       "Notifications": "Notifications",
       "Integrations": "Integrations",
+      "Other": "Other",
+      "Troubleshooting": "Troubleshooting",
       "Misc": "Misc",
       "Help": "Help"
     },
