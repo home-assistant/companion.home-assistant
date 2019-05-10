@@ -64,7 +64,9 @@
     "Troubleshooting": [
       "troubleshooting/setup",
       "troubleshooting/errors",
-      "troubleshooting/beta-cleaning"
+      "troubleshooting/beta-cleaning",
+      "troubleshooting/integrations",
+      "troubleshooting/more-help"
     ]
   }
 }
