@@ -129,3 +129,21 @@ Now, you can send notifications to everyone in the group using:
         data:
           message: "Something happened at home!"
 ```
+
+### Controlling how a notification is displayed when in the foreground
+By default, if the app is open (in the foreground) when a notification arrives, it will display the same as when the app is not active (in the background), with a visual alert showing notification contents, a badge update (if one was sent in the notification) and the sound of your choice. You can control how a notification is displayed when the app is in the foreground by setting the `presentation_options` string array. Allowed values are `alert`, `badge` and `sound`.
+
+```yaml
+automation:
+  - alias: Notify Mobile app
+    trigger:
+      ...
+    action:
+      service: notify.ALL_DEVICES
+      data:
+        message: "Something happened at home!"
+        data:
+          presentation_options:
+            - alert
+            - badge
+```
