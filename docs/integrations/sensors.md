@@ -56,9 +56,8 @@ The following connection types are known by the companion app:
 *   `Cellular`
 *   `No Connection`
 
-A more specific description of the data connection can be found in the `Cellular Technology` attribute of the sensor. Possible values for this attribute are:
+A more specific description of the data connection can be found in the `Cellular Technology` attribute of the sensor (which only appears when on cellular). Possible values for this attribute are:
 
-*   `Wi-Fi`
 *   `4G`
 *   `3G`
 *   `2G`
