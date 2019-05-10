@@ -5,26 +5,26 @@
     "previous": "Previous",
     "tagline": "Everything you need to know to use Home Assistant Companion",
     "docs": {
+      "core/actions": {
+        "title": "Actions"
+      },
       "core/index": {
-        "title": "core/index"
+        "title": "Feature overview"
+      },
+      "core/location": {
+        "title": "Location"
+      },
+      "core/sensors": {
+        "title": "Sensors"
       },
       "getting_started/index": {
         "title": "Welcome"
-      },
-      "integrations/actions": {
-        "title": "Actions"
-      },
-      "integrations/apple-watch": {
-        "title": "Apple Watch"
       },
       "integrations/haptics": {
         "title": "Haptics"
       },
       "integrations/index": {
         "title": "Integrations"
-      },
-      "integrations/sensors": {
-        "title": "Sensors"
       },
       "integrations/siri-shortcuts": {
         "title": "Siri Shortcuts"
@@ -38,11 +38,17 @@
       "integrations/url-handler": {
         "title": "URL Handler"
       },
+      "integrations/watch/actions": {
+        "title": "Actions"
+      },
+      "integrations/watch/complications": {
+        "title": "Complications"
+      },
+      "integrations/watch/index": {
+        "title": "Apple Watch"
+      },
       "integrations/x-callback-url": {
         "title": "X-Callback-URL"
-      },
-      "location/index": {
-        "title": "Location"
       },
       "misc/app-events": {
         "title": "App Events"
@@ -60,10 +66,10 @@
         "title": "Actionable notifications"
       },
       "notifications/architecture": {
-        "title": "Architecture"
+        "title": "Technical information"
       },
       "notifications/attachments": {
-        "title": "Attachments"
+        "title": "Standard Attachments"
       },
       "notifications/basic": {
         "title": "Introduction"
@@ -75,7 +81,7 @@
         "title": "Privacy, rate limiting and security"
       },
       "notifications/dynamic-content": {
-        "title": "Dynamic content"
+        "title": "Dynamic attachments"
       },
       "notifications/index": {
         "title": "Introduction"
@@ -134,9 +140,6 @@
       "version-1.0.0/notifications/version-1.0.0-sounds": {
         "title": "Sounds"
       },
-      "version-1.0.0/other/version-1.0.0-index": {
-        "title": "Other Information"
-      },
       "version-1.0.0/troubleshooting/version-1.0.0-index": {
         "title": "Core Features"
       }
@@ -146,17 +149,18 @@
       "Core Features": "Core Features",
       "Notifications": "Notifications",
       "Integrations": "Integrations",
-      "Other": "Other",
-      "Troubleshooting": "Troubleshooting",
       "Misc": "Misc",
+      "Troubleshooting": "Troubleshooting",
       "Help": "Help"
     },
     "categories": {
       "Getting Started": "Getting Started",
-      "The Basics": "The Basics",
-      "Advanced": "Advanced",
+      "Core Features": "Core Features",
+      "Notifications": "Notifications",
       "Integrations": "Integrations",
-      "Miscellaneous": "Miscellaneous"
+      "Miscellaneous": "Miscellaneous",
+      "The Basics": "The Basics",
+      "Advanced": "Advanced"
     }
   },
   "pages-strings": {

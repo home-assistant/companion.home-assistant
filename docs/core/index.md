@@ -1,3 +1,5 @@
 ---
-title: Core Features
+title: Feature overview
 ---
+
+Core features
