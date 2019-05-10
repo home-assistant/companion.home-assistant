@@ -4,28 +4,46 @@
       "getting_started/index"
     ]
   },
+  "Core" :{
+    "Core Features": [
+      "core/index",
+      "core/actions",
+      "core/location",
+      "core/sensors"
+    ]
+  },
   "Notifications": {
-    "The Basics": [
+    "Notifications": [
       "notifications/basic",
       "notifications/sounds",
-      "notifications/details"
-    ],
-    "Advanced": [
-      "notifications/attachments",
-      "notifications/dynamic-content",
+      "notifications/details",
+      {
+        "type":"subcategory",
+        "label":"Attachments",
+        "ids": [
+          "notifications/attachments",
+          "notifications/dynamic-content"
+        ]
+      },
       "notifications/actionable",
       "notifications/location",
       "notifications/critical",
-      "notifications/architecture"
+      "notifications/technical"
     ]
   },
   "Integrations": {
     "Integrations": [
       "integrations/index",
+      {
+        "type": "subcategory",
+        "label": "Apple Watch",
+        "ids": [
+          "integrations/watch/index",
+          "integrations/watch/actions",
+          "integrations/watch/complications"
+        ]
+      },
       "integrations/url-handler",
-      "integrations/actions",
-      "integrations/apple-watch",
-      "integrations/sensors",
       "integrations/siri-shortcuts",
       "integrations/theming",
       "integrations/haptics",
@@ -37,9 +55,18 @@
   "Misc": {
     "Miscellaneous": [
       "misc/index",
-      "misc/errors",
+      "misc/theming",
       "misc/app-events",
-      "misc/beta-cleaning"
+      "misc/haptics"
+    ]
+  },
+  "Troubleshooting": {
+    "Troubleshooting": [
+      "troubleshooting/setup",
+      "troubleshooting/errors",
+      "troubleshooting/beta-cleaning",
+      "troubleshooting/integrations",
+      "troubleshooting/more-help"
     ]
   }
 }
