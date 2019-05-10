@@ -45,7 +45,6 @@ const siteConfig = {
     {doc: 'integrations/index', label: 'Integrations'},
     {doc: 'misc/index', label: 'Misc'},
     {doc: 'troubleshooting/setup', label: 'Troubleshooting'},
-    {page: 'help', label: 'Help'},
     { languages: true },
     { search: true }
   ],
