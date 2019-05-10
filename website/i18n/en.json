@@ -98,6 +98,12 @@
       "troubleshooting/errors": {
         "title": "Errors"
       },
+      "troubleshooting/integrations": {
+        "title": "Integrations"
+      },
+      "troubleshooting/more-help": {
+        "title": "getting more help"
+      },
       "troubleshooting/setup": {
         "title": "Troubleshooting"
       },
