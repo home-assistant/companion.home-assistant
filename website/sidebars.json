@@ -55,9 +55,16 @@
   "Misc": {
     "Miscellaneous": [
       "misc/index",
-      "misc/errors",
+      "misc/theming",
       "misc/app-events",
-      "misc/beta-cleaning"
+      "misc/haptics"
+    ]
+  },
+  "Troubleshooting": {
+    "Troubleshooting": [
+      "troubleshooting/setup",
+      "troubleshooting/errors",
+      "troubleshooting/beta-cleaning"
     ]
   }
 }
