@@ -19,7 +19,7 @@ function imgUrl(img) {
 }
 
 function docUrl(doc, language) {
-  return siteConfig.baseUrl + 'docs/' + (language ? language + '/' : '') + doc + ".html";
+  return siteConfig.baseUrl + (siteConfig.docUrl ? siteConfig.docUrl + '/' : '' ) + (language ? language + '/' : '') + doc + ".html";
 }
 
 function pageUrl(page, language) {
