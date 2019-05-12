@@ -40,20 +40,28 @@ const PopularTopicsSection = ({ language }) => (
         <div style={{ display: "flex", flexDirection: "column", maxWidth: 420 }}>
           <h2>Documentation Structure</h2>
           <p>
-            <b><a href={docUrl('getting_started', language)}>Getting Started</a>.</b>
+            <b><a href={docUrl('getting_started/index', language)}>Getting Started</a>.</b>
             {' '}Getting to know your new best friend.
           </p>
           <p>
-            <b><a href={docUrl('location', language)}>Location</a>.</b>
-            {' '}How to use your daily movements to improve your automations.
+            <b><a href={docUrl('core/index', language)}>Core Features</a>.</b>
+            {' '}The best bits of the Companion App.
           </p>
           <p>
             <b><a href={docUrl('notifications/basic', language)}>Notifications</a>.</b>
             {' '}Remain constantly informed, even when away from home.
           </p>
           <p>
-            <b><a href={docUrl('integrations', language)}>Integrations</a>.</b>
+            <b><a href={docUrl('integrations/index', language)}>Integrations</a>.</b>
             {' '}All the ways you can integrate Home Assistant into iOS, watchOS and other apps.
+          </p>
+          <p>
+            <b><a href={docUrl('misc/index', language)}>Miscellaneous</a>.</b>
+            {' '}Some of the cool advanced feature of the Companion App.
+          </p>
+          <p>
+            <b><a href={docUrl('troubleshooting/setup', language)}>Troubleshooting</a>.</b>
+            {' '}If you need some help, this is a great place to start.
           </p>
         </div>
 
