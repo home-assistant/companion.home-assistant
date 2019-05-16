@@ -1,4 +1,5 @@
 {
+  "license": "CC-BY-NC-SA-4.0",
   "scripts": {
     "examples": "docusaurus-examples",
     "start": "docusaurus-start",
@@ -7,10 +8,10 @@
     "write-translations": "docusaurus-write-translations",
     "version": "docusaurus-version",
     "rename-version": "docusaurus-rename-version",
-    "crowdin-upload": "java -jar /usr/local/bin/crowdin-cli.jar --config ../crowdin.yaml upload sources --auto-update -b master",
-    "crowdin-download": "java -jar /usr/local/bin/crowdin-cli.jar --config ../crowdin.yaml download -b master"
+    "crowdin-upload": "crowdin --config ../crowdin.yaml upload sources --auto-update -b master",
+    "crowdin-download": "crowdin --config ../crowdin.yaml download -b master"
   },
   "devDependencies": {
-    "docusaurus": "1.8.3"
+    "docusaurus": "^1.8.0"
   }
 }
