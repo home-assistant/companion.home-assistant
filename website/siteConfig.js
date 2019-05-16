@@ -44,9 +44,7 @@ const siteConfig = {
     {doc: 'notifications/basic', label: 'Notifications'},
     {doc: 'integrations/index', label: 'Integrations'},
     {doc: 'misc/index', label: 'Misc'},
-    {doc: 'troubleshooting/setup', label: 'Troubleshooting'},
-    { languages: true },
-    { search: true }
+    {doc: 'troubleshooting/setup', label: 'Troubleshooting'}
   ],
 
   // If you have users set above, you add it here:
