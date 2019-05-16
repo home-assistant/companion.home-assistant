@@ -4,7 +4,7 @@ cd website
 npm install
 npm run write-translations
 
-wget https://downloads.crowdin.com/cli/v2/crowdin-cli.zip
+wget -q https://downloads.crowdin.com/cli/v2/crowdin-cli.zip
 
 unzip crowdin-cli.zip -d crowdin-cli
 
