@@ -15,7 +15,7 @@
         "title": "Location"
       },
       "core/sensors": {
-        "title": "Sensors"
+        "title": "Sensorer"
       },
       "getting_started/index": {
         "title": "Welcome"
@@ -24,7 +24,7 @@
         "title": "Haptics"
       },
       "integrations/index": {
-        "title": "Integrations"
+        "title": "Integrationer"
       },
       "integrations/siri-shortcuts": {
         "title": "Siri Shortcuts"
@@ -99,7 +99,7 @@
         "title": "Errors"
       },
       "troubleshooting/integrations": {
-        "title": "Integrations"
+        "title": "Integrationer"
       },
       "troubleshooting/more-help": {
         "title": "getting more help"
@@ -114,7 +114,7 @@
         "title": "Welcome"
       },
       "version-1.0.0/integrations/version-1.0.0-index": {
-        "title": "Integrations"
+        "title": "Integrationer"
       },
       "version-1.0.0/integrations/version-1.0.0-url-handler": {
         "title": "URL Handler"
@@ -160,7 +160,7 @@
       "Getting Started": "Getting Started",
       "Core Features": "Core Features",
       "Notifications": "Notifications",
-      "Integrations": "Integrations",
+      "Integrations": "Integrationer",
       "Misc": "Misc",
       "Troubleshooting": "Troubleshooting"
     },
@@ -168,7 +168,7 @@
       "Getting Started": "Getting Started",
       "Core Features": "Core Features",
       "Notifications": "Notifications",
-      "Integrations": "Integrations",
+      "Integrations": "Integrationer",
       "Miscellaneous": "Miscellaneous",
       "Troubleshooting": "Troubleshooting",
       "The Basics": "The Basics",
