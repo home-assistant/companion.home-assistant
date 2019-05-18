@@ -1,7 +1,7 @@
 ---
-title: Setup issues
+title: Corriger les problèmes
 id: version-1.0.0-setup
-original_id: setup
+original_id: configuration
 ---
 
-Some stuff about Core Features
+Quelques trucs sur les fonctionnalités internes
