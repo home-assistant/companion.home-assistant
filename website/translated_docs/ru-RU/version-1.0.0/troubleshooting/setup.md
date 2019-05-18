@@ -1,7 +1,7 @@
 ---
-title: Setup issues
-id: version-1.0.0-setup
-original_id: setup
+title: Проблемы настроек
+id: версия-1.0.0-установка
+original_id: Конфигурация
 ---
 
-Some stuff about Core Features
+Некоторые вещи о свойствах ядра
