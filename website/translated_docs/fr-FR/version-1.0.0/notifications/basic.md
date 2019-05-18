@@ -4,7 +4,7 @@ id: version-1.0.0-basic
 original_id: basic
 ---
 
-The iOS notify platform accepts the standard `title`, `message` and `target` parameters. The iOS notify platform supports targets as services. Assuming that you did not set a `name` when configuring the platform you should find all your registered and notification-enabled iOS devices available as notify targets as services with names prefixed "notify.ios_" and then the device name you entered at setup.
+La plateforme de notification iOS accepte la norme `title`, `message` et `target` en paramètres. La plateforme de notification iOS supporte les cibles comme des services. Assuming that you did not set a `name` when configuring the platform you should find all your registered and notification-enabled iOS devices available as notify targets as services with names prefixed "notify.ios_" and then the device name you entered at setup.
 
 Notes:
 
