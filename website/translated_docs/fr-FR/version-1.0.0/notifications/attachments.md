@@ -1,12 +1,12 @@
 ---
-title: Attachments
+title: Fichiers joints
 id: version-1.0.0-attachments
-original_id: attachments
+original_id: pièces jointes
 ---
 
-iOS 10 adds *attachments* to notifications. An attachment is an image, video, or audio file which is downloaded to the device when a notification is received and shown alongside the notification. A thumbnail is shown when the notification is not expanded. The full size attachment is shown when the notification is expanded.
+iOS 10 ajoute *les pièces jointes* aux notifications. Une pièce jointe est une image, une vidéo ou un fichier audio qui est téléchargé sur l'appareil lorsqu'une notification est reçue et affichée parallèlement à la notification. Une vignette est affichée lorsque la notification n'est pas étendue. La pièce jointe de taille complète est affichée lorsque la notification est agrandie.
 
-> To expand a notification on 3D Touch devices simply force touch any notification. On non-3D Touch devices swipe and tap the "View" button.
+> Pour étendre une notification sur les appareils 3D Touch, il suffit d'appuyer sur les notifications. Sur les appareils non 3D Touch, glissez et appuyez sur le bouton "Voir".
 
 ```yaml
 - alias: Notify iOS app
@@ -25,44 +25,44 @@ iOS 10 adds *attachments* to notifications. An attachment is an image, video, or
 
 Notes:
 
-- The thumbnail of the notification will be the media at the `url`.
-- The notification content is the media at the `url`.
-- Attachment can be used with custom push notification categories.
+- La vignette de la notification sera le média à l'`url`.
+- Le contenu de notification est le média à l'`url`.
+- La pièce jointe peut être utilisée avec des catégories de notification push personnalisées.
 
-## Example
+## Exemple
 
-An unexpanded push notification with an attachment.
+Une notification push non agrandie avec une pièce jointe.
 
-![An unexpanded push notification with an attachment.](assets/ios/attachment.png)
+![Une notification push non agrandie avec une pièce jointe.](assets/ios/attachment.png)
 
-The same notification but expanded to show the full size attachment
+La même notification mais étendue pour afficher la taille complète de la pièce jointe
 
-![The same notification but expanded to show the full size attachment](assets/ios/expanded_attachment.png)
+![La même notification mais étendue pour afficher la taille complète de la pièce jointe](assets/ios/expanded_attachment.png)
 
-## Supported media types
+## Types de médias supportés
 
-If the attachment does not appear please ensure it is in one of the following formats:
+Si la pièce jointe n'apparaît pas, veuillez vous assurer qu'elle est dans l'un des formats suivants :
 
-### Audio attachments
+### Pièces jointes audio
 
-Maximum file size: 5 MB
+Taille maximale du fichier : 5 Mo
 
-Allowed Formats: AIFF, WAV, MP3, MPEG4 Audio
+Formats autorisés : AIFF, WAV, MP3, MPEG4 Audio
 
-### Image attachments
+### Pièces jointes image
 
-Maximum file size: 10 MB
+Taille maximale du fichier : 10 Mo
 
-Allowed Formats: JPEG, GIF, PNG
+Formats autorisés : JPEG, GIF, PNG
 
-### Video attachments
+### Pièces jointes vidéo
 
-Maximum file size: 50 MB
+Taille maximale du fichier : 50 Mo
 
-Allowed Formats: MPEG, MPEG2, MPEG4, AVI
+Formats autorisés : MPEG, MPEG2, MPEG4, AVI
 
 ## Configuration
 
-- **url** (*Required*): The URL of content to use as the attachment. This URL *must* be accessible from the Internet, or the receiving device must be on the same network as the hosted content.
-- **content-type** (*Optional*): By default, the extension of the URL will be checked to determine the filetype. If there is no extension/it can't be determined you can manually provide a file extension.
-- **hide-thumbnail** (*Optional*): If set to `true` the thumbnail will not show on the notification. The content will only be viewable by expanding.
+- **url** (*Requis*): L'URL du contenu à utiliser comme pièce jointe. L'url *doit* être accessible depuis internet, ou alors l'appareil doit être sur le même réseau que le contenu.
+- **content-type** (*Optionnel*): Par défaut, l'extension de l'URL sera vérifiée pour déterminer le fichier type. S'il n'y a pas d'extension/il ne peut pas être déterminé, vous pouvez fournir manuellement une extension de fichier.
+- **hide-thumbnail** (*Optionnel*): Si défini à `true` la vignette ne s'affiche pas sur la notification. Le contenu ne sera visible qu'en agrandissant.
