@@ -1,12 +1,12 @@
 ---
-title: Sounds
+title: Sons
 id: version-1.0.0-sounds
-original_id: sounds
+original_id: sons
 ---
 
-Adding a custom sound to a notification allows you to easily identify the notification without even looking at your device. Home Assistant for iOS comes with some notification sounds pre-installed but you can also upload your own.
+Ajouter un son personnalisé à une notification vous permet d'identifier facilement la notification sans même regarder votre appareil. Home Assistant pour iOS est équipé de quelques sons de notification pré-installés mais vous pouvez également télécharger les votre.
 
-Here is an example notification that uses one of the pre-installed sounds.
+Voici une exemple de notification qui utilise un des sons pré-installés.
 
 ```yaml
 - alias: Notify iOS app
@@ -23,32 +23,32 @@ Here is an example notification that uses one of the pre-installed sounds.
 
 Notes:
 
-* You must use the full filename in the payload (including extension).
+* Vous devez utiliser le nom complet du fichier dans le payload (y compris l'extension).
 
-## Custom push notification sounds
+## Sons de notification push personnalisés
 
-The app allows you to use your own custom sounds in push notifications. The sounds must be formatted as 32bit float 48000Hz wav files. You set the filename of the sound in the notification payload. To add sounds:
+L'application vous permet d'utiliser vos propres sons personnalisés dans les notifications push. Les sons doivent être formatés en fichier wav 32 bits 48000Hz. Vous définissez le nom du son dans le payload de notification. Pour ajouter des sons :
 
-1. Connect the device to a PC or Mac running the latest version of iTunes.
-2. Go to the device in iTunes.
-3. Select "File Sharing" in the left-hand menu.
-4. Select Home Assistant.
-5. Drag and drop properly formatted sounds (32bit float 48000Hz wav files).
-6. Click Sync in the lower right.
-7. Once the sync is complete, disconnect the device from the computer.
-8. On your iOS device, open the Home Assistant app.
-9. Go to Settings -> Notification Settings.
-10. Select "Import sounds from iTunes".
+1. Connectez l'appareil à un PC ou Mac avec la dernière version d'iTunes.
+2. Allez sur l'appareil dans iTunes.
+3. Sélectionnez "Partage de fichiers" dans le menu de gauche.
+4. Sélectionnez Home Assistant.
+5. Glissez et déposez les sons correctement formatés (fichier wav 32 bits 48000Hz).
+6. Cliquez sur Synchroniser en bas à droite.
+7. Une fois la synchronisation terminée, déconnectez l'appareil de l'ordinateur.
+8. Sur votre appareil iOS, ouvrez l'application Home Assistant.
+9. Allez dans Paramètres -> Paramètres de notification.
+10. Sélectionnez "Importer des sons depuis iTunes".
 
-Assuming that you correctly formatted the sounds they are now available to use in push notifications.
+Assurer que vous avez correctement formaté les sons, ils sont maintenant disponibles pour être utilisé dans les notifications push.
 
 Notes:
 
-* **Please note that due to a bug in iOS 10 you may need to restart your entire device before notification sounds can be played. This should hopefully be fixed by Apple soon.**
-* Uploading a file with the same name as an existing one will overwrite the original.
-* You can view what sounds are installed on each device by inspecting the `ios.conf` file in your configuration directory. They are listed in the `pushSounds` array.
+* **Veuillez noter que, en raison d'un bogue dans iOS 10, vous devrez peut-être redémarrer l'appareil avant que les sons de notification ne puissent être lus. Cela devrait être bientôt corrigé par Apple.**
+* Le téléchargement d'un fichier avec le même nom qu'un fichier existant écrasera l'original.
+* Il est possible de voir quels sons sont installé dans chaque l'appareil en inspectant le fichier `ios.conf` de votre configuration d'Home Assistant. Ils sont listés dans le tableau `pushSounds`.
 
-### Preinstalled notification sounds
+### Sons de notification pré-installés
 
     US-EN-Alexa-Back-Door-Opened.wav
     US-EN-Alexa-Back-Door-Unlocked.wav
