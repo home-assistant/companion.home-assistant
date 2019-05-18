@@ -1,18 +1,18 @@
 ---
-title: Actionable notifications
+title: Notifications activables
 id: version-1.0.0-actionable
-original_id: actionable
+original_id: actionnable
 ---
 
-Actionable notifications allow you to attach 1-4 custom buttons to a notification. When one of the actions is selected Home Assistant will be notified which action was chosen. This allows you to build complex automations.
+Les notifications actionnables vous permettent d'attacher 1 à 4 boutons personnalisés sur une notification. Quand une des actions est sélectionnée Home Assistant sera notifiée de l'action choisie. Cela vous permet de construire des automatismes complexes.
 
-Examples of actionable notifications:
+Exemples de notifications actionnables :
 
-* A notification is sent whenever motion is detected in your home while you are away or asleep. You can add an action to Sound Alarm. When tapped, Home Assistant is notified that the `sound_alarm` action was selected. You can add an automation to sound the burglar alarm whenever this event is seen.
-* Someone rings your front door bell. You can send an action to lock or unlock your front door. When tapped, a notification is sent back to Home Assistant upon which you can build automations.
-* Send a notification whenever your garage door opens with actions to open and close the garage.
+* Une notification est envoyée à chaque fois qu'un mouvement est détecté dans votre maison pendant que vous êtes absent ou endormi. Vous pouvez ajouter une action pour déclencher l'alarme. Quand elle est choisie, Home Assistant est notifié que l'action `sound_alarm` a été sélectionnée. Vous pouvez ajouter une automatisation pour faire sonner l'alarme à chaque fois que cet événement est détecté.
+* Quelqu'un sonne à votre porte. Vous pouvez envoyer une action pour verrouiller ou déverrouiller votre porte d'entrée. Lorsque vous appuyez sur le bouton, une notification est renvoyée à Home Assistant sur lequel vous pouvez construire des automatisations.
+* Envoyez une notification lorsque votre porte de garage s'ouvre, grâce à des actions il est possible d'ouvrir et de fermer le garage.
 
-![Actionable notifications allow the user to send a command back to Home Assistant.](assets/ios/actions.png)
+![Les notifications actionnables permettent à l'utilisateur d'envoyer une commande à Home Assistant.](assets/ios/actions.png)
 
 ## Overview of how actionable notifications work
 
@@ -101,7 +101,7 @@ automation:
             my_custom_data: foo_bar
 ```
 
-When an action is selected an event named `ios.notification_action_fired` will be emitted on the Home Assistant event bus. Below is an example payload.
+Quand une action est choisie, un événement nommé `ios.notification_action_fired` sera émit sur le bus d'événement d'Home Assistant. Voici un exemple de payload.
 
 ```json
 {
@@ -114,7 +114,7 @@ When an action is selected an event named `ios.notification_action_fired` will b
 }
 ```
 
-Here's an example automation for the given payload:
+Voici un exemple d'automatisation associé au payload :
 
 ```yaml
 automation:
@@ -131,12 +131,12 @@ automation:
 
 Notes:
 
-* `textInput` will only exist if `behavior` was set to `textInput`.
-* `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
-* When adding or updating push categories be sure to update push settings within the Home Assistant iOS app. This can be found within the app at **Settings** (gear icon) > **Notification Settings**.
+* `textInput` n'existera que si `behavior` a été défini à `textInput`.
+* `actionData` est un dictionnaire avec des paramètres passés dans le `action_data` dictionnaire du `push` dictionnaire dans la notification originale.
+* Lors de l'ajout ou de la mise à jour des catégories push, assurez-vous de mettre à jour les paramètres push dans l'application iOS Home Assistant. Cela peut être trouvé dans l'application dans **Paramètres** (icône engrenage) > **Paramètres de notification**.
 
-## Compatibility with different devices
+## Compatibilité avec les différents appareils
 
-* For devices that support "Force Touch" / "3D Touch" - a long press on the notification will cause the actions to appear. Devices such as iPhone 6S, iPhone 6S Plus, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPhone XS, iPhone XS Max as well as some iPad and Apple Watch models.
+* Pour les appareils qui supportent "Force Touch" / "3D Touch" - une longue pression sur la notification provoquera l'apparition des actions. Appareils tels que iPhone 6S, iPhone 6S Plus, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPhone XS, iPhone XS Max ainsi que certains modèles d'iPad et d'Apple Watch.
 
-* For device that do not support this feature - a left to right swipe on the notification + tap on 'View' button, will cause the relevant actions to appear. Devices such as iPhone 6 and below, iPhone SE, iPhone XR as some iPad models.
+* Pour les appareils qui ne supportent pas cette fonctionnalité - un glisser de gauche à droite sur la notification + appuyez sur le bouton "Afficher", les actions apparaîtront. Appareils tels que l'iPhone 6 et modèles antérieur, iPhone SE, iPhone XR et certains modèles d'iPad.
