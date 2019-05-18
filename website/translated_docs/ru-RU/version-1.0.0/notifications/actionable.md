@@ -1,59 +1,59 @@
 ---
-title: Actionable notifications
+title: Действительные уведомления
 id: version-1.0.0-actionable
 original_id: actionable
 ---
 
-Actionable notifications allow you to attach 1-4 custom buttons to a notification. When one of the actions is selected Home Assistant will be notified which action was chosen. This allows you to build complex automations.
+Действительные уведомления позволяют вам прикреплять от 1-4 пользовательских кнопок к уведомлению. Когда одно из действий выбрано Home Assistant будет уведомлен о том, какие действия были выбраны. Это позволяет строить комплексные автоматизации.
 
-Examples of actionable notifications:
+Примеры активных уведомлений:
 
-* A notification is sent whenever motion is detected in your home while you are away or asleep. You can add an action to Sound Alarm. When tapped, Home Assistant is notified that the `sound_alarm` action was selected. You can add an automation to sound the burglar alarm whenever this event is seen.
-* Someone rings your front door bell. You can send an action to lock or unlock your front door. When tapped, a notification is sent back to Home Assistant upon which you can build automations.
-* Send a notification whenever your garage door opens with actions to open and close the garage.
+* Уведомление отправляется при обнаружении движения в вашем доме, пока вы не уходите или засыпаете. Вы можете добавить действие в звуковой будильник. При нажатии Home Assistant уведомляется, что действие `sound_alarm` было выбрано. Вы можете добавить автоматизацию для тревожного сигнала, когда это событие будет показано.
+* Кто-то звонит в дверь. Вы можете отправить действие для открытия или закрытия дверей. При нажатии уведомление отправляется к Home Assistant, в которым можно добавить автоматизацию.
+* Отправьте уведомление, когда открывается гараж, чтобы открыть или закрыть гараж.
 
-![Actionable notifications allow the user to send a command back to Home Assistant.](assets/ios/actions.png)
+![Действительные уведомления позволяют пользователю отправлять команду обратно в Home Assistant.](assets/ios/actions.png)
 
-## Overview of how actionable notifications work
+## Обзор того, как работают активные уведомления
 
-In advance of sending a notification:
+До отправки уведомления:
 
-1. Define a notification category in your Home Assistant configuration which contain 1-4 actions.
-2. At launch iOS app requests notification categories from Home Assistant (can also be done manually in notification settings).
+1. Определите категорию уведомлений в конфигурации Home Assistant, которая содержит 1-4 действия.
+2. При запуске iOS приложение запрашивает категории уведомлений от Home Assistant (также можно сделать вручную в настройках уведомлений).
 
-When sending a notification:
+При отправке уведомления:
 
-1. Send a notification with `data.push.category` set to a pre-defined notification category identifier.
-2. Push notification delivered to device
-3. User opens notification.
-4. Action tapped
-5. Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
+1. Отправить уведомление с `data.push.category` установленное для заранее определенного идентификатора категории уведомлений.
+2. Push-уведомление доставлено на устройство
+3. Пользователь открывает уведомление.
+4. Нажатие действия
+5. Идентификатор действия, отправленного назад в HA как `actionName` свойство события `ios.notification_action_fired`, наряду с другими метаданными, такими как устройство и название категории.
 
-![How the iOS device and Home Assistant work together to enable actionable notifications.](assets/NotificationActionFlow.png)
+![Как iOS устройство и Home Assistant работают вместе, чтобы включить активные уведомления.](assets/NotificationActionFlow.png)
 
-## Definitions
+## Описание
 
-* Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.
-* Actions - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports.
+* Категория - Категория представляет тип уведомления, которое может получить приложение. Считайте это как уникальную группу действий.
+* Действия - Действия состоят из заголовка кнопки и информации, которую iOS должна передать приложению, когда выбрано действие. Вы создаете отдельные объекты действий для выполнения определенных действий, которые поддерживает ваше приложение.
 
-## Category parameters
+## Параметры категории
 
-* **name** (*Required*): A friendly name for this category.
-* **identifier** (*Required*): A unique identifier for the category. Must be lowercase and have no special characters or spaces.
-* **actions** (*Required*): A list of actions.
+* **name** (*Required*): удобочитаемое имя для этой категории.
+* **identifier** (*Required*): Уникальный идентификатор для категории. Должно быть в нижнем регистре и не должно быть специальных символов или пробелов.
+* **actions** (*Required*): Список действий.
 
-## Actions parameters
+## Параметры действий
 
-* **identifier** (*Required*): A unique identifier for this action. Must be uppercase and have no special characters or spaces. Only needs to be unique to the category, not unique globally.
-* **title** (*Required*): The text to display on the button. Keep it short.
-* **activationMode** (*Optional*): The mode in which to run the app when the action is performed. Setting this to `foreground` will make the app open after selecting. Default value is `background`.
-* **authenticationRequired** (*Optional*): If `true`, the user must unlock the device before the action is performed.
-* **destructive** (*Optional*): When the value of this property is a truthy value, the system displays the corresponding button differently to indicate that the action is destructive (text color is red).
-* **behavior** (*Optional*): When `textInput` the system provides a way for the user to enter a text response to be included with the notification. The entered text will be sent back to Home Assistant. Default value is `default`.
-* **textInputButtonTitle** (*Optional*): The button label. *Required* if `behavior` is `textInput`.
-* **textInputPlaceholder** (*Optional*): The placeholder text to show in the text input field. Only used if `behavior` is `textInput` and the device runs iOS 10.
+* **identifier** (*Required*): Уникальный идентификатор для этого действия. Должно быть в верхнем регистре и не должно быть специальных символов или пробелов. Только должно быть уникальным для категории, а не уникальным глобально.
+* **title** (*Required*): Текст для отображения на кнопке. Оставьте его коротким.
+* **activationMode** (*Optional*): Режим, в котором запускать приложение, когда действие выполняется. Установки `foreground` сделают приложение открытым после выбора. Значение по умолчанию: `background`.
+* **authenticationRequired** (*Optional*): Если `true`, пользователь должен разблокировать устройство перед выполнением действия.
+* **destructive** (*Optional*): Когда значение этого свойства является правдивое значением, система отображает соответствующую кнопку по-разному, чтобы указать, что действие destructive (цвет текста красный).
+* **behavior** (*Optional*): Когда `textInput` система обеспечивает пользователю способ ввести текстовый ответ, который будет включен в уведомление. Введенный текст будет отправлен обратно к Home Assistant. Значение по умолчанию `default`.
+* **textInputButtonTitle** (*Optional*): Название кнопки. *Обязательно*, если поведение ``` <code>textInput`.
+* **textInputPlaceholder** (*Optional*): Текст плейсхолдера для отображения в текстовом поле ввода. Используется только если `behavior` является `textInput` и устройство работает на iOS 10.
 
-Here's a fully built example configuration:
+Вот полностью встроенная конфигурация примера:
 
 ```yaml
 ios:
@@ -78,9 +78,9 @@ ios:
             textInputPlaceholder: 'Placeholder'
 ```
 
-## Building automations for notification actions
+## Создание автоматизации для уведомлений
 
-Here is an example automation to send a notification with a category in the payload:
+Пример автоматизации для отправки уведомления с категорией в загрузочном файле:
 
 ```yaml
 automation:
@@ -101,7 +101,7 @@ automation:
             my_custom_data: foo_bar
 ```
 
-When an action is selected an event named `ios.notification_action_fired` will be emitted on the Home Assistant event bus. Below is an example payload.
+Когда действие выбрано в событии `ios.notification_action_fired` будет передано в Home Assistant event bus. Ниже приведен пример payload.
 
 ```json
 {
@@ -114,7 +114,7 @@ When an action is selected an event named `ios.notification_action_fired` will b
 }
 ```
 
-Here's an example automation for the given payload:
+Пример автоматизации для данной payload:
 
 ```yaml
 automation:
@@ -131,12 +131,12 @@ automation:
 
 Notes:
 
-* `textInput` will only exist if `behavior` was set to `textInput`.
-* `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
-* When adding or updating push categories be sure to update push settings within the Home Assistant iOS app. This can be found within the app at **Settings** (gear icon) > **Notification Settings**.
+* `textInput` будет существовать только в том случае, если `behavior` установлено на `textInput`.
+* `actionData` это словарь с параметрами, переданными в `action_data` `push` словарь в оригинальном уведомлении.
+* При добавлении или обновлении push категорий убедитесь, что обновление настроек push в приложении Home Assistant iOS. Это можно найти в приложении в настройках **Настройки** (gear icon) > **Настройка уведомлений**.
 
-## Compatibility with different devices
+## Совместимость с различными устройствами
 
-* For devices that support "Force Touch" / "3D Touch" - a long press on the notification will cause the actions to appear. Devices such as iPhone 6S, iPhone 6S Plus, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPhone XS, iPhone XS Max as well as some iPad and Apple Watch models.
+* Для устройств, поддерживающих "Force Touch" / "3D Touch" - долгое нажатие на уведомление вызовет действия, которые появились. Такие устройства, как iPhone 6S, iPhone 6S Plus, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPhone XS, iPhone XS Max, а также некоторые модели iPad и Apple Watch.
 
-* For device that do not support this feature - a left to right swipe on the notification + tap on 'View' button, will cause the relevant actions to appear. Devices such as iPhone 6 and below, iPhone SE, iPhone XR as some iPad models.
+* Для устройства, не поддерживающего эту функцию - влево направо, свайп на уведомлении + нажмите кнопку 'Просмотр', вызовет соответствующие действия. Такие устройства, как iPhone 6 и ниже, iPhone SE, iPhone XR как некоторые модели iPad.
