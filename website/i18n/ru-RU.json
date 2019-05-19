@@ -184,13 +184,13 @@
     "Stay up to date|no description given": "Будьте в курсе",
     "Need help?|no description given": "Нужна помощь?",
     "This project is maintained by a dedicated group of people.|statement made to reader": "Этот проект поддерживается специальной группой людей.",
-    "Browse the docs|no description given": "Browse the docs",
+    "Browse the docs|no description given": "Просмотр документации",
     "Discord|no description given": "Discord",
-    "Forums|no description given": "Forums",
+    "Forums|no description given": "Форумы",
     "GitHub|no description given": "GitHub",
-    "If you need help with Home Assistant Companion, you can try one of the mechanisms below.|statement made to reader": "If you need help with Home Assistant Companion, you can try one of the mechanisms below.",
-    "Help Translate|recruit community translators for your project": "Help Translate",
-    "Edit this Doc|recruitment message asking to edit the doc source": "Edit",
-    "Translate this Doc|recruitment message asking to translate the docs": "Translate"
+    "If you need help with Home Assistant Companion, you can try one of the mechanisms below.|statement made to reader": "Если вам нужна помощь с компаньоном Home Assistant, вы можете попробовать один из механизмов ниже.",
+    "Help Translate|recruit community translators for your project": "Помочь с переводом",
+    "Edit this Doc|recruitment message asking to edit the doc source": "Редактировать",
+    "Translate this Doc|recruitment message asking to translate the docs": "Перевести"
   }
 }
