@@ -23,11 +23,11 @@ Voici une exemple de notification qui utilise un des sons pré-installés.
 
 Notes:
 
-* Vous devez utiliser le nom complet du fichier dans le payload (y compris l'extension).
+* Vous devez utiliser le nom complet du fichier dans les données (y compris l'extension).
 
 ## Sons de notification push personnalisés
 
-L'application vous permet d'utiliser vos propres sons personnalisés dans les notifications push. Les sons doivent être formatés en fichier wav 32 bits 48000Hz. Vous définissez le nom du son dans le payload de notification. Pour ajouter des sons :
+L'application vous permet d'utiliser vos propres sons personnalisés dans les notifications push. Les sons doivent être formatés en fichier wav 32 bits 48000Hz. Vous définissez le nom du son dans les données de notification. Pour ajouter des sons :
 
 1. Connectez l'appareil à un PC ou Mac avec la dernière version d'iTunes.
 2. Allez sur l'appareil dans iTunes.
