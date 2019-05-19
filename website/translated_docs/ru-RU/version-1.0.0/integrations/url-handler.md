@@ -14,10 +14,10 @@ original_id: url-обработчик
 
 ## Пожарное событие
 
-You can create an [event trigger](/docs/automation/trigger/#event-trigger) and fire the event.
+Вы можете создать [триггер события](/docs/automation/trigger/#event-trigger) и запустить событие.
 
-Example: `homeassistant://fire_event/custom_event?entity_id=MY_CUSTOM_EVENT`
+Пример: `homeassistant://fire_event/custom_event?entity_id=MY_CUSTOM_EVENT`
 
 ## Отправить местоположение
 
-Example: `homeassistant://send_location/`
+Пример: `homeassistant://send_location/`
