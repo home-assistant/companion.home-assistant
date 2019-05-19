@@ -1,14 +1,14 @@
 ---
-title: Dynamic content
-id: version-1.0.0-dynamic-content
-original_id: dynamic-content
+title: Динамический контент
+id: версия-1.0.0-динамический-контент
+original_id: динамический контент
 ---
 
-With the new Content Extension feature found in iOS 10, dynamic content can now be displayed as part of a notification without opening an app.
+С новой функцией расширения контента, найденной в iOS 10, динамическое содержимое теперь может быть отображено в качестве части уведомления без открытия приложения.
 
-# Map
+# Карта
 
-Will show a map with a red tipped pin at the coordinates given. The map will be centered at the coordinates given.
+Отображает карту с красной точкой подсказкой по заданным координатам. Карта будет в центре указаных координат.
 
 ```yaml
 service: notify.ios_<your_device_id_here>
@@ -22,19 +22,19 @@ data:
       longitude: "-73.968285"
 ```
 
-## Showing a second pin
+## Отображение второй точки
 
-You can use the following properties under `action_data` to display a second pin. If used, the first pin will be red and the second green.
+Вы можете использовать следующие свойства в `action_data` для отображения второй точки. Если используется, первая точка будет красной и вторая зелёной.
 
-- **second_latitude**: The latitude of the second pin. **Must be a string!**
-- **second_longitude**: The longitude of the second pin. **Must be a string!**
-- **shows_line_between_points**: A Boolean value indicating whether a line should be drawn between the first and second pin.
+- **second_latitude**: Широта второй точки. **Должен быть строкой!**
+- **second_latitude**: Широта второй точки. **Должен быть строкой!**
+- **shows_line_between_points**: булевое значение, указывающее, должна ли линия быть нарисована между первой и второй точкой.
 
-## Extra configuration
+## Дополнительная конфигурация
 
-You can also pass the following properties under `action_data` to modify the map in various ways. All are expected to be boolean values unless otherwise noted:
+Вы также можете передать следующие свойства в разделе `action_data` для изменения карты различными способами. Предполагается, что логические значения будут быть булевыми, если не указано иное:
 
-- **shows_compass**: A Boolean indicating whether the map displays a compass control.
+- **shows_compass**: булевое значение указывающее, отображается ли на карте компас.
 - **shows_points_of_interest**: A Boolean indicating whether the map displays point-of-interest information.
 - **shows_scale**: A Boolean indicating whether the map shows scale information.
 - **shows_traffic**: A Boolean value indicating whether the map displays traffic information.
