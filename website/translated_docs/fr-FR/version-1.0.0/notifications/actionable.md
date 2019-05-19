@@ -14,26 +14,26 @@ Exemples de notifications actionnables :
 
 ![Les notifications actionnables permettent à l'utilisateur d'envoyer une commande à Home Assistant.](assets/ios/actions.png)
 
-## Overview of how actionable notifications work
+## Aperçu de comment les notifications actionnables peuvent fonctionner
 
-In advance of sending a notification:
+Avant d'envoyer une notification :
 
-1. Define a notification category in your Home Assistant configuration which contain 1-4 actions.
+1. Définissez une catégorie de notification dans votre configuration Home Assistant qui contient 1 à 4 actions.
 2. At launch iOS app requests notification categories from Home Assistant (can also be done manually in notification settings).
 
-When sending a notification:
+Lors de l'envoi d'une notification :
 
-1. Send a notification with `data.push.category` set to a pre-defined notification category identifier.
-2. Push notification delivered to device
-3. User opens notification.
-4. Action tapped
+1. Envoyer une notification avec `data.push.category` avec un identifiant de catégorie de notification prédéfini.
+2. Notification push envoyée à l'appareil
+3. L'utilisateur ouvre la notification.
+4. Action choisi
 5. Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
 
 ![How the iOS device and Home Assistant work together to enable actionable notifications.](assets/NotificationActionFlow.png)
 
-## Definitions
+## Définitions
 
-* Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.
+* Catégorie - Une catégorie représente un type de notification que l'application peut recevoir. Think of it as a unique group of actions.
 * Actions - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports.
 
 ## Category parameters
