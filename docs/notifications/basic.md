@@ -33,7 +33,7 @@ automation:
         message: "Ding-dong"
         data:
           push:
-            sounds: default
+            sound: default
 ```
 
 ### Badge
