@@ -35,22 +35,22 @@ data:
 Вы также можете передать следующие свойства в разделе `action_data` для изменения карты различными способами. Предполагается, что логические значения будут быть булевыми, если не указано иное:
 
 - **shows_compass**: булевое значение указывающее, отображается ли на карте компас.
-- **shows_points_of_interest**: A Boolean indicating whether the map displays point-of-interest information.
-- **shows_scale**: A Boolean indicating whether the map shows scale information.
-- **shows_traffic**: A Boolean value indicating whether the map displays traffic information.
-- **shows_user_location**: A Boolean value indicating whether the map should try to display the user’s location.
+- **shows_points_of_interest**: Булевое значение, указывающее, отображает ли карта информацию о точке интереса.
+- **shows_scale**: Булевое значение, указывающее, показывает ли карта информацию о масштабе.
+- **shows_traffic**:: Булевое значение, указывающее, отображает ли карта информацию о трафике.
+- **shows_user_location**: Булевое значение, указывающее, должна ли карта отображать местоположение пользователя.
 
 ![An example of the map dynamic content.](assets/ios/map.png)
 
-# Camera Stream
+# Потоки с камеры
 
-The notification thumbnail will be a still image from the camera. The notification content is a real time MJPEG stream of a camera (assuming the camera supports it).
+Изображение уведомления будет статической картинкой с камеры. Содержание уведомления - это поток MJPEG камеры в реальном времени (при условии, что камера поддерживает его).
 
-You can use the attachment parameters `content-type` and `hide-thumbnail` with camera to control the thumbnail.
+Вы можете использовать параметры вложения `content-type` и `hide-thumbnail` с камерой для управления эскизом.
 
-You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
+Вы можете просмотреть пример [здесь](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 
-Note: This functionality is only available from iOS 11 onwards.
+Примечание: Эта функциональность доступна только начиная с iOS 11.
 
 ```yaml
 service: notify.ios_<your_device_id_here>
