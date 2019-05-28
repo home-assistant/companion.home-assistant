@@ -40,7 +40,7 @@ data:
 - **shows_traffic**:: Булевое значение, указывающее, отображает ли карта информацию о трафике.
 - **shows_user_location**: Булевое значение, указывающее, должна ли карта отображать местоположение пользователя.
 
-![An example of the map dynamic content.](assets/ios/map.png)
+![Пример динамического содержания карты.](assets/ios/map.png)
 
 # Потоки с камеры
 
@@ -68,11 +68,11 @@ data:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LmYwpxPKW0g" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 </div>
 
-# Combining with actionable notifications
+# Сочетание с активными уведомлениями
 
-As you can see the `category` key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom [actions](actionable.md) to add actions to the content extension.
+Как вы можете увидеть `category` ключ используется для указания устройства, какое расширение контента используется. Вы можете использовать те же идентификаторы категории в своих собственных действиях [actions](actionable.md) для добавления действий в расширение содержимого.
 
-For example this configuration adds actions to a camera content message.
+Например, эта конфигурация добавляет действия к сообщению о содержимом камеры.
 
 ```yaml
 ios:
@@ -93,6 +93,6 @@ ios:
             destructive: true
 ```
 
-# Troubleshooting
+# Устранение проблем
 
-If you are having problems with receiving these special notifications try restarting your phone first. The extensions somewhat often fail to register properly until a restart.
+Если у вас возникли проблемы с получением этих специальных уведомлений, сначала попробуйте перезапустить ваш телефон. Расширения, зачастую, не регистрируются должным образом до перезапуска.
