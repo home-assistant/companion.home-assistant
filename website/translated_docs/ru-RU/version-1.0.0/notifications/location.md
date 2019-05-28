@@ -1,14 +1,14 @@
 ---
-title: Requesting location updates
-id: version-1.0.0-location
-original_id: location
+title: Запрос обновлений местоположения
+id: версия 1.0.0-базовая
+original_id: местоположение
 ---
 
 <p class="note warning">
-**Do not rely on this functionality due to the time limits mentioned below.**
+**Не полагаться на эту функциональность из-за ограничений по времени, указанных ниже.**
 </p>
 
-You can force a device to attempt to report its location by sending a special notification.
+Вы можете заставить устройство попытаться сообщить о своем местоположении, отправив специальное уведомление.
 
 ```yaml
 automation
@@ -21,4 +21,4 @@ automation
         message: "request_location_update"
 ```
 
-Assuming the device receives the notification, it will attempt to get a location update within 5 seconds and report it to Home Assistant. This is a little bit hit or miss since Apple imposes a maximum time allowed for the app to work with the notification and location updates sometimes take longer than usual due to factors such as waiting for GPS acquisition.
+Если устройство получит уведомление, оно попытается получить обновление местоположения в течение 5 секунд и сообщить об этом на Home Assistant. Это похоже на - словил или пропустил, поскольку Apple навязывает максимальное время, которое позволяет приложению работать с уведомлением и обновление местоположения иногда занимает больше времени, чем обычно, из-за таких факторов, как ожидание местоположения GPS.
