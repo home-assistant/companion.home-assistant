@@ -1,12 +1,12 @@
 ---
-title: Sounds
-id: version-1.0.0-sounds
-original_id: sounds
+title: Звуки
+id: версия-1.0.0-звуки
+original_id: звуки
 ---
 
-Adding a custom sound to a notification allows you to easily identify the notification without even looking at your device. Home Assistant for iOS comes with some notification sounds pre-installed but you can also upload your own.
+Добавление пользовательского звука в уведомление позволяет легко идентифицировать уведомление, не глядя даже на ваше устройство. Home Assistant для iOS поставляется с некоторыми звуковыми оповещениями, которые были установлены, но вы также можете загрузить свои собственные.
 
-Here is an example notification that uses one of the pre-installed sounds.
+Вот пример уведомления, которое использует один из предустановленных звуков.
 
 ```yaml
 - alias: Notify iOS app
@@ -21,34 +21,34 @@ Here is an example notification that uses one of the pre-installed sounds.
           sound: "US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav"
 ```
 
-Notes:
+Примечания:
 
-* You must use the full filename in the payload (including extension).
+* Вы должны использовать полное имя файла в payload (включая расширение).
 
-## Custom push notification sounds
+## Пользовательские звуки push-уведомлений
 
-The app allows you to use your own custom sounds in push notifications. The sounds must be formatted as 32bit float 48000Hz wav files. You set the filename of the sound in the notification payload. To add sounds:
+Приложение позволяет использовать собственные пользовательские звуки в push-уведомлениях. Звуки должны быть отформатированы как 32битные float 48000Hz wav файлы. Вы установливаете имя файла звука в загрузочном файле уведомления. Чтобы добавить звуки:
 
-1. Connect the device to a PC or Mac running the latest version of iTunes.
-2. Go to the device in iTunes.
-3. Select "File Sharing" in the left-hand menu.
-4. Select Home Assistant.
-5. Drag and drop properly formatted sounds (32bit float 48000Hz wav files).
-6. Click Sync in the lower right.
-7. Once the sync is complete, disconnect the device from the computer.
-8. On your iOS device, open the Home Assistant app.
-9. Go to Settings -> Notification Settings.
-10. Select "Import sounds from iTunes".
+1. Подключите устройство к компьютеру или Mac, запустив последнюю версию iTunes.
+2. Перейти к устройству в iTunes.
+3. Выберите "Поделиться файлами" в левом меню.
+4. Выберите Home Assistant.
+5. Перетащите правильно форматированные звуки (32 бита с потоками 48000Гц).
+6. Нажмите Синхронизировать в правой части.
+7. После завершения синхронизации отключите устройство от компьютера.
+8. На вашем устройстве iOS откройте приложение Home Assistant.
+9. Перейти в Настройки -> Настройки уведомлений.
+10. Выберите "импортировать звуки из iTunes".
 
-Assuming that you correctly formatted the sounds they are now available to use in push notifications.
+Предположим, что вы правильно отформатировали звуки, которые они теперь будут доступны для использования в push-уведомлениях.
 
-Notes:
+Примечания:
 
-* **Please note that due to a bug in iOS 10 you may need to restart your entire device before notification sounds can be played. This should hopefully be fixed by Apple soon.**
-* Uploading a file with the same name as an existing one will overwrite the original.
-* You can view what sounds are installed on each device by inspecting the `ios.conf` file in your configuration directory. They are listed in the `pushSounds` array.
+* **Обратите внимание, что из-за ошибки в iOS 10, возможно, вам нужно перезапустить все устройство, прежде чем звуки уведомлений могут быть воспроизведены. Это должно быть исправлено Apple в ближайшее время.**
+* Загрузка файла с таким же именем, как и существующий, перезапишет оригинал.
+* Вы можете посмотреть, какие звуки установлены на каждом устройстве, проверяя файл `ios.conf` в вашем каталоге конфигурации. Они перечислены в массиве `push Sounds`.
 
-### Preinstalled notification sounds
+### Предустановленные звуки уведомлений
 
     US-EN-Alexa-Back-Door-Opened.wav
     US-EN-Alexa-Back-Door-Unlocked.wav
