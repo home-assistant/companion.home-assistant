@@ -20,7 +20,7 @@ The mobile_app platform provides many enhancements to the simple notification ge
 ## Enhancing basic notifications
 
 ### Notification Sounds
-By default no notification sound is sent in the payload. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be played by adding it to the data payload:
+By default the default iOS notification sound (Tri-tone) will be played upon receiving a notification. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be disabled by setting `sound` to `none` in the data payload:
 
 ```yaml
 automation:
@@ -33,7 +33,7 @@ automation:
         message: "Ding-dong"
         data:
           push:
-            sound: default
+            sound: none
 ```
 
 ### Badge
