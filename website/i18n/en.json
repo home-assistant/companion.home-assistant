@@ -170,23 +170,11 @@
       "version-2.0.0/integrations/version-2.0.0-haptics": {
         "title": "Haptics"
       },
-      "version-2.0.0/integrations/version-2.0.0-siri-shortcuts": {
-        "title": "Siri Shortcuts"
-      },
       "version-2.0.0/integrations/version-2.0.0-theming": {
         "title": "Theming"
       },
       "version-2.0.0/integrations/version-2.0.0-universal-links": {
         "title": "Universal Links"
-      },
-      "version-2.0.0/integrations/watch/version-2.0.0-actions": {
-        "title": "Actions"
-      },
-      "version-2.0.0/integrations/watch/version-2.0.0-complications": {
-        "title": "Complications"
-      },
-      "version-2.0.0/integrations/watch/version-2.0.0-index": {
-        "title": "Overview"
       },
       "version-2.0.0/integrations/version-2.0.0-x-callback-url": {
         "title": "X-Callback-URL"
