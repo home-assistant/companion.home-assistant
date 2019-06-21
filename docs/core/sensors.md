@@ -2,7 +2,7 @@
 title: "Sensors"
 ---
 
-Along with providing [location services](location/index.md), the companion app also adds several additional sensors to Home Assistant. **It is important to know that these sensors are only updated when a location is pushed to Home Assistant or the web view is refreshed**. The sensors provided by the companion app are:
+Along with providing [location services](location.md), the companion app also adds several additional sensors to Home Assistant. **It is important to know that these sensors are only updated when a location is pushed to Home Assistant or the web view is refreshed**. The sensors provided by the companion app are:
 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
@@ -74,12 +74,12 @@ This sensor displays exactly what caused the last update of location and sensor 
 | --------- | --------- |
 | Manual | A manual update is triggered when the user pulls to refresh. |
 | Initial | Sensors are updated upon initial app launch. |
-| Significant Location Update | Triggers when there has been a significant change in the device’s location, such as 500 meters or more. See [location](location/index.md) for additional details. |
+| Significant Location Update | Triggers when there has been a significant change in the device’s location, such as 500 meters or more. See [location](location.md) for additional details. |
 | Geographic Region Entered | Triggered when entering any user-specified Home Assistant [zone](https://www.home-assistant.io/components/zone/) (also known as geofencing). |
 | Geographic Region Exited | Triggered when exiting any user-specified Home Assistant [zone](https://www.home-assistant.io/components/zone/) (also known as geofencing). |
 | Push Notification | [Requesting location updates](notifications/location.md) via push notification.  |
 | Background Fetch | When the app refreshes sensor information in the background. |
-| Siri | Location updates triggered via the [Siri Shortcuts](siri-shortcuts.md) "Send Location" shortcut. |
+| Siri | Location updates triggered via the [Siri Shortcuts](../integrations/siri-shortcuts.md) "Send Location" shortcut. |
 | iBeacon Region Entered | Triggered when an iBeacon is seen that corresponds to a known zone. |
 
 
