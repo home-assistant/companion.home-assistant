@@ -74,7 +74,7 @@ The [Apple Watch App](integrations/watch/index.md) provides access to actions yo
 # Today View Widget
 The [Today View Widget](https://support.apple.com/en-gb/HT207122) is another route through which actions can be fired. To add the Home Assistant widget to your Today View:
 
-1. Swipe right while on the Home screen or Lock screen.
-2. Scroll to the very bottom and tap the Edit button.
-3. Find the "Home Assistant - Actions" widget in the "More Widgets" list and then tap the green + button to add it.
-4. Rearrange as you'd like and then tap Done.
+1.  Swipe right while on the Home screen or Lock screen.
+2.  Scroll to the very bottom and tap the Edit button.
+3.  Find the "Home Assistant - Actions" widget in the "More Widgets" list and then tap the green + button to add it.
+4.  Rearrange as you'd like and then tap Done.
