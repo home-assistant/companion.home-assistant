@@ -154,6 +154,90 @@
       },
       "version-1.0.0/troubleshooting/version-1.0.0-setup": {
         "title": "Setup issues"
+      },
+      "version-2.0.0/core/version-2.0.0-actions": {
+        "title": "Actions"
+      },
+      "version-2.0.0/core/version-2.0.0-index": {
+        "title": "Feature overview"
+      },
+      "version-2.0.0/core/version-2.0.0-location": {
+        "title": "Location"
+      },
+      "version-2.0.0/core/version-2.0.0-sensors": {
+        "title": "Sensors"
+      },
+      "version-2.0.0/integrations/version-2.0.0-haptics": {
+        "title": "Haptics"
+      },
+      "version-2.0.0/integrations/version-2.0.0-siri-shortcuts": {
+        "title": "Siri Shortcuts"
+      },
+      "version-2.0.0/integrations/version-2.0.0-theming": {
+        "title": "Theming"
+      },
+      "version-2.0.0/integrations/version-2.0.0-universal-links": {
+        "title": "Universal Links"
+      },
+      "version-2.0.0/integrations/watch/version-2.0.0-actions": {
+        "title": "Actions"
+      },
+      "version-2.0.0/integrations/watch/version-2.0.0-complications": {
+        "title": "Complications"
+      },
+      "version-2.0.0/integrations/watch/version-2.0.0-index": {
+        "title": "Overview"
+      },
+      "version-2.0.0/integrations/version-2.0.0-x-callback-url": {
+        "title": "X-Callback-URL"
+      },
+      "version-2.0.0/misc/version-2.0.0-app-events": {
+        "title": "App Events"
+      },
+      "version-2.0.0/misc/version-2.0.0-haptics": {
+        "title": "Haptics"
+      },
+      "version-2.0.0/misc/version-2.0.0-theming": {
+        "title": "Theming"
+      },
+      "version-2.0.0/notifications/version-2.0.0-actionable": {
+        "title": "Actionable notifications"
+      },
+      "version-2.0.0/notifications/version-2.0.0-attachments": {
+        "title": "Standard Attachments"
+      },
+      "version-2.0.0/notifications/version-2.0.0-basic": {
+        "title": "Introduction"
+      },
+      "version-2.0.0/notifications/version-2.0.0-critical": {
+        "title": "Critical notifications"
+      },
+      "version-2.0.0/notifications/version-2.0.0-details": {
+        "title": "Privacy, rate limiting and security"
+      },
+      "version-2.0.0/notifications/version-2.0.0-dynamic-content": {
+        "title": "Dynamic attachments"
+      },
+      "version-2.0.0/notifications/version-2.0.0-location": {
+        "title": "Requesting location updates"
+      },
+      "version-2.0.0/notifications/version-2.0.0-sounds": {
+        "title": "Sounds"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-beta-cleaning": {
+        "title": "Beta testing: cleaning between builds"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-errors": {
+        "title": "Errors"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-integrations": {
+        "title": "Integrations"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-more-help": {
+        "title": "getting more help"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-setup": {
+        "title": "Troubleshooting"
       }
     },
     "links": {
