@@ -173,6 +173,9 @@
       "version-2.0.0/integrations/version-2.0.0-haptics": {
         "title": "Haptics"
       },
+      "version-2.0.0/integrations/version-2.0.0-index": {
+        "title": "Integrations"
+      },
       "version-2.0.0/integrations/version-2.0.0-theming": {
         "title": "Theming"
       },
