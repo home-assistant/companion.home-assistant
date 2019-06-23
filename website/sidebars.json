@@ -34,17 +34,7 @@
   "Integrations": {
     "Integrations": [
       "integrations/index",
-      {
-        "type": "subcategory",
-        "label": "Apple Watch",
-        "ids": [
-          "integrations/watch/index",
-          "integrations/watch/actions",
-          "integrations/watch/complications"
-        ]
-      },
       "integrations/url-handler",
-      "integrations/siri-shortcuts",
       "integrations/theming",
       "integrations/haptics",
       "integrations/universal-links",
