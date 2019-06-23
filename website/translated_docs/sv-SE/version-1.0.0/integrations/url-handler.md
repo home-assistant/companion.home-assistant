@@ -1,5 +1,5 @@
 ---
-title: URL Handler
+title: URL hanterare
 id: version-1.0.0-url-handler
 original_id: url-handler
 ---
