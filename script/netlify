@@ -13,4 +13,4 @@ cp crowdin-cli/**/crowdin-cli.jar .
 java -jar crowdin-cli.jar --config ../crowdin.yaml upload sources --auto-update -b master
 java -jar crowdin-cli.jar --config ../crowdin.yaml download -b master
 
-npm run build --skip-next-release true
+npm run build --skip-next-release
