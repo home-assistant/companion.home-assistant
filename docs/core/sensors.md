@@ -77,7 +77,7 @@ This sensor displays exactly what caused the last update of location and sensor 
 | Significant Location Update | Triggers when there has been a significant change in the device’s location, such as 500 meters or more. See [location](location.md) for additional details. |
 | Geographic Region Entered | Triggered when entering any user-specified Home Assistant [zone](https://www.home-assistant.io/components/zone/) (also known as geofencing). |
 | Geographic Region Exited | Triggered when exiting any user-specified Home Assistant [zone](https://www.home-assistant.io/components/zone/) (also known as geofencing). |
-| Push Notification | [Requesting location updates](notifications/location.md) via push notification.  |
+| Push Notification | [Requesting location updates](../notifications/location.md) via push notification.  |
 | Background Fetch | When the app refreshes sensor information in the background. |
 | Siri | Location updates triggered via the [Siri Shortcuts](../integrations/siri-shortcuts.md) "Send Location" shortcut. |
 | iBeacon Region Entered | Triggered when an iBeacon is seen that corresponds to a known zone. |
