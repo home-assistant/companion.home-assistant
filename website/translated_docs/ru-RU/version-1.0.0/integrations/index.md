@@ -1,7 +1,7 @@
 ---
 title: Интеграции
-id: version-1.0.0-index
-original_id: index
+id: версия-1.0.0-индекс
+original_id: индекс
 ---
 
 Некоторые вещи о Интеграции
