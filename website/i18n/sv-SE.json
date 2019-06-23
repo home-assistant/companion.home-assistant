@@ -154,6 +154,84 @@
       },
       "version-1.0.0/troubleshooting/version-1.0.0-setup": {
         "title": "Setup issues"
+      },
+      "version-2.0.0/core/version-2.0.0-actions": {
+        "title": "Åtgärder"
+      },
+      "version-2.0.0/core/version-2.0.0-index": {
+        "title": "Funktionsöversikt"
+      },
+      "version-2.0.0/core/version-2.0.0-location": {
+        "title": "Location"
+      },
+      "version-2.0.0/core/version-2.0.0-sensors": {
+        "title": "Sensorer"
+      },
+      "version-2.0.0/getting_started/version-2.0.0-index": {
+        "title": "Välkommen"
+      },
+      "version-2.0.0/integrations/version-2.0.0-haptics": {
+        "title": "Haptik"
+      },
+      "version-2.0.0/integrations/version-2.0.0-index": {
+        "title": "Integrationer"
+      },
+      "version-2.0.0/integrations/version-2.0.0-theming": {
+        "title": "Teman"
+      },
+      "version-2.0.0/integrations/version-2.0.0-universal-links": {
+        "title": "Universella länkar"
+      },
+      "version-2.0.0/integrations/version-2.0.0-x-callback-url": {
+        "title": "X-Callback-URL"
+      },
+      "version-2.0.0/misc/version-2.0.0-app-events": {
+        "title": "App händelser"
+      },
+      "version-2.0.0/misc/version-2.0.0-haptics": {
+        "title": "Haptik"
+      },
+      "version-2.0.0/misc/version-2.0.0-theming": {
+        "title": "Teman"
+      },
+      "version-2.0.0/notifications/version-2.0.0-actionable": {
+        "title": "Notiser med åtgärder"
+      },
+      "version-2.0.0/notifications/version-2.0.0-attachments": {
+        "title": "Standardbilagor"
+      },
+      "version-2.0.0/notifications/version-2.0.0-basic": {
+        "title": "Introduktion"
+      },
+      "version-2.0.0/notifications/version-2.0.0-critical": {
+        "title": "Kritiska notiser"
+      },
+      "version-2.0.0/notifications/version-2.0.0-details": {
+        "title": "Integritet, begränsning av uppdateringar och säkerhet"
+      },
+      "version-2.0.0/notifications/version-2.0.0-dynamic-content": {
+        "title": "Dynamiska bilagor"
+      },
+      "version-2.0.0/notifications/version-2.0.0-location": {
+        "title": "Requesting location updates"
+      },
+      "version-2.0.0/notifications/version-2.0.0-sounds": {
+        "title": "Sounds"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-beta-cleaning": {
+        "title": "Beta testing: cleaning between builds"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-errors": {
+        "title": "Errors"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-integrations": {
+        "title": "Integrationer"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-more-help": {
+        "title": "getting more help"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-setup": {
+        "title": "Troubleshooting"
       }
     },
     "links": {
