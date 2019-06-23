@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting
+title: Устранение проблем
 id: версия-1.0.0-индекс
 original_id: индекс
 ---
