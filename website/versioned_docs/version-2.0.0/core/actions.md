@@ -1,8 +1,10 @@
 ---
-title: "Actions"
+title: Actions
+id: version-2.0.0-actions
+original_id: actions
 ---
 
-Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS and [Apple Watch](../integrations/watch/index.md).
+Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS.
 
 # Creating Actions
 Actions are created from the Actions section of the App Configuration page within the companion App. Each action has six required fields:
@@ -65,17 +67,13 @@ Note that attributes located in the `data` and `context` are accessed through `e
 
 You can use the Events page within Home Assistant's developer tools to show all information contained with the event for a particular event by subscribing to `ios.action_fired` and triggering the action from you device.
 
-# Apple Watch
-The [Apple Watch App](integrations/watch/index.md) provides access to actions you have created. Once you have created an action within the Actions page, you can load it into the watch app by tapping "Send now" on the Apple Watch page within App Configuration.
-
-
 # Home Screen Quick Actions
 [Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions and is accessed by 3D Touching the Home Assistant companion app icon on your home screen.
 
 # Today View Widget
 The [Today View Widget](https://support.apple.com/en-gb/HT207122) is another route through which actions can be fired. To add the Home Assistant widget to your Today View:
 
-1.  Swipe right while on the Home screen or Lock screen.
-2.  Scroll to the very bottom and tap the Edit button.
-3.  Find the "Home Assistant - Actions" widget in the "More Widgets" list and then tap the green + button to add it.
-4.  Rearrange as you'd like and then tap Done.
+1. Swipe right while on the Home screen or Lock screen.
+2. Scroll to the very bottom and tap the Edit button.
+3. Find the "Home Assistant - Actions" widget in the "More Widgets" list and then tap the green + button to add it.
+4. Rearrange as you'd like and then tap Done.
