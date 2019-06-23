@@ -105,10 +105,10 @@
         "title": "получить дополнительную помощь"
       },
       "troubleshooting/setup": {
-        "title": "Troubleshooting"
+        "title": "Устранение проблем"
       },
       "version-1.0.0/core/version-1.0.0-index": {
-        "title": "Troubleshooting"
+        "title": "Устранение проблем"
       },
       "version-1.0.0/getting_started/version-1.0.0-index": {
         "title": "Добро пожаловать"
@@ -154,6 +154,84 @@
       },
       "version-1.0.0/troubleshooting/version-1.0.0-setup": {
         "title": "Проблемы настроек"
+      },
+      "version-2.0.0/core/version-2.0.0-actions": {
+        "title": "Действия"
+      },
+      "version-2.0.0/core/version-2.0.0-index": {
+        "title": "Обзор функций"
+      },
+      "version-2.0.0/core/version-2.0.0-location": {
+        "title": "Местоположение"
+      },
+      "version-2.0.0/core/version-2.0.0-sensors": {
+        "title": "Датчики"
+      },
+      "version-2.0.0/getting_started/version-2.0.0-index": {
+        "title": "Добро пожаловать"
+      },
+      "version-2.0.0/integrations/version-2.0.0-haptics": {
+        "title": "Виброотклик"
+      },
+      "version-2.0.0/integrations/version-2.0.0-index": {
+        "title": "Интеграции"
+      },
+      "version-2.0.0/integrations/version-2.0.0-theming": {
+        "title": "Темирование"
+      },
+      "version-2.0.0/integrations/version-2.0.0-universal-links": {
+        "title": "Универсальные ссылки"
+      },
+      "version-2.0.0/integrations/version-2.0.0-x-callback-url": {
+        "title": "URL обратного вызова"
+      },
+      "version-2.0.0/misc/version-2.0.0-app-events": {
+        "title": "События приложения"
+      },
+      "version-2.0.0/misc/version-2.0.0-haptics": {
+        "title": "Виброотклик"
+      },
+      "version-2.0.0/misc/version-2.0.0-theming": {
+        "title": "Темирование"
+      },
+      "version-2.0.0/notifications/version-2.0.0-actionable": {
+        "title": "Действительные уведомления"
+      },
+      "version-2.0.0/notifications/version-2.0.0-attachments": {
+        "title": "Стандартные вложения"
+      },
+      "version-2.0.0/notifications/version-2.0.0-basic": {
+        "title": "Введение"
+      },
+      "version-2.0.0/notifications/version-2.0.0-critical": {
+        "title": "Критические уведомления"
+      },
+      "version-2.0.0/notifications/version-2.0.0-details": {
+        "title": "Приватность, ограничение ставок и безопасность"
+      },
+      "version-2.0.0/notifications/version-2.0.0-dynamic-content": {
+        "title": "Динамические вложения"
+      },
+      "version-2.0.0/notifications/version-2.0.0-location": {
+        "title": "Запрос обновлений местоположения"
+      },
+      "version-2.0.0/notifications/version-2.0.0-sounds": {
+        "title": "Звуки"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-beta-cleaning": {
+        "title": "Проверка бета-тестирования: очистка между сборками"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-errors": {
+        "title": "Ошибки"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-integrations": {
+        "title": "Интеграции"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-more-help": {
+        "title": "получить дополнительную помощь"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-setup": {
+        "title": "Устранение проблем"
       }
     },
     "links": {
@@ -162,7 +240,7 @@
       "Notifications": "Уведомления",
       "Integrations": "Интеграции",
       "Misc": "Прочее",
-      "Troubleshooting": "Troubleshooting"
+      "Troubleshooting": "Устранение проблем"
     },
     "categories": {
       "Getting Started": "Начало работы",
@@ -170,7 +248,7 @@
       "Notifications": "Уведомления",
       "Integrations": "Интеграции",
       "Miscellaneous": "Прочее",
-      "Troubleshooting": "Troubleshooting",
+      "Troubleshooting": "Устранение проблем",
       "The Basics": "Основы",
       "Advanced": "Дополнительные параметры"
     }
