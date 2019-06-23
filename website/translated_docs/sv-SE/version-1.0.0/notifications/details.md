@@ -1,5 +1,5 @@
 ---
-title: Privacy, rate limiting and security
+title: Integritet, begränsning av uppdateringar och säkerhet
 id: version-1.0.0-details
 original_id: details
 ---
