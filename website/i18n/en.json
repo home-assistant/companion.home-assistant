@@ -167,6 +167,9 @@
       "version-2.0.0/core/version-2.0.0-sensors": {
         "title": "Sensors"
       },
+      "version-2.0.0/getting_started/version-2.0.0-index": {
+        "title": "Welcome"
+      },
       "version-2.0.0/integrations/version-2.0.0-haptics": {
         "title": "Haptics"
       },
