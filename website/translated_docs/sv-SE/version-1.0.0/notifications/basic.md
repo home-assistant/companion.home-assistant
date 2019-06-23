@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Introduktion
 id: version-1.0.0-basic
 original_id: basic
 ---
