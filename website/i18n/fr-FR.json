@@ -154,6 +154,84 @@
       },
       "version-1.0.0/troubleshooting/version-1.0.0-setup": {
         "title": "Corriger les problèmes"
+      },
+      "version-2.0.0/core/version-2.0.0-actions": {
+        "title": "Actions"
+      },
+      "version-2.0.0/core/version-2.0.0-index": {
+        "title": "Aperçu des fonctionnalités"
+      },
+      "version-2.0.0/core/version-2.0.0-location": {
+        "title": "Géolocalisation"
+      },
+      "version-2.0.0/core/version-2.0.0-sensors": {
+        "title": "Capteurs"
+      },
+      "version-2.0.0/getting_started/version-2.0.0-index": {
+        "title": "Bienvenue"
+      },
+      "version-2.0.0/integrations/version-2.0.0-haptics": {
+        "title": "Retour haptique"
+      },
+      "version-2.0.0/integrations/version-2.0.0-index": {
+        "title": "Intégrations"
+      },
+      "version-2.0.0/integrations/version-2.0.0-theming": {
+        "title": "Thèmes"
+      },
+      "version-2.0.0/integrations/version-2.0.0-universal-links": {
+        "title": "Liens universels"
+      },
+      "version-2.0.0/integrations/version-2.0.0-x-callback-url": {
+        "title": "X-Callback-URL"
+      },
+      "version-2.0.0/misc/version-2.0.0-app-events": {
+        "title": "Événements de l'Application"
+      },
+      "version-2.0.0/misc/version-2.0.0-haptics": {
+        "title": "Retour haptique"
+      },
+      "version-2.0.0/misc/version-2.0.0-theming": {
+        "title": "Thèmes"
+      },
+      "version-2.0.0/notifications/version-2.0.0-actionable": {
+        "title": "Notifications activables"
+      },
+      "version-2.0.0/notifications/version-2.0.0-attachments": {
+        "title": "Pièces jointes standard"
+      },
+      "version-2.0.0/notifications/version-2.0.0-basic": {
+        "title": "Introduction"
+      },
+      "version-2.0.0/notifications/version-2.0.0-critical": {
+        "title": "Notifications critiques"
+      },
+      "version-2.0.0/notifications/version-2.0.0-details": {
+        "title": "Confidentialité, limite et sécurité"
+      },
+      "version-2.0.0/notifications/version-2.0.0-dynamic-content": {
+        "title": "Pièces jointes dynamiques"
+      },
+      "version-2.0.0/notifications/version-2.0.0-location": {
+        "title": "Demande de mise à jour de localisation"
+      },
+      "version-2.0.0/notifications/version-2.0.0-sounds": {
+        "title": "Sons"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-beta-cleaning": {
+        "title": "Test des bêta : nettoyage entre les versions"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-errors": {
+        "title": "Erreurs"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-integrations": {
+        "title": "Intégrations"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-more-help": {
+        "title": "obtenir plus d'aide"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-setup": {
+        "title": "Dépannage"
       }
     },
     "links": {
