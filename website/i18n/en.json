@@ -20,6 +20,9 @@
       "getting_started/index": {
         "title": "Welcome"
       },
+      "integrations/app-events": {
+        "title": "App Events"
+      },
       "integrations/haptics": {
         "title": "Haptics"
       },
@@ -157,6 +160,9 @@
       },
       "version-2.0.0/getting_started/version-2.0.0-index": {
         "title": "Welcome"
+      },
+      "version-2.0.0/integrations/version-2.0.0-app-events": {
+        "title": "App Event"
       },
       "version-2.0.0/integrations/version-2.0.0-haptics": {
         "title": "Haptics"

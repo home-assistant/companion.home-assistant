@@ -39,7 +39,8 @@
       "integrations/haptics",
       "integrations/universal-links",
       "integrations/url-handler",
-      "integrations/x-callback-url"
+      "integrations/x-callback-url",
+      "integrations/app-events"
     ]
   },
   "Troubleshooting": {
