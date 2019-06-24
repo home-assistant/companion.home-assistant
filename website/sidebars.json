@@ -39,15 +39,8 @@
       "integrations/haptics",
       "integrations/universal-links",
       "integrations/url-handler",
-      "integrations/x-callback-url"
-    ]
-  },
-  "Misc": {
-    "Miscellaneous": [
-      "misc/index",
-      "misc/theming",
-      "misc/app-events",
-      "misc/haptics"
+      "integrations/x-callback-url",
+      "integrations/app-events"
     ]
   },
   "Troubleshooting": {
