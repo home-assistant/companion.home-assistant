@@ -42,14 +42,6 @@
       "integrations/x-callback-url"
     ]
   },
-  "Misc": {
-    "Miscellaneous": [
-      "misc/index",
-      "misc/theming",
-      "misc/app-events",
-      "misc/haptics"
-    ]
-  },
   "Troubleshooting": {
     "Troubleshooting": [
       "troubleshooting/setup",

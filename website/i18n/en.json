@@ -50,18 +50,6 @@
       "integrations/x-callback-url": {
         "title": "X-Callback-URL"
       },
-      "misc/app-events": {
-        "title": "App Events"
-      },
-      "misc/haptics": {
-        "title": "Haptics"
-      },
-      "misc/index": {
-        "title": "Introduction"
-      },
-      "misc/theming": {
-        "title": "Theming"
-      },
       "notifications/actionable": {
         "title": "Actionable notifications"
       },
@@ -185,15 +173,6 @@
       "version-2.0.0/integrations/version-2.0.0-x-callback-url": {
         "title": "X-Callback-URL"
       },
-      "version-2.0.0/misc/version-2.0.0-app-events": {
-        "title": "App Events"
-      },
-      "version-2.0.0/misc/version-2.0.0-haptics": {
-        "title": "Haptics"
-      },
-      "version-2.0.0/misc/version-2.0.0-theming": {
-        "title": "Theming"
-      },
       "version-2.0.0/notifications/version-2.0.0-actionable": {
         "title": "Actionable notifications"
       },
@@ -239,7 +218,6 @@
       "Core Features": "Core Features",
       "Notifications": "Notifications",
       "Integrations": "Integrations",
-      "Misc": "Misc",
       "Troubleshooting": "Troubleshooting"
     },
     "categories": {
@@ -247,7 +225,6 @@
       "Core Features": "Core Features",
       "Notifications": "Notifications",
       "Integrations": "Integrations",
-      "Miscellaneous": "Miscellaneous",
       "Troubleshooting": "Troubleshooting",
       "The Basics": "The Basics",
       "Advanced": "Advanced"
