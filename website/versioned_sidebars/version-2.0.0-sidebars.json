@@ -39,15 +39,8 @@
       "version-2.0.0-integrations/haptics",
       "version-2.0.0-integrations/universal-links",
       "version-2.0.0-integrations/url-handler",
-      "version-2.0.0-integrations/x-callback-url"
-    ]
-  },
-  "version-2.0.0-Misc": {
-    "Miscellaneous": [
-      "version-2.0.0-misc/index",
-      "version-2.0.0-misc/theming",
-      "version-2.0.0-misc/app-events",
-      "version-2.0.0-misc/haptics"
+      "version-2.0.0-integrations/x-callback-url",
+      "version-2.0.0-integrations/app-events"
     ]
   },
   "version-2.0.0-Troubleshooting": {
