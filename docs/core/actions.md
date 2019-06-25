@@ -2,12 +2,12 @@
 title: "Actions"
 ---
 
-Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS.
+Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS and [Apple Watch](../integrations/watch/index.md).
 
 # Creating Actions
 Actions are created from the Actions section of the App Configuration page within the companion App. Each action has six required fields:
 *   `Name`: the name of the action, this will be returned in the [Home Assistant event](https://www.home-assistant.io/docs/configuration/events/) fired by the app.
-*   `Text`: the descriptive text shown on the phone. It is best to keep this relatively short as there is limited space on each action's button.
+*   `Text`: the descriptive text shown on the phone and watch. It is best to keep this relatively short as there is limited space on each action's button.
 *   `Text Color`: the color of the text defined above
 *   `Background Color`: the color of the button created for the action.
 *   `Icon`: an icon to display to the left of the text on the action's button  
@@ -35,7 +35,7 @@ The attributes contained within `data` are:
 | `sourceDeviceID` | The device ID set in the App Configuration page of the companion app. |
 | `sourceDeviceName` | The name of the iPhone or iPad from which the action was triggered. This is the Device Name set in iOS under Settings App>General>About. |
 | `sourceDevicePermanentID` | A unique identifier of the iPhone or iPad through which the action was triggered |
-| `triggerSource` | What part of iOS the action with fired from. Either: `widget` for the Today screen, `appShortcut` for quick actions accessed through 3D touch or `watch` if fired from an Apple Watch (coming soon). |
+| `triggerSource` | What part of iOS the action with fired from. Either: `widget` for the Today screen, `appShortcut` for quick actions accessed through 3D touch or `watch` if fired from an Apple Watch. |
 
 The attributes contained within `context` are:
 
@@ -64,6 +64,10 @@ automation:
 Note that attributes located in the `data` and `context` are accessed through `event_data` and `event_context` respectively within the automation.
 
 You can use the Events page within Home Assistant's developer tools to show all information contained with the event for a particular event by subscribing to `ios.action_fired` and triggering the action from you device.
+
+# Apple Watch
+The [Apple Watch App](integrations/watch/index.md) provides access to actions you have created. Once you have created an action within the Actions page, you can load it into the watch app by tapping "Send now" on the Apple Watch page within App Configuration.
+
 
 # Home Screen Quick Actions
 [Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions and is accessed by 3D Touching the Home Assistant companion app icon on your home screen.
