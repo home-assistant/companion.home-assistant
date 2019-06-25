@@ -25,5 +25,5 @@ Home Assistant Companion supports all seven haptic strength levels as defined by
 | `selection` | Indicates that the selection is actively changing. |
 
 **Custom Cards that use haptics:**
-* [Button Card](https://github.com/custom-cards/button-card)
-* [Radial Menu](https://github.com/custom-cards/radial-menu)
+*   [Button Card](https://github.com/custom-cards/button-card)
+*   [Radial Menu](https://github.com/custom-cards/radial-menu)
