@@ -20,6 +20,9 @@
       "getting_started/index": {
         "title": "Bienvenue"
       },
+      "integrations/app-events": {
+        "title": "Événements de l'Application"
+      },
       "integrations/haptics": {
         "title": "Retour haptique"
       },
@@ -49,18 +52,6 @@
       },
       "integrations/x-callback-url": {
         "title": "X-Callback-URL"
-      },
-      "misc/app-events": {
-        "title": "Événements de l'Application"
-      },
-      "misc/haptics": {
-        "title": "Retour haptique"
-      },
-      "misc/index": {
-        "title": "Introduction"
-      },
-      "misc/theming": {
-        "title": "Thèmes"
       },
       "notifications/actionable": {
         "title": "Notifications activables"
@@ -170,6 +161,9 @@
       "version-2.0.0/getting_started/version-2.0.0-index": {
         "title": "Bienvenue"
       },
+      "version-2.0.0/integrations/version-2.0.0-app-events": {
+        "title": "Événements de l'Application"
+      },
       "version-2.0.0/integrations/version-2.0.0-haptics": {
         "title": "Retour haptique"
       },
@@ -184,15 +178,6 @@
       },
       "version-2.0.0/integrations/version-2.0.0-x-callback-url": {
         "title": "X-Callback-URL"
-      },
-      "version-2.0.0/misc/version-2.0.0-app-events": {
-        "title": "Événements de l'Application"
-      },
-      "version-2.0.0/misc/version-2.0.0-haptics": {
-        "title": "Retour haptique"
-      },
-      "version-2.0.0/misc/version-2.0.0-theming": {
-        "title": "Thèmes"
       },
       "version-2.0.0/notifications/version-2.0.0-actionable": {
         "title": "Notifications activables"
@@ -239,7 +224,6 @@
       "Core Features": "Fonctionnalités principales",
       "Notifications": "Notifications",
       "Integrations": "Intégrations",
-      "Misc": "Divers",
       "Troubleshooting": "Dépannage"
     },
     "categories": {
@@ -247,7 +231,6 @@
       "Core Features": "Fonctionnalités principales",
       "Notifications": "Notifications",
       "Integrations": "Intégrations",
-      "Miscellaneous": "Divers",
       "Troubleshooting": "Dépannage",
       "The Basics": "Les bases",
       "Advanced": "Avancé"
