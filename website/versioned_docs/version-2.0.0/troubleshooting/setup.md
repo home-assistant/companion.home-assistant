@@ -25,14 +25,14 @@ If the above doesn't work, try the following to points:
 
 2.  _Reset your push ID token:_ If you have checked you still have notifications remaining, you can reset your notification at the top of the "Notifications" page within the "App Configuration" page. After doing this you may need to [force quit](https://support.apple.com/HT201330) the Companion App and then reopen the app and finally restart your Home Assistant instance.
 
-#### I receive an SSL error and am unable to connect to my Home Assistant Instance when away from Home
+#### I receive an SSL error and/or I am unable to connect to my Home Assistant Instance when away from Home
 This often happens when you have the [Home Assistant Cloud](https://www.home-assistant.io/cloud/) enabled but have do not have [Remote UI](https://www.nabucasa.com/config/remote/) turned on. To address this either enable the [Remote UI](https://www.nabucasa.com/config/remote/) or swipe right to open the sidebar and the tap "App Configuration" then under "Settings" tap "Connection". Make sure the switch next to "Connect Via Cloud" is off and enter the remote address of your Home Assistant Instance in the "External URL" field. This address must be for an encrypted connection, for instructions on setting up an encrypted remote connection to your Home Assistant instances, please see the [Home Assistant docs](https://www.home-assistant.io/docs/configuration/remote/) or [this guidde to setting up Let's Encrypt with Duck DNS](https://www.home-assistant.io/docs/ecosystem/certificates/lets_encrypt/).
 
 If you do not have [Home Assistant Cloud](https://www.home-assistant.io/cloud/) set up at all, the problem is likely that the remote connection is not secured. The Companion App requires an encrypted connection for remote connections. Please see the [Home Assistant docs](https://www.home-assistant.io/docs/configuration/remote/) or [this guidde to setting up Let's Encrypt with Duck DNS](https://www.home-assistant.io/docs/ecosystem/certificates/lets_encrypt/) for instructions on setting up a secured connection.
 
 #3 how to find and rename sensors via integration page and entities
 
-#4 ssl error with letsencrypt and using `https://ip/` -> set up via hostname for ssl, use either split brain dns on your router or nat reflection (if possible). Use nginx otherwise with http internally or use ha cloud
+#4 ssl error with letsencrypt and using `https://ip/` -> set up via hostname for ssl, use either split brain dns on your router or nat reflection (if possible).kUse nginx otherwise with http internally or use ha cloud
 
 Logon error when using authentication on proxy -> don't
 
