@@ -9,7 +9,22 @@ Below is a list of common issues and troubleshooting advice to address them. For
 #1 why is my notify not there? Restart ha, force close companion, go to settings, notification settings and check push id?
 
 #### I don't see a `notify` target in my `dev-services` panel
-Once you have [set up](../getting_started/index.md) the Companion App, a `notify` service will be created providing you granted notification permissions during setup. If you can't see this [force quit](https://support.apple.com/HT201330) the Companion App and restart your Home Assistant instance. The service should now be listed in the `dev-services` panel. If not, check the the notification settings within the app (swipe right to bring up the sidebar, the tap "App Configuration", then "Notifications"). If the "Push ID" box is empty, tap the Reset button below it.
+Once you have [set up](../getting_started/index.md) the Companion App, a `notify.mobile_app_<Device_ID>` service will be created providing you granted notification permissions during setup. If you can't see this [force quit](https://support.apple.com/HT201330) the Companion App and then reopen the app and finally restart your Home Assistant instance. The service should now be listed in the `dev-services` panel. If not, check the notification settings within the app (swipe right to bring up the sidebar, the tap "App Configuration", then "Notifications"). If the "Push ID" box is empty, tap the Reset button below it.
+
+#### I have a `notify.mobile_app_<Device_ID>` service but don't receive notifications
+Firstly, check your message payload is valid. Look at the examples in the [notification docs](../notifications/basis.md) or try sending the simple example below for the `dev-services` page to your `notify.mobile_app_<Device_ID>` service.
+```JSON
+{"message": "Hello World"}
+```
+
+If this notification is delivered the problem is most likely with your payload.
+
+If the above doesn't work, try the following to points:
+
+1.  _Check your message limits:_ To allow us to provide a free notification service, each app target is limited to 150 notifications per day. [Location updates](../notifications/location.md) and other special notifications do not count towards this limit. You can check your remaining notifications within the Companion App by swiping right to open the sidebar and tapping "App Configuration" then "Notifications" and scroll to the bottom of the page. The limit resets everyday at midnight UTC.
+
+2.  _Reset your push ID token:_ If you have checked you still have notifications remaining, you can reset your notification at the top of the "Notifications" page within the "App Configuration" page. After doing this you may need to [force quit](https://support.apple.com/HT201330) the Companion App and then reopen the app and finally restart your Home Assistant instance.
+
 
 #2 ssl error with cloud enabled and remote ui off -> enter external url
 
