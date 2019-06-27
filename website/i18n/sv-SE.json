@@ -20,6 +20,9 @@
       "getting_started/index": {
         "title": "Välkommen"
       },
+      "integrations/app-events": {
+        "title": "App händelser"
+      },
       "integrations/haptics": {
         "title": "Haptik"
       },
@@ -49,18 +52,6 @@
       },
       "integrations/x-callback-url": {
         "title": "X-Callback-URL"
-      },
-      "misc/app-events": {
-        "title": "App händelser"
-      },
-      "misc/haptics": {
-        "title": "Haptik"
-      },
-      "misc/index": {
-        "title": "Introduktion"
-      },
-      "misc/theming": {
-        "title": "Teman"
       },
       "notifications/actionable": {
         "title": "Notiser med åtgärder"
@@ -170,6 +161,9 @@
       "version-2.0.0/getting_started/version-2.0.0-index": {
         "title": "Välkommen"
       },
+      "version-2.0.0/integrations/version-2.0.0-app-events": {
+        "title": "App händelser"
+      },
       "version-2.0.0/integrations/version-2.0.0-haptics": {
         "title": "Haptik"
       },
@@ -184,15 +178,6 @@
       },
       "version-2.0.0/integrations/version-2.0.0-x-callback-url": {
         "title": "X-Callback-URL"
-      },
-      "version-2.0.0/misc/version-2.0.0-app-events": {
-        "title": "App händelser"
-      },
-      "version-2.0.0/misc/version-2.0.0-haptics": {
-        "title": "Haptik"
-      },
-      "version-2.0.0/misc/version-2.0.0-theming": {
-        "title": "Teman"
       },
       "version-2.0.0/notifications/version-2.0.0-actionable": {
         "title": "Notiser med åtgärder"
@@ -239,7 +224,6 @@
       "Core Features": "Core Features",
       "Notifications": "Notifications",
       "Integrations": "Integrationer",
-      "Misc": "Misc",
       "Troubleshooting": "Troubleshooting"
     },
     "categories": {
@@ -247,7 +231,6 @@
       "Core Features": "Core Features",
       "Notifications": "Notifications",
       "Integrations": "Integrationer",
-      "Miscellaneous": "Miscellaneous",
       "Troubleshooting": "Troubleshooting",
       "The Basics": "The Basics",
       "Advanced": "Advanced"
