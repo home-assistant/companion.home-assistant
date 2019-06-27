@@ -20,6 +20,9 @@
       "getting_started/index": {
         "title": "Добро пожаловать"
       },
+      "integrations/app-events": {
+        "title": "События приложения"
+      },
       "integrations/haptics": {
         "title": "Виброотклик"
       },
@@ -49,18 +52,6 @@
       },
       "integrations/x-callback-url": {
         "title": "URL обратного вызова"
-      },
-      "misc/app-events": {
-        "title": "События приложения"
-      },
-      "misc/haptics": {
-        "title": "Виброотклик"
-      },
-      "misc/index": {
-        "title": "Введение"
-      },
-      "misc/theming": {
-        "title": "Темирование"
       },
       "notifications/actionable": {
         "title": "Действительные уведомления"
@@ -170,6 +161,9 @@
       "version-2.0.0/getting_started/version-2.0.0-index": {
         "title": "Добро пожаловать"
       },
+      "version-2.0.0/integrations/version-2.0.0-app-events": {
+        "title": "События приложения"
+      },
       "version-2.0.0/integrations/version-2.0.0-haptics": {
         "title": "Виброотклик"
       },
@@ -184,15 +178,6 @@
       },
       "version-2.0.0/integrations/version-2.0.0-x-callback-url": {
         "title": "URL обратного вызова"
-      },
-      "version-2.0.0/misc/version-2.0.0-app-events": {
-        "title": "События приложения"
-      },
-      "version-2.0.0/misc/version-2.0.0-haptics": {
-        "title": "Виброотклик"
-      },
-      "version-2.0.0/misc/version-2.0.0-theming": {
-        "title": "Темирование"
       },
       "version-2.0.0/notifications/version-2.0.0-actionable": {
         "title": "Действительные уведомления"
@@ -239,7 +224,6 @@
       "Core Features": "Основные возможности",
       "Notifications": "Уведомления",
       "Integrations": "Интеграции",
-      "Misc": "Прочее",
       "Troubleshooting": "Устранение проблем"
     },
     "categories": {
@@ -247,7 +231,6 @@
       "Core Features": "Основные возможности",
       "Notifications": "Уведомления",
       "Integrations": "Интеграции",
-      "Miscellaneous": "Прочее",
       "Troubleshooting": "Устранение проблем",
       "The Basics": "Основы",
       "Advanced": "Дополнительные параметры"
