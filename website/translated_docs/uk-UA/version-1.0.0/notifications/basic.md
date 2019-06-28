@@ -1,16 +1,16 @@
 ---
-title: Introduction
-id: version-1.0.0-basic
-original_id: basic
+title: Вступ
+id: версія-1.0.0-базова
+original_id: базовий
 ---
 
-The iOS notify platform accepts the standard `title`, `message` and `target` parameters. The iOS notify platform supports targets as services. Assuming that you did not set a `name` when configuring the platform you should find all your registered and notification-enabled iOS devices available as notify targets as services with names prefixed "notify.ios_" and then the device name you entered at setup.
+Платформа iOS notify приймає стандартні `title`, `message` and `target` параметри. Платформа iOS notify підтримує цілі як послуги. Припускаючи, що ви не встановили `name` під час налаштування платформи, ви повинні знайти всі ваші зареєстровані та включені до оповіщення пристрої iOS, доступні як цілі сповіщення, як служби з іменами, які мають префікс "notify.ios_", а потім назву пристрою ви ввели під час налаштування.
 
-Notes:
+Примітки:
 
-* `title` only displays on Apple Watch and devices with iOS 10 or above.
+* `title` відображається лише в Apple Watch і пристроях з iOS 10 або вище.
 
-* `target` can be used to specific a single device using its PushID, found in `ios.conf`. The preferred way of providing a target is through a target specific notify service.
+* `target` можна використовувати для конкретного пристрою, використовуючи його PushID, знайдений у `ios.conf`. Переважним способом надання цільової мети є спеціальна служба оповіщення.
 
 ![A push notification showing all of the basic options <code>title</code> and <code>message</code> as well as <code>subtitle</code> and actions.](assets/ios/example.png)
 
