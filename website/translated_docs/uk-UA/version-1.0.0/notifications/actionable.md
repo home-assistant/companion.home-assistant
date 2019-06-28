@@ -1,37 +1,37 @@
 ---
-title: Actionable notifications
-id: version-1.0.0-actionable
-original_id: actionable
+title: Дієві повідомлення
+id: версія-1.0.0-дієвий
+original_id: дієвий
 ---
 
-Actionable notifications allow you to attach 1-4 custom buttons to a notification. When one of the actions is selected Home Assistant will be notified which action was chosen. This allows you to build complex automations.
+Функціональні сповіщення дозволяють додавати до сповіщення 1-4 кнопки користувача. При виборі однієї з дій Home Assistant буде повідомлено, яка дія була обрана. Це дозволяє будувати складні автоматизації.
 
-Examples of actionable notifications:
+Приклади дійсних сповіщень:
 
-* A notification is sent whenever motion is detected in your home while you are away or asleep. You can add an action to Sound Alarm. When tapped, Home Assistant is notified that the `sound_alarm` action was selected. You can add an automation to sound the burglar alarm whenever this event is seen.
-* Someone rings your front door bell. You can send an action to lock or unlock your front door. When tapped, a notification is sent back to Home Assistant upon which you can build automations.
-* Send a notification whenever your garage door opens with actions to open and close the garage.
+* Повідомлення надсилається, коли виявляється рух у вашій оселі під час перебування або під час відпочінку. Ви можете додати дію до звукової сигналізації. Якщо натиснути, Home Assistant отримує сповіщення про те, що було вибрано дію `sound_alarm`. Ви можете додати автоматизацію, щоб пролунала охоронна сигналізація, коли сталася подія.
+* Хтось дзвонить у дзвінок вхідних дверей. Ви можете надіслати дію для блокування або розблокування дверей. Після натискання, сповіщення відправляється до Home Assistant, в якому можна створювати автоматику.
+* Надсилайте сповіщення, коли ваші двері гаража відчиняються з діями, щоб відчінити і зачинити гараж.
 
-![Actionable notifications allow the user to send a command back to Home Assistant.](assets/ios/actions.png)
+![Сповіщення дозволяють користувачу відправити команду до Home Assistant.](assets/ios/actions.png)
 
-## Overview of how actionable notifications work
+## Огляд роботи ефективних сповіщень
 
-In advance of sending a notification:
+Надсилання сповіщення заздалегідь:
 
-1. Define a notification category in your Home Assistant configuration which contain 1-4 actions.
-2. At launch iOS app requests notification categories from Home Assistant (can also be done manually in notification settings).
+1. Визначте категорію сповіщень у конфігурації Home Assistant, яка містить 1-4 дії.
+2. При запуску програми iOS додаток запитує категорії повідомлень від Home Assistant (також можна вручну в налаштуваннях сповіщень).
 
-When sending a notification:
+При надсиланні сповіщення:
 
-1. Send a notification with `data.push.category` set to a pre-defined notification category identifier.
-2. Push notification delivered to device
-3. User opens notification.
-4. Action tapped
-5. Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
+1. Надішліть сповіщення з набором `data.push.category` для попередньо визначеного ідентифікатора категорії сповіщення.
+2. Повідомлення Push доставлено на пристрій
+3. Користувач відкриває сповіщення.
+4. Дія натиснута
+5. Ідентифікатор дії, надісланий назад у Home Assistant як властивість `actionName` події `ios.notification_action_fired`, разом з іншими метаданими, такими як ім'я пристрою та категорії.
 
-![How the iOS device and Home Assistant work together to enable actionable notifications.](assets/NotificationActionFlow.png)
+![Як пристрій iOS і Home Assistant працює разом, щоб дозволити активні сповіщення.](assets/NotificationActionFlow.png)
 
-## Definitions
+## Визначення
 
 * Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.
 * Actions - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports.
@@ -129,7 +129,7 @@ automation:
       ...
 ```
 
-Notes:
+Примітки:
 
 * `textInput` will only exist if `behavior` was set to `textInput`.
 * `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
