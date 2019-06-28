@@ -1,7 +1,7 @@
 ---
 title: Обзор функций
-id: version-2.0.0-index
+id: версия-2.0.0-индекс
 original_id: индекс
 ---
 
-The Home Assistant Companion App provides a convenient way to view and control your Home Assistant instance however it also extends the power of your instance by allowing your iOS device to act as a data source. The Home Assistant Companion App adds numerous [sensors](sensors.md) (such as battery and network status among others), creates a `device_tracker` entity to allow [location](location.md) updates to be sent from iOS and also provides [action shortcuts](actions.md) in iOS to trigger scripts or automations.
+Компаньон Home Assistant предоставляет удобный способ просмотра и управления вашей Home Assistant instance, однако он также расширяет возможности вашей системы, позволяя вашему устройству использовать в качестве источника данных. Приложение компаньон Home Assistant добавляет множество датчиков [](sensors.md) (таких как заряд батареи и состояние сети среди других), создает `device_tracker` сущность, позволяющую [местоположение](location.md) обновления, которые будут отправлены из iOS, а также предоставляет [action shortcuts](actions.md) в iOS для запуска скриптов или автоматизации.
