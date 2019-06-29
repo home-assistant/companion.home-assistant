@@ -40,4 +40,12 @@ This is probably not an issue with the Companion App but more likely with Home A
 #### The iOS status bar (top bar with cell/Wi-Fi strength) does not match my theme
 To change the colour of the iOS status bar to match your Home Assistant theme, please use the [`frontend.set_theme`](https://www.home-assistant.io/components/frontend/#theme-automation) instead of the dropdown menu in the Home Assistant profile page. Using the service will generate an event allowing the Companion App to detect the theme change and apply the correct colour to the status bar. See the [theming](../integrations/theming.md) documentation for details of which keys are used.
 
-#3 how to find and rename sensors via integration page and entities
+#### I am running the Companion App on multiple devices, the `sensor` names are too similar and confusing, what can I do?
+In an imminent update to the app, default sensor names will be changed to include your device name as set in the iOS settings app. For now, you can change the name of each sensor from within the Integrations section of Home Assistant's Configuration page by following these steps.
+
+1.  Open the Home Assistant "Configuration" page from the sidebar (if using the app, swipe right to access this)
+2.  Click or tap on "Integrations"
+3.  Find the "Mobile App <Device Name>" integration corresponding the device you wish to rename the sensors of and open it
+4.  For each sensor you wish to rename, click or tap on the sensor name and then the cog symbol.
+5.  Under "Entity ID" change the entity id as required. Do **not** change `sensor.` or `device_tracker.` part of the ID
+6.  Repeat Steps 4 and 5 for each sensor you wish to rename
