@@ -2,7 +2,7 @@
 title: Haptics
 ---
 
-A new feature in Home Assistant Companion 2.0 is haptics, which provide physical feedback when interacting with the UI. For example you will feel haptic feedback on toggles (lights, switches, input_booleans). 
+A new feature in Home Assistant Companion 2.0 is haptics, which provide physical feedback when interacting with the UI. Areas you will feel haptic feedback include toggles (lights, switches, input_booleans) and input_selects. Certain scenarios such as invalid service call errors will also generate haptic feedback.
 
 iPhone models that support haptic feedback include the iPhone 7 and 7 Plus, iPhone 8 and 8 Plus, the iPhone X, XR, XS, and XS Max.
 
@@ -25,5 +25,5 @@ Home Assistant Companion supports all seven haptic strength levels as defined by
 | `selection` | Indicates that the selection is actively changing. |
 
 **Custom Cards that use haptics:**
-* [Button Card](https://github.com/custom-cards/button-card)
-* [Radial Menu](https://github.com/custom-cards/radial-menu)
+*   [Button Card](https://github.com/custom-cards/button-card)
+*   [Radial Menu](https://github.com/custom-cards/radial-menu)
