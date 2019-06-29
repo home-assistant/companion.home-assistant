@@ -247,11 +247,11 @@
     "This project is maintained by a dedicated group of people.|statement made to reader": "Цей проект підтрімується відданою групою людей.",
     "Browse the docs|no description given": "Переглянути документацію",
     "Discord|no description given": "Discord",
-    "Forums|no description given": "Forums",
+    "Forums|no description given": "Форуми",
     "GitHub|no description given": "GitHub",
-    "If you need help with Home Assistant Companion, you can try one of the mechanisms below.|statement made to reader": "If you need help with Home Assistant Companion, you can try one of the mechanisms below.",
-    "Help Translate|recruit community translators for your project": "Help Translate",
-    "Edit this Doc|recruitment message asking to edit the doc source": "Edit",
-    "Translate this Doc|recruitment message asking to translate the docs": "Translate"
+    "If you need help with Home Assistant Companion, you can try one of the mechanisms below.|statement made to reader": "Якщо вам потрібна допомога з компаньйоном Home Assistant, ви можете спробувати один з механізмів нижче.",
+    "Help Translate|recruit community translators for your project": "Допоможіть перекласти",
+    "Edit this Doc|recruitment message asking to edit the doc source": "Редагувати",
+    "Translate this Doc|recruitment message asking to translate the docs": "Перекласти"
   }
 }
