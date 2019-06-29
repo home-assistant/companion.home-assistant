@@ -14,11 +14,11 @@ original_id: базовий
 
 ![A push notification showing all of the basic options <code>title</code> and <code>message</code> as well as <code>subtitle</code> and actions.](assets/ios/example.png)
 
-### Enhancing basic notifications
+### Підвищення основних сповіщень
 
-#### Badge
+#### Позначка
 
-You can set the icon badge in the payload:
+Ви можете встановити значок позначки в корисному навантаженні:
 
 ```yaml
 automation:
@@ -35,9 +35,9 @@ automation:
             badge: 5
 ```
 
-#### Subtitle
+#### Субтитра
 
-Starting with iOS 10, a subtitle is supported in addition to the title:
+Починаючи з iOS 10, субтитра підтримується на додаток до назви:
 
 ```yaml
 automation
@@ -53,9 +53,9 @@ automation
           subtitle: "Subtitle goes here"
 ```
 
-#### Thread-id (grouping notifications)
+#### Thread-id (групування сповіщень)
 
-Starting with iOS 12, grouping of notifications is supported. All notifications with the same thread-id will be grouped together in the notification center. Without a thread-id, all notifications from the app will be placed in a single group.
+Починаючи з iOS 12, групування повідомлень підтримується. Усі сповіщення з однаковим thread-id будуть згруповані в центрі сповіщень. Безthread-id всі сповіщення з програми будуть розміщені в одній групі.
 
 ```yaml
 automation:
