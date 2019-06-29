@@ -1,7 +1,7 @@
 ---
-title: Welcome
-id: version-1.0.0-index
-original_id: index
+title: Вітаємо
+id: версія-1.0.0-базова
+original_id: індекс
 ---
 
-Some stuff about Getting Started this is the V1 page
+Деякі речі про Початок роботи це сторінка V1
