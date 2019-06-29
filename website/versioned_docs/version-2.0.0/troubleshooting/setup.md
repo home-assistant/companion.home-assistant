@@ -37,6 +37,7 @@ This is probably not an issue with the Companion App but more likely with Home A
 2.  If the problem still persists, open your Home Assistant Instance in the Safari browser (you may have to sign in). If the problem is present in Safari, please raise an issue on either the [Home Assistant Frontend GitHub](https://github.com/home-assistant/home-assistant-polymer/issues) or if it is with a custom component, with the developer of that component. In your issue report, state that the problem exists when viewing on a mobile browser and not necessarily the Companion App.
 3.  If the problem does not occur in Safari, please raise an issue on the [iOS Companion App GitHub](https://github.com/home-assistant/home-assistant-iOS/issues). Please state you followed these steps and the problem only occurs in the Companion App.
 
-#3 how to find and rename sensors via integration page and entities
+#### The iOS status bar (top bar with cell/Wi-Fi strength) does not match my theme
+To change the colour of the iOS status bar to match your Home Assistant theme, please use the [`frontend.set_theme`](https://www.home-assistant.io/components/frontend/#theme-automation) instead of the dropdown menu in the Home Assistant profile page. Using the service will generate an event allowing the Companion App to detect the theme change and apply the correct colour to the status bar. See the [theming](../integrations/theming.md) documentation for details of which keys are used.
 
-Themes: use frontend.set_theme to switch between themes
+#3 how to find and rename sensors via integration page and entities
