@@ -30,10 +30,13 @@ This often happens when you have the [Home Assistant Cloud](https://www.home-ass
 
 If you do not have [Home Assistant Cloud](https://www.home-assistant.io/cloud/) set up at all, the problem is likely that the remote connection is not secured. The Companion App requires an encrypted connection for remote connections. Please see the [Home Assistant docs](https://www.home-assistant.io/docs/configuration/remote/) or [this guidde to setting up Let's Encrypt with Duck DNS](https://www.home-assistant.io/docs/ecosystem/certificates/lets_encrypt/) for instructions on setting up a secured connection.
 
+#### Something in Home Assistant doesn't work the same way it does on my desktop
+This is probably not an issue with the Companion App but more likely with Home Assistant or the particular component that isn't behaving as expected. To test the cause please try the following steps.
+
+1.  Firstly, swipe down in the companion app to refresh your view.
+2.  If the problem still persists, open your Home Assistant Instance in the Safari browser (you may have to sign in). If the problem is present in Safari, please raise an issue on either the [Home Assistant Frontend GitHub](https://github.com/home-assistant/home-assistant-polymer/issues) or if it is with a custom component, with the developer of that component. In your issue report, state that the problem exists when viewing on a mobile browser and not necessarily the Companion App.
+3.  If the problem does not occur in Safari, please raise an issue on the [iOS Companion App GitHub](https://github.com/home-assistant/home-assistant-iOS/issues). Please state you followed these steps and the problem only occurs in the Companion App.
+
 #3 how to find and rename sensors via integration page and entities
-
-#4 ssl error with letsencrypt and using `https://ip/` -> set up via hostname for ssl, use either split brain dns on your router or nat reflection (if possible).kUse nginx otherwise with http internally or use ha cloud
-
-Logon error when using authentication on proxy -> don't
 
 Themes: use frontend.set_theme to switch between themes
