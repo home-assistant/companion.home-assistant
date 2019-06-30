@@ -1,10 +1,10 @@
 ---
-title: Location
+title: Місцерозташування
 id: version-2.0.0-location
-original_id: location
+original_id: місцерозташування
 ---
 
-## Overview
+## Огляд
 
 Location updates are sent from your device to Home Assistant in a number of situations:
 
@@ -44,35 +44,35 @@ automation:
           entity_id: light.frontdoor
 ```
 
-## Location tracking when outside a Home Assistant zone
+## Відстеження місця розташування за межами зони Home Assistant
 
-The Home Assistant Companion App receives *significant location updates* from iOS. Whenever an update is received, it is sent to Home Assistant. Roughly, an update is received every time that your device transfers to a new cellular tower, a significant amount of time has passed (usually a couple hours) or a connection state changes and the system notices your location recently changed.
+The Home Assistant Companion App receives *significant location updates* from iOS. При отриманні оновлення він надсилається до Home Assistant. Приблизно оновлюється щоразу, коли ваш пристрій переходить на нову стільникову вежу, пройшов значний час (як правило, кілька годин) або змінюється стан з'єднання, і система помічає, що ваше місце розташування нещодавно змінилося.
 
-Apple [defines](https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW9) significant significant-change location updates as:
+Apple опріділює [defines](https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW9) значні оновлення місцезнаходження значних змін як:
 
-> The significant-change location service delivers updates only when there has been a significant change in the device’s location, such as 500 meters or more.
+> Служба визначення місцезнаходження із значними змінами надає оновлення лише тоді, коли відбулося значна зміна розташування пристрою, наприклад 500 метрів або більше.
 
-They also say in the [Energy Efficiency Guide](https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/LocationBestPractices.html#//apple_ref/doc/uid/TP40015243-CH24-SW4):
+Вони також говорять у [Energy Efficiency Guide](https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/LocationBestPractices.html#//apple_ref/doc/uid/TP40015243-CH24-SW4):
 
-> Significant-change location updates wake the system and your app once every 15 minutes, at minimum, even if no location changes have occurred.
+> Оновлення місцеположень із значними змінами розбуджують систему та вашу програму раз на 15 хвилин, принаймні, навіть якщо не відбулися зміни місцезнаходження.
 
-Finally, I think this answer from [Stack Overflow](http://stackoverflow.com/a/13331625/486182) says it best:
+Нарешті, я думаю, що ця відповідь на [переповнення стеків](http://stackoverflow.com/a/13331625/486182) говорить найкраще:
 
-> The significant location change is the least accurate of all the location monitoring types. It only gets its updates when there is a cell tower transition or change. This can mean a varying level of accuracy and updates based on where the user is. City area, more updates with more towers. Out of town, interstate, fewer towers and changes.
+> Значне зміна розташування є найменш точним з усіх типів моніторингу місцезнаходження. Він оновлюється лише тоді, коли відбувається перехід або зміна стільникової вежі. Це може означати різний рівень точності та оновлення в залежності від того, де знаходиться користувач. Міська зона, більше оновлень з великою кількістю веж. За межами міста, міждержавних, менше веж і змін.
 
-What's the real story on significant-change location updates? Who knows, because Apple keeps it private.
+У чому реальна історія щодо значних змін оновлення місцезнаходження? Хто знає, тому що Apple зберігає її приватною.
 
-## Location tracking in Home Assistant zones
+## Відстеження місцезнаходження в зонах Home Assistant
 
-At launch, Home Assistant for iOS sets up geofences for all zones in your Home Assistant configuration. Enter and exit notifications are sent to Home Assistant.
+При запуску Home Assistant для iOS встановлює геозони для всіх зон у вашій конфігурації Home Assistant. Повідомлення про вхід і вихід надсилаються до головного помічника.
 
-### Configuration
+### Конфігурація
 
-Add `track_ios: false` to your zone configurations to disable zone location tracking for all connected iOS apps.
+Додайте `track_ios: false` до своїх налаштувань зони, щоб вимкнути відстеження розташування зон для всіх підключених додатків iOS.
 
 ### iBeacons
 
-The app has basic support for using iBeacons to trigger enter/exit updates. To configure them, add your iBeacon details to your zone like this:
+The app has basic support for using iBeacons to trigger enter/exit updates. Щоб налаштувати їх, додайте відомості про iBeacon до своєї зони так:
 
 ```yaml
 zone.home:
@@ -82,4 +82,4 @@ zone.home:
     minor: 43814
 ```
 
-Restart Home Assistant and then the iOS app. It will then begin using iBeacons *instead of your location* for enter triggers around your zones. To add an iBeacon to `zone.home` add the above under your `customize`.
+Restart Home Assistant and then the iOS app. It will then begin using iBeacons *instead of your location* for enter triggers around your zones. Щоб додати iBeacon до `zone.home`, додайте вищезгадане під `customize`.
