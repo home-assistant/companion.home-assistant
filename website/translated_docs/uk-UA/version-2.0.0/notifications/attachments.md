@@ -1,14 +1,14 @@
 ---
-title: Standard Attachments
+title: Стандартні вкладення
 id: version-2.0.0-attachments
-original_id: attachments
+original_id: вкладення
 ---
 
 Notifications may contain an image, video, or audio file attachment that is displayed alongside the notification. A thumbnail is shown on the notification preview and the full size attachment is displayed after the notification is expanded.
 
-An attachment is an image, video, or audio file which is downloaded to the device when a notification is received and shown alongside the notification. A thumbnail is shown when the notification is not expanded. The full size attachment is shown when the notification is expanded.
+Додаток - це зображення, відео або аудіофайл, який завантажується на пристрій, коли надходить сповіщення та відображається поруч із повідомленням. Мініатюра відображається, коли повідомлення не розширюється. Додаток у повному розмірі відображається після розширення повідомлення.
 
-> To expand a notification on 3D Touch devices simply force touch any notification. On non-3D Touch devices swipe and tap the "View" button.
+> Щоб розширити сповіщення на пристрої 3D Touch, просто примусово торкніться будь-якого сповіщення. На пристроях без 3D-Touch проведіть та торкніться кнопки "Перегляд".
 
 ```yaml
 - alias: Notify Mobile app
@@ -25,23 +25,23 @@ An attachment is an image, video, or audio file which is downloaded to the devic
             hide-thumbnail: false
 ```
 
-Notes:
+Примітки:
 
-- The thumbnail of the notification will be the media at the `url`.
-- The notification content is the media at the `url`.
-- Attachment can be used with custom push notification categories.
+- Мініатюра сповіщення буде носієм в `url`.
+- Вміст сповіщення - це носій в `url`.
+- Додаток може використовуватися з категоріями push notification.
 
-## Example
+## Приклад
 
 An unexpanded push notification with an image attachment:
 
-![An unexpanded push notification with an attachment.](assets/ios/attachment.png)
+![Нерозширене push notification з вкладенням.](assets/ios/attachment.png)
 
 The same notification but expanded to show the full size image attachment:
 
-![The same notification but expanded to show the full size attachment](assets/ios/expanded_attachment.png)
+![Таке ж сповіщення, але розширене, щоб показати вкладення в повному розмірі](assets/ios/expanded_attachment.png)
 
-## Supported media types
+## Підтримувані типи зображень
 
 Please ensure your attachment meets the criteria below, otherwise it will not show.
 
@@ -51,8 +51,8 @@ Please ensure your attachment meets the criteria below, otherwise it will not sh
 |      Video      | 50 MB             | MPEG, MPEG2, MPEG4, AVI     |
 |      Audio      | 5 MB              | AIFF, WAV, MP3, MPEG4 Audio |
 
-## Configuration
+## Конфігурація
 
-- **url** (*Required*): The URL of content to use as the attachment. This URL *must* be accessible from the Internet, or the receiving device must be on the same network as the hosted content.
-- **content-type** (*Optional*): By default, the extension of the URL will be checked to determine the filetype. If there is no extension/it can't be determined you can manually provide a file extension.
-- **hide-thumbnail** (*Optional*): If set to `true` the thumbnail will not show on the notification. The content will only be viewable by expanding.
+- **url** (*Required*): URL-адресу вмісту, яку слід використовувати як вкладення. Цей URL *обов'язково* має бути доступним з Інтернету, або пристрою, що приймає, повинен знаходитися в тій самій мережі, де розміщеній вміст.
+- **content-type** (*Optional*): Типово, розширення URL-адреси буде перевірено, щоб визначити тип файлу. Якщо розширення не існує / його неможливо визначити, ви можете вручну надати розширення файлу.
+- **hide-thumbnail** (*Optional*): Якщо встановлено значення `true`, у повідомленні не відображатиметься мініатюра. Вміст буде доступним лише для розширення.
