@@ -1,5 +1,5 @@
 ---
-title: getting more help
+title: дістаті більше допомоги
 id: version-2.0.0-more-help
 original_id: more-help
 ---
