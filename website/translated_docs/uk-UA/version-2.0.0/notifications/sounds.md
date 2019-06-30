@@ -1,5 +1,5 @@
 ---
-title: Sounds
+title: Звуки
 id: version-2.0.0-sounds
 original_id: sounds
 ---
