@@ -1,5 +1,5 @@
 ---
-title: Haptics
+title: Тактичні
 id: version-2.0.0-haptics
 original_id: haptics
 ---
