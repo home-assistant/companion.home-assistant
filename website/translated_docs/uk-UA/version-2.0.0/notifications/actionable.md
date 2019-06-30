@@ -1,7 +1,7 @@
 ---
-title: Actionable notifications
+title: Дієві повідомлення
 id: version-2.0.0-actionable
-original_id: actionable
+original_id: дієвий
 ---
 
 Notifications can be grouped by category, this allows for different types of notifications from Home Assistant be placed in a appropriate stacks on the lock screen and even custom summary text to be used on the notification stack. Categories also you to create actionable notifications to which you can attach up to four buttons underneath an expanded iOS notification. These buttons are associated with automations of your choice, allowing you to perform powerful tasks with literally the press of a button!
@@ -12,52 +12,52 @@ Some useful examples of actionable notifications:
 * Someone rings your front doorbell. You receive a notification with a [live camera stream](dynamic-content.md) of the visitor outside along with action buttons to lock or unlock your front door.
 * Receive a notification whenever your garage door opens with action buttons to open or close the garage.
 
-![Actionable notifications allow the user to send a command back to Home Assistant.](assets/ios/actions.png)
+![Сповіщення дозволяють користувачу відправити команду до Home Assistant.](assets/ios/actions.png)
 
-## Overview of how actionable notifications work
+## Огляд роботи ефективних сповіщень
 
-In advance of sending a notification:
+Надсилання сповіщення заздалегідь:
 
-1. Define a notification category in your Home Assistant configuration which contain 1-4 actions.
-2. At launch iOS app requests notification categories from Home Assistant (can also be done manually in notification settings).
+1. Визначте категорію сповіщень у конфігурації Home Assistant, яка містить 1-4 дії.
+2. При запуску програми iOS додаток запитує категорії повідомлень від Home Assistant (також можна вручну в налаштуваннях сповіщень).
 
-When sending a notification:
+При надсиланні сповіщення:
 
-1. Send a notification with `data.push.category` set to a pre-defined notification category identifier.
+1. Надішліть сповіщення з набором `data.push.category` для попередньо визначеного ідентифікатора категорії сповіщення.
 2. Push notification delivered to device.
-3. User opens notification.
+3. Користувач відкриває сповіщення.
 4. Action tapped.
-5. Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
+5. Ідентифікатор дії, надісланий назад у Home Assistant як властивість `actionName` події `ios.notification_action_fired`, разом з іншими метаданими, такими як ім'я пристрою та категорії.
 
-![How the iOS device and Home Assistant work together to enable actionable notifications.](assets/NotificationActionFlow.png)
+![Як пристрій iOS і Home Assistant працює разом, щоб дозволити активні сповіщення.](assets/NotificationActionFlow.png)
 
-## Definitions
+## Визначення
 
-* **Category** - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.
-* **Actions** - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports.
+* **Category** - A category represents a type of notification that the app might receive. Думайте про неї як про унікальну групу дій.
+* **Actions** - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. Для окремих дій, які підтримує ваша програма, ви створюєте окремі об'єкти дії.
 
-## Category parameters
+## Категорія параметри
 
-| Name          | Default      | Description                                                                                       |
-| ------------- | ------------ | ------------------------------------------------------------------------------------------------- |
-| `name:`       | **required** | A friendly name for this category.                                                                |
-| `identifier:` | **required** | A unique identifier for the category. Must be lowercase and have no special characters or spaces. |
-| `actions:`    | **required** | A list of actions. See below.                                                                     |
+| Name          | Default      | Description                                                                                                     |
+| ------------- | ------------ | --------------------------------------------------------------------------------------------------------------- |
+| `name:`       | **required** | A friendly name for this category.                                                                              |
+| `identifier:` | **required** | A unique identifier for the category. Має бути в нижньому регістрі й не мати спеціальних символів або пробілів. |
+| `actions:`    | **required** | A list of actions. See below.                                                                                   |
 
-## Actions parameters
+## Параметри дій
 
-| Name                      | Default      | Description                                                                                                                                                                                              |
-| ------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `identifier:`             | **required** | A unique identifier for this action. Must be uppercase and have no special characters or spaces. Only needs to be unique to the category, not unique globally.                                           |
-| `title:`                  | **required** | The text to display on the button. Keep it short.                                                                                                                                                        |
-| `activationMode:`         | optional     | The mode in which to run the app when the action is performed. Setting this to `foreground` will make the app open after selecting. Default value is `background`.                                       |
-| `authenticationRequired:` | optional     | If `true`, the user must unlock the device before the action is performed.                                                                                                                               |
-| `destructive:`            | optional     | When `true`, the corresponding button is displayed with a red text color to indicate the action is destructive.                                                                                          |
-| `behavior:`               | optional     | When `textInput` the system provides a way for the user to enter a text response to be included with the notification. The entered text will be sent back to Home Assistant. Default value is `default`. |
-| `textInputButtonTitle:`   | optional*    | The button label. *Required* if `behavior` is `textInput`.                                                                                                                                               |
-| `textInputPlaceholder:`   | optional     | The placeholder text to show in the text input field. Only used if `behavior` is `textInput`                                                                                                             |
+| Name                      | Default      | Description                                                                                                                                                                                                    |
+| ------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `identifier:`             | **required** | A unique identifier for this action. Має бути в верхньому регістрі та не мати спеціальних символів або пробілів. Тільки повиннен бути унікальним для категорії, не єдиним глобально.                           |
+| `title:`                  | **required** | The text to display on the button. Повинен бути коротким.                                                                                                                                                      |
+| `activationMode:`         | optional     | The mode in which to run the app when the action is performed. Якщо встановити цей параметр на `foreground`, програма буде відкрита після вибору. Значення за замовчуванням - `background`.                    |
+| `authenticationRequired:` | optional     | If `true`, the user must unlock the device before the action is performed.                                                                                                                                     |
+| `destructive:`            | optional     | When `true`, the corresponding button is displayed with a red text color to indicate the action is destructive.                                                                                                |
+| `behavior:`               | optional     | When `textInput` the system provides a way for the user to enter a text response to be included with the notification. Введений текст буде надіслано до Home Assistant. Значення за замовчуванням - `default`. |
+| `textInputButtonTitle:`   | optional*    | The button label. *Обов'язково*, якщо `behavior` є `textInput`.                                                                                                                                                |
+| `textInputPlaceholder:`   | optional     | The placeholder text to show in the text input field. Only used if `behavior` is `textInput`                                                                                                                   |
 
-Here's a fully built example configuration:
+Ось приклад повної побудованої конфігурації:
 
 ```yaml
 ios:
@@ -86,9 +86,9 @@ Rather than defining categories using YAML within `configuration.yaml`, you can 
 
 Two variables are available for use in the `Hidden preview placeholder` and `Category summary`. `%u` will give the total number of notifications which have been sent under the same thread ID (see [this document](basic.md#thread-id-grouping-notifications) for more details). `%@` will give the text specified with `summary:` in the `push:` section of the notification payload.
 
-## Building automations for notification actions
+## Побудова автоматизації для дієвіх сповіщень
 
-Here is an example automation to send a notification with a category in the payload:
+Ось приклад автоматизації для надсилання повідомлення з категорією в корисному навантаженні:
 
 ```yaml
 automation:
@@ -107,7 +107,7 @@ automation:
             my_custom_data: foo_bar
 ```
 
-When an action is selected an event named `ios.notification_action_fired` will be emitted on the Home Assistant event bus. Below is an example payload.
+При виборі дії на шину подій Home Assistant буде випускатися подія з ім'ям `ios.notification predm_fired`. Нижче наведено приклад корисного навантаження.
 
 ```json
 {
@@ -120,7 +120,7 @@ When an action is selected an event named `ios.notification_action_fired` will b
 }
 ```
 
-Here's an example automation for the given payload:
+Ось приклад автоматизації для даного корисного навантаження:
 
 ```yaml
 automation:
@@ -135,13 +135,13 @@ automation:
       ...
 ```
 
-Notes:
+Примітки:
 
-* `textInput` will only exist if `behavior` was set to `textInput`.
-* `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
+* `textInput` буде існувати лише тоді, коли для `behavior` встановлено значення `textInput`.
+* `actionData` - це словник з параметрами, переданими в словнику `action_data` словника `push` у вихідному сповіщенні.
 * When adding or updating push categories in `configuration.yaml` be sure to update push settings within the Home Assistant iOS app. This can be found within the Notifications page of the App Configuration menu (accessed from the sidebar menu). You may have to exit the Notifications page and reopen it before new categories are shown. If they are still not listed, restart the Home Assistant Companion App.
 
-## Compatibility with different devices
+## Сумісність з різними пристроями
 
 * For devices that support "Force Touch" / "3D Touch" (most Apple devices from the last 4-5 years) - a firm press on the notification will expand it, showing the action buttons underneath. Supported devices include the iPhone 6S, iPhone 6S Plus, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPhone XS, iPhone XS Max as well as some iPad and Apple Watch models.
 
