@@ -1,7 +1,7 @@
 ---
-title: Welcome
+title: Вітаємо
 id: version-2.0.0-index
-original_id: index
+original_id: індекс
 ---
 
 ## Installation & System Requirements
