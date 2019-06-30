@@ -1,5 +1,5 @@
 ---
-title: Critical notifications
+title: Критічні повідомлення
 id: version-2.0.0-critical
 original_id: critical
 ---
