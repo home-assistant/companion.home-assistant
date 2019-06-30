@@ -1,5 +1,5 @@
 ---
-title: Sensors
+title: Датчики
 id: version-2.0.0-sensors
 original_id: sensors
 ---
@@ -96,7 +96,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 | Attribute               | Description                                                      |
 | ----------------------- | ---------------------------------------------------------------- |
-| `Location`              | The latitude and longitude coordinates of the placemark.         |
+| `Місцерозташування`     | The latitude and longitude coordinates of the placemark.         |
 | `Name`                  | The name of the placemark.                                       |
 | `Country`               | The name of the country associated with the placemark.           |
 | `ISOCountryCode`        | The abbreviated country name.                                    |
