@@ -1,5 +1,5 @@
 ---
-title: Dynamic attachments
+title: Динамічні вкладення
 id: version-2.0.0-dynamic-content
 original_id: dynamic-content
 ---
@@ -46,13 +46,13 @@ You can also pass the following option properties under `action_data` to modify 
 | `shows_traffic:`            | boolean | Displays traffic information on the map.                 |
 | `shows_user_location:`      | boolean | Attempts to display user's location on the map.          |
 
-![An example of the map dynamic content.](assets/ios/map.png)
+![Приклад карти динамічного змісту.](assets/ios/map.png)
 
-## Camera Stream
+## Поточне відео з камери
 
 The preview thumbnail of the notification will display a still image from the camera. When expanded, the notification content displays a real time MJPEG stream if the camera supports it.
 
-You can use the attachment parameters `content-type` and `hide-thumbnail` with camera to control the thumbnail.
+Для керування мініатюр можна використовувати параметри вкладень `content-type` та `hide-thumbnail`.
 
 ```yaml
 service: notify.mobile_app_<your_device_id_here>
@@ -66,17 +66,17 @@ data:
     entity_id: camera.living_room_camera
 ```
 
-You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
+Можна переглянути приклад [тут](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LmYwpxPKW0g" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 </div>
 
-## Combining with actionable notifications
+## Поєднуючи із дійсними сповіщеннями
 
-As you can see the `category` key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom [actions](actionable.md) to add actions to the content extension.
+Як ви можете бачити, клавіша `категорія` використовується, щоб повідомити пристрій про те, яке розширення вмісту слід використовувати. Ви можете використовувати ті ж ідентифікатори категорій у власних [діях](actionable.md), щоб додати дії до розширення вмісту.
 
-For example this configuration adds actions to a camera content message.
+Наприклад, ця конфігурація додає дії до повідомлення про вміст камери.
 
 ```yaml
 ios:
@@ -97,6 +97,6 @@ ios:
             destructive: true
 ```
 
-## Troubleshooting
+## Вирішення негараздів
 
 If you are having problems with receiving these special notifications, try restarting your phone first. The extensions sometimes fail to register properly until a restart.
