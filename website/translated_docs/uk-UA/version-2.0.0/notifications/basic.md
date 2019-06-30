@@ -1,7 +1,7 @@
 ---
-title: Introduction
+title: Вступ
 id: version-2.0.0-basic
-original_id: basic
+original_id: базовий
 ---
 
 The mobile_app notify platform accepts the standard `title`, `message` and `target` parameters used by the notify platform. The mobile_app notify platform supports targets as services. As long as you granted notifications permissions during setup, you will find all your devices listed as targets for the notify service with names prefixed `notify.mobile_app_` followed by the Device ID of you device. This can be checked in the App Configuration menu of the sidebar and defaults to the name specified in the General>About within the iOS settings app (with spaces and non alphanumeric characters replaced by underscores). A requirement of the notify platform is that you must specify at least `message:` in your payload. A minimum working example of a notification is:
@@ -16,9 +16,9 @@ automation:
         message: 'Notification text'
 ```
 
-The mobile_app platform provides many enhancements to the simple notification generated above. The image below, for example, shows an [actionable notification](actionable.md) allowing you to trigger different automations from each button. ![A push notification showing all of the basic options <code>title</code> and <code>message</code> as well as <code>subtitle</code> and actions.](assets/ios/example.png)
+The mobile_app platform provides many enhancements to the simple notification generated above. The image below, for example, shows an [actionable notification](actionable.md) allowing you to trigger different automations from each button. ![Надсилання сповіщення, яке відображає всі основні опції <code>title</code> та <code>message</code>, а також <code>subtitle</code> та дії.](assets/ios/example.png)
 
-## Enhancing basic notifications
+## Підвищення основних сповіщень
 
 ### Notification Sounds
 
@@ -38,7 +38,7 @@ automation:
             sound: none
 ```
 
-### Badge
+### Позначка
 
 You can set the icon badge in the payload. The below example will make the badge icon say 5:
 
@@ -57,7 +57,7 @@ automation:
             badge: 5
 ```
 
-### Subtitle
+### Субтитра
 
 A subtitle is supported in addition to the title:
 
@@ -75,9 +75,9 @@ automation:
           subtitle: "Subtitle goes here"
 ```
 
-### Thread-id (grouping notifications)
+### Thread-id (групування сповіщень)
 
-Grouping of notifications is supported on iOS 12 and above. All notifications with the same thread-id will be grouped together in the notification center. Without a thread-id, all notifications from the app will be placed in a single group.
+Grouping of notifications is supported on iOS 12 and above. Усі сповіщення з однаковим thread-id будуть згруповані в центрі сповіщень. Безthread-id всі сповіщення з програми будуть розміщені в одній групі.
 
 ```yaml
 automation:
@@ -128,7 +128,7 @@ notify:
       - service: mobile_app_ipad_one
 ```
 
-Now, you can send notifications to everyone in the group using:
+Тепер ви можете надсилати сповіщення всім у групі, використовуючи:
 
 ```yaml
   automation:
