@@ -1,17 +1,17 @@
 ---
-title: Privacy, rate limiting and security
-id: version-1.0.0-details
-original_id: details
+title: Приватність, обмеження ставки та безпека
+id: версія-1.0.0-деталі
+original_id: деталі
 ---
 
-## Privacy
+## Приватність
 
-No notification content is stored on remote servers. Only the required push registration data and a simple counter of the total number of push notifications sent per day per device (for rate limiting purposes) is kept.
+На віддалених серверах не зберігається вміст сповіщень. Зберігаються тільки необхідні дані реєстрації та простий лічильник загальної кількості повідомлень, що надсилаються в день на пристрій (для цілей обмеження швидкості).
 
-## Rate limiting
+## Обмеження ліміту
 
-Currently, you are allowed to send a maximum of 150 push notifications per day per device. This is to ensure that the service remains cheap to maintain. In the future we may add support for upgrading to allow more notifications. The rate limit resets at midnight UTC daily. When a notification is sent your current rate limits (including sent notifications and notifications remaining for the day) will be output to your Home Assistant logs. If an error occurs while sending a notification your rate limit will not be affected.
+Наразі вам дозволено надсилати не більше 150 поштових повідомлень на день на пристрій. Це гарантує, що обслуговування залишається дешевим. У майбутньому ми можемо додати підтримку для оновлення, щоб дозволити більше сповіщень. Ліміт ставок обнулюється в північ UTC щодня. Коли надсилається сповіщення, поточні обмеження ставок (у тому числі надіслані сповіщення та сповіщення, що залишилися на день) будуть виводитися до журналів Home Assistant. Якщо під час надсилання сповіщення виникла помилка, це не вплине на обмеження швидкості.
 
-## Security
+## Безпека
 
-All traffic between your Home Assistant instance, the push infrastructure, and Apple, is encrypted with SSL.
+Весь трафік між Home Assistant, інфраструктурою push та Apple, шифрується за допомогою SSL.
