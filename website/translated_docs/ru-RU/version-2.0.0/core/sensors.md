@@ -94,7 +94,7 @@ The [geocoded](https://.wikipedia.org/wiki/Geocoding) location sensor provides a
 
 Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/documentation/mapkit) and [Core Location](https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names) services.
 
-| Attribute               | Description                                                      |
+| Атрибут                 | Description                                                      |
 | ----------------------- | ---------------------------------------------------------------- |
 | `Местоположение`        | The latitude and longitude coordinates of the placemark.         |
 | `Name`                  | The name of the placemark.                                       |
@@ -128,7 +128,7 @@ The pedometer sensors provide step-counting data from the devices built-in motio
 
 The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
 
-| Attribute                  | Description                                                             |
+| Атрибут                    | Description                                                             |
 | -------------------------- | ----------------------------------------------------------------------- |
 | `Carrier Name`             | The name of the user’s home cellular service provider.                  |
 | `Current Radio Technology` |                                                                         |
