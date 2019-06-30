@@ -1,5 +1,5 @@
 ---
-title: Universal Links
+title: Універсальні посилання
 id: version-2.0.0-universal-links
 original_id: universal-links
 ---
