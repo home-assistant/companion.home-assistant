@@ -12,7 +12,7 @@ original_id: базовий
 
 * `target` можна використовувати для конкретного пристрою, використовуючи його PushID, знайдений у `ios.conf`. Переважним способом надання цільової мети є спеціальна служба оповіщення.
 
-![A push notification showing all of the basic options <code>title</code> and <code>message</code> as well as <code>subtitle</code> and actions.](assets/ios/example.png)
+![Надсилання сповіщення, яке відображає всі основні опції <code>title</code> та <code>message</code>, а також <code>subtitle</code> та дії.](assets/ios/example.png)
 
 ### Підвищення основних сповіщень
 
@@ -72,9 +72,9 @@ automation:
             thread-id: "example-notification-group"
 ```
 
-### Sending notifications to multiple phones
+### Надсилання сповіщень до кількох телефонів
 
-To send notifications to multiple phones, create a [notification group](https://www.home-assistant.io/components/notify.group/):
+Щоб надіслати сповіщення до кількох телефонів, створіть [notification group](https://www.home-assistant.io/components/notify.group/):
 
 ```yaml
 notify:
@@ -86,7 +86,7 @@ notify:
       - service: ios_iphone_two
 ```
 
-Now, you can send notifications to everyone in the group using:
+Тепер ви можете надсилати сповіщення всім у групі, використовуючи:
 
 ```yaml
   automation:
