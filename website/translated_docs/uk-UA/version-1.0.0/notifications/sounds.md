@@ -1,5 +1,5 @@
 ---
-title: Sounds
+title: Звуки
 id: version-1.0.0-sounds
 original_id: sounds
 ---
@@ -21,7 +21,7 @@ Here is an example notification that uses one of the pre-installed sounds.
           sound: "US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav"
 ```
 
-Notes:
+Примітки:
 
 * You must use the full filename in the payload (including extension).
 
@@ -42,7 +42,7 @@ The app allows you to use your own custom sounds in push notifications. The soun
 
 Assuming that you correctly formatted the sounds they are now available to use in push notifications.
 
-Notes:
+Примітки:
 
 * **Please note that due to a bug in iOS 10 you may need to restart your entire device before notification sounds can be played. This should hopefully be fixed by Apple soon.**
 * Uploading a file with the same name as an existing one will overwrite the original.
