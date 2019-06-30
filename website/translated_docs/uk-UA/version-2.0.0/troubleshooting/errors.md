@@ -1,5 +1,5 @@
 ---
-title: Errors
+title: Помилки
 id: version-2.0.0-errors
 original_id: errors
 ---
