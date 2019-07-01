@@ -24,7 +24,7 @@ Depending on your set up, location data is sent directly from your phone to your
 
 ## Getting started
 
-Once you have installed and opened the Home Assistant Companion App for the first time, a new `device_tracker` entity will be created. To check the entity ID your device has been assigned, open `known_devices.yaml` in your `config` directory and scroll to the bottom. The entry you are looking for will have 32-character UUID (universally unique identifier) as both the top-level ID and the `name`. You will probably wish to change the value of `name:` to something a little more relevant. Also, if you wish the device to be tracked by Home Assistant (which if you're reading this you presumably do) make sure the entry has `track: true` set. Once you have found the UUID you can use the device tracker as [described in the Home Assistant docs](https://www.home-assistant.io/components/device_tracker/). In a future version, the UUID will be replaced by a more user-friendly ID.
+Once you have installed and opened the Home Assistant Companion App for the first time, a new `device_tracker.` entity will be created. By default the entity will have a name of the form `device_tracker.<device_ID>` where `<device_ID>` is the name you have device name you have set in iOS (see: Settings>General>About). You can check the entity name within Home Assistant by visiting the Integration section of the Configuration page from the sidebar (swipe right if you're using the Companion App) then clicking or tapping on the Mobile App integration for your device and scrolling through the list of entities. You can edit the entity's `name` attribute as you desire if needed. 
 
 The following is a basic example to switch a light on when you enter your _home_ zone after dark.
 
@@ -33,7 +33,7 @@ automation:
   - alias: 'Turn door light on when getting home'
     trigger:
       platform: state
-      entity_id: device_tracker.<UUID_here>
+      entity_id: device_tracker.<device_ID>
       to: 'home'
     condition:
       condition: sun
