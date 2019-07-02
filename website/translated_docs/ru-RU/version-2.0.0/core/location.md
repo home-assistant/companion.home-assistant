@@ -24,7 +24,7 @@ original_id: местоположение
 
 ## Начало работы
 
-После того, как вы впервые установили и открыли приложение Home Assistant Companion, будет создан новый `device_tracker` объект. Чтобы проверить какое ID было назначено вашему устройству, откройте `known_devices.yaml` в вашей `config` директории и прокрутите вниз. Запись, которую вы ищете, будет иметь 32-символьный UUID (универсальный идентификатор) как ID верхнего уровня и `name`. Возможно, вы хотите изменить значение `name:` на что-то более актуальное. Также, если вы хотите, чтобы устройство отслеживалось Home Assistant (который если вы читаете это, вы предположительно делаете) убедитесь, что запись имеет трек `: true` set. После того, как вы нашли UUID, вы можете использовать трекер устройства как [, описанный в документации Home Assistant](https://www.home-assistant.io/components/device_tracker/). В будущей версии UUID будет заменен более удобным для пользователя ID.
+Once you have installed and opened the Home Assistant Companion App for the first time, a new `device_tracker.` entity will be created. By default the entity will have a name of the form `device_tracker.<device_ID>` where `<device_ID>` is the name you have device name you have set in iOS (see: Settings>General>About). You can check the entity name within Home Assistant by visiting the Integration section of the Configuration page from the sidebar (swipe right if you're using the Companion App) then clicking or tapping on the Mobile App integration for your device and scrolling through the list of entities. You can edit the entity's `name` attribute as you desire if needed.
 
 Следующий пример — это базовый пример, который переключает свет при приближении к вашему *дому* с наступлением темноты.
 
@@ -33,7 +33,7 @@ automation:
   - alias: 'Turn door light on when getting home'
     trigger:
       platform: state
-      entity_id: device_tracker.<UUID_here>
+      entity_id: device_tracker.<device_ID>
       to: 'home'
     condition:
       condition: sun
