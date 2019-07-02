@@ -1,7 +1,7 @@
 ---
 title: Вирішення негараздів
 id: version-2.0.0-setup
-original_id: setup
+original_id: налаштування
 ---
 
 Below is a list of common issues and troubleshooting advice to address them. For more support please [look at the more help page](more-help.md)
