@@ -4,11 +4,11 @@ id: version-1.0.0-dynamic-content
 original_id: dynamic-content
 ---
 
-With the new Content Extension feature found in iOS 10, dynamic content can now be displayed as part of a notification without opening an app.
+Завдяки новій функції розширення вмісту, яка міститься в iOS 10, динамічний вміст тепер може відображатися як частина сповіщення без видкриття додатку.
 
-# Map
+# Мапа
 
-Will show a map with a red tipped pin at the coordinates given. The map will be centered at the coordinates given.
+Покаже мапу з червоним наконечником на вказаних координатах. Мапа буде с середені заданих координат.
 
 ```yaml
 service: notify.ios_<your_device_id_here>
@@ -22,15 +22,15 @@ data:
       longitude: "-73.968285"
 ```
 
-## Showing a second pin
+## Показ другоЇ позначки
 
-You can use the following properties under `action_data` to display a second pin. If used, the first pin will be red and the second green.
+Можна використовувати такі властивості під `action_data`, щоб відобразити другу позначку. Якщо використовується, перша позначка буде червона, а друга - зелена.
 
-- **second_latitude**: The latitude of the second pin. **Must be a string!**
-- **second_longitude**: The longitude of the second pin. **Must be a string!**
-- **shows_line_between_points**: A Boolean value indicating whether a line should be drawn between the first and second pin.
+- **second_latitude**: Широта другої позначки. **Має бути рядок!**
+- **second_longitude**: Довгота другої позначки. **Має бути рядок!**
+- **shows_line_between_points**: Булеве значення, яке вказує, чи слід малювати лінію між першою і другою позначками.
 
-## Extra configuration
+## Додаткова конфігурація
 
 Можна також передати такі властивості під `action_data`, щоб змінити карту різними засобами. Очікується, що всі булеві значення, якщо не зазначено інше:
 
