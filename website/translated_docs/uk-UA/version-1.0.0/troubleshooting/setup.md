@@ -1,7 +1,7 @@
 ---
 title: Проблеми налаштування
-id: version-1.0.0-setup
-original_id: setup
+id: версія-1.0.0-налаштування
+original_id: налаштування
 ---
 
-Some stuff about Core Features
+Деякі речі щодо основних функцій
