@@ -6,7 +6,7 @@ original_id: dynamic-content
 
 Dynamic content such as maps and camera streams can be displayed as part of a notification without needing to open an app.
 
-## Map
+## Мапа
 
 Will show a centered map with a red pin at the given coordinates.
 
@@ -24,9 +24,9 @@ data:
 
 You may also use a device_tracker for the latitude and longitude coordinates like so: `"{{states.device_tracker.<your_device_id_here>.attributes.latitude}}"` but make sure to use `data_template` in that case.
 
-### Showing a second pin
+### Показ другоЇ позначки
 
-You can use the following properties under `action_data` to display a second pin. If used, the first pin will be red and the second pin green.
+Можна використовувати такі властивості під `action_data`, щоб відобразити другу позначку. If used, the first pin will be red and the second pin green.
 
 | Name                         | Type    | Description                                          |
 | ---------------------------- | ------- | ---------------------------------------------------- |
@@ -34,7 +34,7 @@ You can use the following properties under `action_data` to display a second pin
 | `second_longitude:`          | string  | The longitude of the second pin.                     |
 | `shows_line_between_points:` | boolean | Displays a line connecting the first and second pin. |
 
-### Extra configuration
+### Додаткова конфігурація
 
 You can also pass the following option properties under `action_data` to modify the map in various ways. All options listed here accept boolean (`true` / `false`) values.
 
