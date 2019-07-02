@@ -1,12 +1,12 @@
 ---
 title: Звуки
 id: version-2.0.0-sounds
-original_id: sounds
+original_id: звуки
 ---
 
-Adding a custom sound to a notification allows you to easily identify the notification without even looking at your device. Home Assistant for iOS comes with some notification sounds pre-installed but you can also upload your own.
+Додавання спеціального звуку до сповіщення дозволяє легко визначити сповіщення, навіть не дивлячись на пристрій. Домашній помічник для iOS постачається з попередньо встановленими звуками сповіщень, але ви також можете завантажити свої власні.
 
-Here is an example notification that uses one of the pre-installed sounds.
+Ось приклад повідомлення, яке використовує один з попередньо встановлених звуків.
 
 ```yaml
 - alias: Notify Mobile App
@@ -23,27 +23,27 @@ Here is an example notification that uses one of the pre-installed sounds.
 
 > You must use the full filename (including extension) in the payload.
 
-## Custom push notification sounds
+## Звуки користувача push-сповіщень
 
-The app allows you to use your own custom sounds in push notifications. The sounds must be formatted as 32bit float 48000Hz wav files. Make sure you know the filename of the sound as you will need to reference it in the `sound` field of the notification payload. To add sounds follow either of the two following methods:
+Додаток дозволяє вам використовувати свої власні звуки в push повідомленнях. Звуки повинні бути відформатовані як 32-бітні плаваючі 48000Гц wav-файли. Make sure you know the filename of the sound as you will need to reference it in the `sound` field of the notification payload. To add sounds follow either of the two following methods:
 
 > - You may need to restart your entire device before notification sounds can be played.
-> - Uploading a file with the same name as an existing one will overwrite the original.
+> - Завантаження файлу з таким самим іменем, що й існуючий, буде замінено на оригінал.
 
 ### Via iTunes
 
-1. Connect the device to a PC or Mac running the latest version of iTunes.
-2. Go to the device in iTunes.
-3. Select "File Sharing" in the left-hand menu.
-4. Select Home Assistant.
-5. Drag and drop properly formatted sounds (32bit float 48000Hz wav files).
-6. Click Sync in the lower right.
-7. Once the sync is complete, disconnect the device from the computer.
-8. On your iOS device, open the Home Assistant app.
-9. Go to Settings -> Notification Settings.
-10. Select "Import sounds from iTunes".
+1. Підключіть пристрій до ПК або Mac, на якому запущено останню версію iTunes.
+2. Перейдіть до пристрою в iTunes.
+3. Виберіть "Спільний доступ до файлів" у меню зліва.
+4. Виберіть Home Assistant.
+5. Перетягніть правильно відформатовані звуки (32-бітне плаваюче 48000Гц wav-файли).
+6. Натисніть Синхронізувати в нижньому правому куті.
+7. Після завершення синхронізації від'єднайте пристрій від комп'ютера.
+8. На пристрої iOS відкрийте програму Home Assistant.
+9. Перейдіть до Налаштування -> Налаштування сповіщень.
+10. Виберіть "Імпортувати звуки з iTunes".
 
-Assuming that you correctly formatted the sounds they are now available to use in push notifications.
+Припускаючи, що ви правильно відформатували звуки, тепер вони доступні для використання в push-сповіщеннях.
 
 ### Via Cloud Storage:
 
