@@ -1,50 +1,50 @@
 ---
 title: Дії
-id: version-2.0.0-actions
-original_id: actions
+id: версія-2.0.0-дії
+original_id: дії
 ---
 
-Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS.
+Дії - це загальна система, яка дозволяє легко інтегрувати систему автоматизації Home Assistant в кілька областей iOS.
 
-# Creating Actions
+# Створення дій
 
-Actions are created from the Actions section of the App Configuration page within the companion App. Each action has six required fields:
+Дії створюються з розділу Дії на сторінці конфігурації програми в додатку App. Кожна дія має шість обов'язкових полів:
 
-* `Name`: the name of the action, this will be returned in the [Home Assistant event](https://www.home-assistant.io/docs/configuration/events/) fired by the app.
-* `Text`: the descriptive text shown on the phone and watch. It is best to keep this relatively short as there is limited space on each action's button.
-* `Text Color`: the color of the text defined above
-* `Background Color`: the color of the button created for the action.
-* `Icon`: an icon to display to the left of the text on the action's button 
-* `Icon Color`: the color of the icon on the action's button.
+* `Name`: назва дії, вона буде повернеться в [Home Assistant event](https://www.home-assistant.io/docs/configuration/events/) запущеною додатком.
+* `Text`: текст пояснення, що відображається на телефоні, та годинник. Найкраще тримати це відносно коротким, оскільки на кожній кнопці дії є обмежений простір.
+* `Text Color`: колір тексту, визначений вище
+* `Background Color`: колір кнопки, створеної для дії.
+* `Icon`: піктограму для відображення ліворуч від тексту на кнопці дії 
+* `Icon Color`: колір піктограми на кнопці дії.
 
-For the three color fields, the color is selected by tapping the color-picker circle in each field.
+Для трьох кольорових полів колір вибирається шляхом натискання на колірне коло вибору у кожному полі.
 
-# Using Actions
+# Вікористання дій
 
-When an action button is pressed a `ios.action_fired` event is fired on Home Assistant's event bus. The event data consists of a JSON-formatted dictionary of attributes relating to the action.
+Після натискання кнопки дії на шину подій Home Assistant запущено подію `ios.action_fired`. Дані про події складаються з словника атрибутів, відформатованих у JSON.
 
-| Attribute    | Value                                                                                                                                                                                                                             |
+| Атрибути     | Значення                                                                                                                                                                                                                          |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `context`    | Child dictionary relating the user that triggered the event and the ID of the event                                                                                                                                               |
-| `data`       | Child dictionary containing key information about the action and its origin                                                                                                                                                       |
-| `event_type` | Always `ios.action_fired`                                                                                                                                                                                                         |
-| `origin`     | Always `REMOTE`                                                                                                                                                                                                                   |
-| `time_fired` | Data and time the action was fired, formatted as an [ISO timestamp](https://en.wikipedia.org/wiki/ISO_8601) , e.g. midnight on Christmas day in Lapland (Eastern European Time, UTC+2), would be `2019-12-25T00:00.000000+02:00`. |
+| `контекст`   | Впідпрядкований словник, що стосується користувача, який ініціював подію та ідентифікатор події                                                                                                                                   |
+| `дані`       | Впідпрядкований словник містить ключову інформацію про дію та її походження                                                                                                                                                       |
+| `event_type` | Завжди `ios.action_fired`                                                                                                                                                                                                         |
+| `походження` | Завжди `REMOTE`                                                                                                                                                                                                                   |
+| `time_fired` | Дані та час, коли дія була запущена, відформатована як [ISO timestamp](https://en.wikipedia.org/wiki/ISO_8601) , напр. опівночі на Різдво в Лапландії ( Східноєвропейський час, UTC+2), має бути `2019-12-25T00:00.000000+02:00`. |
 
-The attributes contained within `data` are:
+Атрибути, що містяться в `data`, це:
 
-| Attribute                 | Value                                                                                                                                                                                  |
+| Атрибути                  | Значення                                                                                                                                                                               |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `actionID`                | A unique identifier for the action.                                                                                                                                                    |
-| `actionName`              | The name of the action as given in the `Name` field when creating the action.                                                                                                          |
-| `sourceDeviceID`          | The device ID set in the App Configuration page of the companion app.                                                                                                                  |
-| `sourceDeviceName`        | The name of the iPhone or iPad from which the action was triggered. This is the Device Name set in iOS under Settings App>General>About.                                               |
-| `sourceDevicePermanentID` | A unique identifier of the iPhone or iPad through which the action was triggered                                                                                                       |
+| `actionID`                | Унікальний ідентифікатор дії.                                                                                                                                                          |
+| `actionName`              | Ім'я дії, вказане в полі `Name` під час створення дії.                                                                                                                                 |
+| `sourceDeviceID`          | Ідентифікатор пристрою, встановлений на сторінці "Конфігурація програми" додатка.                                                                                                      |
+| `sourceDeviceName`        | Ім'я iPhone або iPad, з якого було запущено дію. Це Ім'я пристрою, встановлене в iOS у розділі Параметри App> Загальні> Про програму.                                                  |
+| `sourceDevicePermanentID` | Унікальний ідентифікатор iPhone або iPad, через який дія була ініційована                                                                                                              |
 | `triggerSource`           | What part of iOS the action with fired from. Either: `widget` for the Today screen, `appShortcut` for quick actions accessed through 3D touch or `watch` if fired from an Apple Watch. |
 
 The attributes contained within `context` are:
 
-| Attribute   | Value                                                                                                                                                   |
+| Атрибути    | Значення                                                                                                                                                |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `id`        | A unique one-time ID for the event.                                                                                                                     |
 | `parent_id` | Always `null`.                                                                                                                                          |
