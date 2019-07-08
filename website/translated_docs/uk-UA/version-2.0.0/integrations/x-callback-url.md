@@ -4,6 +4,6 @@ id: version-2.0.0-x-callback-url
 original_id: x-callback-url
 ---
 
-The app has full support for [X-Callback-URL](http://x-callback-url.com/), a standardized way for apps such as Google Chrome, Drafts and Shortcuts to interact with eachother via URL handlers.
+Додаток має повну підтримку [X-Callback-URL](http://x-callback-url.com/), стандартизований спосіб взаємодії програм, таких як Google Chrome, Чернетки та ярлики з eachother через URL handlers.
 
-All functions that the URL handler supports are also supported via X-Callback-URL.
+Всі функції, які підтримуєURL handler, також підтримуються за допомогою X-Callback-URL.
