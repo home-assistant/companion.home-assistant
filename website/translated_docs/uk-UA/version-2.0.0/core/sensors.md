@@ -6,34 +6,34 @@ original_id: sensors
 
 Along with providing [location services](location.md), the companion app also adds several additional sensors to Home Assistant. **It is important to know that these sensors are only updated when a location is pushed to Home Assistant or the web view is refreshed**. The sensors provided by the companion app are:
 
-| Sensor                       | Attributes                             | Description                                                                                                                                                            |
-| ---------------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `sensor.activity`            | `confidence`, `types`                  | The current activity type as computed by iOS. Requires motion permissions to be enabled.                                                                               |
-| `sensor.average_active_pace` | None                                   | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s                                                                                 |
-| `sensor.battery_level`       | `Battery State`                        | The current battery level of the device. Current battery state is available from the `Battery State` attribute of this sensor.                                         |
-| `sensor.battery_state`       | `Battery Level`                        | The current charging state (either `Charging`, `Not Charging`, or `Full`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
-| `sensor.bssid`               | None                                   | The MAC address of the wireless access point your phone is connected to. When off Wi-Fi, this sensor will report `Not Connected`.                                      |
-| `sensor.connection_type`     | `Cellular Technology`                  | The current data connection being used by the phone.                                                                                                                   |
-| `sensor.distance`            | None                                   | The estimated distance walked by the user since midnight local time. Units: meters, m                                                                                  |
-| `sensor.floors_ascended`     | None                                   | The approximate number of floors ascended by walking since midnight local time.                                                                                        |
-| `sensor.floors_descended`    | None                                   | The approximate number of floors descended by walking. Since                                                                                                           |
-| `sensor.geocoded_location`   | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data.                                                                                                                                  |
-| `sensor.last_update_trigger` | None                                   | The cause of the last update of location and sensor data from the device to Home Assistant                                                                             |
-| `sensor.sim_1`               | [See Below](#cellular-provider-sensor) | Name of your cellular provider.                                                                                                                                        |
-| `sensor.sim_2`               | [See Below](#cellular-provider-sensor) | Name of your cellular provider.                                                                                                                                        |
-| `sensor.ssid`                | None                                   | The human-readable name of the Wi-Fi network the device is currently connected to. When off Wi-Fi, this sensor will report `Not Connected`.                            |
-| `sensor.steps`               | None                                   | The number of steps taken by the user.                                                                                                                                 |
+| Sensor                       | Атрибути                                  | Опис                                                                                                                                                          |
+| ---------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sensor.activity`            | `confidence`, `types`                     | Поточний тип діяльності, обчислений iOS. Необхідно дозволи для руху.                                                                                          |
+| `sensor.average_active_pace` | None                                      | Усереднений темп, обчислений iOS з даних крокоміра. Одиниці виміру: метри в секунду, м/с                                                                      |
+| `sensor.battery_level`       | `Battery State`                           | Поточний рівень заряду акумулятора пристрою. Поточний стан батареї доступний з атрибута `Battery State` цього датчика.                                        |
+| `sensor.battery_state`       | `Battery Level`                           | Поточний стан заряджання (або `Charging`, `Not Charging` або `Full`) пристрою. Поточний рівень заряду акумулятора доступний з атрибуту `Level` цього датчика. |
+| `sensor.bssid`               | None                                      | MAC-адреса точки бездротового доступу, до якої підключено ваш телефон. Якщо вимкнено Wi-Fi, цей датчик повідомить `Not Connected`.                            |
+| `sensor.connection_type`     | `Стільникові технології`                  | Поточне з'єднання даних використовується телефоном.                                                                                                           |
+| `sensor.distance`            | None                                      | Орієнтовна відстань пройдена користувачем з півночі за місцевим часом. Одиниці виміру: метри, м                                                               |
+| `sensor.floors_ascended`     | None                                      | Орієнтовна кількість поверхів вгору під час ходи з півночі за місцевим часом.                                                                                 |
+| `sensor.floors_descended`    | None                                      | Орієнтовна кількість поверхів вниз під час ходи. Від                                                                                                          |
+| `sensor.geocoded_location`   | [Дивись нижче](#geocoded-location-sensor) | Прорахована адреса на основі даних GPS.                                                                                                                       |
+| `sensor.last_update_trigger` | None                                      | Причина останнього оновлення даних про місцезнаходження та датчиків від пристрою до Home Assistant                                                            |
+| `sensor.sim_1`               | [Дивись нижче](#cellular-provider-sensor) | Ім'я оператора стільникового зв'язку.                                                                                                                         |
+| `sensor.sim_2`               | [Дивись нижче](#cellular-provider-sensor) | Ім'я оператора стільникового зв'язку.                                                                                                                         |
+| `sensor.ssid`                | None                                      | Читаєме людиною ім'я мережі Wi-Fi, до якого в даний момент підключено пристрій. Якщо вимкнено Wi-Fi, цей датчик повідомить `Not Connected`.                   |
+| `sensor.steps`               | None                                      | Кількість кроків, зроблених користувачем.                                                                                                                     |
 
-Attributes such as `Cellular Technology` can be accessed with a template such as:
+Такі атрибути, як `Cellular Technology`, можна отримати за допомогою шаблону, як:
 
     {{ states.sensor.connection_type.attributes['Cellular Technology'] }}
     
 
-## Actvity Sensor
+## Датчик активності
 
-`sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
+`sensor.activity` надає поточну рухову активність, обчислену iOS, а також впевненість у обчисленнях. Діяльність, відома iOS і надана `sensor.activity`, це:
 
-* `Stationary`
+* `Стаціонарні`
 * `Walking`
 * `Running`
 * `Automotive`
@@ -77,7 +77,7 @@ If the connection type is not recognized, either `Unknown` or `Unknown Technolog
 
 This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
 
-| State                       | Description                                                                                                                                                 |
+| State                       | Опис                                                                                                                                                        |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Manual                      | A manual update is triggered when the user pulls to refresh.                                                                                                |
 | Initial                     | Sensors are updated upon initial app launch.                                                                                                                |
@@ -90,50 +90,50 @@ This sensor displays exactly what caused the last update of location and sensor 
 
 ## Geocoded Location Sensor
 
-The [geocoded](https://.wikipedia.org/wiki/Geocoding) location sensor provides a user-friendly description of a users current location coordinates, often containing the name of the place, its address, and other relevant information. This sensor reports many detailed attributes allowing you to create useful [template sensors](https://www.home-assistant.io/components/template/).
+Датчик місцезнаходження [geocoded](https://.wikipedia.org/wiki/Geocoding) надає зручний для користувача опис поточних координат користувачів, які часто містять назву місця, його адресу та іншої відповідної інформації. Цей датчик повідомляє багато докладно атрибутів, які дозволяють створювати корисні [template sensors](https://www.home-assistant.io/components/template/).
 
-Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/documentation/mapkit) and [Core Location](https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names) services.
+Геокодування обробляється безпосередньо iOS [MapKit](https://developer.apple.com/documentation/mapkit) та [Core Location](https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names) севісом.
 
-| Attribute               | Description                                                      |
-| ----------------------- | ---------------------------------------------------------------- |
-| `Місцерозташування`     | The latitude and longitude coordinates of the placemark.         |
-| `Name`                  | The name of the placemark.                                       |
-| `Country`               | The name of the country associated with the placemark.           |
-| `ISOCountryCode`        | The abbreviated country name.                                    |
-| `TimeZone`              | The time zone associated with the placemark.                     |
-| `AdministrativeArea`    | The state or province associated with the placemark.             |
-| `SubAdministrativeArea` | Additional administrative area information for the placemark.    |
-| `PostalCode`            | The postal code associated with the placemark.                   |
-| `Locality`              | The city associated with the placemark.                          |
-| `SubLocality`           | Additional city-level information for the placemark.             |
-| `Thoroughfare`          | The street address associated with the placemark.                |
-| `SubThoroughfare`       | Additional street-level information for the placemark.           |
-| `AreasOfInterest`       | The relevant areas of interest associated with the placemark.    |
-| `Ocean`                 | The name of the ocean associated with the placemark.             |
-| `InlandWater`           | The name of the inland water body associated with the placemark. |
+| Атрибути                | Опис                                                                 |
+| ----------------------- | -------------------------------------------------------------------- |
+| `Місцерозташування`     | Координати широти та довготи позначки місця.                         |
+| `Ім’я`                  | Назва позначки місця.                                                |
+| `Країна`                | Назва країни, пов’язаної з позначкою місця.                          |
+| `ISOCountryCode`        | Скорочена назва країни.                                              |
+| `TimeZone`              | Часовий пояс, пов'язаний з позначкою місця.                          |
+| `AdministrativeArea`    | Держава або провінція, пов'язані з позначкою місця.                  |
+| `SubAdministrativeArea` | Додаткова інформація про адміністративну область для позначки місця. |
+| `PostalCode`            | Поштовий код, пов'язаний із позначкою місця.                         |
+| `Locality`              | Місто, пов’язане з позначкою місця.                                  |
+| `SubLocality`           | Додаткова інформація на рівні міста для позначки місця.              |
+| `Thoroughfare`          | Адреса вулиці, пов’язана з позначкою місця.                          |
+| `SubThoroughfare`       | Додаткова інформація на рівні вулиці для позначки місця.             |
+| `AreasOfInterest`       | Релевантні області інтересів, пов'язані з позначкою місця.           |
+| `Ocean`                 | Назва океану, пов'язаного з позначкою місця.                         |
+| `InlandWater`           | Назва внутрішнього водного об'єкта, пов'язаного з позначкою місця.   |
 
 ## Pedometer Sensors
 
-The pedometer sensors provide step-counting data from the devices built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
+Датчики крокоміра забезпечують дані підрахунку кроків від вбудованого в процесор пристрою руху. Вони підтримують щоденну активність ходи і обнуляються опівночі. Ці датчики вимагають включення дозволів на рух.
 
-| Sensor                       | Description                                                  |
-| ---------------------------- | ------------------------------------------------------------ |
-| `sensor.steps`               | The number of steps taken by the user.                       |
-| `sensor.distance`            | The estimated distance (in meters) traveled by the user.     |
-| `sensor.average_active_pace` | The average pace of the user, measured in seconds per meter. |
-| `sensor.floors_ascended`     | The approximate number of floors ascended by walking.        |
-| `sensor.floors_descended`    | The approximate number of floors descended by walking.       |
+| Sensor                       | Опис                                                     |
+| ---------------------------- | -------------------------------------------------------- |
+| `sensor.steps`               | Кількість кроків, зроблених користувачем.                |
+| `sensor.distance`            | Орієнтовна відстань (в метрах), що проходить користувач. |
+| `sensor.average_active_pace` | Середній темп користувача, виміряний в секундах на метр. |
+| `sensor.floors_ascended`     | Орієнтовна кількість поверхів вгору ходою.               |
+| `sensor.floors_descended`    | Орієнтовна кількість поверхів вниз під час ходи.         |
 
 ## Cellular Provider Sensor
 
-The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
+Датчик стільникового зв'язку відображає інформацію про постачальника послуг стільникового зв'язку користувача, наприклад, його унікальний ідентифікатор і чи дозволяє він здійснювати VoIP дзвінки у своїй мережі. `sensor.sim_1` відповідає встановленій фізичній SIM-карті, а `sensor.sim_2` відповідає eSIM (це відображається лише у випадку, якщо eSIM увімкнено).
 
-| Attribute                  | Description                                                             |
-| -------------------------- | ----------------------------------------------------------------------- |
-| `Carrier Name`             | The name of the user’s home cellular service provider.                  |
-| `Current Radio Technology` |                                                                         |
-| `ISO Country Code`         | The ISO country code for the user’s cellular service provider.          |
-| `Mobile Country Code`      | The mobile country code (MCC) for the user’s cellular service provider. |
-| `Mobile Network Code`      | The mobile network code for the user’s cellular service provider.       |
-| `Carrier ID`               |                                                                         |
-| `Allows VoIP`              | Indicates if the carrier allows making VoIP calls on its network.       |
+| Атрибути                   | Опис                                                                                            |
+| -------------------------- | ----------------------------------------------------------------------------------------------- |
+| `Carrier Name`             | Ім'я провайдера домашньої стільникової мережі користувача.                                      |
+| `Current Radio Technology` |                                                                                                 |
+| `ISO Country Code`         | Код країни ISO для оператора стільникового зв'язку користувача.                                 |
+| `Mobile Country Code`      | Код країни мобільного зв'язку (MCC) для постачальника послуг стільникового зв'язку користувача. |
+| `Mobile Network Code`      | The mobile network code for the user’s cellular service provider.                               |
+| `Carrier ID`               |                                                                                                 |
+| `Allows VoIP`              | Indicates if the carrier allows making VoIP calls on its network.                               |
