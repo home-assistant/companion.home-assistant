@@ -33,22 +33,22 @@ original_id: дії
 
 Атрибути, що містяться в `data`, це:
 
-| Атрибути                  | Значення                                                                                                                                                                               |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `actionID`                | Унікальний ідентифікатор дії.                                                                                                                                                          |
-| `actionName`              | Ім'я дії, вказане в полі `Name` під час створення дії.                                                                                                                                 |
-| `sourceDeviceID`          | Ідентифікатор пристрою, встановлений на сторінці "Конфігурація програми" додатка.                                                                                                      |
-| `sourceDeviceName`        | Ім'я iPhone або iPad, з якого було запущено дію. Це Ім'я пристрою, встановлене в iOS у розділі Параметри App> Загальні> Про програму.                                                  |
-| `sourceDevicePermanentID` | Унікальний ідентифікатор iPhone або iPad, через який дія була ініційована                                                                                                              |
-| `triggerSource`           | What part of iOS the action with fired from. Either: `widget` for the Today screen, `appShortcut` for quick actions accessed through 3D touch or `watch` if fired from an Apple Watch. |
+| Атрибути                  | Значення                                                                                                                                                                                               |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `actionID`                | Унікальний ідентифікатор дії.                                                                                                                                                                          |
+| `actionName`              | Ім'я дії, вказане в полі `Name` під час створення дії.                                                                                                                                                 |
+| `sourceDeviceID`          | Ідентифікатор пристрою, встановлений на сторінці "Конфігурація програми" додатка.                                                                                                                      |
+| `sourceDeviceName`        | Ім'я iPhone або iPad, з якого було запущено дію. Це Ім'я пристрою, встановлене в iOS у розділі Параметри App> Загальні> Про програму.                                                                  |
+| `sourceDevicePermanentID` | Унікальний ідентифікатор iPhone або iPad, через який дія була ініційована                                                                                                                              |
+| `triggerSource`           | З якої частини iOS дію запущено. Або: `widget` для екрану "Сьогодні", `appShortcut` для швидких дій, доступ до яких здійснюється за допомогою 3D-touch, або `watch`, якщо він запущений з Apple Watch. |
 
-The attributes contained within `context` are:
+Атрибути, що містяться в `context`, це:
 
-| Атрибути    | Значення                                                                                                                                                |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `id`        | A unique one-time ID for the event.                                                                                                                     |
-| `parent_id` | Always `null`.                                                                                                                                          |
-| `user_id`   | The Home Assistant [user ID](https://www.home-assistant.io/docs/authentication/#user-accounts) used to authorise the companion app with Home Assistant. |
+| Атрибути    | Значення                                                                                                                                                                        |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`        | Унікальний одноразовий ідентифікатор події.                                                                                                                                     |
+| `parent_id` | Завжди `null`.                                                                                                                                                                  |
+| `user_id`   | Home Assistan[user ID](https://www.home-assistant.io/docs/authentication/#user-accounts), який використовувався для авторизації супутньої програми за допомогою Home Assistant. |
 
 Actions can be used to trigger automations within Home Assistant. An example `configuration.yaml` entry might be:
 
