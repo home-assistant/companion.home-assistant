@@ -1,16 +1,16 @@
 ---
 title: Дієві повідомлення
-id: version-2.0.0-actionable
+id: версія-2.0.0-дієвий
 original_id: дієвий
 ---
 
-Notifications can be grouped by category, this allows for different types of notifications from Home Assistant be placed in a appropriate stacks on the lock screen and even custom summary text to be used on the notification stack. Categories also you to create actionable notifications to which you can attach up to four buttons underneath an expanded iOS notification. These buttons are associated with automations of your choice, allowing you to perform powerful tasks with literally the press of a button!
+Сповіщення можуть бути згруповані за категоріями, це дозволяє для різних типів сповіщень з Home Assistant розміщуватися у відповідних стеках на екрані блокування і навіть звичайний підсумковий текст, який буде використовуватися в стеку повідомлень. Категорії також дозволяють створювати дієві сповіщення, до яких можна підключити до чотирьох кнопок під розширеним сповіщенням iOS. Ці кнопки пов'язані з вибіром автоматизації, дозволяючи виконувати потужні завдання, без перебільшення, натисканням кнопки!
 
-Some useful examples of actionable notifications:
+Деякі корисні приклади діючих сповіщень:
 
-* A notification is sent whenever motion is detected in your home while you're away or asleep. A "Sound Alarm" action button is displayed alongside the notification, that when tapped, will sound your burglar alarm.
-* Someone rings your front doorbell. You receive a notification with a [live camera stream](dynamic-content.md) of the visitor outside along with action buttons to lock or unlock your front door.
-* Receive a notification whenever your garage door opens with action buttons to open or close the garage.
+* Повідомлення надсилається, коли виявлено рух у вашому домі, коли ви перебуваєте далеко або спите. Кнопка дії "Звукова сигналізація" відображається поруч із сповіщенням про те, що при натисканні на неї пролунає ваша сигналізація.
+* Хтось дзвонить у дверний дзвінок. Ви отримаєте сповіщення [live camera stream](dynamic-content.md) з зображенням звідвідувача, а також кнопку дії для блокування або розблокування передніх дверей.
+* Отримаєте сповіщення, коли ваші двері гаража відкриваються за допомогою кнопок дій, щоб відкрити або закрити гараж.
 
 ![Сповіщення дозволяють користувачу відправити команду до Home Assistant.](assets/ios/actions.png)
 
@@ -24,38 +24,38 @@ Some useful examples of actionable notifications:
 При надсиланні сповіщення:
 
 1. Надішліть сповіщення з набором `data.push.category` для попередньо визначеного ідентифікатора категорії сповіщення.
-2. Push notification delivered to device.
+2. Швидке повідомлення, доставлене на пристрій.
 3. Користувач відкриває сповіщення.
-4. Action tapped.
+4. Дія натиснута.
 5. Ідентифікатор дії, надісланий назад у Home Assistant як властивість `actionName` події `ios.notification_action_fired`, разом з іншими метаданими, такими як ім'я пристрою та категорії.
 
 ![Як пристрій iOS і Home Assistant працює разом, щоб дозволити активні сповіщення.](assets/NotificationActionFlow.png)
 
 ## Визначення
 
-* **Category** - A category represents a type of notification that the app might receive. Думайте про неї як про унікальну групу дій.
-* **Actions** - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. Для окремих дій, які підтримує ваша програма, ви створюєте окремі об'єкти дії.
+* **Category** - категорія являє собою тип сповіщення, яке може отримати програма. Думайте про неї як про унікальну групу дій.
+* **Actions**. Дії складаються з назви кнопки та інформації, яку iOS потрібно передаті в додаток після вибору дії. Для окремих дій, які підтримує ваша програма, ви створюєте окремі об'єкти дії.
 
 ## Категорія параметри
 
-| Name          | Default      | Description                                                                                                     |
-| ------------- | ------------ | --------------------------------------------------------------------------------------------------------------- |
-| `name:`       | **required** | A friendly name for this category.                                                                              |
-| `identifier:` | **required** | A unique identifier for the category. Має бути в нижньому регістрі й не мати спеціальних символів або пробілів. |
-| `actions:`    | **required** | A list of actions. See below.                                                                                   |
+| Ім’я             | Стандартний      | Опис                                                                                                          |
+| ---------------- | ---------------- | ------------------------------------------------------------------------------------------------------------- |
+| `назва:`         | **обов'язковий** | Дружнє ім'я для цієї категорії.                                                                               |
+| `ідентифікатор:` | **обов'язковий** | Унікальний ідентифікатор категорії. Має бути в нижньому регістрі й не мати спеціальних символів або пробілів. |
+| `дії:`           | **обов'язковий** | Перелік дій. Дивись нижче.                                                                                    |
 
 ## Параметри дій
 
-| Name                      | Default      | Description                                                                                                                                                                                                    |
-| ------------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `identifier:`             | **required** | A unique identifier for this action. Має бути в верхньому регістрі та не мати спеціальних символів або пробілів. Тільки повиннен бути унікальним для категорії, не єдиним глобально.                           |
-| `title:`                  | **required** | The text to display on the button. Повинен бути коротким.                                                                                                                                                      |
-| `activationMode:`         | optional     | The mode in which to run the app when the action is performed. Якщо встановити цей параметр на `foreground`, програма буде відкрита після вибору. Значення за замовчуванням - `background`.                    |
-| `authenticationRequired:` | optional     | If `true`, the user must unlock the device before the action is performed.                                                                                                                                     |
-| `destructive:`            | optional     | When `true`, the corresponding button is displayed with a red text color to indicate the action is destructive.                                                                                                |
-| `behavior:`               | optional     | When `textInput` the system provides a way for the user to enter a text response to be included with the notification. Введений текст буде надіслано до Home Assistant. Значення за замовчуванням - `default`. |
-| `textInputButtonTitle:`   | optional*    | The button label. *Обов'язково*, якщо `behavior` є `textInput`.                                                                                                                                                |
-| `textInputPlaceholder:`   | optional     | The placeholder text to show in the text input field. Only used if `behavior` is `textInput`                                                                                                                   |
+| Ім’я                      | Стандартний      | Опис                                                                                                                                                                                                         |
+| ------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ідентифікатор:`          | **обов'язковий** | Унікальний ідентифікатор для цієї дії. Має бути в верхньому регістрі та не мати спеціальних символів або пробілів. Тільки повиннен бути унікальним для категорії, не єдиним глобально.                       |
+| `назва:`                  | **обов'язковий** | Текст для відображення на кнопці. Повинен бути коротким.                                                                                                                                                     |
+| `activationMode:`         | optional         | Режим запуску додатку під час виконання дії. Якщо встановити цей параметр на `foreground`, програма буде відкрита після вибору. Значення за замовчуванням - `background`.                                    |
+| `authenticationRequired:` | optional         | Якщо `true`, користувач повинен розблокувати пристрій перед виконанням дії.                                                                                                                                  |
+| `destructive:`            | optional         | Коли `true`, відповідна кнопка відображається червоним кольором тексту, що вказує дія destructive.                                                                                                           |
+| `behavior:`               | optional         | При `textInput` система надає користувачеві можливість ввести текстовий відповідь, який буде включено до сповіщення. Введений текст буде надіслано до Home Assistant. Значення за замовчуванням - `default`. |
+| `textInputButtonTitle:`   | optional*        | The button label. *Обов'язково*, якщо `behavior` є `textInput`.                                                                                                                                              |
+| `textInputPlaceholder:`   | optional         | Текст заповнювача, який буде показано у полі введення тексту. Використовується, лише якщо `behavior` є `textInput`                                                                                           |
 
 Ось приклад повної побудованої конфігурації:
 
@@ -82,9 +82,9 @@ ios:
             textInputPlaceholder: 'Placeholder'
 ```
 
-Rather than defining categories using YAML within `configuration.yaml`, you can create them directly within the Companion App. This can be done from the Notifications page of the App Configuration Menu (accessed from the sidebar menu).
+Замість визначення категорій за допомогою YAML в `configuration.yaml`, їх можна створити безпосередньо в додатку Companion App. Це можна зробити на сторінці сповіщень в Меню Конфігурації додатку (доступ до нього з меню бічної панелі).
 
-Two variables are available for use in the `Hidden preview placeholder` and `Category summary`. `%u` will give the total number of notifications which have been sent under the same thread ID (see [this document](basic.md#thread-id-grouping-notifications) for more details). `%@` will give the text specified with `summary:` in the `push:` section of the notification payload.
+Доступні дві змінні для викорістання `Hidden preview placeholder` та `Category summary`. `%u`надасть загальну кількість сповіщень, надісланих під тим самим thread ID (див. [this document](basic.md#thread-id-grouping-notifications) для більш докладної інформації). `%@` will give the text specified with `summary:` in the `push:` section of the notification payload.
 
 ## Побудова автоматизації для дієвіх сповіщень
 
