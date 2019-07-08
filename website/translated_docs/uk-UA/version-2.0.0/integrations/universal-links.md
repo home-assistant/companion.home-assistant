@@ -10,6 +10,6 @@ The app has registered all URLs under `https://www.home-assistant.io/ios/` as va
 
 `https://www.home-assistant.io/ios/nfc/?url=<a URL you could use with the existing URL handler>`
 
-What this allows for is NFC support. You can write a NFC tag with a NDEF URL like the above and whenever your device sees that NFC tag, a notification will appear for you to open the app with.
+What this allows for is NFC support. Ви можете написати тег NFC з URL-адресою NDEF, як описано вище, і всякий раз, коли ваш пристрій бачить цей тег NFC, з'явиться повідомлення, з яким ви відкриєте програму.
 
-Once you open the app, it will do whatever action you told it to in the URL.
+Після того, як ви відкриєте програму, вона зробить будь-яку дію, яку ви сказали їй в URL-адресі.
