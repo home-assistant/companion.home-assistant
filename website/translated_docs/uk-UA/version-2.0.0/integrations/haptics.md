@@ -18,7 +18,7 @@ WIP: Instructions on integrating haptics supports into custom cards will go here
 
 Home Assistant Companion supports all seven haptic strength levels as defined by [Apple's Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/ios/user-interaction/feedback/).
 
-| Haptic      | Description                                                          |
+| Haptic      | Опис                                                                 |
 | ----------- | -------------------------------------------------------------------- |
 | `success`   | Indicates that a task or action has completed.                       |
 | `warning`   | Indicates that a task or action has produced a warning of some kind. |
