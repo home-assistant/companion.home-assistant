@@ -10,7 +10,7 @@ Below is a list of common issues and troubleshooting advice to address them. For
 Once you have [set up](../getting_started/index.md) the Companion App, a `notify.mobile_app_<Device_ID>` service will be created providing you granted notification permissions during setup. If you can't see this [force quit](https://support.apple.com/HT201330) the Companion App and then reopen the app and finally restart your Home Assistant instance. The service should now be listed in the `dev-services` panel. If not, check the notification settings within the app (swipe right to bring up the sidebar, the tap "App Configuration", then "Notifications"). If the "Push ID" box is empty, tap the Reset button below it.
 
 #### I have a `notify.mobile_app_<Device_ID>` service but don't receive notifications
-Firstly, check your message payload is valid. Look at the examples in the [notification docs](../notifications/basis.md) or try sending the simple example below for the `dev-services` page to your `notify.mobile_app_<Device_ID>` service.
+Firstly, check your message payload is valid. Look at the examples in the [notification docs](../notifications/basic.md) or try sending the simple example below for the `dev-services` page to your `notify.mobile_app_<Device_ID>` service.
 ```JSON
 {"message": "Hello World"}
 ```
@@ -47,3 +47,7 @@ In an imminent update to the app, default sensor names will be changed to includ
 4.  For each sensor you wish to rename, click or tap on the sensor name and then the cog symbol.
 5.  Under "Entity ID" change the entity id as required. Do **not** change `sensor.` or `device_tracker.` part of the ID
 6.  Repeat Steps 4 and 5 for each sensor you wish to rename
+
+
+#### Opening or resuming the Companion App generates authentication errors in my Home Assistant notifications
+This is normally due to having a camera entity present on a Lovelace picture entities or picture elements card. A workaround for this is to remove the the camera entity in the short term while this is resolved. You may be able to use [live stream view](https://github.com/home-assistant/home-assistant/issues/23055) to address this. This is a known bug with Home Assistant which you can track and help address [here](https://github.com/home-assistant/home-assistant/issues/23055).
