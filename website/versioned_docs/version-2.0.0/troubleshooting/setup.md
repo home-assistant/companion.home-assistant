@@ -47,3 +47,7 @@ In an imminent update to the app, default sensor names will be changed to includ
 4.  For each sensor you wish to rename, click or tap on the sensor name and then the cog symbol.
 5.  Under "Entity ID" change the entity id as required. Do **not** change `sensor.` or `device_tracker.` part of the ID
 6.  Repeat Steps 4 and 5 for each sensor you wish to rename
+
+
+#### Opening or resuming the Companion App generates authentication errors in my Home Assistant notifications
+This is normally due to having a camera entity present on a Lovelace picture entities or picture elements card. A workaround for this is to remove the the camera entity in the short term while this is resolved. You may be able to use [live stream view](https://github.com/home-assistant/home-assistant/issues/23055) to address this. This is a known bug with Home Assistant which you can track and help address [here](https://github.com/home-assistant/home-assistant/issues/23055).
