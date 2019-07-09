@@ -28,7 +28,7 @@ You may also use a device_tracker for the latitude and longitude coordinates lik
 
 Можна використовувати такі властивості під `action_data`, щоб відобразити другу позначку. If used, the first pin will be red and the second pin green.
 
-| Name                         | Type    | Description                                          |
+| Ім’я                         | Type    | Опис                                                 |
 | ---------------------------- | ------- | ---------------------------------------------------- |
 | `second_latitude:`           | string  | The latitude of the second pin.                      |
 | `second_longitude:`          | string  | The longitude of the second pin.                     |
@@ -38,7 +38,7 @@ You may also use a device_tracker for the latitude and longitude coordinates lik
 
 You can also pass the following option properties under `action_data` to modify the map in various ways. All options listed here accept boolean (`true` / `false`) values.
 
-| Name                        | Type    | Description                                              |
+| Ім’я                        | Type    | Опис                                                     |
 | --------------------------- | ------- | -------------------------------------------------------- |
 | `shows_compass:`            | boolean | Displays a compass control on the map.                   |
 | `shows_points_of_interest:` | boolean | Displays point-of-interest (POI) information on the map. |
