@@ -102,9 +102,8 @@ automation:
       data:
         title: "Motion Detected in Backyard"
         message: "Someone might be in the backyard."
-          data:
-            apns_headers:
-              'apns-collapse-id': 'backyard-motion-detected'
+        apns_headers:
+          apns-collapse-id: "backyard-motion-detected"
 ```
 
 ### Sending notifications to multiple devices
