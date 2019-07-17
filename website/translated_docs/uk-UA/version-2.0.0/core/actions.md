@@ -50,7 +50,7 @@ original_id: дії
 | `parent_id` | Завжди `null`.                                                                                                                                                                  |
 | `user_id`   | Home Assistan[user ID](https://www.home-assistant.io/docs/authentication/#user-accounts), який використовувався для авторизації супутньої програми за допомогою Home Assistant. |
 
-Actions can be used to trigger automations within Home Assistant. An example `configuration.yaml` entry might be:
+Дії можуть бути використані для запуску автоматизації в Home Assistant. Прикладом запису `configuration.yaml` може бути:
 
 ```yaml
 automation:
@@ -66,19 +66,19 @@ automation:
       entity_id: group.all_lights
 ```
 
-Note that attributes located in the `data` and `context` are accessed through `event_data` and `event_context` respectively within the automation.
+Зверніть увагу, що атрибути, розташовані в `data` і `context`, доступні через `event_data` і `event_context` відповідно в межах автоматизації.
 
-You can use the Events page within Home Assistant's developer tools to show all information contained with the event for a particular event by subscribing to `ios.action_fired` and triggering the action from you device.
+Ви можете використовувати сторінку Події у засобах розробника Home Assistant, щоб показати всю інформацію, що міститься у події, для певної події, підписавшись на `ios.action_fired` і запустивши дію з вашого пристрою.
 
 # Home Screen Quick Actions
 
-[Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions and is accessed by 3D Touching the Home Assistant companion app icon on your home screen.
+[Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) на головному екрані надають зручний ярлик для ваших дій і доступ до них 3D Натисканням піктограми додатка домашнього помічника на головному екрані.
 
 # Today View Widget
 
-The [Today View Widget](https://support.apple.com/en-gb/HT207122) is another route through which actions can be fired. To add the Home Assistant widget to your Today View:
+[Today View Widget](https://support.apple.com/en-gb/HT207122) - це інший маршрут, за допомогою якого можна запускати дії. Щоб додати віджет Home Assistant до перегляду "Сьогодні":
 
-1. Swipe right while on the Home screen or Lock screen.
-2. Scroll to the very bottom and tap the Edit button.
-3. Find the "Home Assistant - Actions" widget in the "More Widgets" list and then tap the green + button to add it.
-4. Rearrange as you'd like and then tap Done.
+1. Проведіть пальцем праворуч, у той час як на головному екрані або на екрані блокування.
+2. Перейдіть до самого низу та натисніть кнопку Редагувати.
+3. Знайдіть віджет "Домашній помічник - дії" у списку "Додаткові віджети", а потім натисніть зелену кнопку +, щоб додати її.
+4. Переставте, як зручно, а потім натисніть Готово.
