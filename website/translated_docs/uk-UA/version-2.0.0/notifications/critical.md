@@ -31,4 +31,4 @@ automations:
 
 ```
 
-If you have previously read the [sounds documentation](sounds.md) this syntax should be mostly familiar. Note the example expands the `sound` attribute to include the `critical: 1` flag, and `volume: 1.0` to set the volume to 100 %.
+Якщо ви раніше читали [документацію для звуків ](sounds.md), цей синтаксис має бути здебільшого знайомим. Зауважте, що приклад розширює атрибут `sound`, щоб включити примітку `critical: 1` і `volume: 1.0`, щоб встановити рівень гучності до 100 %.
