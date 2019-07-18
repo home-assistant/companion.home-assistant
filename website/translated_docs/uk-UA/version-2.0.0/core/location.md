@@ -6,27 +6,27 @@ original_id: місцерозташування
 
 ## Огляд
 
-Location updates are sent from your device to Home Assistant in a number of situations:
+Оновлення місцерозташування надсилаються з вашого пристрою до домашнього помічника в ряді ситуацій:
 
-* When you enter or exit a [zone](https://www.home-assistant.io/components/zone/) defined in Home Assistant.
-* When an iBeacon is detected or lost (see [below](#ibeacons)).
-* When the app is opened and it was not already open in the background.
-* Via an automated background fetch.
-* When an update is requested via [special notification](notifications/location.md)
-* When a [URL Handler](integrations/url-handler.md) link is opened.
-* When the app is called via a [X-Callback-URL](integrations/x-callback-url.md).
-* When your devices detects a [*significant location change*](#location-tracking-when-outside-a-home-assistant-zone).
-* Manually when the app is refreshed (swipe down when at the top of a page) or from the shortcut menu opened from 3D touching the app icon.
+* Коли ви входите або виходите з [зони](https://www.home-assistant.io/components/zone/), визначеної в домашньому помічнику.
+* Коли iBeacon виявлено або втрачено (див. [нижче](#ibeacons)).
+* Коли додаток відкрито і він не був відкритий у фоновому режимі.
+* Через автоматичний фоновий вибір.
+* Коли запит на оновлення здійснюється за допомогою [спеціального повідомлення](notifications/location.md)
+* Коли відкрито посилання [URL Handler](integrations/url-handler.md).
+* Коли програма викликається за допомогою [X-Callback-URL](integrations/x-callback-url.md).
+* Коли ваші пристрої виявляють [ *значущі зміни місцерозташування*](#location-tracking-when-outside-a-home-assistant-zone).
+* Вручну, коли програма оновлюється (проведіть пальцем вниз у верхній частині сторінки) або з контекстного меню, відкритого в 3D, торкаючись піктограми програми.
 
-You can check the cause of the most recent location update by checking the value of `sensor.last_update_trigger`
+Ви можете перевірити причину останнього оновлення місцерозташування, перевіривши значення `sensor.last_update_trigger`
 
-Depending on your set up, location data is sent directly from your phone to your Home Assistant instances or via the Home Assistant Cloud Service. This will depend on the URLs specified in the Connection section of the App Configuration menu. Location data is not sent via any other servers or organisations. Of course, if you decide not grant the Home Assistant Companion App location permission or if you subsequently remove the location permissions (via iOS Settings>Privacy>Location Services), no location data will be sent from your device to Home Assistant. **Check this is true for notification updates**
+Залежно від налаштувань, дані про місцерозташування надсилаються безпосередньо з вашого телефону на примірники Home Assistant або через Home Assistant Cloud Service. Це буде залежати від URL-адреси, зазначених у розділі "З'єднання" в меню "Конфігурація програми". Дані про місцерозташування не надсилаються через інші сервери або організації. Звичайно, якщо ви вирішили не надати дозвіл на розташування Home Assistant Companion або ви згодом видалили дозволи на місцерозташування (через налаштування iOS> конфіденційність> служби визначення місцезнаходження), дані про місцерозташування не надсилатимуться з вашого пристрою до домашнього помічника. **Перевірте чі це так для оновлення сповіщень**
 
-## Getting started
+## Початок роботи
 
-Once you have installed and opened the Home Assistant Companion App for the first time, a new `device_tracker.` entity will be created. By default the entity will have a name of the form `device_tracker.<device_ID>` where `<device_ID>` is the name you have device name you have set in iOS (see: Settings>General>About). You can check the entity name within Home Assistant by visiting the Integration section of the Configuration page from the sidebar (swipe right if you're using the Companion App) then clicking or tapping on the Mobile App integration for your device and scrolling through the list of entities. You can edit the entity's `name` attribute as you desire if needed.
+Після першого встановлення та відкриття програми Home Assistant Companion буде створено новий об'єкт `device_tracker.`. За замовчуванням об'єкт буде мати назву форми `device_tracker.<device_ID>` де `<device_ID>` це ім'я, яке ви вказали в iOS (назва: Налаштування> Загальні> Про). Ви можете перевірити ім'я об'єкта в Home Assistant, відвідавши розділ "Інтеграція" на сторінці конфігурації з бічної панелі (проведіть праворуч, якщо ви використовуєте додаток), а потім клацнувши або торкнувшись інтеграції мобільного додатка для вашого пристрою і прокрутивши список суб'єктів. Якщо потрібно, ви можете редагувати атрибут `name` об'єкта.
 
-The following is a basic example to switch a light on when you enter your *home* zone after dark.
+Нижче наведено основний приклад для включення світла, коли ви вводите *home* зону після темряви.
 
 ```yaml
 automation:
@@ -46,7 +46,7 @@ automation:
 
 ## Відстеження місця розташування за межами зони Home Assistant
 
-The Home Assistant Companion App receives *significant location updates* from iOS. При отриманні оновлення він надсилається до Home Assistant. Приблизно оновлюється щоразу, коли ваш пристрій переходить на нову стільникову вежу, пройшов значний час (як правило, кілька годин) або змінюється стан з'єднання, і система помічає, що ваше місце розташування нещодавно змінилося.
+Додаток Home Assistant отримує *значні оновлення місцерозсташування* з iOS. При отриманні оновлення він надсилається до Home Assistant. Приблизно оновлюється щоразу, коли ваш пристрій переходить на нову стільникову вежу, пройшов значний час (як правило, кілька годин) або змінюється стан з'єднання, і система помічає, що ваше місце розташування нещодавно змінилося.
 
 Apple опріділює [defines](https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW9) значні оновлення місцезнаходження значних змін як:
 
@@ -72,7 +72,7 @@ Apple опріділює [defines](https://developer.apple.com/library/content/d
 
 ### iBeacons
 
-The app has basic support for using iBeacons to trigger enter/exit updates. Щоб налаштувати їх, додайте відомості про iBeacon до своєї зони так:
+Додаток має базову підтримку для використання iBeacons для запуску оновлень входу/ виходу. Щоб налаштувати їх, додайте відомості про iBeacon до своєї зони так:
 
 ```yaml
 zone.home:
@@ -82,4 +82,4 @@ zone.home:
     minor: 43814
 ```
 
-Restart Home Assistant and then the iOS app. It will then begin using iBeacons *instead of your location* for enter triggers around your zones. Щоб додати iBeacon до `zone.home`, додайте вищезгадане під `customize`.
+Перезапустіть Home Assistant, а потім додаток iOS. Потім він почне використовувати iBeacons *замість вашого місцерозсташування* для введення тригерів навколо ваших зон. Щоб додати iBeacon до `zone.home`, додайте вищезгадане під `customize`.
