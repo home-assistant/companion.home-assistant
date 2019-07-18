@@ -12,7 +12,7 @@ Once you have [set up](../getting_started/index.md) the Companion App, a `notify
 
 #### I have a `notify.mobile_app_<Device_ID>` service but don't receive notifications
 
-Firstly, check your message payload is valid. Look at the examples in the [notification docs](../notifications/basic.md) or try sending the simple example below for the `dev-services` page to your `notify.mobile_app_<Device_ID>` service.
+Firstly, check your message payload is valid. Перегляньте приклади в [документах для оповіщень](../notifications/basic.md) або спробуйте надіслати простий приклад нижче на сторінці `dev-services` у `notify.mobile_app_<Device_ID>` сервісу.
 
 ```JSON
 {"message": "Hello World"}
@@ -55,6 +55,6 @@ In an imminent update to the app, default sensor names will be changed to includ
 5. Under "Entity ID" change the entity id as required. Do **not** change `sensor.` or `device_tracker.` part of the ID
 6. Repeat Steps 4 and 5 for each sensor you wish to rename
 
-#### Opening or resuming the Companion App generates authentication errors in my Home Assistant notifications
+#### Відкриття або відновлення додатка Companion генерує помилки автентифікації в сповіщеннях Home Assistant
 
-This is normally due to having a camera entity present on a Lovelace picture entities or picture elements card. A workaround for this is to remove the the camera entity in the short term while this is resolved. You may be able to use [live stream view](https://github.com/home-assistant/home-assistant/issues/23055) to address this. This is a known bug with Home Assistant which you can track and help address [here](https://github.com/home-assistant/home-assistant/issues/23055).
+Як правило, це пов'язано з наявністю на об'єкті зображення Lovelace об'єкта зображення або картинці елементів зображення. Для цього потрібно усунути об'єкт камери на короткий термін, поки це не буде вирішено. Ви можете використовувати [перегляд потоку в прямому ефірі](https://github.com/home-assistant/home-assistant/issues/23055), щоб вирішити цю проблему. Це відома помилка з Home Assistant, яку можна відстежувати та звертатися за адресою [тут](https://github.com/home-assistant/home-assistant/issues/23055).
