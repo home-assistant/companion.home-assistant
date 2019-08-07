@@ -14,5 +14,5 @@ If after reading the docs here you are still having issues, try the following re
 *   Please raise an issue on the [GitHub repository](https://github.com/home-assistant/home-assistant-iOS).
 
 **For issues, corrections or amendments to these docs**
-*   Either use the edit button on each page (docs are written in [Markdown](https://daringfireball.net/projects/markdown/syntax)), you will need a [GitHub](https://www.github.com) account to submit changes; or
+*   Either use the edit button on the page you wish to amend (docs are written in [Markdown](https://daringfireball.net/projects/markdown/syntax)), you will need a [GitHub](https://www.github.com) account to submit changes; or
 *   raise an issue on the [GitHub repository](https://github.com/home-assistant/companion.home-assistant) for the docs.
