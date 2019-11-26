@@ -31,7 +31,7 @@ Upgrading to version 2.0 of Home Assistant Companion requires setting up the app
 
 1.  Use a browser to load your Home Assistant instances and go to "Configuration" (cog icon) and then "Integrations".
 2.  Select the iOS integration for the device you wish to upgrade.
-3.  You should see two entities listed with the sensors `sensor.<device name>_battery_level` and `sensor.<device name>_battery_state` where `<device_name>` is the name specified in iOS settings>General>About, click the cog icon next to these and delete the each entity in turn (the order you do this in does not matter).
+3.  You should see two entities listed with the sensors `sensor.<device_id>_battery_level` and `sensor.<device_id>_battery_state` where `<device_id>` relates to the id you specified in the old version of the app for the device you wish to upgrade. **If you have multiple apps/devices configured take care to only delete the entities relating to the device you are updating**. Click the cog icon next to these entities and delete the each entity in turn (the order you do this in does not matter).
 4.  If this was your only device, you can now delete the iOS integration as a whole by going back one page and using the trash can icon in the top right.
 5.  Open the 'known_devices.yaml' file and remove the entry that has the same `<device_name>` as in Step 3.
 6.  Restart Home Assistant. The connection between your old Home Assistant Companion 1.5 App and your Home Assistant Instance should now be fully removed.
