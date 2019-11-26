@@ -1,9 +1,9 @@
 ---
-title: Migrating to Home Assistant Companion 2.0
+title: Migrating to Home Assistant Companion 2019.1
 id: migration
 ---
 
-The steps below should guide you through the process of migrating from the previous app version (1.5) to 2.0. Before going any further, please make sure you read the [breaking changes](migration#breaking-changes) listed below.
+The steps below should guide you through the process of migrating from the previous app version (1.5) to 2019.1. Before going any further, please make sure you read the [breaking changes](migration#breaking-changes) listed below.
 
 # Breaking Changes
 -   All notifications need to be updated as the notify service is moving from `notify.ios_<device_id>` to `notify.mobile_app_<device_name>`. In the old version the `device_id` was set in the iOS app settings, after the update the `device_name` is taken from iOS settings (see iOS Settings App>General>About).
@@ -63,7 +63,7 @@ Your iOS devices are all updated and you're up and running with the new and shin
 -   iOS Location Permissions are required for the app to use Internal_URL / External_URL on iOS 13 and newer. This is due to a change in iOS which prohibits the app to access the Wi-Fi SSID name.
 -   If you receive a 405 error code when trying to sign in after the app auto discovered your Home Assistant instance, try manually entering the address of you Home Assistant instance instead.
 
-## Changes from 1.5 to 2.0
+## Changes from 1.5 to 2019.1
 -   Brand new push notification engine, powered by Firebase, for even more complex notifications than ever before, including critical notifications and much much more.
 -   Siri Shortcuts: Now, you can interact with your Home Assistant via Siri and the Shortcuts app.
 -   Apple Watch: Control your home via the Apple Watch app and monitor its status with Complications.
