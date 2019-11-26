@@ -12,7 +12,7 @@ The steps below should guide you through the process of migrating from the previ
 -   The battery level and state sensors will be change from `sensor.<device_id>_battery_level` and `sensor.<device_id>_battery_state` to `sensor.battery_level` and `sensor.battery_state`. When you set up additional devices, the new sensors for those device will be distinguished with an identifier on the end (i.e. `sensor.battery_level_2`).
 
 # Requirements
-You need to be running Home Assistant 0.92.2 or newer. The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
+You need to be running Home Assistant 0.95.0 or newer. The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
 -   `default_config:`
 
 If for some reason you have disabled the default config make sure your `configuration.yaml` contains at least:
