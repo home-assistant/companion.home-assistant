@@ -37,7 +37,7 @@ automation:
 ```
 
 ### Badge
-You can set the icon badge in the payload. The below example will make the badge icon say 5:
+You can set the app icon badge in the payload. The below example will make the app icon badge say 5:
 
 ```yaml
 automation:
@@ -53,6 +53,8 @@ automation:
           push:
             badge: 5
 ```
+
+By setting the message to `delete_alert` you can silently update the app badge icon in the background without sending a notification to your phone. 
 
 ### Subtitle
 A subtitle is supported in addition to the title:
