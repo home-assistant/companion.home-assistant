@@ -56,9 +56,6 @@
       "notifications/actionable": {
         "title": "Actionable notifications"
       },
-      "notifications/architecture": {
-        "title": "Technical information"
-      },
       "notifications/attachments": {
         "title": "Standard Attachments"
       },
