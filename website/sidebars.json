@@ -34,7 +34,6 @@
   "Integrations": {
     "Integrations": [
       "integrations/index",
-      "integrations/url-handler",
       "integrations/theming",
       "integrations/haptics",
       "integrations/universal-links",
