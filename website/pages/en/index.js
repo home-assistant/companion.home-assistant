@@ -68,6 +68,9 @@ const PopularTopicsSection = ({ language }) => (
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h2>Popular topics</h2>
           <ul style={{ flex: "1" }}>
+          <li><a href={docUrl("getting_started/migration", language)}>
+              Migrating to version 2.0
+          </a></li>
           <li><a href={docUrl("notifications/actionable", language)}>
               Actionable notifications
             </a></li>

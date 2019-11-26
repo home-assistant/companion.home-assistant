@@ -1,7 +1,8 @@
 {
   "version-2.0.0-Getting Started": {
     "Getting Started": [
-      "version-2.0.0-getting_started/index"
+      "version-2.0.0-getting_started/index",
+      "version-2.0.0-getting_started/migration"
     ]
   },
   "version-2.0.0-Core": {
