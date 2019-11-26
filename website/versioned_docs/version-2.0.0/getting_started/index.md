@@ -6,7 +6,7 @@ original_id: index
 
 ## Installation & System Requirements
 
-The Home Assistant Companion App can be downloaded from the [App Store](https://apps.apple.com/app/home-assistant-companion/id1099568401). The App requires iOS 10 or greater, this means the oldest devices supported are the iPhone 5, 4<sup>th</sup> generation iPad and the 6<sup>th</sup> generation iPod touch.
+The Home Assistant Companion App can be downloaded from the [iOS App Store](https://apps.apple.com/app/home-assistant-companion/id1099568401) or [Play Store](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android). The iOS App requires iOS 10 or greater, this means the oldest devices supported are the iPhone 5, 4<sup>th</sup> generation iPad and the 6<sup>th</sup> generation iPod touch.
 
 To  provide the required integrations, the Home Assistant Companion App requires that your Home Assistant instance is running 0.95.0 or greater.
 
