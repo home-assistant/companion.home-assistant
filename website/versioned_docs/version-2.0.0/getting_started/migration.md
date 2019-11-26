@@ -14,15 +14,15 @@ The steps below should guide you through the process of migrating from the previ
 # Requirements
 The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
 ```default_config:``` 
-or if for some reason you have disabled the default config make sure your configuration.yaml contains at least:
 
-```mobile_app:```
-```discovery:```
+If for some reason you have disabled the default config make sure your configuration.yaml contains at least:
+mobile_app:
+discovery:
+
 
 For some features the following integrations also need to be enabled:
-```cloud:``` is used for securely connecting to your Home Assistant via Nabu Casa subscription via Remote UI and cloud webhooks
-
-```ios:``` is used if you want advanced notifications like actionable notifications and categories
+- cloud: is used for securely connecting to your Home Assistant via Nabu Casa subscription via Remote UI and cloud webhooks
+- ios: is used if you want advanced notifications like actionable notifications and categories
 
 ## 1 - Disconnecting the iOS integration
 
