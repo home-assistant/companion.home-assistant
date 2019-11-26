@@ -1,7 +1,7 @@
 ---
-title: Welcome
-id: version-1.0.0-index
-original_id: index
+title: Добро пожаловать
+id: версия-1.0.0-индекс
+original_id: индекс
 ---
 
-Some stuff about Getting Started
+Некоторые вещи о том, как начать это страница V1

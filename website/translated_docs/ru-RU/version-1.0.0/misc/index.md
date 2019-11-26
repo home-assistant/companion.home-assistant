@@ -1,7 +1,7 @@
 ---
-title: Introduction
-id: version-1.0.0-index
-original_id: index
+title: Введение
+id: версия-1.0.0-индекс
+original_id: индекс
 ---
 
-Catch all category. Topics are not related to one another.
+Найдите все категории. Темы не связаны друг с другом.

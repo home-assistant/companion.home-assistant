@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting
-id: version-1.0.0-index
-original_id: index
+title: Вирішення негараздів
+id: версія-1.0.0-базова
+original_id: індекс
 ---
 
-Some stuff about troubleshooting
+Деякі речі щодо усунення негараздів

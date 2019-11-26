@@ -1,17 +1,17 @@
 ---
-title: Privacy, rate limiting and security
-id: version-1.0.0-details
-original_id: details
+title: Приватность, ограничение ставок и безопасность
+id: версия-1.0.0-подробности
+original_id: подробности
 ---
 
-## Privacy
+## Конфиденциальность
 
-No notification content is stored on remote servers. Only the required push registration data and a simple counter of the total number of push notifications sent per day per device (for rate limiting purposes) is kept.
+На удаленных серверах не хранится содержимое уведомлений. Сохраняется только требуемые данные регистрации push и простой счетчик общего количества push-уведомлений, отправляемых в день на устройство (в целях ограничения скорости).
 
-## Rate limiting
+## Ограничение частоты запросов
 
-Currently, you are allowed to send a maximum of 150 push notifications per day per device. This is to ensure that the service remains cheap to maintain. In the future we may add support for upgrading to allow more notifications. The rate limit resets at midnight UTC daily. When a notification is sent your current rate limits (including sent notifications and notifications remaining for the day) will be output to your Home Assistant logs. If an error occurs while sending a notification your rate limit will not be affected.
+В настоящее время вам разрешено отправлять не более 150 push-уведомлений в день на устройство. Это значит, что обслуживание остается дешевым для поддержания. В будущем мы возможно добавим поддержку обновления, чтобы разрешить больше уведомлений. Ограничение тарифов обнуляется в полночь UTC ежедневно. Когда уведомление отправляется, лимиты количества (включая отправленные уведомления и уведомления, оставшиеся на день) будут выводиться в журналы домашнего помощника. Если при отправке уведомления произошла ошибка, лимит вашего количества не будет затронут.
 
-## Security
+## Безопасность
 
-All traffic between your Home Assistant instance, the push infrastructure, and Apple, is encrypted with SSL.
+Весь обмен данными между Home Assistant, push инфраструктурой и Apple, зашифрован с помощью SSL.

@@ -1,24 +1,24 @@
 ---
 title: Introduction
 id: version-1.0.0-basic
-original_id: basic
+original_id: basique
 ---
 
-The iOS notify platform accepts the standard `title`, `message` and `target` parameters. The iOS notify platform supports targets as services. Assuming that you did not set a `name` when configuring the platform you should find all your registered and notification-enabled iOS devices available as notify targets as services with names prefixed "notify.ios_" and then the device name you entered at setup.
+La plateforme de notification iOS accepte la norme `title`, `message` et `target` en paramètres. La plateforme de notification iOS supporte les cibles comme des services. En supposant que vous n'avez pas défini un nom `name` lors de la configuration de la plate-forme, vous devriez trouver tous vos appareils iOS enregistrés et activés disponibles en tant que cibles de services préfixés par "notify.ios_" puis le nom de l'appareil que vous avez entré à l'installation.
 
 Notes:
 
-* `title` only displays on Apple Watch and devices with iOS 10 or above.
+* `title` ne s'affiche que sur Apple Watch et appareils avec iOS 10 ou plus.
 
-* `target` can be used to specific a single device using its PushID, found in `ios.conf`. The preferred way of providing a target is through a target specific notify service.
+* `target` peut être utilisé pour spécifier un seul périphérique en utilisant son PushID, trouvé dans `ios.conf`. The preferred way of providing a target is through a target specific notify service.
 
 ![A push notification showing all of the basic options <code>title</code> and <code>message</code> as well as <code>subtitle</code> and actions.](assets/ios/example.png)
 
-### Enhancing basic notifications
+### Amélioration des notifications de base
 
 #### Badge
 
-You can set the icon badge in the payload:
+Vous pouvez définir le badge d'icône dans les données :
 
 ```yaml
 automation:
@@ -35,9 +35,9 @@ automation:
             badge: 5
 ```
 
-#### Subtitle
+#### Sous-titre
 
-Starting with iOS 10, a subtitle is supported in addition to the title:
+À partir d'iOS 10, un sous-titre est pris en charge en plus du titre :
 
 ```yaml
 automation
@@ -53,9 +53,9 @@ automation
           subtitle: "Subtitle goes here"
 ```
 
-#### Thread-id (grouping notifications)
+#### Identifiant de fil / Thread-id (regroupement de notification)
 
-Starting with iOS 12, grouping of notifications is supported. All notifications with the same thread-id will be grouped together in the notification center. Without a thread-id, all notifications from the app will be placed in a single group.
+À partir d'iOS 12, le regroupement de notifications est pris en charge. Toutes les notifications avec le même identifiant de fil seront regroupées dans le centre de notification. Sans un identifiant de fil, toutes les notifications de l'application seront placées dans un seul groupe.
 
 ```yaml
 automation:
@@ -72,9 +72,9 @@ automation:
             thread-id: "example-notification-group"
 ```
 
-### Sending notifications to multiple phones
+### Envoi de notifications sur plusieurs téléphones
 
-To send notifications to multiple phones, create a [notification group](https://www.home-assistant.io/components/notify.group/):
+Pour envoyer des notifications à plusieurs téléphones, créez un [groupe de notification](https://www.home-assistant.io/components/notify.group/):
 
 ```yaml
 notify:
@@ -86,7 +86,7 @@ notify:
       - service: ios_iphone_two
 ```
 
-Now, you can send notifications to everyone in the group using:
+Maintenant, vous pouvez envoyer des notifications à tous les membres du groupe en utilisant :
 
 ```yaml
   automation:

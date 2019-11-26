@@ -1,7 +1,7 @@
 ---
-title: Integrations
-id: version-1.0.0-index
-original_id: index
+title: Интеграции
+id: версия-1.0.0-индекс
+original_id: индекс
 ---
 
-Some stuff about Integrations
+Некоторые вещи о Интеграции

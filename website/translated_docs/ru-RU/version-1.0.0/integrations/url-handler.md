@@ -1,23 +1,23 @@
 ---
-title: URL Handler
-id: version-1.0.0-url-handler
-original_id: url-handler
+title: Обработчик URL
+id: версия-1.0.0-url-обработчика
+original_id: url-обработчик
 ---
 
-Home Assistant for iOS supports opening from other apps via URL.
+Домашний помощник для iOS поддерживает открытие из других приложений по URL.
 
-Query parameters are passed as a dictionary in the call.
+Параметры запроса передаются в качестве словаря в вызове.
 
-## Call service
+## Служба звонков
 
-Example: `homeassistant://call_service/device_tracker.see?entity_id=device_tracker.entity`
+Пример: `homeassistant://call_service/device_tracker.see?entity_id=device_tracker.entity`
 
-## Fire event
+## Пожарное событие
 
-You can create an [event trigger](/docs/automation/trigger/#event-trigger) and fire the event.
+Вы можете создать [триггер события](/docs/automation/trigger/#event-trigger) и запустить событие.
 
-Example: `homeassistant://fire_event/custom_event?entity_id=MY_CUSTOM_EVENT`
+Пример: `homeassistant://fire_event/custom_event?entity_id=MY_CUSTOM_EVENT`
 
-## Send one shot location
+## Отправить местоположение
 
-Example: `homeassistant://send_location/`
+Пример: `homeassistant://send_location/`

@@ -1,5 +1,5 @@
 ---
-title: Dynamic content
+title: Contenu dynamique
 id: version-1.0.0-dynamic-content
 original_id: dynamic-content
 ---
@@ -8,7 +8,7 @@ With the new Content Extension feature found in iOS 10, dynamic content can now 
 
 # Map
 
-Will show a map with a red tipped pin at the coordinates given. The map will be centered at the coordinates given.
+Affichera une carte avec une épingle rouge aux coordonnées données. La carte sera centrée sur les coordonnées données.
 
 ```yaml
 service: notify.ios_<your_device_id_here>
@@ -22,35 +22,35 @@ data:
       longitude: "-73.968285"
 ```
 
-## Showing a second pin
+## Affichage d'une deuxième épingle
 
-You can use the following properties under `action_data` to display a second pin. If used, the first pin will be red and the second green.
+Vous pouvez utiliser les propriétés suivantes sous `action_data` pour afficher une deuxième épingle. Si utilisé, la première épingle sera rouge et la deuxième verte.
 
-- **second_latitude**: The latitude of the second pin. **Must be a string!**
-- **second_longitude**: The longitude of the second pin. **Must be a string!**
-- **shows_line_between_points**: A Boolean value indicating whether a line should be drawn between the first and second pin.
+- **seconde_latitude**: La latitude de la deuxième épingle. **Doit être une chaîne !**
+- **seconde_longitude**: La longitude de la deuxième épingle. **Doit être une chaîne !**
+- **shows_line_between_points**: Une valeur booléenne indiquant si une ligne doit être dessinée entre la première et le seconde épingle.
 
-## Extra configuration
+## Configuration supplémentaire
 
-You can also pass the following properties under `action_data` to modify the map in various ways. All are expected to be boolean values unless otherwise noted:
+Vous pouvez également passer les propriétés suivantes sous `action_data` pour modifier la carte de différentes manières. Tous sont censés être des valeurs booléennes sauf indication contraire :
 
-- **shows_compass**: A Boolean indicating whether the map displays a compass control.
-- **shows_points_of_interest**: A Boolean indicating whether the map displays point-of-interest information.
-- **shows_scale**: A Boolean indicating whether the map shows scale information.
-- **shows_traffic**: A Boolean value indicating whether the map displays traffic information.
-- **shows_user_location**: A Boolean value indicating whether the map should try to display the user’s location.
+- **shows_compass**: Un booléen indiquant si la carte affiche un contrôle de la boussole.
+- **shows_points_of_interest**: Un booléen indiquant si la carte affiche des informations de point d'intérêt.
+- **shows_scale**: Un booléen indiquant si la carte affiche les informations d'échelle.
+- **shows_traffic**: Une valeur booléenne indiquant si la carte affiche les informations de trafic.
+- **shows_user_location**: Une valeur booléenne indiquant si la carte doit essayer d'afficher l'emplacement de l'utilisateur.
 
-![An example of the map dynamic content.](assets/ios/map.png)
+![Un exemple du contenu dynamique avec la carte.](assets/ios/map.png)
 
-# Camera Stream
+# Flux de caméra
 
-The notification thumbnail will be a still image from the camera. The notification content is a real time MJPEG stream of a camera (assuming the camera supports it).
+La vignette de notification sera une image fixe de la caméra. Le contenu de notification est un flux MJPEG en temps réel d'une caméra (en supposant que la caméra le supporte).
 
-You can use the attachment parameters `content-type` and `hide-thumbnail` with camera to control the thumbnail.
+Vous pouvez utiliser les paramètres de la pièce jointe `content-type` et `hide-thumbnail` avec la caméra pour contrôler la vignette.
 
-You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
+Vous pouvez voir un exemple [ici](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 
-Note: This functionality is only available from iOS 11 onwards.
+Note: Cette fonctionnalité n'est disponible qu'à partir d'iOS 11.
 
 ```yaml
 service: notify.ios_<your_device_id_here>
@@ -68,11 +68,11 @@ data:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LmYwpxPKW0g" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 </div>
 
-# Combining with actionable notifications
+# Combinaison avec les notifications actionnables
 
-As you can see the `category` key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom [actions](actionable.md) to add actions to the content extension.
+Comme vous pouvez voir la `category` est utilisée pour dire à l'appareil quel type d'extension de contenu utiliser. Vous pouvez utiliser les mêmes identifiants de catégorie dans votre propre personnalisation [actions](actionable.md) pour ajouter des actions à l'extension de contenu.
 
-For example this configuration adds actions to a camera content message.
+Par exemple, cette configuration ajoute des actions à un message de contenu de la caméra.
 
 ```yaml
 ios:
@@ -93,6 +93,6 @@ ios:
             destructive: true
 ```
 
-# Troubleshooting
+# Dépannage
 
-If you are having problems with receiving these special notifications try restarting your phone first. The extensions somewhat often fail to register properly until a restart.
+Si vous avez des problèmes avec la réception de ces notifications spéciales, essayez de redémarrer votre téléphone. Les extensions peuvent mal s'enregistrer et un redémarrage doit être fait.

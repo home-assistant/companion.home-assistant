@@ -1,14 +1,14 @@
 ---
-title: Dynamic content
+title: Динамічний вміст
 id: version-1.0.0-dynamic-content
 original_id: dynamic-content
 ---
 
-With the new Content Extension feature found in iOS 10, dynamic content can now be displayed as part of a notification without opening an app.
+Завдяки новій функції розширення вмісту, яка міститься в iOS 10, динамічний вміст тепер може відображатися як частина сповіщення без видкриття додатку.
 
-# Map
+# Мапа
 
-Will show a map with a red tipped pin at the coordinates given. The map will be centered at the coordinates given.
+Покаже мапу з червоним наконечником на вказаних координатах. Мапа буде с середені заданих координат.
 
 ```yaml
 service: notify.ios_<your_device_id_here>
@@ -22,35 +22,35 @@ data:
       longitude: "-73.968285"
 ```
 
-## Showing a second pin
+## Показ другоЇ позначки
 
-You can use the following properties under `action_data` to display a second pin. If used, the first pin will be red and the second green.
+Можна використовувати такі властивості під `action_data`, щоб відобразити другу позначку. Якщо використовується, перша позначка буде червона, а друга - зелена.
 
-- **second_latitude**: The latitude of the second pin. **Must be a string!**
-- **second_longitude**: The longitude of the second pin. **Must be a string!**
-- **shows_line_between_points**: A Boolean value indicating whether a line should be drawn between the first and second pin.
+- **second_latitude**: Широта другої позначки. **Має бути рядок!**
+- **second_longitude**: Довгота другої позначки. **Має бути рядок!**
+- **shows_line_between_points**: Булеве значення, яке вказує, чи слід малювати лінію між першою і другою позначками.
 
-## Extra configuration
+## Додаткова конфігурація
 
-You can also pass the following properties under `action_data` to modify the map in various ways. All are expected to be boolean values unless otherwise noted:
+Можна також передати такі властивості під `action_data`, щоб змінити карту різними засобами. Очікується, що всі булеві значення, якщо не зазначено інше:
 
-- **shows_compass**: A Boolean indicating whether the map displays a compass control.
-- **shows_points_of_interest**: A Boolean indicating whether the map displays point-of-interest information.
-- **shows_scale**: A Boolean indicating whether the map shows scale information.
-- **shows_traffic**: A Boolean value indicating whether the map displays traffic information.
-- **shows_user_location**: A Boolean value indicating whether the map should try to display the user’s location.
+- **shows_compass**: Булево, що вказує, чи відображає карта компас.
+- **shows_points_of_interest**: Булево, що вказує, чи відображає карта інформацію про точку інтересу.
+- **shows_scale**: Булево, що вказує, чи відображається на карті інформацію про масштаб.
+- **shows_traffic**: Булево значення, що вказує, чи відображає на карті інформацію про дорожній рух.
+- **shows_user_location**: Булево значення, яке вказує, чи повинна карта спробувати відобразити місцезнаходження користувача.
 
-![An example of the map dynamic content.](assets/ios/map.png)
+![Приклад карти динамічного змісту.](assets/ios/map.png)
 
-# Camera Stream
+# Поточне відео з камери
 
-The notification thumbnail will be a still image from the camera. The notification content is a real time MJPEG stream of a camera (assuming the camera supports it).
+Мініатюра сповіщення буде нерухомим зображенням з камери. Вміст повідомлення - це потік MJPEG в реальному часі (якщо камера підтримує його).
 
-You can use the attachment parameters `content-type` and `hide-thumbnail` with camera to control the thumbnail.
+Для керування мініатюр можна використовувати параметри вкладень `content-type` та `hide-thumbnail`.
 
-You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
+Можна переглянути приклад [тут](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 
-Note: This functionality is only available from iOS 11 onwards.
+Примітка: Ця функціональність доступна лише з iOS 11.
 
 ```yaml
 service: notify.ios_<your_device_id_here>
@@ -68,11 +68,11 @@ data:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LmYwpxPKW0g" frameborder="0" allowfullscreen mark="crwd-mark"></iframe>
 </div>
 
-# Combining with actionable notifications
+# Поєднуючи із дійсними сповіщеннями
 
-As you can see the `category` key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom [actions](actionable.md) to add actions to the content extension.
+Як ви можете бачити, клавіша `категорія` використовується, щоб повідомити пристрій про те, яке розширення вмісту слід використовувати. Ви можете використовувати ті ж ідентифікатори категорій у власних [діях](actionable.md), щоб додати дії до розширення вмісту.
 
-For example this configuration adds actions to a camera content message.
+Наприклад, ця конфігурація додає дії до повідомлення про вміст камери.
 
 ```yaml
 ios:
@@ -93,6 +93,6 @@ ios:
             destructive: true
 ```
 
-# Troubleshooting
+# Вирішення негараздів
 
-If you are having problems with receiving these special notifications try restarting your phone first. The extensions somewhat often fail to register properly until a restart.
+Якщо у вас виникли проблеми з отриманням цих спеціальних сповіщень, спробуйте перезавантажити телефон. Часто розширення не вдається зареєструвати належним чином до перезапуску.

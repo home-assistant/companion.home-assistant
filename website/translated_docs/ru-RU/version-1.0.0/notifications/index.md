@@ -1,7 +1,7 @@
 ---
-title: Introduction
-id: version-1.0.0-index
-original_id: index
+title: Введение
+id: версия-1.0.0-индекс
+original_id: индекс
 ---
 
-One of the best features of Home Assistant Companion is its extensive push notifications support.
+Одним из лучших возможностей Home Assistant Companion является его обширная поддержка push-уведомлений.

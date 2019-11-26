@@ -1,5 +1,5 @@
 ---
-title: Actionable notifications
+title: Notiser med åtgärder
 id: version-1.0.0-actionable
 original_id: actionable
 ---

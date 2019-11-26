@@ -1,7 +1,7 @@
 ---
-title: Architecture
-id: version-1.0.0-architecture
-original_id: architecture
+title: Архитектура
+id: версия-1.0.0-архитектура
+original_id: архитектура
 ---
 
-![The push notification infrastructure layout](assets/PushNotificationLayout.png)
+![Инфраструктура push уведомлений](assets/PushNotificationLayout.png)

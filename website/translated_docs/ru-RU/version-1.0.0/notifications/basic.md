@@ -1,24 +1,24 @@
 ---
-title: Introduction
-id: version-1.0.0-basic
-original_id: basic
+title: Введение
+id: версия 1.0.0-базовая
+original_id: базовый
 ---
 
-The iOS notify platform accepts the standard `title`, `message` and `target` parameters. The iOS notify platform supports targets as services. Assuming that you did not set a `name` when configuring the platform you should find all your registered and notification-enabled iOS devices available as notify targets as services with names prefixed "notify.ios_" and then the device name you entered at setup.
+Платформа уведомления iOS принимает стандартную `заголовок`, `сообщение` и `цель` параметры. iOS уведомляет платформу, поддерживающую цели как услуги. Если вы не установили `имя` при настройке платформы, то вы должны найти все зарегистрированные и включенные уведомления устройства iOS, доступные как уведомляющие цели как службы с названиями, которые предустановленные "notify.ios_", а затем имя устройства, которое вы ввели при установке.
 
-Notes:
+Примечания:
 
-* `title` only displays on Apple Watch and devices with iOS 10 or above.
+* `заголовок` отображается только на Apple Watch и устройствах с iOS 10 или выше.
 
-* `target` can be used to specific a single device using its PushID, found in `ios.conf`. The preferred way of providing a target is through a target specific notify service.
+* `цель` может быть использована для конкретного устройства с помощью PushID, найденного в `ios.conf`. Предпочтительный способ обеспечения цели - это через использование целевого сервиса уведомления.
 
-![A push notification showing all of the basic options <code>title</code> and <code>message</code> as well as <code>subtitle</code> and actions.](assets/ios/example.png)
+![push-уведомление, показывающее все основные параметры <code>заголовка</code> и <code>сообщения</code> а также <code>подзаголовка</code> и действия.](assets/ios/example.png)
 
-### Enhancing basic notifications
+### Расширение основных уведомлений
 
-#### Badge
+#### Значок
 
-You can set the icon badge in the payload:
+Вы можете установить значок иконки в загрузочном файле:
 
 ```yaml
 automation:
@@ -35,9 +35,9 @@ automation:
             badge: 5
 ```
 
-#### Subtitle
+#### Подзаголовок
 
-Starting with iOS 10, a subtitle is supported in addition to the title:
+Начиная с iOS 10, подзаголовок поддерживается в дополнение к заголовку:
 
 ```yaml
 automation
@@ -53,9 +53,9 @@ automation
           subtitle: "Subtitle goes here"
 ```
 
-#### Thread-id (grouping notifications)
+#### Идентификатор потока (групповое уведомление)
 
-Starting with iOS 12, grouping of notifications is supported. All notifications with the same thread-id will be grouped together in the notification center. Without a thread-id, all notifications from the app will be placed in a single group.
+Начиная с iOS 12, поддерживается группировка уведомлений. Все уведомления с таким же идентификатором потока будут сгруппированы вместе в центре уведомлений. Без идентификатора потока все уведомления из приложения будут помещены в одну группу.
 
 ```yaml
 automation:
@@ -72,9 +72,9 @@ automation:
             thread-id: "example-notification-group"
 ```
 
-### Sending notifications to multiple phones
+### Отправка уведомлений на несколько телефонов
 
-To send notifications to multiple phones, create a [notification group](https://www.home-assistant.io/components/notify.group/):
+Чтобы отправить уведомления на несколько телефонов, создайте группу уведомлений [](https://www.home-assistant.io/components/notify.group/):
 
 ```yaml
 notify:
@@ -86,7 +86,7 @@ notify:
       - service: ios_iphone_two
 ```
 
-Now, you can send notifications to everyone in the group using:
+Теперь вы можете отправлять уведомления всем в группе, используя:
 
 ```yaml
   automation:

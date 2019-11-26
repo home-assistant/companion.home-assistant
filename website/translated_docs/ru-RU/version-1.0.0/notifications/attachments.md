@@ -1,12 +1,12 @@
 ---
-title: Attachments
-id: version-1.0.0-attachments
-original_id: attachments
+title: Вложения
+id: версия-1.0.0-вложения
+original_id: вложения
 ---
 
-iOS 10 adds *attachments* to notifications. An attachment is an image, video, or audio file which is downloaded to the device when a notification is received and shown alongside the notification. A thumbnail is shown when the notification is not expanded. The full size attachment is shown when the notification is expanded.
+iOS 10 добавляет *вложения* к уведомлениям. Вложение - это изображение, видео или аудио файл, который загружается на устройство, когда уведомление получено и отображается вместе с уведомлением. При отсутствии расширения уведомления отображается миниатюра. Размер вложения отображается при раскрывании уведомления.
 
-> To expand a notification on 3D Touch devices simply force touch any notification. On non-3D Touch devices swipe and tap the "View" button.
+> Чтобы раскрыть уведомление на устройствах 3D Touch просто нажмите с удержанием на любом уведомлении. На устройствах без 3D Touch пролистните и нажмите кнопку "Просмотр".
 
 ```yaml
 - alias: Notify iOS app
@@ -23,46 +23,46 @@ iOS 10 adds *attachments* to notifications. An attachment is an image, video, or
             hide-thumbnail: false
 ```
 
-Notes:
+Примечания:
 
-- The thumbnail of the notification will be the media at the `url`.
-- The notification content is the media at the `url`.
-- Attachment can be used with custom push notification categories.
+- Миниатюра уведомления будет в медиа `url`.
+- Содержание уведомления - это медиа в `url`.
+- Вложение может быть использовано с пользовательскими категориями push-уведомлений.
 
-## Example
+## Пример
 
-An unexpanded push notification with an attachment.
+Неожиданное уведомление push с вложением.
 
-![An unexpanded push notification with an attachment.](assets/ios/attachment.png)
+![Неожиданное уведомление push с вложением.](assets/ios/attachment.png)
 
-The same notification but expanded to show the full size attachment
+Тот же уведомление, но расширенно, чтобы показать полное вложение
 
-![The same notification but expanded to show the full size attachment](assets/ios/expanded_attachment.png)
+![Тот же уведомление, но расширенно, чтобы показать полное вложение](assets/ios/expanded_attachment.png)
 
-## Supported media types
+## Поддерживаемые типы медиафайлов
 
-If the attachment does not appear please ensure it is in one of the following formats:
+Если вложение не появляется, пожалуйста, убедитесь, что оно находится в одном из следующих форматов:
 
-### Audio attachments
+### Аудиовложения
 
-Maximum file size: 5 MB
+Максимальный размер файла: 5 МБ
 
-Allowed Formats: AIFF, WAV, MP3, MPEG4 Audio
+Разрешенные форматы: AIFF, WAV, MP3, MPEG4 аудио
 
-### Image attachments
+### Вложения изображений
 
-Maximum file size: 10 MB
+Максимальный размер файла: 10 МБ
 
-Allowed Formats: JPEG, GIF, PNG
+Разрешенные форматы: JPEG, GIF, PNG
 
-### Video attachments
+### Видео вложения
 
-Maximum file size: 50 MB
+Максимальный размер файла: 50 МБ
 
-Allowed Formats: MPEG, MPEG2, MPEG4, AVI
+Разрешенные форматы: MPEG, MPEG2, MPEG4, AVI
 
-## Configuration
+## Настройки
 
-- **url** (*Required*): The URL of content to use as the attachment. This URL *must* be accessible from the Internet, or the receiving device must be on the same network as the hosted content.
-- **content-type** (*Optional*): By default, the extension of the URL will be checked to determine the filetype. If there is no extension/it can't be determined you can manually provide a file extension.
-- **hide-thumbnail** (*Optional*): If set to `true` the thumbnail will not show on the notification. The content will only be viewable by expanding.
+- **url** (*Обязательно*): URL содержимого для использования в качестве вложения. Этот URL *должен* быть доступен из Интернета, или принимающее устройство должно быть в той же сети, что и содержимое хоста.
+- **тип содержимого** (*Необязательный*): По умолчанию расширение URL будет проверено для определения типа файла. Если расширение не существует/оно не может быть определено, вы можете вручную предоставить расширение файла.
+- **hide-thumbnail** (*Optional*): Если установлено значение `true`, эскиз не будет отображаться в уведомлении. Содержание будет просматриваться только за счет расширения.
