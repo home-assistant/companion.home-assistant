@@ -11,6 +11,17 @@ The steps below should guide you through the process of migrating from the previ
 - Your existing device tracker entity will be obsolete. The old app used known_devices.yaml whereas the updated app uses the mobile_app integration and entity storage. Your old tracker ```device_tracker.device_id``` will no longer update, the new tracker will be called ```device_tracker.device_name```.
 - The new device tracker no longer contains attributes such as "trigger: Geographic Region entered". These have all moved to sensors that will be created via the mobile_app integration.
 
+# Requirements
+The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
+```default_config:``` 
+or if for some reason you have disabled the default config make sure your configuration.yaml contains at least:
+```mobile_app:
+discovery:
+```
+For some features the following integrations also need to be enabled:
+```cloud:``` is used for securely connecting to your Home Assistant via Nabu Casa subscription via Remote UI and cloud webhooks
+```ios:``` is used if you want advanced notifications like actionable notifications and categories
+
 ## 1 - Disconnecting the iOS integration
 
 Upgrading to version 2.0 of Home Assistant Companion requires setting up the app as new. Before you start, it is strongly recommended that you delete the previous iOS integration from Home Assistant. To this, follow these steps.
