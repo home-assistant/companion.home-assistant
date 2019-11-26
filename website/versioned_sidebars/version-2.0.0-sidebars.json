@@ -35,7 +35,6 @@
   "version-2.0.0-Integrations": {
     "Integrations": [
       "version-2.0.0-integrations/index",
-      "version-2.0.0-integrations/url-handler",
       "version-2.0.0-integrations/theming",
       "version-2.0.0-integrations/haptics",
       "version-2.0.0-integrations/universal-links",
