@@ -40,5 +40,6 @@ Upgrading to version 2.0 of Home Assistant Companion requires setting up the app
 
 
 ## 2 - Setting up Home Assistant Companion 2.0
+Once you have completed the steps above you can now continue the setup procedure as described in the [main getting started guide](index#setting-up).
 
 ## Changes from 1.5 to 2.0
