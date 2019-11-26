@@ -21,7 +21,7 @@
         "title": "Welcome"
       },
       "getting_started/migration": {
-        "title": "Migrating to Home Assistant Companion 2.0"
+        "title": "Migrating to Home Assistant Companion 2019.1"
       },
       "integrations/app-events": {
         "title": "App Events"
@@ -162,7 +162,7 @@
         "title": "Welcome"
       },
       "version-2.0.0/getting_started/version-2.0.0-migration": {
-        "title": "Migrating to Home Assistant Companion 2.0"
+        "title": "Migrating to Home Assistant Companion 2019.1"
       },
       "version-2.0.0/integrations/version-2.0.0-app-events": {
         "title": "App Events"
