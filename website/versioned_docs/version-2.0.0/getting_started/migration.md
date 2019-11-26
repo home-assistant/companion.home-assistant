@@ -13,7 +13,7 @@ The steps below should guide you through the process of migrating from the previ
 -   The battery level and state sensors will be change from `sensor.<device_id>_battery_level` and `sensor.<device_id>_battery_state` to `sensor.battery_level` and `sensor.battery_state`. When you set up additional devices, the new sensors for those device will be distinguished with an identifier on the end (i.e. `sensor.battery_level_2`).
 
 # Requirements
-The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
+You need to be running Home Assistant 0.92.2 or newer. The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
 -   `default_config:`
 
 If for some reason you have disabled the default config make sure your `configuration.yaml` contains at least:
@@ -25,10 +25,30 @@ For some features the following integrations also need to be enabled:
 -   `cloud:` is used for securely connecting to your Home Assistant via Nabu Casa subscription via Remote UI and cloud webhooks
 -   `ios:` is used if you want advanced notifications like actionable notifications and categories
 
-## 1 - Disconnecting the iOS integration
+# Updating from Home Assistant Companion 1.5
+First, apologies for the breaking changes and associated manual steps required. We have provided this guide to help you get through any issues as quickly as possible so you can enjoy the new app experience!
 
-Upgrading to version 2.0 of Home Assistant Companion requires setting up the app as new. Before you start, it is strongly recommended that you delete the previous iOS integration from Home Assistant. To this, follow these steps.
+## 1 - Updating the iOS app via the App Store
+Given the default settings, this may already have happened to you and your app will have auto-updated via the iOS Store. If not, manually update the app and open it.
+- You will be greeted by the new onboarding experience. If you are connected to your home wifi, the app will find your Home Assistant instance - or you can manually enter the URL.
+- You will be prompted to log on to your Home Assistant instance.
+- Please give permissions to the app.
+- Watch the app set up its integration etc.
+- Once onboarding is complete, restart Home Assistant, then once Home Assistant is back online, force-close the app and reopen. This step is necessary so the notify service can register. 
+- You should now be ready to go with the new Home Assistant iOS app. To verify:
+  1. Check Home Assistant Configuration -> Integrations. You should now have an entry named "Mobile App: <iOSDeviceName>" containing sensors. 
+  2. Check for a new device_tracker entity
+  3. Check for a new notify.mobile_app_iosdevicename service
+- Repeat for all iOS devices connected to your Home Assistant
 
+## 2 - Updating notifications and device trackers
+Because the app is using a new push notification backend and the new device tracker architecture, you will need to change your automations to use the new service and tracker:
+- Add the device_tracker entity to the 'person:'
+- Update your automations to use the new service and device_tracker entity. This should be as simple as using search & replace with your old and new service and entity names.
+
+## 3 - Cleanup of the old iOS integration
+
+Your iOS devices are all updated and you're up and running with the new and shiny? Great! Now it's time to clean up and get rid of the now obsolete old entries.
 1.  Use a browser to load your Home Assistant instances and go to "Configuration" (cog icon) and then "Integrations".
 2.  Select the iOS integration for the device you wish to upgrade.
 3.  You should see two entities listed with the sensors `sensor.<device_id>_battery_level` and `sensor.<device_id>_battery_state` where `<device_id>` relates to the id you specified in the old version of the app for the device you wish to upgrade. **If you have multiple apps/devices configured take care to only delete the entities relating to the device you are updating**. Click the cog icon next to these entities and delete the each entity in turn (the order you do this in does not matter).
@@ -36,7 +56,17 @@ Upgrading to version 2.0 of Home Assistant Companion requires setting up the app
 5.  Open the 'known_devices.yaml' file and remove the entry that has the same `<device_name>` as in Step 3.
 6.  Restart Home Assistant. The connection between your old Home Assistant Companion 1.5 App and your Home Assistant Instance should now be fully removed.
 
-## 2 - Setting up Home Assistant Companion 2.0
-Once you have completed the steps above you can now continue the setup procedure as described in the [main getting started guide](index#setting-up).
+## 4 - Known issues
+1.  During onboarding when entering the username and password, you get an error message and Home Assistant logs
+`[homeassistant.components.auth.indieauth] Timeout while looking up redirect_uri https://home-assistant.io/iOS`: This happens when your Home Assistant (and likely your home network) has a broken IPv6 configuration. This usually can be resolved by fixing the IPv6 on your network or disabling IPv6 on your Home Assistant host system. This is not a bug in the app.
+2.  All sensors created during onboarding are only called e.g. `sensor.battery_level`. If you have multiple iOS devices you may have multiple similarly named entities. We recommend renaming the entities via HA Configuration -> Integrations -> Mobile App: iOS Device Name and prefixing the sensors with the device name. This may get resolved with future updates to the mobile_app integration.
 
 ## Changes from 1.5 to 2.0
+- Brand new push notification engine, powered by Firebase, for even more complex notifications than ever before, including critical notifications and much much more
+- Siri Shortcuts: Now, you can interact with your Home Assistant via Siri and the Shortcuts app
+- Apple Watch: Control your home via the Apple Watch app and monitor its status with Complications
+- Widget: Quickly trigger actions at home via a widget. Also available via home screen icon
+- Nabu Casa Cloud support: Cloudhooks and remote UI are here so you can (optionally) never open a port in your router again
+- New connection engine: now you can have internal and external URLs for total customizability
+- App settings and configuration can now be accessed from the Home Assistant side menu
+- Pull-to-refresh will reload the view and also send updated location data to your Home Assistant
