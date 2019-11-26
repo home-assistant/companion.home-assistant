@@ -1,9 +1,9 @@
 ---
-title: Migrating to Home Assistant Companion 2.0
+title: Migrating to Home Assistant Companion 2019.1
 id: migration
 ---
 
-The steps below should guide you through the process of migrating from the previous app version (1.5) to 2.0. Before going any further, please make sure you read the [breaking changes](migration#breaking-changes) listed below.
+The steps below should guide you through the process of migrating from the previous app version (1.5) to 2019.1. Before going any further, please make sure you read the [breaking changes](migration#breaking-changes) listed below.
 
 # Breaking Changes
 -   All notifications need to be updated as the notify service is moving from `notify.ios_<device_id>` to `notify.mobile_app_<device_name>`. In the old version the `device_id` was set in the iOS app settings, after the update the `device_name` is taken from iOS settings (see iOS Settings App>General>About).
@@ -12,7 +12,7 @@ The steps below should guide you through the process of migrating from the previ
 -   The battery level and state sensors will be change from `sensor.<device_id>_battery_level` and `sensor.<device_id>_battery_state` to `sensor.battery_level` and `sensor.battery_state`. When you set up additional devices, the new sensors for those device will be distinguished with an identifier on the end (i.e. `sensor.battery_level_2`).
 
 # Requirements
-You need to be running Home Assistant 0.92.2 or newer. The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
+You need to be running Home Assistant 0.95.0 or newer. The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
 -   `default_config:`
 
 If for some reason you have disabled the default config make sure your `configuration.yaml` contains at least:
@@ -51,18 +51,19 @@ Your iOS devices are all updated and you're up and running with the new and shin
 1.  Use a browser to load your Home Assistant instances and go to "Configuration" (cog icon) and then "Integrations".
 2.  Select the iOS integration for the device you wish to upgrade.
 3.  You should see two entities listed with the sensors `sensor.<device_id>_battery_level` and `sensor.<device_id>_battery_state` where `<device_id>` relates to the id you specified in the old version of the app for the device you wish to upgrade. **If you have multiple apps/devices configured take care to only delete the entities relating to the device you are updating**. Click the cog icon next to these entities and delete the each entity in turn (the order you do this in does not matter).
-4.  If this was your only device, you can now delete the iOS integration as a whole by going back one page and using the trash can icon in the top right.
+4.  If this was your only device, you can now delete the iOS integration as a whole by going back one page and using the trash can icon in the top right. You can also delete the `.ios.conf` file in your configuration directory (the same directory as `configuration.yaml`) to remove all traces of the old iOS integration from the user interface.
 5.  Open the `known_devices.yaml` file and remove the entry that has the same `<device_name>` as in Step 3.
 6.  Restart Home Assistant. The connection between your old Home Assistant Companion 1.5 App and your Home Assistant Instance should now be fully removed.
 
 ## 4 - Known issues
-1.  During onboarding when entering the username and password, you may get an error message and Home Assistant logs
+-   During onboarding when entering the username and password, you may get an error message and Home Assistant logs
 `[homeassistant.components.auth.indieauth] Timeout while looking up redirect_uri https://home-assistant.io/iOS`: This happens when your Home Assistant (and likely your home network) has a broken IPv6 configuration. This usually can be resolved by fixing the IPv6 on your network or disabling IPv6 on your Home Assistant host system. This is not a bug in the app.
-2.  All sensors created during onboarding are only called e.g. `sensor.battery_level`. If you have multiple iOS devices you may have multiple similarly named entities. If needed, you can rename the entities via Home Assistant Configuration (cog icon on sidebar) -> Integrations -> Mobile App: iOS Device Name and prefixing the sensors with the device name. This may get resolved with future updates to the `mobile_app` integration.
-3.  Due to issues between China and Google Cloud Services registering the notify service from China can be hit or miss. A workaround will be added in a future update, until then please try using a VPN to tunnel outside the Great Firewall.
-4.  iOS Location Permissions are required for the app to use Internal_URL / External_URL on iOS 13 and newer. This is due to a change in iOS which prohibits the app to access the Wi-Fi SSID name.
+-   All sensors created during onboarding are only called e.g. `sensor.battery_level`. If you have multiple iOS devices you may have multiple similarly named entities. If needed, you can rename the entities via Home Assistant Configuration (cog icon on sidebar) -> Integrations -> Mobile App: iOS Device Name and prefixing the sensors with the device name. This may get resolved with future updates to the `mobile_app` integration.
+-   Due to issues between China and Google Cloud Services registering the notify service from China can be hit or miss. A workaround will be added in a future update, until then please try using a VPN to tunnel outside the Great Firewall.
+-   iOS Location Permissions are required for the app to use Internal_URL / External_URL on iOS 13 and newer. This is due to a change in iOS which prohibits the app to access the Wi-Fi SSID name.
+-   If you receive a 405 error code when trying to sign in after the app auto discovered your Home Assistant instance, try manually entering the address of you Home Assistant instance instead.
 
-## Changes from 1.5 to 2.0
+## Changes from 1.5 to 2019.1
 -   Brand new push notification engine, powered by Firebase, for even more complex notifications than ever before, including critical notifications and much much more.
 -   Siri Shortcuts: Now, you can interact with your Home Assistant via Siri and the Shortcuts app.
 -   Apple Watch: Control your home via the Apple Watch app and monitor its status with Complications.
