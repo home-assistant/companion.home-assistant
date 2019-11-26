@@ -1,7 +1,8 @@
 {
   "Getting Started": {
     "Getting Started": [
-      "getting_started/index"
+      "getting_started/index",
+      "getting_started/migration"
     ]
   },
   "Core" :{
