@@ -62,6 +62,7 @@ Your iOS devices are all updated and you're up and running with the new and shin
 -   Due to issues between China and Google Cloud Services registering the notify service from China can be hit or miss. A workaround will be added in a future update, until then please try using a VPN to tunnel outside the Great Firewall.
 -   iOS Location Permissions are required for the app to use Internal_URL / External_URL on iOS 13 and newer. This is due to a change in iOS which prohibits the app to access the Wi-Fi SSID name.
 -   If you receive a 405 error code when trying to sign in after the app auto discovered your Home Assistant instance, try manually entering the address of you Home Assistant instance instead.
+-   You receive an error containing kCLError when trying to do a manual update (pulling down). To fix this change the location permission for the Home Assistant App to "Always" in iOS Settings>Privacy>Location Services
 
 ## Changes from 1.5 to 2019.1
 -   Brand new push notification engine, powered by Firebase, for even more complex notifications than ever before, including critical notifications and much much more.
