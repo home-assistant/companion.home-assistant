@@ -52,3 +52,6 @@ In a future update to the app, default sensor names will be changed to include y
 
 #### Opening or resuming the Companion App generates authentication errors in my Home Assistant notifications
 This is normally due to having a camera entity present on a Lovelace picture entities or picture elements card. A workaround for this is to remove the the camera entity in the short term while this is resolved. You may be able to use [live stream view](https://github.com/home-assistant/home-assistant/issues/23055) to address this. This is a known bug with Home Assistant which you can track and help address [here](https://github.com/home-assistant/home-assistant/issues/23055).
+
+#### I recieve a `kCLError` when pulling down to manually refresh the app/update Location
+To fix this change the location permission for the Home Assistant App to "Always" in iOS Settings>Privacy>Location Services.
