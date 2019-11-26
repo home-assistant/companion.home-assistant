@@ -27,14 +27,12 @@
       },
       "notifications/actionable",
       "notifications/location",
-      "notifications/critical",
-      "notifications/technical"
+      "notifications/critical"
     ]
   },
   "Integrations": {
     "Integrations": [
       "integrations/index",
-      "integrations/url-handler",
       "integrations/theming",
       "integrations/haptics",
       "integrations/universal-links",
