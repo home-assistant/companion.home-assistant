@@ -38,7 +38,8 @@
       "integrations/universal-links",
       "integrations/url-handler",
       "integrations/x-callback-url",
-      "integrations/app-events"
+      "integrations/app-events",
+      "integrations/siri-shortcuts"
     ]
   },
   "Troubleshooting": {
