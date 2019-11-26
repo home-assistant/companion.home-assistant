@@ -59,6 +59,8 @@ Your iOS devices are all updated and you're up and running with the new and shin
 1.  During onboarding when entering the username and password, you get an error message and Home Assistant logs
 `[homeassistant.components.auth.indieauth] Timeout while looking up redirect_uri https://home-assistant.io/iOS`: This happens when your Home Assistant (and likely your home network) has a broken IPv6 configuration. This usually can be resolved by fixing the IPv6 on your network or disabling IPv6 on your Home Assistant host system. This is not a bug in the app.
 2.  All sensors created during onboarding are only called e.g. `sensor.battery_level`. If you have multiple iOS devices you may have multiple similarly named entities.If needed, you can rename the entities via HA Configuration -> Integrations -> Mobile App: iOS Device Name and prefixing the sensors with the device name. This may get resolved with future updates to the mobile_app integration.
+3. Due to issues between China and Google Cloud Services registering the notify service from China can be hit or miss. A workaround will be added in a future update, until then please try using a VPN to tunnel outside the Great Firewall.
+4.  iOS Location Permissions are required for the app to use Internal_URL / External_URL on iOS 13 and newer. This is due to a change in iOS which prohibits the app to access the wifi SSID name.
 
 ## Changes from 1.5 to 2.0
 - Brand new push notification engine, powered by Firebase, for even more complex notifications than ever before, including critical notifications and much much more
