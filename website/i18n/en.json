@@ -161,6 +161,9 @@
       "version-2.0.0/getting_started/version-2.0.0-index": {
         "title": "Welcome"
       },
+      "version-2.0.0/getting_started/version-2.0.0-migration": {
+        "title": "Migrating to Home Assistant Companion 2.0"
+      },
       "version-2.0.0/integrations/version-2.0.0-app-events": {
         "title": "App Events"
       },
