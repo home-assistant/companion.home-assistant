@@ -61,6 +61,13 @@ Your iOS devices are all updated and you're up and running with the new and shin
 -   If you receive a 405 error code when trying to sign in after the app auto discovered your Home Assistant instance, try manually entering the address of you Home Assistant instance instead.
 -   You receive an error containing `kCLError` when trying to do a manual update (pulling down). To fix this change the location permission for the Home Assistant App to "Always" in iOS Settings>Privacy>Location Services
 -   If you get a 404 error when trying to connect to your Home Assistant by entering a Nabu Casa URL, this is not supported. While Nabu Casa is fully supported by the app for connections, the app needs a direct connection to Home Assistant to complete setup. The best solution is to set up the app while connected to the same local network as your Home Assistant instance.
+-   You receive an error stating that `mobile_app` is configured and have an entry in your Home Assistant logs similar to:
+
+        Invalid config
+
+        The following components and platforms could not be set up:
+
+    And one or both of `mobile_app` or `cloud` listed. This is most common when you have Home Assistant installed on top of an operating system that isn't HassOS and contains out of date dependancies. To fix this, please check all your libraries are up to date (specifically `libc6 `).
 
 ## 5 - Known issues
 -   All sensors created during onboarding are only called e.g. `sensor.battery_level`. If you have multiple iOS devices you may have multiple similarly named entities. If needed, you can rename the entities via Home Assistant Configuration (cog icon on sidebar) -> Integrations -> Mobile App: iOS Device Name and prefixing the sensors with the device name. This may get resolved with future updates to the `mobile_app` integration.
