@@ -54,7 +54,7 @@ automation:
             badge: 5
 ```
 
-By setting the message to `delete_alert` you can silently update the app badge icon in the background without sending a notification to your phone. 
+By setting the message to `delete_alert` you can silently update the app badge icon in the background without sending a notification to your phone.
 
 ### Subtitle
 A subtitle is supported in addition to the title:
@@ -104,8 +104,9 @@ automation:
       data:
         title: "Motion Detected in Backyard"
         message: "Someone might be in the backyard."
-        apns_headers:
-          apns-collapse-id: "backyard-motion-detected"
+        data:
+          apns_headers:
+            'apns-collapse-id': 'backyard-motion-detected'
 ```
 
 ### Sending notifications to multiple devices
