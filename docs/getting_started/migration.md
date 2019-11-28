@@ -61,6 +61,7 @@ Your iOS devices are all updated and you're up and running with the new and shin
 -   If you receive a 405 error code when trying to sign in after the app auto discovered your Home Assistant instance, try manually entering the address of you Home Assistant instance instead.
 -   You receive an error containing `kCLError` when trying to do a manual update (pulling down). To fix this change the location permission for the Home Assistant App to "Always" in iOS Settings>Privacy>Location Services
 -   If you get a 404 error when trying to connect to your Home Assistant by entering a Nabu Casa URL, this is not supported. While Nabu Casa is fully supported by the app for connections, the app needs a direct connection to Home Assistant to complete setup. The best solution is to set up the app while connected to the same local network as your Home Assistant instance.
+-   If you get a 404 error when not using Nabu Casa. Please make sure that you are **not** including a trailing `/` when entering your URL manually or in `base_url:` entry in `configuration.yaml` if using the automatic discovery when on home netowrk.
 -   You receive an error stating that `mobile_app` is configured and have an entry in your Home Assistant logs similar to:
 
         Invalid config
