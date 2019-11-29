@@ -10,6 +10,7 @@ The steps below should guide you through the process of migrating from the previ
 -   Your existing device tracker entity will be obsolete. The old app used `known_devices.yaml` whereas the updated app uses the `mobile_app` integration and entity storage. Your old tracker `device_tracker.device_id` will no longer update, the new tracker will be called `device_tracker.device_name`.
 -   The new device tracker no longer contains attributes such as "trigger: Geographic Region entered". These have all moved to sensors that will be created via the `mobile_app` integration.
 -   The battery level and state sensors will be change from `sensor.<device_id>_battery_level` and `sensor.<device_id>_battery_state` to `sensor.battery_level` and `sensor.battery_state`. When you set up additional devices, the new sensors for those device will be distinguished with an identifier on the end (i.e. `sensor.battery_level_2`).
+-   The send manual location update button has been removed along with the footer bar. You can now send an update manually be pulling/swiping down within the app. This will refresh the page and also send a location update. You can also send a location update by tap-and-holding the app icon.
 
 # Requirements
 You need to be running Home Assistant 0.95.0 or newer. The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
@@ -69,6 +70,7 @@ Your iOS devices are all updated and you're up and running with the new and shin
         The following components and platforms could not be set up:
 
     And one or both of `mobile_app` or `cloud` listed. This is most common when you have Home Assistant installed on top of an operating system that isn't HassOS and contains out of date dependancies. To fix this, please check all your libraries are up to date (specifically `libc6 `).
+-   Your `sensor.SSID` and `senson.BSSID` entities are not updating and/or your app does not switch to using an internal URL when on your home Wi-Fi. You can fix both of these issue by restarting your device.
 
 ## 5 - Known issues
 -   All sensors created during onboarding are only called e.g. `sensor.battery_level`. If you have multiple iOS devices you may have multiple similarly named entities. If needed, you can rename the entities via Home Assistant Configuration (cog icon on sidebar) -> Integrations -> Mobile App: iOS Device Name and prefixing the sensors with the device name. This may get resolved with future updates to the `mobile_app` integration.
