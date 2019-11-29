@@ -10,6 +10,7 @@ The steps below should guide you through the process of migrating from the previ
 -   Your existing device tracker entity will be obsolete. The old app used `known_devices.yaml` whereas the updated app uses the `mobile_app` integration and entity storage. Your old tracker `device_tracker.device_id` will no longer update, the new tracker will be called `device_tracker.device_name`.
 -   The new device tracker no longer contains attributes such as "trigger: Geographic Region entered". These have all moved to sensors that will be created via the `mobile_app` integration.
 -   The battery level and state sensors will be change from `sensor.<device_id>_battery_level` and `sensor.<device_id>_battery_state` to `sensor.battery_level` and `sensor.battery_state`. When you set up additional devices, the new sensors for those device will be distinguished with an identifier on the end (i.e. `sensor.battery_level_2`).
+-   The send manual location update button has been removed along with the footer bar. You can now send an update manually be pulling/swiping down within the app. This will refresh the page and also send a location update. You can also send a location update by tap-and-holding the app icon.
 
 # Requirements
 You need to be running Home Assistant 0.95.0 or newer. The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
