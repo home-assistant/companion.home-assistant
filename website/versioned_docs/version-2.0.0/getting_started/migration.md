@@ -71,7 +71,7 @@ Your iOS devices are all updated and you're up and running with the new and shin
         The following components and platforms could not be set up:
 
     And one or both of `mobile_app` or `cloud` listed. This is most common when you have Home Assistant installed on top of an operating system that isn't HassOS and contains out of date dependancies. To fix this, please check all your libraries are up to date (specifically `libc6 `).
--   Your `sensor.SSID` and `senson.BSSID` entities are/or not updating and your app does not switch to using an internal URL when on your home Wi-Fi. You can fix both of these issue by restarting your device.
+-   Your `sensor.SSID` and `senson.BSSID` entities are not updating and/or your app does not switch to using an internal URL when on your home Wi-Fi. You can fix both of these issue by restarting your device.
 
 ## 5 - Known issues
 -   All sensors created during onboarding are only called e.g. `sensor.battery_level`. If you have multiple iOS devices you may have multiple similarly named entities. If needed, you can rename the entities via Home Assistant Configuration (cog icon on sidebar) -> Integrations -> Mobile App: iOS Device Name and prefixing the sensors with the device name. This may get resolved with future updates to the `mobile_app` integration.
