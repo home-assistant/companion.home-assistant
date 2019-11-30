@@ -11,7 +11,7 @@ original_id: location
 You can force a device to attempt to report its location by sending a special notification.
 
 ```yaml
-automation
+automation:
   - alias: Notify iOS app
     trigger:
       ...

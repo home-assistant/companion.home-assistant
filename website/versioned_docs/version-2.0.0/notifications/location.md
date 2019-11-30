@@ -8,10 +8,10 @@ original_id: location
 **Do not rely on this functionality due to the time limits mentioned below.**
 </p>
 
-You can force a device to attempt to report its location by sending a special notification. 
+You can force a device to attempt to report its location by sending a special notification.
 
 ```yaml
-automation
+automation:
   - alias: Notify Mobile app
     trigger:
       ...
