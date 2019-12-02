@@ -46,6 +46,7 @@
     "Troubleshooting": [
       "troubleshooting/setup",
       "troubleshooting/errors",
+      "troubleshooting/networking",
       "troubleshooting/beta-cleaning",
       "troubleshooting/integrations",
       "troubleshooting/more-help"
