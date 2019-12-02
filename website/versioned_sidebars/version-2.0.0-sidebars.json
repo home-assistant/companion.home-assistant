@@ -47,6 +47,7 @@
     "Troubleshooting": [
       "version-2.0.0-troubleshooting/setup",
       "version-2.0.0-troubleshooting/errors",
+      "version-2.0.0-troubleshooting/networking",
       "version-2.0.0-troubleshooting/beta-cleaning",
       "version-2.0.0-troubleshooting/integrations",
       "version-2.0.0-troubleshooting/more-help"
