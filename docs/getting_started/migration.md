@@ -12,6 +12,7 @@ The steps below should guide you through the process of migrating from the previ
 -   The new device tracker no longer supports the `device_tracker.see` service.
 -   The battery level and state sensors will be change from `sensor.<device_id>_battery_level` and `sensor.<device_id>_battery_state` to `sensor.battery_level` and `sensor.battery_state`. When you set up additional devices, the new sensors for those device will be distinguished with an identifier on the end (i.e. `sensor.battery_level_2`).
 -   The send manual location update button has been removed along with the footer bar. You can now send an update manually be pulling/swiping down within the app. This will refresh the page and also send a location update. You can also send a location update by tap-and-holding the app icon.
+-   The `group.all_devices` group was maintained by the now legacy `device_tracker` service based on `known_devices.yaml` used by the `ios` integration. Since this is no longer used, device running 2019.1 will not be added to the `group.all_devices`. The new `device_tracker` entities can be associated with `person` entities however which can be grouped in a similar way.
 
 # Requirements
 You need to be running Home Assistant 0.95.0 or newer. The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
