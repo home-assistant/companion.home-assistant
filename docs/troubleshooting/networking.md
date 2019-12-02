@@ -1,6 +1,7 @@
-
-## Companion App Networking
-
+---
+title: Companion App Networking
+id: networking
+---
 Having your Home available anywhere and everywhere you go is important, whether you want to forgot to turn off the stove or you want to check the camera views because of an alert.
 
 Because we want your smart home to be private and secure on the web, many parts of the puzzle need to align just right so everything works as you expect. This guide aims to help you understand the requirements, some of the complexities and our recommended typical solutions to setting up network access to your Home Assistant instance:
