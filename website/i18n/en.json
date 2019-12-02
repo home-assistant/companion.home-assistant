@@ -95,6 +95,9 @@
       "troubleshooting/more-help": {
         "title": "getting more help"
       },
+      "troubleshooting/networking": {
+        "title": "Networking"
+      },
       "troubleshooting/setup": {
         "title": "Troubleshooting"
       },
@@ -217,6 +220,9 @@
       },
       "version-2.0.0/troubleshooting/version-2.0.0-more-help": {
         "title": "Getting more help"
+      },
+      "version-2.0.0/troubleshooting/version-2.0.0-networking": {
+        "title": "Networking"
       },
       "version-2.0.0/troubleshooting/version-2.0.0-setup": {
         "title": "Troubleshooting"
