@@ -8,7 +8,16 @@ id: index
 
 The Home Assistant Companion App can be downloaded from the [iOS App Store](https://apps.apple.com/app/home-assistant-companion/id1099568401) or [Play Store](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android). The iOS App requires iOS 10 or greater, this means the oldest devices supported are the iPhone 5, 4<sup>th</sup> generation iPad and the 6<sup>th</sup> generation iPod touch.
 
-To  provide the required integrations, the Home Assistant Companion App requires that your Home Assistant instance is running 0.95.0 or greater.
+You need to be running Home Assistant 0.95.0 or newer. The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
+-   `default_config:`
+
+If for some reason you have disabled `default_config:` make sure your `configuration.yaml` contains at least:
+-   `mobile_app:`
+-   `discovery:`
+
+For some features the following integrations also need to be enabled:
+-   `cloud:` is used for securely connecting to your Home Assistant via Nabu Casa subscription via Remote UI and cloud webhooks
+-   `ios:` is used if you want advanced notifications like actionable notifications and categories
 
 ## Setting Up
 
