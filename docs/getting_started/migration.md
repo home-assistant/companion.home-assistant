@@ -64,11 +64,12 @@ Your iOS devices are all updated and you're up and running with the new and shin
 -   If you receive a 405 error code when trying to sign in after the app auto discovered your Home Assistant instance, try manually entering the address of you Home Assistant instance instead.
 -   You receive an error containing `kCLError` when trying to do a manual update (pulling down). To fix this change the location permission for the Home Assistant App to "Always" in iOS Settings>Privacy>Location Services
 -   **Nabu Casa**: While Nabu Casa Cloud is fully supported by the app for connections, the setup is a bit more involved: To use Nabu Casa, set up the app while connected to the same local network as your Home Assistant instance. Because Apple changed the iOS location permissions (which now include the WiFi SSID) with iOS 13 some additional steps are required now:
--- Grant location access for Home Assistant in iOS settings
--- In the app, go to App Settings -> Connection settings and copy and paste what’s in external URL to internal URL (while on your WiFi)
--- Restart the app
--- You should now have the checkbox for “Connect via Cloud” available, activate that. At this point external URL won't be used anymore and the app will connect via Remote UI URL.
--- Starting with Home Assistant 0.103.0 `cloud:` no longer is loaded as a dependency of `mobile_app:`. If you did not have `default_config:` configured, your cloud integration might have disappeared or become disabled.-   If you get a 404 error when not using Nabu Casa. Please make sure that you are **not** including a trailing `/` when entering your URL manually or in `base_url:` entry in `configuration.yaml` if using the automatic discovery when on home netowrk.
+    - Grant location access for Home Assistant in iOS settings
+    - In the app, go to App Settings -> Connection settings and copy and paste what’s in external URL to internal URL (while on your WiFi)
+    - Restart the app
+    - You should now have the checkbox for “Connect via Cloud” available, activate that. At this point external URL won't be used anymore and the app will connect via Remote UI URL.
+    - Starting with Home Assistant 0.103.0 `cloud:` no longer is loaded as a dependency of `mobile_app:`. If you did not have `default_config:` configured, your cloud integration might have disappeared or become disabled.-   If you get a 404 error when not using Nabu Casa. Please make sure that you are **not** including a trailing `/` when entering your URL manually or in `base_url:` entry in `configuration.yaml` if using the automatic discovery when on home  network.
+    - Starting with 0.103.0, Home Assistant Cloud Remote UI gets disabled if you have an entry for a trusted proxy on `127.0.0.1` or `::1` in your configuration.yaml.
 -   You receive an error stating that `mobile_app` is configured and have an entry in your Home Assistant logs similar to:
 
         Invalid config
