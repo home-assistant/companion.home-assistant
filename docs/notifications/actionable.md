@@ -24,8 +24,8 @@ When sending a notification:
 1.  Send a notification with `data.push.category` set to a pre-defined notification category identifier.
 2.  Push notification delivered to device.
 3.  User opens notification.
-3.  Action tapped.
-4.  Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
+4.  Action tapped.
+5.  Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
 
 ![How the iOS device and Home Assistant work together to enable actionable notifications.](assets/NotificationActionFlow.png)
 
