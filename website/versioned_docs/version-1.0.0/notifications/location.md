@@ -4,9 +4,7 @@ id: version-1.0.0-location
 original_id: location
 ---
 
-<p class="note warning">
-**Do not rely on this functionality due to the time limits mentioned below.**
-</p>
+> Do not rely on this functionality due to the time limitations mentioned below.
 
 You can force a device to attempt to report its location by sending a special notification.
 
