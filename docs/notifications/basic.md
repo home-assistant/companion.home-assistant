@@ -126,8 +126,9 @@ notify:
       - service: mobile_app_iphone_one
       - service: mobile_app_iphone_two
       - service: mobile_app_ipad_one
+      - service: mobile_app_pixel_4_xl
 ```
-Now, you can send notifications to everyone in the group using:
+Now, you can send notifications to everyone in the group using.  If you plan to group Android and iOS devices only `message` and `title` will work:
 ```yaml
   automation:
     - alias: Notify Mobile app
