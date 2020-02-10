@@ -2,7 +2,7 @@
 title: "Sounds"
 ---
 
-![iOS](assets/apple.svg)
+![iOS](assets/apple.svg) iOS specific
 
 Adding a custom sound to a notification allows you to easily identify the notification without even looking at your device. Home Assistant for iOS comes with some notification sounds pre-installed but you can also upload your own.
 
