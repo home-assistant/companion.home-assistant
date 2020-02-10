@@ -2,6 +2,8 @@
 title: "Sensors"
 ---
 
+![iOS](assets/apple.svg)
+
 Along with providing [location services](location.md), the companion app also adds several additional sensors to Home Assistant. **It is important to know that these sensors are only updated when a location is pushed to Home Assistant or the web view is refreshed**. The sensors provided by the companion app are:
 
 | Sensor | Attributes | Description |
