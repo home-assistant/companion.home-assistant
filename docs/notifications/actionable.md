@@ -85,6 +85,7 @@ Two variables are available for use in the `Hidden preview placeholder` and `Cat
 ## Building automations for notification actions
 
 Here is an example automation to send a notification with a category in the payload:
+
 ![iOS](assets/apple.svg)
 
 ```yaml
@@ -104,7 +105,7 @@ automation:
             my_custom_data: foo_bar
 ```
 
-![android](assets/android.svg) Android instructions.
+![android](assets/android.svg)
 
 ```yaml
 automation:
