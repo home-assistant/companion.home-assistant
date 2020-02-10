@@ -6,8 +6,8 @@ Actions is a generic system that allows you to easily integrate the Home Assista
 
 # Creating Actions
 Actions are created from the Actions section of the App Configuration page within the companion App for iOS.  For Android the actions are created in the notification service call. Each action has required fields depending on your device:
-*   `Name`: the name of the action, this will be returned in the [Home Assistant event](https://www.home-assistant.io/docs/configuration/events/) fired by the app. ![iOS](assets/apple.svg) ![android](assets/android.svg) 
-*   `Text`: the descriptive text shown on the phone and watch. It is best to keep this relatively short as there is limited space on each action's button. ![iOS](assets/apple.svg) ![android](assets/android.svg) 
+*   `Name`: the name of the action, this will be returned in the [Home Assistant event](https://www.home-assistant.io/docs/configuration/events/) fired by the app. ![iOS](assets/apple.svg) ![android](assets/android.svg)
+*   `Text`: the descriptive text shown on the phone and watch. It is best to keep this relatively short as there is limited space on each action's button. ![iOS](assets/apple.svg) ![android](assets/android.svg)
 *   `Text Color`: the color of the text defined above ![iOS](assets/apple.svg)
 *   `Background Color`: the color of the button created for the action. ![iOS](assets/apple.svg)
 *   `Icon`: an icon to display to the left of the text on the action's button  ![iOS](assets/apple.svg)
@@ -101,10 +101,10 @@ The [Apple Watch App](integrations/watch/index.md) provides access to actions yo
 # Android Widget
 ![android](assets/android.svg) The Android app allows the user to create widgets on the home screen so the user can call any Home Assistant service call.  You can add the widget like you normally would for any app depending on your devices launcher.
 
-1. Long press on any open space in the home screen
-2. Scroll down to Home Assistant in the widget list
-3. Drag the widget to an open space on the home screen
-4. Select the service call you wish to perform
-5. Fill in the required service data for the selected service call
-6. Supply a name and icon the widget
-7. Save the widget
+1.  Long press on any open space in the home screen
+2.  Scroll down to Home Assistant in the widget list
+3.  Drag the widget to an open space on the home screen
+4.  Select the service call you wish to perform
+5.  Fill in the required service data for the selected service call
+6.  Supply a name and icon the widget
+7.  Save the widget
