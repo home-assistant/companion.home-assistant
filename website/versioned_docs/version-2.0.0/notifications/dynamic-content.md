@@ -3,7 +3,9 @@ title: Dynamic attachments
 id: version-2.0.0-dynamic-content
 original_id: dynamic-content
 ---
+
 Dynamic content such as maps and camera streams can be displayed as part of a notification without needing to open an app.
+![iOS](assets/apple.svg)
 
 ## Map
 Will show a centered map with a red pin at the given coordinates.
