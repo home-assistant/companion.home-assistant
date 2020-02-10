@@ -12,7 +12,7 @@ Some useful examples of actionable notifications:
 
 ![Actionable notifications allow the user to send a command back to Home Assistant.](assets/ios/actions.png)
 
-## Overview of how actionable notifications work
+## Overview of how actionable notifications work on iOS
 
 In advance of sending a notification:
 
@@ -83,7 +83,10 @@ Rather than defining categories using YAML within `configuration.yaml`, you can 
 Two variables are available for use in the `Hidden preview placeholder` and `Category summary`. `%u` will give the total number of notifications which have been sent under the same thread ID (see [this document](basic.md#thread-id-grouping-notifications) for more details). `%@` will give the text specified with `summary:` in the `push:` section of the notification payload.
 
 ## Building automations for notification actions
+
 Here is an example automation to send a notification with a category in the payload:
+
+![iOS](assets/apple.svg)
 
 ```yaml
 automation:
@@ -102,7 +105,24 @@ automation:
             my_custom_data: foo_bar
 ```
 
-When an action is selected an event named `ios.notification_action_fired` will be emitted on the Home Assistant event bus. Below is an example payload.
+![android](assets/android.svg)
+
+```yaml
+automation:
+  - alias: Notify Mobile app
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "Something happened at home!"
+        data:
+          actions:
+            - action: "alarm" # The key you are sending for the event
+              title: "Title" # The button title
+```
+
+When an action is selected an event named `ios.notification_action_fired` for iOS and `mobile_app_notification_action` for Android will be emitted on the Home Assistant event bus. Below is an example payload.
 
 ```json
 {
@@ -116,6 +136,9 @@ When an action is selected an event named `ios.notification_action_fired` will b
 ```
 
 Here's an example automation for the given payload:
+
+![iOS](assets/apple.svg)
+
 ```yaml
 automation:
   - alias: Sound the alarm
@@ -128,13 +151,29 @@ automation:
       ...
 ```
 
-Notes:
+![android](assets/android.svg)
+
+```yaml
+automation:
+  - alias: Sound the alarm
+    trigger:
+      platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: alarm
+    action:
+      ...
+```
+
+Notes ![iOS](assets/apple.svg):
 
 *   `textInput` will only exist if `behavior` was set to `textInput`.
 *   `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
 *   When adding or updating push categories in `configuration.yaml` be sure to update push settings within the Home Assistant iOS app. This can be found within the Notifications page of the App Configuration menu (accessed from the sidebar menu). You may have to exit the Notifications page and reopen it before new categories are shown. If they are still not listed, restart the Home Assistant Companion App.
 
 ## Compatibility with different devices
+
+![iOS](assets/apple.svg)
 
 *   For devices that support "Force Touch" / "3D Touch" (most Apple devices from the last 4-5 years) - a firm press on the notification will expand it, showing the action buttons underneath. Supported devices include the iPhone 6S, iPhone 6S Plus, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPhone XS, iPhone XS Max as well as some iPad and Apple Watch models.
 
