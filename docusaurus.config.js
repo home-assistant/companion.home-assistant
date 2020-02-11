@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Home Assistant Companion Docs',
   tagline: 'Everything you need to know to use Home Assistant Companion',
-  url: 'https://ha-appv2.tombrien.io/',
+  url: 'https://companion.home-assistant.io/',
   baseUrl: '/',
   favicon: 'img/favicon.png',
   organizationName: 'home-assistant', // Usually your GitHub org/user name.
@@ -73,7 +73,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/TomBrien/home-assistant.companion-docs-V2/edit/master/',
+            'https://github.com/home-assistant/companion.home-assistant/edit/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
