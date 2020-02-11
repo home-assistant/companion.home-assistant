@@ -194,7 +194,7 @@ automation:
 ### Notification color
 
 ![android](assets/android.svg)
-In Android you can set the `color` of the notification.  You can use either the color name or the hex code
+In Android you can set the `color` of the notification, you can use either the color name or the hex code.
 
 ```
 automation:
