@@ -132,6 +132,21 @@ automation:
           tag: tag
 ```
 
+You can also remove a notification by sending `clear_notification` to the same `tag`
+
+```yaml
+automation:
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: clear_notification
+        data:
+          tag: tag
+```
+
 ### Sending notifications to multiple devices
 ![iOS](assets/apple.svg) ![android](assets/android.svg)
 To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/components/notify.group/):
