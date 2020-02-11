@@ -96,6 +96,7 @@ automation:
     action:
       service: notify.mobile_app_<your_device_id_here>
       data:
+        title: "Check this out!"
         message: "Something happened at home!"
         data:
           push:
