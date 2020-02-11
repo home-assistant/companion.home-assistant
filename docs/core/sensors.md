@@ -6,6 +6,7 @@ id: 'sensors'
 Along with providing [location services](location.md), the companion app also adds several additional sensors to Home Assistant. **It is important to know that these sensors are only updated when a location is pushed to Home Assistant or the web view is refreshed**. The sensors provided by the companion app are:
 
 ![iOS](/assets/apple.svg) iOS Sensor List
+
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
 | `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
@@ -31,6 +32,7 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 ```
 
 ![android](/assets/android.svg) Android Sensor List
+
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
 | `sensor.battery_level` | `is_charging`, `charger_type` | The state of the sensor reflects the devices battery level. `is_charging` attribute will be either `true` or `false`. `charger_type` will show either `N/A`, `AC`, `USB` or `Wireless`. |
