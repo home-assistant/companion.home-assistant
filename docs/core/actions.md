@@ -1,17 +1,18 @@
 ---
 title: "Actions"
+id: 'actions'
 ---
 
-Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS/Android and [Apple Watch](../integrations/watch/index.md).
+ctions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS/Android and [Apple Watch](../integrations/watch/index.md).
 
 # Creating Actions
 Actions are created from the Actions section of the App Configuration page within the companion App for iOS.  For Android the actions are created in the notification service call. Each action has required fields depending on your device:
-*   `Name`: the name of the action, this will be returned in the [Home Assistant event](https://www.home-assistant.io/docs/configuration/events/) fired by the app. ![iOS](assets/apple.svg) ![android](assets/android.svg)
-*   `Text`: the descriptive text shown on the phone and watch. It is best to keep this relatively short as there is limited space on each action's button. ![iOS](assets/apple.svg) ![android](assets/android.svg)
-*   `Text Color`: the color of the text defined above ![iOS](assets/apple.svg)
-*   `Background Color`: the color of the button created for the action. ![iOS](assets/apple.svg)
-*   `Icon`: an icon to display to the left of the text on the action's button  ![iOS](assets/apple.svg)
-*   `Icon Color`: the color of the icon on the action's button. ![iOS](assets/apple.svg)
+*   `Name`: the name of the action, this will be returned in the [Home Assistant event](https://www.home-assistant.io/docs/configuration/events/) fired by the app. ![iOS](/assets/apple.svg) ![android](/assets/android.svg)
+*   `Text`: the descriptive text shown on the phone and watch. It is best to keep this relatively short as there is limited space on each action's button. ![iOS](/assets/apple.svg) ![android](/assets/android.svg)
+*   `Text Color`: the color of the text defined above ![iOS](/assets/apple.svg)
+*   `Background Color`: the color of the button created for the action. ![iOS](/assets/apple.svg)
+*   `Icon`: an icon to display to the left of the text on the action's button  ![iOS](/assets/apple.svg)
+*   `Icon Color`: the color of the icon on the action's button. ![iOS](/assets/apple.svg)
 
 For the three color fields, the color is selected by tapping the color-picker circle in each field.
 
@@ -47,7 +48,7 @@ The attributes contained within `context` are:
 
 Actions can be used to trigger automations within Home Assistant. An example `configuration.yaml` entry might be:
 
-![iOS](assets/apple.svg)
+![iOS](/assets/apple.svg)
 
 ```yaml
 automation:
@@ -63,7 +64,7 @@ automation:
       entity_id: group.all_lights
 ```
 
-![android](assets/android.svg)
+![android](/assets/android.svg)
 
 ```yaml
 automation:
@@ -84,14 +85,14 @@ Note that attributes located in the `data` and `context` are accessed through `e
 You can use the Events page within Home Assistant's developer tools to show all information contained with the event for a particular event by subscribing to `ios.action_fired` or `mobile_app_notification_action` and triggering the action from you device.
 
 # Apple Watch
-The [Apple Watch App](integrations/watch/index.md) provides access to actions you have created. Once you have created an action within the Actions page, you can load it into the watch app by tapping "Send now" on the Apple Watch page within App Configuration.
+The [Apple Watch App](integrations/watch/index.md) provides access to actions you have created. Once you have created an action within the Actions page, open the Home Assistant watch and the action list should sync.
 
 
 # Home Screen Quick Actions
-![iOS](assets/apple.svg) [Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions and is accessed by 3D Touching the Home Assistant companion app icon on your home screen.
+![iOS](/assets/apple.svg) [Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions and is accessed by 3D Touching the Home Assistant companion app icon on your home screen.
 
 # Today View Widget
-![iOS](assets/apple.svg) The [Today View Widget](https://support.apple.com/en-gb/HT207122) is another route through which actions can be fired. To add the Home Assistant widget to your Today View:
+![iOS](/assets/apple.svg) The [Today View Widget](https://support.apple.com/en-gb/HT207122) is another route through which actions can be fired. To add the Home Assistant widget to your Today View:
 
 1.  Swipe right while on the Home screen or Lock screen.
 2.  Scroll to the very bottom and tap the Edit button.
@@ -99,7 +100,7 @@ The [Apple Watch App](integrations/watch/index.md) provides access to actions yo
 4.  Rearrange as you'd like and then tap Done.
 
 # Android Widget
-![android](assets/android.svg) The Android app allows the user to create widgets on the home screen so the user can call any Home Assistant service call.  You can add the widget like you normally would for any app depending on your devices launcher.
+![android](/assets/android.svg) The Android app allows the user to create widgets on the home screen so the user can call any Home Assistant service call.  You can add the widget like you normally would for any app depending on your devices launcher.
 
 1.  Long press on any open space in the home screen
 2.  Scroll down to Home Assistant in the widget list

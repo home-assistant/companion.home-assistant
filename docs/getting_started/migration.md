@@ -1,9 +1,10 @@
 ---
 title: Migrating to Home Assistant Companion 2019.1
+sidebar_label: Migration Guide
 id: migration
 ---
 
-![iOS](assets/apple.svg)
+![iOS](/assets/apple.svg)
 
 The steps below should guide you through the process of migrating from the previous app version (1.5) to 2019.1. Before going any further, please make sure you read the [breaking changes](migration#breaking-changes) listed below.
 

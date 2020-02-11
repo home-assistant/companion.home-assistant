@@ -1,5 +1,6 @@
 ---
 title: "Siri Shortcuts"
+id: siri-shortcuts
 ---
 
 With iOS 12 or later, you can take advantage of the power of Siri Shortcuts to carry out Home Assistant tasks with a tap or by using voice commands.
@@ -7,7 +8,7 @@ With iOS 12 or later, you can take advantage of the power of Siri Shortcuts to c
 # Actions
 
 ## Call Service
-You can call any service that shows up in the "Services" page <img src="https://www.home-assistant.io/images/screenshots/developer-tool-services-icon.png" width="24" height="24"> of Home Assistant. 
+You can call any service that shows up in the "Services" page <img src="https://www.home-assistant.io/images/screenshots/developer-tool-services-icon.png" width="24" height="24" /> of Home Assistant.
 
 As an example, if you wanted to start your bedtime routine automation you would do the following:
 
