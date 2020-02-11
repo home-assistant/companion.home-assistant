@@ -1,5 +1,6 @@
 ---
 title: "Requesting location updates"
+id: "location-notification"
 ---
 
 > Do not rely on this functionality due to the time limitations mentioned below.

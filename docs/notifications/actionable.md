@@ -1,5 +1,6 @@
 ---
-title: "Actionable notifications"
+title: "Actionable Notifications"
+id: "actionable-notifications"
 ---
 
 Notifications can be grouped by category, this allows for different types of notifications from Home Assistant be placed in a appropriate stacks on the lock screen and even custom summary text to be used on the notification stack. Categories also you to create actionable notifications to which you can attach up to four buttons underneath an expanded iOS notification. These buttons are associated with automations of your choice, allowing you to perform powerful tasks with literally the press of a button!
@@ -10,7 +11,7 @@ Some useful examples of actionable notifications:
 -   Someone rings your front doorbell. You receive a notification with a [live camera stream](dynamic-content.md) of the visitor outside along with action buttons to lock or unlock your front door.
 -   Receive a notification whenever your garage door opens with action buttons to open or close the garage.
 
-![Actionable notifications allow the user to send a command back to Home Assistant.](assets/ios/actions.png)
+![Actionable notifications allow the user to send a command back to Home Assistant.](/assets/ios/actions.png)
 
 ## Overview of how actionable notifications work on iOS
 
@@ -27,7 +28,7 @@ When sending a notification:
 3.  Action tapped.
 4.  Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
 
-![How the iOS device and Home Assistant work together to enable actionable notifications.](assets/NotificationActionFlow.png)
+![How the iOS device and Home Assistant work together to enable actionable notifications.](/assets/NotificationActionFlow.png)
 
 ## Definitions
 -   **Category** - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.
@@ -86,7 +87,7 @@ Two variables are available for use in the `Hidden preview placeholder` and `Cat
 
 Here is an example automation to send a notification with a category in the payload:
 
-![iOS](assets/apple.svg)
+![iOS](/assets/apple.svg)
 
 ```yaml
 automation:
@@ -106,7 +107,7 @@ automation:
             my_custom_data: foo_bar
 ```
 
-![android](assets/android.svg)
+![android](/assets/android.svg)
 
 ```yaml
 automation:
@@ -141,7 +142,7 @@ When an action is selected an event named `ios.notification_action_fired` for iO
 
 Here's an example automation for the given payload:
 
-![iOS](assets/apple.svg)
+![iOS](/assets/apple.svg)
 
 ```yaml
 automation:
@@ -155,7 +156,7 @@ automation:
       ...
 ```
 
-![android](assets/android.svg)
+![android](/assets/android.svg)
 
 ```yaml
 automation:
@@ -169,7 +170,7 @@ automation:
       ...
 ```
 
-Notes ![iOS](assets/apple.svg):
+Notes ![iOS](/assets/apple.svg):
 
 *   `textInput` will only exist if `behavior` was set to `textInput`.
 *   `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
@@ -177,7 +178,7 @@ Notes ![iOS](assets/apple.svg):
 
 ## Compatibility with different devices
 
-![iOS](assets/apple.svg)
+![iOS](/assets/apple.svg)
 
 *   For devices that support "Force Touch" / "3D Touch" (most Apple devices from the last 4-5 years) - a firm press on the notification will expand it, showing the action buttons underneath. Supported devices include the iPhone 6S, iPhone 6S Plus, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPhone XS, iPhone XS Max as well as some iPad and Apple Watch models.
 

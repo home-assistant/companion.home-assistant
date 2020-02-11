@@ -1,8 +1,10 @@
 ---
 title: "Dynamic attachments"
+id: "dynamic-content"
 ---
+
 Dynamic content such as maps and camera streams can be displayed as part of a notification without needing to open an app.
-![iOS](assets/apple.svg)
+![iOS](/assets/apple.svg)
 
 ## Map
 Will show a centered map with a red pin at the given coordinates.
@@ -43,7 +45,7 @@ You can also pass the following option properties under `action_data` to modify 
 | `shows_traffic:` | boolean | Displays traffic information on the map. |
 | `shows_user_location:` | boolean | Attempts to display user's location on the map. |
 
-![An example of the map dynamic content.](assets/ios/map.png)
+![An example of the map dynamic content.](/assets/ios/map.png)
 
 ## Camera Stream
 

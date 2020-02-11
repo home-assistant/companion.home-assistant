@@ -1,5 +1,6 @@
 ---
 title: "Privacy, rate limiting and security"
+id: "notification-details"
 ---
 
 ## Privacy

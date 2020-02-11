@@ -1,8 +1,9 @@
 ---
 title: "Universal Links"
+id: 'universal-links'
 ---
 
-![iOS](assets/apple.svg)
+![iOS](/assets/apple.svg)
 
 Universal links are a alternative to the [URL Handler](integrations/url-handler.md) and [X-Callback-URL](integrations/x-callback-url.md).
 
