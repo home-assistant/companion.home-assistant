@@ -115,6 +115,23 @@ automation:
             'apns-collapse-id': 'backyard-motion-detected'
 ```
 
+![android](assets/android.svg)
+For Android users you can easily replace the notification using the `tag` service data.
+
+```yaml
+automation:
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        title: "Motion Detected in Backyard"
+        message: "Someone might be in the backyard."
+        data:
+          tag: tag
+```
+
 ### Sending notifications to multiple devices
 ![iOS](assets/apple.svg) ![android](assets/android.svg)
 To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/components/notify.group/):
@@ -157,4 +174,61 @@ automation:
           presentation_options:
             - alert
             - badge
+```
+
+### Notification color
+
+![android](assets/android.svg)
+In Android you can set the `color` of the notification.  You can use either the color name or the hex code
+
+```
+automation:
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        title: "Motion Detected in Backyard"
+        message: "Someone might be in the backyard."
+        data:
+          color: '#2DF56D' # or 'red'
+```
+
+### Sticky notification
+
+![android](assets/android.svg)
+You can set whether to dismiss the notification upon selecting it or not.  Setting `sticky` to `'true'` will keep the notification from being dismissed when the user selects it.  Setting it to `'false'` (default) will dismiss the notification upon selecting it.
+
+```
+automation:
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        title: "Motion Detected in Backyard"
+        message: "Someone might be in the backyard."
+        data:
+          sticky: 'true" # or 'false'
+```
+
+### Notification click action
+
+![android](assets/android.svg)
+When a notification is selected instead of navigating the user to the Home Assistant app you can have a webpage open or any URL.
+
+```
+automation:
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        title: "Motion Detected in Backyard"
+        message: "Someone might be in the backyard."
+        data:
+          clickAction: 'https://google.com' # action when clicking main notification
 ```
