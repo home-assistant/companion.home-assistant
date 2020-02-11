@@ -33,7 +33,7 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
 | `sensor.battery_level` | `is_charging`, `charger_type` | The state of the sensor reflects the devices battery level. `is_charging` attribute will be either `true` or `false`. `charger_type` will show either `N/A`, `AC`, `USB` or `Wireless`. |
-| `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected SSID or `<not connected>`. |
+| `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected network or `<not connected>`. |
 
 ## Activity Sensor
 ![iOS](assets/apple.svg) `sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
@@ -55,7 +55,7 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 ## Battery Sensors
 ![iOS](assets/apple.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100% charged.
 
-![iOS](assets/apple.svg) ![android](assets/android.svg) The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0-100%. The charge level is reflected in the sensor icon.  For Android users the sensor has attributes to help distinguish if the device is actively charging and how it is charging, see the table above the attributes and their values.
+![iOS](assets/apple.svg) ![android](assets/android.svg) The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0-100%. The charge level is reflected in the sensor icon.  For Android users the sensor has attributes to help distinguish if the device is actively charging and how it is charging, see the table above for the attributes and their values.
 
 ## Connection Type Sensor
 ![iOS](assets/apple.svg) The following connection types are known by the companion app:
