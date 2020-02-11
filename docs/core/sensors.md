@@ -2,10 +2,9 @@
 title: "Sensors"
 ---
 
-![iOS](assets/apple.svg)
-
 Along with providing [location services](location.md), the companion app also adds several additional sensors to Home Assistant. **It is important to know that these sensors are only updated when a location is pushed to Home Assistant or the web view is refreshed**. The sensors provided by the companion app are:
 
+![iOS](assets/apple.svg) iOS Sensor List
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
 | `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
@@ -30,8 +29,14 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 {{ states.sensor.connection_type.attributes['Cellular Technology'] }}
 ```
 
-## Actvity Sensor
-`sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
+![android](assets/android.svg) Android Sensor List
+| Sensor | Attributes | Description |
+| --------- | --------- | ----------- |
+| `sensor.battery_level` | `is_charging`, `charger_type` | The state of the sensor reflects the devices battery level. `is_charging` attribute will be either `true` or `false`. `charger_type` will show either `N/A`, `AC`, `USB` or `Wireless`. |
+| `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected SSID or `<not connected>`. |
+
+## Activity Sensor
+![iOS](assets/apple.svg) `sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
 *   `Stationary`
 *   `Walking`
 *   `Running`
@@ -48,12 +53,12 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 *   `High`
 
 ## Battery Sensors
-The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100% charged.
+![iOS](assets/apple.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100% charged.
 
-The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0-100%. The charge level is reflected in the sensor icon.
+![iOS](assets/apple.svg) ![android](assets/android.svg) The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0-100%. The charge level is reflected in the sensor icon.  For Android users the sensor has attributes to help distinguish if the device is actively charging and how it is charging, see the table above the attributes and their values.
 
 ## Connection Type Sensor
-The following connection types are known by the companion app:
+![iOS](assets/apple.svg) The following connection types are known by the companion app:
 *   `Wi-Fi`
 *   `Cellular`
 *   `No Connection`
@@ -68,9 +73,10 @@ A more specific description of the data connection can be found in the `Cellular
 
 If the connection type is not recognized, either `Unknown` or `Unknown Technology` will be returned.
 
+![android](assets/android.svg) Android users will have a `wifi_connection` sensor where the state will reflect the currently connected network name or `<not connected>`. The sensor will also have attributes about the connection itself, see the table above for the different attributes.
 
 ## Last Update Trigger Sensor
-This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
+![iOS](assets/apple.svg) This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
 
 | State | Description |
 | --------- | --------- |
@@ -86,7 +92,7 @@ This sensor displays exactly what caused the last update of location and sensor 
 
 
 ## Geocoded Location Sensor
-The [geocoded](https://.wikipedia.org/wiki/Geocoding) location sensor provides a user-friendly description of a users current location coordinates, often containing the name of the place, its address, and other relevant information. This sensor reports many detailed attributes allowing you to create useful [template sensors](https://www.home-assistant.io/components/template/).
+![iOS](assets/apple.svg) The [geocoded](https://.wikipedia.org/wiki/Geocoding) location sensor provides a user-friendly description of a users current location coordinates, often containing the name of the place, its address, and other relevant information. This sensor reports many detailed attributes allowing you to create useful [template sensors](https://www.home-assistant.io/components/template/).
 
 Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/documentation/mapkit) and [Core Location](https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names) services.
 
@@ -109,7 +115,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `InlandWater` | The name of the inland water body associated with the placemark. |
 
 ## Pedometer Sensors
-The pedometer sensors provide step-counting data from the devices built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
+![iOS](assets/apple.svg) The pedometer sensors provide step-counting data from the devices built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
 
 | Sensor | Description |
 | --------- | --------- |
@@ -121,7 +127,7 @@ The pedometer sensors provide step-counting data from the devices built-in motio
 
 
 ## Cellular Provider Sensor
-The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
+![iOS](assets/apple.svg) The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
 
 | Attribute | Description |
 | --------- | --------- |
