@@ -1,6 +1,6 @@
 ---
 title: Companion App Networking
-id: networking
+id: 'networking'
 ---
 Having your Home available anywhere and everywhere you go is important, whether you forgot to turn off the stove or you want to check the camera views because of an alert.
 
@@ -45,7 +45,7 @@ Since IPv6 has been rolling out for the last 20 years, chances are that along wi
 
 ## Addendum: Reverse Proxy via NGINX
 There are cases when having Home Assistant serve https is impossible or incompatible with some of your devices. This can be especially true with ESP-based low power IoT hardware that communicates via RestAPI and just doesn't have the horsepower to do the SSL encryption. One example is the [konnected.io Integration](https://www.home-assistant.io/integrations/konnected/) which requires Home Assistant to be reachable via http.
-So to accomodate this and still have encryption for external access, we use a reverse proxy like [NGINX](https://www.home-assistant.io/docs/ecosystem/nginx/). What a reverse proxy does is to act as an intermediate for your clients (Browser or App). The client talks to the reverse proxy securely via https and the proxy passes through this traffic to Home Assistant over an unencrypted http connection. Staying with our Hass.io example, we'll assume you have already set up DuckDNS and LetsEncrypt. You should now install the Hass.io add-on [NGINX Home Assistant SSL proxy](https://www.home-assistant.io/addons/nginx_proxy/) and configure it according to the docs. 
+So to accomodate this and still have encryption for external access, we use a reverse proxy like [NGINX](https://www.home-assistant.io/docs/ecosystem/nginx/). What a reverse proxy does is to act as an intermediate for your clients (Browser or App). The client talks to the reverse proxy securely via https and the proxy passes through this traffic to Home Assistant over an unencrypted http connection. Staying with our Hass.io example, we'll assume you have already set up DuckDNS and LetsEncrypt. You should now install the Hass.io add-on [NGINX Home Assistant SSL proxy](https://www.home-assistant.io/addons/nginx_proxy/) and configure it according to the docs.
 
 In your configuration.yaml file the following changes are needed:
 ```

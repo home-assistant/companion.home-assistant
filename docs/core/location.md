@@ -1,28 +1,29 @@
 ---
 title: "Location"
+id: 'location'
 ---
 
 ## Overview
 
 Location updates are sent from your device to Home Assistant in a number of situations:
 *   When you enter or exit a [zone](https://www.home-assistant.io/components/zone/) defined in Home Assistant. For Android ensure the zone based tracking toggle is enabled in App Configuration.
-*   When an iBeacon is detected or lost (see [below](#ibeacons)). ![iOS](assets/apple.svg)
+*   When an iBeacon is detected or lost (see [below](#ibeacons)). ![iOS](/assets/apple.svg)
 *   When the app is opened and it was not already open in the background.
 *   Via an automated background fetch.
 *   When an update is requested via [special notification](notifications/location.md)
-*   When a [URL Handler](integrations/url-handler.md) link is opened. ![iOS](assets/apple.svg)
-*   When the app is called via a [X-Callback-URL](integrations/x-callback-url.md). ![iOS](assets/apple.svg)
+*   When a [URL Handler](integrations/url-handler.md) link is opened. ![iOS](/assets/apple.svg)
+*   When the app is called via a [X-Callback-URL](integrations/x-callback-url.md). ![iOS](/assets/apple.svg)
 *   When your devices detects a [_significant location change_](#location-tracking-when-outside-a-home-assistant-zone).
-*   Manually when the app is refreshed (swipe down when at the top of a page) or from the shortcut menu opened from 3D touching the app icon. ![iOS](assets/apple.svg)
+*   Manually when the app is refreshed (swipe down when at the top of a page) or from the shortcut menu opened from 3D touching the app icon. ![iOS](/assets/apple.svg)
 
-You can check the cause of the most recent location update by checking the value of `sensor.last_update_trigger` ![iOS](assets/apple.svg)
+You can check the cause of the most recent location update by checking the value of `sensor.last_update_trigger` ![iOS](/assets/apple.svg)
 
-Depending on your set up, location data is sent directly from your phone to your Home Assistant instances or via the Home Assistant Cloud Service. This will depend on the URLs specified in the Connection section of the App Configuration menu. Location data is not sent via any other servers or organisations. Of course, if you decide not grant the Home Assistant Companion App location permission or if you subsequently remove the location permissions (![iOS](assets/apple.svg) Settings>Privacy>Location Services or ![android](assets/android.svg) Settings>Privacy>Permissions), no location data will be sent from your device to Home Assistant.
+Depending on your set up, location data is sent directly from your phone to your Home Assistant instances or via the Home Assistant Cloud Service. This will depend on the URLs specified in the Connection section of the App Configuration menu. Location data is not sent via any other servers or organisations. Of course, if you decide not grant the Home Assistant Companion App location permission or if you subsequently remove the location permissions (![iOS](/assets/apple.svg) Settings>Privacy>Location Services or ![android](/assets/android.svg) Settings>Privacy>Permissions), no location data will be sent from your device to Home Assistant.
 **Check this is true for notification updates**
 
 ## Getting started
 
-Once you have installed and opened the Home Assistant Companion App for the first time, a new `device_tracker.` entity will be created. By default the entity will have a name of the form `device_tracker.<device_ID>` where `<device_ID>` is the device name you have set (![iOS](assets/apple.svg) Settings>General>About or ![android](assets/android.svg) Settings>About Phone). You can check the entity name within Home Assistant by visiting the Integration section of the Configuration page from the sidebar (swipe right if you're using the ![iOS](assets/apple.svg) Companion App) then clicking or tapping on the Mobile App integration for your device and scrolling through the list of entities. You can edit the entity's `name` attribute as you desire if needed. 
+Once you have installed and opened the Home Assistant Companion App for the first time, a new `device_tracker.` entity will be created. By default the entity will have a name of the form `device_tracker.<device_ID>` where `<device_ID>` is the device name you have set (![iOS](/assets/apple.svg) Settings>General>About or ![android](/assets/android.svg) Settings>About Phone). You can check the entity name within Home Assistant by visiting the Integration section of the Configuration page from the sidebar (swipe right if you're using the ![iOS](/assets/apple.svg) Companion App) then clicking or tapping on the Mobile App integration for your device and scrolling through the list of entities. You can edit the entity's `name` attribute as you desire if needed.
 
 The following is a basic example to switch a light on when you enter your _home_ zone after dark.
 
@@ -44,7 +45,7 @@ automation:
 
 ## Location tracking when outside a Home Assistant zone
 
-![iOS](assets/apple.svg)
+![iOS](/assets/apple.svg)
 
 The Home Assistant Companion App receives _significant location updates_ from iOS. Whenever an update is received, it is sent to Home Assistant. Roughly, an update is received every time that your device transfers to a new cellular tower, a significant amount of time has passed (usually a couple hours) or a connection state changes and the system notices your location recently changed.
 
@@ -68,11 +69,11 @@ At launch, Home Assistant for iOS sets up geofences for all zones in your Home A
 
 ### Configuration
 
-Add `track_ios: false` to your zone configurations to disable zone location tracking for all connected iOS apps. ![iOS](assets/apple.svg)
+Add `track_ios: false` to your zone configurations to disable zone location tracking for all connected iOS apps. ![iOS](/assets/apple.svg)
 
 ### iBeacons
 
-![iOS](assets/apple.svg)
+![iOS](/assets/apple.svg)
 
 The app has basic support for using iBeacons to trigger enter/exit updates. To configure them, add your iBeacon details to your zone like this:
 

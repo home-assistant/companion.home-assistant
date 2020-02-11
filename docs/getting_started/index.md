@@ -1,6 +1,6 @@
 ---
-title: Welcome
-id: index
+title: Getting Started
+id: getting-started
 ---
 
 ## Installation & System Requirements
@@ -16,7 +16,7 @@ If for some reason you have disabled `default_config:` make sure your `configura
 
 For some features the following integrations also need to be enabled:
 -   `cloud:` is used for securely connecting to your Home Assistant via Nabu Casa subscription via Remote UI and cloud webhooks
--   `ios:` is used if you want advanced notifications like actionable notifications and categories ![iOS](assets/apple.svg)
+-   `ios:` is used if you want advanced notifications like actionable notifications and categories ![iOS](/assets/apple.svg)
 
 ## Setting Up
 
@@ -24,16 +24,16 @@ Providing your Home Assistant instances is correctly set up for [remote access](
 
 When you open the app for the first time you'll be guided through the process of connecting to your Home Assistant instance and granting the required permissions to integrate your phone with Home Assistant.
 
-![First onboarding screen](assets/Onboarding_start.jpg)
+![First onboarding screen](/assets/Onboarding_start.jpg)
 
 After tapping "continue" on the first screen, the app will start checking your network for Home Assistant instances. If an instance is found, simply tap the instance and follow to prompts to connect and log in to your Home Assistant. If you are not connected to the same local network as your Home Assistant instance, tap "Enter Address Manually" and enter the address you use to remotely connect to your Home Assistant instance (using the [Home Assistant Cloud](https://www.nabucasa.com/config/remote/) Remote UI is recommended but not required).
 
 One you have connected and logged into your Home Assistant instance, you will be asked to grant permission for the app to work with your iOS device beyond basic browsing of you Home Assistant instance. You are not required to grant these permissions in order to use the app however they provide a much greater degree of integration between your device and Home Assistant. The permissions that are requested are:
 *   **Location:** Allows your device to provide location to Home Assistant, a `device_tracker` entity will be created which can be used in automations and conditions within Home Assistant. As mentioned above, due to changes in iOS 13, this permission is requested before logging into Home Assistant.  For Android this permission is requested as part of the onboarding process when you first log in.
-*   **Motion & Pedometer:** ![iOS](assets/apple.svg) Allows Home Assistant to access pedometer data from your iOS device, this creates sensors for number of steps taken today, floors ascended and descended, distance walked today, and current activity. It does not provide any access to data held within the Health app or any other data beyond basic motion data from the device's motion chip.
-*   **Notifications:** Allows notifications to be sent to your device by Home Assistant. Along with normal notifications, Home Assistant can send Critical Notifications; these are intended for high-priority messages and will always play a sound even if the device is in silent mode ![iOS](assets/apple.svg). You will be asked to give permission for both notification types.  Check for the ![android](assets/android.svg) Android logo to see what is currently supported on Android devices.  You may need to restart Home Assistant once after logging in for the notification service call to register.
+*   **Motion & Pedometer:** ![iOS](/assets/apple.svg) Allows Home Assistant to access pedometer data from your iOS device, this creates sensors for number of steps taken today, floors ascended and descended, distance walked today, and current activity. It does not provide any access to data held within the Health app or any other data beyond basic motion data from the device's motion chip.
+*   **Notifications:** Allows notifications to be sent to your device by Home Assistant. Along with normal notifications, Home Assistant can send Critical Notifications; these are intended for high-priority messages and will always play a sound even if the device is in silent mode ![iOS](/assets/apple.svg). You will be asked to give permission for both notification types.  Check for the ![android](/assets/android.svg) Android logo to see what is currently supported on Android devices.  You may need to restart Home Assistant once after logging in for the notification service call to register.
 
-![Home assistant setting up the app](assets/Onboarding_connecting.gif)
+![Home assistant setting up the app](/assets/Onboarding_connecting.gif)
 
 Once you have granted or denied permissions, the app will create the required connections to your Home Assistant instance and then take you to your Home Assistant home screen. Depending on the app version, you may see a "What's New" screen in between the end of setup and be taken to your home screen.
 

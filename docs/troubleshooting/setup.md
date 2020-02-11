@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting
+id: 'faqs'
 ---
-
 
 Below is a list of common issues and troubleshooting advice to address them. For more support please [look at the more help page](more-help.md)
 
@@ -44,7 +44,7 @@ In a future update to the app, default sensor names will be changed to include y
 
 1.  Open the Home Assistant "Configuration" page from the sidebar (if using the app, swipe right to access this)
 2.  Click or tap on "Integrations"
-3.  Find the "Mobile App: <Device Name>" integration corresponding the device you wish to rename the sensors of and open it
+3.  Find the "Mobile App: _Device Name_" integration corresponding the device you wish to rename the sensors of and open it
 4.  For each sensor you wish to rename, click or tap on the sensor name and then the cog symbol.
 5.  Under "Entity ID" change the entity id as required. Do **not** change `sensor.` or `device_tracker.` part of the ID
 6.  Repeat Steps 4 and 5 for each sensor you wish to rename
