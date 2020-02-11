@@ -213,7 +213,7 @@ automation:
 ### Sticky notification
 
 ![android](assets/android.svg)
-You can set whether to dismiss the notification upon selecting it or not.  Setting `sticky` to `'true'` will keep the notification from being dismissed when the user selects it.  Setting it to `'false'` (default) will dismiss the notification upon selecting it.
+You can set whether to dismiss the notification upon selecting it or not. Setting `sticky` to `'true'` will keep the notification from being dismissed when the user selects it. Setting it to `'false'` (default) will dismiss the notification upon selecting it.
 
 ```
 automation:
