@@ -3,7 +3,7 @@ title: "Actions"
 id: 'actions'
 ---
 
-ctions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS/Android and [Apple Watch](../integrations/watch/index.md).
+Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS/Android and [Apple Watch](../integrations/watch/index.md).
 
 # Creating Actions
 Actions are created from the Actions section of the App Configuration page within the companion App for iOS.  For Android the actions are created in the notification service call. Each action has required fields depending on your device:
