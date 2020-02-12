@@ -65,7 +65,7 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Home Assistant. Built with Docusaurus.`,
     },
-    image: 'img/logo-pretty.png',
+    image: 'img/default-social.png',
   },
   presets: [
     [
