@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Home Assistant Companion Docs',
   tagline: 'Everything you need to know to use Home Assistant Companion',
-  url: 'https://companion.home-assistant.io/',
+  url: 'https://companion.home-assistant.io',
   baseUrl: '/',
   favicon: 'img/favicon.png',
   organizationName: 'home-assistant', // Usually your GitHub org/user name.
@@ -65,7 +65,7 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Home Assistant. Built with Docusaurus.`,
     },
-    image: 'logo-pretty.png',
+    image: 'img/logo-pretty.png',
   },
   presets: [
     [
