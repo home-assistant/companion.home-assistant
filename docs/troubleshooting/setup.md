@@ -58,15 +58,17 @@ To fix this change the location permission for the Home Assistant App to "Always
 
 #### Starting fresh with the Android app
 At times you may need to start fresh with the Android app as a new feature may not be working properly or something odd happens.
-1. Clear Storage or App data in Android app
-2. In Home Assistant navigate to Configuration > Integration.  Remove the mobile app entry for the device in question.
-3. Restart Home Assistant
-4. Log back into Android app
-5. Restart Home Assistant once more to register the `notify.mobile_app` service call
+
+1.  Clear Storage or App data in Android app
+2.  In Home Assistant navigate to Configuration > Integration.  Remove the mobile app entry for the device in question.
+3.  Restart Home Assistant
+4.  Log back into Android app
+5.  Restart Home Assistant once more to register the `notify.mobile_app` service call
 
 #### Location is not updating in Android app
 If you find that location updates are not coming in here are a few things to check.
-1. Ensure the app has location permissions granted, all the time
-2. Turn off battery optimizations for the app
-3. Ensure that the location toggles are enabled in App Configuration in the Android app
-4. Turn on unrestricted data for the Android app
+
+1.  Ensure the app has location permissions granted, all the time
+2.  Turn off battery optimizations for the app
+3.  Ensure that the location toggles are enabled in App Configuration in the Android app
+4.  Turn on unrestricted data for the Android app
