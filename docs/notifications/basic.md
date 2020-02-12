@@ -227,7 +227,7 @@ automation:
         title: "Motion Detected in Backyard"
         message: "Someone might be in the backyard."
         data:
-          sticky: 'true" # or 'false'
+          sticky: 'true' # or 'false'
 ```
 
 ### Notification click action

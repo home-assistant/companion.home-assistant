@@ -87,7 +87,7 @@ Two variables are available for use in the `Hidden preview placeholder` and `Cat
 
 Here is an example automation to send a notification with a category in the payload:
 
-![iOS](/assets/apple.svg)
+![iOS](/assets/apple.svg) iOS Example
 
 ```yaml
 automation:
@@ -107,7 +107,7 @@ automation:
             my_custom_data: foo_bar
 ```
 
-![android](/assets/android.svg)
+![android](/assets/android.svg) Android Example
 
 ```yaml
 automation:
@@ -142,7 +142,7 @@ When an action is selected an event named `ios.notification_action_fired` for iO
 
 Here's an example automation for the given payload:
 
-![iOS](/assets/apple.svg)
+![iOS](/assets/apple.svg) iOS Example
 
 ```yaml
 automation:
@@ -156,7 +156,7 @@ automation:
       ...
 ```
 
-![android](/assets/android.svg)
+![android](/assets/android.svg) Android Example
 
 ```yaml
 automation:
@@ -178,7 +178,7 @@ Notes ![iOS](/assets/apple.svg):
 
 ## Compatibility with different devices
 
-![iOS](/assets/apple.svg)
+![iOS](/assets/apple.svg) iOS Specific
 
 *   For devices that support "Force Touch" / "3D Touch" (most Apple devices from the last 4-5 years) - a firm press on the notification will expand it, showing the action buttons underneath. Supported devices include the iPhone 6S, iPhone 6S Plus, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPhone XS, iPhone XS Max as well as some iPad and Apple Watch models.
 
