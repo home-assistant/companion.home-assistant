@@ -7,7 +7,7 @@ The Home Assistant Companion App provides a convenient way to view and control y
 
 Not all features are supported by Android at the moment but eventually most features will be supported.  Look for the ![android](/assets/android.svg) Android logo to see what is currently supported.
 
-## ![iOS](/assets/apple.svg) iOS and ![android](/assets/android.svg) Android Feature Comparison:
+## ![](/assets/apple.svg) iOS and ![](/assets/android.svg) Android Feature Comparison:
 
 <table>
   <thead>
