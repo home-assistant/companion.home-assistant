@@ -8,7 +8,7 @@ module.exports = {
   projectName: 'companion.home-assistant', // Usually your repo name.
   themeConfig: {
     navbar: {
-      title: 'Home Assistant Apps',
+      title: 'Companion Apps',
       logo: {
         alt: 'Home Assistant',
         src: 'img/logo-pretty.svg',
