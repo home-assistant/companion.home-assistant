@@ -9,15 +9,26 @@ Not all features are supported by Android at the moment but eventually most feat
 
 ![iOS](/assets/apple.svg) iOS and ![android](/assets/android.svg) Android Feature Comparison:
 
-| Features | ![android](/assets/android.svg) | ![iOS](/assets/apple.svg) |
+| Integrations | ![android](/assets/android.svg) | ![iOS](/assets/apple.svg) |
 | ------ | ------ | ------ |
 | [App Events](../integrations/app-events.md) |  | ✔ |
 | [Haptic Feedback](../integrations/haptics.md) |  | ✔ |
-| [Location Tracking](location.md) | ✔ | ✔ |
-| [Universal Links](../integrations/universal-links.md) |  | ✔ |
 | [Theming](../integrations/theming.md) | ✔ | ✔ |
 | [URL Handler](../integrations/url-handler.md) |  | ✔ |
+| [Universal Links](../integrations/universal-links.md) |  | ✔ |
 | [X-Callback-URL](../integrations/x-callback-url.md) |  | ✔ |
+
+| Location Updates | ![android](/assets/android.svg) | ![iOS](/assets/apple.svg) |
+| ------ | ------ | ------ |
+| [App Opened](location.md#overview) | ✔ | ✔ |
+| [App Refreshed](location.md#overview) |  | ✔ |
+| [Background](location.md#overview) | ✔ | ✔ |
+| [Enter/Exit Zone](location.md#location-tracking-in-home-assistant-zones) | ✔ | ✔ |
+| [iBeacon](location.md#ibeacons) |  | ✔ |
+| [Request Location Updates](../notifications/location.md) | ✔ | ✔ |
+| [Significant Location Change](location.md#location-tracking-when-outside-a-home-assistant-zone) | ✔ | ✔ |
+| [URL Handler](location.md#overview) |  | ✔ |
+| [X-Callback-URL](location.md#overview) |  | ✔ |
 
 | Notifications | ![android](/assets/android.svg) | ![iOS](/assets/apple.svg) |
 | ------ | ------ | ------ |
