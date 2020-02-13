@@ -72,3 +72,11 @@ If you find that location updates are not coming in here are a few things to che
 2.  Turn off battery optimizations for the app
 3.  Ensure that the location toggles are enabled in App Configuration in the Android app
 4.  Turn on unrestricted data for the Android app
+
+#### Using a custom ROM on Android and unable to get past initializing
+If you are using a custom ROM then you may need to properly install Android WebView in order for WebView to be functional.
+
+1.  First install Android webview: https://play.google.com/store/apps/details?id=com.google.android.webview&hl=en_US
+2.  Next install the following xPosed module: https://repo.xposed.info/module/net.typeblog.webview
+3.  Activate the xPosed module and restart the device
+4.  Continue with setting up the Android app
