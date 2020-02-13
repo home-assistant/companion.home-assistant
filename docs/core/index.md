@@ -25,21 +25,19 @@ Not all features are supported by Android at the moment but eventually most feat
 | [Badge](../notifications/basic.md#badge) |  | ✔ |
 | [Click Action](../notifications/basic.md#notification-click-action) | ✔ |  |
 | [Color](../notifications/basic.md#notification-color) | ✔ |  |
-| [Critical](../notifications/critical.md) | ✔ | ✔ |
+| [Critical Alerts](../notifications/critical.md) | ✔ | ✔ |
 | [Dynamic Attachments](../notifications/dynamic-content.md) |  | ✔ |
 | [Image](../notifications/attachments.md) | ✔ | ✔ |
 | [Message](../notifications/basic.md) | ✔ | ✔ |
 | [Presentation](../notifications/basic.md#controlling-how-a-notification-is-displayed-when-in-the-foreground) |  | ✔ |
+| [Replaceable Notifications](../notifications/basic.md#replacing-notifications) | ✔ | ✔ |
+| [Request Location Updates](../notifications/location.md) | ✔ | ✔ |
 | [Sound](../notifications/sounds.md) |  | ✔ |
 | [Sticky](../notifications/basic.md#sticky-notification) | ✔ |  |
 | [Subtitle](../notifications/basic.md#subtitle) |  | ✔ |
-| [Thread-id](../notifications/basic.md#thread-id-grouping-notifications) |  | ✔ |
+| [Threads](../notifications/basic.md#thread-id-grouping-notifications) |  | ✔ |
 | [Title](../notifications/basic.md) | ✔ | ✔ |
 | [Video](../notifications/attachments.md) |  | ✔ |
-| [Replaceable Notifications](../notifications/basic.md#replacing-notifications) | ✔ | ✔ |
-| [Request Location Updates](../notifications/location.md) | ✔ | ✔ |
-
-
 
 | Sensors | ![android](/assets/android.svg) | ![iOS](/assets/apple.svg) |
 | ------ | ------ | ------ |
