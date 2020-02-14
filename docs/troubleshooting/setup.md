@@ -6,7 +6,11 @@ id: 'faqs'
 Below is a list of common issues and troubleshooting advice to address them. For more support please [look at the more help page](more-help.md)
 
 #### I don't see a `notify.mobile_app` service for my device in my `dev-services` panel
-Once you have [set up](../getting_started/index.md) the Companion app, a `notify.mobile_app_<Device_ID>` service will be created provided you granted notification permissions during setup. If you can't see this, [force quit](https://support.apple.com/HT201330) and relaunch the Companion app and finally restart your Home Assistant instance. The service should now be listed in the `Developer Tools > Services` panel. If not, check the notification settings within the app (swipe right to bring up the sidebar, the tap "App Configuration", then "Notifications"). If the "Push ID" box is empty, tap the Reset button below it.
+Once you have [set up](/getting_started/index.md) the Companion app you will need to restart Home Assistant for the `notify.mobile_app` service call to register. On iOS the `notify.mobile_app_<Device_ID>` service will be created provided you granted notification permissions during setup, on Android the service call will appear after the restart. If you can't see this, [force quit on iOS](https://support.apple.com/HT201330) or force stop on Android. Then relaunch the Companion app and finally restart your Home Assistant instance. The service should now be listed in the `Developer Tools > Services` panel.
+
+![iOS](/assets/apple.svg) If you don't see the service call on iOS, check the notification settings within the app (swipe right to bring up the sidebar, the tap "App Configuration", then "Notifications"). If the "Push ID" box is empty, tap the Reset button below it.
+
+![android](/assets/android.svg) If you still don't see the service call on Android follow the steps to [start fresh](#starting-fresh-with-the-android-app)
 
 #### I have a `notify.mobile_app_<Device_ID>` service but don't receive notifications
 Firstly, check your message payload is valid. Look at the examples in the [notification docs](../notifications/basic.md) or try sending the simple example below on the `Developer Tools > Services` page to your `notify.mobile_app_<Device_ID>` service.
@@ -72,3 +76,6 @@ If you find that location updates are not coming in here are a few things to che
 2.  Turn off battery optimizations for the app
 3.  Ensure that the location toggles are enabled in App Configuration in the Android app
 4.  Turn on unrestricted data for the Android app
+
+#### Using a self-signed certificate leads to a blank page in Android
+If you are using a self-signed certificate on Android then you may get stuck at a blank screen after entering and/or selecting your Home Assistant instance. In order to correct this issue you will need to make sure the URL is valid and that you import the certificate into Androids Trusted Certificates. Steps to perform this can be found [here](https://support.google.com/nexus/answer/2844832?hl=en). These steps were written for devices on Android 9+ but are very close for older supported devices.

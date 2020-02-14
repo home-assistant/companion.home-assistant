@@ -16,6 +16,10 @@
   --ifm-code-font-size: 95%;
 }
 
+.download-badges {
+  line-height: 0px;
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
   display: block;

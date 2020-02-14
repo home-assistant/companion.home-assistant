@@ -129,6 +129,8 @@ automation:
 
 When an action is selected an event named `ios.notification_action_fired` for iOS and `mobile_app_notification_action` for Android will be emitted on the Home Assistant event bus. Below is an example payload.
 
+![iOS](/assets/apple.svg) iOS event example
+
 ```json
 {
   "sourceDeviceName": "Robbie's iPhone 7 Plus",
@@ -137,6 +139,30 @@ When an action is selected an event named `ios.notification_action_fired` for iO
   "sourceDevicePushId": "ab9f02fe-6ac6-47b8-adeb-5dd87b489156",
   "textInput": "",
   "actionData": {}
+}
+```
+
+![android](/assets/android.svg) Android event example
+
+```json
+{
+    "event_type": "mobile_app_notification_action",
+    "data": {
+        "action": "KEY_ONE",
+        "action_2_title": "Action 2",
+        "action_3_title": "Action 3",
+        "action_1_title": "Action 1",
+        "action_1_key": "KEY_ONE",
+        "action_2_key": "KEY_TWO",
+        "action_3_key": "KEY_THREE"
+    },
+    "origin": "REMOTE",
+    "time_fired": "2020-02-02T04:45:05.550251+00:00",
+    "context": {
+        "id": "abc123",
+        "parent_id": null,
+        "user_id": "123abc"
+    }
 }
 ```
 
