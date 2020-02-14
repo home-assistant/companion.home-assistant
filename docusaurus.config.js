@@ -66,6 +66,11 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} Home Assistant. Built with Docusaurus.`,
     },
     image: 'img/default-social.png',
+    algolia: {
+      apiKey: '07eb926ba58945e17a895f6ca531e3c2',
+      indexName: 'companion-home-assistant',
+      algoliaOptions: {} // Optional, if provided by Algolia
+    },
   },
   presets: [
     [
