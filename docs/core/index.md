@@ -44,6 +44,11 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
+      <td><a href="actions.md#widgets">Widgets</a></td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+    <tr>
       <td><a href="../integrations/x-callback-url.md">X-Callback-URL</a></td>
       <td></td>
       <td>✅</td>
