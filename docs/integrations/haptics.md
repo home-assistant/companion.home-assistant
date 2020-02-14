@@ -5,9 +5,9 @@ id: 'haptics'
 
 ![iOS](/assets/apple.svg)
 
-A new feature in Home Assistant Companion 2.0 is haptics, which provide physical feedback when interacting with the UI. Areas you will feel haptic feedback include toggles (lights, switches, input_booleans) and input_selects. Certain scenarios such as invalid service call errors will also generate haptic feedback.
+Home Assistant Companion for iOS features haptics, which provide physical feedback when interacting with the UI. Areas you will feel haptic feedback include toggles (lights, switches, input_booleans) and input_selects. Certain scenarios such as invalid service call errors will also generate haptic feedback.
 
-iPhone models that support haptic feedback include the iPhone 7 and 7 Plus, iPhone 8 and 8 Plus, the iPhone X, XR, XS, and XS Max.
+iPhone models that support haptic feedback include the iPhone 7 and 7 Plus, iPhone 8 and 8 Plus, the iPhone X, XR, XS, XS Max, iPhone 11 and 11 Pro.
 
 ## Disabling Haptics
 Home Assistant Companion respects the OS-level setting for disabling haptics. In iOS Settings, navigate to "Sounds & Haptics" and then toggle off "System Haptics" at the bottom of the screen. See the [Apple Support document](https://support.apple.com/guide/iphone/change-the-sounds-and-vibrations-iph07c867f28/ios) for more information.
@@ -28,5 +28,7 @@ Home Assistant Companion supports all seven haptic strength levels as defined by
 | `selection` | Indicates that the selection is actively changing. |
 
 **Custom Cards that use haptics:**
-*   [Button Card](https://github.com/custom-cards/button-card)
-*   [Radial Menu](https://github.com/custom-cards/radial-menu)
+*   [Button Card](https://github.com/custom-cards/button-card) by RomRider
+*   [Radial Menu](https://github.com/custom-cards/radial-menu) by Ian Richardson
+*   [Harmony Card](https://github.com/sbryfcz/harmony-card) by Sam Bryfczynski
+
