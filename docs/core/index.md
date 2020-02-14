@@ -19,7 +19,7 @@ Not all features are supported by Android at the moment but eventually most feat
   </thead>
   <tbody>
     <tr>
-      <td><a href="/integrations/app-events">App Events</a></td>
+      <td><a href="/docs/integrations/app-events">App Events</a></td>
       <td></td>
       <td>✅</td>
     </tr>
