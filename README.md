@@ -12,7 +12,7 @@ Documentation is build using [Docusaurus V2](https://v2.docusaurus.io/docs/intro
 
 ### Preparing environment
 
-Running the documentation locally requires [NodeJS](https://nodejs.org/en/) and [Yarn](https://yarnpkg.com/) to be installed. Inside a cloned fork of this repository, run:
+Running the documentation locally requires [NodeJS](https://nodejs.org/) and [Yarn](https://classic.yarnpkg.com/docs/install) to be installed. Inside a cloned fork of this repository, run:
 
 ```bash
 $ yarn
