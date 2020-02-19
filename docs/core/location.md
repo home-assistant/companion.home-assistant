@@ -15,6 +15,7 @@ Location updates are sent from your device to Home Assistant in a number of situ
 *   When the app is called via a [X-Callback-URL](integrations/x-callback-url.md). ![iOS](/assets/apple.svg)
 *   When your devices detects a [_significant location change_](#location-tracking-when-outside-a-home-assistant-zone).
 *   Manually when the app is refreshed (swipe down when at the top of a page) or from the shortcut menu opened from 3D touching the app icon. ![iOS](/assets/apple.svg)
+*   When an update is requested by [sending an intent](#sending-an-intent). ![Android](/assets/android.svg)
 
 You can check the cause of the most recent location update by checking the value of `sensor.last_update_trigger` ![iOS](/assets/apple.svg)
 
@@ -90,3 +91,16 @@ Restart Home Assistant and then the iOS app. It will then begin using iBeacons _
 [apple-energy-guide]: https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/LocationBestPractices.html#//apple_ref/doc/uid/TP40015243-CH24-SW4
 [apple-location-programming-guide]: https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW9
 [stackoverflow]: http://stackoverflow.com/a/13331625/486182
+
+### Sending an intent
+
+![Android](/assets/android.svg) Sending an intent is an advanced feature intended for users who are familiar with Android automation apps. Users can request a location update by sending an intent using an app such as Tasker or any other automation app that allows the user to send an intent. You will need to make sure that the app is running in the [background](/docs/troubleshooting/faqs#location-is-not-updating-in-android-app) for the updates to trigger properly.
+
+The following steps are an example of how to send an intent using Tasker:
+
+1.  Create a new task
+2.  Add a step to the task
+3.  Select "Send Intent"
+4.  Under Action enter `io.homeassistant.companion.android.background.REQUEST_ACCURATE_UPDATE`
+5.  Save the task
+6.  Use the task with any Tasker profile to request a location update
