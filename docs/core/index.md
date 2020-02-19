@@ -19,6 +19,16 @@ Not all features are supported by Android at the moment but eventually most feat
   </thead>
   <tbody>
     <tr>
+      <td><a href="/docs/core/actions">Actions</a></td>
+      <td></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/android-widgets">Android Widgets</a></td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/integrations/app-events">App Events</a></td>
       <td></td>
       <td>✅</td>
@@ -41,11 +51,6 @@ Not all features are supported by Android at the moment but eventually most feat
     <tr>
       <td><a href="/docs/integrations/universal-links">Universal Links</a></td>
       <td></td>
-      <td>✅</td>
-    </tr>
-    <tr>
-      <td><a href="/docs/core/actions#widgets">Widgets</a></td>
-      <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
