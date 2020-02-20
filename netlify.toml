@@ -15,6 +15,54 @@
   command = "yarn build"
 
 [[redirects]]
+  from = "/docs/en/core/index.html"
+  to = "/docs/core/core"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/en/getting_started/index.html"
+  to = "/docs/getting_started/getting-started"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/en/integrations/index.html"
+  to = "/docs/integrations/integrations"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/en/troubleshooting/setup.html"
+  to = "/docs/troubleshooting/faqs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/en/troubleshooting/beta-cleaning.html"
+  to = "/docs/troubleshooting/resetting"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/en/troubleshooting/integrations.html"
+  to = "/docs/troubleshooting/troubleshooting-integrations"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/en/next/*"
+  to = "/docs/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/en/1.0.0/*"
+  to = "/docs/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/docs/en/*"
   to = "/docs/:splat"
   status = 301
