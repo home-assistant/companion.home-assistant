@@ -21,6 +21,12 @@
   force = true
 
 [[redirects]]
+  from = "/docs/en/1.0.0/*"
+  to = "/docs/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/docs/en/*"
   to = "/docs/:splat"
   status = 301
