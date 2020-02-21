@@ -81,7 +81,8 @@ If you find that location updates are not coming in here are a few things to che
 4.  Turn on unrestricted data for the Android app.
 
 #### Using a self-signed certificate leads to a blank page in Android
-If you are using a self-signed certificate on Android then you may get stuck at a blank screen after entering and/or selecting your Home Assistant instance. In order to correct this issue you will need to make sure the URL is valid and that you import the certificate into Androids Trusted Certificates. Steps to perform this can be found [here](https://support.google.com/nexus/answer/2844832?hl=en). These steps were written for devices on Android 9+ but are very close for older supported devices.
+If you are using a self-signed certificate on Android then you may get stuck at a blank screen after entering and/or selecting your Home Assistant instance. In order to correct this issue you will need to make sure the URL is valid and that you import the certificate into Android's Trusted Certificates. Steps to perform this can be found [here](https://support.google.com/nexus/answer/2844832?hl=en). These steps were written for devices on Android 9+ but are very close for older supported devices.
+
 
 #### Android widget is not working
 If you find that a widget is no longer working then these steps may help you resolve the issue.
