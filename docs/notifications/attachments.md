@@ -7,6 +7,8 @@ Notifications may contain an image, video, or audio file attachment that is disp
 
 An attachment is an image, video, or audio file which is downloaded to the device when a notification is received and shown alongside the notification. A thumbnail is shown when the notification is not expanded. The full size attachment is shown when the notification is expanded.
 
+It is important to note that the attachments are required to be accessible from the internet. If you plan to use [`camera.snapshot`](https://www.home-assistant.io/integrations/camera#service-snapshot), you will want to store the image in the `www` folder located in your Home Assistant [config directory](https://www.home-assistant.io/docs/configuration/). This will then expose the image to the internet so that you may use it in your notifications and receive them anywhere. The proper format for the URL is: `https://MyCustomHADomain/local/path/to/file.jpg`. Make sure to replace `MyCustomHADomain` with how you would access Home Assistant remotely in a browse, you will either use your [Nabu Casa remote URL](https://www.nabucasa.com/config/remote/) or the [base URL](https://www.home-assistant.io/integrations/http#base_url). Also, replace `path/to/file.jpg` with the actual file name and location you used in your [`camera.snapshot`](https://www.home-assistant.io/integrations/camera#service-snapshot) service call.
+
 > To expand a notification on 3D Touch devices simply force touch any notification. On non-3D Touch devices swipe and tap the "View" button.
 
 ![iOS](/assets/apple.svg) iOS Example
