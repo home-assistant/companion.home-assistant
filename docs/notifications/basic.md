@@ -233,7 +233,7 @@ automation:
 ### Notification click action
 
 ![android](/assets/android.svg)
-When a notification is selected instead of navigating the user to the Home Assistant app you can have a webpage open or any URL.
+When a notification is selected the user can either be navigated to a specific lovelace view or you can have a webpage open to any URL. If you plan to use a lovelace view the format would be `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view. The default behavior is to just open the Home Assistant app.
 
 ```
 automation:

@@ -122,9 +122,9 @@ automation:
           actions:
             - action: "alarm" # The key you are sending for the event
               title: "Title" # The button title
-            - action: "URI"
+            - action: "URI" # Must be set to URI if you plan to use a URI
               title: "Open Url"
-              uri: "https://google.com" # URL to open when action is selected
+              uri: "https://google.com" # URL to open when action is selected, can also be a lovelace view
 ```
 
 When an action is selected an event named `ios.notification_action_fired` for iOS and `mobile_app_notification_action` for Android will be emitted on the Home Assistant event bus. Below is an example payload.
