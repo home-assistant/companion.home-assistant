@@ -122,7 +122,7 @@ automation:
           actions:
             - action: "alarm" # The key you are sending for the event
               title: "Title" # The button title
-            - action: "URI"
+            - action: "URI" # Must be set to URI if you plan to use a URI
               title: "Open Url"
               uri: "https://google.com" # URL to open when action is selected, can also be a lovelace view
 ```
