@@ -14,18 +14,19 @@ It is important to note that the attachments are required to be accessible from 
 ![iOS](/assets/apple.svg) iOS Example
 
 ```yaml
-- alias: Notify Mobile app
-  trigger:
-    ...
-  action:
-    service: notify.mobile_app_<your_device_id_here>
-    data:
-      message: "Something happened at home!"
+automation:
+  - alias: Notify Mobile app
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
       data:
-        attachment:
-          url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
-          content-type: png
-          hide-thumbnail: false
+        message: "Something happened at home!"
+        data:
+          attachment:
+            url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
+            content-type: png
+            hide-thumbnail: false
 ```
 
 Notes:
@@ -36,15 +37,16 @@ Notes:
 ![android](/assets/android.svg) Android Example
 
 ```yaml
-- alias: Notify Mobile app
-  trigger:
-    ...
-  action:
-    service: notify.mobile_app_<your_device_id_here>
-    data:
-      message: "Something happened at home!"
+automation:
+  - alias: Notify Mobile app
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
       data:
-        image: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
+        message: "Something happened at home!"
+        data:
+          image: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
 ```           
 
 
