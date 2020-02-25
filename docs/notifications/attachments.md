@@ -15,17 +15,17 @@ It is important to note that the attachments are required to be accessible from 
 
 ```yaml
 - alias: Notify Mobile app
-    trigger:
-      ...
-    action:
-      service: notify.mobile_app_<your_device_id_here>
+  trigger:
+    ...
+  action:
+    service: notify.mobile_app_<your_device_id_here>
+    data:
+      message: "Something happened at home!"
       data:
-        message: "Something happened at home!"
-        data:
-          attachment:
-            url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
-            content-type: png
-            hide-thumbnail: false
+        attachment:
+          url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
+          content-type: png
+          hide-thumbnail: false
 ```
 
 Notes:
