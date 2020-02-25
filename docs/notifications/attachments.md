@@ -37,14 +37,14 @@ Notes:
 
 ```yaml
 - alias: Notify Mobile app
-    trigger:
-      ...
-    action:
-      service: notify.mobile_app_<your_device_id_here>
+  trigger:
+    ...
+  action:
+    service: notify.mobile_app_<your_device_id_here>
+    data:
+      message: "Something happened at home!"
       data:
-        message: "Something happened at home!"
-        data:
-          image: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
+        image: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
 ```           
 
 
