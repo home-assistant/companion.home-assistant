@@ -14,7 +14,8 @@ It is important to note that the attachments are required to be accessible from 
 ![iOS](/assets/apple.svg) iOS Example
 
 ```yaml
-- alias: Notify Mobile app
+automation:
+  - alias: Notify Mobile app
     trigger:
       ...
     action:
@@ -36,7 +37,8 @@ Notes:
 ![android](/assets/android.svg) Android Example
 
 ```yaml
-- alias: Notify Mobile app
+automation:
+  - alias: Notify Mobile app
     trigger:
       ...
     action:
