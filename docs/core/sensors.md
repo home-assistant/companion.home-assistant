@@ -38,6 +38,7 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
 | `sensor.battery_level` | `is_charging`, `charger_type` | The state of the sensor reflects the devices battery level. `is_charging` attribute will be either `true` or `false`. `charger_type` will show either `N/A`, `AC`, `USB` or `Wireless`. |
+| `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected network or `<not connected>`. |
 
 ## Activity Sensor
@@ -97,17 +98,17 @@ If the connection type is not recognized, either `Unknown` or `Unknown Technolog
 
 
 ## Geocoded Location Sensor
-![iOS](/assets/apple.svg) The [geocoded](https://.wikipedia.org/wiki/Geocoding) location sensor provides a user-friendly description of a users current location coordinates, often containing the name of the place, its address, and other relevant information. This sensor reports many detailed attributes allowing you to create useful [template sensors](https://www.home-assistant.io/components/template/).
+The [geocoded](https://.wikipedia.org/wiki/Geocoding) location sensor provides a user-friendly description of a users current location coordinates, often containing the name of the place, its address, and other relevant information. This sensor reports many detailed attributes allowing you to create useful [template sensors](https://www.home-assistant.io/components/template/).
 
-Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/documentation/mapkit) and [Core Location](https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names) services.
+Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/documentation/mapkit) and [Core Location](https://developer.apple.com/documentation/corelocation/converting_between_coordinates_and_user-friendly_place_names) services. In Android geocoding is handled by the internal [Geocoder](https://developer.android.com/reference/android/location/Geocoder).
 
 | Attribute | Description |
 | --------- | --------- |
 | `Location` | The latitude and longitude coordinates of the placemark. |
-| `Name` | The name of the placemark. |
+| `Name` | The name of the placemark. ![iOS](/assets/apple.svg) iOS only, for Android check the state of the sensor. |
 | `Country` | The name of the country associated with the placemark. |
 | `ISOCountryCode` | The abbreviated country name. |
-| `TimeZone` | The time zone associated with the placemark. |
+| `TimeZone` | The time zone associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
 | `AdministrativeArea` | The state or province associated with the placemark. |
 | `SubAdministrativeArea` | Additional administrative area information for the placemark. |
 | `PostalCode` | The postal code associated with the placemark. |
@@ -115,9 +116,9 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `SubLocality` | Additional city-level information for the placemark. |
 | `Thoroughfare` | The street address associated with the placemark. |
 | `SubThoroughfare` | Additional street-level information for the placemark. |
-| `AreasOfInterest` | The relevant areas of interest associated with the placemark. |
-| `Ocean` | The name of the ocean associated with the placemark. |
-| `InlandWater` | The name of the inland water body associated with the placemark. |
+| `AreasOfInterest` | The relevant areas of interest associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
+| `Ocean` | The name of the ocean associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
+| `InlandWater` | The name of the inland water body associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
 
 ## Pedometer Sensors
 ![iOS](/assets/apple.svg) The pedometer sensors provide step-counting data from the devices built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
