@@ -3,7 +3,7 @@ title: "Actionable Notifications"
 id: "actionable-notifications"
 ---
 
-Notifications can be grouped by category, this allows for different types of notifications from Home Assistant be placed in a appropriate stacks on the lock screen and even custom summary text to be used on the notification stack. Categories also you to create actionable notifications to which you can attach up to four buttons underneath an expanded iOS notification. These buttons are associated with automations of your choice, allowing you to perform powerful tasks with literally the press of a button!
+Actionable notifications are a unique type of notification as they allow the user to add buttons to the notification which can then send an [event](https://www.home-assistant.io/docs/configuration/events/) to Home Assistant once clicked. This event can then be used in an automation allowing you to perform a wide variety of actions. These notifications can be sent to either iOS or Android but they do have some differences. iOS allows you to attach up to four actions while Android only allows you to attach up to three actions per notification.
 
 Some useful examples of actionable notifications:
 
@@ -12,6 +12,10 @@ Some useful examples of actionable notifications:
 -   Receive a notification whenever your garage door opens with action buttons to open or close the garage.
 
 ![Actionable notifications allow the user to send a command back to Home Assistant.](/assets/ios/actions.png)
+
+If you are using iOS please continue to read below, if you are using Android start from the ![Android](/assets/android.svg) example [here](#building-automations-for-notification-actions).
+
+On iOS notifications can be grouped by category, this allows for different types of notifications from Home Assistant to be placed in a appropriate stacks on the lock screen and even custom summary text to be used on the notification stack. These categories also allow you to create actionable notifications.
 
 ## Overview of how actionable notifications work on iOS
 
@@ -107,7 +111,7 @@ automation:
             my_custom_data: foo_bar
 ```
 
-![android](/assets/android.svg) Android Example
+![android](/assets/android.svg) For Android you create the action directly in the automation action. The below example will give you 2 actions in your notification. The first action will send back an event with the action `alarm` and the second action will open the URL or load a lovelace view. To load a lovelace view use `/lovelace/view` replacing `view` with the defined `path` for the view you wish to open.
 
 ```yaml
 automation:
