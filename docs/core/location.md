@@ -64,7 +64,6 @@ If you want to know more about the specifics of these attributes, please refer t
 [Android](https://developer.android.com/reference/android/location/Location) or
 [iOS](https://developer.apple.com/documentation/corelocation/cllocation)
 
-
 ## Location tracking when outside a Home Assistant zone
 
 ![iOS](/assets/apple.svg)
