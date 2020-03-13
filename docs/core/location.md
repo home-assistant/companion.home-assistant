@@ -55,7 +55,7 @@ The newly created `device_tracker` entity may provide some of the following attr
 | course            | degrees       |
 | speed             | meters/second |
 | vertical_accuracy | meters        |
-| floor             | floors        |
+| floor             | floors  ![iOS](/assets/apple.svg)      |
 | timestamp         | Date          |
 
 If you want to know more about the specifics of these attributes, please refer to the relevant documentation of your operating system:
