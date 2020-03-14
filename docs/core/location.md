@@ -43,6 +43,27 @@ automation:
           entity_id: light.frontdoor
 ```
 
+## Entity attributes
+The newly created `device_tracker` entity may provide some of the following attributes depending on your operating system.
+
+| Name              | Unit          |
+|-------------------|---------------|
+| `source`   |  _None_  |
+| `battery_level`  |  percentage  |
+| `latitude`          | degrees       |
+| `longitude`         | degrees       |
+| `gps_accuracy`      | meters        |
+| `altitude`          | meters        |
+| `course`            | degrees       |
+| `speed`             | meters per second |
+| `vertical_accuracy` | meters        |
+| `floor`             | floors  ![iOS](/assets/apple.svg)      |
+
+If you want to know more about the specifics of these attributes, please refer to the relevant documentation of your operating system:
+
+[Android](https://developer.android.com/reference/android/location/Location) or
+[iOS](https://developer.apple.com/documentation/corelocation/cllocation)
+
 ## Location tracking when outside a Home Assistant zone
 
 ![iOS](/assets/apple.svg)
