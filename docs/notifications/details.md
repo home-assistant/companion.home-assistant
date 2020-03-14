@@ -14,12 +14,11 @@ To provide the notification service, the app uses Google's Firebase cloud messag
 
 ## Rate limiting
 
-Currently, you are allowed to send a maximum of 150 push notifications per day per device. This is to ensure that the service remains cheap to maintain. In the future we may add support for upgrading to allow more notifications.
+Currently, you are allowed to send a maximum of 150 push notifications per day per device. The rate limit resets at midnight UTC daily. This is to ensure that the service remains cheap to maintain. In the future we may add support for upgrading to allow more notifications.
 
-The in-app Notifications settings screen displays your current rate limits for the day broken out into the following categories: Attempts, Delivered, Errors, Total, and the exact time until next daily reset. The rate limit resets at midnight UTC daily.
+![iOS](/assets/apple.svg) The in-app Notifications settings screen in the iOS app displays your current rate limits for the day broken out into the following categories: Attempts, Delivered, Errors, Total, and the exact time until next daily reset.
 
-If an error occurs while sending a notification, it does not count towards your rate limit. Critical Alerts, Requesting location updates [via push notiifcation](notifications/location.md) and the special `clear_badge` notification type also do not count towards your rate limit.
-
+If an error occurs while sending a notification, it does not count towards your rate limit. Critical Alerts, Requesting location updates [via push notiifcation](notifications/location.md) and the special `clear_badge` or `clear_notification` notification type also do not count towards your rate limit.
 
 
 ## Security
