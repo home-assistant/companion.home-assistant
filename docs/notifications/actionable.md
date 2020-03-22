@@ -210,6 +210,10 @@ Notes ![iOS](/assets/apple.svg):
 
 ![iOS](/assets/apple.svg) iOS Specific
 
-*   For devices that support "Force Touch" / "3D Touch" (most Apple devices from the last 4-5 years) - a firm press on the notification will expand it, showing the action buttons underneath. Supported devices include the iPhone 6S, iPhone 6S Plus, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPhone XS, iPhone XS Max as well as some iPad and Apple Watch models.
+*   For devices that support "Force Touch" / "3D Touch" - a firm press on the notification will expand it, showing the action buttons underneath. Supported devices include the iPhone 6S, iPhone 6S Plus, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPhone XS, iPhone XS Max and Apple Watch models.
 
-*   For devices that do not support "Force Touch" (such as the iPhone 6 and below, iPhone SE, iPhone XR and some iPad models), you instead perform a left to right swipe on the notification, then tap on the 'View' button. This will expand the notification and show the relevant action buttons underneath.
+*   For devices that do not support "Force Touch" (such as the iPhone 6 and below, iPhone SE, iPhone XR, iPhone 11 and later, and some iPad models):
+
+       **Prior to iOS 13:** You perform a left to right swipe on the notification, then tap on the 'View' button. This will expand the notification and show the relevant action buttons underneath.
+  
+       **iOS 13 and later:** You press and hold the notification. This will expand the notification and show the relevant action buttons underneath.
