@@ -37,7 +37,8 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
-| `sensor.battery_level` | `is_charging`, `charger_type` | The state of the sensor reflects the devices battery level. `is_charging` attribute will be either `true` or `false`. `charger_type` will show either `N/A`, `AC`, `USB` or `Wireless`. |
+| `sensor.battery_level` | None | The current battery level of the device. |
+| `sensor.battery_state` | `is_charging`, `charger_type` | The state of the sensor reflects the current state of the battery ([See Below](#battery-sensors)). The `is_charging` attribute will be either `true` or `false`. The `charger_type` attribute will show either `ac`, `usb`, `wireless` or `unknown`. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected network or `<not connected>`. |
 
@@ -59,9 +60,10 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 *   `High`
 
 ## Battery Sensors
-![iOS](/assets/apple.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100% charged.
+![iOS](/assets/apple.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon
 
-![iOS](/assets/apple.svg) ![android](/assets/android.svg) The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0-100%. The charge level is reflected in the sensor icon.  For Android users the sensor has attributes to help distinguish if the device is actively charging and how it is charging, see the table above for the attributes and their values.
+![android](/assets/android.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The five possible states are `full`, `charging`, `discharging`, `not_charging` or `unknown`. The attribute `is_charging` can be used to determine if the device is currently charging, the attribute `charger_type` can report the type of charger being used. Possible values are `ac`, `usb`, `wireless` and `unknown`. The sensor icon reflects the charging status, and type of charging being used.
+
 
 ## Connection Type Sensor
 ![iOS](/assets/apple.svg) The following connection types are known by the companion app:
