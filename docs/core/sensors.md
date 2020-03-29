@@ -64,7 +64,6 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 
 ![android](/assets/android.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The five possible states are `full`, `charging`, `discharging`, `not_charging` or `unknown`. The attribute `is_charging` can be used to determine if the device is currently charging, the attribute `charger_type` can report the type of charger being used. Possible values are `ac`, `usb`, `wireless` and `unknown`. The sensor icon reflects the charging status, and type of charging being used.
 
-![iOS](/assets/apple.svg) ![android](/assets/android.svg) The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0-100%. The charge level is reflected in the sensor icon.
 
 ## Connection Type Sensor
 ![iOS](/assets/apple.svg) The following connection types are known by the companion app:
