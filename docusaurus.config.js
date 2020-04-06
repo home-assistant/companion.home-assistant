@@ -18,12 +18,12 @@ module.exports = {
         {to: 'download', label: 'Download', position: 'left'},
         {to: 'docs/troubleshooting/more-help', label: 'Support', position: 'left'},
         {
-          href: 'https://www.github.com/home-assistant/home-assistant-iOS',
+          href: 'https://www.github.com/home-assistant/iOS',
           label: 'GitHub (iOS)',
           position: 'right',
         },
         {
-          href: 'https://www.github.com/home-assistant/home-assistant-android',
+          href: 'https://www.github.com/home-assistant/android',
           label: 'GitHub (Android)',
           position: 'right',
         },

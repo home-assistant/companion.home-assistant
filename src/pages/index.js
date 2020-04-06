@@ -39,11 +39,11 @@ const features = [
         </a>
         <h2>Source Code</h2>
         <ul>
-          <li><a href="https://github.com/home-assistant/home-assistant-iOS">
+          <li><a href="https://github.com/home-assistant/iOS">
               Home Assistant for iOS
             </a>
           </li>
-            <li><a href="https://github.com/home-assistant/home-assistant-Android">
+            <li><a href="https://github.com/home-assistant/android">
               Home Assistant  for Android
             </a>
           </li>
