@@ -197,7 +197,7 @@ automation:
 ![android](/assets/android.svg)
 In Android you can set the `color` of the notification, you can use either the color name or the hex code.
 
-```
+```yaml
 automation:
   - alias: Notify of Motion
     trigger:
@@ -216,7 +216,7 @@ automation:
 ![android](/assets/android.svg)
 You can set whether to dismiss the notification upon selecting it or not. Setting `sticky` to `'true'` will keep the notification from being dismissed when the user selects it. Setting it to `'false'` (default) will dismiss the notification upon selecting it.
 
-```
+```yaml
 automation:
   - alias: Notify of Motion
     trigger:
@@ -235,7 +235,7 @@ automation:
 ![android](/assets/android.svg)
 When a notification is selected the user can either be navigated to a specific lovelace view or you can have a webpage open to any URL. If you plan to use a lovelace view the format would be `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view. The default behavior is to just open the Home Assistant app.
 
-```
+```yaml
 automation:
   - alias: Notify of Motion
     trigger:
@@ -247,4 +247,42 @@ automation:
         message: "Someone might be in the backyard."
         data:
           clickAction: 'https://google.com' # action when clicking main notification
+```
+
+### Notification Channels
+
+![android](/assets/android.svg)
+Notification channels allows users to separate their notifications easily (i.e. alarm vs laundry) so they can customize aspects like what type of sound is made and a lot of other device specific features. Devices running Android 8.0+ are able to create and manage notification channels on the fly using automations. Once a channel is created you can navigate to your notification settings and you will find the newly created channel, from there you can customize the behavior based on what your device allows.
+
+In order to create a notification you will need to specify the `channel` you wish to use. By default all notifications use `Default Channel` if `channel` is not defined.
+
+In the example below a new channel will be created with the name `Motion`:
+
+```yaml
+automation:
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        title: "Motion Detected in Backyard"
+        message: "Someone might be in the backyard."
+        data:
+          channel: Motion # name of the channel you wish to create or utilize
+```
+
+If you wish to remove a channel you will need to send `remove_channel` with the `channel` you wish to remove:
+
+```yaml
+automation:
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: remove_channel
+        data:
+          channel: Motion # name of the channel you wish to remove
 ```
