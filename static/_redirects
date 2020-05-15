@@ -1,0 +1,6 @@
+# These redirects are handled by Netlify
+# Format is: From To
+
+# Documentation restructuring redirects
+
+/core/actions /docs/core/actions
