@@ -48,7 +48,7 @@ Assuming that you correctly formatted the sounds they are now available to use i
 
 ### Via Cloud Storage:
 
-For this method you need to have a cloud storage app (such as [Dropbox](https://www.dropbox.com), [Google Drive](https://www.google.com/drive/), [iCloud](iCloud), [OneDrive](https://onedrive.live.com/) etc.).
+For this method you need to have a cloud storage app (such as [Dropbox](https://www.dropbox.com), [Google Drive](https://www.google.com/drive/), [iCloud](https://www.icloud.com/), [OneDrive](https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage) etc.).
 
 1.  If you don't already have the iOS app for your cloud storage setup, find the appropriate app in the App Store, install and log in to it.
 2.  Upload your desired notification sounds to a convenient location on your cloud storage.
