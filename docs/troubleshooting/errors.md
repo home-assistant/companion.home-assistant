@@ -7,8 +7,13 @@ Here's a list of all the error codes you may experience with further documentati
 
 # Setup and Connectivity
 
-## "Invalid Client ID or Redirect URI"  or  "OS Error while looking up redirect_uri"
+## "Invalid Client ID or Redirect URI"  and  "OS Error while looking up redirect_uri"
 Check your `home-assistant.log` file for any errors about `indieauth`. If it also mentions a OS Error, you most likely have a broken IPv6 implementation. You can confirm this by running `curl -v6 https://home-assistant.io/iOS/beta-auth` from the machine you run Home Assistant on. If you receive a error about not being able to connect to the server, your IPv6 stack is broken and you should disable it.
+
+## "Invalid Client ID or Redirect URI"  and  "Timeout while while looking up redirect_uri"
+Check your `home-assistant.log` file for any errors about `indieauth`. If it also mentions a Timeout, you may have a problem with your DNS not behaving as expected. You can confirm this by running `dig home-assistant.io` and `nslookup home-assistant.io` from the machine you run Home Assistant on. If you see any errors there could be a dns problem.
+
+Fixing this varies depending on your setup - but it's worth trying the google dns servers `8.8.8.8` and `1.1.1.1`. If you are running a hassOS setup you can do this with `ha dns options --servers dns://8.8.8.8 --servers dns://1.1.1.1`.
 
 ## SSL error while looking up redirect_uri <https://home-assistant.io/iOS>
 This error means that your Home Assistant can't negotiate the encrypted connection to <https://home-assistant.io>. This issue has been seen on installations running on top of MacOS where the installer notice about certificates was skipped and ignored. From the Python 3.7.5 ReadMe:
