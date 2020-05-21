@@ -5,6 +5,19 @@ id: 'faqs'
 
 Below is a list of common issues and troubleshooting advice to address them. For more support please [look at the more help page](more-help.md)
 
+#### App crashes on set up
+
+If you are running Home Assistant 0.110.0 and the app crashes after clicking "continue" during set up, you need to add values for `internal_url` and `external_url`. This can be done through the user interface (Configuration>General). If these fields are disabled it is likely you have have your configuration stored in `configuration.yaml`, in this case add the entries under `homeassistant:` i.e.:
+
+```yaml
+homeassistant:
+  ...
+  external_url: URL
+  internal_url: URL
+```
+
+Replacing `URL` with the address you use to access your Home Assistant instance. The values of `internal_url` and `external_url` can be the same and should be the same as you have for `url:` in the `http:` of `configuration.yaml`.
+
 #### I don't see a `notify.mobile_app` service for my device in my `dev-services` panel
 Once you have [set up](/getting_started/index.md) the Companion app you will need to restart Home Assistant for the `notify.mobile_app` service call to register. On iOS the `notify.mobile_app_<Device_ID>` service will be created provided you granted notification permissions during setup, on Android the service call will appear after the restart. If you can't see this, [force quit on iOS](https://support.apple.com/HT201330) or force stop on Android. Then relaunch the Companion app and finally restart your Home Assistant instance. The service should now be listed in the `Developer Tools > Services` panel.
 
