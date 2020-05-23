@@ -6,7 +6,7 @@ id: migration
 
 ![iOS](/assets/apple.svg)
 
-The steps below should guide you through the process of migrating from the previous app version (1.5) to 2019.1. Before going any further, please make sure you read the [breaking changes](migration#breaking-changes) listed below.
+The steps below should guide you through the process of migrating from the previous app version (1.5) to 2019.1. Before going any further, please make sure you read the [breaking changes](#breaking-changes) listed below.
 
 # Breaking Changes
 -   All notifications need to be updated as the notify service is moving from `notify.ios_<device_id>` to `notify.mobile_app_<device_name>`. In the old version the `device_id` was set in the iOS app settings, after the update the `device_name` is taken from iOS settings (see iOS Settings App>General>About).
