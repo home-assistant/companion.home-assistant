@@ -21,7 +21,7 @@ data:
       latitude: "40.785091"
       longitude: "-73.968285"
 ```
-Be aware, that if you send a map you MUST send a push category which has to be called map, map1, map2, map3, ... otherwise you won't get the map delivered.
+Be aware, that to send a map you must send a push `category` which has to be called `map`, `map1`, `map2`, `map3` or `map4`  otherwise you won't get the map delivered.
 
 You may also use a device_tracker for the latitude and longitude coordinates like so: `"{{states.device_tracker.<your_device_id_here>.attributes.latitude}}"` but make sure to use `data_template` in that case.
 
@@ -97,7 +97,7 @@ ios:
             authenticationRequired: true
             destructive: true
 ```
-Be aware, that if you send a camera image you MUST send a push category which has to be called camera, camera1, camera2, camera3, ... otherwise you won't get the camera image delivered.
+Be aware, that to send a camera image you must send a push category which has to be called `camera`, `camera1`, `camera2`, `camera3` or `camera4` otherwise you won't get the camera image delivered.
 
 ## Troubleshooting
 
