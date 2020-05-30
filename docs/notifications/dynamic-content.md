@@ -67,6 +67,8 @@ data:
     entity_id: camera.living_room_camera
 ```
 
+Be aware, that to send a camera image you must send a push category which has to be called `camera`, `camera1`, `camera2`, `camera3` or `camera4` otherwise you won't get the camera image delivered.
+
 You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 
 <div class='videoWrapper'>
@@ -97,7 +99,6 @@ ios:
             authenticationRequired: true
             destructive: true
 ```
-Be aware, that to send a camera image you must send a push category which has to be called `camera`, `camera1`, `camera2`, `camera3` or `camera4` otherwise you won't get the camera image delivered.
 
 ## Troubleshooting
 
