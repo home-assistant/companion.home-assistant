@@ -21,6 +21,7 @@ data:
       latitude: "40.785091"
       longitude: "-73.968285"
 ```
+Be aware, that to send a map you must send a push `category` which has to be called `map`, `map1`, `map2`, `map3` or `map4`  otherwise you won't get the map delivered.
 
 You may also use a device_tracker for the latitude and longitude coordinates like so: `"{{states.device_tracker.<your_device_id_here>.attributes.latitude}}"` but make sure to use `data_template` in that case.
 
@@ -65,6 +66,8 @@ data:
       category: camera
     entity_id: camera.living_room_camera
 ```
+
+Be aware, that to send a camera image you must send a push category which has to be called `camera`, `camera1`, `camera2`, `camera3` or `camera4` otherwise you won't get the camera image delivered.
 
 You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 

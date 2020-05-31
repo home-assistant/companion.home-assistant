@@ -5,6 +5,21 @@ id: 'faqs'
 
 Below is a list of common issues and troubleshooting advice to address them. For more support please [look at the more help page](more-help.md)
 
+#### App crashes on set up
+
+If you are running Home Assistant 0.110 and the app crashes after clicking "continue" during set up, you need to add values for `internal_url` and `external_url`. This can be done through the user interface (Configuration>General). If these fields are disabled it is likely you have have your configuration stored in `configuration.yaml`, in this case add the entries under `homeassistant:` i.e.:
+
+```yaml
+homeassistant:
+  ...
+  external_url: URL
+  internal_url: URL
+```
+
+Replacing `URL` with the address you use to access your Home Assistant instance. The values of `internal_url` and `external_url` can be the same and should be the same as you have for `url:` in the `http:` of `configuration.yaml`.
+
+When you have saved these changes, restart Home Assisant and, after Home Assistant has finished restarting, reopen the the app. 
+
 #### I don't see a `notify.mobile_app` service for my device in my `dev-services` panel
 Once you have [set up](/getting_started/index.md) the Companion app you will need to restart Home Assistant for the `notify.mobile_app` service call to register. On iOS the `notify.mobile_app_<Device_ID>` service will be created provided you granted notification permissions during setup, on Android the service call will appear after the restart. If you can't see this, [force quit on iOS](https://support.apple.com/HT201330) or force stop on Android. Then relaunch the Companion app and finally restart your Home Assistant instance. The service should now be listed in the `Developer Tools > Services` panel.
 
@@ -39,8 +54,8 @@ If you do not have [Home Assistant Cloud](https://www.home-assistant.io/cloud/) 
 This is probably not an issue with the Companion App but more likely with Home Assistant or the particular component that isn't behaving as expected. To test the cause please try the following steps.
 
 1.  Firstly, swipe down in the iOS Companion app to refresh your view. In the Android app force stop the application and relaunch it.
-2.  If the problem still persists, open your Home Assistant instance in the Safari/Chrome browser (you may have to sign in). If the problem is present in Safari/Chrome, please raise an issue on either the [Home Assistant Frontend GitHub](https://github.com/home-assistant/home-assistant-polymer/issues) or if it is with a custom component, with the developer of that component. In your issue report, state that the problem exists when viewing on a mobile browser and not necessarily the Companion App.
-3.  If the problem does not occur in Safari, please raise an issue on the [iOS Companion App GitHub](https://github.com/home-assistant/home-assistant-iOS/issues) or the [Android Companion App GitHub](https://github.com/home-assistant/home-assistant-android/issues). Please state you followed these steps and the problem only occurs in the Companion app.
+2.  If the problem still persists, open your Home Assistant instance in the Safari/Chrome browser (you may have to sign in). If the problem is present in Safari/Chrome, please raise an issue on either the [Home Assistant Frontend GitHub](https://github.com/home-assistant/frontend/issues) or if it is with a custom component, with the developer of that component. In your issue report, state that the problem exists when viewing on a mobile browser and not necessarily the Companion App.
+3.  If the problem does not occur in Safari, please raise an issue on the [iOS Companion App GitHub](https://github.com/home-assistant/iOS/issues) or the [Android Companion App GitHub](https://github.com/home-assistant/android/issues). Please state you followed these steps and the problem only occurs in the Companion app.
 
 #### The status bar (top bar with cell/Wi-Fi strength) does not match my theme
 To change the color of the status bar to match your Home Assistant theme, please use the [`frontend.set_theme`](https://www.home-assistant.io/components/frontend/#theme-automation) service instead of the dropdown menu in the Home Assistant profile page. Using the service will generate an event allowing the Companion App to detect the theme change and apply the correct color to the status bar. See the [theming](../integrations/theming.md) documentation for details of which keys are used. Note that colors must be specified as hex values (e.g. `#0099ff`) in your theme and specifying element colors through variable names is not supported.
@@ -57,7 +72,7 @@ Starting in Home Assistant Core 0.106, the default sensor names will be register
 
 
 #### Opening or resuming the Companion App generates authentication errors in my Home Assistant notifications
-This is normally due to having a camera entity present on a Lovelace picture entities or picture elements card. A workaround for this is to remove the the camera entity in the short term while this is resolved. You may be able to use [live stream view](https://github.com/home-assistant/home-assistant/issues/23055) to address this. This is a known bug with Home Assistant which you can track and help address [here](https://github.com/home-assistant/home-assistant/issues/23055).
+This is normally due to having a camera entity present on a Lovelace picture entities or picture elements card. A workaround for this is to remove the the camera entity in the short term while this is resolved. You may be able to use [live stream view](https://github.com/home-assistant/core/issues/23055) to address this. This is a known bug with Home Assistant which you can track and help address [here](https://github.com/home-assistant/core/issues/23055).
 
 #### I recieve a `kCLError` when pulling down to manually refresh the app/update Location
 To fix this change the location permission for the Home Assistant App to "Always" in iOS Settings>Privacy>Location Services.
