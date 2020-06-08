@@ -5,9 +5,9 @@ id: siri-shortcuts
 
 With iOS 12 or later, you can take advantage of the power of Siri Shortcuts to carry out Home Assistant tasks with a tap or by using voice commands.
 
-# Actions
+## Actions
 
-## Call Service
+### Call Service
 You can call any service that shows up in the "Services" page <img src="https://www.home-assistant.io/images/screenshots/developer-tool-services-icon.png" width="24" height="24" /> of Home Assistant.
 
 As an example, if you wanted to start your bedtime routine automation you would do the following:
@@ -22,20 +22,20 @@ As an example, if you wanted to start your bedtime routine automation you would 
 It's that easy! Now when you say "Hey Siri, it's bedtime" Siri will trigger your bedtime routine automation without you even having to lift a finger.
 
 
-## Fire Event
+### Fire Event
 
 > Must be valid JSON. If no payload is provided, clipboard contents will be used.
 
-## Get Camera Snapshot
+### Get Camera Snapshot
 Get a single still frame from the entity ID found on the clipboard and place it on the clipboard.
 
-## Render Template
+### Render Template
 Render text found on the clipboard.
 
-## Send Location
+### Send Location
 Send a location to Home Assistant. Will attempt to use clipboard contents as location, otherwise will use current location.
 
-# Using Shortcuts
+## Using Shortcuts
 
 You can send a special push notification to your device, that when tapped, will open the Shortcut of your choosing and run it. Here's an example payload:
 
