@@ -7,6 +7,8 @@ Critical notifications were introduced in iOS 12 and are designed for sending hi
 
 iOS gives special priority to this type of notification. Critical alerts always appear at the top of your lock screen above all other notifications, and play a sound even if Do Not Disturb is enabled or the iPhone is muted. Because we never want you to miss a critical notification, they are allowed to bypass the app [notification rate limits](details.md) as well.
 
+For Android these notifications are designed to show up on the phone immediately. By default they do not override Do Not Disturb settings, if you would like to override this you will need to use [notification channels](basic.md#notification-channels). They also do not make the notification sound when the phone is muted.
+
 A simple example of sending a critical notification is:
 
 ![iOS](/assets/apple.svg) iOS example
