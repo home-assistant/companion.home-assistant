@@ -87,6 +87,18 @@
   force = true
 
 [[redirects]]
+  from = "/en/*"
+  to = "/docs/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/docs/misc/errors"
+  to = "/docs/troubleshooting/errors"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/docs/en/next/*"
   to = "/docs/:splat"
   status = 301
