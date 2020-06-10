@@ -7,7 +7,7 @@ id: 'actions'
 
 Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS and [Apple Watch](../integrations/watch/index.md).
 
-# Creating Actions
+## Creating Actions
 Actions are created from the Actions section of the App Configuration page within the companion App for iOS. Each action has required fields depending on your device:
 *   `Name`: the name of the action, this will be returned in the [Home Assistant event](https://www.home-assistant.io/docs/configuration/events/) fired by the app.
 *   `Text`: the descriptive text shown on the phone and watch. It is best to keep this relatively short as there is limited space on each action's button.
@@ -18,7 +18,7 @@ Actions are created from the Actions section of the App Configuration page withi
 
 For the three color fields, the color is selected by tapping the color-picker circle in each field.
 
-# Using Actions
+## Using Actions
 When an action button is pressed a `ios.action_fired` event is fired on Home Assistant's event bus. The event data consists of a JSON-formatted dictionary of attributes relating to the action.
 
 | Attribute | Value |
@@ -69,14 +69,14 @@ Note that attributes located in the `data` and `context` are accessed through `e
 
 You can use the Events page within Home Assistant's developer tools to show all information contained with the event for a particular event by subscribing to `ios.action_fired` and triggering the action from you device.
 
-# Apple Watch
+## Apple Watch
 The [Apple Watch App](integrations/watch/index.md) provides access to actions you have created. Once you have created an action within the Actions page, open the Home Assistant watch and the action list should sync.
 
 
-# Home Screen Quick Actions
+## Home Screen Quick Actions
 [Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions and is accessed by 3D Touching the Home Assistant companion app icon on your home screen.
 
-# Today View Widget
+## Today View Widget
 The [Today View Widget](https://support.apple.com/en-gb/HT207122) is another route through which actions can be fired. To add the Home Assistant widget to your Today View:
 
 1.  Swipe right while on the Home screen or Lock screen.
