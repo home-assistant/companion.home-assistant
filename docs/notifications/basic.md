@@ -133,6 +133,7 @@ automation:
           tag: tag
 ```
 
+![android](/assets/android.svg)
 You can also remove a notification by sending `clear_notification` to the same `tag`
 
 ```yaml
