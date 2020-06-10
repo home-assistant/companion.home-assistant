@@ -255,7 +255,7 @@ automation:
 ![android](/assets/android.svg)
 Notification channels allows users to separate their notifications easily (i.e. alarm vs laundry) so they can customize aspects like what type of sound is made and a lot of other device specific features. Devices running Android 8.0+ are able to create and manage notification channels on the fly using automations. Once a channel is created you can navigate to your notification settings and you will find the newly created channel, from there you can customize the behavior based on what your device allows.
 
-In order to create a notification you will need to specify the `channel` you wish to use. By default all notifications use `Default Channel` if `channel` is not defined.
+In order to create a notification you will need to specify the `channel` you wish to use. By default all notifications use `General` if `channel` is not defined.
 
 In the example below a new channel will be created with the name `Motion`:
 
@@ -273,7 +273,7 @@ automation:
           channel: Motion # name of the channel you wish to create or utilize
 ```
 
-If you wish to remove a channel you will need to send `remove_channel` with the `channel` you wish to remove:
+If you wish to remove a channel you will need to send `remove_channel` with the `channel` you wish to remove. Depending on when you installed the app you may want to send `remove_channel` to `channel: Default Channel` to clean up the old default channel:
 
 ```yaml
 automation:
@@ -286,4 +286,188 @@ automation:
         message: remove_channel
         data:
           channel: Motion # name of the channel you wish to remove
+```
+
+### Notification Channel Importance
+
+![android](/assets/android.svg)
+When you are setting the `channel` for your notification you also have the option to set the `importance` for the `channel` per notification. Possible values for this property are `high`, `low`, `max`, `min` and `default`. To learn more about what each value does see the [FCM docs](https://developer.android.com/training/notify-user/channels#importance). The `channel` property is required for this feature to work.
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: Motion Detected
+        data:
+          channel: Motion
+          importance: high
+```
+
+### Notification Grouping
+
+![android](/assets/android.svg)
+Notification groups allows for notifications to be bundled together with the same `group` that you define in the automation. This allows for the notification pull-down to look less cluttered.
+
+In the examples below we will attach 2 messages to the same group:
+
+```yaml
+automation:
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: Motion detected
+        data:
+          group: Motion # name of the group you wish to use
+
+  - alias: Notify of Motion again
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: Motion detected again
+        data:
+          group: Motion # name of the group you wish to use
+```
+
+### Persistent Notification
+
+![android](/assets/android.svg)
+Persistent notifications are notifications that cannot be dimissed. These are useful if you have something important like an alarm being triggered. In order to use this property you must set the `tag` property as well. The `persistent` property only takes boolean (`true/false`) values.
+
+In the example below we will create a notification and then later on we will remove it.
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: Motion detected
+        data:
+          persistent: true # Set to true to create a persistent notification
+          tag: persistent # Tag is required for the persistent notification
+```
+
+To remove the persistent notification we send `clear_notification` to the `tag` that we defined.
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: clear_notification
+        data:
+          tag: persistent # The tag for the persistent notification you wish to clear
+```
+
+### Notification Subject
+
+![android](/assets/android.svg)
+If your notification is going to have a lot of text (more than 6 lines) you can opt to show smaller text by setting the `subject`.
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+        title: "Long text"
+        data:
+          subject: "Subject for long text"
+```
+
+### Notification LED Color
+
+![android](/assets/android.svg)
+Some Android devices have a multi-color notification LED.  By setting the `ledColor` property you can control what color the LED will flash. Possible values are the same as for property [color](#notification-color) eg '#2DF56D' # or 'red'.
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: Motion detected
+        data:
+          ledColor: "red" # Set the LED to red
+```
+
+### Notification Vibration Pattern
+
+![android](/assets/android.svg)
+You can set the vibration pattern per notification by setting the `vibrationPattern` property. Possible values are a list of numbers. eg. "100, 1000, 100, 1000, 100" etc.. The pattern specification is "off time, on time, off time, on time, off time" etc.
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: clear_notification
+        data:
+          vibrationPattern: "100, 1000, 100, 1000, 100" # The pattern you wish to set for vibrations
+```
+
+### Notification Timeout
+
+![android](/assets/android.svg)
+You can set how long a notification will be shown on a users device before being removed/dismissed automatically. You may use the `timeout` property along with the value in seconds to achieve this.
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: Motion Detected
+        data:
+          timeout: 600 # How many seconds the notification should be received by the device
+```
+
+### Notification Message HTML Formatting
+
+![android](/assets/android.svg)
+You can add some custom HTML tags to the `message` of your notification.
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: 'This is a <b><span style="color: red">HTML</span></b> <i>text</i><br><br>This is a text after a new line'
+        title: "Cool HTML formatting"
+```
+
+### Notification Icon
+
+![android](/assets/android.svg)
+You can set the icon for a notification by providing the `icon_url`. The URL must be publicly accessible much like the `image` property. It is important to note that if you set the `image` then Android will not show the icon for the notification.
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: Motion Detected
+        data:
+          icon_url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true" # Publicly accessible URL
 ```
