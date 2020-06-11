@@ -39,7 +39,7 @@ automation:
 
 If your device has has an app associated with the domain, the link swill open in that app, otherwise the default browser is used. To make the link clickable you may had to tap and hold the notification.
 
-![android](/assets/android.svg) Android users can achieve this through the use of [actionable notifications](/docs/notifications/actionable-notifications#building-automations-for-notification-actions).
+![android](/assets/android.svg) Android users can achieve this through the use of [actionable notifications](/docs/notifications/actionable-notifications#building-automations-for-notification-actions) or [click action](#notification-click-action).
 
 ### Notification Sounds
 ![iOS](/assets/apple.svg)
