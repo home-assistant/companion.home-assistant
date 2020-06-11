@@ -97,6 +97,22 @@ automation:
             thread-id: "example-notification-group"
 ```
 
+![android](/assets/android.svg)
+For Android we will need to use the `group` property in order to group the notifications together and declutter the notification pull-down.
+
+```yaml
+automation:
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: Motion detected
+        data:
+          group: Motion # name of the group you wish to use
+```
+
 ### Replacing notifications
 ![iOS](/assets/apple.svg)
 Existing notifications can be replaced using `apns-collapse-id`. This will continue to send you notifications but replace an existing one with that same `apns-collapse-id`. When sending consecutive messages with the same `apns-collapse-id` to the same device, only the most recent will be shown. This is especially useful for motion and door sensor notifications.
@@ -310,36 +326,6 @@ When you are setting the `channel` for your notification you also have the optio
         data:
           channel: Motion
           importance: high
-```
-
-### Notification Grouping
-
-![android](/assets/android.svg)
-Notification groups allows for notifications to be bundled together with the same `group` that you define in the automation. This allows for the notification pull-down to look less cluttered.
-
-In the examples below we will attach 2 messages to the same group:
-
-```yaml
-automation:
-  - alias: Notify of Motion
-    trigger:
-      ...
-    action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: Motion detected
-        data:
-          group: Motion # name of the group you wish to use
-
-  - alias: Notify of Motion again
-    trigger:
-      ...
-    action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: Motion detected again
-        data:
-          group: Motion # name of the group you wish to use
 ```
 
 ### Persistent Notification
