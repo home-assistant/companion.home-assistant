@@ -272,7 +272,12 @@ automation:
 Notification channels allows users to separate their notifications easily (i.e. alarm vs laundry) so they can customize aspects like what type of sound is made and a lot of other device specific features. Devices running Android 8.0+ are able to create and manage notification channels on the fly using automations. Once a channel is created you can navigate to your notification settings and you will find the newly created channel, from there you can customize the behavior based on what your device allows.
 
 :::info
-If your device is on Android 8.0+ then some of the notification features may not work unless you specify a `channel`. The following properties will become the default for the `channel` the first time they are set: [`vibrationPattern`](#notification-vibration-pattern), [`ledColor`](#notification-led-color) and [`importance`](#notification-channel-importance). Once the options are set you can manage the channel settings in your notification channel settings for the app. These options will be ignored once they are set for the channel, only lowering of the `importance` will work (if the user has not already modified this).
+If your device is on Android 8.0+ the following properties will become the default for the `channel` the first time they are set: [`vibrationPattern`](#notification-vibration-pattern), [`ledColor`](#notification-led-color) and [`importance`](#notification-channel-importance). Once the options are set you can manage the channel settings in your notification channel settings for the app. These options will be ignored once they are set for the channel, only lowering of the `importance` will work (if the user has not already modified this).
+
+Default values for a channel if not provided will be as follows:
+- Importance: Default which means Default notification importance: shows everywhere, makes noise, but does not visually intrude.
+- Vibration Pattern: Vibration disabled
+- LED Color: LED disabled
 
 Devices running Android 5.0-7.1.2 do not have channels and do not need to worry about this note.
 :::
@@ -295,7 +300,7 @@ automation:
           channel: Motion # name of the channel you wish to create or utilize
 ```
 
-If you wish to remove a channel you will need to send `remove_channel` with the `channel` you wish to remove. Depending on when you installed the app you may want to send `remove_channel` to `channel: Default Channel` to clean up the old default channel:
+If you wish to remove a channel you will need to send `remove_channel` with the `channel` you wish to remove. Depending on when you installed the app you may want to send `remove_channel` to `channel: default` to clean up the old default channel:
 
 ```yaml
 automation:
@@ -313,7 +318,7 @@ automation:
 ### Notification Channel Importance
 
 ![android](/assets/android.svg)
-When you are setting the `channel` for your notification you also have the option to set the `importance` for the `channel` per notification. Possible values for this property are `high`, `low`, `max`, `min` and `default`. To learn more about what each value does see the [FCM docs](https://developer.android.com/training/notify-user/channels#importance). The `channel` property is required for this feature to work.
+When you are setting the `channel` for your notification you also have the option to set the `importance` for the `channel` per notification. Possible values for this property are `high`, `low`, `max`, `min` and `default`. To learn more about what each value does see the [FCM docs](https://developer.android.com/training/notify-user/channels#importance). This feature is only for devices on Android 8.0+.
 
 ```yaml
   - alias: Notify of Motion
@@ -450,7 +455,7 @@ You can add some custom HTML tags to the `message` of your notification.
 ### Notification Icon
 
 ![android](/assets/android.svg)
-You can set the icon for a notification by providing the `icon_url`. The URL must be publicly accessible much like the `image` property. It is important to note that if you set the `image` then Android will not show the icon for the notification.
+You can set the icon for a notification by providing the `icon_url`. The URL provided must be either publicly accessible or can be a relative path (i.e. `/local/icon/icon.png`), more details can be found in [attachments](attachments.md). It is important to note that if you set the `image` then Android will not show the icon for the notification, the `image` will be shown in its place. So the `message` will be shown with the `image` and with the image as the icon.
 
 ```yaml
   - alias: Notify of Motion
@@ -461,5 +466,5 @@ You can set the icon for a notification by providing the `icon_url`. The URL mus
       data:
         message: Motion Detected
         data:
-          icon_url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true" # Publicly accessible URL
+          icon_url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
 ```
