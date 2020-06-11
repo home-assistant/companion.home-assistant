@@ -23,6 +23,7 @@ The mobile_app platform provides many enhancements to the simple notification ge
 
 ### Including Links
 
+![iOS](/assets/apple.svg)
 If you include a URL in the `message:` of your notification, the link will be clickable when the notification is delivered. For example::
 
 ```yaml
@@ -36,9 +37,9 @@ automation:
         message: "Touchdown 🚀: https://www.youtube.com/watch?v=l5I8jaMsHYk"
 ```
 
-If your device has has an app associated with the domain, the link swill open in that app, otherwise the default browser is used.
+If your device has has an app associated with the domain, the link swill open in that app, otherwise the default browser is used. To make the link clickable you may had to tap and hold the notification.
 
-![iOS](/assets/apple.svg) To make the link clickable you may had to tap and hold the notification.
+![android](/assets/android.svg) Android users can achieve this through the use of [actionable notifications](/docs/notifications/actionable-notifications#building-automations-for-notification-actions).
 
 ### Notification Sounds
 ![iOS](/assets/apple.svg)
