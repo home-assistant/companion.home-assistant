@@ -21,6 +21,25 @@ The mobile_app platform provides many enhancements to the simple notification ge
 
 ## Enhancing basic notifications
 
+### Including Links
+
+If you include a URL in the `message:` of your notification, the link will be clickable when the notification is delivered. For example::
+
+```yaml
+automation:
+  - alias: 'Send Notification'
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "Touchdown 🚀: https://www.youtube.com/watch?v=l5I8jaMsHYk"
+```
+
+If your device has has an app associated with the domain, the link swill open in that app, otherwise the default browser is used.
+
+![iOS](/assets/apple.svg) To make the link clickable you may had to tap and hold the notification.
+
 ### Notification Sounds
 ![iOS](/assets/apple.svg)
 By default the default iOS notification sound (Tri-tone) will be played upon receiving a notification. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be disabled by setting `sound` to `none` in the data payload:
