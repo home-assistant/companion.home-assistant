@@ -272,7 +272,7 @@ automation:
 Notification channels allows users to separate their notifications easily (i.e. alarm vs laundry) so they can customize aspects like what type of sound is made and a lot of other device specific features. Devices running Android 8.0+ are able to create and manage notification channels on the fly using automations. Once a channel is created you can navigate to your notification settings and you will find the newly created channel, from there you can customize the behavior based on what your device allows.
 
 :::info
-If your device is on Android 8.0+ then some of the notification features may not work unless you specify a `channel`. The following properties will become the default for the `channel` if not provided: [`vibrationPattern`](#notification-vibration-pattern), [`ledColor`](#notification-led-color) and [`importance`](#notification-channel-importance).
+If your device is on Android 8.0+ then some of the notification features may not work unless you specify a `channel`. The following properties will become the default for the `channel` the first time they are set: [`vibrationPattern`](#notification-vibration-pattern), [`ledColor`](#notification-led-color) and [`importance`](#notification-channel-importance). Once the options are set you can manage the channel settings in your notification channel settings for the app. These options will be ignored once they are set for the channel, only lowering of the `importance` will work (if the user has not already modified this).
 
 Devices running Android 5.0-7.1.2 do not have channels and do not need to worry about this note.
 :::
