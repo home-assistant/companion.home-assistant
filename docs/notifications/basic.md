@@ -345,7 +345,7 @@ automation:
 ### Persistent Notification
 
 ![android](/assets/android.svg)
-Persistent notifications are notifications that cannot be dimissed. These are useful if you have something important like an alarm being triggered. In order to use this property you must set the `tag` property as well. The `persistent` property only takes boolean (`true/false`) values.
+Persistent notifications are notifications that cannot be dimissed. These are useful if you have something important like an alarm being triggered. In order to use this property you must set the `tag` property as well. The `persistent` property only takes boolean (`true/false`) values, with `false` being the default.
 
 In the example below we will create a notification and then later on we will remove it.
 
