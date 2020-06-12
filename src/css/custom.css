@@ -41,7 +41,3 @@ html[data-theme='dark'] article img[src$='apple.svg'],
 html[data-theme='dark'] article img[src$='NotificationActionFlow.png'] {
   filter: invert(1.0)
 }
-
-.invert-link, .invert-link:hover {
-  color: var(--ifm-font-color-base);
-}
