@@ -318,7 +318,7 @@ automation:
 ### Notification Channel Importance
 
 ![android](/assets/android.svg)
-When you are setting the `channel` for your notification you also have the option to set the `importance` for the `channel` per notification. Possible values for this property are `high`, `low`, `max`, `min` and `default`. To learn more about what each value does see the [FCM docs](https://developer.android.com/training/notify-user/channels#importance). This feature is only for devices on Android 8.0+.
+When you are setting the `channel` for your notification you also have the option to set the `importance` for the `channel` per notification. Possible values for this property are `high`, `low`, `max`, `min` and `default`. To learn more about what each value does see the [FCM docs](https://developer.android.com/training/notify-user/channels#importance). For devices before Android 8.0 this property can be used like `priority` with the same options described up above.
 
 ```yaml
   - alias: Notify of Motion
@@ -329,7 +329,7 @@ When you are setting the `channel` for your notification you also have the optio
       data:
         message: Motion Detected
         data:
-          channel: Motion
+          channel: Motion # For devices on Android 8.0+ only
           importance: high
 ```
 
