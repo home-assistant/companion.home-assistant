@@ -33,7 +33,7 @@ automation:
             hide-thumbnail: false
 ```
 
-Notes:
+Notes ![iOS](/assets/apple.svg):
 *   The thumbnail of the notification will be the media at the `url`.
 *   The notification content is the media at the `url`.
 *   Attachment can be used with custom push notification categories.
@@ -51,7 +51,10 @@ automation:
         message: "Something happened at home!"
         data:
           image: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
-```           
+```
+
+Notes ![android](/assets/android.svg):
+*   If you are setting the [`icon_url`](basic.md#notification-icon) and `image` property then only the image will be displayed on the device.
 
 
 ## Example
