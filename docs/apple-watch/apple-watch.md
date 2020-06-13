@@ -11,7 +11,7 @@ The Apple Watch integration requires watchOS 5. In order to install watchOS 5 yo
 
 ## Manual Sync Procedure
 <!-- Added by request, probably remove or rewrite this later -->
-By default the app will sync your complications every 30 minutes although the first update after creating a complication may take longer. There is a temporary way to manually sync, instructions below.
+By default the app will sync your complications every 30 minutes although the first update after creating a complication may take longer. To try and force a manual sync, follow these steps:
 
 1. In the Home Assistant Companion app, navigate to App Configuration -> Apple Watch and stay on that screen.
 2. Now launch the Home Assistant Apple Watch app.
