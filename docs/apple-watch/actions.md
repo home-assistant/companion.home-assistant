@@ -1,6 +1,6 @@
 ---
 title: "Actions"
-id: "actions"
+id: "watch-actions"
 ---
 
 All [actions](/core/actions.md) that have been set up on a paired iPhone will be available on Apple Watch and can be access by from the Home Assistant watch app or by tapping a [complication](complications.md).

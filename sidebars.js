@@ -40,8 +40,8 @@ module.exports = {
       'integrations/x-callback-url',
       'integrations/app-events'],
     'Apple Watch': [
-      'apple-watch/index',
-      'apple-watch/actions',
+      'apple-watch/apple-watch',
+      'apple-watch/watch-actions',
       'apple-watch/complications'
       ],
     'Troubleshooting': [
