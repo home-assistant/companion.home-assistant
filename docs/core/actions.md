@@ -5,7 +5,7 @@ id: 'actions'
 
 ![iOS](/assets/apple.svg) iOS Specific
 
-Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS and [Apple Watch](../integrations/watch/index.md).
+Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS and [Apple Watch](/apple-watch/index.md).
 
 ## Creating Actions
 Actions are created from the Actions section of the App Configuration page within the companion App for iOS. Each action has required fields depending on your device:
@@ -70,7 +70,8 @@ Note that attributes located in the `data` and `context` are accessed through `e
 You can use the Events page within Home Assistant's developer tools to show all information contained with the event for a particular event by subscribing to `ios.action_fired` and triggering the action from you device.
 
 ## Apple Watch
-The [Apple Watch App](integrations/watch/index.md) provides access to actions you have created. Once you have created an action within the Actions page, open the Home Assistant watch and the action list should sync.
+
+The [Apple Watch App](/apple-watch/index.md) provides access to actions you have created. Once you have created an action within the Actions page, open the Home Assistant watch and the action list should sync.
 
 
 ## Home Screen Quick Actions
