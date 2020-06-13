@@ -39,6 +39,11 @@ module.exports = {
       'integrations/url-handler',
       'integrations/x-callback-url',
       'integrations/app-events'],
+    'Apple Watch': [
+      'apple-watch/index',
+      'apple-watch/actions',
+      'apple-watch/complications'
+      ],
     'Troubleshooting': [
         'troubleshooting/faqs',
         'troubleshooting/errors',
