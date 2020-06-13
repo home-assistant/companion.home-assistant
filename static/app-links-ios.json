@@ -1,0 +1,18 @@
+{
+    "app-store-review": "https://itunes.apple.com/app/id1099568401?action=write-review&mt=8",
+    "beta-sign-up": "https://testflight.apple.com/join/VBsqCiBv",
+    "companion-app-docs": "https://companion.home-assistant.io",
+    "en-actions": "https://companion.home-assistant.io/docs/core/actions",
+    "en-apple-watch": "https://companion.home-assistant.io/docs/apple-watch/apple-watch",
+    "en-home-assistant-discord": "https://discord.gg/C7fXPmt",
+    "en-translate-app": "https://developers.home-assistant.io/docs/translations",
+    "en-troubleshooting": "https://companion.home-assistant.io/docs/troubleshooting/faqs",
+    "en-troubleshooting-errors": "https://companion.home-assistant.io/docs/troubleshooting/errors",
+    "en-whats-new": "https://home-assistant.io/ios/whats-new",
+    "home-assistant-demo": "https://demo.home-assistant.io/",
+    "home-assistant.io": "https://www.home-assistant.io/",
+    "home-assistant-forums": "https://community.home-assistant.io/",
+    "ios-companion-app-git-hub": "https://github.com/home-assistant/iOS",
+    "ios-companion-app-git-hub-issues": "https://github.com/home-assistant/iOS/issues",
+    "patreon": "https://patreon.com/robbiet480/"
+}
