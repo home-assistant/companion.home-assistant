@@ -71,7 +71,7 @@ You can use the Events page within Home Assistant's developer tools to show all 
 
 ## Apple Watch
 
-The [Apple Watch App](/apple-watch/apple-watch.md) provides access to actions you have created. Once you have created an action within the Actions page, open the Home Assistant watch and the action list should sync.
+The [Apple Watch App](/apple-watch/apple-watch.md) provides access to actions you have created. Once you have created an action within the Actions page, open the Home Assistant watch and the action list should sync. Actions triggered on Apple Watch carry a [slightly different payload](/apple-watch/actions.md).
 
 
 ## Home Screen Quick Actions
