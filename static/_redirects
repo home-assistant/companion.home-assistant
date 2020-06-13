@@ -4,3 +4,6 @@
 # Documentation restructuring redirects
 
 /core/actions /docs/core/actions
+/docs/integrations/watch/watch /docs/apple-watch/apple-watch
+/docs/integrations/watch/watch-actions/ /docs/integrations/watch/actions
+/docs/integrations/watch/complications/ /ocs/integrations/watch/complications
