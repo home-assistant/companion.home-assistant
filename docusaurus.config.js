@@ -6,7 +6,6 @@ module.exports = {
   favicon: 'img/favicon.png',
   organizationName: 'home-assistant', // Usually your GitHub org/user name.
   projectName: 'companion.home-assistant', // Usually your repo name.
-  plugins: ['@docusaurus/plugin-google-analytics'],
   themeConfig: {
     navbar: {
       title: 'Companion Apps',
