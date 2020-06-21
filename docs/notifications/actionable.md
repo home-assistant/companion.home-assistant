@@ -49,7 +49,7 @@ When sending a notification:
 
 | Name | Default | Description |
 | ------------ | ------------- | ------------- |
-| `identifier:` | **required** | A unique identifier for this action. Must be uppercase and have no special characters or spaces. Only needs to be unique to the category, not unique globally. |
+| `identifier:` | **required** | A unique identifier for this action. Must be uppercase and have no special characters or spaces (underscores are ok). Only needs to be unique to the category, not unique globally. |
 | `title:` | **required** | The text to display on the button. Keep it short. |
 | `activationMode:` | optional | The mode in which to run the app when the action is performed. Setting this to `foreground` will make the app open after selecting. Default value is `background`. |
 | `authenticationRequired:` | optional | If `true`, the user must unlock the device before the action is performed. |
