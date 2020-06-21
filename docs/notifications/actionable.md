@@ -42,7 +42,7 @@ When sending a notification:
 | Name | Default | Description |
 | ------------ | ------------- | -------------  |
 | `name:` | **required** | A friendly name for this category. |
-| `identifier:` | **required** | A unique identifier for the category. Must be lowercase and have no special characters or spaces. |
+| `identifier:` | **required** | A unique identifier for the category. Must be lowercase and have no special characters or spaces (underscores are ok). |
 | `actions:` | **required** | A list of actions. See below. |
 
 ## Actions parameters
