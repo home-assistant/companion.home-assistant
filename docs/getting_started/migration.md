@@ -18,7 +18,7 @@ The steps below should guide you through the process of migrating from the previ
 -   The `group.all_devices` group was maintained by the now legacy `device_tracker` service based on `known_devices.yaml` used by the `ios` integration. Since this is no longer used, device running 2019.1 will not be added to the `group.all_devices`. The new `device_tracker` entities can be associated with `person` entities however which can be grouped in a similar way.
 
 ## Requirements
-You need to be running Home Assistant 0.95.0 or newer. The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
+You need to be running Home Assistant 0.104.0 or newer. The new updated iOS app requires the following integrations to be enabled in your Home Assistant instance:
 -   `default_config:`
 
 If for some reason you have disabled the default config make sure your `configuration.yaml` contains at least:
