@@ -26,3 +26,10 @@ This error means that your Home Assistant can't negotiate the encrypted connecti
 This error is usually caused by one of the two following issues:
 *   You are running two Home Assistant instances with identical names. The solution is to rename one of them.
 *   You are missing `default_config:` from your `configuration.yaml` file. It is possible to only add `zeroconf:` to `configuration.yaml` but adding `default_config:` will add [several useful integrations](https://www.home-assistant.io/components/default_config/) along with `zeroconf:`.
+
+### Response status code was unacceptable: 400
+
+This occurs when the data sent during set up does not meet Home Assistant's expectations. This most commonly occurs in two circumstances:
+
+* When you are running a version of Home Assistant older than the minimum requirement (currently 0.104.0)
+* You have unexpected characters in your device's name. While setting up the Mobile App integration, we attempt to remove non-standard characters and emoji (as of Home Assistant 0.112). However, it is worth simplifying your device name to remove such characters if you are getting this error.
