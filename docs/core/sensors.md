@@ -90,7 +90,7 @@ If the connection type is not recognized, either `Unknown` or `Unknown Technolog
 | --------- | --------- |
 | Manual | A manual update is triggered when the user pulls to refresh. |
 | Initial | Sensors are updated upon initial app launch. |
-| Significant Location Update | Triggers when there has been a significant change in the device’s location, such as 500 meters or more. See [location](location.md) for additional details. |
+| Significant Location Change | Triggers when there has been a significant change in the device’s location, such as 500 meters or more. See [location](location.md) for additional details. |
 | Geographic Region Entered | Triggered when entering any user-specified Home Assistant [zone](https://www.home-assistant.io/components/zone/) (also known as geofencing). |
 | Geographic Region Exited | Triggered when exiting any user-specified Home Assistant [zone](https://www.home-assistant.io/components/zone/) (also known as geofencing). |
 | Push Notification | [Requesting location updates](../notifications/location.md) via push notification.  |
