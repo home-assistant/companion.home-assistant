@@ -68,7 +68,7 @@ If you want to know more about the specifics of these attributes, please refer t
 
 ![iOS](/assets/apple.svg)
 
-The Home Assistant Companion App receives _significant location updates_ from iOS. Whenever an update is received, it is sent to Home Assistant. Roughly, an update is received every time that your device transfers to a new cellular tower, a significant amount of time has passed (usually a couple hours) or a connection state changes and the system notices your location recently changed.
+The Home Assistant Companion App receives _significant location changes_ from iOS. Whenever an update is received, it is sent to Home Assistant. Roughly, an update is received every time that your device transfers to a new cellular tower, a significant amount of time has passed (usually a couple hours) or a connection state changes and the system notices your location recently changed.
 
 Apple [defines][apple-location-programming-guide] significant significant-change location updates as:
 
