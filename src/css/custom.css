@@ -41,3 +41,8 @@ html[data-theme='dark'] article img[src$='apple.svg'],
 html[data-theme='dark'] article img[src$='NotificationActionFlow.png'] {
   filter: invert(1.0)
 }
+
+.center_image {
+  display:block;
+  margin:auto;
+}
