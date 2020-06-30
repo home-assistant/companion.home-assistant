@@ -11,7 +11,7 @@ id: 'theming'
 
 ![iOS](/assets/android.svg)Colors should be specified in hex format (e.g. `#0099ff`) and defining element colors through variable names is not supported.
 
-![iOS](/assets/apple.svg)As of version 2020.3, the iOS app will accept colors specified in hex, rgb, hsl, rgba, hsla formats or using a valid [HTML color name](https://www.w3schools.com/colors/colors_names.asp); although formats with alpha values are recognized, using alpha values less than 100 % (or 1) will currently lead to a color mismatch. 2020.2 and earlier versions of the app require colors to be specified in hex
+![iOS](/assets/apple.svg)As of version 2020.3, the iOS app will accept colors specified in hex, rgb, hsl, rgba, hsla formats or using a valid [HTML color name](https://www.w3schools.com/colors/colors_names.asp); although formats with alpha values are recognized, using alpha values less than 100 % (or 1) will currently lead to a color mismatch. 2020.2 and earlier versions of the app require colors to be specified in hex.
 
 ## Setting the app theme
 
