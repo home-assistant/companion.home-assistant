@@ -54,7 +54,7 @@ Render a [template](https://www.home-assistant.io/docs/configuration/templating/
 ### Send Location
 Send a location to Home Assistant. Will attempt to use clipboard contents as location, otherwise will use current location.
 
-## Using Shortcuts
+## Using Shortcuts via Notifications
 
 You can send a special push notification to your device, that when tapped, will open the Shortcut of your choosing and run it. Here's an example payload:
 
