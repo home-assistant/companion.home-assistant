@@ -34,6 +34,7 @@ module.exports = {
     'Integrations': [
       'integrations/integrations',
       'integrations/theming',
+      'integrations/siri-shortcuts',
       'integrations/haptics',
       'integrations/universal-links',
       'integrations/url-handler',
