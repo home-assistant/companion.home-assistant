@@ -5,7 +5,7 @@ id: siri-shortcuts
 
 ![iOS](/assets/apple.svg)
 
-With iOS 12 or later, you can take advantage of the power of Siri Shortcuts to carry out Home Assistant tasks with a tap or by using voice commands.
+With iOS 12 or later and the Home Assistant Companion App, you can take advantage of the power of Siri Shortcuts to carry out Home Assistant tasks with a tap or by using voice commands.
 
 ## Getting Started
 
@@ -18,11 +18,11 @@ As an example, if you wanted to start you want to create a shortcut to turn on a
 1. Open the Shortcuts app
 2. Tap "Add Item" and search for "Dictionary"
 3. Add a "Text" item and add `entity_id` as the key and `light.porch` as the text
-4. Tap the large plus to add another another action, search for "Home Assistant" and select "Call Service".
+4. Tap the large plus to add another action, search for "Home Assistant" and select "Call Service".
 5. Tap "Service" which is highlighted in "Call Service with data"
 6. Scroll through the list of available services and find `light.turn_on`.
 7. As long as the Dictionary action is above the Home Assistant action there is no need to enter anymore details. If you prefer not to use the Dictionary action, you can select "Show More" and enter the service data in JSON format in the "Service Data" field
-8. Tap next and enter or record a name/phrase to use with "Hey, Siri" to trigger the service
+8. Tap next and enter or record a name/phrase to use with "Hey, Siri" to trigger the shortcut.
 
 The final shortcut should look similar to this:
 
@@ -30,12 +30,13 @@ The final shortcut should look similar to this:
 
 ## Shortcut Flow
 
-In the previous example we will used the Dictionary action to define our service data, this is an example of one action provide data to a subsequent data in the Shortcut flow. These can come from other apps on other actions provided by Home Assistant, such as Render Text to get the state of an entity in Home Assistant. By default empty fields will try to use data on your device's clipboard if no other flow or payload data is provided.
+In the previous example we will used the Dictionary action to define our service data, this is an example of one action provide data to a subsequent action in the Shortcut flow. These data can come from other apps or other actions provided by Home Assistant, such as Render Text to get the state of an entity in Home Assistant. By default empty fields will try to use data on your device's clipboard if no other flow or payload data is provided.
 
 ## Actions
 
 ### Call Service
-You can call any service set up in Home Assistant (see the [Services page in Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/)). As used in the [example above](#example).
+
+You can call any service set up in Home Assistant (see the [Services Page in Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/)). As used in the [example above](#example).
 
 ### Fire Event
 
@@ -46,12 +47,15 @@ Must be valid JSON.
 :::
 
 ### Get Camera Image
-Get a single still frame from an entity ID and place it on the clipboard or for use in subsequent steps.
+
+Get a single still frame from a camera entity and place it on the clipboard or use in subsequent actions.
 
 ### Render Template
+
 Render a [template](https://www.home-assistant.io/docs/configuration/templating/) which can then be used in subsequent actions.
 
 ### Send Location
+
 Send a location to Home Assistant. Will attempt to use clipboard contents as location, otherwise will use current location.
 
 ## Using Shortcuts via Notifications
