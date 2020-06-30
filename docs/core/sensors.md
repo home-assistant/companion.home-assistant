@@ -97,6 +97,7 @@ If the connection type is not recognized, either `Unknown` or `Unknown Technolog
 | Background Fetch | When the app refreshes sensor information in the background. |
 | Siri | Location updates triggered via the [Siri Shortcuts](../integrations/siri-shortcuts.md) "Send Location" shortcut. |
 | iBeacon Region Entered | Triggered when an iBeacon is seen that corresponds to a known zone. |
+| Registration | Triggered once when the app is first connected to your Home Assistant instance. |
 
 
 ## Geocoded Location Sensor
