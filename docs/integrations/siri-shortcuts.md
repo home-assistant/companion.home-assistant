@@ -81,7 +81,7 @@ Shortcuts are deeply integrated into the OS. After creating one, you have numero
 * **Siri / Voice** - You can launch any of your created Shortcuts using Siri from an iPhone, iPad, HomePod, or Apple Watch. If your shortcut is named "Bedtime" the command would be "Hey Siri, Bedtime."
 * **Widget** - Shortcuts has a widget on the Today View which can be accessed by swiping right from the Home or Lock screen. At the bottom of the widgets screen, press "Edit" and then the green plus button to add the widget to your Today View.
 * **Shortcuts app** - On the "My Shortcuts" tab, simply tap on the shortcut you want to launch. There is a search bar at the top to quickly filter your list of Shortcuts if needed.
-* **Apple Watch (iOS 14)** - With iOS 14 you can launch Shortcuts from either the Shortcuts Apple Watch app, or via complications on the Siri watch face.
+* **Apple Watch (watchOS 7)** - With iOS 14 and watchOS7 you can launch Shortcuts from either the Shortcuts Apple Watch app, or via complications on the Siri watch face.
 * **Spotlight Search** - When on your iOS device Home screen, swipe down from the center of your Home screen to bring up Spotlight search. From here you can type the name of a Shortcut and run it with one tap.
 * **Add to Home Screen** - When editing any Shortcut, press the (...) button in the top right to see options, and press the "Add to Home Screen" button. You can customize the name and provide a custom icon if you wish.
 * **Push Notification** - Shortcuts can be launched via [push notifications](/docs/notifications/notifications-basic#including-links). Set the URL to `shortcuts://run-shortcut?name=Your Shortcut`
