@@ -13,8 +13,8 @@ The sensors provided by the companion app are:
 | --------- | --------- | ----------- |
 | `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
 | `sensor.average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
-| `sensor.battery_level` | `Battery State` | The current battery level of the device. Current battery state is available from the `Battery State` attribute of this sensor. |
-| `sensor.battery_state` | `Battery Level` | The current charging state (either `Charging`, `Not Charging`, or `Full`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
+| `sensor.battery_level` | `Battery State`, `Low Power Mode` | The current battery level of the device. Current battery state is available from the `Battery State` attribute of this sensor. |
+| `sensor.battery_state` | `Battery Level`, `Low Power Mode` | The current charging state (either `Charging`, `Not Charging`, or `Full`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
 | `sensor.bssid` | None |  The MAC address of the wireless access point your phone is connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
 | `sensor.connection_type` | `Cellular Technology` | The current data connection being used by the phone. |
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
@@ -26,6 +26,7 @@ The sensors provided by the companion app are:
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.ssid` | None | The human-readable name of the Wi-Fi network the device is currently connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
 | `sensor.steps` | None | The number of steps taken by the user. |
+| `sensor.storage` | [See Below](#storage-sensor) | The amount of total and available storage on your iOS device. |
 
 Attributes such as `Cellular Technology` can be accessed with a template such as:
 
@@ -60,7 +61,7 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 *   `High`
 
 ## Battery Sensors
-![iOS](/assets/apple.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon
+![iOS](/assets/apple.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
 
 ![android](/assets/android.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The five possible states are `full`, `charging`, `discharging`, `not_charging` or `unknown`. The attribute `is_charging` can be used to determine if the device is currently charging, the attribute `charger_type` can report the type of charger being used. Possible values are `ac`, `usb`, `wireless` and `unknown`. The sensor icon reflects the charging status, and type of charging being used.
 
@@ -148,3 +149,14 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `Mobile Network Code` | The mobile network code for the user’s cellular service provider. |
 | `Carrier ID` |  |
 | `Allows VoIP` | Indicates if the carrier allows making VoIP calls on its network. |
+
+
+## Storage Sensor
+![iOS](/assets/apple.svg) This sensor displays information on the device storage. The file sizes reported are in Base-10.
+
+| Attribute | Description |
+| --------- | --------- |
+| `Available` | The amount of available storage remaining on your device. |
+| `Available (Important)` | The volume’s available capacity in bytes for storing important resources. |
+| `Available (Opportunistic)` | The volume’s available capacity in bytes for storing nonessential resources. |
+| `Total` | The total storage capacity of your device. |
