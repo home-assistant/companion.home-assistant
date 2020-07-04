@@ -39,6 +39,11 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
+      <td><a href="/docs/integrations/siri-shortcuts">Siri Shortcuts</a></td>
+      <td></td>
+      <td>✅</td>
+    </tr>
+    <tr>
       <td><a href="/docs/integrations/theming">Theming</a></td>
       <td>✅</td>
       <td>✅</td>
@@ -337,6 +342,11 @@ Not all features are supported by Android at the moment but eventually most feat
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#pedometer-sensors">Steps</a></td>
+      <td></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors">Storage</a></td>
       <td></td>
       <td>✅</td>
     </tr>
