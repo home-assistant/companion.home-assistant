@@ -7,15 +7,11 @@ id: siri-shortcuts
 
 With iOS 13 or later and the Home Assistant Companion App, you can take advantage of the power of Siri Shortcuts to carry out Home Assistant tasks with a tap or by using voice commands.
 
-## Getting Started
-
-In order to set up Siri Shortcuts, you will need to install the [Shortcuts App from the App Store](https://apps.apple.com/us/app/shortcuts/id915249334).
-
-## Example
+## Getting Started - Example Shortcut
 
 As an example, if you wanted to start you want to create a shortcut to turn on a light (`light.porch` in this example):
 
-1. Open the Shortcuts app
+1. Open the Shortcuts app (included by default with iOS, can be re-installed from the [App Store](https://apps.apple.com/us/app/shortcuts/id915249334) if you deleted it)
 2. Tap "Add Item" and search for "Dictionary"
 3. Add a "Text" item and add `entity_id` as the key and `light.porch` as the text
 4. Tap the large plus to add another action, search for "Home Assistant" and select "Call Service".
@@ -86,3 +82,14 @@ Shortcuts are deeply integrated into the OS. After creating one, you have numero
 * **Add to Home Screen** - When editing any Shortcut, press the (...) button in the top right to see options, and press the "Add to Home Screen" button. You can customize the name and provide a custom icon if you wish.
 * **Push Notification** - Shortcuts can be launched via [push notifications](/docs/notifications/notifications-basic#including-links). Set the URL to `shortcuts://run-shortcut?name=Your Shortcut`
 * **Back Tap (iOS 14)** - Under iOS Settings > Accessibility > Touch > Back Tap, you can launch any Shortcut via double tapping or triple tapping the back of your iPhone.
+
+## Personal Automation
+
+With Shortcuts Personal Automation, you can get the best of both worlds - by using iOS triggers to execute Home Assistant actions. A few examples of some useful iOS + Home Assistant combinations for inspiration:
+
+* Trigger your Home Assistant "morning routine" automation after stopping or snoozing the Wake-Up alarm on your iPhone.
+* When starting a workout on your Apple Watch, use Home Assistant to play your workout playlist. When finishing a workout on your Apple Watch, use Home Assistant to turn on your fan to cool down.
+* Get perfect car presence in Home Assistant by toggling an `input_boolean` in Home Assistant when you connect or disconnect from CarPlay, or connect to your cars Bluetooth system.
+* Place an NFC sticker on the lid of your pills bottle. Each time you take your medicine, scan the NFC sticker with your iPhone. Home Assistant can keep a log of the exact times you take your medicine, increment a [counter](https://www.home-assistant.io/integrations/counter/) which will help you know when to refill your prescription, and more.
+
+To create a Personal Automation in the Shortcuts app, go to the "Automations" tab, press the + button in the top right corner, and then tap the "Create Personal Automation" button. There are 19 triggers available on iOS 14. See Apple's [Shortcuts user guide](https://support.apple.com/guide/shortcuts/create-a-new-personal-automation-apdfbdbd7123/3.5/ios/13.5) for more information on creating Personal Automations.
