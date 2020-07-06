@@ -336,6 +336,8 @@ automation:
           channel: Motion # name of the channel you wish to remove
 ```
 
+#### Specific channel properties
+
 :::info
 If your device is on Android 8.0+ the following properties will become the default for the `channel` the first time they are set: 
 - [`vibrationPattern`](#notification-vibration-pattern)
@@ -352,7 +354,7 @@ Devices running Android 5.0-7.1.2 do not have channels and do not need to worry 
 ![android](/assets/android.svg)
 When you are setting the `channel` for your notification you also have the option to set the `importance` for the `channel` per notification. Possible values for this property are `high`, `low`, `max`, `min` and `default`. To learn more about what each value does see the [FCM docs](https://developer.android.com/training/notify-user/channels#importance). For devices before Android 8.0 this property can be used like `priority` with the same options described up above.
 
-See [Notification Channels](#notification-channels) for specific behavior of this property.
+See [Specific channel properties](#specific-channel-properties) for important behavior of this property.
 
 ```yaml
   - alias: Notify of Motion
@@ -372,7 +374,7 @@ See [Notification Channels](#notification-channels) for specific behavior of thi
 ![android](/assets/android.svg)
 You can set the vibration pattern for the `channel` by setting the `vibrationPattern` property. Possible values are a list of numbers. eg. "100, 1000, 100, 1000, 100" etc.. The pattern specification is "off time, on time, off time, on time, off time" etc.
 
-See [Notification Channels](#notification-channels) for specific behavior of this property.
+See [Specific channel properties](#specific-channel-properties) for important behavior of this property.
 
 ```yaml
   - alias: Notify of Motion
@@ -392,7 +394,7 @@ See [Notification Channels](#notification-channels) for specific behavior of thi
 ![android](/assets/android.svg)
 Some Android devices have a multi-color notification LED.  By setting the `ledColor` property you can control what color the LED will flash. Possible values are the same as for property [color](#notification-color) eg '#2DF56D' # or 'red'.
 
-See [Notification Channels](#notification-channels) for specific behavior of this property.
+See [Specific channel properties](#specific-channel-properties) for important behavior of this property.
 
 ```yaml
   - alias: Notify of Motion
