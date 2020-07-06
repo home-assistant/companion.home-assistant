@@ -229,7 +229,7 @@ automation:
             - badge
 ```
 
-### Notification color
+### Notification Color
 
 ![android](/assets/android.svg)
 In Android you can set the `color` of the notification, you can use either the color name or the hex code.
@@ -248,7 +248,7 @@ automation:
           color: '#2DF56D' # or 'red'
 ```
 
-### Sticky notification
+### Sticky Notification
 
 ![android](/assets/android.svg)
 You can set whether to dismiss the notification upon selecting it or not. Setting `sticky` to `'true'` will keep the notification from being dismissed when the user selects it. Setting it to `'false'` (default) will dismiss the notification upon selecting it.
@@ -267,7 +267,7 @@ automation:
           sticky: 'true' # or 'false'
 ```
 
-### Notification click action
+### Notification Click Action
 
 ![android](/assets/android.svg)
 When a notification is selected the user can either be navigated to a specific lovelace view or you can have a webpage open to any URL. If you plan to use a lovelace view the format would be `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view. The default behavior is to just open the Home Assistant app.
@@ -291,16 +291,7 @@ automation:
 ![android](/assets/android.svg)
 Notification channels allows users to separate their notifications easily (i.e. alarm vs laundry) so they can customize aspects like what type of sound is made and a lot of other device specific features. Devices running Android 8.0+ are able to create and manage notification channels on the fly using automations. Once a channel is created you can navigate to your notification settings and you will find the newly created channel, from there you can customize the behavior based on what your device allows.
 
-:::info
-If your device is on Android 8.0+ the following properties will become the default for the `channel` the first time they are set: [`vibrationPattern`](#notification-vibration-pattern), [`ledColor`](#notification-led-color) and [`importance`](#notification-channel-importance). Once the options are set you can manage the channel settings in your notification channel settings for the app. These options will be ignored once they are set for the channel, only lowering of the `importance` will work (if the user has not already modified this).
-
-Default values for a channel if not provided will be as follows:
-- Importance: Default which means Default notification importance: shows everywhere, makes noise, but does not visually intrude.
-- Vibration Pattern: Vibration disabled
-- LED Color: LED disabled
-
-Devices running Android 5.0-7.1.2 do not have channels and do not need to worry about this note.
-:::
+#### Creating a channel
 
 In order to create a notification you will need to specify the `channel` you wish to use. By default all notifications use `General` if `channel` is not defined.
 
@@ -320,11 +311,21 @@ automation:
           channel: Motion # name of the channel you wish to create or utilize
 ```
 
-If you wish to remove a channel you will need to send `remove_channel` with the `channel` you wish to remove. Depending on when you installed the app you may want to send `remove_channel` to `channel: default` to clean up the old default channel:
+Default values for a channel if not provided will be as follows:
+- Importance: Default which means Default notification importance: shows everywhere, makes noise, but does not visually intrude.
+- Vibration Pattern: Vibration disabled
+- LED Color: LED disabled
+
+#### Removing a channel
+
+If you wish to remove a channel you will need to send `message: remove_channel` with the `channel` you wish to remove. 
+Removing a channel doesn't reset the settings to the default values, it just removes it from the notification channels list. If you send a notification to a removed channel, it will restore it. The only way to really remove a channel is by clearing the app data which will remove everything.
+
+Depending on when you installed the app you may want to send `remove_channel` to `channel: default` to clean up the old default channel:
 
 ```yaml
 automation:
-  - alias: Notify of Motion
+  - alias: Removing Motion channel
     trigger:
       ...
     action:
@@ -335,10 +336,23 @@ automation:
           channel: Motion # name of the channel you wish to remove
 ```
 
+:::info
+If your device is on Android 8.0+ the following properties will become the default for the `channel` the first time they are set: 
+- [`vibrationPattern`](#notification-vibration-pattern)
+- [`ledColor`](#notification-led-color)
+- [`importance`](#notification-channel-importance)
+
+These options will be ignored once they are set for a particular channel, only lowering of the `importance` will work (if the user has not already modified this).
+
+Devices running Android 5.0-7.1.2 do not have channels and do not need to worry about this note.
+:::
+
 ### Notification Channel Importance
 
 ![android](/assets/android.svg)
 When you are setting the `channel` for your notification you also have the option to set the `importance` for the `channel` per notification. Possible values for this property are `high`, `low`, `max`, `min` and `default`. To learn more about what each value does see the [FCM docs](https://developer.android.com/training/notify-user/channels#importance). For devices before Android 8.0 this property can be used like `priority` with the same options described up above.
+
+See [Notification Channels](#notification-channels) for specific behavior of this property.
 
 ```yaml
   - alias: Notify of Motion
@@ -351,6 +365,46 @@ When you are setting the `channel` for your notification you also have the optio
         data:
           channel: Motion # For devices on Android 8.0+ only
           importance: high
+```
+
+### Notification Vibration Pattern 
+
+![android](/assets/android.svg)
+You can set the vibration pattern for the `channel` by setting the `vibrationPattern` property. Possible values are a list of numbers. eg. "100, 1000, 100, 1000, 100" etc.. The pattern specification is "off time, on time, off time, on time, off time" etc.
+
+See [Notification Channels](#notification-channels) for specific behavior of this property.
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: Motion Detected
+        data:
+          vibrationPattern: "100, 1000, 100, 1000, 100" # The pattern you wish to set for vibrations
+          channel: Motion # For devices on Android 8.0+ only
+```
+
+### Notification LED Color
+
+![android](/assets/android.svg)
+Some Android devices have a multi-color notification LED.  By setting the `ledColor` property you can control what color the LED will flash. Possible values are the same as for property [color](#notification-color) eg '#2DF56D' # or 'red'.
+
+See [Notification Channels](#notification-channels) for specific behavior of this property.
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: Motion detected
+        data:
+          ledColor: "red" # Set the LED to red
+          channel: Motion # For devices on Android 8.0+ only          
 ```
 
 ### Persistent Notification
@@ -403,40 +457,6 @@ If your notification is going to have a lot of text (more than 6 lines) you can 
         title: "Long text"
         data:
           subject: "Subject for long text"
-```
-
-### Notification LED Color
-
-![android](/assets/android.svg)
-Some Android devices have a multi-color notification LED.  By setting the `ledColor` property you can control what color the LED will flash. Possible values are the same as for property [color](#notification-color) eg '#2DF56D' # or 'red'.
-
-```yaml
-  - alias: Notify of Motion
-    trigger:
-      ...
-    action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: Motion detected
-        data:
-          ledColor: "red" # Set the LED to red
-```
-
-### Notification Vibration Pattern
-
-![android](/assets/android.svg)
-You can set the vibration pattern per notification by setting the `vibrationPattern` property. Possible values are a list of numbers. eg. "100, 1000, 100, 1000, 100" etc.. The pattern specification is "off time, on time, off time, on time, off time" etc.
-
-```yaml
-  - alias: Notify of Motion
-    trigger:
-      ...
-    action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: clear_notification
-        data:
-          vibrationPattern: "100, 1000, 100, 1000, 100" # The pattern you wish to set for vibrations
 ```
 
 ### Notification Timeout
