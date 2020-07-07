@@ -5,7 +5,7 @@ id: "notification-sounds"
 
 ![iOS](/assets/apple.svg) iOS specific
 
-Adding a custom sound to a notification allows you to easily identify the notification without even looking at your device. Home Assistant for iOS comes with some notification sounds pre-installed but you can also upload your own.
+Adding a custom sound to a notification allows you to easily identify the notification without even looking at your device. Home Assistant for iOS comes with some notification sounds pre-installed, but you can also upload your own.
 
 Here is an example notification that uses one of the pre-installed sounds.
 
@@ -26,7 +26,7 @@ Here is an example notification that uses one of the pre-installed sounds.
 
 ## Custom push notification sounds
 
-The app allows you to use your own custom sounds in push notifications. The sounds must be formatted as 32bit float 48000Hz wav files. Make sure you know the filename of the sound as you will need to reference it in the `sound` field of the notification payload. To add sounds follow either of the two following methods:
+The iOS app allows you to use your own custom sounds in push notifications. The sounds must be formatted as 32bit float 48000Hz wav files. Make sure you know the filename of the sound as you will need to reference it in the `sound` field of the notification payload. To add sounds follow either of the two following methods:
 
 > *   You may need to restart your entire device before notification sounds can be played.
 > *   Uploading a file with the same name as an existing one will overwrite the original.
@@ -41,8 +41,8 @@ The app allows you to use your own custom sounds in push notifications. The soun
 6.  Click Sync in the lower right.
 7.  Once the sync is complete, disconnect the device from the computer.
 8.  On your iOS device, open the Home Assistant app.
-9.  Go to Settings -> Notification Settings.
-10. Select "Import sounds from iTunes".
+9.  Go to App Configuration -> Notifications -> Sounds.
+10. Tap the "Import sounds from iTunes File Sharing" button.
 
 Assuming that you correctly formatted the sounds they are now available to use in push notifications.
 
@@ -65,12 +65,12 @@ Apart from the tri-tone—the default text tone, which can be accessed with `sou
 
 1.  In the Home Assistant companion app, open the App Configuration page from the sidebar.
 2.  Under Settings, tap Notifications and then Sounds.
-3.  Tap System and then "Import system sounds".
+3.  Tap the "System" tab and then "Import system sounds".
 4.  After a few seconds you should be informed the files have been successfully imported.
 5.  Restart your device.
 6.  iOS sounds can now be used. You can view a the App Configuration page under Notifications and then Sounds and System.
 
-<details><summary>For a full list of sounds iOS sounds imported from iOS, click here.</summary>
+<details><summary>For a full list of sounds imported from iOS, click here.</summary>
 This list is representative for iOS 12, the actual list of imported sounds may vary depending on the configuration of your device and iOS version.
 <p>
 
