@@ -31,4 +31,6 @@ Home Assistant Companion supports all seven haptic strength levels as defined by
 *   [Button Card](https://github.com/custom-cards/button-card) by RomRider
 *   [Radial Menu](https://github.com/custom-cards/radial-menu) by Ian Richardson
 *   [Harmony Card](https://github.com/sbryfcz/harmony-card) by Sam Bryfczynski
+*   [Simple Thermostat Card](https://github.com/nervetattoo/simple-thermostat) by Raymond Julin
+
 
