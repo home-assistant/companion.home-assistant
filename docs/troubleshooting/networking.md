@@ -56,7 +56,7 @@ http:
     - 127.0.0.1                 # Add the localhost IPv4 address
     - ::1                       # Add the localhost IPv6 address
   base_url: my-home.duckdns.org # Note we no longer have a :8123 Port here
-  # Uncomment or remove the SSL certificate lines:
+  # Comment or remove the SSL certificate lines:
   # ssl_certificate: /ssl/fullchaim.pem
   # ssl_key: /ssl/privkey.pem
 ```
