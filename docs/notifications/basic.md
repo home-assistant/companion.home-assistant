@@ -24,7 +24,7 @@ The mobile_app platform provides many enhancements to the simple notification ge
 ### Including Links
 
 ![iOS](/assets/apple.svg)
-If you include a URL in the `message:` of your notification, the link will be clickable when the notification is delivered. For example::
+If you include a URL in your notification, tapping on the notification will open that URL. You may use external or internal (relative) URL's. The below example sends a notification that when tapped will open the Home Assistant app into a Lovelace view of your cameras.
 
 ```yaml
 automation:
@@ -34,10 +34,16 @@ automation:
     action:
       service: notify.mobile_app_<your_device_id_here>
       data:
-        message: "Touchdown 🚀: https://www.youtube.com/watch?v=l5I8jaMsHYk"
+        title: "Motion Detected in Backyard"
+        message: "Someone might be in the backyard."
+      data:
+        url: /lovelace/cameras
 ```
 
-If your device has has an app associated with the domain, the link swill open in that app, otherwise the default browser is used. To make the link clickable you may had to tap and hold the notification.
+URL's can alternatively be included in the `message:` portion of your notification.
+
+You can change which iOS browser notifications open in under App Configuration -> General and can turn off the confirmation prompt under App Configuration -> Notifications.
+
 
 ![android](/assets/android.svg) Android users can achieve this through the use of [actionable notifications](/docs/notifications/actionable-notifications#building-automations-for-notification-actions) or [click action](#notification-click-action).
 
