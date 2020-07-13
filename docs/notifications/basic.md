@@ -36,8 +36,8 @@ automation:
       data:
         title: "Motion Detected in Backyard"
         message: "Someone might be in the backyard."
-      data:
-        url: /lovelace/cameras
+        data:
+          url: /lovelace/cameras
 ```
 
 URL's can alternatively be included in the `message:` portion of your notification.
