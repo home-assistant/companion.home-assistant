@@ -111,7 +111,7 @@ automation:
             my_custom_data: foo_bar
 ```
 
-![android](/assets/android.svg) For Android you create the action directly in the automation action. The below example will give you 2 actions in your notification. The first action will send back an event with the action `alarm` and the second action will open the URL or load a lovelace view. To load a lovelace view use `/lovelace/view` replacing `view` with the defined `path` for the view you wish to open.
+![android](/assets/android.svg) For Android you create the action directly in the automation action. The below example will give you 2 actions in your notification. The first action will send back an event with the action `alarm` and the second action will open the URL or load a lovelace view/dashboard. If you plan to use a lovelace view the format would be `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view. If you plan to use a lovelace dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards-and-views/#dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard.
 
 ```yaml
 automation:
@@ -128,7 +128,7 @@ automation:
               title: "Title" # The button title
             - action: "URI" # Must be set to URI if you plan to use a URI
               title: "Open Url"
-              uri: "https://google.com" # URL to open when action is selected, can also be a lovelace view
+              uri: "https://google.com" # URL to open when action is selected, can also be a lovelace view/dashboard
 ```
 
 When an action is selected an event named `ios.notification_action_fired` for iOS and `mobile_app_notification_action` for Android will be emitted on the Home Assistant event bus. Below is an example payload.
