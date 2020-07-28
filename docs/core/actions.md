@@ -8,6 +8,11 @@ id: 'actions'
 Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS and [Apple Watch](/apple-watch/apple-watch.md).
 
 ## Creating Actions
+
+You can create actions either from within the app itself or in your Home Assistant `configuration.yaml`
+
+### Creating Actions in the App
+
 Actions are created from the Actions section of the App Configuration page within the companion App for iOS. Each action has required fields depending on your device:
 *   `Name`: the name of the action, this will be returned in the [Home Assistant event](https://www.home-assistant.io/docs/configuration/events/) fired by the app.
 *   `Text`: the descriptive text shown on the phone and watch. It is best to keep this relatively short as there is limited space on each action's button.
@@ -17,6 +22,28 @@ Actions are created from the Actions section of the App Configuration page withi
 *   `Icon Color`: the color of the icon on the action's button.
 
 For the three color fields, the color is selected by tapping the color-picker circle in each field.
+
+### Creating Actions in Home Assistant
+
+You can define actions in your Home Assistant `configuration.yaml`. This requires at least Home Assistant 0.114 and version 2020.5. The following is an example entry.
+
+```yaml
+mobile_app:
+  ios:
+    actions:
+      - name: Fred
+        background_color: "#000000"
+        label:
+          text: "Hello, World"
+          color: "#ff0000"
+        icon:
+          icon: earth
+          color: "#ffffff"
+```
+
+Colors should be in hex format and icons should be from the [mdi](https://materialdesignicons.com/) set.
+
+After saving these changes you will need to restart Home Assistant and then, in the Companion App, go to the Actions section of App Configuration and tap "Import From Server"
 
 ## Using Actions
 When an action button is pressed a `ios.action_fired` event is fired on Home Assistant's event bus. The event data consists of a JSON-formatted dictionary of attributes relating to the action.
