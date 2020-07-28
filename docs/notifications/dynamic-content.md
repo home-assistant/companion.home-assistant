@@ -82,22 +82,23 @@ As you can see the `category` key is used to tell the device what kind of conten
 For example this configuration adds actions to a camera content message.
 
 ```yaml
-ios:
-  push:
-    categories:
-      - name: Camera With Actions
-        identifier: 'camera'
-        actions:
-          - identifier: 'OPEN_COVER'
-            title: 'Open Cover'
-            activationMode: 'background'
-            authenticationRequired: true
-            destructive: no
-          - identifier: 'CLOSE_COVER'
-            title: 'Close Cover'
-            activationMode: 'background'
-            authenticationRequired: true
-            destructive: true
+mobile_app:
+  ios:
+    push:
+      categories:
+        - name: Camera With Actions
+          identifier: 'camera'
+          actions:
+            - identifier: 'OPEN_COVER'
+              title: 'Open Cover'
+              activationMode: 'background'
+              authenticationRequired: true
+              destructive: no
+            - identifier: 'CLOSE_COVER'
+              title: 'Close Cover'
+              activationMode: 'background'
+              authenticationRequired: true
+              destructive: true
 ```
 
 ## Troubleshooting
