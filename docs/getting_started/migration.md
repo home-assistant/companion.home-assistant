@@ -44,7 +44,7 @@ Given the default settings, this may already have happened to you and your app w
     3.  Check for a new `notify.mobile_app_<device_name>` service
 -   Repeat for all iOS devices connected to your Home Assistant
 
-An illustrated description of the onboarding process can be found in the [main guide](index).
+An illustrated description of the onboarding process can be found in the [main guide](index.md).
 
 ### 2 - Updating notifications and device trackers
 Because the app is using a new push notification backend and the new device tracker architecture, you will need to change your automations to use the new service and tracker:

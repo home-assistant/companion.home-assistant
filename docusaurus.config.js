@@ -13,10 +13,10 @@ module.exports = {
         alt: 'Home Assistant',
         src: 'img/logo-pretty.svg',
       },
-      links: [
-        {to: 'docs/getting_started/getting-started', label: 'Docs', position: 'left'},
-        {to: 'download', label: 'Download', position: 'left'},
-        {to: 'docs/troubleshooting/more-help', label: 'Support', position: 'left'},
+      items: [
+        {to: '/docs/getting_started/getting-started', label: 'Docs', position: 'left'},
+        {to: '/download', label: 'Download', position: 'left'},
+        {to: '/docs/troubleshooting/more-help', label: 'Support', position: 'left'},
         {
           href: 'https://www.github.com/home-assistant/iOS',
           label: 'GitHub (iOS)',
