@@ -29,16 +29,15 @@ You can define actions in your Home Assistant `configuration.yaml`. This require
 
 ```yaml
 mobile_app:
-  ios:
-    actions:
-      - name: Fred
-        background_color: "#000000"
-        label:
-          text: "Hello, World"
-          color: "#ff0000"
-        icon:
-          icon: earth
-          color: "#ffffff"
+  actions:
+    - name: Fred
+      background_color: "#000000"
+      label:
+        text: "Hello, World"
+        color: "#ff0000"
+      icon:
+        icon: earth
+        color: "#ffffff"
 ```
 
 Colors should be in hex format and icons should be from the [mdi](https://materialdesignicons.com/) set.
