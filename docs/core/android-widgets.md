@@ -3,9 +3,11 @@ title: "Android Widgets"
 id: 'android-widgets'
 ---
 
-The ![android](/assets/android.svg) Android app allows the user to create widgets on the home screen so the user can call any Home Assistant service call or display an entities state (updates every 30 minutes). You can add the widget like you normally would for any app depending on your devices launcher. The widget will not work when Data Saver is enabled, you will also need to ensure that background data for the app is enabled. If you notice that a widget is no longer working try to recreate it.
+The ![android](/assets/android.svg) Android app allows the user to create widgets on the home screen so the user can call any Home Assistant service call or display an entities state (updates every 30 minutes or when tapped). You can add the widget like you normally would for any app depending on your devices launcher. The widget will not work when Data Saver is enabled, you will also need to ensure that background data for the app is enabled. If you notice that a widget is no longer working try to recreate it.
 
 ## Entity State
+
+This widget will update every 30 minutes or when it is tapped.
 
 1.  Long press on any open space in the home screen
 2.  Scroll down to Home Assistant in the widget list
@@ -17,6 +19,8 @@ The ![android](/assets/android.svg) Android app allows the user to create widget
 
 
 ## Service Call
+
+This widget will make the service call when it is tapped.
 
 1.  Long press on any open space in the home screen
 2.  Scroll down to Home Assistant in the widget list
