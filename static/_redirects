@@ -16,6 +16,7 @@
 /app/ios/whats-new /
 /app/ios/demo https://demo.home-assistant.io
 /app/ios/about-the-move https://www.home-assistant.io/blog/2020/07/28/ios-app-migration/
+/app/ios/nfc https://companion.home-assistant.io/docs/integrations/universal-links
 
 # Documentation restructuring redirects
 /core/actions /docs/core/actions
