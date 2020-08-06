@@ -3,9 +3,9 @@ title: "Actions"
 id: "watch-actions"
 ---
 
-All [actions](/core/actions.md) that have been set up on a paired iPhone will be available on Apple Watch and can be access by from the Home Assistant watch app or by tapping a [complication](complications.md).
+All [actions](/core/actions.md) that have been set up on a paired iPhone will be available on Apple Watch and can be accessed from the Home Assistant watch app or by tapping a [complication](complications.md).
 
-Apps that are fired from Apple Watch will be delivered to the Home Assistant Event Bus in the same way as actions triggered on iPhone with the `ios.action_fired` event however the payload of the event will differ slightly to clarify the source of the event. Actions triggered by Apple Watch will have the `triggerSource` key set to `watch`.
+Apps that are fired from Apple Watch will be delivered to the Home Assistant Event Bus in the same way as actions triggered on iPhone with the `ios.action_fired` event, however the payload of the event will differ slightly to clarify the source of the event. Actions triggered by Apple Watch will have the `triggerSource` key set to `watch`.
 
 An example `ios.action_fired` payload for an event triggered on Apple Watch is:
 
