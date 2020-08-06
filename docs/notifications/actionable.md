@@ -158,7 +158,8 @@ When an action is selected an event named `ios.notification_action_fired` for iO
         "action_1_title": "Action 1",
         "action_1_key": "KEY_ONE",
         "action_2_key": "KEY_TWO",
-        "action_3_key": "KEY_THREE"
+        "action_3_key": "KEY_THREE",
+        "device_id": "123456"
     },
     "origin": "REMOTE",
     "time_fired": "2020-02-02T04:45:05.550251+00:00",
