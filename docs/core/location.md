@@ -122,5 +122,6 @@ The following steps are an example of how to send an intent using Tasker:
 2.  Add a step to the task
 3.  Select "Send Intent"
 4.  Under Action enter `io.homeassistant.companion.android.background.REQUEST_ACCURATE_UPDATE`
-5.  Save the task
-6.  Use the task with any Tasker profile to request a location update
+5.  Under Package enter `io.homeassistant.companion.android`
+6.  Save the task
+7.  Use the task with any Tasker profile to request a location update
