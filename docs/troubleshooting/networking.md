@@ -20,7 +20,7 @@ At this point of setting up we need to check one capability of your router: Hair
 ## Securing the connection
 We'll stay with our DuckDNS example. Using `http://my-home.duckdns.org:8123` works, but anyone could be reading your traffic. Let's change that! The DuckDNS `Hass.io` add-on will create a free, trusted and valid LetsEncrypt SSL certificate to use on your Home Assistant. Just follow the installation instructions [here](https://github.com/home-assistant/hassio-addons/tree/master/duckdns) and [here](https://www.home-assistant.io/addons/duckdns/) and you will have secure, public access to your Home Assistant. What's great about using the DuckDNS add-on is that it uses the LetsEncrypt DNS challenge, whereby during requesting the certificate it proves "ownership" of the domain by creating a temporary DNS record. If you use a different DNS provider other than DuckDNS, you can use the [LetsEncrypt](https://github.com/home-assistant/hassio-addons/tree/master/letsencrypt) add-on for `Hass.io` which supports proving ownership of the name either via the DNS or the http challenge. The latter requires port-forwarding TCP Port 80 on your router to your internal Home Assistant IP on TCP Port 80.
 
-With Hairpin NAT working and SSL on your DNS domain you can now access Home Assistant securely both on the internet and at home and you should add `base_url: my-home.duckdns.org:8123` to the `http:` section of your configuration.yaml. This is not strictly necessary but will help with auto-detection during onboarding of the iOS app, as the app will know where and how to reach your Home Assistant.
+With Hairpin NAT working and SSL on your DNS domain you can now access Home Assistant securely both on the internet and at home and you should add `external_url: my-home.duckdns.org:8123` to the `homeassistant:` section of your configuration.yaml. This is not strictly necessary but will help with auto-detection during onboarding of the iOS app, as the app will know where and how to reach your Home Assistant.
 
 ## Split Brain DNS
 So what's this split brain DNS (also known as split horizon DNS, split-DNS) thing and why would I need it? If your router doesn't do hairpin NAT, you still need to access your Home Assistant via the public DNS name, e.g. `my-home.duckdns.org`. Why is that? Because valid encryption via https and SSL certificates only works for public DNS names. What this means is that the certificate name on your server needs to match the DNS name you enter in your browser or app. This is fine with hairpin NAT available but becomes an issue when it's not. In this case you need to "split" the answer your browser/app gets when it looks up the IP address behind `my-home.duckdns.org` - you need one answer for devices on your home network that points to the internal IP address of your Home Assistant (e.g. `192.168.1.4`) and another answer for when you're out and about [e.g. `104.25.25.31`.
@@ -49,13 +49,15 @@ So to accomodate this and still have encryption for external access, we use a re
 
 In your configuration.yaml file the following changes are needed:
 ```
+homeassistant:
+  external_url: my-home.duckdns.org # Note we no longer have a :8123 Port here
+
 http:
   use_x_forwarded_for: true     # To ensure HA understands that client requests come via reverse proxy
   trusted_proxies:
     - 172.30.32.0/23            # In Hass.io we need to add the Docker subnet
     - 127.0.0.1                 # Add the localhost IPv4 address
     - ::1                       # Add the localhost IPv6 address
-  base_url: my-home.duckdns.org # Note we no longer have a :8123 Port here
   # Comment or remove the SSL certificate lines:
   # ssl_certificate: /ssl/fullchaim.pem
   # ssl_key: /ssl/privkey.pem
