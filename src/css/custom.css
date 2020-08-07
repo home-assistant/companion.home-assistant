@@ -27,6 +27,14 @@
   padding: 0 var(--ifm-pre-padding);
 }
 
+table.core-table th{
+  vertical-align: top;
+}
+
+table.core-table td:nth-child(n+2){
+  text-align: center;
+}
+
 article img[src$='android.svg'],
 article img[src$='apple.svg'] {
   display: inline;
