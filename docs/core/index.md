@@ -9,13 +9,13 @@ Not all features are supported by Android at the moment but eventually most feat
 
 ## ![](/assets/apple.svg) iOS and ![](/assets/android.svg) Android Feature Comparison:
 
-<table>
+<table className="core-table">
   <thead>
     <tr>
-      <th vertical-align="top"><strong>Integrations</strong></th>
-      <th vertical-align="top"><img alt="android" src="/assets/android.svg" /> Full</th>
-      <th vertical-align="top"><img alt="android" src="/assets/android.svg" /> Minimal</th>
-      <th vertical-align="top"><img alt="iOS" src="/assets/apple.svg" /></th>
+      <th><strong>Integrations</strong></th>
+      <th><img alt="android" src="/assets/android.svg" /> Full</th>
+      <th><img alt="android" src="/assets/android.svg" /> Minimal</th>
+      <th><img alt="iOS" src="/assets/apple.svg" /></th>
       </tr>
   </thead>
   <tbody>
@@ -76,10 +76,10 @@ Not all features are supported by Android at the moment but eventually most feat
   </tbody>
   <thead>
     <tr>
-      <th vertical-align="top"><strong>Location Updates</strong></th>
-      <th vertical-align="top"><img alt="android" src="/assets/android.svg" /> Full</th>
-      <th vertical-align="top"><img alt="android" src="/assets/android.svg" /> Minimal</th>
-      <th vertical-align="top"><img alt="iOS" src="/assets/apple.svg" /></th>
+      <th><strong>Location Updates</strong></th>
+      <th><img alt="android" src="/assets/android.svg" /> Full</th>
+      <th><img alt="android" src="/assets/android.svg" /> Minimal</th>
+      <th><img alt="iOS" src="/assets/apple.svg" /></th>
     </tr>
   </thead>
   <tbody>
@@ -146,10 +146,10 @@ Not all features are supported by Android at the moment but eventually most feat
   </tbody>
   <thead>
     <tr>
-      <th vertical-align="top"><strong>Notifications</strong></th>
-      <th vertical-align="top"><img alt="android" src="/assets/android.svg" /> Full</th>
-      <th vertical-align="top"><img alt="android" src="/assets/android.svg" /> Minimal</th>
-      <th vertical-align="top"><img alt="iOS" src="/assets/apple.svg" /></th>
+      <th><strong>Notifications</strong></th>
+      <th><img alt="android" src="/assets/android.svg" /> Full</th>
+      <th><img alt="android" src="/assets/android.svg" /> Minimal</th>
+      <th><img alt="iOS" src="/assets/apple.svg" /></th>
     </tr>
   </thead>
   <tbody>
@@ -312,10 +312,10 @@ Not all features are supported by Android at the moment but eventually most feat
   </tbody>
   <thead>
     <tr>
-      <th vertical-align="top"><strong>Sensors</strong></th>
-      <th vertical-align="top"><img alt="android" src="/assets/android.svg" /> Full</th>
-      <th vertical-align="top"><img alt="android" src="/assets/android.svg" /> Minimal</th>
-      <th vertical-align="top"><img alt="iOS" src="/assets/apple.svg" /></th>
+      <th><strong>Sensors</strong></th>
+      <th><img alt="android" src="/assets/android.svg" /> Full</th>
+      <th><img alt="android" src="/assets/android.svg" /> Minimal</th>
+      <th><img alt="iOS" src="/assets/apple.svg" /></th>
     </tr>
   </thead>
   <tbody>
