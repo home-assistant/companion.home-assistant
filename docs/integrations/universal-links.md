@@ -35,7 +35,11 @@ automation:
     # ...
 ```
 
-Both apps support reading and writing NFC tags. You can use a randomly-generated tag value (like the above) or a custom one. **Note**: Not all NFC tags support writing, and some may only be written once.
+Both apps support reading and writing NFC tags. You can use a randomly-generated tag value (like the above) or a custom one.
+
+:::info
+Some NFC tags are read-only and cannot be used as a Home Assistant NFC tag. Others only allow one write before they turn read-only.
+:::
 
 ## ![iOS](/assets/apple.svg) Old-Style Universal Links
 
