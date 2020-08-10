@@ -30,7 +30,7 @@ automation:
     platform: event
     event_type: tag.read
     event_data:
-    tag: 50A3C7C8-1FE7-4BE8-8DC9-06E07D41B63D
+      tag: 50A3C7C8-1FE7-4BE8-8DC9-06E07D41B63D
   action:
     # ...
 ```
