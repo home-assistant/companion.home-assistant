@@ -9,7 +9,7 @@ Support for these features is active under development and may not be fully rele
 | --------- | ----------------------------- | --------------------------------------- |
 | NFC Tags  | 2020.5                        | Coming Soon                             |
 | QR Tags   | 2020.5                        | Coming Soon                             |
-| Old-Style | 2.0                           | Not Supported                           |
+| Old-Style | 2019.1                        | Not Supported                           |
 
 ## NFC Tags & QR Codes
 
@@ -20,7 +20,7 @@ A Home Assistant NFC tag or QR code contains a URL in the following format:
 - ![iOS](/assets/apple.svg) On iOS, bringing your device near an NFC tag or scanning a QR code will show a notification which, when tapped, will launch the app and fire an event.
 - ![android](/assets/android.svg) On Android, bringing your device near a Home Assistant NFC tag or scanning a QR code will fire an event.
 
-The event which fires is the same on both iOS and Android: `tag.read`. Example Automation:
+The event which fires is the same on both iOS and Android: `tag_scanned`. Example Automation:
 
 ```yaml
 # for https://www.home-assistant.io/tag/50A3C7C8-1FE7-4BE8-8DC9-06E07D41B63D
@@ -28,7 +28,7 @@ automation:
 - alias: Unlock the Door
   trigger:
     platform: event
-    event_type: tag.read
+    event_type: tag_scanned
     event_data:
       tag: 50A3C7C8-1FE7-4BE8-8DC9-06E07D41B63D
   action:
