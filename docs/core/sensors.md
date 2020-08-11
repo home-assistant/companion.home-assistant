@@ -41,6 +41,7 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 | `sensor.battery_level` | None | The current battery level of the device. |
 | `sensor.battery_state` | `is_charging`, `charger_type` | The state of the sensor reflects the current state of the battery ([See Below](#battery-sensors)). The `is_charging` attribute will be either `true` or `false`. The `charger_type` attribute will show either `ac`, `usb`, `wireless` or `unknown`. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
+| `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
 | `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected network or `<not connected>`. |
 
 ## Activity Sensor
@@ -160,3 +161,11 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `Available (Important)` | The volume’s available capacity in bytes for storing important resources. |
 | `Available (Opportunistic)` | The volume’s available capacity in bytes for storing nonessential resources. |
 | `Total` | The total storage capacity of your device. |
+
+## Next Alarm Sensor
+![android](/assets/android.svg) This sensors state will be the date and time of the next alarm in UTC format. The sensor will update as soon as the next alarm is scheduled. The state will be `unavailable` when there is no next alarm.
+
+| Attribute | Description |
+| --------- | --------- |
+| `Local Time` | The date and time of the next alarm in local time. |
+| `Time in Milliseconds` | The time date and time of the next alarm in milliseconds. |
