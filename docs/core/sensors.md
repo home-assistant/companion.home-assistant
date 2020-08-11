@@ -42,7 +42,7 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 | `sensor.battery_state` | `is_charging`, `charger_type` | The state of the sensor reflects the current state of the battery ([See Below](#battery-sensors)). The `is_charging` attribute will be either `true` or `false`. The `charger_type` attribute will show either `ac`, `usb`, `wireless` or `unknown`. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
-| `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected network or `<not connected>`. |
+| `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `is_wifi_on`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected network or `<not connected>`. |
 
 ## Activity Sensor
 ![iOS](/assets/apple.svg) `sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
@@ -83,7 +83,7 @@ A more specific description of the data connection can be found in the `Cellular
 
 If the connection type is not recognized, either `Unknown` or `Unknown Technology` will be returned.
 
-![android](/assets/android.svg) Android users will have a `wifi_connection` sensor where the state will reflect the currently connected network name or `<not connected>`. The sensor will also have attributes about the connection itself, see the table above for the different attributes.
+![android](/assets/android.svg) Android users will have a `wifi_connection` sensor where the state will reflect the currently connected network name or `<not connected>`. This sensor will update when WiFi is turned on/off and when the device connects to a network. The sensor will also have attributes about the connection itself, see the table above for the different attributes.
 
 ## Last Update Trigger Sensor
 ![iOS](/assets/apple.svg) This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
