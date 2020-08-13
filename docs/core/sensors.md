@@ -5,6 +5,8 @@ id: 'sensors'
 
 Along with providing [location services](location.md), the companion app also adds several additional sensors to Home Assistant. **It is important to know that these sensors are only updated when a location is pushed to Home Assistant or the web view is refreshed**. If you don't want the `device_tracker` entity but still want sensors to update then just disable the entity in the [entity registry](https://www.home-assistant.io/integrations/config/#entity-registry) to stop location updates and keep sensor updates.
 
+![android](/assets/android.svg) On Android 
+
 The sensors provided by the companion app are:
 
 ![iOS](/assets/apple.svg) iOS Sensor List
@@ -36,13 +38,17 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 
 ![android](/assets/android.svg) Android Sensor List
 
+Each sensor below can be disabled by navigating to the `App Configuration` page then selecting `Manage Sensors`, by default they are enabled given the user has granted proper permissions. Once disabled the sensor will no longer send data to your Home Assistant server.
+
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
 | `sensor.battery_level` | None | The current battery level of the device. |
 | `sensor.battery_state` | `is_charging`, `charger_type` | The state of the sensor reflects the current state of the battery ([See Below](#battery-sensors)). The `is_charging` attribute will be either `true` or `false`. The `charger_type` attribute will show either `ac`, `usb`, `wireless` or `unknown`. |
+| `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
+| `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
 | `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
-| `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected network or `<not connected>`. |
+| `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `is_wifi_on`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected network or `<not connected>`. |
 
 ## Activity Sensor
 ![iOS](/assets/apple.svg) `sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
@@ -64,7 +70,7 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 ## Battery Sensors
 ![iOS](/assets/apple.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
 
-![android](/assets/android.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The five possible states are `full`, `charging`, `discharging`, `not_charging` or `unknown`. The attribute `is_charging` can be used to determine if the device is currently charging, the attribute `charger_type` can report the type of charger being used. Possible values are `ac`, `usb`, `wireless` and `unknown`. The sensor icon reflects the charging status, and type of charging being used.
+![android](/assets/android.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The five possible states are `full`, `charging`, `discharging`, `not_charging` or `unknown`. The attribute `is_charging` can be used to determine if the device is currently charging, the attribute `charger_type` can report the type of charger being used. Possible values are `ac`, `usb`, `wireless` and `unknown`. A `battery_health` attribute will show either `good`, `cold`, `dead`, `fail`, `overheated`, `over-voltage` or `unknown`. The sensor icon reflects the charging status, and type of charging being used.
 
 
 ## Connection Type Sensor
@@ -83,7 +89,7 @@ A more specific description of the data connection can be found in the `Cellular
 
 If the connection type is not recognized, either `Unknown` or `Unknown Technology` will be returned.
 
-![android](/assets/android.svg) Android users will have a `wifi_connection` sensor where the state will reflect the currently connected network name or `<not connected>`. The sensor will also have attributes about the connection itself, see the table above for the different attributes.
+![android](/assets/android.svg) Android users will have a `wifi_connection` sensor where the state will reflect the currently connected network name or `<not connected>`. This sensor will update when WiFi is turned on/off and when the device connects to a network. The sensor will also have attributes about the connection itself, see the table above for the different attributes.
 
 ## Last Update Trigger Sensor
 ![iOS](/assets/apple.svg) This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
@@ -168,4 +174,18 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | Attribute | Description |
 | --------- | --------- |
 | `Local Time` | The date and time of the next alarm in local time. |
+| `Package` | The package that scheduled the next alarm. |
 | `Time in Milliseconds` | The time date and time of the next alarm in milliseconds. |
+
+## Phone State Sensor
+![android](/assets/android.svg) This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your devices `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`.
+
+## Bluetooth Sensor
+![android](/assets/android.svg) This sensors state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes.
+
+| Attribute | Description |
+| --------- | --------- |
+| `Connected Paired Devices` | The list of paired devices that are currently connected. |
+| `Connected Not Paired Devices` | The list of devices that are connected but not paired. |
+| `Is BT On` | Whether or not bluetooth is enabled on the device. |
+| `Paired Devices` | The list of devices that are paired. |
