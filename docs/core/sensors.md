@@ -44,6 +44,7 @@ Each sensor below can be disabled by navigating to the `App Configuration` page 
 | --------- | --------- | ----------- |
 | `sensor.battery_level` | None | The current battery level of the device. |
 | `sensor.battery_state` | `is_charging`, `charger_type` | The state of the sensor reflects the current state of the battery ([See Below](#battery-sensors)). The `is_charging` attribute will be either `true` or `false`. The `charger_type` attribute will show either `ac`, `usb`, `wireless` or `unknown`. |
+| `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
 | `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
@@ -178,3 +179,13 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ## Phone State Sensor
 ![android](/assets/android.svg) This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your devices `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`.
+
+## Bluetooth Sensor
+![android](/assets/android.svg) This sensors state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes.
+
+| Attribute | Description |
+| --------- | --------- |
+| `Connected Paired Devices` | The list of paired devices that are currently connected. |
+| `Connected Not Paired Devices` | The list of devices that are connected but not paired. |
+| `Is BT On` | Whether or not bluetooth is enabled on the device. |
+| `Paired Devices` | The list of devices that are paired. |
