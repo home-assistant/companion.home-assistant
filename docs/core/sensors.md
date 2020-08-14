@@ -48,6 +48,7 @@ Each sensor below can be disabled by navigating to the `App Configuration` page 
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
 | `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
+| `sensor.storage` | [See Below](#storage-sensor) | The amount of total and available internal & external storage on your Android device. |
 | `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `is_wifi_on`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected network or `<not connected>`. |
 
 ## Activity Sensor
@@ -167,6 +168,16 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `Available (Important)` | The volume’s available capacity in bytes for storing important resources. |
 | `Available (Opportunistic)` | The volume’s available capacity in bytes for storing nonessential resources. |
 | `Total` | The total storage capacity of your device. |
+
+![android](/assets/android.svg) For Android the behavior is slightly different due to the differences in the 2 operating systems. The state will be the same as iOS where we show the percentage of free space, the attributes will not be identical.
+
+| Attribute | Description |
+| --------- | --------- |
+| `Free internal storage` | The amount of free internal storage space remaining on your device. |
+| `Total internal storage` | The total internal storage capacity of your device. |
+| `Free external storage` | The amount of free external storage remaining on your SD card, for devices without a SD card it will reflect `No SD Card`. |
+| `Total external storage` | The total external storage of your SD card, for devices without a SD card it will reflect `No SD Card`. |
+
 
 ## Next Alarm Sensor
 ![android](/assets/android.svg) This sensors state will be the date and time of the next alarm in UTC format. The sensor will update as soon as the next alarm is scheduled. The state will be `unavailable` when there is no next alarm.
