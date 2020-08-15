@@ -46,6 +46,7 @@ Each sensor below can be disabled by navigating to the `App Configuration` page 
 | `sensor.battery_state` | `is_charging`, `charger_type` | The state of the sensor reflects the current state of the battery ([See Below](#battery-sensors)). The `is_charging` attribute will be either `true` or `false`. The `charger_type` attribute will show either `ac`, `usb`, `wireless` or `unknown`. |
 | `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
+| `sensor.light` | None | The current level of illuminance the device detects. |
 | `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
 | `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
 | `sensor.storage` | [See Below](#storage-sensor) | The amount of total and available internal & external storage on your Android device. |
@@ -200,3 +201,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `Connected Not Paired Devices` | The list of devices that are connected but not paired. |
 | `Is BT On` | Whether or not bluetooth is enabled on the device. |
 | `Paired Devices` | The list of devices that are paired. |
+
+
+## Light Sensor
+![android](/assets/android.svg) This sensor will reflect the current level of illuminance the device detects. Devices that do not have a light sensor will show `unavailable`. The sensor updates during the normal sensor update interval or with the other sensor updates.
