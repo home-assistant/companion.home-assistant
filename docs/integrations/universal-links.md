@@ -7,8 +7,8 @@ Support for these features is active under development and may not be fully rele
 
 | Feature   | ![iOS](/assets/apple.svg) iOS | ![android](/assets/android.svg) Android |
 | --------- | ----------------------------- | --------------------------------------- |
-| NFC Tags  | 2020.5                        | Coming Soon                             |
-| QR Tags   | 2020.5                        | Coming Soon                             |
+| NFC Tags  | 2020.5                        | 2.2.0                                   |
+| QR Tags   | 2020.5                        | 2.2.0                                   |
 | Old-Style | 2019.1                        | Not Supported                           |
 
 ## NFC Tags & QR Codes
