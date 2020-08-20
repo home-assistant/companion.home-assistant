@@ -386,6 +386,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
+      <td><a href="/docs/core/sensors#last-reboot-sensor">Last Reboot</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#last-update-trigger-sensor">Last Update Trigger</a></td>
       <td></td>
       <td></td>
@@ -411,14 +417,14 @@ Not all features are supported by Android at the moment but eventually most feat
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#cellular-provider-sensor">Sim 1</a></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#cellular-provider-sensor">Sim 2</a></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
@@ -429,8 +435,8 @@ Not all features are supported by Android at the moment but eventually most feat
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#pedometer-sensors">Steps</a></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
