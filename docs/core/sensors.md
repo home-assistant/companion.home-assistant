@@ -49,6 +49,7 @@ Each sensor below can be disabled by navigating to the `App Configuration` page 
 | `sensor.light` | None | The current level of illuminance the device detects. |
 | `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
 | `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
+| `sensor.steps` | None | The number of steps taken from the user since the last device reboot. |
 | `sensor.storage` | [See Below](#storage-sensor) | The amount of total and available internal & external storage on your Android device. |
 | `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `is_wifi_on`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected network or `<not connected>`. |
 
@@ -145,6 +146,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `sensor.floors_ascended` | The approximate number of floors ascended by walking. |
 | `sensor.floors_descended` | The approximate number of floors descended by walking. |
 
+![android](/assets/android.svg) Android users will only have a `sensor.steps` entity which will represent the total number of steps taken since the last device reboot.
 
 ## Cellular Provider Sensor
 ![iOS](/assets/apple.svg) The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
