@@ -46,9 +46,13 @@ Each sensor below can be disabled by navigating to the `App Configuration` page 
 | `sensor.battery_state` | `is_charging`, `charger_type` | The state of the sensor reflects the current state of the battery ([See Below](#battery-sensors)). The `is_charging` attribute will be either `true` or `false`. The `charger_type` attribute will show either `ac`, `usb`, `wireless` or `unknown`. |
 | `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
+| `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
 | `sensor.light` | None | The current level of illuminance the device detects. |
 | `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
 | `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
+| `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
+| `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
+| `sensor.steps` | None | The number of steps taken from the user since the last device reboot. |
 | `sensor.storage` | [See Below](#storage-sensor) | The amount of total and available internal & external storage on your Android device. |
 | `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `is_wifi_on`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected network or `<not connected>`. |
 
@@ -145,19 +149,22 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `sensor.floors_ascended` | The approximate number of floors ascended by walking. |
 | `sensor.floors_descended` | The approximate number of floors descended by walking. |
 
+![android](/assets/android.svg) Android users will only have a `sensor.steps` entity which will represent the total number of steps taken since the last device reboot.
 
 ## Cellular Provider Sensor
-![iOS](/assets/apple.svg) The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
+The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
 
 | Attribute | Description |
 | --------- | --------- |
 | `Carrier Name` | The name of the user’s home cellular service provider. |
-| `Current Radio Technology` |  |
+| `Current Radio Technology` | ![iOS](/assets/apple.svg) only. |
 | `ISO Country Code` | The ISO country code for the user’s cellular service provider. |
 | `Mobile Country Code` | The mobile country code (MCC) for the user’s cellular service provider. |
 | `Mobile Network Code` | The mobile network code for the user’s cellular service provider. |
 | `Carrier ID` |  |
-| `Allows VoIP` | Indicates if the carrier allows making VoIP calls on its network. |
+| `Allows VoIP` | Indicates if the carrier allows making VoIP calls on its network. ![iOS](/assets/apple.svg) |
+| `Is Opportunistic` | An opportunistic subscription connects to a network that is limited in functionality and / or coverage. ![android](/assets/android.svg) |
+| `Data Roaming` | Is data roaming enabled for the device. ![android](/assets/android.svg) |
 
 
 ## Storage Sensor
@@ -205,3 +212,12 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ## Light Sensor
 ![android](/assets/android.svg) This sensor will reflect the current level of illuminance the device detects. Devices that do not have a light sensor will show `unavailable`. The sensor updates during the normal sensor update interval or with the other sensor updates.
+
+
+## Last Reboot Sensor
+![android](/assets/android.svg) This sensors state will be the date and time of the last reboot from the device in UTC format. The sensor will update during the normal sensor update interval. The state will be `unavailable` if the timestamp cannot be determined.
+
+| Attribute | Description |
+| --------- | --------- |
+| `Local Time` | The date and time of the last reboot in local time. |
+| `Time in Milliseconds` | The time date and time of the last reboot in milliseconds. |
