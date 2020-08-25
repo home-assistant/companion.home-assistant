@@ -321,9 +321,15 @@ Not all features are supported by Android at the moment but eventually most feat
   <tbody>
     <tr>
       <td><a href="/docs/core/sensors#activity-sensor">Activity Sensor</a></td>
-      <td></td>
+      <td>✅</td>
       <td></td>
       <td>✅</td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors#audio-sensor">Audio Sensor</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#pedometer-sensors">Average Active Pace</a></td>
@@ -405,6 +411,18 @@ Not all features are supported by Android at the moment but eventually most feat
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#phone-state-sensor">Phone State</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors#pressure-sensor">Pressure</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors#proximity-sensor">Proximity</a></td>
       <td>✅</td>
       <td>✅</td>
       <td></td>
