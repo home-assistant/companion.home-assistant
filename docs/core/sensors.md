@@ -42,6 +42,8 @@ Each ![android](/assets/android.svg) sensor below can be disabled by navigating 
 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
+| `sensor.activity` | `confidence` | The current activity type as computed by Google. Requires activity recognition permissions on supported devices. |
+| `sensor.audio` | [See Below](#audio-sensor) | The state of the sensor will reflect the ringer mode of the device. |
 | `sensor.battery_level` | None | The current battery level of the device. |
 | `sensor.battery_state` | `is_charging`, `charger_type` | The state of the sensor reflects the current state of the battery ([See Below](#battery-sensors)). The `is_charging` attribute will be either `true` or `false`. The `charger_type` attribute will show either `ac`, `usb`, `wireless` or `unknown`. |
 | `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
@@ -49,10 +51,12 @@ Each ![android](/assets/android.svg) sensor below can be disabled by navigating 
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
 | `sensor.light` | None | The current level of illuminance the device detects. |
 | `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
+| `sensor.pressure` | None | The pressure reading from the device. |
+| `sensor.proximity` | None | The current proximity reading from the device, certain devices will only show boolean value of `near` or `far`. |
 | `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
-| `sensor.steps` | None | The number of steps taken from the user since the last device reboot. |
+| `sensor.steps` | None | The number of steps taken from the user since the last device reboot. Requires activity recognition permissions on supported devies. |
 | `sensor.storage` | [See Below](#storage-sensor) | The amount of total and available internal & external storage on your Android device. |
 | `sensor.wifi_connection` | `bssid`, `ip_address`, `link_speed`, `is_hidden`, `is_wifi_on`, `frequency`, `signal_level` | The state of the sensor will show the name of the connected network or `<not connected>`. |
 
@@ -73,6 +77,31 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 *   `Low`
 *   `Medium`
 *   `High`
+
+![android](/assets/android.svg) This sensor is only available on the full flavor of the Android app that is found in the Google Play Store, it is not available for the minimal flavor. For android the user will have a different set of states to go by:
+*   `in_vehicle`
+*   `on_bicycle`
+*   `on_foot`
+*   `running`
+*   `still`
+*   `tilting`
+*   `walking`
+*   `unknown`
+
+The attribute for the state will reflect the `confidence` rating from Google.
+
+
+## Audio Sensor
+![android](/assets/android.svg) This sensors state will represent the ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. The sensor will update any time the ringer mode on the device has changed. There are also additional attributes that trigger updates as mentioned below:
+
+| Attribute | Description |
+| --------- | --------- |
+| `audio_mode` | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `in_call`, `in_communication` or `unknown` |
+| `is_headphones` | Boolean value if headsets or headphones are plugged in, will update if device detects them. |
+| `is_mic_muted` | Boolean value if the microphone is currently muted, Android 6.0+ will update as this value changes. |
+| `is_music_active` | Boolean value if the device is actively playing music. |
+| `is_speakerphone_on` | Boolean value if the device speakerphone is enabled, Android 6.0+ will update as this value changes. |
+| `volume_level_*` | The current device volume level for the given volume attributes: `alarm`, `call`, `music`, `ring` |
 
 
 ## Battery Sensors
@@ -208,6 +237,14 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ## Phone State Sensor
 ![android](/assets/android.svg) This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your devices `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`. This sensor will update anytime a phone state change is detected.
+
+
+## Pressure Sensor
+![android](/assets/android.svg) This sensor will show the current pressure reading from the device. Devices that do not have a pressure sensor will show `unavailable`. This sensor will update during the normal sensor update interval.
+
+
+## Proximity Sensor
+![android](/assets/android.svg) This sensor will show the current proximity reading from the device. Devices that do not have a proximity sensor will show `unavailable`. This sensor will update during the normal sensor update interval. Not all devices report an actual reading so those devices will show either `near` or `far` depending if the sensors maximum range is `5`.
 
 
 ## Storage Sensor
