@@ -92,7 +92,7 @@ If you find that location updates are not coming in here are a few things to che
 
 1.  Ensure the app has location permissions granted, all the time.
 2.  Turn off battery optimizations for the app.
-3.  Ensure that the location toggles are enabled in App Configuration in the Android app.
+3.  Ensure that both of the Location toggles are enabled in App Configuration > Manage Sensors in the Android app.
 4.  Turn on unrestricted data for the Android app.
 
 ## Using a self-signed certificate leads to a blank page in Android
