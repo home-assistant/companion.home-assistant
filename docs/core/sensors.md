@@ -47,6 +47,7 @@ Each ![android](/assets/android.svg) sensor below can be disabled by navigating 
 | `sensor.battery_level` | None | The current battery level of the device. |
 | `sensor.battery_state` | `is_charging`, `charger_type` | The state of the sensor reflects the current state of the battery ([See Below](#battery-sensors)). The `is_charging` attribute will be either `true` or `false`. The `charger_type` attribute will show either `ac`, `usb`, `wireless` or `unknown`. |
 | `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
+| `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
 | `sensor.light` | None | The current level of illuminance the device detects. |
@@ -154,6 +155,10 @@ A more specific description of the data connection can be found in the `Cellular
 If the connection type is not recognized, either `Unknown` or `Unknown Technology` will be returned.
 
 ![android](/assets/android.svg) Android users will have a `wifi_connection` sensor where the state will reflect the currently connected network name or `<not connected>`. This sensor will update when WiFi is turned on/off and when the device connects to a network. The sensor will also have attributes about the connection itself, see the table above for the different attributes.
+
+
+## Do Not Disturb Sensor
+![android](/assets/android.svg) This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes.
 
 
 ## Geocoded Location Sensor
