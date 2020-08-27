@@ -27,6 +27,7 @@ If for some reason you have disabled the default config make sure your `configur
 
 For some features the following integrations also need to be enabled:
 -   `cloud:` is used for securely connecting to your Home Assistant via Nabu Casa subscription via Remote UI and cloud webhooks
+-   `ios:` is used if you want advanced notifications like actionable notifications and categories
 
 ## Updating from Home Assistant Companion 1.5
 First, apologies for the breaking changes and associated manual steps required. We have provided this guide to help you get through any issues as quickly as possible so you can enjoy the new app experience!

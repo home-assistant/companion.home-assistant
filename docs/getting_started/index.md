@@ -16,6 +16,7 @@ If for some reason you have disabled `default_config:` make sure your `configura
 
 For some features the following integrations also need to be enabled:
 -   `cloud:` is used for securely connecting to your Home Assistant via Nabu Casa subscription via Remote UI and cloud webhooks
+-   `ios:` is used if you want advanced notifications like actionable notifications and categories ![iOS](/assets/apple.svg)
 
 ## Setting Up
 

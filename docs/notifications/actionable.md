@@ -58,30 +58,29 @@ When sending a notification:
 | `textInputButtonTitle:` | optional* | The button label. *Required* if `behavior` is `textInput`. |
 | `textInputPlaceholder:` | optional | The placeholder text to show in the text input field. Only used if `behavior` is `textInput` |
 
-Here's a fully built example configuration, this requires Home Assistant 0.114 or newer:
+Here's a fully built example configuration:
 
 ```yaml
-mobile_app:
-  ios:
-    push:
-      categories:
-        - name: Alarm
-          identifier: 'alarm'
-          actions:
-            - identifier: 'SOUND_ALARM'
-              title: 'Sound Alarm'
-              activationMode: 'background'
-              authenticationRequired: true
-              destructive: true
-              behavior: 'default'
-            - identifier: 'SILENCE_ALARM'
-              title: 'Silence Alarm'
-              activationMode: 'background'
-              authenticationRequired: true
-              destructive: false
-              behavior: 'textInput'
-              textInputButtonTitle: 'Silencio!'
-              textInputPlaceholder: 'Placeholder'
+ios:
+  push:
+    categories:
+      - name: Alarm
+        identifier: 'alarm'
+        actions:
+          - identifier: 'SOUND_ALARM'
+            title: 'Sound Alarm'
+            activationMode: 'background'
+            authenticationRequired: true
+            destructive: true
+            behavior: 'default'
+          - identifier: 'SILENCE_ALARM'
+            title: 'Silence Alarm'
+            activationMode: 'background'
+            authenticationRequired: true
+            destructive: false
+            behavior: 'textInput'
+            textInputButtonTitle: 'Silencio!'
+            textInputPlaceholder: 'Placeholder'
 ```
 
 Rather than defining categories using YAML within `configuration.yaml`, you can create them directly within the Companion App. This can be done from the Notifications page of the App Configuration Menu (accessed from the sidebar menu).
