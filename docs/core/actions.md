@@ -25,7 +25,7 @@ For the three color fields, the color is selected by tapping the color-picker ci
 
 ### Creating Actions in Home Assistant
 
-You can define actions in your Home Assistant `configuration.yaml`. This requires at least Home Assistant 0.114 and version 2020.5. The following is an example entry.
+You can define actions in your Home Assistant `configuration.yaml`. This requires at least Home Assistant 0.115 and version 2020.6. The following is an example entry.
 
 ```yaml
 ios:
