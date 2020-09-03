@@ -3,8 +3,10 @@
 
 # Landing points for links from apps
 /app/ios/patreon https://patreon.com/robbiet480/
-/app/ios/beta https://testflight.apple.com/join/XCUga7ko
+/app/ios/beta https://testflight.apple.com/join/1AlPbnLZ
+/app/ios/beta_mac https://github.com/home-assistant/iOS
 /app/ios/review https://itunes.apple.com/app/id1099568401?action=write-review&mt=8
+/app/ios/review_mac https://itunes.apple.com/app/id1099568401?action=write-review&mt=8
 /app/ios/translate https://developers.home-assistant.io/docs/en/internationalization_translation.html
 /app/ios/chat https://discord.gg/C7fXPmt
 /app/ios/repo https://github.com/home-assistant/iOS

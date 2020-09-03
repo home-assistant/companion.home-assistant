@@ -16,10 +16,11 @@ Location updates are sent from your device to Home Assistant in a number of situ
 *   When your devices detects a [_significant location change_](#location-tracking-when-outside-a-home-assistant-zone).
 *   Manually when the app is refreshed (swipe down when at the top of a page) or from the shortcut menu opened from 3D touching the app icon. ![iOS](/assets/apple.svg)
 *   When an update is requested by [sending an intent](#sending-an-intent). ![Android](/assets/android.svg)
+*   When some [sensors](sensors.md) are updated upon a state change. ![Android](/assets/android.svg)
 
 You can check the cause of the most recent location update by checking the value of `sensor.last_update_trigger` ![iOS](/assets/apple.svg)
 
-Depending on your set up, location data is sent directly from your phone to your Home Assistant instances or via the Home Assistant Cloud Service. This will depend on the URLs specified in the Connection section of the App Configuration menu. Location data is not sent via any other servers or organisations. Of course, if you decide not grant the Home Assistant Companion App location permission or if you subsequently remove the location permissions (![iOS](/assets/apple.svg) Settings>Privacy>Location Services or ![android](/assets/android.svg) Settings>Privacy>Permissions), no location data will be sent from your device to Home Assistant. **It is important to note that none of the [sensors](sensors.md) will work if location is disabled**. An alternative is to disable the `device_tracker.<device_name>` entity from the [entity registry](https://www.home-assistant.io/integrations/config/#entity-registry).
+Depending on your set up, location data is sent directly from your phone to your Home Assistant instances or via the Home Assistant Cloud Service. This will depend on the URLs specified in the Connection section of the App Configuration menu. Location data is not sent via any other servers or organisations. Of course, if you decide not to grant the Home Assistant Companion App location permission or if you subsequently remove the location permissions (![iOS](/assets/apple.svg) Settings>Privacy>Location Services or ![android](/assets/android.svg) Settings>Privacy>Permissions), no location data will be sent from your device to Home Assistant. **It is important to note that none of the [sensors](sensors.md) will work if location is disabled on iOS![iOS](/assets/apple.svg), on Android ![android](/assets/android.svg) you can still expect to see some sensors that are not tied to location permissions**. An alternative is to disable the `device_tracker.<device_name>` entity from the [entity registry](https://www.home-assistant.io/integrations/config/#entity-registry).
 
 ## Getting started
 
@@ -122,5 +123,6 @@ The following steps are an example of how to send an intent using Tasker:
 2.  Add a step to the task
 3.  Select "Send Intent"
 4.  Under Action enter `io.homeassistant.companion.android.background.REQUEST_ACCURATE_UPDATE`
-5.  Save the task
-6.  Use the task with any Tasker profile to request a location update
+5.  Under Package enter `io.homeassistant.companion.android`
+6.  Save the task
+7.  Use the task with any Tasker profile to request a location update
