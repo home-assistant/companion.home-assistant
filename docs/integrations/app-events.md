@@ -3,7 +3,7 @@ title: App Events
 id: 'app-events'
 ---
 
-![iOS](/assets/apple.svg)
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' />
 
 ## Overview
 

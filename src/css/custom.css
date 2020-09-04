@@ -35,8 +35,7 @@ table.core-table td:nth-child(n+2){
   text-align: center;
 }
 
-article img[src$='android.svg'],
-article img[src$='apple.svg'] {
+img.OSlogo {
   display: inline;
   margin-left: auto;
   margin-right: auto;
@@ -44,13 +43,15 @@ article img[src$='apple.svg'] {
   max-height: 2ex;
 }
 
-html[data-theme='dark'] article img[src$='android.svg'],
-html[data-theme='dark'] article img[src$='apple.svg'],
-html[data-theme='dark'] article img[src$='NotificationActionFlow.png'] {
+html[data-theme='dark'] img.OSlogo {
   filter: invert(1.0)
 }
 
 .center_image {
   display:block;
   margin:auto;
+}
+
+html[data-theme='dark'] img.invertDark {
+  filter: invert(1.0)
 }

@@ -13,7 +13,7 @@ Some useful examples of actionable notifications:
 
 ![Actionable notifications allow the user to send a command back to Home Assistant.](/assets/ios/actions.png)
 
-If you are using iOS please continue to read below, if you are using Android start from the ![Android](/assets/android.svg) example [here](#building-automations-for-notification-actions).
+If you are using iOS please continue to read below, if you are using Android start from the <img class='OSlogo' src='/assets/android.svg' alt='Android logo' /> example [here](#building-automations-for-notification-actions).
 
 On iOS notifications can be grouped by category, this allows for different types of notifications from Home Assistant to be placed in a appropriate stacks on the lock screen and even custom summary text to be used on the notification stack. These categories also allow you to create actionable notifications.
 
@@ -32,7 +32,7 @@ When sending a notification:
 3.  Action tapped.
 4.  Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
 
-![How the iOS device and Home Assistant work together to enable actionable notifications.](/assets/NotificationActionFlow.png)
+<img class='invertDark' alt='How the iOS device and Home Assistant work together to enable actionable notifications' src='/assets/NotificationActionFlow.png' />
 
 ## Definitions
 -   **Category** - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.
@@ -91,7 +91,7 @@ Two variables are available for use in the `Hidden preview placeholder` and `Cat
 
 Here is an example automation to send a notification with a category in the payload:
 
-![iOS](/assets/apple.svg) iOS Example
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> iOS Example
 
 ```yaml
 automation:
@@ -111,7 +111,7 @@ automation:
             my_custom_data: foo_bar
 ```
 
-![android](/assets/android.svg) For Android you create the action directly in the automation action. The below example will give you 2 actions in your notification. The first action will send back an event with the action `alarm` and the second action will open the URL or load a lovelace view/dashboard. If you plan to use a lovelace view the format would be `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view. If you plan to use a lovelace dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards-and-views/#dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard.
+<img class='OSlogo' src='/assets/android.svg' alt='Android logo' /> For Android you create the action directly in the automation action. The below example will give you 2 actions in your notification. The first action will send back an event with the action `alarm` and the second action will open the URL or load a lovelace view/dashboard. If you plan to use a lovelace view the format would be `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view. If you plan to use a lovelace dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards-and-views/#dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard.
 
 ```yaml
 automation:
@@ -133,7 +133,7 @@ automation:
 
 When an action is selected an event named `ios.notification_action_fired` for iOS and `mobile_app_notification_action` for Android will be emitted on the Home Assistant event bus. Below is an example payload.
 
-![iOS](/assets/apple.svg) iOS event example
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> iOS event example
 
 ```json
 {
@@ -146,7 +146,7 @@ When an action is selected an event named `ios.notification_action_fired` for iO
 }
 ```
 
-![android](/assets/android.svg) Android event example
+<img class='OSlogo' src='/assets/android.svg' alt='Android logo' /> Android event example
 
 ```json
 {
@@ -173,7 +173,7 @@ When an action is selected an event named `ios.notification_action_fired` for iO
 
 Here's an example automation for the given payload:
 
-![iOS](/assets/apple.svg) iOS Example
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> iOS Example
 
 ```yaml
 automation:
@@ -187,7 +187,7 @@ automation:
       ...
 ```
 
-![android](/assets/android.svg) Android Example
+<img class='OSlogo' src='/assets/android.svg' alt='Android logo' /> Android Example
 
 ```yaml
 automation:
@@ -201,7 +201,7 @@ automation:
       ...
 ```
 
-Notes ![iOS](/assets/apple.svg):
+Notes <img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' />:
 
 *   `textInput` will only exist if `behavior` was set to `textInput`.
 *   `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
@@ -209,7 +209,7 @@ Notes ![iOS](/assets/apple.svg):
 
 ## Compatibility with different devices
 
-![iOS](/assets/apple.svg) iOS Specific
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> iOS Specific
 
 ### iOS 13 and later
 

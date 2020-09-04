@@ -3,7 +3,7 @@ title: "X-Callback-URL"
 id: 'x-callback-url'
 ---
 
-![iOS](/assets/apple.svg)
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' />
 
 The app has full support for [X-Callback-URL](http://x-callback-url.com/), a standardized way for apps such as Google Chrome, Drafts and Shortcuts to interact with each other via URL handlers.
 

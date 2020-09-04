@@ -7,7 +7,7 @@ Along with providing [location services](location.md), the companion app also ad
 
 The sensors provided by the companion app are:
 
-![iOS](/assets/apple.svg) iOS Sensor List
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' />iOS Sensor List
 
 **It is important to know that these sensors are only updated when a location is pushed to Home Assistant or the web view is refreshed**.
 
@@ -36,9 +36,9 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 {{ states.sensor.connection_type.attributes['Cellular Technology'] }}
 ```
 
-![android](/assets/android.svg) Android Sensor List
+<img class='OSlogo' src='/assets/android.svg' />Android Sensor List
 
-Each ![android](/assets/android.svg) sensor below can be disabled by navigating to the `App Configuration` page then selecting `Manage Sensors`, by default they are enabled given the user has granted proper permissions. Once disabled the sensor will no longer send data to your Home Assistant server. All sensors update during a normal 15 minute interval and they will also update if other certain conditions are met. Read about each sensor below to understand how often to expect updates.
+Each sensor below can be disabled by navigating to the `App Configuration` page then selecting `Manage Sensors`, by default they are enabled given the user has granted proper permissions. Once disabled the sensor will no longer send data to your Home Assistant server. All sensors update during a normal 15 minute interval and they will also update if other certain conditions are met. Read about each sensor below to understand how often to expect updates.
 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
@@ -63,7 +63,7 @@ Each ![android](/assets/android.svg) sensor below can be disabled by navigating 
 
 
 ## Activity Sensor
-![iOS](/assets/apple.svg) `sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> `sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
 *   `Stationary`
 *   `Walking`
 *   `Running`
@@ -79,7 +79,7 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 *   `Medium`
 *   `High`
 
-![android](/assets/android.svg) This sensor is only available on the full flavor of the Android app that is found in the Google Play Store, it is not available for the minimal flavor. For android the user will have a different set of states to go by:
+<img class='OSlogo' src='/assets/android.svg' />This sensor is only available on the full flavor of the Android app that is found in the Google Play Store, it is not available for the minimal flavor. For android the user will have a different set of states to go by:
 *   `in_vehicle`
 *   `on_bicycle`
 *   `on_foot`
@@ -93,7 +93,7 @@ The attribute for the state will reflect the `confidence` rating from Google.
 
 
 ## Audio Sensor
-![android](/assets/android.svg) This sensors state will represent the ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. The sensor will update any time the ringer mode on the device has changed. There are also additional attributes that trigger updates as mentioned below:
+<img class='OSlogo' src='/assets/android.svg' />This sensors state will represent the ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. The sensor will update any time the ringer mode on the device has changed. There are also additional attributes that trigger updates as mentioned below:
 
 | Attribute | Description |
 | --------- | --------- |
@@ -106,13 +106,18 @@ The attribute for the state will reflect the `confidence` rating from Google.
 
 
 ## Battery Sensors
-![iOS](/assets/apple.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' />
 
-![android](/assets/android.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The five possible states are `full`, `charging`, `discharging`, `not_charging` or `unknown`. The attribute `is_charging` can be used to determine if the device is currently charging, the attribute `charger_type` can report the type of charger being used. Possible values are `ac`, `usb`, `wireless` and `unknown`. A `battery_health` attribute will show either `good`, `cold`, `dead`, `fail`, `overheated`, `over-voltage` or `unknown`. The sensor icon reflects the charging status, and type of charging being used. The battery state sensor will be updated when the device has a charger connected or disconnected. The battery level sensor will be updated any time any of the other sensors get an update as well as when the device reports low battery and when it has recovered from the low battery alert.
+The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
+
+
+<img src='/assets/android.svg' />
+
+The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The five possible states are `full`, `charging`, `discharging`, `not_charging` or `unknown`. The attribute `is_charging` can be used to determine if the device is currently charging, the attribute `charger_type` can report the type of charger being used. Possible values are `ac`, `usb`, `wireless` and `unknown`. A `battery_health` attribute will show either `good`, `cold`, `dead`, `fail`, `overheated`, `over-voltage` or `unknown`. The sensor icon reflects the charging status, and type of charging being used. The battery state sensor will be updated when the device has a charger connected or disconnected. The battery level sensor will be updated any time any of the other sensors get an update as well as when the device reports low battery and when it has recovered from the low battery alert.
 
 
 ## Bluetooth Sensor
-![android](/assets/android.svg) This sensors state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes.
+<img class='OSlogo' src='/assets/android.svg' />This sensors state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -123,23 +128,25 @@ The attribute for the state will reflect the `confidence` rating from Google.
 
 
 ## Cellular Provider Sensor
-The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled). ![android](/assets/android.svg) Android users will see these sensors update anytime the network has changed.
+The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled). <img class='OSlogo' src='/assets/android.svg' /> Android users will see these sensors update anytime the network has changed.
 
 | Attribute | Description |
 | --------- | --------- |
 | `Carrier Name` | The name of the user’s home cellular service provider. |
-| `Current Radio Technology` | ![iOS](/assets/apple.svg) only. |
+| `Current Radio Technology` | <img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> only. |
 | `ISO Country Code` | The ISO country code for the user’s cellular service provider. |
 | `Mobile Country Code` | The mobile country code (MCC) for the user’s cellular service provider. |
 | `Mobile Network Code` | The mobile network code for the user’s cellular service provider. |
 | `Carrier ID` |  |
-| `Allows VoIP` | Indicates if the carrier allows making VoIP calls on its network. ![iOS](/assets/apple.svg) |
-| `Is Opportunistic` | An opportunistic subscription connects to a network that is limited in functionality and / or coverage. ![android](/assets/android.svg) |
-| `Data Roaming` | Is data roaming enabled for the device. ![android](/assets/android.svg) |
+| `Allows VoIP` | Indicates if the carrier allows making VoIP calls on its network. <img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> |
+| `Is Opportunistic` | An opportunistic subscription connects to a network that is limited in functionality and/or coverage. <img class='OSlogo' src='/assets/android.svg' /> |
+| `Data Roaming` | Is data roaming enabled for the device. <img class='OSlogo' src='/assets/android.svg' /> |
 
 
 ## Connection Type Sensor
-![iOS](/assets/apple.svg) The following connection types are known by the companion app:
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' />
+
+The following connection types are known by the companion app:
 *   `Wi-Fi`
 *   `Cellular`
 *   `No Connection`
@@ -154,11 +161,10 @@ A more specific description of the data connection can be found in the `Cellular
 
 If the connection type is not recognized, either `Unknown` or `Unknown Technology` will be returned.
 
-![android](/assets/android.svg) Android users will have a `wifi_connection` sensor where the state will reflect the currently connected network name or `<not connected>`. This sensor will update when WiFi is turned on/off and when the device connects to a network. The sensor will also have attributes about the connection itself, see the table above for the different attributes.
-
+<img class='OSlogo' src='/assets/android.svg' />Android users will have a `wifi_connection` sensor where the state will reflect the currently connected network name or `&lt;not connected&gt;`. This sensor will update when WiFi is turned on/off and when the device connects to a network. The sensor will also have attributes about the connection itself, see the table above for the different attributes.
 
 ## Do Not Disturb Sensor
-![android](/assets/android.svg) This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes.
+<img class='OSlogo' src='/assets/android.svg' />This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes.
 
 
 ## Geocoded Location Sensor
@@ -169,10 +175,10 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | Attribute | Description |
 | --------- | --------- |
 | `Location` | The latitude and longitude coordinates of the placemark. |
-| `Name` | The name of the placemark. ![iOS](/assets/apple.svg) iOS only, for Android check the state of the sensor. |
+| `Name` | The name of the placemark. <img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> iOS only, for Android check the state of the sensor. |
 | `Country` | The name of the country associated with the placemark. |
 | `ISOCountryCode` | The abbreviated country name. |
-| `TimeZone` | The time zone associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
+| `TimeZone` | The time zone associated with the placemark. <img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> iOS only |
 | `AdministrativeArea` | The state or province associated with the placemark. |
 | `SubAdministrativeArea` | Additional administrative area information for the placemark. |
 | `PostalCode` | The postal code associated with the placemark. |
@@ -180,13 +186,13 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `SubLocality` | Additional city-level information for the placemark. |
 | `Thoroughfare` | The street address associated with the placemark. |
 | `SubThoroughfare` | Additional street-level information for the placemark. |
-| `AreasOfInterest` | The relevant areas of interest associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
-| `Ocean` | The name of the ocean associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
-| `InlandWater` | The name of the inland water body associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
+| `AreasOfInterest` | The relevant areas of interest associated with the placemark. <img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> iOS only |
+| `Ocean` | The name of the ocean associated with the placemark. <img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> iOS only |
+| `InlandWater` | The name of the inland water body associated with the placemark. <img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> iOS only |
 
 
 ## Last Reboot Sensor
-![android](/assets/android.svg) This sensors state will be the date and time of the last reboot from the device in UTC format. The sensor will update during the normal sensor update interval. The state will be `unavailable` if the timestamp cannot be determined.
+<img class='OSlogo' src='/assets/android.svg' />This sensors state will be the date and time of the last reboot from the device in UTC format. The sensor will update during the normal sensor update interval. The state will be `unavailable` if the timestamp cannot be determined.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -195,7 +201,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 
 ## Last Update Trigger Sensor
-![iOS](/assets/apple.svg) This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' />This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
 
 | State | Description |
 | --------- | --------- |
@@ -213,11 +219,11 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 
 ## Light Sensor
-![android](/assets/android.svg) This sensor will reflect the current level of illuminance the device detects. Devices that do not have a light sensor will show `unavailable`. The sensor updates during the normal sensor update interval or with the other sensor updates.
+<img class='OSlogo' src='/assets/android.svg' />This sensor will reflect the current level of illuminance the device detects. Devices that do not have a light sensor will show `unavailable`. The sensor updates during the normal sensor update interval or with the other sensor updates.
 
 
 ## Next Alarm Sensor
-![android](/assets/android.svg) This sensors state will be the date and time of the next alarm in UTC format. The sensor will update as soon as the next alarm is scheduled. The state will be `unavailable` when there is no next alarm.
+<img class='OSlogo' src='/assets/android.svg' />This sensors state will be the date and time of the next alarm in UTC format. The sensor will update as soon as the next alarm is scheduled. The state will be `unavailable` when there is no next alarm.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -227,7 +233,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 
 ## Pedometer Sensors
-![iOS](/assets/apple.svg) The pedometer sensors provide step-counting data from the devices built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> The pedometer sensors provide step-counting data from the devices built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
 
 | Sensor | Description |
 | --------- | --------- |
@@ -237,23 +243,23 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `sensor.floors_ascended` | The approximate number of floors ascended by walking. |
 | `sensor.floors_descended` | The approximate number of floors descended by walking. |
 
-![android](/assets/android.svg) Android users will only have a `sensor.steps` entity which will represent the total number of steps taken since the last device reboot. A recommended approach to getting your daily step count is to use the [Utility Meter integration](https://www.home-assistant.io/integrations/utility_meter) with `cycle: daily`. This sensor will update during the normal sensor update interval.
+<img class='OSlogo' src='/assets/android.svg' />Android users will only have a `sensor.steps` entity which will represent the total number of steps taken since the last device reboot. A recommended approach to getting your daily step count is to use the [Utility Meter integration](https://www.home-assistant.io/integrations/utility_meter) with `cycle: daily`. This sensor will update during the normal sensor update interval.
 
 
 ## Phone State Sensor
-![android](/assets/android.svg) This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your devices `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`. This sensor will update anytime a phone state change is detected.
+<img class='OSlogo' src='/assets/android.svg' />This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your devices `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`. This sensor will update anytime a phone state change is detected.
 
 
 ## Pressure Sensor
-![android](/assets/android.svg) This sensor will show the current pressure reading from the device. Devices that do not have a pressure sensor will show `unavailable`. This sensor will update during the normal sensor update interval.
+<img class='OSlogo' src='/assets/android.svg' />This sensor will show the current pressure reading from the device. Devices that do not have a pressure sensor will show `unavailable`. This sensor will update during the normal sensor update interval.
 
 
 ## Proximity Sensor
-![android](/assets/android.svg) This sensor will show the current proximity reading from the device. Devices that do not have a proximity sensor will show `unavailable`. This sensor will update during the normal sensor update interval. Not all devices report an actual reading so those devices will show either `near` or `far` depending if the sensors maximum range is `5`.
+<img class='OSlogo' src='/assets/android.svg' />This sensor will show the current proximity reading from the device. Devices that do not have a proximity sensor will show `unavailable`. This sensor will update during the normal sensor update interval. Not all devices report an actual reading so those devices will show either `near` or `far` depending if the sensors maximum range is `5`.
 
 
 ## Storage Sensor
-![iOS](/assets/apple.svg) This sensor displays information on the device storage. The file sizes reported are in Base-10.
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' /> This sensor displays information on the device storage. The file sizes reported are in Base-10.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -262,7 +268,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `Available (Opportunistic)` | The volume’s available capacity in bytes for storing nonessential resources. |
 | `Total` | The total storage capacity of your device. |
 
-![android](/assets/android.svg) For Android the behavior is slightly different due to the differences in the 2 operating systems. The state will be the same as iOS where we show the percentage of free space, the attributes will not be identical. This sensor will update during the normal sensor update interval.
+<img class='OSlogo' src='/assets/android.svg' />For Android the behavior is slightly different due to the differences in the 2 operating systems. The state will be the same as iOS where we show the percentage of free space, the attributes will not be identical. This sensor will update during the normal sensor update interval.
 
 | Attribute | Description |
 | --------- | --------- |

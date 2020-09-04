@@ -3,7 +3,7 @@ title: "URL Handler"
 id: 'url-handler'
 ---
 
-![iOS](/assets/apple.svg)
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' />
 
 Home Assistant for iOS supports opening from other apps via URL.
 

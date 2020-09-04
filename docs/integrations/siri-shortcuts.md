@@ -3,7 +3,7 @@ title: "Siri Shortcuts"
 id: siri-shortcuts
 ---
 
-![iOS](/assets/apple.svg)
+<img class='OSlogo' src='/assets/apple.svg' alt='Apple logo' />
 
 With iOS 13 or later and the Home Assistant Companion App, you can take advantage of the power of Siri Shortcuts to carry out Home Assistant tasks with a tap or by using voice commands.
 
