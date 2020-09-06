@@ -38,7 +38,7 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 
 ![android](/assets/android.svg) Android Sensor List
 
-Each ![android](/assets/android.svg) sensor below can be disabled by navigating to the `App Configuration` page then selecting `Manage Sensors`, by default they are enabled given the user has granted proper permissions. Once disabled the sensor will no longer send data to your Home Assistant server. All sensors update during a normal 15 minute interval and they will also update if other certain conditions are met. Read about each sensor below to understand how often to expect updates.
+Each ![android](/assets/android.svg) sensor below can be enabled by navigating to the `App Configuration` page then selecting `Manage Sensors`. By default most are disabled with the exception of the [battery sensors](#battery-sensors) and any that were given permission during onboarding. Once enabled the sensor will begin to send data to your Home Assistant server, if you chose to disable it later on the sensor will stop updating. All sensors update during a periodic 15 minute interval and they will also update if other certain conditions are met. Read about each sensor below to understand how often to expect updates. If you do not see a sensor listed below then your device does not support it.
 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
@@ -89,11 +89,11 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 *   `walking`
 *   `unknown`
 
-The attribute for the state will reflect the `confidence` rating from Google.
+The attribute for the state will reflect the `confidence` rating from the [Activity Recognition API](https://developers.google.com/location-context/activity-recognition).
 
 
 ## Audio Sensor
-![android](/assets/android.svg) This sensors state will represent the ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. The sensor will update any time the ringer mode on the device has changed. There are also additional attributes that trigger updates as mentioned below:
+![android](/assets/android.svg) This sensor uses [AudioManager](https://developer.android.com/reference/kotlin/android/media/AudioManager?hl=en) so the state will represent the ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. The sensor will update any time the ringer mode on the device has changed. There are also additional attributes that trigger updates as mentioned below:
 
 | Attribute | Description |
 | --------- | --------- |
@@ -108,11 +108,11 @@ The attribute for the state will reflect the `confidence` rating from Google.
 ## Battery Sensors
 ![iOS](/assets/apple.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
 
-![android](/assets/android.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The five possible states are `full`, `charging`, `discharging`, `not_charging` or `unknown`. The attribute `is_charging` can be used to determine if the device is currently charging, the attribute `charger_type` can report the type of charger being used. Possible values are `ac`, `usb`, `wireless` and `unknown`. A `battery_health` attribute will show either `good`, `cold`, `dead`, `fail`, `overheated`, `over-voltage` or `unknown`. The sensor icon reflects the charging status, and type of charging being used. The battery state sensor will be updated when the device has a charger connected or disconnected. The battery level sensor will be updated any time any of the other sensors get an update as well as when the device reports low battery and when it has recovered from the low battery alert.
+![android](/assets/android.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The five possible states are `full`, `charging`, `discharging`, `not_charging` or `unknown`. The attribute `is_charging` can be used to determine if the device is currently charging, the attribute `charger_type` can report the type of charger being used. Possible values are `ac`, `usb`, `wireless` and `unknown`. A `battery_health` attribute will show either `good`, `cold`, `dead`, `fail`, `overheated`, `over-voltage` or `unknown`. The sensor icon reflects the charging status, and type of charging being used. The battery state sensor will be updated when the device has a charger connected or disconnected. The battery level sensor will be updated any time any of the other sensors get an update as well as when the device reports low battery and when it has recovered from the low battery alert. Both of these sensors make use of [BatteryManager](https://developer.android.com/reference/android/os/BatteryManager?hl=en).
 
 
 ## Bluetooth Sensor
-![android](/assets/android.svg) This sensors state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes.
+![android](/assets/android.svg) This sensors state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes. This sensor makes use of Android's [Bluetooth](https://developer.android.com/reference/android/bluetooth/package-summary?hl=en) package.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -123,7 +123,9 @@ The attribute for the state will reflect the `confidence` rating from Google.
 
 
 ## Cellular Provider Sensor
-The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled). ![android](/assets/android.svg) Android users will see these sensors update anytime the network has changed.
+The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
+
+![android](/assets/android.svg) Android users will see these sensors update anytime the network has changed, which makes use of [SubscriptionManager](https://developer.android.com/reference/android/telephony/SubscriptionManager?hl=en).
 
 | Attribute | Description |
 | --------- | --------- |
@@ -154,11 +156,11 @@ A more specific description of the data connection can be found in the `Cellular
 
 If the connection type is not recognized, either `Unknown` or `Unknown Technology` will be returned.
 
-![android](/assets/android.svg) Android users will have a `wifi_connection` sensor where the state will reflect the currently connected network name or `<not connected>`. This sensor will update when WiFi is turned on/off and when the device connects to a network. The sensor will also have attributes about the connection itself, see the table above for the different attributes.
+![android](/assets/android.svg) Android users will have a `wifi_connection` sensor where the state will reflect the currently connected network name or `<not connected>`. This sensor will update when WiFi is turned on/off and when the device connects to a network. The sensor will also have attributes about the connection itself, see the table above for the different attributes. This sensor makes use of [WifiManager](https://developer.android.com/reference/android/net/wifi/WifiManager?hl=en).
 
 
 ## Do Not Disturb Sensor
-![android](/assets/android.svg) This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes.
+![android](/assets/android.svg) This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes. This sensor uses a [Global](https://developer.android.com/reference/kotlin/android/provider/Settings.Global?hl=en) variable that is not officially documented but has been available since Android 5.0.
 
 
 ## Geocoded Location Sensor
@@ -186,7 +188,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 
 ## Last Reboot Sensor
-![android](/assets/android.svg) This sensors state will be the date and time of the last reboot from the device in UTC format. The sensor will update during the normal sensor update interval. The state will be `unavailable` if the timestamp cannot be determined.
+![android](/assets/android.svg) This sensors state will be the date and time of the last reboot from the device in UTC format. The sensor will update during the normal sensor update interval. The state will be `unavailable` if the timestamp cannot be determined. This sensor uses the [SystemClock](https://developer.android.com/reference/android/os/SystemClock?hl=en) and current [System](https://developer.android.com/reference/java/lang/System?hl=en) time to calculate the timestamp.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -213,11 +215,11 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 
 ## Light Sensor
-![android](/assets/android.svg) This sensor will reflect the current level of illuminance the device detects. Devices that do not have a light sensor will show `unavailable`. The sensor updates during the normal sensor update interval or with the other sensor updates.
+![android](/assets/android.svg) This sensor will reflect the current level of illuminance the device detects. The sensor updates during the normal sensor update interval or with the other sensor updates and makes use of [Environment Sensors](https://developer.android.com/guide/topics/sensors/sensors_environment).
 
 
 ## Next Alarm Sensor
-![android](/assets/android.svg) This sensors state will be the date and time of the next alarm in UTC format. The sensor will update as soon as the next alarm is scheduled. The state will be `unavailable` when there is no next alarm.
+![android](/assets/android.svg) This sensors state will be the date and time of the next alarm in UTC format. The sensor will update as soon as the next alarm is scheduled. The state will be `unavailable` when there is no next alarm. This sensor makes use of [AlarmManager](https://developer.android.com/reference/android/app/AlarmManager?hl=en) to get the next scheduled alarm which can be set by any app at any time.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -237,19 +239,19 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `sensor.floors_ascended` | The approximate number of floors ascended by walking. |
 | `sensor.floors_descended` | The approximate number of floors descended by walking. |
 
-![android](/assets/android.svg) Android users will only have a `sensor.steps` entity which will represent the total number of steps taken since the last device reboot. A recommended approach to getting your daily step count is to use the [Utility Meter integration](https://www.home-assistant.io/integrations/utility_meter) with `cycle: daily`. This sensor will update during the normal sensor update interval.
+![android](/assets/android.svg) Android users will only have a `sensor.steps` entity which will represent the total number of steps taken since the last device reboot. A recommended approach to getting your daily step count is to use the [Utility Meter integration](https://www.home-assistant.io/integrations/utility_meter) with `cycle: daily`. This sensor will update during the normal sensor update interval and makes use of the [Motion Sensor](https://developer.android.com/guide/topics/sensors/sensors_motion?hl=en).
 
 
 ## Phone State Sensor
-![android](/assets/android.svg) This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your devices `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`. This sensor will update anytime a phone state change is detected.
+![android](/assets/android.svg) This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your devices `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`. This sensor will update anytime a phone state change is detected and makes use of [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en).
 
 
 ## Pressure Sensor
-![android](/assets/android.svg) This sensor will show the current pressure reading from the device. Devices that do not have a pressure sensor will show `unavailable`. This sensor will update during the normal sensor update interval.
+![android](/assets/android.svg) This sensor will show the current pressure reading from the device. This sensor will update during the normal sensor update interval and makes use of [Environment Sensors](https://developer.android.com/guide/topics/sensors/sensors_environment).
 
 
 ## Proximity Sensor
-![android](/assets/android.svg) This sensor will show the current proximity reading from the device. Devices that do not have a proximity sensor will show `unavailable`. This sensor will update during the normal sensor update interval. Not all devices report an actual reading so those devices will show either `near` or `far` depending if the sensors maximum range is `5`.
+![android](/assets/android.svg) This sensor will show the current proximity reading from the device. This sensor will update during the normal sensor update interval. Not all devices report an actual reading so those devices will show either `near` or `far` depending if the sensors maximum range is `5`. This sensor makes use of [Position Sensors](https://developer.android.com/guide/topics/sensors/sensors_position?hl=en).
 
 
 ## Storage Sensor
@@ -262,7 +264,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `Available (Opportunistic)` | The volume’s available capacity in bytes for storing nonessential resources. |
 | `Total` | The total storage capacity of your device. |
 
-![android](/assets/android.svg) For Android the behavior is slightly different due to the differences in the 2 operating systems. The state will be the same as iOS where we show the percentage of free space, the attributes will not be identical. This sensor will update during the normal sensor update interval.
+![android](/assets/android.svg) For Android the behavior is slightly different due to the differences in the 2 operating systems. The state will be the same as iOS where we show the percentage of free space, the attributes will not be identical. This sensor will update during the normal sensor update interval, calculations are done with the help of [StatFs](https://developer.android.com/reference/android/os/StatFs?hl=en).
 
 | Attribute | Description |
 | --------- | --------- |
