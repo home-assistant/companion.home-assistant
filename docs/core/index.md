@@ -380,6 +380,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
+      <td><a href="/docs/core/sensors#doze-sensor">Doze</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#pedometer-sensors">Floors Ascended</a></td>
       <td></td>
       <td></td>
@@ -396,6 +402,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
       <td></td>
       <td>✅</td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors#interactive-sensor">Interactive</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#last-reboot-sensor">Last Reboot</a></td>
@@ -417,6 +429,12 @@ Not all features are supported by Android at the moment but eventually most feat
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#phone-state-sensor">Phone State</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors#power-save-sensor">Power Save</a></td>
       <td>✅</td>
       <td>✅</td>
       <td></td>

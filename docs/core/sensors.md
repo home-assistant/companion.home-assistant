@@ -42,6 +42,9 @@ Each ![android](/assets/android.svg) sensor below can be enabled by navigating t
 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
+| `binary_sensor.doze` | [See Below](#doze-sensor) | Whether or not the device is in doze mode. |
+| `binary_sensor.interactive` | None | Whether or not the device is in an interactive state. |
+| `binary_sensor.power_save` | None | Whether or not the device is in power saving mode. |
 | `sensor.activity` | `confidence` | The current activity type as computed by Google. Requires activity recognition permissions on supported devices. |
 | `sensor.audio` | [See Below](#audio-sensor) | The state of the sensor will reflect the ringer mode of the device. |
 | `sensor.battery_level` | None | The current battery level of the device. |
@@ -163,6 +166,10 @@ If the connection type is not recognized, either `Unknown` or `Unknown Technolog
 ![android](/assets/android.svg) This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes. This sensor uses a [Global](https://developer.android.com/reference/kotlin/android/provider/Settings.Global?hl=en) variable that is not officially documented but has been available since Android 5.0.
 
 
+## Doze Sensor
+![android](/assets/android.svg) This sensor is only available on devices running Android 6.0+. The state will reflect whether or not the device is in doze mode. The state will update immediately upon a state change and data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html). There is one attribute `ignoring_battery_optimizations` which will show `true` or `false` if the Companion app is ignoring battery optimizations. If you are curious about how the state actually changes you may test it by following these [outlined steps](https://developer.android.com/training/monitoring-device-state/doze-standby#testing_doze).
+
+
 ## Geocoded Location Sensor
 The [geocoded](https://.wikipedia.org/wiki/Geocoding) location sensor provides a user-friendly description of a users current location coordinates, often containing the name of the place, its address, and other relevant information. This sensor reports many detailed attributes allowing you to create useful [template sensors](https://www.home-assistant.io/components/template/).
 
@@ -185,6 +192,10 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `AreasOfInterest` | The relevant areas of interest associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
 | `Ocean` | The name of the ocean associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
 | `InlandWater` | The name of the inland water body associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
+
+
+## Interactive Sensor
+![android](/assets/android.svg) This sensors state will reflect if the device is in an interactive state. This is typically when the screen comes on and off but may vary from device to device. This sensor will update as soon state changes are detected, data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
 
 
 ## Last Reboot Sensor
@@ -244,6 +255,10 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ## Phone State Sensor
 ![android](/assets/android.svg) This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your devices `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`. This sensor will update anytime a phone state change is detected and makes use of [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en).
+
+
+## Power Save Sensor
+![android](/assets/android.svg) This sensor will show the state of power save mode on the device. Depending on the device this is usually a user configurable option to indicate when the device should enter a special power saving mode. The state will update as soon as a state change is detected and the sensor makes use of [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
 
 
 ## Pressure Sensor
