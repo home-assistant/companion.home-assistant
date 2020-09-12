@@ -326,7 +326,7 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
-      <td><a href="/docs/core/sensors#audio-sensor">Audio Sensor</a></td>
+      <td><a href="/docs/core/sensors#audio-sensors">Audio Sensors</a></td>
       <td>✅</td>
       <td>✅</td>
       <td></td>
@@ -447,6 +447,12 @@ Not all features are supported by Android at the moment but eventually most feat
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#proximity-sensor">Proximity</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors#public-ip-sensor">Public IP</a></td>
       <td>✅</td>
       <td>✅</td>
       <td></td>
