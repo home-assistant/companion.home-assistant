@@ -11,11 +11,11 @@ Support for these features is active under development and may not be fully rele
 | QR Tags   | 2020.5                        | 2.2.0                                   |
 | Old-Style | 2019.1                        | Not Supported                           |
 
-## NFC Tags & QR Codes
+## NFC Tags & QR Codes 
 
-A Home Assistant NFC tag or QR code contains a URL in the following format:
+Home Assistant supports scanning tags as a trigger for your automations. Scanned tags are collected on the tag panel in the configuration screen. This allows you to easily manage your used tags and give them friendly names. 
 
-`https://www.home-assistant.io/tag/<tag id>`
+A Home Assistant NFC tag or QR code contains a URL that will trigger the tag scanned event to be fired in Home Assistant. The format is a url `https://www.home-assistant.io/tag/<tag id>` so that Android/iOS know to route this to our app. The app will extract the tag identifier and send it directly to your instance.
 
 - ![iOS](/assets/apple.svg) On iOS, bringing your device near an NFC tag or scanning a QR code will show a notification which, when tapped, will launch the app and fire an event.
 - ![android](/assets/android.svg) On Android, bringing your device near a Home Assistant NFC tag or scanning a QR code will fire an event.
@@ -40,6 +40,18 @@ Both apps support reading and writing NFC tags. You can use a randomly-generated
 :::info
 Some NFC tags are read-only and cannot be used as a Home Assistant NFC tag. Others may only allow one write before they turn read-only.
 :::
+
+## Writing NFC tags
+
+You can write NFC tags by opening the app -> App Configuration -> NFC Cards -> Write.
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Xc120lClUgA" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div class='videoWrapper'>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xE7wm1bxRLs" frameborder="0" allowfullscreen></iframe>
+</div>
 
 ## ![iOS](/assets/apple.svg) Old-Style Universal Links
 
