@@ -11,11 +11,11 @@ Support for these features is active under development and may not be fully rele
 | QR Tags   | 2020.5                        | 2.2.0                                   |
 | Old-Style | 2019.1                        | Not Supported                           |
 
-## NFC Tags & QR Codes 
+## NFC Tags & QR Codes
 
 Home Assistant supports scanning tags as a trigger for your automations. Scanned tags are collected on the tag panel in the configuration screen. This allows you to easily manage your used tags and give them friendly names. 
 
-A Home Assistant NFC tag or QR code contains a URL that will trigger the tag scanned event to be fired in Home Assistant. The format is a url `https://www.home-assistant.io/tag/<tag id>` so that Android/iOS know to route this to our app. The app will extract the tag identifier and send it directly to your instance.
+A Home Assistant NFC tag or QR code contains a URL that will trigger the tag scanned event to be fired in Home Assistant. The format is a URL `https://www.home-assistant.io/tag/<tag id>` so that Android/iOS know to route this to our app. The app will extract the tag identifier and send it directly to your instance.
 
 - ![iOS](/assets/apple.svg) On iOS, bringing your device near an NFC tag or scanning a QR code will show a notification which, when tapped, will launch the app and fire an event.
 - ![android](/assets/android.svg) On Android, bringing your device near a Home Assistant NFC tag or scanning a QR code will fire an event.
