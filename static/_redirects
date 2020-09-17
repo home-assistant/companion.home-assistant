@@ -21,6 +21,7 @@
 /app/ios/nfc /docs/integrations/universal-links
 /app/mac/latest https://github.com/home-assistant/iOS/releases/tag/mac%2F2020.7%2F1
 
+
 # Documentation restructuring redirects
 /core/actions /docs/core/actions
 /docs/integrations/watch/watch /docs/apple-watch/apple-watch
