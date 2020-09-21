@@ -42,7 +42,7 @@ ios:
 
 Colors should be in hex format and icons should be from the [mdi](https://materialdesignicons.com/) set.
 
-After saving these changes you will need to restart Home Assistant and then, in the Companion App, go to the Actions section of App Configuration and tap "Import From Server"
+After saving these changes you will need to restart Home Assistant and then, in the Companion App, go to the Actions section of App Configuration. It should sync automatically, but you can also pull-to-refresh to sync.
 
 ## Using Actions
 When an action button is pressed a `ios.action_fired` event is fired on Home Assistant's event bus. The event data consists of a JSON-formatted dictionary of attributes relating to the action.
