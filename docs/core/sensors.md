@@ -246,7 +246,7 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 | Siri | Location updates triggered via the [Siri Shortcuts](../integrations/siri-shortcuts.md) "Send Location" shortcut. |
 | iBeacon Region Entered | Triggered when an iBeacon is seen that corresponds to a known zone. |
 | Registration | Triggered once when the app is first connected to your Home Assistant instance. |
-
+| Signaled | Triggered when the app detects a change, such as battery state changes, while running. |
 
 ## Light Sensor
 ![android](/assets/android.svg) This sensor will reflect the current level of illuminance the device detects. The sensor updates during the normal sensor update interval or with the other sensor updates and makes use of [Environment Sensors](https://developer.android.com/guide/topics/sensors/sensors_environment).
