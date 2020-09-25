@@ -42,10 +42,12 @@ Example event data for the iOS app:
 {
     "event_type": "mobile_app.share",
     "data": {
-        "url": "https://www.example.xom",
-        "text": "TEXT_MESSAGE",
-        "entered": "Text from share",
-        "device_id": "DEVICE_ID"
+        "entered": "Text that I typed",
+        "sourceDeviceID": "iphone_11_pro_debug",
+        "sourceDeviceName": "iPhone 11 Pro",
+        "sourceDevicePermanentID": "DEVICE_ID",
+        "text": "Home Assistant automations system into multiple areas of iOS ",
+        "url": "https://www.example.com"
     },
     "origin": "REMOTE",
     "time_fired": "2020-09-25T01:07:48.926946+00:00",
