@@ -26,7 +26,7 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
-      <td><a href="/docs/core/android-widgets">Android Widgets</a></td>
+      <td><a href="/docs/integrations/android-widgets">Android Widgets</a></td>
       <td>✅</td>
       <td>✅</td>
       <td></td>
@@ -48,6 +48,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
       <td></td>
       <td>✅</td>
+    </tr>
+    <tr>
+      <td><a href="/docs/integrations/sharing">Sharing</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
     </tr>
     <tr>
       <td><a href="/docs/integrations/theming">Theming</a></td>

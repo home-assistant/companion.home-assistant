@@ -14,7 +14,6 @@ module.exports = {
       'core/core',
       'core/actions',
       'core/android-flavors',
-      'core/android-widgets',
       'core/location',
       'core/sensors'],
     'Notifications': [
@@ -34,13 +33,15 @@ module.exports = {
       'notifications/critical-notifications'],
     'Integrations': [
       'integrations/integrations',
-      'integrations/theming',
-      'integrations/siri-shortcuts',
+      'integrations/android-widgets',
+      'integrations/app-events',
       'integrations/haptics',
+      'integrations/sharing',
+      'integrations/siri-shortcuts',
+      'integrations/theming',
       'integrations/universal-links',
       'integrations/url-handler',
-      'integrations/x-callback-url',
-      'integrations/app-events'],
+      'integrations/x-callback-url'],
     'Apple Watch': [
       'apple-watch/apple-watch',
       'apple-watch/watch-actions',
