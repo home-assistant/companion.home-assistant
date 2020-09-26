@@ -126,3 +126,8 @@ The following steps are an example of how to send an intent using Tasker:
 5.  Under Package enter `io.homeassistant.companion.android`
 6.  Save the task
 7.  Use the task with any Tasker profile to request a location update
+
+
+## Android Location Settings
+
+![android](/assets/android.svg) Android users can find custom sensor settings for location tracking under App Configuration > Manage Sensors > Location Sensors. The settings allow you to adjust the minimum required accuracy for the location to be reported to Home Assistant. You can adjust this setting independently from Zone Tracking, Background Location and Single Accurate Location (first request we send). This will allow you to get faster zone detection while also being accurate when the app is in the background. The Single Accurate Location sensor allows you to adjust the minimum time between updates to be sent to your server, the default is set to 1 minute (60000 milliseconds).
