@@ -44,9 +44,9 @@ article img[src$='apple.svg'] {
   max-height: 2ex;
 }
 
-html[data-theme='dark'] article img[src$='android.svg'],
-html[data-theme='dark'] article img[src$='apple.svg'],
-html[data-theme='dark'] article img[src$='NotificationActionFlow.png'] {
+html[data-theme='dark'] article img[alt='android'],
+html[data-theme='dark'] article img[alt='iOS'],
+html[data-theme='dark'] .invertDark {
   filter: invert(1.0)
 }
 
