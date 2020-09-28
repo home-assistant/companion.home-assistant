@@ -32,7 +32,7 @@ When sending a notification:
 3.  Action tapped.
 4.  Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
 
-![How the iOS device and Home Assistant work together to enable actionable notifications.](/assets/NotificationActionFlow.png)
+<img alt="How the iOS device and Home Assistant work together to enable actionable notifications." class="invertDark" src="/assets/NotificationActionFlow.png" />
 
 ## Definitions
 -   **Category** - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.
