@@ -3,8 +3,7 @@ title: "URL Handler"
 id: 'url-handler'
 ---
 
-![iOS](/assets/iOS.svg)
-
+![iOS](/assets/iOS.svg)<br />
 Home Assistant for iOS supports opening from other apps via URL.
 
 Query parameters are passed as a dictionary in the call.
