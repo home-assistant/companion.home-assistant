@@ -5,11 +5,35 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="40"
    height="24"
    viewBox="0 0 10.583332 6.3499997"
    version="1.1"
-   id="svg8">
+   id="svg8"
+   sodipodi:docname="iOS.svg"
+   inkscape:version="1.0.1 (c497b03c, 2020-09-10)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1680"
+     inkscape:window-height="943"
+     id="namedview233"
+     showgrid="false"
+     inkscape:zoom="14.083918"
+     inkscape:cx="20.590437"
+     inkscape:cy="21.475979"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg8" />
   <defs
      id="defs2" />
   <metadata
@@ -20,22 +44,29 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      id="layer1"
      transform="translate(-2.7347145,0.01085334)">
-    <text
-       xml:space="preserve"
-       style="font-size:5.29167px;line-height:1.25;font-family:'SF Pro Text';-inkscape-font-specification:'SF Pro Text';stroke-width:0.264583"
-       x="3.9297295"
-       y="5.0283751"
-       id="text12"><tspan
-         id="tspan10"
-         x="3.9297295"
-         y="5.0283751"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:'SF Pro Display';-inkscape-font-specification:'SF Pro Display';stroke-width:0.264583">iOS</tspan></text>
+    <g
+       aria-label="iOS"
+       id="text12"
+       style="font-size:5.29167px;line-height:1.25;font-family:'SF Pro Text';-inkscape-font-specification:'SF Pro Text';stroke-width:0.264583">
+      <path
+         d="m 4.4749161,1.8864462 c 0.1576133,0 0.2816368,-0.1266074 0.2816368,-0.2816367 0,-0.1576133 -0.1240235,-0.2816368 -0.2816368,-0.2816368 -0.1550293,0 -0.2816367,0.1240235 -0.2816367,0.2816368 0,0.1550293 0.1266074,0.2816367 0.2816367,0.2816367 z M 4.2501235,5.0283751 H 4.6997088 V 2.3411991 H 4.2501235 Z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:'SF Pro Display';-inkscape-font-specification:'SF Pro Display';stroke-width:0.264583"
+         id="path235" />
+      <path
+         d="m 6.9631378,5.0903869 c 1.0567837,0 1.7156586,-0.7415572 1.7156586,-1.9249483 v -0.00517 c 0,-1.1808072 -0.6614587,-1.9223644 -1.7156586,-1.9223644 -1.0567836,0 -1.7208262,0.7415572 -1.7208262,1.9223644 v 0.00517 c 0,1.1833911 0.6614587,1.9249483 1.7208262,1.9249483 z m 0,-0.4289146 c -0.7648116,0 -1.2454027,-0.5787764 -1.2454027,-1.4960337 v -0.00517 c 0,-0.9172572 0.4831749,-1.4934498 1.2454027,-1.4934498 0.759644,0 1.2402352,0.5787764 1.2402352,1.4934498 v 0.00517 c 0,0.9095058 -0.4728397,1.4960337 -1.2402352,1.4960337 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:'SF Pro Display';-inkscape-font-specification:'SF Pro Display';stroke-width:0.264583"
+         id="path237" />
+      <path
+         d="m 10.482305,5.0903869 c 0.852662,0 1.377178,-0.4185793 1.377178,-1.0800381 v -0.00258 c 0,-0.5684411 -0.320394,-0.8784999 -1.085206,-1.0464484 L 10.360865,2.8708828 C 9.8751066,2.7649461 9.650314,2.5737431 9.650314,2.268852 v -0.00258 c 0,-0.3591514 0.3255617,-0.5968632 0.82424,-0.599447 0.472839,0 0.790649,0.2247926 0.847494,0.6046146 l 0.0052,0.036174 h 0.465088 l -0.0026,-0.038757 c -0.04134,-0.6097823 -0.573609,-1.0309454 -1.302247,-1.0309454 -0.7673958,0 -1.3099987,0.4289146 -1.3125825,1.0412807 v 0.00258 c 0,0.5451867 0.3410647,0.8733323 1.0697025,1.0335293 l 0.413412,0.090434 c 0.511597,0.1136882 0.726054,0.2971397 0.726054,0.6252852 v 0.00258 c 0,0.3849897 -0.338481,0.6278691 -0.875916,0.6278691 -0.5400188,0 -0.901754,-0.2299603 -0.9560143,-0.6046147 l -0.00517,-0.036173 H 9.0818729 l 0.00258,0.036173 c 0.046509,0.6382044 0.5916955,1.0335293 1.3978481,1.0335293 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:5.29167px;font-family:'SF Pro Display';-inkscape-font-specification:'SF Pro Display';stroke-width:0.264583"
+         id="path239" />
+    </g>
   </g>
 </svg>
