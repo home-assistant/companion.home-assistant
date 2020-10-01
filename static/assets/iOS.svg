@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="40"
-   height="24"
-   viewBox="0 0 10.583332 6.3499997"
+   width="33"
+   height="15"
+   viewBox="0 0 8.7312489 3.9687498"
    version="1.1"
    id="svg8"
    sodipodi:docname="iOS.svg"
@@ -28,12 +28,16 @@
      id="namedview233"
      showgrid="false"
      inkscape:zoom="14.083918"
-     inkscape:cx="20.590437"
-     inkscape:cy="21.475979"
+     inkscape:cx="15.07775"
+     inkscape:cy="16.756265"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg8" />
+     inkscape:current-layer="svg8"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <defs
      id="defs2" />
   <metadata
@@ -44,13 +48,13 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      id="layer1"
-     transform="translate(-2.7347145,0.01085334)">
+     transform="translate(-3.6607566,-1.1797707)">
     <g
        aria-label="iOS"
        id="text12"
