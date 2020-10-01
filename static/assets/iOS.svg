@@ -7,9 +7,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="33"
+   width="50.883335"
    height="15"
-   viewBox="0 0 8.7312489 3.9687498"
+   viewBox="0 0 13.462881 3.9687498"
    version="1.1"
    id="svg8"
    sodipodi:docname="iOS.svg"
@@ -28,16 +28,18 @@
      id="namedview233"
      showgrid="false"
      inkscape:zoom="14.083918"
-     inkscape:cx="15.07775"
-     inkscape:cy="16.756265"
-     inkscape:window-x="0"
-     inkscape:window-y="25"
-     inkscape:window-maximized="1"
+     inkscape:cx="28.973768"
+     inkscape:cy="16.648061"
+     inkscape:window-x="-36"
+     inkscape:window-y="83"
+     inkscape:window-maximized="0"
      inkscape:current-layer="svg8"
      fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-left="2"
+     fit-margin-right="6"
+     fit-margin-bottom="0"
+     showguides="false"
+     inkscape:snap-page="true" />
   <defs
      id="defs2" />
   <metadata
@@ -54,7 +56,7 @@
   </metadata>
   <g
      id="layer1"
-     transform="translate(-3.6607566,-1.1797707)">
+     transform="translate(0.01589791,-1.1797707)">
     <g
        aria-label="iOS"
        id="text12"
@@ -73,4 +75,8 @@
          id="path239" />
     </g>
   </g>
+  <path
+     d="M 3.4104947,3.4398948 C 3.2494032,3.6805619 3.078607,3.9154066 2.8185311,3.9192878 2.5584552,3.9250778 2.474998,3.7659599 2.1799865,3.7659599 c -0.2969519,0 -0.3881731,0.1494467 -0.6346623,0.1591508 C 1.2910703,3.9348107 1.098925,3.6689166 0.93589251,3.4340719 0.60400421,2.9546781 0.34975111,2.0715848 0.69134351,1.4776803 0.86019831,1.1826686 1.1629732,0.99634565 1.4909795,0.99052355 c 0.2484309,-0.00389 0.4852166,0.16885475 0.6385443,0.16885475 0.1513878,0 0.4386357,-0.20767235 0.7394698,-0.17661805 0.1261562,0.0058 0.4793936,0.050461 0.7064746,0.38429115 -0.017468,0.011641 -0.4211675,0.2484302 -0.4172858,0.739469 0.00582,0.5861414 0.5143292,0.7821685 0.5201519,0.7841095 -0.00582,0.013586 -0.081516,0.2794847 -0.2678396,0.5492649 M 2.302261,0.33451092 c 0.1416832,-0.1610916 0.3765278,-0.2833657 0.5706143,-0.2911297 0.025231,0.2270816 -0.065989,0.4561034 -0.2018499,0.619136 C 2.5371057,0.82749085 2.3158471,0.95558795 2.0984702,0.93811975 2.0693552,0.71492092 2.1780452,0.48201712 2.302261,0.33451092 Z"
+     id="path260"
+     style="stroke-width:0.194086" />
 </svg>
