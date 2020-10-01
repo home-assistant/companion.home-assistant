@@ -5,7 +5,7 @@ id: 'universal-links'
 
 Support for these features is active under development and may not be fully released yet.
 
-| Feature   | ![iOS](/assets/apple.svg) iOS | ![android](/assets/android.svg) Android |
+| Feature   | ![iOS](/assets/iOS.svg) iOS | ![Android](/assets/android.svg) Android |
 | --------- | ----------------------------- | --------------------------------------- |
 | NFC Tags  | 2020.5                        | 2.2.0                                   |
 | QR Tags   | 2020.5                        | 2.2.0                                   |
@@ -17,8 +17,8 @@ Home Assistant supports scanning tags as a trigger for your automations. Scanned
 
 A Home Assistant NFC tag or QR code contains a URL that will trigger the tag scanned event to be fired in Home Assistant. The format is a URL `https://www.home-assistant.io/tag/<tag id>` so that Android/iOS know to route this to our app. The app will extract the tag identifier and send it directly to your instance.
 
-- ![iOS](/assets/apple.svg) On iOS, bringing your device near an NFC tag or scanning a QR code will show a notification which, when tapped, will launch the app and fire an event.
-- ![android](/assets/android.svg) On Android, bringing your device near a Home Assistant NFC tag or scanning a QR code will fire an event.
+- ![iOS](/assets/iOS.svg) On iOS, bringing your device near an NFC tag or scanning a QR code will show a notification which, when tapped, will launch the app and fire an event.
+- ![Android](/assets/android.svg) On Android, bringing your device near a Home Assistant NFC tag or scanning a QR code will fire an event.
 
 The event which fires is the same on both iOS and Android: `tag_scanned`. Example Automation:
 
@@ -53,7 +53,7 @@ You can write NFC tags by opening the app -> App Configuration -> NFC Cards -> W
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/xE7wm1bxRLs" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## ![iOS](/assets/apple.svg) Old-Style Universal Links
+## ![iOS](/assets/iOS.svg) Old-Style Universal Links
 
 Universal links are a alternative to the [URL Handler](integrations/url-handler.md) and [X-Callback-URL](integrations/x-callback-url.md).
 

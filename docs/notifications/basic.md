@@ -23,7 +23,7 @@ The mobile_app platform provides many enhancements to the simple notification ge
 
 ### Including Links
 
-![iOS](/assets/apple.svg)
+![iOS](/assets/iOS.svg)
 If you include a URL in your notification, tapping on the notification will open that URL. You may use external or internal (relative) URL's. The below example sends a notification that when tapped will open the Home Assistant app into a Lovelace view of your cameras.
 
 ```yaml
@@ -45,10 +45,10 @@ URL's can alternatively be included in the `message:` portion of your notificati
 You can change which iOS browser notifications open in under App Configuration -> General and can turn off the confirmation prompt under App Configuration -> Notifications.
 
 
-![android](/assets/android.svg) Android users can achieve this through the use of [actionable notifications](/docs/notifications/actionable-notifications#building-automations-for-notification-actions) or [click action](#notification-click-action).
+![Android](/assets/android.svg) Android users can achieve this through the use of [actionable notifications](/docs/notifications/actionable-notifications#building-automations-for-notification-actions) or [click action](#notification-click-action).
 
 ### Notification Sounds
-![iOS](/assets/apple.svg)
+![iOS](/assets/iOS.svg)
 By default the default iOS notification sound (Tri-tone) will be played upon receiving a notification. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be disabled by setting `sound` to `none` in the data payload:
 
 ```yaml
@@ -66,7 +66,7 @@ automation:
 ```
 
 ### Badge
-![iOS](/assets/apple.svg)
+![iOS](/assets/iOS.svg)
 You can set the app icon badge in the payload. The below example will make the app icon badge say 5:
 
 ```yaml
@@ -87,7 +87,7 @@ automation:
 By setting the message to `delete_alert` you can silently update the app badge icon in the background without sending a notification to your phone.
 
 ### Subtitle
-![iOS](/assets/apple.svg)
+![iOS](/assets/iOS.svg)
 A subtitle is supported in addition to the title:
 
 ```yaml
@@ -105,7 +105,7 @@ automation:
 ```
 
 ### Thread-id (grouping notifications)
-![iOS](/assets/apple.svg)
+![iOS](/assets/iOS.svg)
 Grouping of notifications is supported on iOS 12 and above. All notifications with the same thread-id will be grouped together in the notification center. Without a thread-id, all notifications from the app will be placed in a single group.
 
 ```yaml
@@ -123,7 +123,7 @@ automation:
             thread-id: "example-notification-group"
 ```
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 For Android we will need to use the `group` property in order to group the notifications together and declutter the notification pull-down.
 
 ```yaml
@@ -140,7 +140,7 @@ automation:
 ```
 
 ### Replacing notifications
-![iOS](/assets/apple.svg)
+![iOS](/assets/iOS.svg)
 Existing notifications can be replaced using `apns-collapse-id`. This will continue to send you notifications but replace an existing one with that same `apns-collapse-id`. When sending consecutive messages with the same `apns-collapse-id` to the same device, only the most recent will be shown. This is especially useful for motion and door sensor notifications.
 
 ```yaml
@@ -158,7 +158,7 @@ automation:
             'apns-collapse-id': 'backyard-motion-detected'
 ```
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 For Android users you can easily replace the notification using the `tag` service data.
 
 ```yaml
@@ -175,7 +175,7 @@ automation:
           tag: tag
 ```
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 You can also remove a notification by sending `clear_notification` to the same `tag`
 
 ```yaml
@@ -192,7 +192,7 @@ automation:
 ```
 
 ### Sending notifications to multiple devices
-![iOS](/assets/apple.svg) ![android](/assets/android.svg)
+![iOS](/assets/iOS.svg) ![Android](/assets/android.svg)
 To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/components/notify.group/):
 ```yaml
 notify:
@@ -217,7 +217,7 @@ Now, you can send notifications to everyone in the group using.  If you plan to 
 ```
 
 ### Controlling how a notification is displayed when in the foreground
-![iOS](/assets/apple.svg)
+![iOS](/assets/iOS.svg)
 By default, if the app is open (in the foreground) when a notification arrives, it will display the same as when the app is not active (in the background), with a visual alert showing notification contents, a badge update (if one was sent in the notification) and the sound of your choice. You can control how a notification is displayed when the app is in the foreground by setting the `presentation_options` string array. Allowed values are `alert`, `badge` and `sound`.
 
 ```yaml
@@ -237,7 +237,7 @@ automation:
 
 ### Notification Color
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 In Android you can set the `color` of the notification, you can use either the color name or the hex code.
 
 ```yaml
@@ -256,7 +256,7 @@ automation:
 
 ### Sticky Notification
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 You can set whether to dismiss the notification upon selecting it or not. Setting `sticky` to `'true'` will keep the notification from being dismissed when the user selects it. Setting it to `'false'` (default) will dismiss the notification upon selecting it.
 
 ```yaml
@@ -275,7 +275,7 @@ automation:
 
 ### Notification Click Action
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 When a notification is selected the user can either be navigated to a specific lovelace view, dashboard or you can have a webpage open to any URL. If you plan to use a lovelace view the format would be `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view. If you plan to use a lovelace dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards-and-views/#dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard. The default behavior is to just open the Home Assistant app and load the default view.
 
 ```yaml
@@ -294,7 +294,7 @@ automation:
 
 ### Notification Channels
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 Notification channels allows users to separate their notifications easily (i.e. alarm vs laundry) so they can customize aspects like what type of sound is made and a lot of other device specific features. Devices running Android 8.0+ are able to create and manage notification channels on the fly using automations. Once a channel is created you can navigate to your notification settings and you will find the newly created channel, from there you can customize the behavior based on what your device allows.
 
 #### Creating a channel
@@ -357,7 +357,7 @@ Devices running Android 5.0-7.1.2 do not have channels and do not need to worry 
 
 ### Notification Channel Importance
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 When you are setting the `channel` for your notification you also have the option to set the `importance` for the `channel` per notification. Possible values for this property are `high`, `low`, `max`, `min` and `default`. To learn more about what each value does see the [FCM docs](https://developer.android.com/training/notify-user/channels#importance). For devices before Android 8.0 this property can be used like `priority` with the same options described up above.
 
 See [Specific channel properties](#specific-channel-properties) for important behavior of this property.
@@ -377,7 +377,7 @@ See [Specific channel properties](#specific-channel-properties) for important be
 
 ### Notification Vibration Pattern 
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 You can set the vibration pattern for the `channel` by setting the `vibrationPattern` property. Possible values are a list of numbers. eg. "100, 1000, 100, 1000, 100" etc.. The pattern specification is "off time, on time, off time, on time, off time" etc.
 
 See [Specific channel properties](#specific-channel-properties) for important behavior of this property.
@@ -397,7 +397,7 @@ See [Specific channel properties](#specific-channel-properties) for important be
 
 ### Notification LED Color
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 Some Android devices have a multi-color notification LED.  By setting the `ledColor` property you can control what color the LED will flash. Possible values are the same as for property [color](#notification-color) eg '#2DF56D' # or 'red'.
 
 See [Specific channel properties](#specific-channel-properties) for important behavior of this property.
@@ -417,7 +417,7 @@ See [Specific channel properties](#specific-channel-properties) for important be
 
 ### Persistent Notification
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 Persistent notifications are notifications that cannot be dimissed by swiping away. These are useful if you have something important like an alarm being triggered. In order to use this property you must set the `tag` property as well. The `persistent` property only takes boolean (`true/false`) values, with `false` being the default. The persistent notification will still be dismissed once selected, to avoid this use `sticky: true` so the notification stays.
 
 In the example below we will create a notification and then later on we will remove it.
@@ -451,7 +451,7 @@ To remove the persistent notification we send `clear_notification` to the `tag` 
 
 ### Notification Subject
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 If your notification is going to have a lot of text (more than 6 lines) you can opt to show smaller text by setting the `subject`.
 
 ```yaml
@@ -469,7 +469,7 @@ If your notification is going to have a lot of text (more than 6 lines) you can 
 
 ### Notification Timeout
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 You can set how long a notification will be shown on a users device before being removed/dismissed automatically. You may use the `timeout` property along with the value in seconds to achieve this.
 
 ```yaml
@@ -486,7 +486,7 @@ You can set how long a notification will be shown on a users device before being
 
 ### Notification Message HTML Formatting
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 You can add some custom HTML tags to the `message` of your notification.
 
 ```yaml
@@ -502,7 +502,7 @@ You can add some custom HTML tags to the `message` of your notification.
 
 ### Notification Icon
 
-![android](/assets/android.svg)
+![Android](/assets/android.svg)
 You can set the icon for a notification by providing the `icon_url`. The URL provided must be either publicly accessible or can be a relative path (i.e. `/local/icon/icon.png`), more details can be found in [attachments](attachments.md). It is important to note that if you set the `image` then Android will not show the icon for the notification, the `image` will be shown in its place. So the `message` will be shown with the `image` and with the image as the icon.
 
 ```yaml

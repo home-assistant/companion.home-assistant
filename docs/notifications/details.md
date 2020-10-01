@@ -10,7 +10,7 @@ No notification content is stored on remote servers. Only the required push regi
 ## Architecture
 To provide the notification service, the app uses Google's Firebase cloud messaging service. For more information about Firebase, please [click here](https://firebase.google.com/docs/cloud-messaging).
 
-![iOS](/assets/apple.svg) If you wish to not exchange data with Google's servers, you can opt out of the Firebase services in the Privacy section of App Configuration within the app itself. Doing so will stop notifications from functioning.  
+![iOS](/assets/iOS.svg) If you wish to not exchange data with Google's servers, you can opt out of the Firebase services in the Privacy section of App Configuration within the app itself. Doing so will stop notifications from functioning.  
 
 ## Rate limiting
 

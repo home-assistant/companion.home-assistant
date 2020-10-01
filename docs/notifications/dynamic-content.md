@@ -3,7 +3,7 @@ title: "Dynamic attachments"
 id: "dynamic-content"
 ---
 
-![iOS](/assets/apple.svg) iOS Specific
+![iOS](/assets/iOS.svg) iOS Specific
 
 Dynamic content such as maps and camera streams can be displayed as part of a notification without needing to open an app.
 

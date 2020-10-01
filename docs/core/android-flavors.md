@@ -3,7 +3,7 @@ title: "Android Flavors"
 id: 'android-flavors'
 ---
 
-The ![android](/assets/android.svg) Android app is being offered in 2 different flavors as either `full` or `minimal`. The `full` flavor of the app is offered via the [Play Store](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) and has the full set of features offered as it requires Google Play Services. The `full` flavor is offered for both production and [beta releases](https://play.google.com/apps/testing/io.homeassistant.companion.android).
+The ![Android](/assets/android.svg) Android app is being offered in 2 different flavors as either `full` or `minimal`. The `full` flavor of the app is offered via the [Play Store](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) and has the full set of features offered as it requires Google Play Services. The `full` flavor is offered for both production and [beta releases](https://play.google.com/apps/testing/io.homeassistant.companion.android).
 
 The `minimal` flavor of the app does not require Google Play Services and can be found on the [releases](https://github.com/home-assistant/android/releases) section on GitHub as an APK. This flavor of the app does not offer location tracking nor does it have notifications. The only sensors that will not be available are: [Activity](/core/sensors.md#activity-sensor) and [Geocoded](/core/sensors.md#geocoded-location-sensor).
 

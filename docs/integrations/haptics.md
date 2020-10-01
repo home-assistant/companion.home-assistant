@@ -3,7 +3,7 @@ title: Haptics
 id: 'haptics'
 ---
 
-![iOS](/assets/apple.svg)
+![iOS](/assets/iOS.svg)
 
 Home Assistant Companion for iOS features haptics, which provide physical feedback when interacting with the UI. Areas you will feel haptic feedback include toggles (lights, switches, input_booleans) and input_selects. Certain scenarios such as invalid service call errors will also generate haptic feedback.
 

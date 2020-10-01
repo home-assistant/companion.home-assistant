@@ -5,17 +5,17 @@ id: 'core'
 
 The Home Assistant Companion App provides a convenient way to view and control your Home Assistant instance however it also extends the power of your instance by allowing your device to act as a data source. The Home Assistant Companion App adds numerous [sensors](sensors.md) (such as battery and network status among others), creates a `device_tracker` entity to allow [location](location.md) updates to be sent from the device and also provides [action shortcuts](actions.md) to trigger scripts or automations.
 
-Not all features are supported by Android at the moment but eventually most features will be supported.  Look for the ![android](/assets/android.svg) Android logo to see what is currently supported.
+Not all features are supported by Android at the moment but eventually most features will be supported.  Look for the ![Android](/assets/android.svg) Android logo to see what is currently supported.
 
-## ![](/assets/apple.svg) iOS and ![](/assets/android.svg) Android Feature Comparison:
+## Feature Comparison:
 
 <table className="core-table">
   <thead>
     <tr>
       <th><strong>Integrations</strong></th>
-      <th><img alt="android" src="/assets/android.svg" /> Full</th>
-      <th><img alt="android" src="/assets/android.svg" /> Minimal</th>
-      <th><img alt="iOS" src="/assets/apple.svg" /></th>
+      <th><img alt="Android" src="/assets/android.svg" /> Full</th>
+      <th><img alt="Android" src="/assets/android.svg" /> Minimal</th>
+      <th><img alt="iOS" src="/assets/iOS.svg" /></th>
       </tr>
   </thead>
   <tbody>
@@ -83,9 +83,9 @@ Not all features are supported by Android at the moment but eventually most feat
   <thead>
     <tr>
       <th><strong>Location Updates</strong></th>
-      <th><img alt="android" src="/assets/android.svg" /> Full</th>
-      <th><img alt="android" src="/assets/android.svg" /> Minimal</th>
-      <th><img alt="iOS" src="/assets/apple.svg" /></th>
+      <th><img alt="Android" src="/assets/android.svg" /> Full</th>
+      <th><img alt="Android" src="/assets/android.svg" /> Minimal</th>
+      <th><img alt="iOS" src="/assets/iOS.svg" /></th>
     </tr>
   </thead>
   <tbody>
@@ -153,9 +153,9 @@ Not all features are supported by Android at the moment but eventually most feat
   <thead>
     <tr>
       <th><strong>Notifications</strong></th>
-      <th><img alt="android" src="/assets/android.svg" /> Full</th>
-      <th><img alt="android" src="/assets/android.svg" /> Minimal</th>
-      <th><img alt="iOS" src="/assets/apple.svg" /></th>
+      <th><img alt="Android" src="/assets/android.svg" /> Full</th>
+      <th><img alt="Android" src="/assets/android.svg" /> Minimal</th>
+      <th><img alt="iOS" src="/assets/iOS.svg" /></th>
     </tr>
   </thead>
   <tbody>
@@ -319,9 +319,9 @@ Not all features are supported by Android at the moment but eventually most feat
   <thead>
     <tr>
       <th><strong>Sensors</strong></th>
-      <th><img alt="android" src="/assets/android.svg" /> Full</th>
-      <th><img alt="android" src="/assets/android.svg" /> Minimal</th>
-      <th><img alt="iOS" src="/assets/apple.svg" /></th>
+      <th><img alt="Android" src="/assets/android.svg" /> Full</th>
+      <th><img alt="Android" src="/assets/android.svg" /> Minimal</th>
+      <th><img alt="iOS" src="/assets/iOS.svg" /></th>
     </tr>
   </thead>
   <tbody>

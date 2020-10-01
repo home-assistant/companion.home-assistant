@@ -3,7 +3,7 @@ title: App Events
 id: 'app-events'
 ---
 
-![iOS](/assets/apple.svg)
+![iOS](/assets/iOS.svg)
 
 ## Overview
 
