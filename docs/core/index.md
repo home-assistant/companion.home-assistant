@@ -368,6 +368,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
+      <td><a href="/docs/core/sensors#call-number-sensor">Call Number</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#connection-type-sensor">Connection Type</a></td>
       <td>✅</td>
       <td>✅</td>
