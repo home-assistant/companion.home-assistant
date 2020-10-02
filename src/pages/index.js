@@ -16,14 +16,14 @@ const features = [
           <br />
           <b><a href='/docs/core/core'>Core Features</a></b> The best bits of the Companion App.
           <br />
-            <b><a href='/docs/notifications/notifications-basic'>Notifications</a></b>
-            {' '}Remain constantly informed, even when away from home.
+          <b><a href='/docs/notifications/notifications-basic'>Notifications</a></b>
+          {' '}Remain constantly informed, even when away from home.
             <br />
-            <b><a href='docs/integrations/integrations'>Integrations</a></b>
-            {' '}All the ways you can integrate Home Assistant into iOS, watchOS and other apps.
+          <b><a href='docs/integrations/integrations'>Integrations</a></b>
+          {' '}All the ways you can integrate Home Assistant into iOS, watchOS and other apps.
             <br />
-            <b><a href='/docs/troubleshooting/faqs'>Troubleshooting</a></b>
-            {' '}If you need some help, this is a great place to start.
+          <b><a href='/docs/troubleshooting/faqs'>Troubleshooting</a></b>
+          {' '}If you need some help, this is a great place to start.
           </p>
       </>
     ),
@@ -32,19 +32,19 @@ const features = [
     title: <>Get The Apps</>,
     description: (
       <>
-        <a href="https://apps.apple.com/us/app/home-assistant/id1099568401?mt=8" style={{display:'inline-block', overflow: 'hidden', background: 'url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2017-04-15&kind=iossoftware&bubble=apple_music) no-repeat center', width: '155px', height: '40px'}}></a>
+        <a href="https://apps.apple.com/us/app/home-assistant/id1099568401?mt=8" style={{ display: 'inline-block', overflow: 'hidden', background: 'url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2017-04-15&kind=iossoftware&bubble=apple_music) no-repeat center', width: '155px', height: '40px' }}></a>
         <br />
         <a href='https://play.google.com/store/apps/details?id=io.homeassistant.companion.android&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
-        <img alt='Get it on Google Play' width="155" src='https://play.google.com/intl/en_gb/badges/static/images/badges/en_badge_web_generic.png'/>
+          <img alt='Get it on Google Play' width="155" src='https://play.google.com/intl/en_gb/badges/static/images/badges/en_badge_web_generic.png' />
         </a>
         <h2>Source Code</h2>
         <ul>
           <li><a href="https://github.com/home-assistant/iOS">
-              Home Assistant for iOS
+            Home Assistant for iOS
             </a>
           </li>
-            <li><a href="https://github.com/home-assistant/android">
-              Home Assistant  for Android
+          <li><a href="https://github.com/home-assistant/android">
+            Home Assistant  for Android
             </a>
           </li>
         </ul>
@@ -55,11 +55,11 @@ const features = [
     title: <>Popular Sections</>,
     description: (
       <>
-      <ul style={{ flex: "1" }}>
-        <li><a href='/docs/getting_started/migration'>
+        <ul style={{ flex: "1" }}>
+          <li><a href='/docs/getting_started/migration'>
             Migrating to version 2019.1
         </a></li>
-        <li><a href='/docs/notifications/actionable-notifications'>
+          <li><a href='/docs/notifications/actionable-notifications'>
             Actionable notifications
           </a></li>
           <li><a href='/docs/integrations/url-handler'>
@@ -71,7 +71,7 @@ const features = [
   },
 ];
 
-function Feature({imageUrl, title, description}) {
+function Feature({ imageUrl, title, description }) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
     <div className={classnames('col col--4', styles.feature)}>
@@ -83,24 +83,31 @@ function Feature({imageUrl, title, description}) {
 
 function Home() {
   const context = useDocusaurusContext();
-  const {siteConfig = {}} = context;
+  const { siteConfig = {} } = context;
   return (
     <Layout
       title={`${siteConfig.title}`}
       description="Welcome to the Home Assistant App docs">
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
-            <Link
-              className={classnames(
-                'button button--outline button--secondary button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('docs/getting_started/getting-started')}>
-              Get Started
-            </Link>
+          <div className="row">
+            <div className={classnames('col col--5')}>
+              <img className={styles.heroLogo} alt="Home Assistant Logo" src="/img/logo-white.svg" />
+            </div>
+            <div className={classnames('col col--5')}>
+              <h1 className={styles.heroTitle}>{siteConfig.title}</h1>
+              <p className={styles.heroTagline}>{siteConfig.tagline}</p>
+              <div className={styles.buttons}>
+                <Link
+                  className={classnames(
+                    'button button--outline button--secondary button--lg',
+                    styles.getStarted,
+                  )}
+                  to={useBaseUrl('docs/getting_started/getting-started')}>
+                  Get Started
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </header>
