@@ -3,7 +3,7 @@ title: "Beta testing: cleaning between builds"
 id: 'resetting'
 ---
 
-![iOS](/assets/apple.svg) Users who have been taking part in the beta testing of 2.0 have likely been through many builds and picked up several sensors which are now redundant. ![android](/assets/android.svg) Android users who have installed the [Play Store beta builds](https://play.google.com/apps/testing/io.homeassistant.companion.android) may also find that they need to start with a fresh integration to clear things up.  The following steps will allow you to carry out a _scorched earth_ removal of previous builds from your Home Assistant instance and get you running again.
+![iOS](/assets/iOS.svg) Users who have been taking part in the beta testing of 2.0 have likely been through many builds and picked up several sensors which are now redundant. ![Android](/assets/android.svg) Android users who have installed the [Play Store beta builds](https://play.google.com/apps/testing/io.homeassistant.companion.android) may also find that they need to start with a fresh integration to clear things up.  The following steps will allow you to carry out a _scorched earth_ removal of previous builds from your Home Assistant instance and get you running again.
 
 :::tip
 In most cases, the connection between Home Assistant and the Companion App can be fully removed by deleting the relevant "Mobile App" integration from within Home Assistant. This can be found in "Configuration" and then "Integrations". After doing this you can uninstall the Companion App from your device and (if desired) reinstall. If you have an Apple Watch, it is worth checking that the Home Assistant Companion App has been uninstalled from your Watch before reinstalling.

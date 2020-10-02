@@ -7,7 +7,7 @@ Along with providing [location services](location.md), the companion app also ad
 
 The sensors provided by the companion app are:
 
-![iOS](/assets/apple.svg) iOS Sensor List
+![iOS](/assets/iOS.svg)Sensor List
 
 **It is important to know that these sensors are only updated when a location is pushed to Home Assistant or the web view is refreshed**.
 
@@ -36,9 +36,9 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 {{ states.sensor.connection_type.attributes['Cellular Technology'] }}
 ```
 
-![android](/assets/android.svg) Android Sensor List
+![Android](/assets/android.svg) Android Sensor List
 
-Each ![android](/assets/android.svg) sensor below can be enabled by navigating to the `App Configuration` page then selecting `Manage Sensors`. By default, most are disabled with the exception of the [battery sensors](#battery-sensors) and any that were given permission during onboarding. Once enabled the sensor will begin to send data to your Home Assistant server, if you chose to disable it later on the sensor will stop updating. If you do not see a sensor listed below then your device does not support it. Some of the sensors below offer custom settings for each of their own needs, read about each one to see what it offers. These settings can be found in the same location where you enable the sensor.
+Each ![Android](/assets/android.svg) sensor below can be enabled by navigating to the `App Configuration` page then selecting `Manage Sensors`. By default, most are disabled with the exception of the [battery sensors](#battery-sensors) and any that were given permission during onboarding. Once enabled the sensor will begin to send data to your Home Assistant server, if you chose to disable it later on the sensor will stop updating. If you do not see a sensor listed below then your device does not support it. Some of the sensors below offer custom settings for each of their own needs, read about each one to see what it offers. These settings can be found in the same location where you enable the sensor.
 
 All sensors update during a periodic 15-minute interval and they will also update if other certain conditions are met. Read about each sensor below to understand how often to expect updates. During the 15-minute update interval a low priority foreground notification is temporarily created to prevent the Android system from halting the worker. This notification does not make a sound unless the user has installed a third-party app that intercepts notifications and decides to make a sound. If you are on Android 8.0+ you are free to minimize and/or turn off the notification channel for the `SensorWorker`.
 
@@ -69,7 +69,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 
 
 ## Activity Sensor
-![iOS](/assets/apple.svg) `sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
+![iOS](/assets/iOS.svg) `sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
 *   `Stationary`
 *   `Walking`
 *   `Running`
@@ -85,7 +85,7 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 *   `Medium`
 *   `High`
 
-![android](/assets/android.svg) This sensor is only available on the full flavor of the Android app that is found in the Google Play Store, it is not available for the minimal flavor. For android the user will have a different set of states to go by:
+![Android](/assets/android.svg) This sensor is only available on the full flavor of the Android app that is found in the Google Play Store, it is not available for the minimal flavor. For android the user will have a different set of states to go by:
 *   `in_vehicle`
 *   `on_bicycle`
 *   `on_foot`
@@ -99,7 +99,8 @@ The attribute for the state will reflect the `confidence` rating from the [Activ
 
 
 ## Audio Sensors
-![android](/assets/android.svg) These sensors use the [AudioManager](https://developer.android.com/reference/kotlin/android/media/AudioManager?hl=en) so the state will represent the ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. The sensor will update any time the ringer mode on the device has changed. There are also additional attributes that trigger updates as mentioned below:
+![Android](/assets/android.svg) <br />
+These sensors use the [AudioManager](https://developer.android.com/reference/kotlin/android/media/AudioManager?hl=en) so the state will represent the ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. The sensor will update any time the ringer mode on the device has changed. There are also additional attributes that trigger updates as mentioned below:
 
 | Sensor | Description |
 | --------- | --------- |
@@ -113,9 +114,11 @@ The attribute for the state will reflect the `confidence` rating from the [Activ
 
 
 ## Battery Sensors
-![iOS](/assets/apple.svg) The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
+![iOS](/assets/iOS.svg) <br />
+The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
 
-![android](/assets/android.svg) The battery sensors listed below describe the state of the battery for a few different data points. The sensors icon reflects the charging status, and type of charging being used. The `battery_state`, `charger_type` and `is_charging` sensor will be updated when the device has a charger connected or disconnected. The `battery_health` and `battery_level` sensor will be updated any time any of the other sensors get an update as well as when the device reports low battery and when it has recovered from the low battery alert. All of these sensors make use of [BatteryManager](https://developer.android.com/reference/android/os/BatteryManager?hl=en).
+![Android](/assets/android.svg)<br />
+The battery sensors listed below describe the state of the battery for a few different data points. The sensors icon reflects the charging status, and type of charging being used. The `battery_state`, `charger_type` and `is_charging` sensor will be updated when the device has a charger connected or disconnected. The `battery_health` and `battery_level` sensor will be updated any time any of the other sensors get an update as well as when the device reports low battery and when it has recovered from the low battery alert. All of these sensors make use of [BatteryManager](https://developer.android.com/reference/android/os/BatteryManager?hl=en).
 
 | Sensor | Description |
 | --------- | --------- |
@@ -127,7 +130,8 @@ The attribute for the state will reflect the `confidence` rating from the [Activ
 
 
 ## Bluetooth Sensor
-![android](/assets/android.svg) This sensors state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes. This sensor makes use of Android's [Bluetooth](https://developer.android.com/reference/android/bluetooth/package-summary?hl=en) package.
+![Android](/assets/android.svg)<br />
+This sensors state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes. This sensor makes use of Android's [Bluetooth](https://developer.android.com/reference/android/bluetooth/package-summary?hl=en) package.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -141,23 +145,24 @@ There will also be a binary sensor for the `bluetooth_state` that will represent
 ## Cellular Provider Sensor
 The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
 
-![android](/assets/android.svg) Android users will see these sensors update anytime the network has changed, which makes use of [SubscriptionManager](https://developer.android.com/reference/android/telephony/SubscriptionManager?hl=en).
+![Android](/assets/android.svg) Android users will see these sensors update anytime the network has changed, which makes use of [SubscriptionManager](https://developer.android.com/reference/android/telephony/SubscriptionManager?hl=en).
 
 | Attribute | Description |
 | --------- | --------- |
 | `Carrier Name` | The name of the user’s home cellular service provider. |
-| `Current Radio Technology` | ![iOS](/assets/apple.svg) only. |
+| `Current Radio Technology` | ![iOS](/assets/iOS.svg) only. |
 | `ISO Country Code` | The ISO country code for the user’s cellular service provider. |
 | `Mobile Country Code` | The mobile country code (MCC) for the user’s cellular service provider. |
 | `Mobile Network Code` | The mobile network code for the user’s cellular service provider. |
 | `Carrier ID` |  |
-| `Allows VoIP` | Indicates if the carrier allows making VoIP calls on its network. ![iOS](/assets/apple.svg) |
-| `Is Opportunistic` | An opportunistic subscription connects to a network that is limited in functionality and / or coverage. ![android](/assets/android.svg) |
-| `Data Roaming` | Is data roaming enabled for the device. ![android](/assets/android.svg) |
+| `Allows VoIP` | Indicates if the carrier allows making VoIP calls on its network. ![iOS](/assets/iOS.svg) |
+| `Is Opportunistic` | An opportunistic subscription connects to a network that is limited in functionality and / or coverage. ![Android](/assets/android.svg) |
+| `Data Roaming` | Is data roaming enabled for the device. ![Android](/assets/android.svg) |
 
 
 ## Connection Type Sensor
-![iOS](/assets/apple.svg) The following connection types are known by the companion app:
+![iOS](/assets/iOS.svg)<br />
+The following connection types are known by the companion app:
 *   `Wi-Fi`
 *   `Cellular`
 *   `No Connection`
@@ -172,7 +177,8 @@ A more specific description of the data connection can be found in the `Cellular
 
 If the connection type is not recognized, either `Unknown` or `Unknown Technology` will be returned.
 
-![android](/assets/android.svg) For Android several different types of connection sensors are available and they will update when a network state change has been detected:
+![Android](/assets/android.svg)<br />
+For Android several different types of connection sensors are available and they will update when a network state change has been detected:
 
 | Sensor | Description |
 | --------- | --------- |
@@ -184,14 +190,16 @@ If the connection type is not recognized, either `Unknown` or `Unknown Technolog
 | `signal_strength` | The signal strength of teh device to the WiFi network |
 | `wifi_state` | Whether or not WiFi is turned on for the device |
 
-![android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. These settings are turned off by default.
+![Android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. These settings are turned off by default.
 
 ## Do Not Disturb Sensor
-![android](/assets/android.svg) This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes. This sensor uses a [Global](https://developer.android.com/reference/kotlin/android/provider/Settings.Global?hl=en) variable that is not officially documented but has been available since Android 5.0.
+![Android](/assets/android.svg)<br />
+This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes. This sensor uses a [Global](https://developer.android.com/reference/kotlin/android/provider/Settings.Global?hl=en) variable that is not officially documented but has been available since Android 5.0.
 
 
 ## Doze Sensor
-![android](/assets/android.svg) This sensor is only available on devices running Android 6.0+. The state will reflect whether or not the device is in doze mode. The state will update immediately upon a state change and data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html). There is one attribute `ignoring_battery_optimizations` which will show `true` or `false` if the Companion app is ignoring battery optimizations. If you are curious about how the state actually changes you may test it by following these [outlined steps](https://developer.android.com/training/monitoring-device-state/doze-standby#testing_doze).
+![Android](/assets/android.svg)<br />
+This sensor is only available on devices running Android 6.0+. The state will reflect whether or not the device is in doze mode. The state will update immediately upon a state change and data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html). There is one attribute `ignoring_battery_optimizations` which will show `true` or `false` if the Companion app is ignoring battery optimizations. If you are curious about how the state actually changes you may test it by following these [outlined steps](https://developer.android.com/training/monitoring-device-state/doze-standby#testing_doze).
 
 
 ## Geocoded Location Sensor
@@ -202,10 +210,10 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | Attribute | Description |
 | --------- | --------- |
 | `Location` | The latitude and longitude coordinates of the placemark. |
-| `Name` | The name of the placemark. ![iOS](/assets/apple.svg) iOS only, for Android check the state of the sensor. |
+| `Name` | The name of the placemark. ![iOS](/assets/iOS.svg) iOS only, for Android check the state of the sensor. |
 | `Country` | The name of the country associated with the placemark. |
 | `ISOCountryCode` | The abbreviated country name. |
-| `TimeZone` | The time zone associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
+| `TimeZone` | The time zone associated with the placemark. ![iOS](/assets/iOS.svg) iOS only |
 | `AdministrativeArea` | The state or province associated with the placemark. |
 | `SubAdministrativeArea` | Additional administrative area information for the placemark. |
 | `PostalCode` | The postal code associated with the placemark. |
@@ -213,19 +221,20 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `SubLocality` | Additional city-level information for the placemark. |
 | `Thoroughfare` | The street address associated with the placemark. |
 | `SubThoroughfare` | Additional street-level information for the placemark. |
-| `AreasOfInterest` | The relevant areas of interest associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
-| `Ocean` | The name of the ocean associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
-| `InlandWater` | The name of the inland water body associated with the placemark. ![iOS](/assets/apple.svg) iOS only |
+| `AreasOfInterest` | The relevant areas of interest associated with the placemark. ![iOS](/assets/iOS.svg) iOS only |
+| `Ocean` | The name of the ocean associated with the placemark. ![iOS](/assets/iOS.svg) iOS only |
+| `InlandWater` | The name of the inland water body associated with the placemark. ![iOS](/assets/iOS.svg) iOS only |
 
-![android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports.
+![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports.
 
 ## Interactive Sensor
-![android](/assets/android.svg) This sensors state will reflect if the device is in an interactive state. This is typically when the screen comes on and off but may vary from device to device. This sensor will update as soon state changes are detected, data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
+![Android](/assets/android.svg) This sensors state will reflect if the device is in an interactive state. This is typically when the screen comes on and off but may vary from device to device. This sensor will update as soon state changes are detected, data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
 
 Using the [History Stats Integration](https://www.home-assistant.io/integrations/history_stats/), it is possible to monitor both the daily screen time `type: time` as well as the amount of times the screen has been turned on that day `type: count`.
 
 ## Last Reboot Sensor
-![android](/assets/android.svg) This sensors state will be the date and time of the last reboot from the device in UTC format. The sensor will update during the normal sensor update interval. The state will be `unavailable` if the timestamp cannot be determined. This sensor uses the [SystemClock](https://developer.android.com/reference/android/os/SystemClock?hl=en) and current [System](https://developer.android.com/reference/java/lang/System?hl=en) time to calculate the timestamp. This sensor offers a deadband setting, that defaults to 1 minute, to account for time calculation issues seen over certain carriers.
+![Android](/assets/android.svg)<br />
+This sensors state will be the date and time of the last reboot from the device in UTC format. The sensor will update during the normal sensor update interval. The state will be `unavailable` if the timestamp cannot be determined. This sensor uses the [SystemClock](https://developer.android.com/reference/android/os/SystemClock?hl=en) and current [System](https://developer.android.com/reference/java/lang/System?hl=en) time to calculate the timestamp. This sensor offers a deadband setting, that defaults to 1 minute, to account for time calculation issues seen over certain carriers.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -234,7 +243,8 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 
 
 ## Last Update Trigger Sensor
-![iOS](/assets/apple.svg) This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
+![iOS](/assets/iOS.svg)<br />
+This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
 
 | State | Description |
 | --------- | --------- |
@@ -252,11 +262,13 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 | Signaled | Triggered when the app detects a change, such as battery state changes, while running. |
 
 ## Light Sensor
-![android](/assets/android.svg) This sensor will reflect the current level of illuminance the device detects. The sensor updates during the normal sensor update interval or with the other sensor updates and makes use of [Environment Sensors](https://developer.android.com/guide/topics/sensors/sensors_environment).
+![Android](/assets/android.svg)<br />
+This sensor will reflect the current level of illuminance the device detects. The sensor updates during the normal sensor update interval or with the other sensor updates and makes use of [Environment Sensors](https://developer.android.com/guide/topics/sensors/sensors_environment).
 
 
 ## Next Alarm Sensor
-![android](/assets/android.svg) This sensors state will be the date and time of the next alarm in UTC format. The sensor will update as soon as the next alarm is scheduled. The state will be `unavailable` when there is no next alarm. This sensor makes use of [AlarmManager](https://developer.android.com/reference/android/app/AlarmManager?hl=en) to get the next scheduled alarm which can be set by any app at any time. This sensor has settings that will let you create an allow list by selecting the packages you want to get alarm events from, just keep in mind the API is only able to get the next scheduled alarm. This setting is turned off by default.
+![Android](/assets/android.svg)<br />
+This sensors state will be the date and time of the next alarm in UTC format. The sensor will update as soon as the next alarm is scheduled. The state will be `unavailable` when there is no next alarm. This sensor makes use of [AlarmManager](https://developer.android.com/reference/android/app/AlarmManager?hl=en) to get the next scheduled alarm which can be set by any app at any time. This sensor has settings that will let you create an allow list by selecting the packages you want to get alarm events from, just keep in mind the API is only able to get the next scheduled alarm. This setting is turned off by default.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -266,7 +278,8 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 
 
 ## Pedometer Sensors
-![iOS](/assets/apple.svg) The pedometer sensors provide step-counting data from the devices built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
+![iOS](/assets/iOS.svg)<br />
+The pedometer sensors provide step-counting data from the devices built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
 
 | Sensor | Description |
 | --------- | --------- |
@@ -276,31 +289,37 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 | `sensor.floors_ascended` | The approximate number of floors ascended by walking. |
 | `sensor.floors_descended` | The approximate number of floors descended by walking. |
 
-![android](/assets/android.svg) Android users will only have a `sensor.steps` entity which will represent the total number of steps taken since the last device reboot. A recommended approach to getting your daily step count is to use the [Utility Meter integration](https://www.home-assistant.io/integrations/utility_meter) with `cycle: daily`. This sensor will update during the normal sensor update interval and makes use of the [Motion Sensor](https://developer.android.com/guide/topics/sensors/sensors_motion?hl=en).
+![Android](/assets/android.svg) Android users will only have a `sensor.steps` entity which will represent the total number of steps taken since the last device reboot. A recommended approach to getting your daily step count is to use the [Utility Meter integration](https://www.home-assistant.io/integrations/utility_meter) with `cycle: daily`. This sensor will update during the normal sensor update interval and makes use of the [Motion Sensor](https://developer.android.com/guide/topics/sensors/sensors_motion?hl=en).
 
 
 ## Phone State Sensor
-![android](/assets/android.svg) This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your devices `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`. This sensor will update anytime a phone state change is detected and makes use of [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en).
+![Android](/assets/android.svg)<br />
+This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your devices `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`. This sensor will update anytime a phone state change is detected and makes use of [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en).
 
 
 ## Power Save Sensor
-![android](/assets/android.svg) This sensor will show the state of power save mode on the device. Depending on the device this is usually a user configurable option to indicate when the device should enter a special power saving mode. The state will update as soon as a state change is detected and the sensor makes use of [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
+![Android](/assets/android.svg)<br />
+This sensor will show the state of power save mode on the device. Depending on the device this is usually a user configurable option to indicate when the device should enter a special power saving mode. The state will update as soon as a state change is detected and the sensor makes use of [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
 
 
 ## Pressure Sensor
-![android](/assets/android.svg) This sensor will show the current pressure reading from the device. This sensor will update during the normal sensor update interval and makes use of [Environment Sensors](https://developer.android.com/guide/topics/sensors/sensors_environment).
+![Android](/assets/android.svg)<br />
+This sensor will show the current pressure reading from the device. This sensor will update during the normal sensor update interval and makes use of [Environment Sensors](https://developer.android.com/guide/topics/sensors/sensors_environment).
 
 
 ## Proximity Sensor
-![android](/assets/android.svg) This sensor will show the current proximity reading from the device. This sensor will update during the normal sensor update interval. Not all devices report an actual reading so those devices will show either `near` or `far` depending if the sensors maximum range is `5`. This sensor makes use of [Position Sensors](https://developer.android.com/guide/topics/sensors/sensors_position?hl=en).
+![Android](/assets/android.svg)<br />
+This sensor will show the current proximity reading from the device. This sensor will update during the normal sensor update interval. Not all devices report an actual reading so those devices will show either `near` or `far` depending if the sensors maximum range is `5`. This sensor makes use of [Position Sensors](https://developer.android.com/guide/topics/sensors/sensors_position?hl=en).
 
 
 ## Public IP Sensor
-![android](/assets/android.svg) This sensor uses the [ipify API](https://www.ipify.org/) in order to determine the devices public IP address. This sensor will update during the normal sensor update interval.
+![Android](/assets/android.svg)<br />
+This sensor uses the [ipify API](https://www.ipify.org/) in order to determine the devices public IP address. This sensor will update during the normal sensor update interval.
 
 
 ## Storage Sensor
-![iOS](/assets/apple.svg) This sensor displays information on the device storage. The file sizes reported are in Base-10.
+![iOS](/assets/iOS.svg)<br />
+This sensor displays information on the device storage. The file sizes reported are in Base-10.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -309,7 +328,8 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 | `Available (Opportunistic)` | The volume’s available capacity in bytes for storing nonessential resources. |
 | `Total` | The total storage capacity of your device. |
 
-![android](/assets/android.svg) For Android the behavior is slightly different due to the differences in the 2 operating systems. The state will be the same as iOS where we show the percentage of free space, the attributes will not be identical. These sensors will update during the normal sensor update interval, calculations are done with the help of [StatFs](https://developer.android.com/reference/android/os/StatFs?hl=en).
+![Android](/assets/android.svg)<br />
+For Android the behavior is slightly different due to the differences in the 2 operating systems. The state will be the same as iOS where we show the percentage of free space, the attributes will not be identical. These sensors will update during the normal sensor update interval, calculations are done with the help of [StatFs](https://developer.android.com/reference/android/os/StatFs?hl=en).
 
 `sensor.internal_storage`
 
@@ -327,4 +347,5 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 
 
 ## Traffic Stats Sensor
-![android](/assets/android.svg) These sensors will show the total data transmitted and received by the device. There are both total and mobile sensors to use and the statistics reset on device reboot. These sensors use the [Traffic Stats API](https://developer.android.com/reference/android/net/TrafficStats).
+![Android](/assets/android.svg)<br />
+These sensors will show the total data transmitted and received by the device. There are both total and mobile sensors to use and the statistics reset on device reboot. These sensors use the [Traffic Stats API](https://developer.android.com/reference/android/net/TrafficStats).

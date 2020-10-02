@@ -3,7 +3,7 @@ title: "Actions"
 id: 'actions'
 ---
 
-![iOS](/assets/apple.svg) iOS Specific
+![Apple](/assets/apple.svg) Specific
 
 Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS and [Apple Watch](/apple-watch/apple-watch.md).
 
