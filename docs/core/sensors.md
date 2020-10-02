@@ -51,6 +51,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | [Audio Sensors](#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
 | [Battery Sensors](#battery-sensors) | None | Several different sensors around the state of the devices battery. |
 | `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
+| `sensor.call_number` | None | The number of the current incoming/outgoing call. |
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
@@ -135,6 +136,10 @@ The attribute for the state will reflect the `confidence` rating from the [Activ
 | `Paired Devices` | The list of devices that are paired. |
 
 There will also be a binary sensor for the `bluetooth_state` that will represent whether or not bluetooth is turned on for the device. This sensor will update anytime the state of bluetooth changes.
+
+
+## Call Number Sensor
+![android](/assets/android.svg) This sensors state will reflect the number of the current incoming/outgoing call, the state will be `none` when there is no active call. This sensor works best when paired with the [Phone State Sensor](#phone-state-sensor) as it will update at the same time and uses the [TelephonyManager API](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en).
 
 
 ## Cellular Provider Sensor
