@@ -15,7 +15,7 @@ It is important to note that the attachments are required to be accessible from 
 To expand a notification on 3D Touch devices simply force touch any notification. On non-3D Touch devices swipe and tap the "View" button.
 :::
 
-![iOS](/assets/apple.svg) iOS Example
+![iOS](/assets/iOS.svg)Example
 
 ```yaml
 automation:
@@ -33,12 +33,12 @@ automation:
             hide-thumbnail: false
 ```
 
-Notes ![iOS](/assets/apple.svg):
+![iOS](/assets/iOS.svg)Notes:
 *   The thumbnail of the notification will be the media at the `url`.
 *   The notification content is the media at the `url`.
 *   Attachment can be used with custom push notification categories.
 
-![android](/assets/android.svg) Android Example
+![Android](/assets/android.svg) Android Example
 
 ```yaml
 automation:
@@ -53,7 +53,7 @@ automation:
           image: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
 ```
 
-Notes ![android](/assets/android.svg):
+![Android](/assets/android.svg) &nbsp; Notes:
 *   If you are setting the [`icon_url`](basic.md#notification-icon) and `image` property then only the image will be displayed on the device.
 
 
@@ -79,12 +79,11 @@ Please ensure your attachment meets the criteria below, otherwise it will not sh
 
 
 ## Configuration
-![iOS](/assets/apple.svg) iOS Specific
-
+![iOS](/assets/iOS.svg)Specific<br />
 -   **url** (*Required*): The URL of content to use as the attachment. This URL *must* be accessible from the Internet, or the receiving device must be on the same network as the hosted content.
 -   **content-type** (*Optional*): By default, the extension of the URL will be checked to determine the filetype. If there is no extension/it can't be determined you can manually provide a file extension.
 -   **hide-thumbnail** (*Optional*): If set to `true` the thumbnail will not show on the notification. The content will only be viewable by expanding.
 
-![android](/assets/android.svg) Android Specific
+![Android](/assets/android.svg) Android Specific
 
 -   **image** (*Required*): The URL of the image to use as the attachment. This URL *must* be accessible from the Internet.

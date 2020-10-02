@@ -5,7 +5,7 @@ id: 'sharing'
 
 This feature will be available in the following app versions:
 
-| ![iOS](/assets/apple.svg) iOS | ![android](/assets/android.svg) Android |
+| ![iOS](/assets/iOS.svg) | ![Android](/assets/android.svg) Android |
 | ----------------------------- | --------------------------------------- |
 | 2020.7                        | 2.5.0                                   |
 
