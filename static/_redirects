@@ -19,7 +19,7 @@
 /app/ios/demo https://demo.home-assistant.io
 /app/ios/about-the-move https://www.home-assistant.io/blog/2020/07/28/ios-app-migration/
 /app/ios/nfc /docs/integrations/universal-links
-/app/mac/latest https://github.com/home-assistant/iOS/releases/tag/mac%2F2020.7%2F1
+/app/mac/latest https://github.com/home-assistant/iOS/releases/latest
 
 
 # Documentation restructuring redirects
