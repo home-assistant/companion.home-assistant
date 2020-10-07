@@ -18,8 +18,7 @@ module.exports = {
       'core/sensors'],
     'Notifications': [
       'notifications/notifications-basic',
-      'notifications/notification-sounds',
-      'notifications/notification-details',
+      'notifications/actionable-notifications',
       {
         'type':'category',
         'label':'Attachments',
@@ -28,9 +27,11 @@ module.exports = {
           'notifications/dynamic-content'
         ]
       },
-      'notifications/actionable-notifications',
+      'notifications/critical-notifications',
+      'notifications/notification-details',
       'notifications/location-notification',
-      'notifications/critical-notifications'],
+      'notifications/notification-dismissed',
+      'notifications/notification-sounds'],
     'Integrations': [
       'integrations/integrations',
       'integrations/android-widgets',
