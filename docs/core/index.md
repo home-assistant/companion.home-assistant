@@ -286,6 +286,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
+      <td><a href="/docs/notifications/notifications-basic#text-to-speech-notifications">Text to Speech</a></td>
+      <td>✅</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/notifications/notifications-basic#thread-id-grouping-notifications">Threads</a></td>
       <td>✅</td>
       <td></td>
