@@ -36,7 +36,7 @@ If you have previously read the [sounds documentation](sounds.md) this syntax sh
 For **CarPlay** users, it's also worth mentioning that critical notifications are the only ones that can appear on the car's built-in display, making them very useful if you want to know when something critical happens while you're driving.
 
 ![Android](/assets/android.svg)<br />
-For Android these notifications are designed to show up on the phone immediately. By default they do not override Do Not Disturb settings, if you would like to override this you will need to use [notification channels](basic.md#notification-channels). They also do not make the notification sound when the phone is muted.
+For Android these notifications are designed to show up on the phone immediately. By default they do not override Do Not Disturb settings, if you would like to override this you will need to use [notification channels](basic.md#notification-channels). You can also force the notification to play from the alarm stream so it will make the device ring even if on vibrate/silent ringer mode. Users on Android 7 and below can still use the `channel` example below as we are just using it to override the default notification behavior for sound. In order to make a notification show up immediately and make a sound regardless of ringer mode follow the example below.
 
 ![Android](/assets/android.svg) &nbsp; Android example
 
@@ -55,4 +55,5 @@ automations:
         data:
           ttl: 0
           priority: high
+          channel: alarm_stream
 ```
