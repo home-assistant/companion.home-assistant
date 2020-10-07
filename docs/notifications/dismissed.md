@@ -5,7 +5,7 @@ id: "notification-dismissed"
 
 ![Android](/assets/android.svg)<br />
 
-When a notifications is dismissed Android will notify the Companion app of the event. Along with ensuring that the groups are also canceled the app will send a `mobile_app_notification_dismissed` event to your Home Assistant instance. This event will contain the `message` along with the usual event data. This event will fire with each and every notification that gets dismissed.
+When a notifications is dismissed Android will notify the Companion app of the event. Along with ensuring that the groups are also canceled the app will send a `mobile_app_notification_dismissed` event to your Home Assistant instance. This event will contain all of the notification data that was sent to the device. This event will fire with each and every notification that gets dismissed.
 
 Example event data:
 
