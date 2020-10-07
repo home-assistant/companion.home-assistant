@@ -30,6 +30,7 @@ module.exports = {
       'notifications/critical-notifications',
       'notifications/notification-details',
       'notifications/location-notification',
+      'notifications/notification-commands',
       'notifications/notification-dismissed',
       'notifications/notification-sounds'],
     'Integrations': [
