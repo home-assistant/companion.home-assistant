@@ -516,3 +516,19 @@ You can set the icon for a notification by providing the `icon_url`. The URL pro
         data:
           icon_url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
 ```
+
+### Text To Speech Notifications
+
+![Android](/assets/android.svg)<br />
+Instead of posting a notification on the device you can instead get your device to speak the notification. This notification works different than the others. You will set `message: TTS` and the actual text to speak would be in the `title`. Current support is limited to the current locale set on the device.
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: TTS
+        title: Motion has been detected
+```
