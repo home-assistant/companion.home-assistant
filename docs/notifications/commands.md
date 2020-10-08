@@ -16,8 +16,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | Command | Description |
 | ------- | ----------- |
 | `clear_notification` | Removes a notification from the status bar, [more details](basic.md#replacing-notifications). |
-| `dnd_off` | Turn off Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
-| `dnd_on` | Turn on Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
+| `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
 | `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
@@ -51,7 +50,17 @@ While it is possible to create an automation in Home Assistant to call this serv
 
 ![Android](/assets/android.svg) Android 6+ only
 
-On Android you have 2 commands that you can send to control the state of Do Not Disturb on the device. These commands require a specific permission that the app is unable to prompt or auto-accept. Instead by sending a command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the devices Notification Policy. This is required in order for the app to gain control of this setting. Turning on Do Not Disturb mode will place your device in `priority_only` mode. This command is also only available for users on Android 6+, users on lower versions the command will do nothing.
+On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the devices Notification Policy. This is required in order for the app to gain control of this setting. In addition to sending the `message` you must also provide the state of Do Not Disturb that you wish to set as the `title`, see the table below for what is accepted. This command is only available for users on Android 6+, users on lower versions the command will do nothing.
+<br />
+
+
+| `title` | Description |
+| ------- | ----------- |
+| `alarms_only` | Alarms only interruption filter - all notifications except those in the alarm category are suppressed. Some audio streams are muted. |
+| `off` | Normal interruption filter - no notifications are suppressed. |
+| `priority_only` | Priority interruption filter - all notifications are suppressed except those that match the priority criteria. Some audio streams are muted. |
+| `total_silence` | No interruptions filter - all notifications are suppressed and all audio streams (except those used for phone calls) and vibrations are muted. |
+<br />
 
 ```yaml
 automation:
@@ -61,5 +70,6 @@ automation:
     action:
       service: notify.mobile_app_<your_device_id_here>
       data:
-        message: "dnd_on"       # or "dnd_off"
+        message: "command_dnd"
+        title: "priority_only"
 ```
