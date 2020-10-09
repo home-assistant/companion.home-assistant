@@ -155,7 +155,7 @@ automation:
         message: "Someone might be in the backyard."
         data:
           apns_headers:
-            'apns-collapse-id': 'backyard-motion-detected'
+            apns-collapse-id: 'backyard-motion-detected'
 ```
 
 ![Android](/assets/android.svg)<br />
