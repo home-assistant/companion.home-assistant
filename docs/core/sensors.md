@@ -54,6 +54,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | `sensor.call_number` | None | The number of the current incoming/outgoing call. |
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
+| `sensor.last_notification` | See Below | The last notification posted on the device. |
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
 | `sensor.light` | None | The current level of illuminance the device detects. |
 | `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
@@ -232,10 +233,34 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
 
+
 ## Interactive Sensor
 ![Android](/assets/android.svg) This sensors state will reflect if the device is in an interactive state. This is typically when the screen comes on and off but may vary from device to device. This sensor will update as soon state changes are detected, data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
 
 Using the [History Stats Integration](https://www.home-assistant.io/integrations/history_stats/), it is possible to monitor both the daily screen time `type: time` as well as the amount of times the screen has been turned on that day `type: count`.
+
+
+## Last Notification Sensor
+![Android](/assets/android.svg)<br />
+This sensor will reflect the last notification posted on the device. This sensor requires a special permission that the app will take the user to so they can grant access to notifications. This sensors state will default to the text of the notification or if not available the posting package name. This sensor offers a setting to enable an Allow List to let the user select which packages they wish to get notification data from, notifications sent by Home Assistant are always ignored. This can be very useful to integrate any app that sends a notification but does not offer direct integration (ex: food delivery apps or 2FA SMS codes). There are several attributes a user can expect to see, although not all attributes will contain data. This sensor makes use of the [NotificationListenerService API](https://developer.android.com/reference/android/service/notification/NotificationListenerService#onNotificationRemoved(android.service.notification.StatusBarNotification)).  More details on each attribute can be found in the [Notification Extras](https://developer.android.com/reference/android/app/Notification).
+
+| Attribute | Description |
+| --------- | --------- |
+| `android.appInfo` | App Info that contains the package name. |
+| `android.infoText` | Text that is informative to the notification. |
+| `android.largeIcon` | The large icon of the notification. |
+| `android.progress` | The progress of the notification, if it has a progress bar. |
+| `android.progressIndeterminate` | Whether or not the progress can be determined. |
+| `android.progressMax` | The max position of the progress (ex: 100 for 100%). |
+| `android.reduced.images` | If images on the notification were reduced. |
+| `android.remoteInputHistory` | The most recent input for the notification. |
+| `android.showChronometer` | If the chronometer is shown. |
+| `android.showWhen` | If the notification should be shown at a specific time. |
+| `android.subText` | The subtitle of the notification. |
+| `android.text` | The text of the notification. |
+| `android.title` | The title of the notification. |
+| `package` | The package that posted the notification. |
+
 
 ## Last Reboot Sensor
 ![Android](/assets/android.svg)<br />
