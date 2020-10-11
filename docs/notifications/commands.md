@@ -54,6 +54,7 @@ automation:
 
 ## Request Location Updates
 
+![Android](/assets/android.svg) ![iOS](/assets/iOS.svg)
 :::caution
 Do not rely on this functionality due to the time limitations mentioned below.
 :::
