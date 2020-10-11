@@ -77,3 +77,7 @@ html[data-theme='dark'] .invertDark {
   text-transform: uppercase;
   font-size: 80%;
 }
+
+.beta:empty:before {
+  content: "BETA";
+}
