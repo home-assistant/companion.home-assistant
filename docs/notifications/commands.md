@@ -9,7 +9,7 @@ The Companion apps offer a lot of different notification options. In place of po
 
 | Command | Description |
 | ------- | ----------- |
-| `request_location_update` | Request a location update from the device, [more details](location.md) |
+| `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
 ![Android](/assets/android.svg)
 
@@ -18,7 +18,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `clear_notification` | Removes a notification from the status bar, [more details](basic.md#replacing-notifications). |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
 | `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
-| `request_location_update` | Request a location update from the device, click to see [more details](location.md) |
+| `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
 
 ## Do Not Disturb
@@ -51,3 +51,28 @@ automation:
         message: "command_dnd"
         title: "priority_only"
 ```
+
+## Request Location Updates
+
+:::caution
+Do not rely on this functionality due to the time limitations mentioned below.
+:::
+
+You can force a device to attempt to report its location by sending a special notification. The notification is not visible to the device owner and only works when the app is running or in the background. On success the sensor.last_update_trigger will change to "Push Notification".
+
+```yaml
+automation:
+  - alias: Notify Mobile app
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "request_location_update"
+```
+
+Assuming the device receives the notification, it will attempt to get a location update within 5 seconds and report it to Home Assistant. This is a little bit hit or miss since Apple imposes a maximum time allowed for the app to work with the notification and location updates sometimes take longer than usual due to factors such as waiting for GPS acquisition.
+
+:::danger
+While it is possible to create an automation in Home Assistant to call this service regularly to update sensors, this is not recommended as doing this too frequently may have a negative impact on your device's battery life and health.
+:::
