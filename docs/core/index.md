@@ -126,7 +126,7 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
-      <td><a href="/docs/notifications/location-notification">Notification</a></td>
+      <td><a href="/docs/notifications/notification-commands#request-location-updates">Notification</a></td>
       <td>✅</td>
       <td></td>
       <td>✅</td>
@@ -188,6 +188,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
       <td></td>
       <td></td>
+    </tr>
+    <tr>
+      <td><a href="/docs/notifications/notification-commands">Commands</a></td>
+      <td>✅</td>
+      <td></td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/notifications/critical-notifications">Critical Alerts</a></td>
@@ -262,7 +268,7 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
-      <td><a href="/docs/notifications/location-notification">Request Location Updates</a></td>
+      <td><a href="/docs/notifications/notification-commands#request-location-updates">Request Location Updates</a></td>
       <td>✅</td>
       <td></td>
       <td>✅</td>
