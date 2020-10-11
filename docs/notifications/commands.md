@@ -9,7 +9,7 @@ The Companion apps offer a lot of different notification options. In place of po
 
 | Command | Description |
 | ------- | ----------- |
-| `request_location_update` | Request a location update from the device, click to see [more details](location.md) |
+| `request_location_update` | Request a location update from the device, [more details](location.md) |
 
 ![Android](/assets/android.svg)
 
