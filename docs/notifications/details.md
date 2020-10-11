@@ -19,7 +19,7 @@ Currently, you are allowed to send a maximum of 300 push notifications per day p
 
 The in-app Notifications settings screen in the iOS app displays your current rate limits for the day broken out into the following categories: Attempts, Delivered, Errors, Total, and the exact time until next daily reset. For Android you can see the rate limit in the logs, depending on your configuration you may need to set `homeassistant.components.mobile_app.notify: info` for the [`logger`](https://www.home-assistant.io/integrations/logger/) integration.
 
-If an error occurs while sending a notification, it does not count towards your rate limit. Critical Alerts, Requesting location updates [via push notification](notifications/location.md) and the special `clear_badge`, `clear_notification` or `remove_channel` notification messages also do not count towards your rate limit.
+If an error occurs while sending a notification, it does not count towards your rate limit. Critical Alerts, Requesting location updates [via push notification](commands.md#request-location-updates) and the special `clear_badge`, `clear_notification` or `remove_channel` notification messages also do not count towards your rate limit.
 
 
 ## Security
