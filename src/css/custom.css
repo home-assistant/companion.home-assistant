@@ -70,3 +70,14 @@ html[data-theme='dark'] .invertDark {
   display:block;
   margin:auto;
 }
+
+.beta {
+  color: #ed3a2d;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 80%;
+}
+
+.beta:empty:before {
+  content: "BETA";
+}
