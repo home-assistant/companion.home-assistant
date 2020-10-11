@@ -10,6 +10,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | Command | Description |
 | ------- | ----------- |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
+| `clear_badge` | Silently removes the badge from the App icon without displaying a notification. |
 
 ![Android](/assets/android.svg)
 
