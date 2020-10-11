@@ -10,7 +10,7 @@ Location updates are sent from your device to Home Assistant in a number of situ
 *   When an iBeacon is detected or lost (see [below](#ibeacons)). ![iOS](/assets/iOS.svg)
 *   When the app is opened and it was not already open in the background.
 *   Via an automated background fetch.
-*   When an update is requested via [special notification](notifications/location.md)
+*   When an update is requested via [special notification](/docs/notifications/notification-commands#request-location-updates)
 *   When a [URL Handler](integrations/url-handler.md) link is opened. ![iOS](/assets/iOS.svg)
 *   When the app is called via a [X-Callback-URL](integrations/x-callback-url.md). ![iOS](/assets/iOS.svg)
 *   When your devices detects a [_significant location change_](#location-tracking-when-outside-a-home-assistant-zone).
