@@ -18,13 +18,14 @@ The Companion apps offer a lot of different notification options. In place of po
 | ------- | ----------- |
 | `clear_notification` | Removes a notification from the status bar, [more details](basic.md#replacing-notifications). |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
+| `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
 
 ## Do Not Disturb
 
-![Android](/assets/android.svg) Android 6+ only
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span> &nbsp;Android 6+ only<br />
 
 On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the devices Notification Policy. This is required in order for the app to gain control of this setting.
 
@@ -78,3 +79,30 @@ Assuming the device receives the notification, it will attempt to get a location
 :::danger
 While it is possible to create an automation in Home Assistant to call this service regularly to update sensors, this is not recommended as doing this too frequently may have a negative impact on your device's battery life and health.
 :::
+
+
+## Ringer Mode
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+On Android you can control the devices ringer mode by sending `message: command_ringer_mode` with an appropriate `title` as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. If the device has Do Not Disturb enabled then setting to `normal` or `vibrate` will turn it off. If the device does not have Do Not Disturb enabled then `silent` will turn it on.<br />
+
+| `title` | Description |
+| ------- | ----------- |
+| `normal` | Set the device to normal ringer mode, will turn off Do Not Disturb if enabled and supported. |
+| `silent` | Set the device to silent ringer mode, will turn on Do Not Disturb if disabled and supported. |
+| `vibrate` | Set the device to vibrate ringer mode, will turn off Do Not Disturb if enabled and supported. |
+| Anything else | The notification will post as a normal notification and the command will not process. |
+<br />
+
+```yaml
+automation:
+  - alias: Notify Mobile app
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "command_ringer_mode"
+        title: "vibrate"
+```
