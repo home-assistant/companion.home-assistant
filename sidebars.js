@@ -34,6 +34,7 @@ module.exports = {
       'notifications/notification-sounds'],
     'Integrations': [
       'integrations/integrations',
+      'integrations/android-power-menu',
       'integrations/android-widgets',
       'integrations/app-events',
       'integrations/haptics',
