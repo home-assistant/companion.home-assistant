@@ -520,7 +520,7 @@ You can set the icon for a notification by providing the `icon_url`. The URL pro
 ### Text To Speech Notifications
 
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
-Instead of posting a notification on the device you can instead get your device to speak the notification. This notification works different than the others. You will set `message: TTS` and the actual text to speak would be in the `title`. Current support is limited to the current locale set on the device.
+Instead of posting a notification on the device you can instead get your device to speak the notification. This notification works different than the others. You will set `message: TTS` and the actual text to speak would be in the `title`. Current support is limited to the current Text To Speech locale set on the device. If there is an error processing the message you will see a toast message appear on the device.
 
 ```yaml
   - alias: Notify of Motion
@@ -531,4 +531,19 @@ Instead of posting a notification on the device you can instead get your device 
       data:
         message: TTS
         title: Motion has been detected
+```
+
+By default Text To Speech Notifications use the Music stream so they will bypass the ringer mode on the device given that volume is not at 0. You have the option of using `channel: alarm_stream` to have your notification spoken regardless of music volume.
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: TTS
+        title: Motion has been detected
+        data:
+          channel: alarm_stream
 ```
