@@ -184,6 +184,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
+      <td><a href="/docs/notifications/notification-cleared">Cleared</a></td>
+      <td>✅</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/notifications/notifications-basic#notification-click-action">Click Action</a></td>
       <td>✅</td>
       <td></td>
@@ -206,12 +212,6 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
       <td></td>
       <td>✅</td>
-    </tr>
-    <tr>
-      <td><a href="/docs/notifications/notification-dismissed">Dismissed</a></td>
-      <td>✅</td>
-      <td></td>
-      <td></td>
     </tr>
     <tr>
       <td><a href="/docs/notifications/dynamic-content">Dynamic Attachments</a></td>
