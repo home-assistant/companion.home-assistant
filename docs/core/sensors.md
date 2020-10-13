@@ -145,7 +145,7 @@ There will also be a binary sensor for the `bluetooth_state` that will represent
 
 
 ## Call Number Sensor
-![android](/assets/android.svg) This sensors state will reflect the number of the current incoming/outgoing call, the state will be `none` when there is no active call. This sensor works best when paired with the [Phone State Sensor](#phone-state-sensor) as it will update at the same time and uses the [TelephonyManager API](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en). This sensor requires the [Read Call Log permission](https://developer.android.com/reference/android/Manifest.permission#READ_CALL_LOG).
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />This sensors state will reflect the number of the current incoming/outgoing call, the state will be `none` when there is no active call. This sensor works best when paired with the [Phone State Sensor](#phone-state-sensor) as it will update at the same time and uses the [TelephonyManager API](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en). This sensor requires the [Read Call Log permission](https://developer.android.com/reference/android/Manifest.permission#READ_CALL_LOG).
 
 
 ## Cellular Provider Sensor
@@ -241,7 +241,7 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 
 
 ## Last Notification Sensor
-![Android](/assets/android.svg)<br />
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 This sensor will reflect the last notification posted on the device. This sensor requires a special permission that the app will take the user to so they can grant access to notifications. This sensors state will default to the text of the notification or if not available the posting package name. This sensor offers a setting to enable an Allow List to let the user select which packages they wish to get notification data from, notifications sent by Home Assistant are always ignored. We recommend that users make use of this setting as by default all notifications including invisible ones get sent and might cause unintentional battery drain if the setting is left untouched. This can be very useful to integrate any app that sends a notification but does not offer direct integration (ex: food delivery apps or 2FA SMS codes). There are several attributes a user can expect to see, although not all attributes will contain data. This sensor makes use of the [NotificationListenerService API](https://developer.android.com/reference/android/service/notification/NotificationListenerService#onNotificationRemoved(android.service.notification.StatusBarNotification)).  More details on each attribute can be found in the [Notification Extras](https://developer.android.com/reference/android/app/Notification).
 
 | Attribute | Description |

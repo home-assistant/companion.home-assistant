@@ -519,7 +519,7 @@ You can set the icon for a notification by providing the `icon_url`. The URL pro
 
 ### Text To Speech Notifications
 
-![Android](/assets/android.svg)<br />
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 Instead of posting a notification on the device you can instead get your device to speak the notification. This notification works different than the others. You will set `message: TTS` and the actual text to speak would be in the `title`. Current support is limited to the current locale set on the device.
 
 ```yaml
