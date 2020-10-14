@@ -38,9 +38,6 @@ For **CarPlay** users, it's also worth mentioning that critical notifications ar
 ![Android](/assets/android.svg)<br />
 For Android these notifications are designed to show up on the phone immediately. By default they do not override Do Not Disturb settings, if you would like to override this you will need to use [notification channels](basic.md#notification-channels). 
 
-![Android](/assets/android.svg) &nbsp; <span class="beta">BETA</span><br />
-You can also force the notification to play from the alarm stream so it will make the device ring even if on vibrate/silent ringer mode. Users on Android 7 and below can still use the `channel` example below as we are just using it to override the default notification behavior for sound. In order to make a notification show up immediately and make a sound regardless of ringer mode follow the example below.
-
 ![Android](/assets/android.svg) &nbsp; Android example
 
 ```yaml
@@ -55,6 +52,48 @@ automations:
       data:
         title: "Wake up!"
         message: "The house is on fire and the cat's stuck in the dryer!"
+        data:
+          ttl: 0
+          priority: high
+```
+
+![Android](/assets/android.svg) &nbsp; <span class="beta">BETA</span><br />
+You can also force the notification to play from the alarm stream so it will make the device ring even if on vibrate/silent ringer mode. Users on Android 7 and below can still use the `channel` example below as we are just using it to override the default notification behavior for sound. In order to make a notification show up immediately and make a sound regardless of ringer mode follow one of the examples below.
+
+Using this method to can send a normal notification:
+
+```yaml
+automations:
+  - alias: 'Fire Detected'
+    trigger:
+    - platform: state
+      entity_id: sensor.smoke_alarm
+      to: 'smoke'
+    action:
+    - service: notify.mobile_app_<your_device_id_here>
+      data:
+        title: "Wake up!"
+        message: "The house is on fire and the cat's stuck in the dryer!"
+        data:
+          ttl: 0
+          priority: high
+          channel: alarm_stream
+```
+
+Or you can use Text To Speech to speak the notification:
+
+```yaml
+automations:
+  - alias: 'Fire Detected'
+    trigger:
+    - platform: state
+      entity_id: sensor.smoke_alarm
+      to: 'smoke'
+    action:
+    - service: notify.mobile_app_<your_device_id_here>
+      data:
+        title: "The house is on fire and the cat's stuck in the dryer!"
+        message: TTS
         data:
           ttl: 0
           priority: high
