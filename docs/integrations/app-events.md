@@ -22,6 +22,8 @@ To help with running automations, such as clearing app icon badges, or other tas
 
 | Event | Cause |
 | ----- | ----- |
+| `android.zone_entered` | A zone was entered. Event data will contain all location data including the triggering zone. Available for [`full` flavor](/docs/core/android-flavors) users only. |
+| `android.zone_exited` | A zone was exited. Event data will contain all location data including the triggering zone. Available for [`full` flavor](/docs/core/android-flavors) users only. |
 | `mobile_app.migration_failed` | The app database was corrupted and has been reset during the migration to allow the app to open. Sensors will need to be re-enabled and widgets will need to be recreated. A notification will also be posted on the device informing the user of the issue. |
 
 You can use the Events page within Home Assistant's developer tools to show all information contained with the event for a particular event by subscribing to the event you are interested in and carrying out the appropriate action with on your device.
