@@ -9,7 +9,11 @@ The ![Android](/assets/android.svg) Android app will automatically integrate wit
 
 Currently support is limited to the following domains:
 
+*  `climate` Temperature slider
+*  `cover` Open/Close
+*  `fan` On/Off, speed slider
+*  `light` On/Off, Brightness control slider
+*  `scene` Turn on scene
+*  `switch` On/Off
 *  `input_boolean` On/Off
 *  `input_number` Number control slider
-*  `light` On/Off, Brightness control slider
-*  `switch` On/Off
