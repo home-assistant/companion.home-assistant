@@ -212,7 +212,7 @@ automation:
 ![iOS](/assets/iOS.svg) Notes:
 
 *   `textInput` will only exist if `behavior` was set to `textInput`.
-*   `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
+*   `action_data` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
 *   When adding or updating push categories in `configuration.yaml` be sure to update push settings within the Home Assistant iOS app. This can be found within the Notifications page of the App Configuration menu (accessed from the sidebar menu). You may have to exit the Notifications page and reopen it before new categories are shown. If they are still not listed, restart the Home Assistant Companion App.
 
 ## Compatibility with different devices
