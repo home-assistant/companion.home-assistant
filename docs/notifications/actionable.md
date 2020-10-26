@@ -150,7 +150,7 @@ When an action is selected an event named `ios.notification_action_fired` for iO
   "actionName": "SOUND_ALARM",
   "sourceDevicePushId": "ab9f02fe-6ac6-47b8-adeb-5dd87b489156",
   "textInput": "",
-  "actionData": {}
+  "action_data": {}
 }
 ```
 
