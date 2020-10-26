@@ -20,6 +20,20 @@ This widget will update every 30 minutes or when it is tapped. This widget will 
 9.  Save the widget
 
 
+## Media Player
+
+<span class="beta">BETA</span><br /><br />
+
+This widget will let the user control any media player on their home screen. There are a couple of options available to hide or show the seek and skip buttons.
+
+1.  Long press on any open space in the home screen
+2.  Scroll down to Home Assistant in the widget list
+3.  Drag the Media Player widget to an open space on the home screen
+4.  Enter the Entity ID you wish to control
+5.  If needed hide the Seek/Skip buttons
+6.  Supply a label for the widget
+7.  Save the widget
+
 ## Service Call
 
 This widget will make the service call when it is tapped. The user will see a green checkmark if the call was successful and red if not. Red would indicate either the widget was not setup properly, the Home Assistant server is unavailable or some other error that would be indicated in the Home Assistant log.
