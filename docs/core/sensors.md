@@ -55,6 +55,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `sensor.last_notification` | See Below | The last notification posted on the device. |
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
+| `sensor.last_update` | None | The state will reflect the intent that caused the last update to get sent. |
 | `sensor.light` | None | The current level of illuminance the device detects. |
 | `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
 | `sensor.pressure` | None | The pressure reading from the device. |
@@ -285,6 +286,10 @@ This sensor displays exactly what caused the last update of location and sensor 
 | iBeacon Region Entered | Triggered when an iBeacon is seen that corresponds to a known zone. |
 | Registration | Triggered once when the app is first connected to your Home Assistant instance. |
 | Signaled | Triggered when the app detects a change, such as battery state changes, while running. |
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span> <br />
+
+For android this sensors state will reflect the [intent](https://developer.android.com/reference/android/content/Intent) of the most recent update sent.
 
 ## Light Sensor
 ![Android](/assets/android.svg)<br />
