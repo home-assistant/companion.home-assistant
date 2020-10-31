@@ -55,6 +55,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `sensor.last_notification` | See Below | The last notification posted on the device. |
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
+| `sensor.last_update` | None | The state will reflect the intent that caused the last update to get sent. |
 | `sensor.light` | None | The current level of illuminance the device detects. |
 | `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
 | `sensor.pressure` | None | The pressure reading from the device. |
@@ -269,6 +270,10 @@ This sensors state will be the date and time of the last reboot from the device 
 
 
 ## Last Update Trigger Sensor
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span>
+
+For android this sensors state will reflect the [intent](https://developer.android.com/reference/android/content/Intent) of the most recent update sent.
+
 ![iOS](/assets/iOS.svg)<br />
 This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
 
