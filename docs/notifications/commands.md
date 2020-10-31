@@ -28,7 +28,7 @@ The Companion apps offer a lot of different notification options. In place of po
 
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span> <br />
 
-Using notification commands you are now able to send a broadcast intent to another app in order to control that app based on the intent. Not all apps support intents and if they do they may document it for users to control. There are no `extras` provided at this time, it is only for sending an intent to another app. You must set `message: command_broadcast_intent` and also the `title` must contain both the package name for where the intent needs to be sent to along with the intent action. Both of these are provided by the app you wish to send the intent to. The format would be `title: package-action`, if an invalid format is sent you may either see a notification or a toast message.
+Using notification commands you are now able to send a broadcast intent to another app in order to control that app based on the intent. Not all apps support intents and if they do they may document it for users to control. There are no `extras` provided at this time, it is only for sending an intent to another app. You must set `message: command_broadcast_intent` and the `title` must contain the intent action while `channel` must contain the package the intent is for. The package name and action are provided by the app you wish to send the intent to. If an invalid format is sent you may either see a notification or a toast message.
 
 Example:
 
@@ -41,7 +41,9 @@ automation:
       service: notify.mobile_app_<your_device_id_here>
       data:
         message: "command_broadcast_intent"
-        title: "package-action"
+        title: "action"
+        data:
+          channel: "package-name"
 ```
 
 An example of an application that accepts broadcast intents is [Sleep as Android](https://docs.sleep.urbandroid.org/devs/intent_api.html#action-intents-to-control-sleep). To start a sleep tracking event the format would be as follows:
@@ -55,7 +57,9 @@ automation:
       service: notify.mobile_app_<your_device_id_here>
       data:
         message: "command_broadcast_intent"
-        title: "com.urbandroid.sleep-com.urbandroid.sleep.alarmclock.START_SLEEP_TRACK"
+        title: "com.urbandroid.sleep.alarmclock.START_SLEEP_TRACK"
+        data:
+          channel: "com.urbandroid.sleep"
 ```
 
 
