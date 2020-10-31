@@ -453,8 +453,8 @@ Not all features are supported by Android at the moment but eventually most feat
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#last-update-trigger-sensor">Last Update Trigger</a></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
