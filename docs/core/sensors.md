@@ -269,6 +269,10 @@ This sensors state will be the date and time of the last reboot from the device 
 
 
 ## Last Update Trigger Sensor
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span>
+
+For android this sensors state will reflect the [intent](https://developer.android.com/reference/android/content/Intent) of the most recent update sent.
+
 ![iOS](/assets/iOS.svg)<br />
 This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
 
@@ -286,10 +290,6 @@ This sensor displays exactly what caused the last update of location and sensor 
 | iBeacon Region Entered | Triggered when an iBeacon is seen that corresponds to a known zone. |
 | Registration | Triggered once when the app is first connected to your Home Assistant instance. |
 | Signaled | Triggered when the app detects a change, such as battery state changes, while running. |
-
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span> <br />
-
-For android this sensors state will reflect the [intent](https://developer.android.com/reference/android/content/Intent) of the most recent update sent.
 
 ## Light Sensor
 ![Android](/assets/android.svg)<br />
