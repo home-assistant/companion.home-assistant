@@ -99,3 +99,23 @@ automations:
           priority: high
           channel: alarm_stream
 ```
+
+Alternatively using Text To Speech you can also make the notification speak as loud as it can, and then revert back to the original volume level:
+
+```yaml
+automations:
+  - alias: 'Fire Detected'
+    trigger:
+    - platform: state
+      entity_id: sensor.smoke_alarm
+      to: 'smoke'
+    action:
+    - service: notify.mobile_app_<your_device_id_here>
+      data:
+        title: "The house is on fire and the cat's stuck in the dryer!"
+        message: TTS
+        data:
+          ttl: 0
+          priority: high
+          channel: alarm_stream_max
+```

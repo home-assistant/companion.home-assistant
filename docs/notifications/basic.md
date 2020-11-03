@@ -547,3 +547,18 @@ By default Text To Speech Notifications use the Music stream so they will bypass
         data:
           channel: alarm_stream
 ```
+
+If you find that your alarm stream volume is too low you can use `channel: alarm_stream_max` which will temporarily set the alarm stream volume to the max level, play the notification and then revert back to the original volume level.
+
+```yaml
+  - alias: Notify Alarm Triggered
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: TTS
+        title: Alarm has been triggered
+        data:
+          channel: alarm_stream_max
+```
