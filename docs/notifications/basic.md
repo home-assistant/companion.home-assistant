@@ -548,7 +548,7 @@ By default Text To Speech Notifications use the Music stream so they will bypass
           channel: alarm_stream
 ```
 
-If you find that your alarm stream volume might be too low you can use `channel: alarm_stream_max` which will temporarily set the alarm stream volume to the max level, speak the notification and then revert back to the original volume level.
+If you find that your alarm stream volume is too low you can use `channel: alarm_stream_max` which will temporarily set the alarm stream volume to the max level, play the notification and then revert back to the original volume level.
 
 ```yaml
   - alias: Notify Alarm Triggered
