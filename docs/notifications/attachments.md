@@ -10,7 +10,8 @@ An attachment is an image, video, or audio file which is downloaded to the devic
 It is important to note that the attachments are required to be accessible from the internet. If you plan to use [`camera.snapshot`](https://www.home-assistant.io/integrations/camera#service-snapshot), you will want to store the image in the `www` folder located in your Home Assistant [config directory](https://www.home-assistant.io/docs/configuration/). This will then expose the image to the internet so that you may use it in your notifications and receive them anywhere. The proper format for the URL is: `https://MyCustomHADomain/local/path/to/file.jpg`. Make sure to replace `MyCustomHADomain` with how you would access Home Assistant remotely in a browse, you will either use your [Nabu Casa remote URL](https://www.nabucasa.com/config/remote/) or the [base URL](https://www.home-assistant.io/integrations/http#base_url). Also, replace `path/to/file.jpg` with the actual file name and location you used in your [`camera.snapshot`](https://www.home-assistant.io/integrations/camera#service-snapshot) service call. Another acceptable format for the above is `/local/path/to/file.jpg` or if using the [`media_source` integration](https://www.home-assistant.io/integrations/media_source) `/media/local/path/to/file.jpg`.
 
 ![Android](/assets/android.svg) Android users can also use `/api/camera_proxy/camera.name` where `camera.name` is replaced by the entity ID of the camera you wish to use.
-![](/assets/apple.svg) iOS users can use the [camera stream in dynamic attachments](dynamic-content.md#camera-stream).
+
+![iOS](/assets/apple.svg) iOS users can use the [camera stream in dynamic attachments](dynamic-content.md#camera-stream).
 
 :::tip
 To expand a notification on 3D Touch devices simply force touch any notification. On non-3D Touch devices swipe and tap the "View" button.
