@@ -22,8 +22,6 @@ This widget will update every 30 minutes or when it is tapped. This widget will 
 
 ## Media Player
 
-<span class="beta">BETA</span><br /><br />
-
 This widget will let the user control any media player on their home screen. There are a couple of options available to hide or show the seek and skip buttons.
 
 1.  Long press on any open space in the home screen
