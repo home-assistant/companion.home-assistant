@@ -350,7 +350,7 @@ This sensor uses the [ipify API](https://www.ipify.org/) in order to determine t
 
 ## Sleep as Android Sensors
 
-![Android](/assets/android.svg)<br />
+![Android](/assets/android.svg)
 
 For users who have the [Sleep as Android](https://play.google.com/store/apps/details?id=com.urbandroid.sleep&hl=en_US) app installed you will be able to enable a few sensors that represent states from their [Intent API](https://docs.sleep.urbandroid.org/devs/intent_api.html#events-emitted-by-sleep). The states will all update as soon as the intent is received.
 
