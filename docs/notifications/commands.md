@@ -65,7 +65,7 @@ automation:
 
 ## Do Not Disturb
 
-![Android](/assets/android.svg) &nbsp;Android 6+ only<br />
+![Android](/assets/android.svg) &nbsp;Android 6+ only
 
 On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the devices Notification Policy. This is required in order for the app to gain control of this setting.
 
