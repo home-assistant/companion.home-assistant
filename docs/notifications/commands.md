@@ -123,7 +123,7 @@ While it is possible to create an automation in Home Assistant to call this serv
 
 ## Ringer Mode
 
-![Android](/assets/android.svg)<br />
+![Android](/assets/android.svg)
 
 On Android you can control the devices ringer mode by sending `message: command_ringer_mode` with an appropriate `title` as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. If the device has Do Not Disturb enabled then setting to `normal` or `vibrate` will turn it off. If the device does not have Do Not Disturb enabled then `silent` will turn it on.<br />
 
