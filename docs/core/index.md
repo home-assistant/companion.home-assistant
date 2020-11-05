@@ -440,6 +440,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
+      <td><a href="/docs/core/sensors#keyguard-sensors">Keyguard Sensors</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#last-notification-sensor">Last Notification</a></td>
       <td>✅</td>
       <td>✅</td>
