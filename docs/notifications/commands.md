@@ -26,7 +26,7 @@ The Companion apps offer a lot of different notification options. In place of po
 
 ## Broadcast Intent
 
-![Android](/assets/android.svg) <br />
+![Android](/assets/android.svg)
 
 Using notification commands you are now able to send a broadcast intent to another app in order to control that app based on the intent. Not all apps support intents and if they do they may document it for users to control. There are no `extras` provided at this time, it is only for sending an intent to another app. You must set `message: command_broadcast_intent` and the `title` must contain the intent action while `channel` must contain the package the intent is for. The package name and action are provided by the app you wish to send the intent to. If an invalid format is sent you may either see a notification or a toast message.
 
