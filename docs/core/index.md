@@ -512,12 +512,6 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
-      <td><a href="/docs/core/sensors#sleep-as-android-sensors">Sleep as Android</a></td>
-      <td>✅</td>
-      <td>✅</td>
-      <td></td>
-    </tr>
-    <tr>
       <td><a href="/docs/core/sensors">SSID</a></td>
       <td></td>
       <td></td>
