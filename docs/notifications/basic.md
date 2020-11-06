@@ -583,5 +583,5 @@ You can create notifications with a count up/down timer (chronometer) by passing
         data:
           chronometer: true
           when: >-
-            {{ state_attr('sensor.<your_device_id_here>_next_alarm', 'Time in Milliseconds') }}
+            {{ state_attr('sensor.<your_device_id_here>_next_alarm', 'Time in Milliseconds') / 1000 }}
 ```
