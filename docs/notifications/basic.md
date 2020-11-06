@@ -562,3 +562,23 @@ If you find that your alarm stream volume is too low you can use `channel: alarm
         data:
           channel: alarm_stream_max
 ```
+
+### Chronometer Notifications
+
+![Android](/assets/android.svg)<br />
+You can create notifications with a count up/down timer (chronometer) by passing the `chronometer` and `when` options.
+
+- chronometer - true to enable chronometer mode
+- when - the timestamp to count up or down to
+```yaml
+  - alias: Notify of Next Alarm Time
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: Next Alarm Time
+        data:
+          chronometer: true
+          when: {{ state_attr('sensor.<your_device_id_here>_next_alarm', 'Time in Milliseconds') }}
+```
