@@ -26,7 +26,7 @@ The Companion apps offer a lot of different notification options. In place of po
 
 ## Broadcast Intent
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span> <br />
+![Android](/assets/android.svg)
 
 Using notification commands you are now able to send a broadcast intent to another app in order to control that app based on the intent. Not all apps support intents and if they do they may document it for users to control. There are no `extras` provided at this time, it is only for sending an intent to another app. You must set `message: command_broadcast_intent` and the `title` must contain the intent action while `channel` must contain the package the intent is for. The package name and action are provided by the app you wish to send the intent to. If an invalid format is sent you may either see a notification or a toast message.
 
@@ -65,7 +65,7 @@ automation:
 
 ## Do Not Disturb
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span> &nbsp;Android 6+ only<br />
+![Android](/assets/android.svg) &nbsp;Android 6+ only
 
 On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the devices Notification Policy. This is required in order for the app to gain control of this setting.
 
@@ -123,7 +123,7 @@ While it is possible to create an automation in Home Assistant to call this serv
 
 ## Ringer Mode
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 
 On Android you can control the devices ringer mode by sending `message: command_ringer_mode` with an appropriate `title` as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. If the device has Do Not Disturb enabled then setting to `normal` or `vibrate` will turn it off. If the device does not have Do Not Disturb enabled then `silent` will turn it on.<br />
 

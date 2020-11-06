@@ -3,7 +3,7 @@ title: "Notification Cleared"
 id: "notification-cleared"
 ---
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 
 When a notification is cleared Android will notify the Companion app of the event. Along with ensuring that the groups are canceled, the app will send a `mobile_app_notification_cleared` event to your Home Assistant instance. This event will contain all of the notification data that was sent to the device. This event will fire with each and every notification that gets cleared.
 

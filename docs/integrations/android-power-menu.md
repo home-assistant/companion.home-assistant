@@ -3,7 +3,6 @@ title: "Android Power Menu"
 id: 'android-power-menu'
 ---
 
-<span class="beta">BETA</span><br /><br />
 
 The ![Android](/assets/android.svg) Android app will automatically integrate with the [Android 11 power menu controls](https://developer.android.com/guide/topics/ui/device-control) feature on devices that support it. All that is required is that you are able to login to the app and use it remotely. Once you are logged into the app you can then long hold the power button on your device and you will be able to "Add Controls" from the Home Assistant app. All domains listed below will be available to get added to the power menu. Tapping on a tile will either turn it on or off. Certain domains will also allow for the user increase or decrease the range by sliding their finger back and forth on the tile.
 
