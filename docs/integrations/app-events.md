@@ -18,7 +18,8 @@ To help with running automations, such as clearing app icon badges, or other tas
 | `ios.zone_entered` | A zone was entered. If this zone is smaller than 100m, this will include a `multi_region_zone_id` key. |
 | `ios.zone_exited` | A zone was exited. If this zone is smaller than 100m, this will include a `multi_region_zone_id` key. |
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
+
 
 | Event | Cause |
 | ----- | ----- |

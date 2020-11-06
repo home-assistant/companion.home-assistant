@@ -245,7 +245,7 @@ These sensors will reflect various states from the [Keyguard Manager](https://de
 
 
 ## Last Notification Sensor
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)<br />
 This sensor will reflect the last notification posted on the device. This sensor requires a special permission that the app will take the user to so they can grant access to notifications. This sensors state will default to the text of the notification or if not available the posting package name. This sensor offers a setting to enable an Allow List to let the user select which packages they wish to get notification data from, notifications sent by Home Assistant are always ignored. We recommend that users make use of this setting as by default all notifications including invisible ones get sent and might cause unintentional battery drain if the setting is left untouched. This can be very useful to integrate any app that sends a notification but does not offer direct integration (ex: food delivery apps or 2FA SMS codes). There are several attributes a user can expect to see, although not all attributes will contain data. This sensor makes use of the [NotificationListenerService API](https://developer.android.com/reference/android/service/notification/NotificationListenerService#onNotificationRemoved(android.service.notification.StatusBarNotification)).  More details on each attribute can be found in the [Notification Extras](https://developer.android.com/reference/android/app/Notification).
 
 | Attribute | Description |
@@ -277,7 +277,7 @@ This sensors state will be the date and time of the last reboot from the device 
 
 
 ## Last Update Trigger Sensor
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span>
+![Android](/assets/android.svg)
 
 For android this sensors state will reflect the [intent](https://developer.android.com/reference/android/content/Intent) of the most recent update sent.
 
@@ -357,7 +357,7 @@ This sensor uses the [ipify API](https://www.ipify.org/) in order to determine t
 
 ## Sleep as Android Sensors
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span> <br />
+![Android](/assets/android.svg)
 
 For users who have the [Sleep as Android](https://play.google.com/store/apps/details?id=com.urbandroid.sleep&hl=en_US) app installed you will be able to enable a few sensors that represent states from their [Intent API](https://docs.sleep.urbandroid.org/devs/intent_api.html#events-emitted-by-sleep). The states will all update as soon as the intent is received.
 
