@@ -53,6 +53,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
+| [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
 | `sensor.last_notification` | See Below | The last notification posted on the device. |
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
 | `sensor.last_update` | None | The state will reflect the intent that caused the last update to get sent. |
@@ -236,8 +237,14 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 Using the [History Stats Integration](https://www.home-assistant.io/integrations/history_stats/), it is possible to monitor both the daily screen time `type: time` as well as the amount of times the screen has been turned on that day `type: count`.
 
 
-## Last Notification Sensor
+## Keyguard Sensors
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+These sensors will reflect various states from the [Keyguard Manager](https://developer.android.com/reference/android/app/KeyguardManager). You will be able to determine if the device is actively locked, has a password setup or even if the device requires a password to unlock. These sensors will update with the periodic sensor interval.
+
+
+## Last Notification Sensor
+![Android](/assets/android.svg)<br />
 This sensor will reflect the last notification posted on the device. This sensor requires a special permission that the app will take the user to so they can grant access to notifications. This sensors state will default to the text of the notification or if not available the posting package name. This sensor offers a setting to enable an Allow List to let the user select which packages they wish to get notification data from, notifications sent by Home Assistant are always ignored. We recommend that users make use of this setting as by default all notifications including invisible ones get sent and might cause unintentional battery drain if the setting is left untouched. This can be very useful to integrate any app that sends a notification but does not offer direct integration (ex: food delivery apps or 2FA SMS codes). There are several attributes a user can expect to see, although not all attributes will contain data. This sensor makes use of the [NotificationListenerService API](https://developer.android.com/reference/android/service/notification/NotificationListenerService#onNotificationRemoved(android.service.notification.StatusBarNotification)).  More details on each attribute can be found in the [Notification Extras](https://developer.android.com/reference/android/app/Notification).
 
 | Attribute | Description |
@@ -269,7 +276,7 @@ This sensors state will be the date and time of the last reboot from the device 
 
 
 ## Last Update Trigger Sensor
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span>
+![Android](/assets/android.svg)
 
 For android this sensors state will reflect the [intent](https://developer.android.com/reference/android/content/Intent) of the most recent update sent.
 
