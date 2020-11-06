@@ -577,8 +577,11 @@ You can create notifications with a count up/down timer (chronometer) by passing
     action:
       service: notify.mobile_app_<your_device_id_here>
       data:
-        message: Next Alarm Time
+        title: Next Alarm
+        message: >-
+          Next Alarm At {{ states('sensor.<your_device_id_here>_next_alarm') }}
         data:
           chronometer: true
-          when: {{ state_attr('sensor.<your_device_id_here>_next_alarm', 'Time in Milliseconds') }}
+          when: >-
+            {{ state_attr('sensor.<your_device_id_here>_next_alarm', 'Time in Milliseconds') }}
 ```
