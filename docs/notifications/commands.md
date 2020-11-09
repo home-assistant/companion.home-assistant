@@ -20,6 +20,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
+| `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. &nbsp;<span class="beta">BETA</span> |
 | `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
@@ -145,4 +146,33 @@ automation:
       data:
         message: "command_ringer_mode"
         title: "vibrate"
+```
+
+## Volume Level
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+On Android you can control the devices volume level by sending `message: command_volume_level` with an appropriate `title` that must be a number. If `title` is larger than the maximum level then the maximum level will be used or if `title` is less than `0` then we will default to `0`, anything else will result in the notification posting to the device. `channel` is also required as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. Changing the volume level will have a direct impact on Do Not Disturb and Ringer Modes, behavior will vary from device to device.<br />
+
+| `channel` | Description |
+| ------- | ----------- |
+| `alarm_stream` | Set the volume level for the alarm stream. |
+| `music_stream` | Set the volume level for the music stream. |
+| `notification_stream` | Set the volume level for the notification stream. |
+| `ring_stream` | Set the volume level for the ring stream. |
+| Anything else | The notification will post as a normal notification and the command will not process. |
+<br />
+
+```yaml
+automation:
+  - alias: Notify Mobile app
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "command_volume_level"
+        title: 20
+        data:
+          channel: music_stream
 ```
