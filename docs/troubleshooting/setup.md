@@ -74,7 +74,8 @@ Starting in Home Assistant Core 0.106, the default sensor names will be register
 ## Opening or resuming the Companion App generates authentication errors in my Home Assistant notifications
 This is normally due to having a camera entity present on a Lovelace picture entities or picture elements card. A workaround for this is to remove the the camera entity in the short term while this is resolved. You may be able to use [live stream view](https://github.com/home-assistant/core/issues/23055) to address this. This is a known bug with Home Assistant which you can track and help address [here](https://github.com/home-assistant/core/issues/23055).
 
-## I receive a `kCLError` when pulling down to manually refresh the app/update Location
+## `kCLError` when pulling down to manually refresh the app/update Location
+
 To fix this change the location permission for the Home Assistant App to "Always" in iOS Settings>Privacy>Location Services.
 
 ## Starting fresh with the Android app
@@ -84,7 +85,8 @@ At times you may need to start fresh with the Android app as a new feature may n
 2.  Clear Storage or App data in Android app.
 3.  In Home Assistant navigate to Configuration > Integration. Remove the mobile app entry for the device in question. If you see more than 1 remove them all.
 4.  Restart Home Assistant.
-5.  Log back into Android app. If you have more than 1 device make sure to rename the device during onboarding.
+5.  Log back into the Android app. If you have more than 1 device, make sure to rename the device during onboarding.
+
 
 ## Location is not updating in Android app
 If you find that location updates are not coming in here are a few things to check.
@@ -113,7 +115,8 @@ If you have more than 1 device of the same model and you did not rename your dev
 3.  Restart Home Assistant to register the new notify service call. (i.e. `notify.mobile_app_<device_name>`)
 
 ## Sensors are missing or not updating
-Sensors are tied to location updates so you will need to make sure that location is enabled for the device and app in order for sensor updates to be sent to the phone. Once you enable location for the app the sensors will show up and continue to update as long as location is enabled on the device and app. If you still do not see a sensor then you may need to wait for the sensor to get a state update so it can send it your Home Assistant server.
+Sensors are tied to location updates so you will need to make sure that location is enabled for the device and app in order for sensor updates to be sent to the phone. Once you enable location for the app the sensors will show up and continue to update as long as the location is enabled on the device and app. If you still do not see a sensor then you may need to wait for the sensor to get a state update so it can send it to your Home Assistant server.
+
 
 ## Text to speech notifications are not working
 Check that [Google Text to Speech](https://play.google.com/store/apps/details?id=com.google.android.tts) is updated. Check that it is also set as the default Text to Speech engine, this may be required for certain manufacturers.
