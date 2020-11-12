@@ -51,6 +51,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | [Audio Sensors](#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
 | [Battery Sensors](#battery-sensors) | None | Several different sensors around the state of the devices battery. |
 | `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
+| `sensor.current_time_zone` | [See Below](#current-time-zone-sensor) | The current time zone the device is in. |
 | `sensor.current_version` | None | The current installed version of the application. |
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
@@ -195,6 +196,17 @@ For Android several different types of connection sensors are available and they
 | `wifi_state` | Whether or not WiFi is turned on for the device |
 
 ![Android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. These settings are turned off by default. These sensors require either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
+
+## Current Time Zone Sensor
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+This sensor will represent the current time zone the device is in. There are also a few attributes to help describe this time zone. Data is provided by the [TimeZone API](https://developer.android.com/reference/java/util/TimeZone.html).
+
+| Attribute | Description |
+| --------- | ----------- |
+| `in_daylight_time` | If the  time zone is currently observing daylight time. |
+| `time_zone_id` | The display name of the time zone. |
+| `time_zone_short` | The short name of the time zone. |
+| `uses_daylight_time` | If the current time zone observes daylight time. |
 
 ## Current Version Sensor
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
