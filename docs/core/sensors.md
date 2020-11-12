@@ -198,7 +198,7 @@ For Android several different types of connection sensors are available and they
 ![Android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. These settings are turned off by default. These sensors require either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
 
 ## Current Time Zone Sensor
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 This sensor will represent the current time zone the device is in. There are also a few attributes to help describe this time zone. Data is provided by the [TimeZone API](https://developer.android.com/reference/java/util/TimeZone.html).
 
 | Attribute | Description |
@@ -209,7 +209,7 @@ This sensor will represent the current time zone the device is in. There are als
 | `uses_daylight_time` | If the current time zone observes daylight time. |
 
 ## Current Version Sensor
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 This sensor will represent the current installed version of the Android app.
 
 ## Do Not Disturb Sensor

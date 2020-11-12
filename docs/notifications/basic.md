@@ -565,7 +565,7 @@ If you find that your alarm stream volume is too low you can use `channel: alarm
 
 ### Chronometer Notifications
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)<br />
 You can create notifications with a count up/down timer (chronometer) by passing the `chronometer` and `when` options. This feature requires at least Android 7.0.
 
 Do note that the notification will not disappear when the timer reaches 0. Instead, it will continue decrementing into negative values.
