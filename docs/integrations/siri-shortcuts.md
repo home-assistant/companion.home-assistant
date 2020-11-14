@@ -8,16 +8,17 @@ With iOS 13 or later and the Home Assistant Companion App, you can take advantag
 
 ## Getting Started - Example Shortcut
 
-As an example, if you wanted to start you want to create a shortcut to turn on a light (`light.porch` in this example):
+As an example, if you wanted to create a shortcut to turn on a light (`light.porch` in this example):
 
 1. Open the Shortcuts app (included by default with iOS, can be re-installed from the [App Store](https://apps.apple.com/us/app/shortcuts/id915249334) if you deleted it)
-2. Tap "Add Item" and search for "Dictionary"
-3. Add a "Text" item and add `entity_id` as the key and `light.porch` as the text
-4. Tap the large plus to add another action, search for "Home Assistant" and select "Call Service".
-5. Tap "Service" which is highlighted in "Call Service with data"
-6. Scroll through the list of available services and find `light.turn_on`.
-7. As long as the Dictionary action is above the Home Assistant action there is no need to enter anymore details. If you prefer not to use the Dictionary action, you can select "Show More" and enter the service data in JSON format in the "Service Data" field
-8. Tap next and enter or record a name/phrase to use with "Hey, Siri" to trigger the shortcut.
+2. Tap the Plus icon at the top right to create a new shortcut.
+3. Tap Add Action and add a "Dictionary" item.
+4. In the Dictionary item, tap "Add new item", tap "Text" then add `entity_id` as the key and `light.porch` as the text.
+5. Tap the large plus to add another action, search for "Home Assistant" and select "Call Service".
+6. Tap "Service" which is highlighted in "Call Service with data".
+7. Scroll through the list of available services and find `light.turn_on`.
+8. As long as the Dictionary action is above the Home Assistant action there is no need to enter anymore details. If you prefer not to use the Dictionary action, you can select "Show More" and enter the service data in JSON format in the "Service Data" field.
+9. Tap next and enter or record a name/phrase to use with "Hey, Siri" to trigger the shortcut.
 
 The final shortcut should look similar to this:
 
