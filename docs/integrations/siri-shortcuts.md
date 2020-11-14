@@ -11,7 +11,7 @@ With iOS 13 or later and the Home Assistant Companion App, you can take advantag
 As an example, if you wanted to create a shortcut to turn on a light (`light.porch` in this example):
 
 1. Open the Shortcuts app (included by default with iOS, can be re-installed from the [App Store](https://apps.apple.com/us/app/shortcuts/id915249334) if you deleted it)
-2. Tap the Plus icon at the top right to create a new shortcut
+2. Tap the Plus icon at the top right to create a new shortcut.
 3. Tap Add Action and add a "Dictionary" item.
 4. In the Dictionary item, tap "Add new item", tap "Text" then add `entity_id` as the key and `light.porch` as the text
 5. Tap the large plus to add another action, search for "Home Assistant" and select "Call Service".
