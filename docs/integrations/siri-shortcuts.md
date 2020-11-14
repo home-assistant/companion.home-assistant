@@ -17,7 +17,7 @@ As an example, if you wanted to create a shortcut to turn on a light (`light.por
 5. Tap the large plus to add another action, search for "Home Assistant" and select "Call Service".
 6. Tap "Service" which is highlighted in "Call Service with data"
 7. Scroll through the list of available services and find `light.turn_on`.
-8. As long as the Dictionary action is above the Home Assistant action there is no need to enter anymore details. If you prefer not to use the Dictionary action, you can select "Show More" and enter the service data in JSON format in the "Service Data" field
+8. As long as the Dictionary action is above the Home Assistant action there is no need to enter anymore details. If you prefer not to use the Dictionary action, you can select "Show More" and enter the service data in JSON format in the "Service Data" field.
 9. Tap next and enter or record a name/phrase to use with "Hey, Siri" to trigger the shortcut.
 
 The final shortcut should look similar to this:
