@@ -118,7 +118,7 @@ If you have more than 1 device of the same model and you did not rename your dev
 ## Sensors are missing or not updating
 ![iOS](/assets/iOS.svg) When the app is not in the foreground, sensor updates are tied to location updates so you need to make sure that location permissions are enabled for the device and app in order for sensor updates to be sent to the phone. Once you enable location for the app the sensors will show up and continue to update as long as the location is enabled on the device and app.
 
-![Android](/assets/android.svg) On Android sensors will show up as and when they have an update. Some will show up immediately upon enabling and others will show up once permissions have been granted and the state was retrieved. If you do not see a sensor then you may need to wait for the sensor to get a state update so it can send it to your Home Assistant server.
+![Android](/assets/android.svg) On Android, sensors will show up as and when they have an update. Some will show up immediately upon enabling and others will show up once permissions have been granted and the state was retrieved. If you do not see a sensor then you may need to wait for the sensor to get a state update so it can send it to your Home Assistant server.
 
 ## Text to speech notifications are not working
 ![Android](/assets/android.svg) Check that [Google Text to Speech](https://play.google.com/store/apps/details?id=com.google.android.tts) is updated. Check that it is also set as the default Text to Speech engine, this may be required for certain manufacturers.
