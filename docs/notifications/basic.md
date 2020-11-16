@@ -533,7 +533,7 @@ Instead of posting a notification on the device you can instead get your device 
         title: Motion has been detected
 ```
 
-By default Text To Speech Notifications use the Music stream so they will bypass the ringer mode on the device given that volume is not at 0. You have the option of using `channel: alarm_stream` to have your notification spoken regardless of music volume.
+By default Text To Speech notifications use the music stream so they will bypass the ringer mode on the device given that volume is not at 0. You have the option of using `channel: alarm_stream` to have your notification spoken regardless of music volume.
 
 ```yaml
   - alias: Notify of Motion
