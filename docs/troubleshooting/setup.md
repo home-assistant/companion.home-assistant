@@ -79,7 +79,7 @@ This is normally due to having a camera entity present on a Lovelace picture ent
 To fix this change the location permission for the Home Assistant App to "Always" in iOS Settings>Privacy>Location Services.
 
 ## Starting fresh with the Android app
-At times you may need to start fresh with the Android app as a new feature may not be working properly or something odd happens.
+![Android](/assets/android.svg) At times you may need to start fresh with the Android app as a new feature may not be working properly or something odd happens.
 
 1.  Check that Home Assistant Core and the Android app are up to date.
 2.  Clear Storage or App data in Android app.
@@ -89,19 +89,20 @@ At times you may need to start fresh with the Android app as a new feature may n
 
 
 ## Location is not updating in Android app
-If you find that location updates are not coming in here are a few things to check.
+![Android](/assets/android.svg) If you find that location updates are not coming in here are a few things to check.
 
 1.  Ensure the app has location permissions granted, all the time.
-2.  Turn off battery optimizations for the app.
-3.  Ensure that all 3 of the Location toggles are enabled in App Configuration > Manage Sensors in the Android app.
-4.  Turn on unrestricted data for the Android app.
-5.  Check that background access setting under App Configuration shows the app has proper access.
+2.  Ensure that location (GPS) is enabled on your device.
+3.  Turn off battery optimizations for the app.
+4.  Ensure that all 3 of the Location toggles are enabled in App Configuration > Manage Sensors in the Android app.
+5.  Turn on unrestricted data for the Android app.
+6.  Check that background access setting under App Configuration shows the app has proper access.
 
 ## Using a self-signed certificate leads to a blank page in Android
-If you are using a self-signed certificate on Android then you may get stuck at a blank screen after entering and/or selecting your Home Assistant instance. In order to correct this issue you will need to make sure the URL is valid and that you import the certificate into Android's Trusted Certificates. Steps to perform this can be found [here](https://support.google.com/nexus/answer/2844832?hl=en). These steps were written for devices on Android 9+ but are very close for older supported devices.
+![Android](/assets/android.svg) If you are using a self-signed certificate on Android then you may get stuck at a blank screen after entering and/or selecting your Home Assistant instance. In order to correct this issue you will need to make sure the URL is valid and that you import the certificate into Android's Trusted Certificates. Steps to perform this can be found [here](https://support.google.com/nexus/answer/2844832?hl=en). These steps were written for devices on Android 9+ but are very close for older supported devices.
 
 ## Android widget is not working
-If you find that a widget is no longer working then these steps may help you resolve the issue.
+![Android](/assets/android.svg) If you find that a widget is no longer working then these steps may help you resolve the issue.
 
 1.  Check that data saver is disabled on the device, the widget will not work when it is enabled.
 2.  Check that background data for the Home Assistant app is enabled.
@@ -115,14 +116,15 @@ If you have more than 1 device of the same model and you did not rename your dev
 3.  Restart Home Assistant to register the new notify service call. (i.e. `notify.mobile_app_<device_name>`)
 
 ## Sensors are missing or not updating
-Sensors are tied to location updates so you will need to make sure that location is enabled for the device and app in order for sensor updates to be sent to the phone. Once you enable location for the app the sensors will show up and continue to update as long as the location is enabled on the device and app. If you still do not see a sensor then you may need to wait for the sensor to get a state update so it can send it to your Home Assistant server.
+![iOS](/assets/iOS.svg) When the app is not in the foreground, sensor updates are tied to location updates so you need to make sure that location permissions are enabled for the device and app in order for sensor updates to be sent to the phone. Once you enable location for the app the sensors will show up and continue to update as long as the location is enabled on the device and app.
 
+![Android](/assets/android.svg) On Android, sensors will show up as and when they have an update. Some will show up immediately upon enabling and others will show up once permissions have been granted and the state was retrieved. If you do not see a sensor then you may need to wait for the sensor to get a state update so it can send it to your Home Assistant server.
 
 ## Text to speech notifications are not working
-Check that [Google Text to Speech](https://play.google.com/store/apps/details?id=com.google.android.tts) is updated. Check that it is also set as the default Text to Speech engine, this may be required for certain manufacturers.
+![Android](/assets/android.svg) Check that [Google Text to Speech](https://play.google.com/store/apps/details?id=com.google.android.tts) is updated. Check that it is also set as the default Text to Speech engine, this may be required for certain manufacturers.
 
 ## Seeing toast messages for Configured Entity not found
-This error is meant to show up when the app is unable to update a widget on your home screen for either an invalid/missing entity or the call to your Home Assistant instance failed. There are cases where widgets could be lost from the home screen and the app attempts to update those and fails. As the app does not get notified when a widget is lost (as opposed to removed by dragging off the screen) you will need to delete the widget from the App Configuration page.
+![Android](/assets/android.svg) This error is meant to show up when the app is unable to update a widget on your home screen for either an invalid/missing entity or the call to your Home Assistant instance failed. There are cases where widgets could be lost from the home screen and the app attempts to update those and fails. As the app does not get notified when a widget is lost (as opposed to removed by dragging off the screen) you will need to delete the widget from the App Configuration page.
 
 1.  Navigate to App Configuration in the sidebar.
 2.  Select Manage Widgets.
