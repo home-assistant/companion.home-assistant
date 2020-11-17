@@ -48,6 +48,8 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | `binary_sensor.interactive` | None | Whether or not the device is in an interactive state. |
 | `binary_sensor.power_save` | None | Whether or not the device is in power saving mode. |
 | `sensor.activity` | `confidence` | The current activity type as computed by Google. Requires activity recognition permissions on supported devices. |
+| [App Data Sensors](#app-data_sensors) | None | Sensors that show how much data was sent or received by the app. |
+| `sensor.app_memory` | [See Below](#app-memory-sensor) | Information about the memory that is available for the app. |
 | [Audio Sensors](#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
 | [Battery Sensors](#battery-sensors) | None | Several different sensors around the state of the devices battery. |
 | `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
@@ -101,6 +103,16 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 *   `unknown`
 
 The attribute for the state will reflect the `confidence` rating from the [Activity Recognition API](https://developers.google.com/location-context/activity-recognition). This sensor requires the [Activity Recognition permission](https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION).
+
+
+## App Data Sensors
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+These sensors will represent how much data was transmitted and received by the Home Assistant Android app, since the last device reboot. These sensors make use of the [Traffic Stats API](https://developer.android.com/reference/kotlin/android/net/TrafficStats).
+
+
+## App Memory Sensor
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+This sensor will represent how much memory is being used by the application. The attributes will include how much memory is free and available for the application. This sensor makes use of the [Runtime API](https://developer.android.com/reference/java/lang/Runtime).
 
 
 ## Audio Sensors
