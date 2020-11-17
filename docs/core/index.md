@@ -356,6 +356,18 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
+      <td><a href="/docs/core/sensors#app-data-sensors">App Data Sensors</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors#app-memory-sensor">App Memory Sensor</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#audio-sensors">Audio Sensors</a></td>
       <td>✅</td>
       <td>✅</td>
