@@ -12,6 +12,7 @@ module.exports = {
       logo: {
         alt: 'Home Assistant',
         src: 'img/logo-pretty.svg',
+        srcDark: 'img/logo-pretty.svg',
       },
       items: [
         {to: '/docs/getting_started/getting-started', label: 'Docs', position: 'left'},
