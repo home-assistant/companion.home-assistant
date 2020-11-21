@@ -563,6 +563,22 @@ If you find that your alarm stream volume is too low you can use `channel: alarm
           channel: alarm_stream_max
 ```
 
+If you do not want the TTS notification to be spoken when the Ringer mode is not `normal` (to mimic the behavior of classic notifications), you need to prevent the TTS notification to be sent in the first place. This can be done by adding a condition in your automation that checks the state of another sensor, like the Ringer Mode (`audio_sensor`) or the Audio Mode (`audio_mode`).
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      - condition: state
+        entity_id: sensor.<your_device_id_here>_audio_sensor
+        state: normal
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: TTS
+          title: Motion has been detected
+```
+
 ### Chronometer Notifications
 
 ![Android](/assets/android.svg)<br />
