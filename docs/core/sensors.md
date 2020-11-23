@@ -50,6 +50,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | `sensor.activity` | `confidence` | The current activity type as computed by Google. Requires activity recognition permissions on supported devices. |
 | [App Data Sensors](#app-data_sensors) | None | Sensors that show how much data was sent or received by the app. |
 | `sensor.app_memory` | [See Below](#app-memory-sensor) | Information about the memory that is available for the app. |
+| [App Usage Sensors](#app-usage-sensors) | None | Sensors that represent how the app is treated based on its usage. |
 | [Audio Sensors](#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
 | [Battery Sensors](#battery-sensors) | None | Several different sensors around the state of the devices battery. |
 | `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
@@ -113,6 +114,20 @@ These sensors will represent how much data was transmitted and received by the H
 ## App Memory Sensor
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 This sensor will represent how much memory is being used by the application. The attributes will include how much memory is free and available for the application. This sensor makes use of the [Runtime API](https://developer.android.com/reference/java/lang/Runtime).
+
+
+## App Usage Sensors
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+These sensors will represent how the Android system is treating the app based on its usage. There is one binary sensor `app_inactive` which will report whether or not the system currently considers the app to be inactive. The other sensor `app_standby_bucket` will reflect the current standby bucket that the Android system considers for the app. Standby buckets determine how much an app will be restricted from running background tasks such as jobs and alarms. Both of these sensors make use of the [UsageStatsManager API](https://developer.android.com/reference/android/app/usage/UsageStatsManager).
+
+Possible states for `app_standby_bucket` sensor (please refer to the API linked above for their definitions):
+
+*   `active`
+*   `frequent`
+*   `rare`
+*   `restricted`
+*   `working_set`
+*   `never`
 
 
 ## Audio Sensors
