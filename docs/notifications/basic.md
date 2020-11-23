@@ -575,13 +575,13 @@ You may not want the TTS notification to be spoken in certain situations (e.g. i
         state: normal
       - condition: state
         entity_id: sensor.<your_device_id_here>_do_not_disturb_sensor # Only speak if DND is not enabled
-        state: 'off'        
+        state: 'off'
       - condition: state
         entity_id: sensor.<your_device_id_here>_audio_mode # Only speak if the phone is idle (not ringing or in a call)
         state: normal
       - condition: state
         entity_id: sensor.<your_device_id_here>_is_music_active # Only speak if the phone is not playing music
-        state: off        
+        state: 'off'
       - service: notify.mobile_app_<your_device_id_here>
         data:
           message: TTS
