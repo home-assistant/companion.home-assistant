@@ -219,7 +219,7 @@ For Android several different types of connection sensors are available and they
 | `frequency` | The frequency band of the connected network |
 | `wifi_ip_address` | The current IP address of the device on the network |
 | `link_speed` | The current link speed of the device to the connected network |
-| `signal_strength` | The signal strength of teh device to the WiFi network |
+| `signal_strength` | The signal strength of the device to the WiFi network |
 | `wifi_state` | Whether or not WiFi is turned on for the device |
 
 ![Android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. These settings are turned off by default. These sensors require either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
