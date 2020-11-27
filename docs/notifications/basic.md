@@ -563,6 +563,31 @@ If you find that your alarm stream volume is too low you can use `channel: alarm
           channel: alarm_stream_max
 ```
 
+You may not want the TTS notification to be spoken in certain situations (e.g. if the Ringer mode is not `normal` or DND is enabled). This can be done by adding a condition in your automation that checks the state of [other sensors](https://companion.home-assistant.io/docs/core/sensors). Few examples are presented below:
+
+```yaml
+  - alias: Notify of Motion
+    trigger:
+      ...
+    action:
+      - condition: state
+        entity_id: sensor.<your_device_id_here>_ringer_mode # Only speak if the Ringer is normal (not vibrate or silent)
+        state: normal
+      - condition: state
+        entity_id: sensor.<your_device_id_here>_do_not_disturb_sensor # Only speak if DND is not enabled
+        state: 'off'
+      - condition: state
+        entity_id: sensor.<your_device_id_here>_audio_mode # Only speak if the phone is idle (not ringing or in a call)
+        state: normal
+      - condition: state
+        entity_id: sensor.<your_device_id_here>_is_music_active # Only speak if the phone is not playing music
+        state: 'off'
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: TTS
+          title: Motion has been detected
+```
+
 ### Chronometer Notifications
 
 ![Android](/assets/android.svg)<br />
