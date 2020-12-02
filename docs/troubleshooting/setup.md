@@ -81,7 +81,7 @@ To fix this change the location permission for the Home Assistant App to "Always
 ## Starting fresh with the Android app
 ![Android](/assets/android.svg) At times you may need to start fresh with the Android app as a new feature may not be working properly or something odd happens.
 
-1.  Check that Home Assistant Core and the Android app are up to date.
+1.  Check that Home Assistant Core, the [Android app](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) and [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview) are up to date.
 2.  Clear Storage or App data in Android app.
 3.  In Home Assistant navigate to Configuration > Integration. Remove the mobile app entry for the device in question. If you see more than 1 remove them all.
 4.  Restart Home Assistant.
