@@ -569,7 +569,7 @@ You may not want the TTS notification to be spoken in certain situations (e.g. i
   - alias: Notify of Motion
     trigger:
       ...
-    action:
+    condition:
       - condition: state
         entity_id: sensor.<your_device_id_here>_ringer_mode # Only speak if the Ringer is normal (not vibrate or silent)
         state: normal
@@ -582,6 +582,7 @@ You may not want the TTS notification to be spoken in certain situations (e.g. i
       - condition: state
         entity_id: sensor.<your_device_id_here>_is_music_active # Only speak if the phone is not playing music
         state: 'off'
+    action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           message: TTS
