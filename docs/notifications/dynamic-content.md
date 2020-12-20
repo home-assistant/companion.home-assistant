@@ -22,6 +22,8 @@ data:
 ```
 Be aware, that to send a map you must send a push `category` which has to be called `map`, `map1`, `map2`, `map3` or `map4`  otherwise you won't get the map delivered.
 
+### Providing coordinates using templates <span class="beta">BETA</span><br />
+
 You may also use a `device_tracker` for the latitude and longitude coordinates like so:
 
 ```yaml
