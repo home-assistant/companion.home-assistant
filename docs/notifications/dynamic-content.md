@@ -22,7 +22,13 @@ data:
 ```
 Be aware, that to send a map you must send a push `category` which has to be called `map`, `map1`, `map2`, `map3` or `map4`  otherwise you won't get the map delivered.
 
-You may also use a device_tracker for the latitude and longitude coordinates like so: `"{{states.device_tracker.<your_device_id_here>.attributes.latitude}}"` but make sure to use `data_template` in that case.
+You may also use a `device_tracker` for the latitude and longitude coordinates like so:
+
+```yaml
+    action_data:
+      latitude: "{{states.device_tracker.<your_device_id_here>.attributes.latitude}}"
+      longitude: "{{states.device_tracker.<your_device_id_here>.attributes.longitude}}"
+```
 
 ### Showing a second pin
 
