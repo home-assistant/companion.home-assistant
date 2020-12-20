@@ -28,7 +28,7 @@ The Companion apps offer a lot of different notification options. In place of po
 
 ## Bluetooth
 
-![Android](/assets/android.svg)
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 
 Users can turn Bluetooth on or off using `message: command_bluetooth` with the `title` being either `turn_off` or `turn_on`. If `title` is blank, not set or not one of the above expected values then the notification will post as normal.
 
