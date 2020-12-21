@@ -28,8 +28,8 @@ You may also use a `device_tracker` for the latitude and longitude coordinates l
 
 ```yaml
     action_data:
-      latitude: "{{states.device_tracker.<your_device_id_here>.attributes.latitude}}"
-      longitude: "{{states.device_tracker.<your_device_id_here>.attributes.longitude}}"
+      latitude: "{{ state_attr("device_tracker.<your_device_id_here>", "latitude") }}"
+      longitude: "{{ state_attr("device_tracker.<your_device_id_here>", "longitude") }}"
 ```
 
 ### Showing a second pin
