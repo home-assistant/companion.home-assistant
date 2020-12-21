@@ -599,6 +599,7 @@ You may want to utilize [notification timeouts](#notification-timeout) or [repla
 
 - chronometer - true to enable chronometer mode
 - when - the timestamp to count up or down to (seconds since 01/01/1970)
+
 ```yaml
   - alias: Notify of Next Alarm Time
     trigger:
@@ -611,22 +612,5 @@ You may want to utilize [notification timeouts](#notification-timeout) or [repla
           Next Alarm At {{ states('sensor.<your_device_id_here>_next_alarm') }}
         data:
           chronometer: true
-          when: >-
-            {{ state_attr('sensor.<your_device_id_here>_next_alarm', 'Time in Milliseconds') / 1000 }}
-```
-
-Here's another example:
-```yaml
-- alias: ISS presence notification
-  trigger:
-    ...
-  action:
-    data:
-      title: "🛰 ISS Notification 🛰"
-      message: "The ISS is currently in orbit right above your hometown"
-      data:
-        chronometer: true
-        when: "{{ (as_timestamp(now()) + 120) | round }}"
-        timeout: 120
-    service: notify.mobile_app_<your_device_id_here>
+          when: "1609459200"
 ```

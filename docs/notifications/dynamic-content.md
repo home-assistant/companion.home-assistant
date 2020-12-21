@@ -22,16 +22,6 @@ data:
 ```
 Be aware, that to send a map you must send a push `category` which has to be called `map`, `map1`, `map2`, `map3` or `map4`  otherwise you won't get the map delivered.
 
-### Providing coordinates using templates <span class="beta">BETA</span><br />
-
-You may also use a `device_tracker` for the latitude and longitude coordinates like so:
-
-```yaml
-    action_data:
-      latitude: "{{ state_attr("device_tracker.<your_device_id_here>", "latitude") }}"
-      longitude: "{{ state_attr("device_tracker.<your_device_id_here>", "longitude") }}"
-```
-
 ### Showing a second pin
 
 You can use the following properties under `action_data` to display a second pin. If used, the first pin will be red and the second pin green.
