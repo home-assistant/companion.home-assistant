@@ -59,7 +59,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
-| `sensor.last_notification` | See Below | The last notification posted on the device. |
+| [Notification Sensors](#notification-sensors) | See Below | Details about the notifications on the device. |
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
 | `sensor.last_update` | None | The state will reflect the intent that caused the last update to get sent. |
 | `sensor.light` | None | The current level of illuminance the device detects. |
@@ -287,9 +287,26 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 These sensors will reflect various states from the [Keyguard Manager](https://developer.android.com/reference/android/app/KeyguardManager). You will be able to determine if the device is actively locked, has a password setup or even if the device requires a password to unlock. These sensors will update with the periodic sensor interval.
 
 
-## Last Notification Sensor
+## Notification Sensors
 ![Android](/assets/android.svg)<br />
+
+### Last Notification
+
 This sensor will reflect the last notification posted on the device. This sensor requires a special permission that the app will take the user to so they can grant access to notifications. This sensors state will default to the text of the notification or if not available the posting package name. This sensor offers a setting to enable an Allow List to let the user select which packages they wish to get notification data from, notifications sent by Home Assistant are always ignored. We recommend that users make use of this setting as by default all notifications including invisible ones get sent and might cause unintentional battery drain if the setting is left untouched. This can be very useful to integrate any app that sends a notification but does not offer direct integration (ex: food delivery apps or 2FA SMS codes). There are several attributes a user can expect to see, although not all attributes will contain data. This sensor makes use of the [NotificationListenerService API](https://developer.android.com/reference/android/service/notification/NotificationListenerService#onNotificationRemoved(android.service.notification.StatusBarNotification)).  More details on each attribute can be found in the [Notification Extras](https://developer.android.com/reference/android/app/Notification).
+
+### Last Removed Notification
+
+<span class="beta">BETA</span><br />
+This sensor is similar to Last Notification except that it will update when a notification has been removed from the device, either by the user or an application. You can expect to see similar attributes for this sensor, some of which are outlined below. This sensor requires the same permission as mentioned up above. This sensor also has an allow list that functions similar to Last Notification.
+
+### Active Notification Count
+
+<span class="beta">BETA</span><br />
+This sensor will reflect the total active notifications on the device. This count will include notifications that are persistent and/or silent. At times it may even include the Sensor Worker notification. This sensor will update whenever any of the other sensors have an update. This sensor requires the same permissions as mentioned in Last Notification. There is no allow list for this sensor.<br /><br />
+
+
+Below you can find some details that can be given with some notifications.
+
 
 | Attribute | Description |
 | --------- | --------- |
@@ -306,7 +323,10 @@ This sensor will reflect the last notification posted on the device. This sensor
 | `android.subText` | The subtitle of the notification. |
 | `android.text` | The text of the notification. |
 | `android.title` | The title of the notification. |
+| `is_clearable` | If the notification can be cleared. &nbsp;<span class="beta">BETA</span> |
+| `is_ongoing` | If the notification is persistent on the device. &nbsp;<span class="beta">BETA</span> |
 | `package` | The package that posted the notification. |
+| `post_time` | The time the notification was posted on the device. &nbsp;<span class="beta">BETA</span> |
 
 
 ## Last Reboot Sensor
