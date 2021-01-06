@@ -32,7 +32,7 @@ automation:
         message: "Something happened at home!"
         data:
           attachment:
-            url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
+            url: "https://github.com/home-assistant/assets/blob/master/logo/logo.png?raw=true"
             content-type: png
             hide-thumbnail: false
 ```
@@ -54,7 +54,7 @@ automation:
       data:
         message: "Something happened at home!"
         data:
-          image: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
+          image: "https://github.com/home-assistant/assets/blob/master/logo/logo.png?raw=true"
 ```
 
 ![Android](/assets/android.svg) &nbsp; Notes:
