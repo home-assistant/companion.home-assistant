@@ -48,9 +48,9 @@ On macOS, sensors update in the same situations as above as well as immediately 
 | `sensor.active_microphone` | `All`, `Active` | The name of the active microphone, or `Inactive` if not in use. |
 | `binary_sensor.camera_in_use` | None | Whether a camera on the system is currently in use. |
 | `binary_sensor.microphone_in_use` | None | Whether a microphone on the system is currently in use. |
-| `sensor.displays` | `Display IDs`, `Display Names` | Requires 2021.2 or later. Number of displays connected to the device. |
-| `sensor.primary_display_id` | None | Requires 2021.2 or later. ID of the current primary display, which is the display with the menu bar. In the form of a UUID, for example `BE82E2E6-EA40-4963-93AD-A0BDC9D2F18F`. |
-| `sensor.primary_display_name` | None | Requires 2021.2 or later. Name of the current primary display, which is the display with the menu bar. |
+| `sensor.displays` | `Display IDs`, `Display Names` | Requires app version 2021.2 or later. Number of displays connected to the device. |
+| `sensor.primary_display_id` | None | Requires app version 2021.2 or later. ID of the current primary display, which is the display with the menu bar. In the form of a UUID, for example `BE82E2E6-EA40-4963-93AD-A0BDC9D2F18F`. |
+| `sensor.primary_display_name` | None | Requires app version 2021.2 or later. Name of the current primary display, which is the display with the menu bar. |
 
 Attributes such as `Cellular Technology` can be accessed with a template such as:
 
@@ -102,7 +102,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | `Screen Off` | `true` when the screens have been turned off |
 | `Fast User Switched` | `true` when switched to another user |
 | `Sleeping` | `true` when the device is sleeping |
-| `Terminating` | `true` when the app was quit available. Requires 2021.2 or later. |
+| `Terminating` | `true` when the app was quit available. Requires app version 2021.2 or later. |
 
 ## Activity Sensor
 ![iOS](/assets/iOS.svg) `sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
