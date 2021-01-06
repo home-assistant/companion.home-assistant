@@ -49,7 +49,8 @@ On macOS, sensors update in the same situations as above as well as immediately 
 | `binary_sensor.camera_in_use` | None | Whether a camera on the system is currently in use. |
 | `binary_sensor.microphone_in_use` | None | Whether a microphone on the system is currently in use. |
 | `sensor.displays` | `Display IDs`, `Display Names` | Requires 2021.2 or later. Number of displays connected to the device. |
-| `sensor.primary_display` | `Display ID` | Requires 2021.2 or later. Name of the current primary display, which is the display with the menu bar. |
+| `sensor.primary_display_id` | None | Requires 2021.2 or later. ID of the current primary display, which is the display with the menu bar. In the form of a UUID, for example `BE82E2E6-EA40-4963-93AD-A0BDC9D2F18F`. |
+| `sensor.primary_display_name` | None | Requires 2021.2 or later. Name of the current primary display, which is the display with the menu bar. |
 
 Attributes such as `Cellular Technology` can be accessed with a template such as:
 
