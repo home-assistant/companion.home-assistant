@@ -7,28 +7,50 @@ Along with providing [location services](location.md), the companion app also ad
 
 The sensors provided by the companion app are:
 
-![iOS](/assets/iOS.svg)Sensor List
+![iOS](/assets/iOS.svg)and ![macOS](/assets/macOS.svg)Sensor List
 
-**It is important to know that these sensors are only updated when a location is pushed to Home Assistant or the web view is refreshed**.
+:::note Sensor Updates
+On iOS, sensors update in limited situations: when your location changes, periodically when the app is running in the foreground, when you pull-to-refresh the web view, and when performing an "Update Sensors" or "Send Location" shortcut.
+
+On macOS, sensors update in the same situations as above as well as immediately when some sensors change.
+:::
+
+| Sensor | Attributes | Description |
+| --------- | --------- | ----------- |
+| `sensor.battery_level` | `Battery State`, `Low Power Mode` | The current battery level of the device. Current battery state is available from the `Battery State` attribute of this sensor. |
+| `sensor.battery_state` | `Battery Level`, `Low Power Mode` | The current charging state (either `Charging`, `Not Charging`, or `Full`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
+| `sensor.bssid` | None |  The MAC address of the wireless access point your phone is connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
+| `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
+| `sensor.last_update_trigger` | None | The cause of the last update of location and sensor data from the device to Home Assistant |
+| `sensor.ssid` | None | The human-readable name of the Wi-Fi network the device is currently connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
+| `sensor.storage` | [See Below](#storage-sensor) | The amount of total and available storage on your device. |
+
+![iOS](/assets/iOS.svg)Specific Sensors
 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
 | `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
 | `sensor.average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
-| `sensor.battery_level` | `Battery State`, `Low Power Mode` | The current battery level of the device. Current battery state is available from the `Battery State` attribute of this sensor. |
-| `sensor.battery_state` | `Battery Level`, `Low Power Mode` | The current charging state (either `Charging`, `Not Charging`, or `Full`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
-| `sensor.bssid` | None |  The MAC address of the wireless access point your phone is connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
 | `sensor.connection_type` | `Cellular Technology` | The current data connection being used by the phone. |
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
 | `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
-| `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
-| `sensor.last_update_trigger` | None | The cause of the last update of location and sensor data from the device to Home Assistant |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
-| `sensor.ssid` | None | The human-readable name of the Wi-Fi network the device is currently connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
 | `sensor.steps` | None | The number of steps taken by the user. |
-| `sensor.storage` | [See Below](#storage-sensor) | The amount of total and available storage on your iOS device. |
+
+![macOS](/assets/macOS.svg)Specific Sensors
+
+| Sensor | Attributes | Description |
+| --------- | --------- | ----------- |
+| `binary_sensor.active` | [See Below](#active-sensor) | Whether the device is actively being used. |
+| `sensor.active_camera` | `All`, `Active` | The name of the active camera, or `Inactive` if not in use. |
+| `sensor.active_microphone` | `All`, `Active` | The name of the active microphone, or `Inactive` if not in use. |
+| `binary_sensor.camera_in_use` | None | Whether a camera on the system is currently in use. |
+| `binary_sensor.microphone_in_use` | None | Whether a microphone on the system is currently in use. |
+| `sensor.displays` | `Display IDs`, `Display Names` | Requires app version 2021.2 or later. Number of displays connected to the device. |
+| `sensor.primary_display_id` | None | Requires app version 2021.2 or later. ID of the current primary display, which is the display with the menu bar. In the form of a UUID, for example `BE82E2E6-EA40-4963-93AD-A0BDC9D2F18F`. |
+| `sensor.primary_display_name` | None | Requires app version 2021.2 or later. Name of the current primary display, which is the display with the menu bar. |
 
 Attributes such as `Cellular Technology` can be accessed with a template such as:
 
@@ -75,6 +97,18 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | [Traffic Stats Sensor](#traffic-stats-sensor) | None | Amount of data transmitted and received from mobile and total device usage since last reboot. |
 | [WiFi Sensors](#connection-type-sensor) | None | Several different sensors around the state of WiFi. |
 
+## Active Sensor
+![macOS](/assets/macOS.svg) `sensor.active` provides whether the device is currently being used, based on a few different inputs which are provided as attributes to be informative.
+
+| Attribute | Description |
+| --------- | --------- |
+| `Idle` | `true` when the machine is not any of the following attributes, but input devices haven't been used in a number of minutes. You can configure the number of minutes by viewing the sensor in the App Configuration and adjusting the number. |
+| `Screensaver` | `true` when the screensaver began playing to turn inactive |
+| `Locked` | `true` when the device is showing the login screen |
+| `Screen Off` | `true` when the screens have been turned off |
+| `Fast User Switched` | `true` when switched to another user |
+| `Sleeping` | `true` when the device is sleeping |
+| `Terminating` | `true` when the app was quit available. Requires app version 2021.2 or later. |
 
 ## Activity Sensor
 ![iOS](/assets/iOS.svg) `sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
