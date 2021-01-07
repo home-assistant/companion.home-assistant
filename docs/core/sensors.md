@@ -10,7 +10,7 @@ The sensors provided by the companion app are:
 ![iOS](/assets/iOS.svg)and ![macOS](/assets/macOS.svg)Sensor List
 
 :::note Sensor Updates
-On iOS, sensors update in limited situations: when your location changes, periodically when the app is running in the foreground, when you pull-to-refresh the web view, and when performing an "Update Sensors" or "Send Location" shortcut.
+On iOS, sensors update in limited situations: when your location changes, periodically when the app is running in the foreground, when you pull-to-refresh the web view, and when performing an "Update Sensors" or "Send Location" shortcut or push notification.
 
 On macOS, sensors update in the same situations as above as well as immediately when some sensors change.
 :::
@@ -20,6 +20,7 @@ On macOS, sensors update in the same situations as above as well as immediately 
 | `sensor.battery_level` | `Battery State`, `Low Power Mode` | The current battery level of the device. Current battery state is available from the `Battery State` attribute of this sensor. |
 | `sensor.battery_state` | `Battery Level`, `Low Power Mode` | The current charging state (either `Charging`, `Not Charging`, or `Full`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
 | `sensor.bssid` | None |  The MAC address of the wireless access point your phone is connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
+| `sensor.connection_type` | iOS: `Cellular Technology`<br />macOS: `Name`, `Hardware Address` | The current data connection being used by the device. On macOS, this requires app version 2021.2 or later. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `sensor.last_update_trigger` | None | The cause of the last update of location and sensor data from the device to Home Assistant |
 | `sensor.ssid` | None | The human-readable name of the Wi-Fi network the device is currently connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
@@ -31,7 +32,6 @@ On macOS, sensors update in the same situations as above as well as immediately 
 | --------- | --------- | ----------- |
 | `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
 | `sensor.average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
-| `sensor.connection_type` | `Cellular Technology` | The current data connection being used by the phone. |
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
 | `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
