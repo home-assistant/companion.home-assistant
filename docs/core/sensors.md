@@ -46,6 +46,7 @@ On macOS, sensors update in the same situations as above as well as immediately 
 | `binary_sensor.active` | [See Below](#active-sensor) | Whether the device is actively being used. |
 | `sensor.active_camera` | `All`, `Active` | The name of the active camera, or `Inactive` if not in use. |
 | `sensor.active_microphone` | `All`, `Active` | The name of the active microphone, or `Inactive` if not in use. |
+| `sensor.frontmost_app` | [See Below](#frontmost-app-sensor) | Requires app version 2021.2 or later. The name of the current frontmost app. |
 | `binary_sensor.camera_in_use` | None | Whether a camera on the system is currently in use. |
 | `binary_sensor.microphone_in_use` | None | Whether a microphone on the system is currently in use. |
 | `sensor.displays` | `Display IDs`, `Display Names` | Requires app version 2021.2 or later. Number of displays connected to the device. |
@@ -282,6 +283,17 @@ This sensor will represent the state of Do Not Disturb (DND) on the device. The 
 ![Android](/assets/android.svg)<br />
 This sensor is only available on devices running Android 6.0+. The state will reflect whether or not the device is in doze mode. The state will update immediately upon a state change and data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html). There is one attribute `ignoring_battery_optimizations` which will show `true` or `false` if the Companion app is ignoring battery optimizations. If you are curious about how the state actually changes you may test it by following these [outlined steps](https://developer.android.com/training/monitoring-device-state/doze-standby#testing_doze).
 
+
+## Frontmost App Sensor
+![macOS](/assets/macos.svg)<br />
+This sensor updates immediately when the frontmost app changes.
+
+| Attribute | Description |
+| --------- | --------- |
+| `Bundle Identifier` | The bundle identifier of the app. For example, `io.home-assistant.example`. |
+| `Is Hidden` | Whether the application is hidden. |
+| `Launch Date` | The date (in ISO 8601, RFC 3339 format) the app was launched. For example, `2021-01-06T22:17:30-08:00`. |
+| `Owns Menu Bar` | Whether the application "owns" the menu bar. For example, a menu-bar-only app will not change the contents of the menu bar, even when it is frontmost it is not necessarily as primary. |
 
 ## Geocoded Location Sensor
 The [geocoded](https://.wikipedia.org/wiki/Geocoding) location sensor provides a user-friendly description of a users current location coordinates, often containing the name of the place, its address, and other relevant information. This sensor reports many detailed attributes allowing you to create useful [template sensors](https://www.home-assistant.io/components/template/).
