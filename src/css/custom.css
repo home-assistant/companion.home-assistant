@@ -61,6 +61,7 @@ article img[alt='Android']{
 
 html[data-theme='dark'] article img[alt='Android'],
 html[data-theme='dark'] article img[alt='iOS'],
+html[data-theme='dark'] article img[alt='macOS'],
 html[data-theme='dark'] article img[alt='Apple'],
 html[data-theme='dark'] .invertDark {
   filter: invert(1.0)
