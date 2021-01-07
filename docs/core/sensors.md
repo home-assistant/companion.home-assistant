@@ -285,7 +285,7 @@ This sensor is only available on devices running Android 6.0+. The state will re
 
 
 ## Frontmost App Sensor
-![macOS](/assets/macos.svg)<br />
+![macOS](/assets/macOS.svg)<br />
 This sensor updates immediately when the frontmost app changes.
 
 | Attribute | Description |
