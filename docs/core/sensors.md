@@ -72,7 +72,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | `binary_sensor.power_save` | None | Whether or not the device is in power saving mode. |
 | `sensor.activity` | `confidence` | The current activity type as computed by Google. Requires activity recognition permissions on supported devices. |
 | [App Data Sensors](#app-data_sensors) | None | Sensors that show how much data was sent or received by the app. |
-| `sensor.app_importance` | None | The current importance of the app to determine if its in the foreground or cached. |
+| [App Importance Sensor](#app-importance-sensor) | None | The current importance of the app to determine if its in the foreground or cached. |
 | `sensor.app_memory` | [See Below](#app-memory-sensor) | Information about the memory that is available for the app. |
 | [App Usage Sensors](#app-usage-sensors) | None | Sensors that represent how the app is treated based on its usage. |
 | [Audio Sensors](#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
