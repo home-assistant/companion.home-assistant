@@ -72,6 +72,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | `binary_sensor.power_save` | None | Whether or not the device is in power saving mode. |
 | `sensor.activity` | `confidence` | The current activity type as computed by Google. Requires activity recognition permissions on supported devices. |
 | [App Data Sensors](#app-data_sensors) | None | Sensors that show how much data was sent or received by the app. |
+| [App Importance Sensor](#app-importance-sensor) | None | The current importance of the app to determine if its in the foreground or cached. |
 | `sensor.app_memory` | [See Below](#app-memory-sensor) | Information about the memory that is available for the app. |
 | [App Usage Sensors](#app-usage-sensors) | None | Sensors that represent how the app is treated based on its usage. |
 | [Audio Sensors](#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
@@ -144,6 +145,24 @@ The attribute for the state will reflect the `confidence` rating from the [Activ
 ## App Data Sensors
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 These sensors will represent how much data was transmitted and received by the Home Assistant Android app, since the last device reboot. These sensors make use of the [Traffic Stats API](https://developer.android.com/reference/kotlin/android/net/TrafficStats).
+
+
+## App Importance Sensor
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+This sensor will represent the state of the app to reflect if its in the `foreground` or `service` or any other state it can be. This sensor will update any time any other sensor has an update. See all of the Importance variables in [ActivityManager](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo) to see what they mean.
+
+Possible states are:
+
+*   `cached`
+*   `cant_save_state`
+*   `foreground`
+*   `foreground_service`
+*   `gone`
+*   `not_running`
+*   `perceptible`
+*   `service`
+*   `top_sleeping`
+*   `visible`
 
 
 ## App Memory Sensor
