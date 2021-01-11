@@ -362,6 +362,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
+      <td><a href="/docs/core/sensors#app-importance-sensor">App Importance Sensor</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#app-memory-sensor">App Memory Sensor</a></td>
       <td>✅</td>
       <td>✅</td>
