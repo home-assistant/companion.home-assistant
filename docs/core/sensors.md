@@ -407,7 +407,7 @@ This sensors state will be the date and time of the last reboot from the device 
 ## Last Update Trigger Sensor
 ![Android](/assets/android.svg)
 
-For android this sensors state will reflect the [intent](https://developer.android.com/reference/android/content/Intent) of the most recent update sent.
+For android this sensors state will reflect the [intent](https://developer.android.com/reference/android/content/Intent) of the most recent update sent. Additionally the sensor offers settings to allow the user to receive [app events](../integrations/app-events.md) from other Android apps that broadcast an intent. Users can register for as many intents as they like, an event will be sent to Home Assistant once the intent has been received. Once you save an intent be sure to restart the application to register for the intent.
 
 ![iOS](/assets/iOS.svg)<br />
 This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
