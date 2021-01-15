@@ -94,7 +94,7 @@ Please ensure your attachment meets the criteria below, otherwise it will not sh
 
 ![Android](/assets/android.svg) Android Specific
 
- [`See table for supported media`](#supported-media-types)
+ [See table for supported media](#supported-media-types)
 
 -   **image** (*Required*): The URL of the image to use as the attachment. This URL *must* be accessible from the Internet.
       - `GIF` filetype will not be animated in notification shade
