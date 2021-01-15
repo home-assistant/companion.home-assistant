@@ -86,7 +86,7 @@ Please ensure your attachment meets the criteria below, otherwise it will not sh
 ## Configuration
 ![iOS](/assets/iOS.svg)Specific<br />
 
- [`See table for supported media`](#supported-media-types)
+ [See table for supported media](#supported-media-types)
 
 -   **url** (*Required*): The URL of content to use as the attachment. This URL *must* be accessible from the Internet, or the receiving device must be on the same network as the hosted content.
 -   **content-type** (*Optional*): By default, the extension of the URL will be checked to determine the filetype. If there is no extension/it can't be determined you can manually provide a file extension.
