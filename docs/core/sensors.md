@@ -17,8 +17,8 @@ On macOS, sensors update in the same situations as above as well as immediately 
 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
-| `sensor.battery_level` | `Battery State`, `Low Power Mode` | The current battery level of the device. Current battery state is available from the `Battery State` attribute of this sensor. |
-| `sensor.battery_state` | `Battery Level`, `Low Power Mode` | The current charging state (either `Charging`, `Not Charging`, or `Full`) of the device. Current battery level is available from the `Level` attribute of this sensor. |
+| `sensor.battery_level` | None | The current battery level of the device. |
+| `sensor.battery_state` | `Low Power Mode` | The current charging state (either `Charging`, `Not Charging`, or `Full`) of the device. |
 | `sensor.bssid` | None |  The MAC address of the wireless access point your phone is connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
 | `sensor.connection_type` | iOS: `Cellular Technology`<br />macOS: `Name`, `Hardware Address` | The current data connection being used by the device. On macOS, this requires app version 2021.2 or later. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
