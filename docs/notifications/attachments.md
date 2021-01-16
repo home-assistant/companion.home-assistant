@@ -59,6 +59,7 @@ automation:
 
 ![Android](/assets/android.svg) &nbsp; Notes:
 *   If you are setting the [`icon_url`](basic.md#notification-icon) and `image` property then only the image will be displayed on the device.
+*   GIF will not be animated in notification shade
 
 
 ## Example
@@ -75,19 +76,25 @@ The same notification but expanded to show the full size image attachment:
 
 Please ensure your attachment meets the criteria below, otherwise it will not show.
 
-| Attachment Type  | Maximum file size | Allowed Formats                                                                                              |
-| :-------: | --------------- | -------------------------------------------------------------------------------------------------------- |
-|    Image    | 10 MB             | JPEG, GIF, PNG                                                                     |
-|   Video    | 50 MB             | MPEG, MPEG2, MPEG4, AVI                                                            |
-|   Audio    | 5 MB  | AIFF, WAV, MP3, MPEG4 Audio |
+| Attachment Type  | Maximum file size | Allowed Formats | Supported Platform  |
+| :-------: | --------------- | ------------------|------------------------- |
+|    Image    | 10 MB    | JPEG, GIF, PNG          | ![Android](/assets/android.svg) Android & ![iOS](/assets/iOS.svg) |
+|   Video   | 50 MB   | MPEG, MPEG2, MPEG4, AVI   | ![iOS](/assets/iOS.svg) |
+|   Audio    | 5 MB  | AIFF, WAV, MP3, MPEG4 Audio          | ![iOS](/assets/iOS.svg) |
 
 
 ## Configuration
 ![iOS](/assets/iOS.svg)Specific<br />
+
+ [See table for supported media](#supported-media-types)
+
 -   **url** (*Required*): The URL of content to use as the attachment. This URL *must* be accessible from the Internet, or the receiving device must be on the same network as the hosted content.
 -   **content-type** (*Optional*): By default, the extension of the URL will be checked to determine the filetype. If there is no extension/it can't be determined you can manually provide a file extension.
 -   **hide-thumbnail** (*Optional*): If set to `true` the thumbnail will not show on the notification. The content will only be viewable by expanding.
 
 ![Android](/assets/android.svg) Android Specific
 
+ [See table for supported media](#supported-media-types)
+
 -   **image** (*Required*): The URL of the image to use as the attachment. This URL *must* be accessible from the Internet.
+      - `GIF` filetype will not be animated in notification shade
