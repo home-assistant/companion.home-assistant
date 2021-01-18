@@ -104,13 +104,15 @@ All sensors update during a periodic 15-minute interval and they will also updat
 
 | Attribute | Description |
 | --------- | --------- |
-| `Idle` | `true` when the machine is not any of the following attributes, but input devices haven't been used in a number of minutes. You can configure the number of minutes by viewing the sensor in the App Configuration and adjusting the number. |
+| `Idle` | `true` when the machine is not any of the following attributes, but input devices haven't been used in a number of minutes. |
 | `Screensaver` | `true` when the screensaver began playing to turn inactive |
 | `Locked` | `true` when the device is showing the login screen |
 | `Screen Off` | `true` when the screens have been turned off |
 | `Fast User Switched` | `true` when switched to another user |
 | `Sleeping` | `true` when the device is sleeping |
 | `Terminating` | `true` when the app was quit available. Requires app version 2021.2 or later. |
+
+This sensor has a setting to decide the duration that is considered 'idle'.
 
 ## Activity Sensor
 ![iOS](/assets/iOS.svg) `sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
@@ -339,6 +341,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
 
+![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
 
 ## Interactive Sensor
 ![Android](/assets/android.svg) This sensors state will reflect if the device is in an interactive state. This is typically when the screen comes on and off but may vary from device to device. This sensor will update as soon state changes are detected, data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
