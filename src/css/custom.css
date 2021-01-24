@@ -35,7 +35,7 @@ table.core-table td:nth-child(n+2){
   text-align: center;
 }
 
-article img[alt='iOS'] {
+article img[alt='iOS'], article img[alt='macOS'] {
   display: inline;
   margin-left: auto;
   margin-right: auto;
