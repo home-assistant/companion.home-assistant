@@ -437,7 +437,7 @@ This sensor will reflect the current level of illuminance the device detects. Th
 
 ## Mobile Data Sensors
 ![Android](/assets/android.svg)<br />
-Several different sensors around the state of mobile data.
+Several different sensors around the state of mobile data. These sensors make use of [Settings.Global](https://developer.android.com/reference/kotlin/android/provider/Settings.Global?hl=en) and [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en) to get the mobile data states.
 
 | Sensor | Description |
 | ------ | ----------- |
