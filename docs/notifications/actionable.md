@@ -91,7 +91,7 @@ Two variables are available for use in the `Hidden preview placeholder` and `Cat
 
 Here is an example automation to send a notification with a category in the payload:
 
-![iOS](/assets/iOS.svg)Example
+### ![iOS](/assets/iOS.svg) Example
 
 ```yaml
 automation:
@@ -111,11 +111,37 @@ automation:
             my_custom_data: foo_bar
 ```
 
-![Android](/assets/android.svg)<br />
+If you want to navigate to a Lovelace page or launch an app for a notification, you can use the `url` key.
+
+To navigate to a dashboard when tapping a notification:
+```yaml
+action:
+  service: notify.mobile_app_<your_device_id_here>
+  data:
+    message: "Something happened at home!"
+    url: /lovelace/cameras
+```
+
+To navigate to a specific dashboard when tapping a notification action:
+```yaml
+action:
+  service: notify.mobile_app_<your_device_id_here>
+  data:
+    message: "Something happened at home!"
+    push:
+      category: "ALARM"
+    url: 
+      _: "/lovelace/cameras" # if the notification itself is tapped
+      SOUND_ALARM: "/lovelace/alarm" # if the 'SOUND_ALARM' action is tapped
+```
+
+You can also use application-launching URLs. For example, launch an external website using `https://example.com` or make a phone call using `tel:2125551212`.
+
+### ![Android](/assets/android.svg) Example
+
 For Android you create the action directly in the automation action. The below example will give you 3 actions in your notification. The first action will send back an event with the action `alarm` and the second action will open the URL or load a lovelace view/dashboard. If you plan to use a lovelace view the format would be `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view. If you plan to use a lovelace dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards-and-views/#dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard. 
 
 
-![Android](/assets/android.svg)<br />
 If you want to open an application you need to set the action to `URI`.  To pick the application to open prefix `app://` to the the package name.  If the device does not have the application installed then the Home Assistant application will open to the default page.
 
 ```yaml
@@ -141,7 +167,9 @@ automation:
 
 When an action is selected an event named `ios.notification_action_fired` for iOS and `mobile_app_notification_action` for Android will be emitted on the Home Assistant event bus. Below is an example payload.
 
-![iOS](/assets/iOS.svg)event example
+### Event examples
+
+![iOS](/assets/iOS.svg) Event example
 
 ```json
 {
