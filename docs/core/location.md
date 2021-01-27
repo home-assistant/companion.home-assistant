@@ -134,6 +134,7 @@ The following steps are an example of how to send an intent using Tasker:
 
 ### High accuracy mode
 
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 :::caution
 Be aware that when this option is enabled, your battery will drain faster than normal because of the permanent usage of GPS.
 :::
@@ -142,7 +143,7 @@ The background location sensor has also the option to run in high accuracy mode.
 
 You can also enable the high accuracy mode only when connected to specific Bluetooth devices with the option `High accuracy mode only when connected to BT devices`.  Be sure that the option `High accuracy mode (May drain battery fast)` is also enabled.
 
-If the high accuracy mode is enabled, you will see a notification with details about the location. This notification is permanent duo to requirements of the android system. But you can hide/minimize the location notification via notification settings of your system.
+If the high accuracy mode is enabled, you will see a notification with details about the location. This notification is permanent due to requirements of the android system. But you can hide/minimize the location notification via notification settings of your system.
 The notification will show your current address, if the geocoded sensor is enabled as well. Otherwise, it will show your current coordinates. Also, it will show you the accuracy of the last location found.
 
 The high accuracy mode can be also enabled/disable by a notification command. [See here](/docs/notifications/notification-commands#high-accuracy-mode) for more details.
