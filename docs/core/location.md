@@ -145,4 +145,4 @@ You can also enable the high accuracy mode only when connected to specific Bluet
 If the high accuracy mode is enabled, you will see a notification with details about the location. This notification is permanent duo to requirements of the android system. But you can hide/minimize the location notification via notification settings of your system.
 The notification will show your current address, if the geocoded sensor is enabled as well. Otherwise, it will show your current coordinates. Also, it will show you the accuracy of the last location found.
 
-The high accuracy mode can be also enabled/disable by a notification command. [See here](/docs/notifications/notification-commands) for more details.
+The high accuracy mode can be also enabled/disable by a notification command. [See here](/docs/notifications/notification-commands#high-accuracy-mode) for more details.
