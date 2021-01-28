@@ -84,6 +84,8 @@ automation:
           channel: "com.urbandroid.sleep"
 ```
 
+<span class="beta">BETA</span>
+
 [Extras](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String)) are also supported under the `group` parameter. As there can be any number of extras added to the intent we will need to split each extra by a comma `,`. Then each extra name and value needs to be separated by a colon `:`. The below example shows you how to turn on an alarm labeled `work` in the Sleep as Android application. In this example there are 2 extras being added to the intent.
 
 ```yaml
