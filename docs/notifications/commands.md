@@ -22,6 +22,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. &nbsp;<span class="beta">BETA</span> |
+| `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. &nbsp;<span class="beta">BETA</span> |
 | `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
@@ -196,4 +197,24 @@ automation:
         title: 20
         data:
           channel: music_stream
+```
+
+## High accuracy mode
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+Users can turn the high accuarcy mode of the background location sensor on or off using `message: command_high_accuracy_mode` with the `title` being either `turn_off` or `turn_on`. If `title` is blank, not set or not one of the above expected values then the notification will post as normal.
+
+Example:
+
+```yaml
+automation:
+  - alias: Notify Mobile app
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "command_high_accuracy_mode"
+        title: "turn_off"
 ```
