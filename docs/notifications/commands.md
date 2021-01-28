@@ -51,7 +51,7 @@ automation:
 
 ![Android](/assets/android.svg)
 
-Using notification commands you are now able to send a broadcast intent to another app in order to control that app based on the intent. Not all apps support intents and if they do they may document it for users to control. There are no `extras` provided at this time, it is only for sending an intent to another app. You must set `message: command_broadcast_intent` and the `title` must contain the intent action while `channel` must contain the package the intent is for. The package name and action are provided by the app you wish to send the intent to. If an invalid format is sent you may either see a notification or a toast message.
+Using notification commands you are now able to send a broadcast intent to another app in order to control that app based on the intent. Not all apps support intents and if they do they may document it for users to control. You must set `message: command_broadcast_intent` and the `title` must contain the intent action while `channel` must contain the package the intent is for. The package name and action are provided by the app you wish to send the intent to. If an invalid format is sent you may either see a notification or a toast message.
 
 Example:
 
@@ -85,6 +85,24 @@ automation:
           channel: "com.urbandroid.sleep"
 ```
 
+<span class="beta">BETA</span>
+
+[Extras](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String)) are also supported under the `group` parameter. As there can be any number of extras added to the intent we will need to split each extra by a comma `,`. Then each extra name and value needs to be separated by a colon `:`. The below example shows you how to turn on an alarm labeled `work` in the Sleep as Android application. In this example there are 2 extras being added to the intent.
+
+```yaml
+automation:
+  - alias: Notify Mobile app
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: command_broadcast_intent
+        title: "com.urbandroid.sleep.alarmclock.ALARM_STATE_CHANGE"
+        data:
+          channel: "com.urbandroid.sleep"
+          group: "alarm_label:work,alarm_enabled:false"
+```
 
 ## Do Not Disturb
 
