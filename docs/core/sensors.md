@@ -146,12 +146,12 @@ The attribute for the state will reflect the `confidence` rating from the [Activ
 
 
 ## App Data Sensors
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 These sensors will represent how much data was transmitted and received by the Home Assistant Android app, since the last device reboot. These sensors make use of the [Traffic Stats API](https://developer.android.com/reference/kotlin/android/net/TrafficStats).
 
 
 ## App Importance Sensor
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 This sensor will represent the state of the app to reflect if its in the `foreground` or `service` or any other state it can be. This sensor will update any time any other sensor has an update. See all of the Importance variables in [ActivityManager](https://developer.android.com/reference/android/app/ActivityManager.RunningAppProcessInfo) to see what they mean.
 
 Possible states are:
@@ -169,12 +169,12 @@ Possible states are:
 
 
 ## App Memory Sensor
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 This sensor will represent how much memory is being used by the application. The attributes will include how much memory is free and available for the application. This sensor makes use of the [Runtime API](https://developer.android.com/reference/java/lang/Runtime).
 
 
 ## App Usage Sensors
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 These sensors will represent how the Android system is treating the app based on its usage. There is one binary sensor `app_inactive` which will report whether or not the system currently considers the app to be inactive. The other sensor `app_standby_bucket` will reflect the current standby bucket that the Android system considers for the app. Standby buckets determine how much an app will be restricted from running background tasks such as jobs and alarms. Both of these sensors make use of the [UsageStatsManager API](https://developer.android.com/reference/android/app/usage/UsageStatsManager).
 
 Possible states for `app_standby_bucket` sensor (please refer to the API linked above for their definitions):
@@ -365,12 +365,10 @@ This sensor will reflect the last notification posted on the device. This sensor
 
 ### Last Removed Notification
 
-<span class="beta">BETA</span><br />
 This sensor is similar to Last Notification except that it will update when a notification has been removed from the device, either by the user or an application. You can expect to see similar attributes for this sensor, some of which are outlined below. This sensor requires the same permission as mentioned up above. This sensor also has an allow list that functions similar to Last Notification.
 
 ### Active Notification Count
 
-<span class="beta">BETA</span><br />
 This sensor will reflect the total active notifications on the device. This count will include notifications that are persistent and/or silent. At times it may even include the Sensor Worker notification. This sensor will update whenever any of the other sensors have an update. This sensor requires the same permissions as mentioned in Last Notification. There is no allow list for this sensor.<br /><br />
 
 
@@ -392,10 +390,10 @@ Below you can find some details that can be given with some notifications.
 | `android.subText` | The subtitle of the notification. |
 | `android.text` | The text of the notification. |
 | `android.title` | The title of the notification. |
-| `is_clearable` | If the notification can be cleared. &nbsp;<span class="beta">BETA</span> |
-| `is_ongoing` | If the notification is persistent on the device. &nbsp;<span class="beta">BETA</span> |
+| `is_clearable` | If the notification can be cleared. |
+| `is_ongoing` | If the notification is persistent on the device. |
 | `package` | The package that posted the notification. |
-| `post_time` | The time the notification was posted on the device. &nbsp;<span class="beta">BETA</span> |
+| `post_time` | The time the notification was posted on the device. |
 
 
 ## Last Reboot Sensor
@@ -436,7 +434,7 @@ This sensor displays exactly what caused the last update of location and sensor 
 This sensor will reflect the current level of illuminance the device detects. The sensor updates during the normal sensor update interval or with the other sensor updates and makes use of [Environment Sensors](https://developer.android.com/guide/topics/sensors/sensors_environment).
 
 ## Mobile Data Sensors
-![Android](/assets/android.svg)<br />
+![Android](/assets/android.svg)<br /> &nbsp;<span class="beta">BETA</span><br />
 Several different sensors around the state of mobile data. These sensors make use of [Settings.Global](https://developer.android.com/reference/kotlin/android/provider/Settings.Global?hl=en) and [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en) to get the mobile data states.
 
 | Sensor | Description |
