@@ -129,7 +129,7 @@ Example:
 
 ```yaml
 automation:
-  - alias: Notify Mobile app
+  - alias: Mobile App Launch Navigate
     trigger:
       ...
     action:
