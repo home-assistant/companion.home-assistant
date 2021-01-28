@@ -49,7 +49,7 @@ This widget will make the service call when it is tapped. The user will see a gr
 
 This widget will display any text that you wish to show in a widget using [Home Assistants templating feature](https://www.home-assistant.io/docs/configuration/templating/). This is an advanced feature but allows the user to display a wide variety of data. The widget will render the templates live below the text field so you can preview what it would look like. 
 
-<span class="beta">BETA</span>  You may also use HTML to format the text displayed such as adding a new line, making something bold or changing the color. <br /><br />
+You may also use HTML to format the text displayed such as adding a new line, making something bold or changing the color. <br /><br />
 
 1.  Long press on any open space in the home screen
 2.  Scroll down to Home Assistant in the widget list
