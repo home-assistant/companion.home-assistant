@@ -31,7 +31,7 @@ The Companion apps offer a lot of different notification options. In place of po
 
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 
-On Android you can send `message: command_activity` to launch any activity to a URI specified in the `title` of the notification. If the `title` is not set then the notification will post as normal. `channel` must also be set to the package of where the activity is to be launched, otherwise the notification will post as normal. You must know the intending URI and package to start the activity. Typically this will be a documented feature if supported by the app.
+On Android you can send `message: command_activity` to launch any activity to a URI specified in the `title` of the notification. If the `title` is not set then the notification will post as normal. `channel` must also be set to the package of where the activity is to be launched, otherwise the notification will post as normal. The `group` will also need to be set the Intent Action string, or the notification will post as normal. You must know the intending URI, action and package to start the activity. Typically this will be a documented feature if supported by the app.
 
 The below example follows [Google's documentation](https://developers.google.com/maps/documentation/urls/android-intents#launch-turn-by-turn-navigation) to show you how this feature works by launching Google Maps Navigation.
 
@@ -49,6 +49,7 @@ automation:
         title: "google.navigation:q=arbys"
         data:
           channel: "com.google.android.apps.maps"
+          group: "android.intent.action.VIEW"
 ```
 
 To continue with the above example you can also launch [search results](https://developer.android.com/guide/components/intents-common#Maps) with the following:
@@ -65,6 +66,7 @@ automation:
         title: "geo:0,0?q=1600+Amphitheatre+Parkway%2C+CA"
         data:
           channel: "com.google.android.apps.maps"
+          group: "android.intent.action.VIEW"
 ```
 
 
