@@ -83,6 +83,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
+| [Mobile Data Sensors](#mobile-data-sensors) | None | Several different sensors around the state of mobile data. |
 | [Notification Sensors](#notification-sensors) | See Below | Details about the notifications on the device. |
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
 | `sensor.last_update` | None | The state will reflect the intent that caused the last update to get sent. |
@@ -434,6 +435,14 @@ This sensor displays exactly what caused the last update of location and sensor 
 ![Android](/assets/android.svg)<br />
 This sensor will reflect the current level of illuminance the device detects. The sensor updates during the normal sensor update interval or with the other sensor updates and makes use of [Environment Sensors](https://developer.android.com/guide/topics/sensors/sensors_environment).
 
+## Mobile Data Sensors
+![Android](/assets/android.svg)<br />
+Several different sensors around the state of mobile data. These sensors make use of [Settings.Global](https://developer.android.com/reference/kotlin/android/provider/Settings.Global?hl=en) and [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en) to get the mobile data states.
+
+| Sensor | Description |
+| ------ | ----------- |
+| `mobile_data` | Whether or not mobile data is turned on for the device. |
+| `mobile_data_roaming` | Whether or not mobile data roaming is turned on for the device. |
 
 ## Next Alarm Sensor
 ![Android](/assets/android.svg)<br />
