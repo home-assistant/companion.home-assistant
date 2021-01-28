@@ -20,6 +20,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_bluetooth` | Turn bluetooth on or off. |
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
+| `command_navigate` | Launch Google Maps to navigate to a specified location, optionally set the transportation mode [see below](#navigate) for details. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. &nbsp;<span class="beta">BETA</span> |
 | `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
@@ -115,6 +116,31 @@ automation:
         message: "command_dnd"
         title: "priority_only"
 ```
+
+## Navigate
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+On Android you can send `message: command_navigate` to launch Google Maps to navigate to a location specified in the `title` of the notification. If the `title` is not set then the notification will post as normal. `title` will accept anything but to make the best use of it make sure to use either a real address, a place or `latitude,longitude` (in this order). More details can be found in [Google's documentation](https://developers.google.com/maps/documentation/urls/android-intents#launch-turn-by-turn-navigation). If you send invalid data then Google Maps may get stuck. Per the documentation Google Maps tries to make a best effort to select the first search result so if your `title` yields no results then Google Maps may appear stuck.
+
+User's can also optionally set `channel` to match the desired `mode` per the specification from Google, accepted values are `d, b, l, w` and will default to `d` for driving if not set or the value does not match any of the above.
+
+Example:
+
+```yaml
+automation:
+  - alias: Notify Mobile app
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "command_navigate"
+        title: "wendys"
+        data:
+          channel: "d"
+```
+
 
 ## Request Location Updates
 
