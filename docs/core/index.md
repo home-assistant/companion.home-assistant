@@ -500,6 +500,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
+      <td><a href="/docs/core/sensors#mobile-data-sensors">Mobile Data Sensors</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#notification-sensors">Notification Sensors</a></td>
       <td>✅</td>
       <td>✅</td>
