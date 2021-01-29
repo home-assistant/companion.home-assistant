@@ -17,13 +17,13 @@ The Companion apps offer a lot of different notification options. In place of po
 | Command | Description |
 | ------- | ----------- |
 | `clear_notification` | Removes a notification from the status bar, [more details](basic.md#replacing-notifications). |
-| `command_activity` | Launch an activity with a specified URI to any app, [more details](#activity) and use cases below. |
+| `command_activity` | Launch an activity with a specified URI to any app, [more details](#activity) and use cases below. &nbsp;<span class="beta">BETA</span> |
 | `command_bluetooth` | Turn bluetooth on or off. |
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
-| `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
-| `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. &nbsp;<span class="beta">BETA</span> |
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. &nbsp;<span class="beta">BETA</span> |
+| `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
+| `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
 | `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
@@ -81,7 +81,7 @@ Example:
 
 ```yaml
 automation:
-  - alias: Notify Mobile app
+  - alias: Command bluetooh
     trigger:
       ...
     action:
@@ -101,7 +101,7 @@ Example:
 
 ```yaml
 automation:
-  - alias: Notify Mobile app
+  - alias: Send broadcast intent
     trigger:
       ...
     action:
@@ -117,7 +117,7 @@ An example of an application that accepts broadcast intents is [Sleep as Android
 
 ```yaml
 automation:
-  - alias: Notify Mobile app
+  - alias: Send broadcast intent to start sleep tracking
     trigger:
       ...
     action:
@@ -135,7 +135,7 @@ automation:
 
 ```yaml
 automation:
-  - alias: Notify Mobile app
+  - alias: Send broadcast intent with extras
     trigger:
       ...
     action:
@@ -169,7 +169,7 @@ In addition to sending the `message` you must also provide the state of Do Not D
 
 ```yaml
 automation:
-  - alias: Notify Mobile app
+  - alias: Command do not disturb
     trigger:
       ...
     action:
@@ -177,6 +177,27 @@ automation:
       data:
         message: "command_dnd"
         title: "priority_only"
+```
+
+
+## High accuracy mode
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+Users can turn the high accuarcy mode of the background location sensor on or off using `message: command_high_accuracy_mode` with the `title` being either `turn_off` or `turn_on`. If `title` is blank, not set or not one of the above expected values then the notification will post as normal.
+
+Example:
+
+```yaml
+automation:
+  - alias: Turn off high accuracy mode
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "command_high_accuracy_mode"
+        title: "turn_off"
 ```
 
 
@@ -191,7 +212,7 @@ You can force a device to attempt to report its location by sending a special no
 
 ```yaml
 automation:
-  - alias: Notify Mobile app
+  - alias: Request location update
     trigger:
       ...
     action:
@@ -223,7 +244,7 @@ On Android you can control the devices ringer mode by sending `message: command_
 
 ```yaml
 automation:
-  - alias: Notify Mobile app
+  - alias: Command ringer mode
     trigger:
       ...
     action:
@@ -250,7 +271,7 @@ On Android you can control the devices volume level by sending `message: command
 
 ```yaml
 automation:
-  - alias: Notify Mobile app
+  - alias: Command volume level
     trigger:
       ...
     action:
@@ -260,24 +281,4 @@ automation:
         title: 20
         data:
           channel: music_stream
-```
-
-## High accuracy mode
-
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
-
-Users can turn the high accuarcy mode of the background location sensor on or off using `message: command_high_accuracy_mode` with the `title` being either `turn_off` or `turn_on`. If `title` is blank, not set or not one of the above expected values then the notification will post as normal.
-
-Example:
-
-```yaml
-automation:
-  - alias: Notify Mobile app
-    trigger:
-      ...
-    action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_high_accuracy_mode"
-        title: "turn_off"
 ```
