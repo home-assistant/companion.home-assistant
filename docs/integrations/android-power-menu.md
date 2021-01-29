@@ -12,10 +12,11 @@ Currently support is limited to the following domains:
 *  `climate` Temperature slider
 *  `cover` Open/Close
 *  `fan` On/Off, speed slider
+*  `input_boolean` On/Off
+*  `input_number` Number control slider
 *  `light` On/Off, Brightness control slider
 *  `lock` Lock/Unlock
 *  `scene` Turn on scene
 *  `script` Turn on script
 *  `switch` On/Off
-*  `input_boolean` On/Off
-*  `input_number` Number control slider
+*  `vacuum` Start/Dock or On/Off depending on vacuum type
