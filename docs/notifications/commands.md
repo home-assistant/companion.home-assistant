@@ -45,7 +45,7 @@ automation:
     action:
       service: notify.mobile_app_<your_device_id_here>
       data:
-        message: "command_navigate"
+        message: "command_activity"
         title: "google.navigation:q=arbys"
         data:
           channel: "com.google.android.apps.maps"
@@ -62,7 +62,7 @@ automation:
     action:
       service: notify.mobile_app_<your_device_id_here>
       data:
-        message: "command_navigate"
+        message: "command_activity"
         title: "geo:0,0?q=1600+Amphitheatre+Parkway%2C+CA"
         data:
           channel: "com.google.android.apps.maps"
