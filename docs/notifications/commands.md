@@ -32,7 +32,11 @@ The Companion apps offer a lot of different notification options. In place of po
 
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 
-On Android you can send `message: command_activity` to launch any activity to a URI specified in the `title` of the notification. If the `title` is not set then the notification will post as normal. `channel` must also be set to the package of where the activity is to be launched, otherwise the notification will post as normal. The `group` will also need to be set the Intent Action string, or the notification will post as normal. You must know the intending URI, action and package to start the activity. Typically this will be a documented feature if supported by the app.
+On Android you can send `message: command_activity` to launch any activity. The `group` parameter will need to be set to the Intent Action string, or the notification will post as normal. If the activity requires a URI then you will need set that as the `title`, otherwise the notification will post as normal. `channel` can be set to the package of where the activity is to be launched, otherwise Android will make a best effort to pick a default. If the package cannot be found then the notification will post as normal. You must know the intending URI (if required), action and package to start the activity. Typically this will be a documented feature if supported by the app.
+
+[Extras](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String)) are also supported under the `tag` parameter. As there can be any number of extras added to the intent we will need to split each extra by a comma `,`. Then each extra name and value needs to be separated by a colon `:`. Please refer to the example in [Broadcast Intent](#broadcast-intent) to see the proper format.
+
+`subject` can also be set to the MIME type if you need to set it. You will need to know the MIME type string if the activity requires it.
 
 The below example follows [Google's documentation](https://developers.google.com/maps/documentation/urls/android-intents#launch-turn-by-turn-navigation) to show you how this feature works by launching Google Maps Navigation.
 
