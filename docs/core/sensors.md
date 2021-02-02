@@ -218,17 +218,19 @@ The battery sensors listed below describe the state of the battery for a few dif
 | `is_charging` | Whether or not the device is actively charging |
 
 
-## Bluetooth Sensor
+## Bluetooth Sensors
 ![Android](/assets/android.svg)<br />
-This sensors state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes. This sensor makes use of Android's [Bluetooth](https://developer.android.com/reference/android/bluetooth/package-summary?hl=en) package.
+This Bluethoot Connection state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes. This sensor makes use of Android's [Bluetooth](https://developer.android.com/reference/android/bluetooth/package-summary?hl=en) package.
 
 | Attribute | Description |
 | --------- | --------- |
-| `Connected Paired Devices` | The list of paired devices that are currently connected. |
+ `Connected Paired Devices` | The list of paired devices that are currently connected. |
 | `Connected Not Paired Devices` | The list of devices that are connected but not paired. |
 | `Paired Devices` | The list of devices that are paired. |
 
 There will also be a binary sensor for the `bluetooth_state` that will represent whether or not bluetooth is turned on for the device. This sensor will update anytime the state of bluetooth changes.
+
+A BLE Transmitter sesnor allows your device to transmit a BLE iBeacon.  This is useful in conjunciton with projects like roomassistant and esp32-mqtt-room to allow room level tracking.
 
 
 ## Cellular Provider Sensor
