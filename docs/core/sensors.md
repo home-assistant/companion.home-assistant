@@ -230,7 +230,11 @@ This Bluethoot Connection state will be the total number of connected bluetooth 
 
 There will also be a binary sensor for the `bluetooth_state` that will represent whether or not bluetooth is turned on for the device. This sensor will update anytime the state of bluetooth changes.
 
-A BLE Transmitter sesnor allows your device to transmit a BLE iBeacon.  This is useful in conjunciton with projects like roomassistant and esp32-mqtt-room to allow room level tracking.
+A BLE Transmitter sensor allows your device to transmit a BLE iBeacon.  This is useful in conjunction with projects like [roomassistant](https://www.room-assistant.io/) and [esp32-mqtt-room ](https://jptrsn.github.io/ESP32-mqtt-room/) to allow room level tracking.
+
+The iBeacon is transmitted every second (low latency to save battery, but sufficient for room presence), with high power (-59).
+
+Settings are available to change the UUID, Major and Minor masks.  These can be used to change the overall identiifier, as well as to allow groups, e.g. family phone devices can have particular Major value which can be whitelisted in apps like roomassistant.  Please note that these settings are not currently validated: UUID should be the [standard format](https://en.wikipedia.org/wiki/Universally_unique_identifier), Major and Minor need to be within 0 and 65535
 
 
 ## Cellular Provider Sensor
