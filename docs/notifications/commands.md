@@ -19,6 +19,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `clear_notification` | Removes a notification from the status bar, [more details](basic.md#replacing-notifications). |
 | `command_activity` | Launch an activity with a specified URI to any app, [more details](#activity) and use cases below. |
 | `command_bluetooth` | Turn bluetooth on or off. |
+| `command_ble_transmitter` | Turn BLE beacon transmitter on or off. |
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
@@ -288,7 +289,7 @@ automation:
         title: "turn_off"
 ```
 
-## BLE iBeacon Transmitter
+## BLE Beacon Transmitter
 
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 
