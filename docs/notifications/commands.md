@@ -272,7 +272,7 @@ automation:
 
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 
-Users can turn the high accuarcy mode of the background location sensor on or off using `message: command_high_accuracy_mode` with the `title` being either `turn_off` or `turn_on`. If `title` is blank, not set or not one of the above expected values then the notification will post as normal.
+Users can turn the high accuracy mode of the background location sensor on or off using `message: command_high_accuracy_mode` with the `title` being either `turn_off` or `turn_on`. If `title` is blank, not set or not one of the above expected values then the notification will post as normal.
 
 Example:
 
@@ -285,5 +285,25 @@ automation:
       service: notify.mobile_app_<your_device_id_here>
       data:
         message: "command_high_accuracy_mode"
+        title: "turn_off"
+```
+
+## BLE iBeacon Transmitter
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+Users can turn the iBeacon transmitter on or off using `message: command_ble_transmitter` with the `title` being either `turn_off` or `turn_on`. If `title` is blank, not set or not one of the above expected values then the notification will post as normal.
+
+Example:
+
+```yaml
+automation:
+  - alias: Notify Mobile app
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "command_ble_transmitter"
         title: "turn_off"
 ```
