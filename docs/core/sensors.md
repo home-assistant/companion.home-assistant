@@ -224,7 +224,7 @@ This Bluethoot Connection state will be the total number of connected bluetooth 
 
 | Attribute | Description |
 | --------- | --------- |
- `Connected Paired Devices` | The list of paired devices that are currently connected. |
+| `Connected Paired Devices` | The list of paired devices that are currently connected. |
 | `Connected Not Paired Devices` | The list of devices that are connected but not paired. |
 | `Paired Devices` | The list of devices that are paired. |
 
