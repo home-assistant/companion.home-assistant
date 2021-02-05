@@ -24,6 +24,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. &nbsp;<span class="beta">BETA</span> |
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. &nbsp;<span class="beta">BETA</span> |
+| `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. |
 | `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
@@ -286,4 +287,25 @@ automation:
       data:
         message: "command_high_accuracy_mode"
         title: "turn_off"
+```
+
+
+## Webview
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+If you want to just open the Companion app to any page or even the homepage you will want to send `message: command_webview`. If you wish to navigate to a specific [view or dashboard](https://www.home-assistant.io/lovelace/dashboards-and-views/) you will want to use `title` to specify the [`path`](https://www.home-assistant.io/lovelace/dashboards-and-views/#path) (example: `/lovelace/settings`). If `title` is not provided the user will be directed to the homepage. The first time you send this command you will be taken to a permission screen to grant the app access to display over other apps policy. This permission is necessary for the feature to work in the background and we cannot prompt the user to grant it.
+
+Example:
+
+```yaml
+automation:
+  - alias: Open android webview
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "command_webview"
+        title: "/lovelace/settings"
 ```
