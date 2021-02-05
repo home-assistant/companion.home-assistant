@@ -24,6 +24,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. &nbsp;<span class="beta">BETA</span> |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
+| `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. |
 | `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
@@ -32,7 +33,13 @@ The Companion apps offer a lot of different notification options. In place of po
 
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 
-On Android you can send `message: command_activity` to launch any activity to a URI specified in the `title` of the notification. If the `title` is not set then the notification will post as normal. `channel` must also be set to the package of where the activity is to be launched, otherwise the notification will post as normal. The `group` will also need to be set the Intent Action string, or the notification will post as normal. You must know the intending URI, action and package to start the activity. Typically this will be a documented feature if supported by the app.
+On Android you can send `message: command_activity` to launch any activity. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the devices Display over other apps Policy. This is required in order for the app to gain control of this setting.
+
+The `tag` parameter will need to be set to the Intent Action string, or the notification will post as normal. If the activity requires a URI then you will need set that as the `title`, otherwise the notification will post as normal. `channel` can be set to the package of where the activity is to be launched, otherwise Android will make a best effort to pick a default. If the package cannot be found then the notification will post as normal. You must know the intending URI (if required), action and package to start the activity. Typically this will be a documented feature if supported by the app.
+
+[Extras](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String)) are also supported under the `group` parameter. As there can be any number of extras added to the intent we will need to split each extra by a comma `,`. Then each extra name and value needs to be separated by a colon `:`. Please refer to the example in [Broadcast Intent](#broadcast-intent) to see the proper format.
+
+`subject` can also be set to the MIME type if you need to set it. You will need to know the MIME type string if the activity requires it.
 
 The below example follows [Google's documentation](https://developers.google.com/maps/documentation/urls/android-intents#launch-turn-by-turn-navigation) to show you how this feature works by launching Google Maps Navigation.
 
@@ -281,4 +288,24 @@ automation:
         title: 20
         data:
           channel: music_stream
+```
+
+## Webview
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+If you want to just open the Companion app to any page or even the homepage you will want to send `message: command_webview`. If you wish to navigate to a specific [view or dashboard](https://www.home-assistant.io/lovelace/dashboards-and-views/) you will want to use `title` to specify the [`path`](https://www.home-assistant.io/lovelace/dashboards-and-views/#path) (example: `/lovelace/settings`). If `title` is not provided the user will be directed to the homepage. The first time you send this command you will be taken to a permission screen to grant the app access to display over other apps policy. This permission is necessary for the feature to work in the background and we cannot prompt the user to grant it.
+
+Example:
+
+```yaml
+automation:
+  - alias: Open android webview
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "command_webview"
+        title: "/lovelace/settings"
 ```
