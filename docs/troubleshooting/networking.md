@@ -59,7 +59,7 @@ http:
     - 127.0.0.1                 # Add the localhost IPv4 address
     - ::1                       # Add the localhost IPv6 address
   # Comment or remove the SSL certificate lines:
-  # ssl_certificate: /ssl/fullchaim.pem
+  # ssl_certificate: /ssl/fullchain.pem
   # ssl_key: /ssl/privkey.pem
 ```
 Once that's done your router's port-forwarding should be `TCP 443` to your Home Assistant internal IP `192.168.1.4 Port 443`. Do NOT create a forward to `192.168.1.4 Port 8123` as that is now unencrypted http and should only be accessible from your local network.
