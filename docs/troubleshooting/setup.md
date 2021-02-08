@@ -95,7 +95,7 @@ To fix this change the location permission for the Home Assistant App to "Always
 2.  Ensure that location (GPS) is enabled on your device.
 3.  Turn off battery optimizations for the app.
 4.  Ensure that all 3 of the Location toggles are enabled in App Configuration > Manage Sensors in the Android app.
-5.  Turn on unrestricted data for the Android app.
+5.  Turn on unrestricted data for the Android app. (Samsung users will need to disable data saver for Home Assistant as well.)
 6.  Check that background access setting under App Configuration shows the app has proper access.
 
 ## Using a self-signed certificate leads to a blank page in Android
