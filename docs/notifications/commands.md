@@ -57,7 +57,7 @@ automation:
         title: "google.navigation:q=arbys"
         data:
           channel: "com.google.android.apps.maps"
-          group: "android.intent.action.VIEW"
+          tag: "android.intent.action.VIEW"
 ```
 
 To continue with the above example you can also launch [search results](https://developer.android.com/guide/components/intents-common#Maps) with the following:
@@ -74,7 +74,7 @@ automation:
         title: "geo:0,0?q=1600+Amphitheatre+Parkway%2C+CA"
         data:
           channel: "com.google.android.apps.maps"
-          group: "android.intent.action.VIEW"
+          tag: "android.intent.action.VIEW"
 ```
 
 
