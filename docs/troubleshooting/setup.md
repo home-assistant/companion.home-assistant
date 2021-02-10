@@ -105,31 +105,15 @@ Once you have setup logcat you will want to perform a search on a `tag` for `Loc
 ```
 2021-02-03 09:03:00.900 7306-7306/? D/LocBroadcastReceiver: Received location update.
 2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Last Location: 
-    Coords:(LAT, LONG)
+    Coords:(37.4220656, -122.0840897)
     Accuracy: 4.663
     Bearing: 86.759346
 2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Begin evaluating if location update should be skipped
 2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Received location that is 74 milliseconds old, 1612371780829 compared to 1612371780903 with source fused
 2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Duplicate location received, not sending to HA
-2021-02-03 09:04:31.521 7306-7306/? D/LocBroadcastReceiver: Received location update.
-2021-02-03 09:04:31.523 7306-7306/? D/LocBroadcastReceiver: Last Location: 
-    Coords:(LAT, LONG)
-    Accuracy: 4.663
-    Bearing: 86.759346
-2021-02-03 09:04:31.523 7306-7306/? D/LocBroadcastReceiver: Begin evaluating if location update should be skipped
-2021-02-03 09:04:31.523 7306-7306/? D/LocBroadcastReceiver: Received location that is 40 milliseconds old, 1612371871483 compared to 1612371871523 with source fused
-2021-02-03 09:04:31.523 7306-7306/? D/LocBroadcastReceiver: Duplicate location received, not sending to HA
-2021-02-03 09:05:31.581 7306-7306/? D/LocBroadcastReceiver: Received location update.
-2021-02-03 09:05:31.584 7306-7306/? D/LocBroadcastReceiver: Last Location: 
-    Coords:(LAT, LONG)
-    Accuracy: 4.663
-    Bearing: 86.759346
-2021-02-03 09:05:31.584 7306-7306/? D/LocBroadcastReceiver: Begin evaluating if location update should be skipped
-2021-02-03 09:05:31.584 7306-7306/? D/LocBroadcastReceiver: Received location that is 25 milliseconds old, 1612371931559 compared to 1612371931584 with source fused
-2021-02-03 09:05:31.584 7306-7306/? D/LocBroadcastReceiver: Duplicate location received, not sending to HA
 2021-02-03 09:06:34.241 7306-7306/? D/LocBroadcastReceiver: Received location update.
 2021-02-03 09:06:34.245 7306-7306/? D/LocBroadcastReceiver: Last Location: 
-    Coords:(LAT, LONG)
+    Coords:(37.4220656, -122.0840897)
     Accuracy: 13.279
     Bearing: 0.0
 2021-02-03 09:06:34.245 7306-7306/? D/LocBroadcastReceiver: Begin evaluating if location update should be skipped
