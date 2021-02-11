@@ -20,6 +20,7 @@
 /app/ios/about-the-move https://www.home-assistant.io/blog/2020/07/28/ios-app-migration/
 /app/ios/nfc /docs/integrations/universal-links
 /app/mac/latest https://github.com/home-assistant/iOS/releases/latest
+/app/ios/notifications-sounds /docs/notifications/notification-sounds
 
 
 # Documentation restructuring redirects
