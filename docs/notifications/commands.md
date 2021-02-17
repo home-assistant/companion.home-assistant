@@ -24,7 +24,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. &nbsp;<span class="beta">BETA</span> |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
-| `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. |
+| `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. &nbsp;<span class="beta">BETA</span> |
 | `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
