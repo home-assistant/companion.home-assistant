@@ -119,7 +119,8 @@ action:
   service: notify.mobile_app_<your_device_id_here>
   data:
     message: "Something happened at home!"
-    url: /lovelace/cameras
+    data:
+      url: /lovelace/cameras
 ```
 
 To navigate to a specific dashboard when tapping a notification action:
