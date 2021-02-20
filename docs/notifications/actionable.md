@@ -129,11 +129,12 @@ action:
   service: notify.mobile_app_<your_device_id_here>
   data:
     message: "Something happened at home!"
-    push:
-      category: "ALARM"
-    url: 
-      _: "/lovelace/cameras" # if the notification itself is tapped
-      SOUND_ALARM: "/lovelace/alarm" # if the 'SOUND_ALARM' action is tapped
+    data:
+      push:
+        category: "ALARM"
+      url: 
+        _: "/lovelace/cameras" # if the notification itself is tapped
+        SOUND_ALARM: "/lovelace/alarm" # if the 'SOUND_ALARM' action is tapped
 ```
 
 You can also use application-launching URLs. For example, launch an external website using `https://example.com` or make a phone call using `tel:2125551212`.
