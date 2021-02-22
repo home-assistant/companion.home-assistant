@@ -134,7 +134,7 @@ The following steps are an example of how to send an intent using Tasker:
 
 ### High accuracy mode
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 :::caution
 Be aware that when this option is enabled, your battery will drain faster than normal because of the permanent usage of GPS.
 :::

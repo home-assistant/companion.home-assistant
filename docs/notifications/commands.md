@@ -17,21 +17,21 @@ The Companion apps offer a lot of different notification options. In place of po
 | Command | Description |
 | ------- | ----------- |
 | `clear_notification` | Removes a notification from the status bar, [more details](basic.md#replacing-notifications). |
-| `command_activity` | Launch an activity with a specified URI to any app, [more details](#activity) and use cases below. &nbsp;<span class="beta">BETA</span> |
+| `command_activity` | Launch an activity with a specified URI to any app, [more details](#activity) and use cases below. |
 | `command_bluetooth` | Turn bluetooth on or off. |
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
-| `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. &nbsp;<span class="beta">BETA</span> |
+| `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
-| `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. &nbsp;<span class="beta">BETA</span> |
+| `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. |
 | `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
 
 ## Activity
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 
 On Android you can send `message: command_activity` to launch any activity. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the devices Display over other apps Policy. This is required in order for the app to gain control of this setting.
 
@@ -136,8 +136,6 @@ automation:
           channel: "com.urbandroid.sleep"
 ```
 
-<span class="beta">BETA</span>
-
 [Extras](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String)) are also supported under the `group` parameter. As there can be any number of extras added to the intent we will need to split each extra by a comma `,`. Then each extra name and value needs to be separated by a colon `:`. The below example shows you how to turn on an alarm labeled `work` in the Sleep as Android application. In this example there are 2 extras being added to the intent.
 
 ```yaml
@@ -189,7 +187,7 @@ automation:
 
 ## High accuracy mode
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 
 Users can turn the high accuarcy mode of the background location sensor on or off using `message: command_high_accuracy_mode` with the `title` being either `turn_off` or `turn_on`. If `title` is blank, not set or not one of the above expected values then the notification will post as normal.
 
@@ -292,7 +290,7 @@ automation:
 
 ## Webview
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 
 If you want to just open the Companion app to any page or even the homepage you will want to send `message: command_webview`. If you wish to navigate to a specific [view or dashboard](https://www.home-assistant.io/lovelace/dashboards-and-views/) you will want to use `title` to specify the [`path`](https://www.home-assistant.io/lovelace/dashboards-and-views/#path) (example: `/lovelace/settings`). If `title` is not provided the user will be directed to the homepage. The first time you send this command you will be taken to a permission screen to grant the app access to display over other apps policy. This permission is necessary for the feature to work in the background and we cannot prompt the user to grant it.
 
