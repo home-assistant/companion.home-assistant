@@ -9,7 +9,7 @@ Home Assistant Companion features haptics, which provide physical feedback when 
 
 iPhone models that support haptic feedback include the iPhone 7 and 7 Plus, iPhone 8 and 8 Plus, the iPhone X, XR, XS, XS Max, iPhone 11 and 11 Pro.
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 
 Android devices that have haptic feedback support and/or a vibration motor can expect to feel some type of feedback.
 

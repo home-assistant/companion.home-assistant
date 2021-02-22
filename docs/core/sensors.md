@@ -434,7 +434,7 @@ This sensor displays exactly what caused the last update of location and sensor 
 This sensor will reflect the current level of illuminance the device detects. The sensor updates during the normal sensor update interval or with the other sensor updates and makes use of [Environment Sensors](https://developer.android.com/guide/topics/sensors/sensors_environment).
 
 ## Mobile Data Sensors
-![Android](/assets/android.svg)<br /> &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)<br />
 Several different sensors around the state of mobile data. These sensors make use of [Settings.Global](https://developer.android.com/reference/kotlin/android/provider/Settings.Global?hl=en) and [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en) to get the mobile data states.
 
 | Sensor | Description |

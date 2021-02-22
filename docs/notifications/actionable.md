@@ -167,7 +167,7 @@ automation:
               uri: "app://com.twitter.android" # Name of package for application you would like to open
 ```
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 If you want to add a Reply button to your actionable notification you need to set the action to `REPLY`. Once a user hits reply they will be presented with a text field to enter any text and after sending you will receive the reply back in the event examples found [below](#event-examples) under `reply_text` event data.
 
 ```yaml
