@@ -4,7 +4,7 @@ id: 'android-webview'
 ---
 
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 
 ## Links
 
