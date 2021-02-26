@@ -19,7 +19,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `clear_notification` | Removes a notification from the status bar, [more details](basic.md#replacing-notifications). |
 | `command_activity` | Launch an activity with a specified URI to any app, [more details](#activity) and use cases below. |
 | `command_bluetooth` | Turn bluetooth on or off. |
-| `command_ble_transmitter` | Turn BLE beacon transmitter on or off. |
+| `command_ble_transmitter` | Turn BLE beacon transmitter on or off. <span class="beta">BETA</span><br /> |
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. |
@@ -76,6 +76,26 @@ automation:
         data:
           channel: "com.google.android.apps.maps"
           tag: "android.intent.action.VIEW"
+```
+
+## BLE Beacon Transmitter
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+Users can turn the iBeacon transmitter on or off using `message: command_ble_transmitter` with the `title` being either `turn_off` or `turn_on`. If `title` is blank, not set or not one of the above expected values then the notification will post as normal.
+
+Example:
+
+```yaml
+automation:
+  - alias: Turn off BLE transmitter
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "command_ble_transmitter"
+        title: "turn_off"
 ```
 
 
@@ -307,24 +327,4 @@ automation:
       data:
         message: "command_webview"
         title: "/lovelace/settings"
-```
-
-## BLE Beacon Transmitter
-
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
-
-Users can turn the iBeacon transmitter on or off using `message: command_ble_transmitter` with the `title` being either `turn_off` or `turn_on`. If `title` is blank, not set or not one of the above expected values then the notification will post as normal.
-
-Example:
-
-```yaml
-automation:
-  - alias: Notify Mobile app
-    trigger:
-      ...
-    action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_ble_transmitter"
-        title: "turn_off"
 ```
