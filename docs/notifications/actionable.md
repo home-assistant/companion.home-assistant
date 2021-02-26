@@ -119,7 +119,8 @@ action:
   service: notify.mobile_app_<your_device_id_here>
   data:
     message: "Something happened at home!"
-    url: /lovelace/cameras
+    data:
+      url: /lovelace/cameras
 ```
 
 To navigate to a specific dashboard when tapping a notification action:
@@ -128,11 +129,12 @@ action:
   service: notify.mobile_app_<your_device_id_here>
   data:
     message: "Something happened at home!"
-    push:
-      category: "ALARM"
-    url: 
-      _: "/lovelace/cameras" # if the notification itself is tapped
-      SOUND_ALARM: "/lovelace/alarm" # if the 'SOUND_ALARM' action is tapped
+    data:
+      push:
+        category: "ALARM"
+      url: 
+        _: "/lovelace/cameras" # if the notification itself is tapped
+        SOUND_ALARM: "/lovelace/alarm" # if the 'SOUND_ALARM' action is tapped
 ```
 
 You can also use application-launching URLs. For example, launch an external website using `https://example.com` or make a phone call using `tel:2125551212`.
@@ -146,7 +148,7 @@ If you want to open an application you need to set the action to `URI`.  To pick
 
 ```yaml
 automation:
-  - alias: Notify Mobile app
+  - alias: Notify Mobile app android actions
     trigger:
       ...
     action:
@@ -163,6 +165,24 @@ automation:
             - action: "URI" # Must be set to URI if you plan to open an application
               title: "Open Twitter"
               uri: "app://com.twitter.android" # Name of package for application you would like to open
+```
+
+![Android](/assets/android.svg)
+If you want to add a Reply button to your actionable notification you need to set the action to `REPLY`. Once a user hits reply they will be presented with a text field to enter any text and after sending you will receive the reply back in the event examples found [below](#event-examples) under `reply_text` event data.
+
+```yaml
+automation:
+  - alias: Notify Mobile app android action reply
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: "Something happened at home!"
+        data:
+          actions:
+            - action: "REPLY" # This must be set to REPLY in order for the reply feature to be present
+              title: "Title" # The button title
 ```
 
 When an action is selected an event named `ios.notification_action_fired` for iOS and `mobile_app_notification_action` for Android will be emitted on the Home Assistant event bus. Below is an example payload.
@@ -195,6 +215,7 @@ When an action is selected an event named `ios.notification_action_fired` for iO
         "action_1_key": "KEY_ONE",
         "action_2_key": "KEY_TWO",
         "action_3_key": "KEY_THREE",
+        "reply_text": "Reply from user",
         "device_id": "123456"
     },
     "origin": "REMOTE",

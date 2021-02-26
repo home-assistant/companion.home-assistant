@@ -95,8 +95,34 @@ To fix this change the location permission for the Home Assistant App to "Always
 2.  Ensure that location (GPS) is enabled on your device.
 3.  Turn off battery optimizations for the app.
 4.  Ensure that all 3 of the Location toggles are enabled in App Configuration > Manage Sensors in the Android app.
-5.  Turn on unrestricted data for the Android app.
+5.  Turn on unrestricted data for the Android app. (Samsung users will need to disable data saver for Home Assistant as well.)
 6.  Check that background access setting under App Configuration shows the app has proper access.
+
+If you are still seeing location issues then you may find it helpful to use the [crash logs](#android-crash-logs) to determine whats going on as we report the entire location decision making process there. First you will need to follow the steps at the link above to get logcat proper permission to view the verbosity, this is important as normal logcat will not output the debug level that we require for this.
+
+Once you have setup logcat you will want to perform a search on a `tag` for `LocBroadcastReceiver` then you will want to watch the logs for about 10-15 minutes to get several reports to see how it is working.  Below is an example of what you can expect to see to ensure that location updates are coming to the phone.  The app still has a decision making process to ensure we get a valid location to actually send back.
+
+```
+2021-02-03 09:03:00.900 7306-7306/? D/LocBroadcastReceiver: Received location update.
+2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Last Location: 
+    Coords:(37.4220656, -122.0840897)
+    Accuracy: 4.663
+    Bearing: 86.759346
+2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Begin evaluating if location update should be skipped
+2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Received location that is 74 milliseconds old, 1612371780829 compared to 1612371780903 with source fused
+2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Duplicate location received, not sending to HA
+2021-02-03 09:06:34.241 7306-7306/? D/LocBroadcastReceiver: Received location update.
+2021-02-03 09:06:34.245 7306-7306/? D/LocBroadcastReceiver: Last Location: 
+    Coords:(37.4220656, -122.0840897)
+    Accuracy: 13.279
+    Bearing: 0.0
+2021-02-03 09:06:34.245 7306-7306/? D/LocBroadcastReceiver: Begin evaluating if location update should be skipped
+2021-02-03 09:06:34.245 7306-7306/? D/LocBroadcastReceiver: Received location that is 1126 milliseconds old, 1612371993119 compared to 1612371994245 with source fused
+2021-02-03 09:06:34.309 7306-7430/? D/LocBroadcastReceiver: Location update sent successfully
+```
+
+This is the expected logs for successful location results.  If you do not see logs like this then make sure to follow the steps up above as more than likely the app does not have proper access to run in the background without any interference.  If the android system kills the app then you will not see these updates.
+
 
 ## Using a self-signed certificate leads to a blank page in Android
 ![Android](/assets/android.svg) If you are using a self-signed certificate on Android then you may get stuck at a blank screen after entering and/or selecting your Home Assistant instance. In order to correct this issue you will need to make sure the URL is valid and that you import the certificate into Android's Trusted Certificates. Steps to perform this can be found [here](https://support.google.com/nexus/answer/2844832?hl=en). These steps were written for devices on Android 9+ but are very close for older supported devices.
