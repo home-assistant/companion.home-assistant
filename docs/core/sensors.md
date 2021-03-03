@@ -70,7 +70,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | `binary_sensor.doze` | [See Below](#doze-sensor) | Whether or not the device is in doze mode. |
 | `binary_sensor.interactive` | None | Whether or not the device is in an interactive state. |
 | `binary_sensor.power_save` | None | Whether or not the device is in power saving mode. |
-| `sensor.activity` | `confidence` | The current activity type as computed by Google. Requires activity recognition permissions on supported devices. |
+| [Activity Sensors](#activity-sensors) | See Below | The current activity type, sleep confidence and sleep segment as computed by Google. Requires activity recognition permissions on supported devices. |
 | [App Data Sensors](#app-data_sensors) | None | Sensors that show how much data was sent or received by the app. |
 | [App Importance Sensor](#app-importance-sensor) | None | The current importance of the app to determine if its in the foreground or cached. |
 | `sensor.app_memory` | [See Below](#app-memory-sensor) | Information about the memory that is available for the app. |
@@ -115,7 +115,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 
 This sensor has a setting to decide the duration that is considered 'idle'.
 
-## Activity Sensor
+## Activity Sensors
 ![iOS](/assets/iOS.svg) `sensor.activity` provides the current motion activity as calculated by iOS along with the confidence of the calculations. Activities known by iOS and given by `sensor.activity` are:
 *   `Stationary`
 *   `Walking`
@@ -144,6 +144,8 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 
 The attribute for the state will reflect the `confidence` rating from the [Activity Recognition API](https://developers.google.com/location-context/activity-recognition). This sensor requires the [Activity Recognition permission](https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION).
 
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+The Sleep Confidence and Sleep Segment sensors utilize the new [Sleep API](https://developers.google.com/location-context/sleep) from Google services. Sleep Segment updates about once a day and Sleep Confidence will update about every 10 minutes. All data is provided by Google.
 
 ## App Data Sensors
 ![Android](/assets/android.svg)
