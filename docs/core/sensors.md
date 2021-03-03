@@ -144,7 +144,7 @@ The `confidence` attribute corresponds how accurate iOS believes the report of t
 
 The attribute for the state will reflect the `confidence` rating from the [Activity Recognition API](https://developers.google.com/location-context/activity-recognition). This sensor requires the [Activity Recognition permission](https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION).
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 The Sleep Confidence and Sleep Segment sensors utilize the new [Sleep API](https://developers.google.com/location-context/sleep) from Google services. Sleep Segment updates about once a day and Sleep Confidence will update about every 10 minutes. All data is provided by Google.
 
 ## App Data Sensors
@@ -232,7 +232,7 @@ This Bluetooth Connection state will be the total number of connected bluetooth 
 
 There will also be a binary sensor for the `bluetooth_state` that will represent whether or not bluetooth is turned on for the device. This sensor will update anytime the state of bluetooth changes.
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 A BLE Transmitter sensor allows your device to transmit a BLE iBeacon.  This is useful in conjunction with projects like [roomassistant](https://www.room-assistant.io/) and [esp32-mqtt-room ](https://jptrsn.github.io/ESP32-mqtt-room/) to allow room level tracking.  The current transmitting ID (UUID-Major-Minor) is reported as an attribute that can be copied for use with these systems.
 
 :::caution
