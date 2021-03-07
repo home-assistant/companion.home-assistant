@@ -8,6 +8,11 @@ Home Assistant for iOS supports opening from other apps via URL.
 
 Query parameters are passed as a dictionary in the call.
 
+## Navigate
+This allows you to update the frontend page location via a deeplink. This requires version 2021.3 or later.
+
+For example: if you had a dashboard at `/lovelace/webcams` you can use `homeassistant://navigate/lovelace/webcams` to launch the app there.
+
 ## Call service
 Example: `homeassistant://call_service/device_tracker.see?entity_id=device_tracker.entity`
 
