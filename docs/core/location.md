@@ -151,7 +151,7 @@ If you use both constraints (Bluetooth, Zone), then both constraints must apply!
 
 You can also enable the high accuracy mode only when connected to specific Bluetooth devices with the option `High accuracy mode only when connected to BT devices`. Be sure that the option `High accuracy mode (May drain battery fast)` is also enabled.
 
-#### Zones constraint
+#### Zones constraint &nbsp;<span class="beta">BETA</span>
 
 Additionally, you can enable the high accuracy mode when entering a specific zone with the option `High accuracy mode only when entering zone`. If you want to enable the high accuracy mode some meters before entering the zone, you can use the option `High accuracy mode zone expanded radius (meters)`. Both options require you to enable the `Location Zone` sensor.
 
