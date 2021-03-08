@@ -141,7 +141,52 @@ Be aware that when this option is enabled, your battery will drain faster than n
 
 The background location sensor has also the option to run in high accuracy mode. With the option `High accuracy mode (May drain battery fast)` enabled, the location updates every X seconds (defined with option `High accuracy interval`. Default 5 seconds, Minimal 5 seconds) via GPS.
 
-You can also enable the high accuracy mode only when connected to specific Bluetooth devices with the option `High accuracy mode only when connected to BT devices`.  Be sure that the option `High accuracy mode (May drain battery fast)` is also enabled.
+You can define a Bluetooth and/or a zone constraint to restrict the use of the high accuracy mode.
+
+:::info
+If you use both constraints (Bluetooth, Geozone), then both constraints must apply!
+:::
+
+#### Bluetooth constraint
+
+You can also enable the high accuracy mode only when connected to specific Bluetooth devices with the option `High accuracy mode only when connected to BT devices`. Be sure that the option `High accuracy mode (May drain battery fast)` is also enabled.
+
+#### Zones constraint
+
+Additionally, you can enable the high accuracy mode when entering a specific zone (Geofence zone) with the option `High accuracy mode only when entering geozone`. If you want to enable the high accuracy mode some meters before entering the zone, you can use the option `High accuracy mode geozone expanded radius (meters)`. Both options require you to enable the `Location Zone` sensor.
+
+##### Zones example
+
+![Zones](/assets/Zone.png)
+
+###### Zone when using the `High accuracy mode only when entering geozone` option (Value greater than 0)
+
+In this case, the zone is defined by an expanded zone (zone.home_expanded) minus the original zone (zone.home). Shown in blue in the image.
+
+Arriving home zone:
+
+- Entering `zone.home_expanded` -> High accuracy mode **enabled**
+- Entering `zone.home`, therefore exiting `zone.home_expanded` -> High accuracy mode **disabled**
+
+Leaving home zone:
+
+- Exiting `zone.home`, therefore entering `zone.home_expanded` -> High accuracy mode **enabled**
+- Exiting `zone.home_expanded` -> High accuracy mode **disabled**
+
+
+###### Zone when NOT using the `High accuracy mode only when entering geozone` option (Value equals 0)
+
+In this case, only the original zone (zone.home) is used. Shown in orange in the image.
+
+Arriving home zone:
+
+- Entering `zone.home` -> High accuracy mode **enabled**
+
+Leaving home zone:
+
+- Exiting `zone.home` -> High accuracy mode **disabled**
+
+#### Notification
 
 If the high accuracy mode is enabled, you will see a notification with details about the location. This notification is permanent due to requirements of the android system. But you can hide/minimize the location notification via notification settings of your system.
 The notification will show your current address, if the geocoded sensor is enabled as well. Otherwise, it will show your current coordinates. Also, it will show you the accuracy of the last location found.
