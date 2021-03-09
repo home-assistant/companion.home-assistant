@@ -130,7 +130,7 @@ The following steps are an example of how to send an intent using Tasker:
 
 ## Android Location Settings
 
-![Android](/assets/android.svg) Android users can find custom sensor settings for location tracking under App Configuration > Manage Sensors > Location Sensors. The settings allow you to adjust the minimum required accuracy for the location to be reported to Home Assistant. You can adjust this setting independently from Zone Tracking, Background Location and Single Accurate Location (first request we send). This will allow you to get faster zone detection while also being accurate when the app is in the background. The Single Accurate Location sensor allows you to adjust the minimum time between updates to be sent to your server, the default is set to 1 minute (60000 milliseconds). The Single Accurate Location sensor also has a setting that allows you to include location updates as part of sensor updatee, note this may result in excessive location results when enabled.
+![Android](/assets/android.svg) Android users can find custom sensor settings for location tracking under App Configuration > Manage Sensors > Location Sensors. The settings allow you to adjust the minimum required accuracy for the location to be reported to Home Assistant. You can adjust this setting independently from Zone Tracking, Background Location and Single Accurate Location (first request we send). This will allow you to get faster zone detection while also being accurate when the app is in the background. The Single Accurate Location sensor allows you to adjust the minimum time between updates to be sent to your server, the default is set to 1 minute (60000 milliseconds). The Single Accurate Location sensor also has a setting that allows you to include location updates as part of sensor update, note this may result in excessive location results when enabled.
 
 ### High accuracy mode
 
@@ -144,7 +144,7 @@ The background location sensor has also the option to run in high accuracy mode.
 You can define a Bluetooth and/or a zone constraint to restrict the use of the high accuracy mode.
 
 :::info
-If you use both constraints (Bluetooth, Zone), then both constraints must apply!
+If you use both constraints (Bluetooth, Zone), then only one constraint must apply to enable the high accuracy mode.
 :::
 
 #### Bluetooth constraint
@@ -153,13 +153,15 @@ You can also enable the high accuracy mode only when connected to specific Bluet
 
 #### Zones constraint &nbsp;<span class="beta">BETA</span>
 
-Additionally, you can enable the high accuracy mode when entering a specific zone with the option `High accuracy mode only when entering zone`. If you want to enable the high accuracy mode some meters before entering the zone, you can use the option `High accuracy mode zone expanded radius (meters)`. Both options require you to enable the `Location Zone` sensor.
+Additionally, you can enable the high accuracy mode when entering a specific zone with the option `High accuracy mode only when entering zone`. If you want to enable the high accuracy mode before entering the zone, you can use the option `High accuracy mode trigger range for zone (meters)`. With this option enabled, a expanded zone (only app internal) around the original zone will be created. If you reach that expanded zone the high accuracy mode will be enabled and then disabled when you reach the original zone. Please have a look at the zone examples.
+
+Both options require you to enable the `Location Zone` sensor.
 
 ##### Zones example
 
 ![Zones](/assets/Zone.png)
 
-###### Zone when using the `High accuracy mode only when entering zone` option (Value greater than 0)
+###### Zone when using the `High accuracy mode trigger range for zone (meters)` option (Value greater than 0)
 
 In this case, the zone is defined by an expanded zone (zone.home_expanded) minus the original zone (zone.home). Shown in blue in the image.
 
@@ -173,8 +175,7 @@ Leaving home zone:
 - Exiting `zone.home`, therefore entering `zone.home_expanded` -> High accuracy mode **enabled**
 - Exiting `zone.home_expanded` -> High accuracy mode **disabled**
 
-
-###### Zone when NOT using the `High accuracy mode only when entering zone` option (Value equals 0)
+###### Zone when NOT using the `High accuracy mode trigger range for zone (meters)` option (Value equals 0)
 
 In this case, only the original zone (zone.home) is used. Shown in orange in the image.
 
