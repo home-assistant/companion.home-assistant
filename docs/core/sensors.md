@@ -239,7 +239,11 @@ A BLE Transmitter sensor allows your device to transmit a BLE iBeacon.  This is 
 This sensor can impact battery life, particularly if used wih Transmit Power set to High. The iBeacon is transmitted every second (low latency to save battery, but sufficient for room presence).
 :::
 
-Settings are available to change the UUID, Major and Minor masks. These can be used to change the overall identifier, as well as to allow groups, e.g. family phone devices can have particular Major value which can be whitelisted in apps like roomassistant. These settings are validated: UUID should be the [standard format](https://en.wikipedia.org/wiki/Universally_unique_identifier), Major and Minor need to be within 0 and 65535. There are also settings to change the Transmit power (between Ultra Low, Low, Medium and High) as well as as toggle to allow this sensor to be turned on when the Enable all sensors toggle is activated. This is set to false, to prevent this sensor draining battery unnecessarily
+Settings are available to change the UUID, Major and Minor masks. These can be used to change the overall identifier, as well as to allow groups, e.g. family phone devices can have particular Major value which can be whitelisted in apps like roomassistant. These settings are validated: UUID should be the [standard format](https://en.wikipedia.org/wiki/Universally_unique_identifier), Major and Minor need to be within 0 and 65535. There are also settings to change the Transmit power (between Ultra Low, Low, Medium and High) as well as as toggle to allow this sensor to be turned on when the Enable all sensors toggle is activated. This is set to false, to prevent this sensor draining battery unnecessarily.
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+A Transmit setting toggle will start or stop the BLE transmissions - this setting is also toggled via the notification command that can turn the services on and off. 
 
 
 ## Cellular Provider Sensor
