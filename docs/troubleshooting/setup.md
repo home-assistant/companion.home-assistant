@@ -142,7 +142,9 @@ If you have more than 1 device of the same model and you did not rename your dev
 3.  Restart Home Assistant to register the new notify service call. (i.e. `notify.mobile_app_<device_name>`)
 
 ## Sensors are missing or not updating
-![iOS](/assets/iOS.svg) When the app is not in the foreground, sensor updates are tied to location updates so you need to make sure that location permissions are enabled for the device and app in order for sensor updates to be sent to the phone. Once you enable location for the app the sensors will show up and continue to update as long as the location is enabled on the device and app.
+![iOS](/assets/iOS.svg) When the app is not in the foreground, sensor updates are tied to location updates, so you need to make sure that location permissions are set to "Allow Always" in iOS settings.
+
+The app will also try so send updates in the background however the frequency of these is determined by iOS and is heavily throttled to protect battery life. iOS uses an internal metric, which is not visible to app developers, to prioritize background activities for apps. Apps which you use more will be allowed to do more in the background more frequently, this means that the more you use the Companion App, iOS will learn that the app is important to you and allow more frequent updates via background fetch.
 
 ![Android](/assets/android.svg) On Android, sensors will show up as and when they have an update. Some will show up immediately upon enabling and others will show up once permissions have been granted and the state was retrieved. If you do not see a sensor then you may need to wait for the sensor to get a state update so it can send it to your Home Assistant server.
 
