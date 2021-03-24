@@ -115,7 +115,7 @@ Restart Home Assistant and then the iOS app. It will then begin using iBeacons _
 
 ## Sending an intent
 
-![Android](/assets/android.svg) Sending an intent is an advanced feature intended for users who are familiar with Android automation apps. Users can request a location update by sending an intent using an app such as Tasker or any other automation app that allows the user to send an intent. You will need to make sure that the app is running in the [background](/docs/troubleshooting/faqs#location-is-not-updating-in-android-app) for the updates to trigger properly.
+![Android](/assets/android.svg) Sending an intent is an advanced feature intended for users who are familiar with Android automation apps. Users can request a location update by sending an intent using an app such as Tasker or any other automation app that allows the user to send an intent. You will need to make sure that the app is running in the [background](/docs/troubleshooting/faqs#location-is-not-updating-in-android-app) and that the Single Accurate Location sensor is enabled for the updates to trigger properly.
 
 The following steps are an example of how to send an intent using Tasker:
 
@@ -130,7 +130,7 @@ The following steps are an example of how to send an intent using Tasker:
 
 ## Android Location Settings
 
-![Android](/assets/android.svg) Android users can find custom sensor settings for location tracking under App Configuration > Manage Sensors > Location Sensors. The settings allow you to adjust the minimum required accuracy for the location to be reported to Home Assistant. You can adjust this setting independently from Zone Tracking, Background Location and Single Accurate Location (first request we send). This will allow you to get faster zone detection while also being accurate when the app is in the background. The Single Accurate Location sensor allows you to adjust the minimum time between updates to be sent to your server, the default is set to 1 minute (60000 milliseconds). The Single Accurate Location sensor also has a setting that allows you to include location updates as part of sensor updatee, note this may result in excessive location results when enabled.
+![Android](/assets/android.svg) Android users can find custom sensor settings for location tracking under App Configuration > Manage Sensors > Location Sensors. The settings allow you to adjust the minimum required accuracy for the location to be reported to Home Assistant. You can adjust this setting independently from Zone Tracking, Background Location and Single Accurate Location (first request we send). This will allow you to get faster zone detection while also being accurate when the app is in the background. The Single Accurate Location sensor allows you to adjust the minimum time between updates to be sent to your server, the default is set to 1 minute (60000 milliseconds). The Single Accurate Location sensor also has a setting that allows you to include location updates as part of sensor update, note this may result in excessive location results when enabled.
 
 ### High accuracy mode
 
