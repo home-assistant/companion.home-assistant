@@ -115,7 +115,7 @@ Restart Home Assistant and then the iOS app. It will then begin using iBeacons _
 
 ## Sending an intent
 
-![Android](/assets/android.svg) Sending an intent is an advanced feature intended for users who are familiar with Android automation apps. Users can request a location update by sending an intent using an app such as Tasker or any other automation app that allows the user to send an intent. You will need to make sure that the app is running in the [background](/docs/troubleshooting/faqs#location-is-not-updating-in-android-app) for the updates to trigger properly.
+![Android](/assets/android.svg) Sending an intent is an advanced feature intended for users who are familiar with Android automation apps. Users can request a location update by sending an intent using an app such as Tasker or any other automation app that allows the user to send an intent. You will need to make sure that the app is running in the [background](/docs/troubleshooting/faqs#location-is-not-updating-in-android-app) and that the Single Accurate Location sensor is enabled for the updates to trigger properly.
 
 The following steps are an example of how to send an intent using Tasker:
 
