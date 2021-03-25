@@ -209,13 +209,14 @@ These sensors use the [AudioManager](https://developer.android.com/reference/kot
 The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
 
 ![Android](/assets/android.svg)<br />
-The battery sensors listed below describe the state of the battery for a few different data points. The sensors icon reflects the charging status, and type of charging being used. The `battery_state`, `charger_type` and `is_charging` sensor will be updated when the device has a charger connected or disconnected. The `battery_health` and `battery_level` sensor will be updated any time any of the other sensors get an update as well as when the device reports low battery and when it has recovered from the low battery alert. All of these sensors make use of [BatteryManager](https://developer.android.com/reference/android/os/BatteryManager?hl=en).
+The battery sensors listed below describe the state of the battery for a few different data points. The sensors icon reflects the charging status, and type of charging being used. The `battery_state`, `charger_type` and `is_charging` sensor will be updated when the device has a charger connected or disconnected. The `battery_health`, `battery_level` and `battery_temperature` sensor will be updated any time any of the other sensors get an update as well as when the device reports low battery and when it has recovered from the low battery alert. All of these sensors make use of [BatteryManager](https://developer.android.com/reference/android/os/BatteryManager?hl=en).
 
 | Sensor | Description |
 | --------- | --------- |
 | `battery_health` | The health of the battery |
 | `battery_level` | The percentage of battery remaining |
 | `battery_state` | The state of charging on the device |
+| `battery_temperature` | The current battery temperature |
 | `charger_type` | The type of charger being used on the device |
 | `is_charging` | Whether or not the device is actively charging |
 
