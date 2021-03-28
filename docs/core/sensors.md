@@ -216,7 +216,7 @@ The battery sensors listed below describe the state of the battery for a few dif
 | `battery_health` | The health of the battery |
 | `battery_level` | The percentage of battery remaining |
 | `battery_state` | The state of charging on the device |
-| `battery_temperature` | The current battery temperature |
+| `battery_temperature` | The current battery temperature <span class="beta">BETA</span> |
 | `charger_type` | The type of charger being used on the device |
 | `is_charging` | Whether or not the device is actively charging |
 
