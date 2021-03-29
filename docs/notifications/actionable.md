@@ -141,10 +141,16 @@ You can also use application-launching URLs. For example, launch an external web
 
 ### ![Android](/assets/android.svg) Example
 
-For Android you create the action directly in the automation action. The below example will give you 3 actions in your notification. The first action will send back an event with the action `alarm` and the second action will open the URL or load a lovelace view/dashboard. If you plan to use a lovelace view the format would be `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view. If you plan to use a lovelace dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards-and-views/#dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard. 
+For Android you create the action directly in the automation action. Actions consist of an `action` and `title` parameter at a minimum. In addition to sending an event to Home Assistant actions can also open any website, navigate to any lovelace view/dashboard or even open an app. These actions are known as `URI` and do not send an event back to Home Assistant. The below example will give you 3 actions in your notification. The first action will send back an event with the action `alarm`, the second action will open the URL in the default browser and the third action will open the Twitter application.
+
+If you plan to use a lovelace view instead of a URL for action `URI` then the format would be `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view. If you plan to use a lovelace dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards-and-views/#dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard. 
 
 
-If you want to open an application you need to set the action to `URI`.  To pick the application to open prefix `app://` to the the package name.  If the device does not have the application installed then the Home Assistant application will open to the default page.
+If you want to open an application you need to set the action to `URI`. The format will be `app://<package>` where `<package>` is replaced by the package you wish to open (ex: `app://com.twitter.android`). If the device does not have the application installed then the Home Assistant application will open to the default page.
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+With action set to `URI` you can also trigger the More Info panel for any entity. The format will be `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`
 
 ```yaml
 automation:
