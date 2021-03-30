@@ -24,6 +24,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
+| `command_screen_on` | Turn on the device screen. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
 | `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. |
 | `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
@@ -279,6 +280,24 @@ automation:
         message: "command_ringer_mode"
         title: "vibrate"
 ```
+
+## Screen On
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+On Android you can turn on the screen using a notification by simply sending `message: command_screen_on`. This will not remove or disable any lock screens you have setup on the device. The reason behind this is the risk associated with the app being unable to set the device policy back (app crash) or if the device requires the policy to be setup again after being removed. All of which is out of the app's control. You may want to adjust the screen timeout setting on your device to control when the screen will turn back off.
+
+```yaml
+automation:
+  - alias: Screen on
+    trigger:
+      ...
+    action:
+      service: notify.mobile_app_<your_device_id_here>
+      data:
+        message: command_screen_on
+```
+
 
 ## Volume Level
 
