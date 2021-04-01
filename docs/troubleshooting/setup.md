@@ -183,3 +183,7 @@ Here is an example of a crash log:
         at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:678)
         at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:665)
 ```
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+There is a new option under App Configuration > Show and Share Logs. This feature makes it a lot of easier to refresh, share and view the logs. The logs can then be used when you want to create an [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) or when a developer asks for them to troubleshoot an issue. It is important to note that the device logs may or may not contain sensitive information like your Home Assistant URL so make sure to remove sensitive information before sharing.
