@@ -7,6 +7,8 @@ The ![Android](/assets/android.svg) Android app allows the user to create widget
 
 ## Camera
 
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
 This widget will update every hour or when it is tapped. The widget will just contain the latest snapshot from the selected camera.
 
 1.  Long press on any open space in the home screen
