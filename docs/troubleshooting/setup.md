@@ -162,28 +162,4 @@ If you want to ensure that the sensors are updated when your device starts charg
 4.  Delete the widget to remove it from the list and to stop the toast messages.
 
 ## Android Crash Logs
-![Android](/assets/android.svg) The Android app makes use of Google's ADB [Logcat](https://developer.android.com/studio/command-line/logcat) feature to log errors. From time to time you may wish to inspect the logs or a developer may ask for crash logs in order to fix your issue. There are multiple ways to get the logs off the device. Unfortunately you will need to use a computer with a USB cable as you either need to setup Android Studio or you need to grant special ADB permissions.
-
-The easiest way to get the logs would be to use [Logcat Reader](https://play.google.com/store/apps/details?id=com.dp.logcatapp) from the Google Play Store, you can also use [Android Studio](https://developer.android.com/studio). Either method requires you to grant special permissions, you will need to follow the instructions provided by the method to ensure you get the proper level of verbose logging. Some devices may require a USB driver in order to be recognized, every device is different and you may need to refer to the manufacturer if it doesn't work out of the box.
-
-Once you have your method setup you will want to search by `homeassistant` in order to find the logs.
-
-Here is an example of a crash log:
-
-```
-2020-12-09 14:44:24.224 18523-18571/io.homeassistant.companion.android E/SensorReceiver: Issue registering sensor: charger_type
-    io.homeassistant.companion.android.common.data.integration.IntegrationException
-        at io.homeassistant.companion.android.common.data.integration.impl.IntegrationRepositoryImpl.registerSensor(IntegrationRepositoryImpl.kt:449)
-        at io.homeassistant.companion.android.sensors.SensorReceiver.updateSensors(SensorReceiver.kt:142)
-        at io.homeassistant.companion.android.sensors.SensorReceiver$onReceive$1.invokeSuspend(SensorReceiver.kt:106)
-        at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
-        at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:56)
-        at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:571)
-        at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:738)
-        at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:678)
-        at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:665)
-```
-
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
-
-There is a new option under App Configuration > Show and Share Logs. This feature makes it a lot of easier to refresh, share and view the logs. The logs can then be used when you want to create an [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) or when a developer asks for them to troubleshoot an issue. It is important to note that the device logs may or may not contain sensitive information like your Home Assistant URL so make sure to remove sensitive information before sharing.
+![Android](/assets/android.svg) The Android app makes use of Google's ADB [Logcat](https://developer.android.com/studio/command-line/logcat) feature to log errors. From time to time you may wish to inspect the logs or a developer may ask for crash logs in order to fix your issue. There is an option under App Configuration > Show and Share Logs. This feature makes it a lot of easier to refresh, share and view the logs. The logs can then be used when you want to create an [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) or when a developer asks for them to troubleshoot an issue. It is important to note that the device logs may or may not contain sensitive information like your Home Assistant URL so make sure to remove sensitive information before sharing.
