@@ -98,9 +98,7 @@ To fix this change the location permission for the Home Assistant App to "Always
 5.  Turn on unrestricted data for the Android app. (Samsung users will need to disable data saver for Home Assistant as well.)
 6.  Check that background access setting under App Configuration shows the app has proper access.
 
-If you are still seeing location issues then you may find it helpful to use the [crash logs](#android-crash-logs) to determine whats going on as we report the entire location decision making process there. First you will need to follow the steps at the link above to get logcat proper permission to view the verbosity, this is important as normal logcat will not output the debug level that we require for this.
-
-Once you have setup logcat you will want to perform a search on a `tag` for `LocBroadcastReceiver` then you will want to watch the logs for about 10-15 minutes to get several reports to see how it is working.  Below is an example of what you can expect to see to ensure that location updates are coming to the phone.  The app still has a decision making process to ensure we get a valid location to actually send back.
+If you are still seeing location issues then you may find it helpful to use the [crash logs](#android-crash-logs) to determine whats going on as we report the entire location decision making process there. When you look at the logs pay attention to the lines that contain `LocBroadcastReveiver` to follow the decisions.  Below is an example of what you can expect to see to ensure that location updates are coming to the phone.  The app still has a decision making process to ensure we get a valid location to actually send back.
 
 ```
 2021-02-03 09:03:00.900 7306-7306/? D/LocBroadcastReceiver: Received location update.
