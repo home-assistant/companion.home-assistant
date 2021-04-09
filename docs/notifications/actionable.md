@@ -148,8 +148,6 @@ If you plan to use a lovelace view instead of a URL for action `URI` then the fo
 
 If you want to open an application you need to set the action to `URI`. The format will be `app://<package>` where `<package>` is replaced by the package you wish to open (ex: `app://com.twitter.android`). If the device does not have the application installed then the Home Assistant application will open to the default page.
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
-
 With action set to `URI` you can also trigger the More Info panel for any entity. The format will be `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`
 
 ```yaml

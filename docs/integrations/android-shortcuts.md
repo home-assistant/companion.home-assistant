@@ -3,7 +3,7 @@ title: "Android Shortcuts"
 id: 'android-shortcuts'
 ---
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 
 The Android app offers support for both dynamic and pinned [shortcuts](https://developer.android.com/guide/topics/ui/shortcuts). Shortcuts allow users to navigate to a specific lovelace page or entity directly from the home screen without needing to first launch the app. Supported devices will see a Manage Shortcuts section under App Configuration. From there users must supply the Label which appears in the launcher (Google recommends 10 characters). The description must also be provided as some launchers may prefer to display it (Google recommends 25 characters).
 
