@@ -32,6 +32,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
+      <td><a href="/docs/integrations/android-quick-settings">Android Quick Settings</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/integrations/android-shortcuts">Android Shortcuts</a></td>
       <td>✅</td>
       <td>✅</td>
