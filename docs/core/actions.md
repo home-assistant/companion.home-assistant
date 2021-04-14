@@ -88,8 +88,8 @@ automation:
         event_data:
           actionName: 'Bed Time'
     action:
-      service: light.turn_off
-      entity_id: group.all_lights
+      - service: light.turn_off
+        entity_id: group.all_lights
 ```
 Note that attributes located in the `data` and `context` are accessed through `event_data` and `event_context` respectively within the automation.
 

@@ -53,13 +53,13 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_activity"
-        title: "google.navigation:q=arbys"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          channel: "com.google.android.apps.maps"
-          tag: "android.intent.action.VIEW"
+          message: "command_activity"
+          title: "google.navigation:q=arbys"
+          data:
+            channel: "com.google.android.apps.maps"
+            tag: "android.intent.action.VIEW"
 ```
 
 To continue with the above example you can also launch [search results](https://developer.android.com/guide/components/intents-common#Maps) with the following:
@@ -70,13 +70,13 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_activity"
-        title: "geo:0,0?q=1600+Amphitheatre+Parkway%2C+CA"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          channel: "com.google.android.apps.maps"
-          tag: "android.intent.action.VIEW"
+          message: "command_activity"
+          title: "geo:0,0?q=1600+Amphitheatre+Parkway%2C+CA"
+          data:
+            channel: "com.google.android.apps.maps"
+            tag: "android.intent.action.VIEW"
 ```
 
 ## BLE Beacon Transmitter
@@ -93,10 +93,10 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_ble_transmitter"
-        title: "turn_off"
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_ble_transmitter"
+          title: "turn_off"
 ```
 
 
@@ -114,10 +114,10 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_bluetooth"
-        title: "turn_off"
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_bluetooth"
+          title: "turn_off"
 ```
 
 ## Broadcast Intent
@@ -134,12 +134,12 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_broadcast_intent"
-        title: "action"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          channel: "package-name"
+          message: "command_broadcast_intent"
+          title: "action"
+          data:
+            channel: "package-name"
 ```
 
 An example of an application that accepts broadcast intents is [Sleep as Android](https://docs.sleep.urbandroid.org/devs/intent_api.html#action-intents-to-control-sleep). To start a sleep tracking event the format would be as follows:
@@ -150,12 +150,12 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_broadcast_intent"
-        title: "com.urbandroid.sleep.alarmclock.START_SLEEP_TRACK"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          channel: "com.urbandroid.sleep"
+          message: "command_broadcast_intent"
+          title: "com.urbandroid.sleep.alarmclock.START_SLEEP_TRACK"
+          data:
+            channel: "com.urbandroid.sleep"
 ```
 
 [Extras](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String)) are also supported under the `group` parameter. As there can be any number of extras added to the intent we will need to split each extra by a comma `,`. Then each extra name and value needs to be separated by a colon `:`. The below example shows you how to turn on an alarm labeled `work` in the Sleep as Android application. In this example there are 2 extras being added to the intent.
@@ -166,13 +166,13 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: command_broadcast_intent
-        title: "com.urbandroid.sleep.alarmclock.ALARM_STATE_CHANGE"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          channel: "com.urbandroid.sleep"
-          group: "alarm_label:work,alarm_enabled:false"
+          message: "command_broadcast_intent"
+          title: "com.urbandroid.sleep.alarmclock.ALARM_STATE_CHANGE"
+          data:
+            channel: "com.urbandroid.sleep"
+            group: "alarm_label:work,alarm_enabled:false"
 ```
 
 ## Do Not Disturb
@@ -200,10 +200,10 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_dnd"
-        title: "priority_only"
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_dnd"
+          title: "priority_only"
 ```
 
 
@@ -221,10 +221,10 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_high_accuracy_mode"
-        title: "turn_off"
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_high_accuracy_mode"
+          title: "turn_off"
 ```
 
 
@@ -243,9 +243,9 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "request_location_update"
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "request_location_update"
 ```
 
 Assuming the device receives the notification, it will attempt to get a location update within 5 seconds and report it to Home Assistant. This is a little bit hit or miss since Apple imposes a maximum time allowed for the app to work with the notification and location updates sometimes take longer than usual due to factors such as waiting for GPS acquisition.
@@ -275,10 +275,10 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_ringer_mode"
-        title: "vibrate"
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_ringer_mode"
+          title: "vibrate"
 ```
 
 ## Screen On
@@ -293,9 +293,9 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: command_screen_on
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_screen_on"
 ```
 
 
@@ -320,12 +320,12 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_volume_level"
-        title: 20
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          channel: music_stream
+          message: "command_volume_level"
+          title: 20
+          data:
+            channel: "music_stream"
 ```
 
 ## Webview
@@ -342,8 +342,8 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_webview"
-        title: "/lovelace/settings"
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_webview"
+          title: "/lovelace/settings"
 ```
