@@ -34,7 +34,7 @@ automation:
     trigger:
       - platform: state
         entity_id: device_tracker.<device_ID>
-        to: 'home'
+        to: "home"
     condition:
       - condition: sun
         after: sunset

@@ -33,7 +33,7 @@ automation:
           data:
             attachment:
               url: "https://github.com/home-assistant/assets/blob/master/logo/logo.png?raw=true"
-              content-type: png
+              content-type: "png"
               hide-thumbnail: false
 ```
 

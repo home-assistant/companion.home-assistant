@@ -238,12 +238,12 @@ Here's an example automation for the given payload:
 
 ```yaml
 automation:
-  - alias: Sound the alarm iOS
+  - alias: "Sound the alarm iOS"
     trigger:
       - platform: event
         event_type: ios.notification_action_fired
         event_data:
-          actionName: SOUND_ALARM
+          actionName: "SOUND_ALARM"
     action:
       ...
 ```
@@ -252,12 +252,12 @@ automation:
 
 ```yaml
 automation:
-  - alias: Sound the alarm android
+  - alias: "Sound the alarm Android"
     trigger:
       - platform: event
         event_type: mobile_app_notification_action
         event_data:
-          action: alarm
+          action: "alarm"
     action:
       ...
 ```

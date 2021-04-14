@@ -168,7 +168,7 @@ automation:
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: command_broadcast_intent
+          message: "command_broadcast_intent"
           title: "com.urbandroid.sleep.alarmclock.ALARM_STATE_CHANGE"
           data:
             channel: "com.urbandroid.sleep"
@@ -295,7 +295,7 @@ automation:
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: command_screen_on
+          message: "command_screen_on"
 ```
 
 
@@ -325,7 +325,7 @@ automation:
           message: "command_volume_level"
           title: 20
           data:
-            channel: music_stream
+            channel: "music_stream"
 ```
 
 ## Webview

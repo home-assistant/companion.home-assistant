@@ -13,11 +13,13 @@ iOS gives special priority to this type of notification. Critical alerts always 
 
 ```yaml
 automations:
-  - alias: 'Fire Detected iOS'
+  - alias: "Fire Detected iOS"
+
     trigger:
       - platform: state
         entity_id: sensor.smoke_alarm
-        to: 'smoke'
+        to: "smoke"
+
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
@@ -26,7 +28,8 @@ automations:
           data:
             push:
               sound:
-                name: default
+                name: "default"
+
                 critical: 1
                 volume: 1.0
 
@@ -42,11 +45,13 @@ For Android these notifications are designed to show up on the phone immediately
 
 ```yaml
 automations:
-  - alias: 'Fire Detected android'
+  - alias: "Fire Detected android"
+
     trigger:
       - platform: state
         entity_id: sensor.smoke_alarm
-        to: 'smoke'
+        to: "smoke"
+
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
@@ -64,11 +69,12 @@ Using this method to can send a normal notification:
 
 ```yaml
 automations:
-  - alias: 'Fire Detected android alarm stream'
+  - alias: "Fire Detected Android alarm stream"
     trigger:
       - platform: state
         entity_id: sensor.smoke_alarm
-        to: 'smoke'
+        to: "smoke"
+
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
@@ -84,11 +90,12 @@ Or you can use Text To Speech to speak the notification:
 
 ```yaml
 automations:
-  - alias: 'Fire Detected TTS alarm'
+  - alias: "Fire Detected TTS alarm"
+
     trigger:
       - platform: state
         entity_id: sensor.smoke_alarm
-        to: 'smoke'
+        to: "smoke"
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
@@ -104,16 +111,18 @@ Alternatively using Text To Speech you can also make the notification speak as l
 
 ```yaml
 automations:
-  - alias: 'Fire Detected TTS loud'
+  - alias: "Fire Detected TTS loud"
+
     trigger:
       - platform: state
         entity_id: sensor.smoke_alarm
-        to: 'smoke'
+        to: "smoke"
+
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           title: "The house is on fire and the cat's stuck in the dryer!"
-          message: TTS
+          message: "TTS"
           data:
             ttl: 0
             priority: high

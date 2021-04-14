@@ -10,7 +10,7 @@ Here is an example notification that uses one of the pre-installed sounds.
 
 ```yaml
 automation:
-- alias: Notify Mobile App sound
+- alias: "Notify Mobile App sound"
   trigger:
     ...
   action:

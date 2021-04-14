@@ -13,7 +13,7 @@ automation:
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: 'Notification text'
+          message: "Notification text"
 ```
 
 The mobile_app platform provides many enhancements to the simple notification generated above. The image below, for example, shows an [iOS actionable notification](actionable.md) allowing you to trigger different automations from each button.
@@ -28,7 +28,7 @@ If you include a URL in your notification, tapping on the notification will open
 
 ```yaml
 automation:
-  - alias: 'Send Notification with link'
+  - alias: "Send Notification with a link"
     trigger:
       ...
     action:
@@ -71,7 +71,7 @@ You can set the app icon badge in the payload. The below example will make the a
 
 ```yaml
 automation:
-  - alias: Notify Mobile app update badge
+  - alias: "Notify Mobile app update badge"
     trigger:
       ...
     action:
@@ -92,7 +92,7 @@ A subtitle is supported in addition to the title:
 
 ```yaml
 automation:
-  - alias: Notify Mobile app subtitle
+  - alias: "Notify Mobile app subtitle"
     trigger:
       ...
     action:
@@ -110,7 +110,7 @@ Grouping of notifications is supported on iOS 12 and above. All notifications wi
 
 ```yaml
 automation:
-  - alias: Notify Mobile app grouping
+  - alias: "Notify Mobile app grouping"
     trigger:
       ...
     action:
@@ -134,9 +134,9 @@ automation:
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: Motion detected
+          message: "Motion detected"
           data:
-            group: Motion # name of the group you wish to use
+            group: "Motion" # name of the group you wish to use
 ```
 
 ### Replacing notifications
@@ -145,7 +145,7 @@ Existing notifications can be replaced using `apns-collapse-id`. This will conti
 
 ```yaml
 automation:
-  - alias: Notify of Motion iOS replacement
+  - alias: "Notify of Motion iOS replacement"
     trigger:
       ...
     action:
@@ -155,7 +155,7 @@ automation:
           message: "Someone might be in the backyard."
           data:
             apns_headers:
-              apns-collapse-id: 'backyard-motion-detected'
+              apns-collapse-id: "backyard-motion-detected"
 ```
 
 ![Android](/assets/android.svg)<br />
@@ -163,7 +163,7 @@ For Android users you can easily replace the notification using the `tag` servic
 
 ```yaml
 automation:
-  - alias: Notify of Motion android replacement
+  - alias: "Notify of Motion Android replacement"
     trigger:
       ...
     action:
@@ -172,7 +172,7 @@ automation:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
           data:
-            tag: tag
+            tag: "tag"
 ```
 
 ![Android](/assets/android.svg)<br />
@@ -180,15 +180,15 @@ You can also remove a notification by sending `clear_notification` to the same `
 
 ```yaml
 automation:
-  - alias: Notify of Motion clear notification
+  - alias: "Notify of Motion clear notification"
     trigger:
       ...
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: clear_notification
+          message: "clear_notification"
           data:
-            tag: tag
+            tag: "tag"
 ```
 
 ### Sending notifications to multiple devices
@@ -207,7 +207,7 @@ notify:
 Now, you can send notifications to everyone in the group using.  If you plan to group Android and iOS devices only `message` and `title` will work:
 ```yaml
   automation:
-    - alias: Notify Mobile app group
+    - alias: "Notify Mobile app group"
       trigger:
         ...
       action:
@@ -222,7 +222,7 @@ By default, if the app is open (in the foreground) when a notification arrives, 
 
 ```yaml
 automation:
-  - alias: Notify Mobile app presentation
+  - alias: "Notify Mobile app presentation"
     trigger:
       ...
     action:
@@ -242,7 +242,7 @@ In Android you can set the `color` of the notification, you can use either the c
 
 ```yaml
 automation:
-  - alias: Notify of Motion color
+  - alias: "Notify of Motion color"
     trigger:
       ...
     action:
@@ -251,7 +251,7 @@ automation:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
           data:
-            color: '#2DF56D' # or 'red'
+            color: "#2DF56D" # or "red"
 ```
 
 ### Sticky Notification
@@ -261,7 +261,7 @@ You can set whether to dismiss the notification upon selecting it or not. Settin
 
 ```yaml
 automation:
-  - alias: Notify of Motion sticky
+  - alias: "Notify of Motion sticky"
     trigger:
       ...
     action:
@@ -270,7 +270,7 @@ automation:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
           data:
-            sticky: 'true' # or 'false'
+            sticky: "true" # or "false"
 ```
 
 ### Notification Click Action
@@ -284,7 +284,7 @@ You can also trigger the More Info panel for any entity by using the following f
 
 ```yaml
 automation:
-  - alias: Notify of Motion click action
+  - alias: "Notify of Motion click action"
     trigger:
       ...
     action:
@@ -293,7 +293,7 @@ automation:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
           data:
-            clickAction: 'https://google.com' # action when clicking main notification
+            clickAction: "https://google.com" # Action when clicking main notification
 ```
 
 ### Notification Channels
@@ -309,7 +309,7 @@ In the example below a new channel will be created with the name `Motion`:
 
 ```yaml
 automation:
-  - alias: Notify of Motion channel
+  - alias: "Notify of Motion channel"
     trigger:
       ...
     action:
@@ -318,7 +318,7 @@ automation:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
           data:
-            channel: Motion # name of the channel you wish to create or utilize
+            channel: "Motion" # Name of the channel you wish to create or utilize
 ```
 
 Default values for a channel if not provided will be as follows:
@@ -341,9 +341,9 @@ automation:
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: remove_channel
+          message: "remove_channel"
           data:
-            channel: Motion # name of the channel you wish to remove
+            channel: "Motion" # Name of the channel you wish to remove
 ```
 
 #### Specific channel properties
@@ -368,15 +368,15 @@ See [Specific channel properties](#specific-channel-properties) for important be
 
 ```yaml
 automation:
-  - alias: Notify of Motion channel importance
+  - alias: "Notify of Motion channel importance"
     trigger:
       ...
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: Motion Detected
+          message: "Motion Detected"
           data:
-            channel: Motion # For devices on Android 8.0+ only
+            channel: "Motion" # For devices on Android 8.0+ only
             importance: high
 ```
 
@@ -389,16 +389,16 @@ See [Specific channel properties](#specific-channel-properties) for important be
 
 ```yaml
 automation:
-  - alias: Notify of Motion vibration
+  - alias: "Notify of Motion vibration"
     trigger:
       ...
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: Motion Detected
+          message: "Motion Detected"
           data:
             vibrationPattern: "100, 1000, 100, 1000, 100" # The pattern you wish to set for vibrations
-            channel: Motion # For devices on Android 8.0+ only
+            channel: "Motion" # For devices on Android 8.0+ only
 ```
 
 ### Notification LED Color
@@ -410,7 +410,7 @@ See [Specific channel properties](#specific-channel-properties) for important be
 
 ```yaml
 automation:
-  - alias: Notify of Motion LED color
+  - alias: "Notify of Motion LED color"
     trigger:
       ...
     action:
@@ -419,7 +419,7 @@ automation:
           message: Motion detected
           data:
             ledColor: "red" # Set the LED to red
-            channel: Motion # For devices on Android 8.0+ only          
+            channel: "Motion" # For devices on Android 8.0+ only
 ```
 
 ### Persistent Notification
@@ -431,31 +431,31 @@ In the example below we will create a notification and then later on we will rem
 
 ```yaml
 automation:
-  - alias: Notify of Motion persistent
+  - alias: "Notify of Motion persistent"
     trigger:
       ...
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: Motion detected
+          message: "Motion detected"
           data:
             persistent: true # Set to true to create a persistent notification
-            tag: persistent # Tag is required for the persistent notification
+            tag: "persistent" # Tag is required for the persistent notification
 ```
 
 To remove the persistent notification we send `clear_notification` to the `tag` that we defined.
 
 ```yaml
 automation:
-  - alias: Notify of Motion persistent remove
+  - alias: "Notify of Motion persistent remove"
     trigger:
       ...
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: clear_notification
+          message: "clear_notification"
           data:
-            tag: persistent # The tag for the persistent notification you wish to clear
+            tag: "persistent" # The tag for the persistent notification you wish to clear
 ```
 
 ### Notification Subject
@@ -465,7 +465,7 @@ If your notification is going to have a lot of text (more than 6 lines) you can 
 
 ```yaml
 automation:
-  - alias: Notify of Motion subject
+  - alias: "Notify of Motion subject"
     trigger:
       ...
     action:
@@ -484,13 +484,13 @@ You can set how long a notification will be shown on a users device before being
 
 ```yaml
 automation:
-  - alias: Notify of Motion timeout
+  - alias: "Notify of Motion timeout"
     trigger:
       ...
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: Motion Detected
+          message: "Motion Detected"
           data:
             timeout: 600 # How many seconds the notification should be received by the device
 ```
@@ -502,13 +502,14 @@ You can add some custom HTML tags to the `message` of your notification.
 
 ```yaml
 automation:
-  - alias: Notify of Motion html
+  - alias: "Notify of Motion HTML"
     trigger:
       ...
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: 'This is a <b><span style="color: red">HTML</span></b> <i>text</i><br><br>This is a text after a new line'
+          message: >
+          	This is a <b><span style="color: red">HTML</span></b> <i>text</i><br><br>This is a text after a new line
           title: "Cool HTML formatting"
 ```
 
@@ -519,13 +520,13 @@ You can set the icon for a notification by providing the `icon_url`. The URL pro
 
 ```yaml
 automation:
-  - alias: Notify of Motion icon
+  - alias: "Notify of Motion icon"
     trigger:
       ...
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: Motion Detected
+          message: "Motion Detected"
           data:
             icon_url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
 ```
@@ -543,47 +544,47 @@ automation:
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: TTS
-          title: Motion has been detected
+          message: "TTS"
+          title: "Motion has been detected"
 ```
 
 By default Text To Speech notifications use the music stream so they will bypass the ringer mode on the device as long as the device's volume is not set to 0. You have the option of using `channel: alarm_stream` to have your notification spoken regardless of music volume.
 
 ```yaml
 automation:
-  - alias: Notify of Motion TTS alarm
+  - alias: "Notify of Motion TTS alarm"
     trigger:
       ...
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           message: TTS
-          title: Motion has been detected
+          title: "Motion has been detected"
           data:
-            channel: alarm_stream
+            channel: "alarm_stream"
 ```
 
 If you find that your alarm stream volume is too low you can use `channel: alarm_stream_max` which will temporarily set the alarm stream volume to the max level, play the notification and then revert back to the original volume level.
 
 ```yaml
 automation:
-  - alias: Notify Alarm Triggered
+  - alias: "Notify Alarm Triggered"
     trigger:
       ...
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: TTS
-          title: Alarm has been triggered
+          message: "TTS"
+          title: "Alarm has been triggered"
           data:
-            channel: alarm_stream_max
+            channel: "alarm_stream_max"
 ```
 
 You may not want the TTS notification to be spoken in certain situations (e.g. if the Ringer mode is not `normal` or DND is enabled). This can be done by adding a condition in your automation that checks the state of [other sensors](https://companion.home-assistant.io/docs/core/sensors). Few examples are presented below:
 
 ```yaml
 automation:
-  - alias: Notify of Motion with conditions
+  - alias: "Notify of Motion with conditions"
     trigger:
       ...
     condition:
@@ -625,7 +626,7 @@ automation:
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          title: Next Alarm
+          title: "Next Alarm"
           message: >-
             Next Alarm At {{ states('sensor.<your_device_id_here>_next_alarm') }}
           data:
