@@ -252,12 +252,12 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "command_meda"
-        title: "pause"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          channel: "com.spotify.music"
+          message: "command_meda"
+          title: "pause"
+          data:
+            channel: "com.spotify.music"
 ```
 
 ## Request Location Updates
