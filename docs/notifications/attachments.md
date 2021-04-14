@@ -23,18 +23,18 @@ To expand a notification on 3D Touch devices simply force touch any notification
 
 ```yaml
 automation:
-  - alias: Notify Mobile app
+  - alias: Notify Mobile app attachment
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "Something happened at home!"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          attachment:
-            url: "https://github.com/home-assistant/assets/blob/master/logo/logo.png?raw=true"
-            content-type: png
-            hide-thumbnail: false
+          message: "Something happened at home!"
+          data:
+            attachment:
+              url: "https://github.com/home-assistant/assets/blob/master/logo/logo.png?raw=true"
+              content-type: png
+              hide-thumbnail: false
 ```
 
 ![iOS](/assets/iOS.svg)Notes:
@@ -46,15 +46,15 @@ automation:
 
 ```yaml
 automation:
-  - alias: Notify Mobile app
+  - alias: Notify Mobile app image
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "Something happened at home!"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          image: "https://github.com/home-assistant/assets/blob/master/logo/logo.png?raw=true"
+          message: "Something happened at home!"
+          data:
+            image: "https://github.com/home-assistant/assets/blob/master/logo/logo.png?raw=true"
 ```
 
 ![Android](/assets/android.svg) &nbsp; Notes:

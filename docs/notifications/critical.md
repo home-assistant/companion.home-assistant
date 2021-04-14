@@ -13,22 +13,22 @@ iOS gives special priority to this type of notification. Critical alerts always 
 
 ```yaml
 automations:
-  - alias: 'Fire Detected'
+  - alias: 'Fire Detected iOS'
     trigger:
-    - platform: state
-      entity_id: sensor.smoke_alarm
-      to: 'smoke'
+      - platform: state
+        entity_id: sensor.smoke_alarm
+        to: 'smoke'
     action:
-    - service: notify.mobile_app_<your_device_id_here>
-      data:
-        title: "Wake up!"
-        message: "The house is on fire and the cat's stuck in the dryer!"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          push:
-            sound:
-              name: default
-              critical: 1
-              volume: 1.0
+          title: "Wake up!"
+          message: "The house is on fire and the cat's stuck in the dryer!"
+          data:
+            push:
+              sound:
+                name: default
+                critical: 1
+                volume: 1.0
 
 ```
 If you have previously read the [sounds documentation](sounds.md) this syntax should be mostly familiar. Note the example expands the `sound` attribute to include the `critical: 1` flag, and `volume: 1.0` to set the volume to 100 %.
@@ -42,19 +42,19 @@ For Android these notifications are designed to show up on the phone immediately
 
 ```yaml
 automations:
-  - alias: 'Fire Detected'
+  - alias: 'Fire Detected android'
     trigger:
-    - platform: state
-      entity_id: sensor.smoke_alarm
-      to: 'smoke'
+      - platform: state
+        entity_id: sensor.smoke_alarm
+        to: 'smoke'
     action:
-    - service: notify.mobile_app_<your_device_id_here>
-      data:
-        title: "Wake up!"
-        message: "The house is on fire and the cat's stuck in the dryer!"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          ttl: 0
-          priority: high
+          title: "Wake up!"
+          message: "The house is on fire and the cat's stuck in the dryer!"
+          data:
+            ttl: 0
+            priority: high
 ```
 
 ![Android](/assets/android.svg)<br />
@@ -64,58 +64,58 @@ Using this method to can send a normal notification:
 
 ```yaml
 automations:
-  - alias: 'Fire Detected'
+  - alias: 'Fire Detected android alarm stream'
     trigger:
-    - platform: state
-      entity_id: sensor.smoke_alarm
-      to: 'smoke'
+      - platform: state
+        entity_id: sensor.smoke_alarm
+        to: 'smoke'
     action:
-    - service: notify.mobile_app_<your_device_id_here>
-      data:
-        title: "Wake up!"
-        message: "The house is on fire and the cat's stuck in the dryer!"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          ttl: 0
-          priority: high
-          channel: alarm_stream
+          title: "Wake up!"
+          message: "The house is on fire and the cat's stuck in the dryer!"
+          data:
+            ttl: 0
+            priority: high
+            channel: alarm_stream
 ```
 
 Or you can use Text To Speech to speak the notification:
 
 ```yaml
 automations:
-  - alias: 'Fire Detected'
+  - alias: 'Fire Detected TTS alarm'
     trigger:
-    - platform: state
-      entity_id: sensor.smoke_alarm
-      to: 'smoke'
+      - platform: state
+        entity_id: sensor.smoke_alarm
+        to: 'smoke'
     action:
-    - service: notify.mobile_app_<your_device_id_here>
-      data:
-        title: "The house is on fire and the cat's stuck in the dryer!"
-        message: TTS
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          ttl: 0
-          priority: high
-          channel: alarm_stream
+          title: "The house is on fire and the cat's stuck in the dryer!"
+          message: TTS
+          data:
+            ttl: 0
+            priority: high
+            channel: alarm_stream
 ```
 
 Alternatively using Text To Speech you can also make the notification speak as loud as it can, and then revert back to the original volume level:
 
 ```yaml
 automations:
-  - alias: 'Fire Detected'
+  - alias: 'Fire Detected TTS loud'
     trigger:
-    - platform: state
-      entity_id: sensor.smoke_alarm
-      to: 'smoke'
+      - platform: state
+        entity_id: sensor.smoke_alarm
+        to: 'smoke'
     action:
-    - service: notify.mobile_app_<your_device_id_here>
-      data:
-        title: "The house is on fire and the cat's stuck in the dryer!"
-        message: TTS
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          ttl: 0
-          priority: high
-          channel: alarm_stream_max
+          title: "The house is on fire and the cat's stuck in the dryer!"
+          message: TTS
+          data:
+            ttl: 0
+            priority: high
+            channel: alarm_stream_max
 ```

@@ -9,16 +9,17 @@ Adding a custom sound to a notification allows you to easily identify the notifi
 Here is an example notification that uses one of the pre-installed sounds.
 
 ```yaml
-- alias: Notify Mobile App
+automation:
+- alias: Notify Mobile App sound
   trigger:
     ...
   action:
-    service: notify.mobile_app_<your_device_id_here>
-    data:
-      message: “Your Roommate arrived”
+    - service: notify.mobile_app_<your_device_id_here>
       data:
-        push:
-          sound: "US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav"
+        message: “Your Roommate arrived”
+        data:
+          push:
+            sound: "US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav"
 ```
 
 > You must use the full filename (including extension) in the payload.

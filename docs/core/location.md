@@ -32,12 +32,12 @@ The following is a basic example to switch a light on when you enter your _home_
 automation:
   - alias: 'Turn door light on when getting home'
     trigger:
-      platform: state
-      entity_id: device_tracker.<device_ID>
-      to: 'home'
+      - platform: state
+        entity_id: device_tracker.<device_ID>
+        to: 'home'
     condition:
-      condition: sun
-      after: sunset
+      - condition: sun
+        after: sunset
     action:
       - service: light.turn_on
         data:

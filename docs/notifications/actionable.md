@@ -99,16 +99,16 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        title: "Check this out!"
-        message: "Something happened at home!"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          push:
-            category: "alarm" # Needs to match the top level identifier you used in the ios configuration
-          action_data: # Anything passed in action_data will get echoed back to Home Assistant.
-            entity_id: light.test
-            my_custom_data: foo_bar
+          title: "Check this out!"
+          message: "Something happened at home!"
+          data:
+            push:
+              category: "alarm" # Needs to match the top level identifier you used in the ios configuration
+            action_data: # Anything passed in action_data will get echoed back to Home Assistant.
+              entity_id: light.test
+              my_custom_data: foo_bar
 ```
 
 If you want to navigate to a Lovelace page or launch an app for a notification, you can use the `url` key.
@@ -116,25 +116,25 @@ If you want to navigate to a Lovelace page or launch an app for a notification, 
 To navigate to a dashboard when tapping a notification:
 ```yaml
 action:
-  service: notify.mobile_app_<your_device_id_here>
-  data:
-    message: "Something happened at home!"
+  - service: notify.mobile_app_<your_device_id_here>
     data:
-      url: /lovelace/cameras
+      message: "Something happened at home!"
+      data:
+        url: /lovelace/cameras
 ```
 
 To navigate to a specific dashboard when tapping a notification action:
 ```yaml
 action:
-  service: notify.mobile_app_<your_device_id_here>
-  data:
-    message: "Something happened at home!"
+  - service: notify.mobile_app_<your_device_id_here>
     data:
-      push:
-        category: "ALARM"
-      url: 
-        _: "/lovelace/cameras" # if the notification itself is tapped
-        SOUND_ALARM: "/lovelace/alarm" # if the 'SOUND_ALARM' action is tapped
+      message: "Something happened at home!"
+      data:
+        push:
+          category: "ALARM"
+        url:
+          _: "/lovelace/cameras" # if the notification itself is tapped
+          SOUND_ALARM: "/lovelace/alarm" # if the 'SOUND_ALARM' action is tapped
 ```
 
 You can also use application-launching URLs. For example, launch an external website using `https://example.com` or make a phone call using `tel:2125551212`.
@@ -156,19 +156,19 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "Something happened at home!"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          actions:
-            - action: "alarm" # The key you are sending for the event
-              title: "Title" # The button title
-            - action: "URI" # Must be set to URI if you plan to use a URI
-              title: "Open Url"
-              uri: "https://google.com" # URL to open when action is selected, can also be a lovelace view/dashboard
-            - action: "URI" # Must be set to URI if you plan to open an application
-              title: "Open Twitter"
-              uri: "app://com.twitter.android" # Name of package for application you would like to open
+          message: "Something happened at home!"
+          data:
+            actions:
+              - action: "alarm" # The key you are sending for the event
+                title: "Title" # The button title
+              - action: "URI" # Must be set to URI if you plan to use a URI
+                title: "Open Url"
+                uri: "https://google.com" # URL to open when action is selected, can also be a lovelace view/dashboard
+              - action: "URI" # Must be set to URI if you plan to open an application
+                title: "Open Twitter"
+                uri: "app://com.twitter.android" # Name of package for application you would like to open
 ```
 
 ![Android](/assets/android.svg)
@@ -180,13 +180,13 @@ automation:
     trigger:
       ...
     action:
-      service: notify.mobile_app_<your_device_id_here>
-      data:
-        message: "Something happened at home!"
+      - service: notify.mobile_app_<your_device_id_here>
         data:
-          actions:
-            - action: "REPLY" # This must be set to REPLY in order for the reply feature to be present
-              title: "Title" # The button title
+          message: "Something happened at home!"
+          data:
+            actions:
+              - action: "REPLY" # This must be set to REPLY in order for the reply feature to be present
+                title: "Title" # The button title
 ```
 
 When an action is selected an event named `ios.notification_action_fired` for iOS and `mobile_app_notification_action` for Android will be emitted on the Home Assistant event bus. Below is an example payload.
@@ -238,12 +238,12 @@ Here's an example automation for the given payload:
 
 ```yaml
 automation:
-  - alias: Sound the alarm
+  - alias: Sound the alarm iOS
     trigger:
-      platform: event
-      event_type: ios.notification_action_fired
-      event_data:
-        actionName: SOUND_ALARM
+      - platform: event
+        event_type: ios.notification_action_fired
+        event_data:
+          actionName: SOUND_ALARM
     action:
       ...
 ```
@@ -252,12 +252,12 @@ automation:
 
 ```yaml
 automation:
-  - alias: Sound the alarm
+  - alias: Sound the alarm android
     trigger:
-      platform: event
-      event_type: mobile_app_notification_action
-      event_data:
-        action: alarm
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: alarm
     action:
       ...
 ```
