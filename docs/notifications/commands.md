@@ -232,7 +232,7 @@ automation:
 
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 
-Users are able to control any active media session on their device. You must set `message: command_media` and the `title` must be one of the below list. The `channel` must be set to the package name you wish to control. The notification will post as normal if one of the required fields is left blank, has incorrect data or a media session is not active.
+Users are able to control any active media session on their devices. You must set `message: command_media` and the `title` must be one from the list below. The `channel` must be set to the package name you wish to control. The notification will post as normal if one of the required fields is left blank, has incorrect data or a media session is not active.
 
 List of accepted `title` media commands:
 *  `fast_forward`
