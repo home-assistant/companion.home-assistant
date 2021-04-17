@@ -410,6 +410,11 @@ Below you can find some details that can be given with some notifications.
 | `post_time` | The time the notification was posted on the device. |
 
 
+### Media Session Sensor
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+This sensor requires notification permissions in order to be enabled and send data. The state will be the playback state of the primary media session. If no media sessions are active then the state will be `unavailable`. Attributes will include a total count of active sessions and media data from all active sessions separated by package name. This sensor will update during the normal sensor update interval. To get the most out of this sensor we recommend using [Last Notification](#last-notification) to hook into your media apps to send faster updates. This sensor uses the [MediaController](https://developer.android.com/reference/android/media/session/MediaController) and [MediaSessionManager](https://developer.android.com/reference/android/media/session/MediaSessionManager) APIs to get the data.
+
+
 ## Last Reboot Sensor
 ![Android](/assets/android.svg)<br />
 This sensors state will be the date and time of the last reboot from the device in UTC format. The sensor will update during the normal sensor update interval. The state will be `unavailable` if the timestamp cannot be determined. This sensor uses the [SystemClock](https://developer.android.com/reference/android/os/SystemClock?hl=en) and current [System](https://developer.android.com/reference/java/lang/System?hl=en) time to calculate the timestamp. This sensor offers a deadband setting, that defaults to 1 minute, to account for time calculation issues seen over certain carriers.
