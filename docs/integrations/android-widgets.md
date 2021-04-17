@@ -5,6 +5,18 @@ id: 'android-widgets'
 
 The ![Android](/assets/android.svg) Android app allows the user to create widgets on the home screen so the user can call any Home Assistant service call or display an entities state (updates every 30 minutes or when tapped). You can add the widget like you normally would for any app depending on your devices launcher. The widget will not work when Data Saver is enabled, you will also need to ensure that background data for the app is enabled. If you notice that a widget is no longer working try to recreate it.
 
+## Camera
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+This widget will update every hour or when it is tapped. The widget will just contain the latest snapshot from the selected camera.
+
+1.  Long press on any open space in the home screen
+2.  Scroll down to Home Assistant in the widget list
+3.  Drag the Camera Widget to an open space on the home screen
+4.  Enter the Entity ID of the camera you wish to use
+5.  Save the widget
+
 ## Entity State
 
 This widget will update every 30 minutes or when it is tapped. This widget will allow the user to select any entity they wish to get the state and an attribute from as well as setting the text size and adding a custom separator between the state and attributes.
