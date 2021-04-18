@@ -104,9 +104,13 @@ automation:
             subtitle: "Subtitle goes here"
 ```
 
-### Thread-id (grouping notifications)
+### Grouping notifications
 ![iOS](/assets/iOS.svg)<br />
-Grouping of notifications is supported on iOS 12 and above. All notifications with the same thread-id will be grouped together in the notification center. Without a thread-id, all notifications from the app will be placed in a single group.
+Grouping of notifications is supported on iOS 12 and above. All notifications with the same group will be grouped together in the notification center. Notifications without a group will be placed in a shared group together.
+
+![Android](/assets/android.svg)<br />
+For Android we will need to use the `group` property in order to group the notifications together and declutter the notification pull-down.
+
 
 ```yaml
 automation:
@@ -119,29 +123,11 @@ automation:
           title: "Smart Home Alerts"
           message: "Something happened at home!"
           data:
-            push:
-              thread-id: "example-notification-group"
-```
-
-![Android](/assets/android.svg)<br />
-For Android we will need to use the `group` property in order to group the notifications together and declutter the notification pull-down.
-
-```yaml
-automation:
-  - alias: Notify of Motion
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          message: "Motion detected"
-          data:
-            group: "Motion" # name of the group you wish to use
+            group: "example-notification-group"
 ```
 
 ### Replacing notifications
-![iOS](/assets/iOS.svg)<br />
-Existing notifications can be replaced using `apns-collapse-id`. This will continue to send you notifications but replace an existing one with that same `apns-collapse-id`. When sending consecutive messages with the same `apns-collapse-id` to the same device, only the most recent will be shown. This is especially useful for motion and door sensor notifications.
+You can replace an existing notification by providing a tag for the notification. All subsequent notifications will take the place of a notification with the same tag.
 
 ```yaml
 automation:
@@ -154,29 +140,14 @@ automation:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
           data:
-            apns_headers:
-              apns-collapse-id: "backyard-motion-detected"
+            tag: "backyard-motion-detected"
 ```
 
-![Android](/assets/android.svg)<br />
-For Android users you can easily replace the notification using the `tag` service data.
+:::note ![iOS](/assets/iOS.svg) Version Requirement
+Clearing a notification requires iOS version 2021.5 or later.
+:::
 
-```yaml
-automation:
-  - alias: "Notify of Motion Android replacement"
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          title: "Motion Detected in Backyard"
-          message: "Someone might be in the backyard."
-          data:
-            tag: "tag"
-```
-
-![Android](/assets/android.svg)<br />
-You can also remove a notification by sending `clear_notification` to the same `tag`
+You can clear an existing notification which has a tag by sending `clear_notification` as follows:
 
 ```yaml
 automation:
