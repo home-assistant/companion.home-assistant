@@ -88,7 +88,7 @@ With action set to `URI` you can also trigger the More Info panel for any entity
 
 ```yaml
 - action: "URI"
-  title: "Open Twitter"
+  title: "View the sun"
   uri: "entityId:sun.sun"
 ```
 
