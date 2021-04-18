@@ -192,18 +192,23 @@ action:
       data:
         push:
           category: "ALARM"
+        url:
+          _: "/lovelace/cameras" # if the notification itself is tapped
+          SOUND_ALARM: "/lovelace/alarm" # if the 'SOUND_ALARM' action is tapped
 # replacement
 action:
   - service: notify.mobile_app_<your_device_id_here>
     data:
       message: "Something happened at home!"
       data:
+        url: "/lovelace/cameras" # launched if no action is chosen
         actions:
           # for compatibility, the YAML definition of actions can be used
           # for example, you may use `identifier` instead of `action`
           - action: "ALARM"
             title: "Sound Alarm"
             destructive: true
+            uri: "/lovelace/alarm"
           - action: "SILENCE"
             title: "Silence Alarm"
 ```
