@@ -177,6 +177,62 @@ automation:
       ...
 ```
 
+## Migrating from iOS 2021.4 and earlier
+
+Starting in iOS version 2021.5, actions are specified inline with notifications. To migrate, do the following:
+
+1. Add the `actions` array to each notification. For example:
+
+```yaml
+# original
+action:
+  - service: notify.mobile_app_<your_device_id_here>
+    data:
+      message: "Something happened at home!"
+      data:
+        push:
+          category: "ALARM"
+# replacement
+action:
+  - service: notify.mobile_app_<your_device_id_here>
+    data:
+      message: "Something happened at home!"
+      data:
+        actions:
+          # for compatibility, the YAML definition of actions can be used
+          # for example, you may use `identifier` instead of `action`
+          - action: "ALARM"
+            title: "Sound Alarm"
+            destructive: true
+          - action: "SILENCE"
+            title: "Silence Alarm"
+```
+
+2. Convert your event triggers to the new values
+
+```yaml
+# original
+automation:
+  - alias: "Sound the alarm iOS"
+    trigger:
+      - platform: event
+        event_type: ios.notification_action_fired
+        event_data:
+          actionName: "SOUND_ALARM"
+    action:
+      ...
+# replacement
+automation:
+  - alias: "Sound the alarm iOS"
+    trigger:
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: "SOUND_ALARM"
+    action:
+      ...
+```
+
 ## iOS before 2021.5
 
 In advance of sending a notification:
