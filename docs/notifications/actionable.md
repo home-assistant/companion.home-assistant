@@ -128,7 +128,7 @@ automation:
             action_data: # iOS-only, returns the value back in event
               entity_id: light.test
               my_custom_data: foo_bar
-          actions:
+            actions:
               - action: "ALARM"
                 title: "Sound Alarm"
                 destructive: true # iOS-only
