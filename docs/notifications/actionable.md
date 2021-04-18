@@ -3,7 +3,7 @@ title: "Actionable Notifications"
 id: "actionable-notifications"
 ---
 
-Actionable notifications are a unique type of notification as they allow the user to add buttons to the notification which can then send an [event](https://www.home-assistant.io/docs/configuration/events/) to Home Assistant once clicked. This event can then be used in an automation allowing you to perform a wide variety of actions. These notifications can be sent to either iOS or Android but they do have some differences. iOS allows you to attach up to four actions while Android only allows you to attach up to three actions per notification.
+Actionable notifications are a unique type of notification as they allow the user to add buttons to the notification which can then send an [event](https://www.home-assistant.io/docs/configuration/events/) to Home Assistant once clicked. This event can then be used in an automation allowing you to perform a wide variety of actions. These notifications can be sent to either iOS or Android.
 
 Some useful examples of actionable notifications:
 
@@ -13,11 +13,171 @@ Some useful examples of actionable notifications:
 
 ![Actionable notifications allow the user to send a command back to Home Assistant.](/assets/ios/actions.png)
 
-If you are using iOS please continue to read below, if you are using Android start from the ![Android](/assets/android.svg) example [here](#building-automations-for-notification-actions).
+## Building actionable notifications
 
-On iOS notifications can be grouped by category, this allows for different types of notifications from Home Assistant to be placed in a appropriate stacks on the lock screen and even custom summary text to be used on the notification stack. These categories also allow you to create actionable notifications.
+:::important iOS Version
+Versions of the iOS app prior to 2021.5 require setting up categories in advance of using them. See [iOS Before 2021.5](#ios-before-20215).
+:::
 
-## Overview of how actionable notifications work on iOS
+You can include an `actions` array in your service call. On iOS you are limited to 4 actions, while Android is limited to 3.
+
+```yaml
+service: notify.mobile_app_<your_device_id_here>
+data:
+  message: "Something happened at home!"
+  data:
+    actions:
+      - action: "ALARM" # The key you are sending for the event
+        title: "Sound Alarm" # The button title
+      - action: "URI" # Must be set to URI if you plan to use a URI
+        title: "Open Url"
+        uri: "https://google.com" # URL to open when action is selected, can also be a lovelace view/dashboard      
+```
+
+Each action may consist of the following keys:
+
+| Key | Meaning | Notes |
+| --- | --- | --- |
+| `action` | **Required**. The identifier passed back in events | When set to `REPLY`, you will be prompted for text to send with the event. |
+| `title` | **Required**. The title of the button shown in the notification | |
+| `uri` | **Optional**. The URL to open when tapped | ![Android](/assets/android.svg) Android requires setting the `action` to `URI` to use this key. See [notes below](#uri-values). |
+
+### ![Android](/assets/android.svg) Android specific options
+
+All of the following keys are optional.
+
+| Key | Meaning | Notes |
+| --- | --- | --- |
+| _None_ | There are no Android-specific keys at this time. | |
+
+### ![iOS](/assets/ios.svg) specific options
+
+All of the following keys are optional.
+
+| Key | Meaning | Notes |
+| --- | --- | --- |
+| `activationMode` | Set to `foreground` to launch the app when tapped. Defaults to `background` which just fires the event. | This is automatically set to `foreground` when providing a `uri`. |
+| `authenticationRequired` | `true` to require entering a passcode to use the action. | |
+| `destructive` | `true` to color the action's title red, indicating a destructive action. | |
+| `behavior` | `textInput` to prompt for text to return with the event. This also occurs when setting the action to `REPLY`. |
+| `textInputButtonTitle` | Title to use for text input for actions that prompt. | |
+| `textInputPlaceholder` | Placeholder to use for text input for actions that prompt. | |
+
+### `uri` values
+
+To navigate to a frontend page, use the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view. If you plan to use a lovelace dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards-and-views/#dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard. For example:
+
+```yaml
+- action: "URI"
+  title: "Open Cameras"
+  uri: "/lovelace/cameras"
+```
+
+#### ![Android](/assets/android.svg) Android specific
+
+If you want to open an application you need to set the action to `URI`. The format will be `app://<package>` where `<package>` is replaced by the package you wish to open (ex: `app://com.twitter.android`). If the device does not have the application installed then the Home Assistant application will open to the default page.
+
+```yaml
+- action: "URI"
+  title: "Open Twitter"
+  # Name of package for application you would like to open
+  uri: "app://com.twitter.android"
+```
+
+With action set to `URI` you can also trigger the More Info panel for any entity. The format will be `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`
+
+```yaml
+- action: "URI"
+  title: "Open Twitter"
+  uri: "entityId:sun.sun"
+```
+
+#### ![iOS](/assets/ios.svg) specific
+
+You can also use application-launching URLs. For example, to make a telephone call:
+
+```yaml
+- action: "CALL"
+  title: "Call Pizza Hut"
+  uri: "tel:2125551212"
+```
+
+Or to launch a page in your default browser:
+
+```yaml
+- action: "OPEN"
+  title: "Open Safari"
+  uri: "https://example.com"
+```
+
+## Building automations for notification actions
+
+Here is an example automation to send a notification with a category in the payload:
+
+```yaml
+automation:
+  - alias: Notify Mobile app
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "Check this out!"
+          message: "Something happened at home!"
+          data:
+            action_data: # iOS-only, returns the value back in event
+              entity_id: light.test
+              my_custom_data: foo_bar
+          actions:
+              - action: "ALARM"
+                title: "Sound Alarm"
+                destructive: true # iOS-only
+              - action: "SILENCE"
+                title: "Silence Alarm"
+```
+
+The previous automation will fire an event with the following data:
+
+```javascript
+{
+    "event_type": "mobile_app_notification_action",
+    "data": {
+        "action": "SILENCE",
+        // will be present on:
+        // - Android and iOS, when `REPLY` is used as the action identifier
+        // - iOS when `behavior` is set to `textInput`
+        "reply_text": "Reply from user",
+        // iOS-only, will be included if sent in the notification
+        "action_data": {
+          "entity_id": "light.test",
+          "my_custom_data": "foo_bar"
+        }
+    },
+    "origin": "REMOTE",
+    "time_fired": "2020-02-02T04:45:05.550251+00:00",
+    "context": {
+        "id": "abc123",
+        "parent_id": null,
+        "user_id": "123abc"
+    }
+}
+```
+
+Here's an example automation for the given payload:
+
+```yaml
+automation:
+  - alias: "Sound the alarm iOS"
+    trigger:
+      - platform: event
+        event_type: mobile_app_notification_action
+        event_data:
+          action: "SOUND_ALARM"
+    action:
+      ...
+```
+
+## iOS before 2021.5
 
 In advance of sending a notification:
 
@@ -34,18 +194,18 @@ When sending a notification:
 
 <img alt="How the iOS device and Home Assistant work together to enable actionable notifications." class="invertDark" src="/assets/NotificationActionFlow.png" />
 
-## Definitions
+### Definitions
 -   **Category** - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.
 -   **Actions** - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports.
 
-## Category parameters
+### Category parameters
 | Name | Default | Description |
 | ------------ | ------------- | -------------  |
 | `name:` | **required** | A friendly name for this category. |
 | `identifier:` | **required** | A unique identifier for the category. Must be lowercase and have no special characters or spaces (underscores are ok). |
 | `actions:` | **required** | A list of actions. See below. |
 
-## Actions parameters
+### Actions parameters
 
 | Name | Default | Description |
 | ------------ | ------------- | ------------- |
@@ -87,11 +247,9 @@ Rather than defining categories using YAML within `configuration.yaml`, you can 
 
 Two variables are available for use in the `Hidden preview placeholder` and `Category summary`. `%u` will give the total number of notifications which have been sent under the same thread ID (see [this document](basic.md#thread-id-grouping-notifications) for more details). `%@` will give the text specified with `summary:` in the `push:` section of the notification payload.
 
-## Building automations for notification actions
+### Building automations for notification actions
 
 Here is an example automation to send a notification with a category in the payload:
-
-### ![iOS](/assets/iOS.svg) Example
 
 ```yaml
 automation:
@@ -139,102 +297,19 @@ action:
 
 You can also use application-launching URLs. For example, launch an external website using `https://example.com` or make a phone call using `tel:2125551212`.
 
-### ![Android](/assets/android.svg) Example
-
-For Android you create the action directly in the automation action. Actions consist of an `action` and `title` parameter at a minimum. In addition to sending an event to Home Assistant actions can also open any website, navigate to any lovelace view/dashboard or even open an app. These actions are known as `URI` and do not send an event back to Home Assistant. The below example will give you 3 actions in your notification. The first action will send back an event with the action `alarm`, the second action will open the URL in the default browser and the third action will open the Twitter application.
-
-If you plan to use a lovelace view instead of a URL for action `URI` then the format would be `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view. If you plan to use a lovelace dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards-and-views/#dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard. 
-
-
-If you want to open an application you need to set the action to `URI`. The format will be `app://<package>` where `<package>` is replaced by the package you wish to open (ex: `app://com.twitter.android`). If the device does not have the application installed then the Home Assistant application will open to the default page.
-
-With action set to `URI` you can also trigger the More Info panel for any entity. The format will be `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`
-
-```yaml
-automation:
-  - alias: Notify Mobile app android actions
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          message: "Something happened at home!"
-          data:
-            actions:
-              - action: "alarm" # The key you are sending for the event
-                title: "Title" # The button title
-              - action: "URI" # Must be set to URI if you plan to use a URI
-                title: "Open Url"
-                uri: "https://google.com" # URL to open when action is selected, can also be a lovelace view/dashboard
-              - action: "URI" # Must be set to URI if you plan to open an application
-                title: "Open Twitter"
-                uri: "app://com.twitter.android" # Name of package for application you would like to open
-```
-
-![Android](/assets/android.svg)
-If you want to add a Reply button to your actionable notification you need to set the action to `REPLY`. Once a user hits reply they will be presented with a text field to enter any text and after sending you will receive the reply back in the event examples found [below](#event-examples) under `reply_text` event data.
-
-```yaml
-automation:
-  - alias: Notify Mobile app android action reply
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          message: "Something happened at home!"
-          data:
-            actions:
-              - action: "REPLY" # This must be set to REPLY in order for the reply feature to be present
-                title: "Title" # The button title
-```
-
-When an action is selected an event named `ios.notification_action_fired` for iOS and `mobile_app_notification_action` for Android will be emitted on the Home Assistant event bus. Below is an example payload.
-
-### Event examples
-
-![iOS](/assets/iOS.svg) Event example
+When an action is selected an event named `ios.notification_action_fired` will be emitted on the Home Assistant event bus. Below is an example payload:
 
 ```json
 {
   "sourceDeviceName": "Robbie's iPhone 7 Plus",
   "sourceDeviceID": "robbies_iphone_7_plus",
   "actionName": "SOUND_ALARM",
-  "sourceDevicePushId": "ab9f02fe-6ac6-47b8-adeb-5dd87b489156",
   "textInput": "",
   "action_data": {}
 }
 ```
 
-![Android](/assets/android.svg) &nbsp; Android event example
-
-```json
-{
-    "event_type": "mobile_app_notification_action",
-    "data": {
-        "action": "KEY_ONE",
-        "action_2_title": "Action 2",
-        "action_3_title": "Action 3",
-        "action_1_title": "Action 1",
-        "action_1_key": "KEY_ONE",
-        "action_2_key": "KEY_TWO",
-        "action_3_key": "KEY_THREE",
-        "reply_text": "Reply from user",
-        "device_id": "123456"
-    },
-    "origin": "REMOTE",
-    "time_fired": "2020-02-02T04:45:05.550251+00:00",
-    "context": {
-        "id": "abc123",
-        "parent_id": null,
-        "user_id": "123abc"
-    }
-}
-```
-
 Here's an example automation for the given payload:
-
-![iOS](/assets/iOS.svg)Example
 
 ```yaml
 automation:
@@ -247,26 +322,6 @@ automation:
     action:
       ...
 ```
-
-![Android](/assets/android.svg) &nbsp; Android Example
-
-```yaml
-automation:
-  - alias: "Sound the alarm Android"
-    trigger:
-      - platform: event
-        event_type: mobile_app_notification_action
-        event_data:
-          action: "alarm"
-    action:
-      ...
-```
-
-![iOS](/assets/iOS.svg) Notes:
-
-*   `textInput` will only exist if `behavior` was set to `textInput`.
-*   `action_data` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
-*   When adding or updating push categories in `configuration.yaml` be sure to update push settings within the Home Assistant iOS app. This can be found within the Notifications page of the App Configuration menu (accessed from the sidebar menu). You may have to exit the Notifications page and reopen it before new categories are shown. If they are still not listed, restart the Home Assistant Companion App.
 
 ## Compatibility with different devices
 
