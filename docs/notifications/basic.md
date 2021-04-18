@@ -159,7 +159,7 @@ automation:
         data:
           message: "clear_notification"
           data:
-            tag: "tag"
+            tag: "backyard-motion-detected"
 ```
 
 ### Sending notifications to multiple devices
