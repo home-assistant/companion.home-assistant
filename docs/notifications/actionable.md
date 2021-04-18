@@ -50,7 +50,7 @@ All of the following keys are optional.
 | --- | --- | --- |
 | _None_ | There are no Android-specific keys at this time. | |
 
-### ![iOS](/assets/ios.svg) specific options
+### ![iOS](/assets/iOS.svg) specific options
 
 All of the following keys are optional.
 
@@ -92,7 +92,7 @@ With action set to `URI` you can also trigger the More Info panel for any entity
   uri: "entityId:sun.sun"
 ```
 
-#### ![iOS](/assets/ios.svg) specific
+#### ![iOS](/assets/iOS.svg) specific
 
 You can also use application-launching URLs. For example, to make a telephone call:
 
