@@ -11,12 +11,13 @@ The Companion apps offer a lot of different notification options. In place of po
 | ------- | ----------- |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 | `clear_badge` | Silently removes the badge from the App icon without displaying a notification. |
+| `clear_notification` | Removes a notification, [more details](basic.md#clearing). |
 
 ![Android](/assets/android.svg)
 
 | Command | Description |
 | ------- | ----------- |
-| `clear_notification` | Removes a notification from the status bar, [more details](basic.md#replacing-notifications). |
+| `clear_notification` | Removes a notification from the status bar, [more details](basic.md#clearing). |
 | `command_activity` | Launch an activity with a specified URI to any app, [more details](#activity) and use cases below. |
 | `command_bluetooth` | Turn bluetooth on or off. |
 | `command_ble_transmitter` | Turn BLE beacon transmitter on or off. |

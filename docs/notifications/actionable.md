@@ -306,7 +306,7 @@ ios:
 
 Rather than defining categories using YAML within `configuration.yaml`, you can create them directly within the Companion App. This can be done from the Notifications page of the App Configuration Menu (accessed from the sidebar menu).
 
-Two variables are available for use in the `Hidden preview placeholder` and `Category summary`. `%u` will give the total number of notifications which have been sent under the same thread ID (see [this document](basic.md#grouping-notifications) for more details). `%@` will give the text specified with `summary:` in the `push:` section of the notification payload.
+Two variables are available for use in the `Hidden preview placeholder` and `Category summary`. `%u` will give the total number of notifications which have been sent under the same thread ID (see [this document](basic.md#grouping) for more details). `%@` will give the text specified with `summary:` in the `push:` section of the notification payload.
 
 ### Building automations for notification actions
 
