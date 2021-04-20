@@ -3,7 +3,7 @@ title: "Introduction"
 id: "notifications-basic"
 ---
 
-The `mobile_app` notify platform accepts the standard `title`, `message` and `target` parameters used by the notify platform. The mobile\_app notify platform supports targets as services. As long as you granted notifications permissions during setup, you will find all your devices listed as targets for the notify service with names prefixed `notify.mobile_app_` followed by the Device ID of you device. This can be checked in the App Configuration menu of the sidebar and defaults to the name specified in the General>About within the iOS settings app or under About>Phone in Android settings (with spaces and non alphanumeric characters replaced by underscores). A requirement of the notify platform is that you must specify at least `message:` in your payload. A minimum working example of a notification is:
+The `mobile_app` notify platform accepts the standard `title`, `message` and `target` parameters used by the notify platform. The mobile\_app notify platform supports targets as services. As long as you granted notifications permissions during setup, you will find all your devices listed as targets for the notify service with names prefixed `notify.mobile_app_` followed by the Device ID of you device. This can be checked in the App Configuration menu of the sidebar and defaults to the name specified in the General>About within the iOS/macOS settings app or under About>Phone in Android settings (with spaces and non alphanumeric characters replaced by underscores). A requirement of the notify platform is that you must specify at least `message:` in your payload. A minimum working example of a notification is:
 
 ```yaml
 automation:
@@ -158,7 +158,7 @@ automation:
 
 Subtitles and subjects are secondary headings you can use in your notifications beyond the title property.
 
-![iOS](/assets/iOS.svg)<br />
+![iOS](/assets/iOS.svg) ![macOS](/assets/macOS.svg)<br />
 A `subtitle` displays in addition to title and message.
 
 ![Android](/assets/android.svg)<br />
@@ -528,10 +528,10 @@ automation:
             when: "1609459200"
 ```
 
-## iOS Specific
+## iOS/macOS Specific
 
 ### Sounds
-By default the default iOS notification sound (Tri-tone) will be played upon receiving a notification. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be disabled by setting `sound` to `none` in the data payload:
+By default the default notification sound (Tri-tone on iOS) will be played upon receiving a notification. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be disabled by setting `sound` to `none` in the data payload:
 
 ```yaml
 automation:
