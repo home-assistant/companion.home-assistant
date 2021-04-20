@@ -410,6 +410,27 @@ Not all features are supported by Android at the moment but eventually most feat
   </thead>
   <tbody>
     <tr>
+      <td><a href="/docs/core/sensors#active-sensor">Active Sensor</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors">Active Camera</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✅</td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors">Active Microphone</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✅</td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#activity-sensors">Activity Sensors</a></td>
       <td>✅</td>
       <td></td>
@@ -487,6 +508,13 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
+      <td><a href="/docs/core/sensors">Camera in Use</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✅</td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#connection-type-sensor">Connection Type</a></td>
       <td>✅</td>
       <td>✅</td>
@@ -506,6 +534,13 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
       <td></td>
       <td></td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors">Displays</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#pedometer-sensors">Distance</a></td>
@@ -541,6 +576,13 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
       <td>✅</td>
       <td></td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors#frontmost-app-sensor">Frontmost App</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#geocoded-location-sensor">Geocoded Location</a></td>
@@ -585,6 +627,13 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
+      <td><a href="/docs/core/sensors">Microphone in Use</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✅</td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#mobile-data-sensors">Mobile Data Sensors</a></td>
       <td>✅</td>
       <td>✅</td>
@@ -618,6 +667,13 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
       <td></td>
       <td></td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors">Primary Display ID & Name</a></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#proximity-sensor">Proximity</a></td>
