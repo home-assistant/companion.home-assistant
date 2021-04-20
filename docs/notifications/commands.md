@@ -111,7 +111,7 @@ Example:
 
 ```yaml
 automation:
-  - alias: Command bluetooh
+  - alias: Command bluetooth
     trigger:
       ...
     action:
@@ -254,7 +254,7 @@ automation:
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          message: "command_meda"
+          message: "command_media"
           title: "pause"
           data:
             channel: "com.spotify.music"
