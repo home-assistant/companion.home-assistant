@@ -162,7 +162,7 @@ Subtitles and subjects are secondary headings you can use in your notifications 
 A `subtitle` displays in addition to title and message.
 
 ![Android](/assets/android.svg)<br />
-If your notification is going to have a lot of text (more than 6 lines) you can opt to show smaller text by setting the `subject`.
+A `subject` may take the place of longer content (more than 6 lines), depending on your device.
 
 ```yaml
 automation:
