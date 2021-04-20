@@ -13,4 +13,4 @@ Complications are listed by their position and grouped by face type. For some po
 
 ## Ring Complications
 
-To set how filled the ring of an open- or closed-ring complication is, normalise the value produced by your template to `1.0`. A value of `0.0` will give an empty ring and `1.0` will give a full ring.
+To set how filled the ring of an open- or closed-ring complication is, normalize the value produced by your template to `1.0`. A value of `0.0` will give an empty ring and `1.0` will give a full ring.
