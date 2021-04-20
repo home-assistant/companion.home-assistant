@@ -19,12 +19,67 @@ automation:
 The mobile_app platform provides many enhancements to the simple notification generated above. The image below, for example, shows an [iOS actionable notification](actionable.md) allowing you to trigger different automations from each button.
 ![A push notification showing all of the basic options `title` and `message` as well as `subtitle` and actions.](/assets/ios/example.png)
 
-## Enhancing basic notifications
+## Sending notifications to multiple devices
 
-### Including Links
+To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/components/notify.group/):
+```yaml
+notify:
+  - name: ALL_DEVICES
+    platform: group
+    services:
+      - service: mobile_app_iphone_one
+      - service: mobile_app_iphone_two
+      - service: mobile_app_ipad_one
+      - service: mobile_app_pixel_4_xl
+```
+Now, you can send notifications to everyone in the group using:
+```yaml
+  automation:
+    - alias: "Notify Mobile app group"
+      trigger:
+        ...
+      action:
+        - service: notify.ALL_DEVICES
+          data:
+            message: "Something happened at home!"
+```
 
-![iOS](/assets/iOS.svg)<br />
-If you include a URL in your notification, tapping on the notification will open that URL. You may use external or internal (relative) URL's. The below example sends a notification that when tapped will open the Home Assistant app into a Lovelace view of your cameras.
+## General Options
+
+### Attachments
+
+You can attach media and other content to notifications. See [Attachments](/docs/notifications/notification-attachments).
+
+### Opening a URL
+
+When tapping on a notification, you can choose to open a URL, which can fall into one of the following buckets:
+
+- A relative URL to your Home Assistant instance, like `/lovelace/test`.
+- An full URL like `https://example.com`
+- For a particular action in Actionable Notifications, see [its documentation](/docs/notifications/actionable-notifications).
+- ![Android](/assets/android.svg) An application using `app://<package name>` where `<package name>` is replaced with the actual package you wish to open.
+- ![Android](/assets/android.svg) The More Info panel of an entity using `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`.
+
+For relative URLs, you can open a lovelace view in the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view or a lovelace dashboard in the format `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards-and-views/#dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard.
+
+
+
+```yaml
+automation:
+  - alias: "Notify of Motion click action"
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "Motion Detected in Backyard"
+          message: "Someone might be in the backyard."
+          data:
+            # iOS URL
+            url: "https://google.com"
+            # Android URL
+            clickAction: "https://google.com"
+```
 
 ```yaml
 automation:
@@ -37,80 +92,15 @@ automation:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
           data:
-            url: /lovelace/cameras
+            # iOS URL
+            url: "/lovelace/cameras"
+            # Android URL
+            clickAction: "/lovelace/cameras"
 ```
 
-URL's can alternatively be included in the `message:` portion of your notification.
+### Grouping
 
-You can change which iOS browser notifications open in under App Configuration -> General and can turn off the confirmation prompt under App Configuration -> Notifications.
-
-
-![Android](/assets/android.svg) Android users can achieve this through the use of [actionable notifications](/docs/notifications/actionable-notifications#building-automations-for-notification-actions) or [click action](#notification-click-action).
-
-### Notification Sounds
-![iOS](/assets/iOS.svg)<br />
-By default the default iOS notification sound (Tri-tone) will be played upon receiving a notification. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be disabled by setting `sound` to `none` in the data payload:
-
-```yaml
-automation:
-  - alias: Make some noise
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          message: "Ding-dong"
-          data:
-            push:
-              sound: none
-```
-
-### Badge
-![iOS](/assets/iOS.svg)<br />
-You can set the app icon badge in the payload. The below example will make the app icon badge say 5:
-
-```yaml
-automation:
-  - alias: "Notify Mobile app update badge"
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          title: "Smart Home Alerts"
-          message: "Something happened at home!"
-          data:
-            push:
-              badge: 5
-```
-
-By setting the message to `delete_alert` you can silently update the app badge icon in the background without sending a notification to your phone.
-
-### Subtitle
-![iOS](/assets/iOS.svg)<br />
-A subtitle is supported in addition to the title:
-
-```yaml
-automation:
-  - alias: "Notify Mobile app subtitle"
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          title: "Smart Home Alerts"
-          message: "Something happened at home!"
-          data:
-            subtitle: "Subtitle goes here"
-```
-
-### Grouping notifications
-![iOS](/assets/iOS.svg)<br />
-Grouping of notifications is supported on iOS 12 and above. All notifications with the same group will be grouped together in the notification center. Notifications without a group will be placed in a shared group together.
-
-![Android](/assets/android.svg)<br />
-For Android we will need to use the `group` property in order to group the notifications together and declutter the notification pull-down.
-
+Combine notifications together visually.
 
 ```yaml
 automation:
@@ -126,8 +116,8 @@ automation:
             group: "example-notification-group"
 ```
 
-### Replacing notifications
-You can replace an existing notification by providing a tag for the notification. All subsequent notifications will take the place of a notification with the same tag.
+### Replacing
+Replace an existing notification by using a tag for the notification. All subsequent notifications will take the place of a notification with the same tag.
 
 ```yaml
 automation:
@@ -142,6 +132,8 @@ automation:
           data:
             tag: "backyard-motion-detected"
 ```
+
+### Clearing
 
 :::note ![iOS](/assets/iOS.svg) Version Requirement
 Clearing a notification on iOS requires app version 2021.5 or later.
@@ -162,53 +154,37 @@ automation:
             tag: "backyard-motion-detected"
 ```
 
-### Sending notifications to multiple devices
-![iOS](/assets/iOS.svg) and &nbsp; ![Android](/assets/android.svg)<br />
-To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/components/notify.group/):
-```yaml
-notify:
-  - name: ALL_DEVICES
-    platform: group
-    services:
-      - service: mobile_app_iphone_one
-      - service: mobile_app_iphone_two
-      - service: mobile_app_ipad_one
-      - service: mobile_app_pixel_4_xl
-```
-Now, you can send notifications to everyone in the group using.  If you plan to group Android and iOS devices only `message` and `title` will work:
-```yaml
-  automation:
-    - alias: "Notify Mobile app group"
-      trigger:
-        ...
-      action:
-        - service: notify.ALL_DEVICES
-          data:
-            message: "Something happened at home!"
-```
+### Subtitle / Subject
 
-### Controlling how a notification is displayed when in the foreground
+Subtitles and subjects are secondary headings you can use in your notifications beyond the title property.
+
 ![iOS](/assets/iOS.svg)<br />
-By default, if the app is open (in the foreground) when a notification arrives, it will display the same as when the app is not active (in the background), with a visual alert showing notification contents, a badge update (if one was sent in the notification) and the sound of your choice. You can control how a notification is displayed when the app is in the foreground by setting the `presentation_options` string array. Allowed values are `alert`, `badge` and `sound`.
+A `subtitle` displays in addition to title and message.
+
+![Android](/assets/android.svg)<br />
+If your notification is going to have a lot of text (more than 6 lines) you can opt to show smaller text by setting the `subject`.
 
 ```yaml
 automation:
-  - alias: "Notify Mobile app presentation"
+  - alias: "Notify Mobile app subtitle"
     trigger:
       ...
     action:
-      - service: notify.ALL_DEVICES
+      - service: notify.mobile_app_<your_device_id_here>
         data:
+          title: "Smart Home Alerts"
           message: "Something happened at home!"
           data:
-            presentation_options:
-              - alert
-              - badge
+            # iOS example
+            subtitle: "Subtitle goes here"
+            # Android example
+            subject: "Subject for long text"
 ```
+
+## Android Specific
 
 ### Notification Color
 
-![Android](/assets/android.svg)<br />
 In Android you can set the `color` of the notification, you can use either the color name or the hex code.
 
 ```yaml
@@ -227,7 +203,6 @@ automation:
 
 ### Sticky Notification
 
-![Android](/assets/android.svg)<br />
 You can set whether to dismiss the notification upon selecting it or not. Setting `sticky` to `'true'` will keep the notification from being dismissed when the user selects it. Setting it to `'false'` (default) will dismiss the notification upon selecting it.
 
 ```yaml
@@ -244,32 +219,8 @@ automation:
             sticky: "true" # or "false"
 ```
 
-### Notification Click Action
-
-![Android](/assets/android.svg)<br />
-When a notification is selected the user can either be navigated to a another application, a specific lovelace view/dashboard, or you can have a webpage open to any URL. If you plan to use a lovelace view the format would be `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view. If you plan to use a lovelace dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards-and-views/#dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard.
-
-If you would like to have another application open, then the format is `app://<package name>` where `<package name>` is replaced with the actual package you wish to open. The default behavior is to just open the Home Assistant app and load the default dashboard.
-
-You can also trigger the More Info panel for any entity by using the following format `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`
-
-```yaml
-automation:
-  - alias: "Notify of Motion click action"
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          title: "Motion Detected in Backyard"
-          message: "Someone might be in the backyard."
-          data:
-            clickAction: "https://google.com" # Action when clicking main notification
-```
-
 ### Notification Channels
 
-![Android](/assets/android.svg)<br />
 Notification channels allows users to separate their notifications easily (i.e. alarm vs laundry) so they can customize aspects like what type of sound is made and a lot of other device specific features. Devices running Android 8.0+ are able to create and manage notification channels on the fly using automations. Once a channel is created you can navigate to your notification settings and you will find the newly created channel, from there you can customize the behavior based on what your device allows.
 
 #### Creating a channel
@@ -332,7 +283,6 @@ Devices running Android 5.0-7.1.2 do not have channels and do not need to worry 
 
 ### Notification Channel Importance
 
-![Android](/assets/android.svg)
 When you are setting the `channel` for your notification you also have the option to set the `importance` for the `channel` per notification. Possible values for this property are `high`, `low`, `max`, `min` and `default`. To learn more about what each value does see the [FCM docs](https://developer.android.com/training/notify-user/channels#importance). For devices before Android 8.0 this property can be used like `priority` with the same options described up above.
 
 See [Specific channel properties](#specific-channel-properties) for important behavior of this property.
@@ -353,7 +303,6 @@ automation:
 
 ### Notification Vibration Pattern 
 
-![Android](/assets/android.svg)<br />
 You can set the vibration pattern for the `channel` by setting the `vibrationPattern` property. Possible values are a list of numbers. eg. "100, 1000, 100, 1000, 100" etc.. The pattern specification is "off time, on time, off time, on time, off time" etc.
 
 See [Specific channel properties](#specific-channel-properties) for important behavior of this property.
@@ -374,7 +323,6 @@ automation:
 
 ### Notification LED Color
 
-![Android](/assets/android.svg)<br />
 Some Android devices have a multi-color notification LED.  By setting the `ledColor` property you can control what color the LED will flash. Possible values are the same as for property [color](#notification-color) eg '#2DF56D' # or 'red'.
 
 See [Specific channel properties](#specific-channel-properties) for important behavior of this property.
@@ -395,7 +343,6 @@ automation:
 
 ### Persistent Notification
 
-![Android](/assets/android.svg)<br />
 Persistent notifications are notifications that cannot be dimissed by swiping away. These are useful if you have something important like an alarm being triggered. In order to use this property you must set the `tag` property as well. The `persistent` property only takes boolean (`true/false`) values, with `false` being the default. The persistent notification will still be dismissed once selected, to avoid this use `sticky: true` so the notification stays.
 
 In the example below we will create a notification and then later on we will remove it.
@@ -429,28 +376,8 @@ automation:
             tag: "persistent" # The tag for the persistent notification you wish to clear
 ```
 
-### Notification Subject
-
-![Android](/assets/android.svg)<br />
-If your notification is going to have a lot of text (more than 6 lines) you can opt to show smaller text by setting the `subject`.
-
-```yaml
-automation:
-  - alias: "Notify of Motion subject"
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          message: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
-          title: "Long text"
-          data:
-            subject: "Subject for long text"
-```
-
 ### Notification Timeout
 
-![Android](/assets/android.svg)<br />
 You can set how long a notification will be shown on a users device before being removed/dismissed automatically. You may use the `timeout` property along with the value in seconds to achieve this.
 
 ```yaml
@@ -468,7 +395,6 @@ automation:
 
 ### Notification Message HTML Formatting
 
-![Android](/assets/android.svg)<br />
 You can add some custom HTML tags to the `message` of your notification.
 
 ```yaml
@@ -480,13 +406,12 @@ automation:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           message: >
-          	This is a <b><span style="color: red">HTML</span></b> <i>text</i><br><br>This is a text after a new line
+            This is a <b><span style="color: red">HTML</span></b> <i>text</i><br><br>This is a text after a new line
           title: "Cool HTML formatting"
 ```
 
 ### Notification Icon
 
-![Android](/assets/android.svg)<br />
 You can set the icon for a notification by providing the `icon_url`. The URL provided must be either publicly accessible or can be a relative path (i.e. `/local/icon/icon.png`), more details can be found in [attachments](attachments.md). It is important to note that if you set the `image` then Android will not show the icon for the notification, the `image` will be shown in its place. So the `message` will be shown with the `image` and with the image as the icon.
 
 ```yaml
@@ -504,7 +429,6 @@ automation:
 
 ### Text To Speech Notifications
 
-![Android](/assets/android.svg)<br />
 Instead of posting a notification on the device you can instead get your device to speak the notification. This notification works different than the others. You will set `message: TTS` and the actual text to speak would be in the `title`. Current support is limited to the current Text To Speech locale set on the device. If there is an error processing the message you will see a toast message appear on the device. Check to make sure that the [Google Text To Speech](https://play.google.com/store/apps/details?id=com.google.android.tts) engine is up to date and set as the default, in case you run into any issues.
 
 ```yaml
@@ -580,7 +504,6 @@ automation:
 
 ### Chronometer Notifications
 
-![Android](/assets/android.svg)<br />
 You can create notifications with a count up/down timer (chronometer) by passing the `chronometer` and `when` options. This feature requires at least Android 7.0.
 
 Do note that the notification will not disappear when the timer reaches 0. Instead, it will continue decrementing into negative values.
@@ -604,3 +527,62 @@ automation:
             chronometer: true
             when: "1609459200"
 ```
+
+## iOS Specific
+
+### Sounds
+By default the default iOS notification sound (Tri-tone) will be played upon receiving a notification. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be disabled by setting `sound` to `none` in the data payload:
+
+```yaml
+automation:
+  - alias: Make some noise
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "Ding-dong"
+          data:
+            push:
+              sound: none
+```
+
+### Badge
+You can set the app icon badge in the payload. The below example will make the app icon badge say 5:
+
+```yaml
+automation:
+  - alias: "Notify Mobile app update badge"
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "Smart Home Alerts"
+          message: "Something happened at home!"
+          data:
+            push:
+              badge: 5
+```
+
+By setting the message to `delete_alert` you can silently update the app badge icon in the background without sending a notification to your phone.
+
+### Presentation Options
+
+By default, if the app is open (in the foreground) when a notification arrives, it will display the same as when the app is not active (in the background), with a visual alert showing notification contents, a badge update (if one was sent in the notification) and the sound of your choice. You can control how a notification is displayed when the app is in the foreground by setting the `presentation_options` string array. Allowed values are `alert`, `badge` and `sound`.
+
+```yaml
+automation:
+  - alias: "Notify Mobile app presentation"
+    trigger:
+      ...
+    action:
+      - service: notify.ALL_DEVICES
+        data:
+          message: "Something happened at home!"
+          data:
+            presentation_options:
+              - alert
+              - badge
+```
+
