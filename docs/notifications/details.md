@@ -15,7 +15,7 @@ If you wish to not exchange data with Google's servers, you can opt out of the F
 
 ## Rate limiting
 
-Currently, you are allowed to send a maximum of 300 push notifications per day per device. The rate limit resets at midnight UTC daily. This is to ensure that the service remains cheap to maintain. In the future we may add support for upgrading to allow more notifications.
+Currently, you are allowed to send a maximum of 500 push notifications per day per device. The rate limit resets at midnight UTC daily. This is to ensure that the service remains cheap to maintain. In the future we may add support for upgrading to allow more notifications.
 
 The in-app Notifications settings screen in the iOS app displays your current rate limits for the day broken out into the following categories: Attempts, Delivered, Errors, Total, and the exact time until next daily reset. For Android you can find these details on the App Configuration Screen. Alternatively, you can also view them by setting `homeassistant.components.mobile_app.notify: info` for the [`logger`](https://www.home-assistant.io/integrations/logger/) integration.
 

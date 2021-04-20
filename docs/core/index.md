@@ -71,7 +71,7 @@ Not all features are supported by Android at the moment but eventually most feat
       <td><a href="/docs/integrations/sharing">Sharing</a></td>
       <td>✅</td>
       <td>✅</td>
-      <td></td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/integrations/theming">Theming</a></td>
@@ -199,13 +199,13 @@ Not all features are supported by Android at the moment but eventually most feat
       <td><a href="/docs/notifications/notification-cleared">Cleared</a></td>
       <td>✅</td>
       <td></td>
-      <td></td>
+      <td>✅</td>
     </tr>
     <tr>
-      <td><a href="/docs/notifications/notifications-basic#notification-click-action">Click Action</a></td>
+      <td><a href="/docs/notifications/notifications-basic#opening-a-url">Opening a URL</a></td>
       <td>✅</td>
       <td></td>
-      <td></td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/notifications/notifications-basic#notification-color">Color</a></td>
@@ -274,13 +274,13 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
-      <td><a href="/docs/notifications/notifications-basic#controlling-how-a-notification-is-displayed-when-in-the-foreground">Presentation</a></td>
+      <td><a href="/docs/notifications/notifications-basic#presentation-options">Presentation</a></td>
       <td></td>
       <td></td>
       <td>✅</td>
     </tr>
     <tr>
-      <td><a href="/docs/notifications/notifications-basic#replacing-notifications">Replaceable Notifications</a></td>
+      <td><a href="/docs/notifications/notifications-basic#clearing">Replaceable Notifications</a></td>
       <td>✅</td>
       <td></td>
       <td>✅</td>
@@ -304,14 +304,8 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
-      <td><a href="/docs/notifications/notifications-basic#notification-subject">Subject</a></td>
+      <td><a href="/docs/notifications/notifications-basic#subtitle--subject">Subject / Subtitle</a></td>
       <td>✅</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="/docs/notifications/notifications-basic#subtitle">Subtitle</a></td>
-      <td></td>
       <td></td>
       <td>✅</td>
     </tr>
@@ -322,7 +316,7 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
-      <td><a href="/docs/notifications/notifications-basic#grouping-notifications">Threads</a></td>
+      <td><a href="/docs/notifications/notifications-basic#grouping">Threads</a></td>
       <td>✅</td>
       <td></td>
       <td>✅</td>
