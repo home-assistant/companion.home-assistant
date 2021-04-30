@@ -102,6 +102,8 @@ automation:
 
 Combine notifications together visually.
 
+![iOS](/assets/iOS.svg) does not support grouping [critical notifications](critical.md).
+
 ```yaml
 automation:
   - alias: "Notify Mobile app grouping"
@@ -118,6 +120,8 @@ automation:
 
 ### Replacing
 Replace an existing notification by using a tag for the notification. All subsequent notifications will take the place of a notification with the same tag.
+
+![iOS](/assets/iOS.svg) does not support replacing [critical notifications](critical.md).
 
 ```yaml
 automation:
@@ -139,7 +143,9 @@ automation:
 Clearing a notification on iOS requires app version 2021.5 (<span class="beta">BETA</span>) or later.
 :::
 
-You can clear an existing notification which has a tag by sending `clear_notification` as follows:
+You can clear an existing notification which has a tag by sending `clear_notification`.
+
+![iOS](/assets/iOS.svg) will only clear the most recent [critical notification](critical.md) from a given tag.
 
 ```yaml
 automation:
