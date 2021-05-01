@@ -3,13 +3,41 @@ title: "Standard Attachments"
 id: notification-attachments
 ---
 
-Notifications may contain an image, video, or audio file attachment that is displayed alongside the notification. A thumbnail is shown on the notification preview and the full size attachment is displayed after the notification is expanded.
+Notifications may contain an image, video, or audio file attachment that is displayed alongside the notification. See [See table for supported media](#supported-media-types) for a breakdown of support by platform.
+
+## Downloading
 
 An attachment is an image, video, or audio file which is downloaded to the device when a notification is received and shown alongside the notification. A thumbnail is shown when the notification is not expanded. The full size attachment is shown when the notification is expanded.
 
-It is important to note that the attachments are required to be accessible from the internet. If you plan to use [`camera.snapshot`](https://www.home-assistant.io/integrations/camera#service-snapshot), you will want to store the image in the `www` folder located in your Home Assistant [config directory](https://www.home-assistant.io/docs/configuration/). This will then expose the image to the internet so that you may use it in your notifications and receive them anywhere. The proper format for the URL is: `https://MyCustomHADomain/local/path/to/file.jpg`. Make sure to replace `MyCustomHADomain` with how you would access Home Assistant remotely in a browse, you will either use your [Nabu Casa remote URL](https://www.nabucasa.com/config/remote/) or the [base URL](https://www.home-assistant.io/integrations/http#base_url). Also, replace `path/to/file.jpg` with the actual file name and location you used in your [`camera.snapshot`](https://www.home-assistant.io/integrations/camera#service-snapshot) service call. Another acceptable format for the above is `/local/path/to/file.jpg`. 
+There are several sources you can use for images.
 
-If you are using the [`media_source` integration](https://www.home-assistant.io/integrations/media_source) you can alternatively use `/media/local/path/to/file.jpg`. Using `media_source` has the advantage that access requires authentication headers (which Home Assistant provides to the companion app). This means the content is not publicly available.
+:::note
+Attachments are required to be accessible from the internet, but not necessarily without authentication.
+:::
+
+You can use the [`camera.snapshot`](https://www.home-assistant.io/integrations/camera#service-snapshot) service to save snapshots, and you can store attachments in a few locations.
+
+### `media_source` (recommended)
+
+The [`media_source` integration](https://www.home-assistant.io/integrations/media_source) has the advantage that access requires authentication headers (which Home Assistant provides to the companion app). This means the content is not publicly available.
+
+You can use relative URLs in the format `/media/local/direct.jpg` with this integration.
+
+:::info
+A file stored in `/media/file.jpg` on-disk is represented by `/media/local/file.jpg` in the notification. Note the addition of the `local` part of the path.
+:::
+
+### `www` folder
+
+You will want to store the image in the `www` folder located in your Home Assistant [config directory](https://www.home-assistant.io/docs/configuration/). This will then expose the image to the internet so that you may use it in your notifications and receive them anywhere.
+
+You can use URLs in the format `/local/file.jpg` with this integration.
+
+:::info
+A file stored in `/www/file.jpg` on-disk is represented by `/local/file.jpg` in the notification. Note the change of the `local` part of the path.
+:::
+
+## Automatic snapshots
 
 ![Android](/assets/android.svg) Android users can also use `/api/camera_proxy/camera.name` where `camera.name` is replaced by the entity ID of the camera you wish to use.
 
@@ -18,59 +46,6 @@ If you are using the [`media_source` integration](https://www.home-assistant.io/
 :::tip
 To expand a notification on 3D Touch devices simply force touch any notification. On non-3D Touch devices swipe and tap the "View" button.
 :::
-
-![iOS](/assets/iOS.svg)Example
-
-```yaml
-automation:
-  - alias: Notify Mobile app attachment
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          message: "Something happened at home!"
-          data:
-            attachment:
-              # url can be absolute (like this)
-              url: "https://github.com/home-assistant/assets/blob/master/logo/logo.png?raw=true"
-              # or relative (like this)
-              url: "/media/local/image.jpg"
-```
-
-![iOS](/assets/iOS.svg)Notes:
-*   The thumbnail of the notification will be the media at the `url`.
-*   The notification content is the media at the `url`.
-
-![Android](/assets/android.svg) Android Example
-
-```yaml
-automation:
-  - alias: Notify Mobile app image
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          message: "Something happened at home!"
-          data:
-            image: "https://github.com/home-assistant/assets/blob/master/logo/logo.png?raw=true"
-```
-
-![Android](/assets/android.svg) &nbsp; Notes:
-*   If you are setting the [`icon_url`](basic.md#notification-icon) and `image` property then only the image will be displayed on the device.
-*   GIF will not be animated in notification shade
-
-
-## Example
-
-An unexpanded push notification with an image attachment:
-
-![An unexpanded push notification with an attachment.](/assets/ios/attachment.png)
-
-The same notification but expanded to show the full size image attachment:
-
-![The same notification but expanded to show the full size attachment](/assets/ios/expanded_attachment.png)
 
 ## Supported media types
 
@@ -82,14 +57,76 @@ Please ensure your attachment meets the criteria below, otherwise it will not sh
 |   Video   | 50 MB   | MPEG, MPEG2, MPEG4, AVI   | ![iOS](/assets/iOS.svg) |
 |   Audio    | 5 MB  | AIFF, WAV, MP3, MPEG4 Audio          | ![iOS](/assets/iOS.svg) |
 
+![iOS](/assets/iOS.svg) version 2021.5 or later will attempt to re-download larger files when opening the content if they exceeded the size.
+
+## Parameters
+
+You can use the following keys to add attachments. See supported media types above. All of the URLs provided must be accessible via the internet.
+
+| Key | Example values |
+| -- | -- |
+| `video` | `/media/local/video.mp4`<br /><br />`https://example.com/video.mp4` |
+| `image` | `/media/local/photo.jpg`<br /><br />`https://example.com/image.jpg` |
+| `audio` | `/media/local/audio.mp3`<br /><br />`https://example.com/audio.mp3` |
+
+When present, values will be used in the order of the table above. For example, you can specify a `video` and `image` and iOS will pick up the video while Android will pick up the image.
+
+:::info ![Android](/assets/android.svg) &nbsp; Notes:
+*   If you are setting the [`icon_url`](basic.md#notification-icon) and `image` property then only the image will be displayed on the device.
+*   GIF will not be animated in notification shade
+:::
+
+## Example service call
+
+```yaml
+automation:
+  - alias: Notify Mobile app attachment
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "Something happened at home!"
+          data:
+            # an example of an absolute url
+            image: "https://github.com/home-assistant/assets/blob/master/logo/logo.png?raw=true"
+            # example of a relative url
+            image: "/media/local/image.png"
+            # the same works for video
+            video: "/media/local/video.mp4"
+            # and for audio
+            audio: "/media/local/audio.mp3"
+```
+
+## Example of visuals
+
+An unexpanded push notification with an image attachment:
+
+![An unexpanded push notification with an attachment.](/assets/ios/attachment.png)
+
+The same notification but expanded to show the full size image attachment:
+
+![The same notification but expanded to show the full size attachment](/assets/ios/expanded_attachment.png)
 
 ## Configuration
 ![iOS](/assets/iOS.svg)Specific<br />
 
  [See table for supported media](#supported-media-types)
 
--   **url** (*Required*): The URL of content to use as the attachment. This URL *must* be accessible from the Internet, or the receiving device must be on the same network as the hosted content.
--   **content-type** (*Optional*): By default, the extension of the URL will be checked to determine the filetype. If there is no extension/it can't be determined you can manually provide a file extension.
+ You can customize the attachment on the notifications using the following format:
+
+ ```yaml
+- service: notify.mobile_app_<your_device_id_here>
+  data:
+    message: "Something happened at home!"
+    data:
+      attachment:
+        # hide the thumbnail, only show when long-pressing/3d-touching notification
+        hide-thumbnail: true
+ ```
+
+-   **url** (*Optional*): The URL of content to use as the attachment. This URL *must* be accessible from the Internet, or the receiving device must be on the same network as the hosted content. This overrides any `image`, `video` or `audio` values.
+-   **content-type** (*Optional*): By default, the extension of the URL will be checked to determine the filetype if a `url` is provided, or inferred from the use of the `image`, `video` and `audio` keys. If there is no extension/it can't be determined you can manually provide a file extension.
 -   **hide-thumbnail** (*Optional*): If set to `true` the thumbnail will not show on the notification. The content will only be viewable by expanding.
 -   **lazy** (*Optional*): Requires ![iOS](/assets/iOS.svg) v2021.5 or later. If set to `true` the attachment will not be downloaded immediately and will be loaded when viewing the notification. This is largely intended to allow exceeding file size restrictions on the attachments.
 
@@ -97,5 +134,4 @@ Please ensure your attachment meets the criteria below, otherwise it will not sh
 
  [See table for supported media](#supported-media-types)
 
--   **image** (*Required*): The URL of the image to use as the attachment. This URL *must* be accessible from the Internet.
-      - `GIF` filetype will not be animated in notification shade
+- `GIF` filetype will not be animated in notification shade
