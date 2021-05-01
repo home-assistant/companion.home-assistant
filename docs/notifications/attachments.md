@@ -32,15 +32,15 @@ automation:
           message: "Something happened at home!"
           data:
             attachment:
+              # url can be absolute (like this)
               url: "https://github.com/home-assistant/assets/blob/master/logo/logo.png?raw=true"
-              content-type: "png"
-              hide-thumbnail: false
+              # or relative (like this)
+              url: "/media/local/image.jpg"
 ```
 
 ![iOS](/assets/iOS.svg)Notes:
 *   The thumbnail of the notification will be the media at the `url`.
 *   The notification content is the media at the `url`.
-*   Attachment can be used with custom push notification categories.
 
 ![Android](/assets/android.svg) Android Example
 
@@ -91,6 +91,7 @@ Please ensure your attachment meets the criteria below, otherwise it will not sh
 -   **url** (*Required*): The URL of content to use as the attachment. This URL *must* be accessible from the Internet, or the receiving device must be on the same network as the hosted content.
 -   **content-type** (*Optional*): By default, the extension of the URL will be checked to determine the filetype. If there is no extension/it can't be determined you can manually provide a file extension.
 -   **hide-thumbnail** (*Optional*): If set to `true` the thumbnail will not show on the notification. The content will only be viewable by expanding.
+-   **lazy** (*Optional*): Requires ![iOS](/assets/iOS.svg) v2021.5 or later. If set to `true` the attachment will not be downloaded immediately and will be loaded when viewing the notification. This is largely intended to allow exceeding file size restrictions on the attachments.
 
 ![Android](/assets/android.svg) Android Specific
 
