@@ -14,12 +14,28 @@ service: notify.mobile_app_<your_device_id_here>
 data:
   message: Something happened at home!
   data:
-    push:
-      category: map
     action_data:
       latitude: "40.785091"
       longitude: "-73.968285"
 ```
+
+### iOS Prior to 2021.5
+
+Before ![iOS](/assets/iOS.svg) version 2021.5, you need to include a `category` like so:
+
+```yaml
+service: notify.mobile_app_<your_device_id_here>
+data:
+  message: Something happened at home!
+  data:
+    action_data:
+      latitude: "40.785091"
+      longitude: "-73.968285"
+    # compatibility with iOS versions prior to 2021.5
+    push:
+      category: map
+```
+
 Be aware, that to send a map you must send a push `category` which has to be called `map`, `map1`, `map2`, `map3` or `map4`  otherwise you won't get the map delivered.
 
 ### Showing a second pin
@@ -57,11 +73,22 @@ service: notify.mobile_app_<your_device_id_here>
 data:
   message: Motion Detected in the Living Room
   data:
-    attachment:
-      content-type: jpeg
+    entity_id: camera.living_room_camera
+```
+
+### iOS Prior to 2021.5
+
+Before ![iOS](/assets/iOS.svg) version 2021.5, you need to include a `category` like so:
+
+```yaml
+service: notify.mobile_app_<your_device_id_here>
+data:
+  message: Motion Detected in the Living Room
+  data:
+    entity_id: camera.living_room_camera
+    # compatibility with iOS versions prior to 2021.5
     push:
       category: camera
-    entity_id: camera.living_room_camera
 ```
 
 Be aware, that to send a camera image you must send a push category which has to be called `camera`, `camera1`, `camera2`, `camera3` or `camera4` otherwise you won't get the camera image delivered.
@@ -72,9 +99,9 @@ You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LmYwpxPKW0g" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## Combining with actionable notifications
+## Combining with actionable notifications on iOS versions prior to 2021.5
 
-As you can see the `category` key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom [actions](actionable.md) to add actions to the content extension.
+On versions prior to 2021.5, the `category` key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom [actions](actionable.md) to add actions to the content extension.
 
 For example this configuration adds actions to a camera content message.
 
