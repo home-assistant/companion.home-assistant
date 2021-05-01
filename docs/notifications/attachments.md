@@ -128,7 +128,7 @@ The same notification but expanded to show the full size image attachment:
 -   **url** (*Optional*): The URL of content to use as the attachment. This URL *must* be accessible from the Internet, or the receiving device must be on the same network as the hosted content. This overrides any `image`, `video` or `audio` values.
 -   **content-type** (*Optional*): By default, the extension of the URL will be checked to determine the filetype if a `url` is provided, or inferred from the use of the `image`, `video` and `audio` keys. If there is no extension/it can't be determined you can manually provide a file extension.
 -   **hide-thumbnail** (*Optional*): If set to `true` the thumbnail will not show on the notification. The content will only be viewable by expanding.
--   **lazy** (*Optional*): Requires ![iOS](/assets/iOS.svg) v2021.5 or later. If set to `true` the attachment will not be downloaded immediately and will be loaded when viewing the notification. This is largely intended to allow exceeding file size restrictions on the attachments.
+-   **lazy** (*Optional*): Requires ![iOS](/assets/iOS.svg) v2021.5 or later. If set to `true` the attachment will not be downloaded immediately and will only be loaded when viewing the notification. Use this to avoid downloading obviously-too-large attachments, but if they are only _occasionally_ too large, you shouldn't provide this key as the app can attempt both.
 
 ![Android](/assets/android.svg) Android Specific
 
