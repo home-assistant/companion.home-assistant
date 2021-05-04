@@ -72,7 +72,7 @@ Shortcuts are deeply integrated into the OS. After creating one, you have numero
 * **Apple Watch (watchOS 7)** - With iOS 14 and watchOS7 you can launch Shortcuts from either the Shortcuts Apple Watch app, or via complications on the Siri watch face.
 * **Spotlight Search** - When on your iOS device Home screen, swipe down from the center of your Home screen to bring up Spotlight search. From here you can type the name of a Shortcut and run it with one tap.
 * **Add to Home Screen** - When editing any Shortcut, press the (...) button in the top right to see options, and press the "Add to Home Screen" button. You can customize the name and provide a custom icon if you wish.
-* **Push Notification** - Shortcuts can be launched via push notifications, see below.
+* **Push Notification** - Shortcuts can be launched [via push notifications](#executing-a-shortcut-via-home-assistant-notifications).
 * **Back Tap (iOS 14)** - Under iOS Settings > Accessibility > Touch > Back Tap, you can launch any Shortcut via double tapping or triple tapping the back of your iPhone.
 
 ## Executing a Shortcut via Home Assistant Notifications
