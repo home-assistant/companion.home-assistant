@@ -99,9 +99,9 @@ The event fired is `ios.shortcut_run` with the result of the Shortcut with the f
 
 | Key | Values | Description |
 | -- | -- | -- |
-| `status` | `success`, `failure`, `cancelled` | The result of the Shortcut being run. |
-| `result` | Varies | The result from the Shortcut |
-| `error` | Dictionary, keys `error-Code` and `errorMessage` | Error description from the Shortcuts app if failure. |
+| `status` | `success`, `failure`, `cancelled` | The status of the execution |
+| `result` | Varies | The result provided by the Shortcut itself |
+| `error` | Dictionary, keys `error-Code` and `errorMessage` | Error description from the Shortcuts app if failure|
 | `input` | Varies | `shortcut` value in service call |
 | `name` | Varies | `shortcut.name` value in service call |
 
