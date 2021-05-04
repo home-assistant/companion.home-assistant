@@ -46,6 +46,10 @@ Must be valid JSON.
 
 Get a single still frame from a camera entity and place it on the clipboard or use in subsequent actions.
 
+### Perform Action
+
+Perform an [action](core/actions.md).
+
 ### Render Template
 
 Render a [template](https://www.home-assistant.io/docs/configuration/templating/) which can then be used in subsequent actions.
@@ -54,21 +58,9 @@ Render a [template](https://www.home-assistant.io/docs/configuration/templating/
 
 Send a location to Home Assistant. Will attempt to use clipboard contents as location, otherwise will use current location.
 
-## Using Shortcuts via Notifications
+### Update Sensors
 
-You can send a special push notification to your device, that when tapped, will open the Shortcut of your choosing and run it. Here's an example payload:
-
-```yaml
----
-data:
-  shortcut:
-    name: XCU
-    input: text1
-    text: soup1
-```
-
-The `input` key will be passed into the shortcut as well and accepts a dictionary.
-
+Update all sensors.
 
 ## Launching Shortcuts
 
@@ -80,8 +72,32 @@ Shortcuts are deeply integrated into the OS. After creating one, you have numero
 * **Apple Watch (watchOS 7)** - With iOS 14 and watchOS7 you can launch Shortcuts from either the Shortcuts Apple Watch app, or via complications on the Siri watch face.
 * **Spotlight Search** - When on your iOS device Home screen, swipe down from the center of your Home screen to bring up Spotlight search. From here you can type the name of a Shortcut and run it with one tap.
 * **Add to Home Screen** - When editing any Shortcut, press the (...) button in the top right to see options, and press the "Add to Home Screen" button. You can customize the name and provide a custom icon if you wish.
-* **Push Notification** - Shortcuts can be launched via [push notifications](/docs/notifications/notifications-basic#opening-a-url). Set the URL to `shortcuts://run-shortcut?name=Your Shortcut`
+* **Push Notification** - Shortcuts can be launched via push notifications, see below.
 * **Back Tap (iOS 14)** - Under iOS Settings > Accessibility > Touch > Back Tap, you can launch any Shortcut via double tapping or triple tapping the back of your iPhone.
+
+## Executing a Shortcut via Home Assistant Notifications
+
+You can trigger a Shortcut from Home Assistant using a notification like so:
+
+```yaml
+- service: notify.mobile_app_<your_device_id_here>
+  data:
+    message: "Trigger a Shortcut!"
+    data:
+      shortcut:
+        name: "Shortcut Name"
+        key_for_shortcut: "value provided to shortcut"
+```
+
+This will fire the event `ios.shortcut_run` with the result of the Shortcut with the following keys:
+
+| Key | Values | Description |
+| -- | -- | -- |
+| `status` | `success`, `failure`, `cancelled` | The result of the Shortcut being run. |
+| `result` | Varies | The result from the Shortcut |
+| `error` | Dictionary, keys `error-Code` and `errorMessage` | Error description from the Shortcuts app if failure. |
+| `input` | Varies | `shortcut` value in service call |
+| `name` | Varies | `shortcut.name` value in service call |
 
 ## Personal Automation
 
