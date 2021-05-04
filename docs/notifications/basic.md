@@ -592,3 +592,6 @@ automation:
               - badge
 ```
 
+### Performing a Shortcut
+
+You can perform a Shortcut when launching for a notification and have an event fire from the results. See [Siri Shortcuts documentation](/integrations/siri-shortcuts.md#executing-a-shortcut-via-home-assistant-notifications).
