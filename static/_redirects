@@ -21,6 +21,7 @@
 /app/ios/nfc /docs/integrations/universal-links
 /app/mac/latest https://github.com/home-assistant/iOS/releases/latest
 /app/ios/notifications-sounds /docs/notifications/notification-sounds
+/app/ios/notifications /docs/notifications/notifications-basic
 
 
 # Documentation restructuring redirects
