@@ -167,12 +167,12 @@ Here's an example automation for the given payload:
 
 ```yaml
 automation:
-  - alias: "Sound the alarm iOS"
+  - alias: "Silence the alarm"
     trigger:
       - platform: event
         event_type: mobile_app_notification_action
         event_data:
-          action: "SOUND_ALARM"
+          action: "SILENCE"
     action:
       ...
 ```
