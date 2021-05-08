@@ -15,8 +15,8 @@ Some useful examples of actionable notifications:
 
 ## Building actionable notifications
 
-:::caution iOS Version
-Versions of the iOS app prior to 2021.5 (<span class="beta">BETA</span>) require setting up categories in advance of using them. See [iOS Before 2021.5](#ios-before-20215).
+:::caution Version Compatibility
+You must use the defined-in-advance [category-based](#macos-and-ios-before-20215) method for iOS prior to iOS-2021.5 (<span class="beta">BETA</span>) and for macOS.
 :::
 
 You can include an `actions` array in your service call. On iOS you are limited to 4 actions, while Android is limited to 3.
@@ -238,7 +238,7 @@ automation:
       ...
 ```
 
-## iOS before 2021.5
+## macOS and iOS before 2021.5
 
 In advance of sending a notification:
 
