@@ -105,3 +105,9 @@ html[data-theme='dark'] article .admonition-info img[alt='Apple'] {
   text-decoration-color: var(--ifm-code-background);
   
 }
+
+.download-badge {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
