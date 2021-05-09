@@ -110,39 +110,68 @@ Or to launch a page in your default browser:
   uri: "https://example.com"
 ```
 
-## Building automations for notification actions
+## Building notification action scripts
 
-Here is an example automation to send a notification with a category in the payload:
+There are some important things to keep in mind when building actionable notifications:
+
+1. Your script or automation could be run multiple times
+2. The actions for your notification are shared across all notifications
+
+To avoid issues, you can create unique actions for each time your script is run. By combining context and variables, this can be fairly straightforward:
 
 ```yaml
-automation:
-  - alias: Notify Mobile app
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          title: "Check this out!"
-          message: "Something happened at home!"
-          data:
-            action_data: # iOS-only, returns the value back in event
-              entity_id: light.test
-              my_custom_data: foo_bar
-            actions:
-              - action: "ALARM"
-                title: "Sound Alarm"
-                destructive: true # iOS-only
-              - action: "SILENCE"
-                title: "Silence Alarm"
+# inside a automation actions or script sequence
+- alias: "Set up variables for the actions"
+  variables:
+    # Including an id in the action allows us to identify this script run
+    # and not accidentally trigger for other notification actions
+    action_open: "{{ 'OPEN_' ~ context.id }}"
+    action_close: "{{ 'CLOSE_' ~ context.id }}"
+- alias: "Ask to close or open the blinds"
+  service: notify.mobile_app_<your_device>
+  data:
+    message: "The blinds are half-open. Do you want to adjust this?"
+    data:
+      actions:
+        - action: "{{ action_open }}"
+          title: Open
+        - action: "{{ action_close }}"
+          title: Close
+- alias: "Wait for a response"
+  wait_for_trigger:
+    - platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        # waiting for the specific action avoids accidentally continuing
+        # for another script/automation's notification action
+        action: "{{ action_open }}"
+    - platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: "{{ action_close }}"
+- alias: "Perform the action"
+  choose:
+    - conditions: "{{ wait.trigger.event.data.action == action_open }}"
+      sequence:
+        - service: cover.open_cover
+          target:
+            entity_id: cover.some_cover
+    - conditions: "{{ wait.trigger.event.data.action == action_close }}"
+      sequence:
+        - service: cover.close_cover
+          target:
+            entity_id: cover.some_cover
 ```
 
-The previous automation will fire an event with the following data:
+The above sends a notification, waits for a response, and then performs whichever action is being requested. You can control how automations or scripts run when an existing one is already executing by changing the [automation mode](https://www.home-assistant.io/docs/automation/modes/).
+
+When the notification action is performed, the `mobile_app_notification_action` event fires with the following data:
 
 ```javascript
 {
     "event_type": "mobile_app_notification_action",
     "data": {
-        "action": "SILENCE",
+        "action": "OPEN_context_id_here",
         // will be present on:
         // - Android and iOS, when `REPLY` is used as the action identifier
         // - iOS when `behavior` is set to `textInput`
@@ -163,7 +192,7 @@ The previous automation will fire an event with the following data:
 }
 ```
 
-Here's an example automation for the given payload:
+You can also create automations that trigger for any notification action. For example, if you wanted to include a `SILENCE` action on a variety of notifications, but only handle it in one place:
 
 ```yaml
 automation:
