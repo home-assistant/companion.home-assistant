@@ -171,7 +171,7 @@ When the notification action is performed, the `mobile_app_notification_action` 
 {
     "event_type": "mobile_app_notification_action",
     "data": {
-        "action": "OPEN_context_id_here",
+        "action": "OPEN_<context_id_here>",
         // will be present on:
         // - Android and iOS, when `REPLY` is used as the action identifier
         // - iOS when `behavior` is set to `textInput`
