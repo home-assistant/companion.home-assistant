@@ -27,7 +27,7 @@ Complications can also be updated a [Notification Command](/notifications/comman
 
 This may take between a few seconds and a few minutes for the update to fully apply.
 
-![iOS](/assets/iOS.svg) 2021.5 (<span class="beta">BETA</span>) is required for manual updates.
+![iOS](/assets/iOS.svg) 2021.6 (<span class="beta">BETA</span>) is required for manual updates.
 
 ```yaml
 - service: notify.mobile_app_<your_device_id_here>
