@@ -16,7 +16,7 @@ Some useful examples of actionable notifications:
 ## Building actionable notifications
 
 :::caution Version Compatibility
-You must use the defined-in-advance [category-based](#macos-and-ios-before-20215) method for iOS prior to iOS-2021.5 (<span class="beta">BETA</span>) and for macOS.
+You must use the defined-in-advance [category-based](#macos-and-ios-before-20215) method for iOS prior to iOS-2021.5 and for macOS.
 :::
 
 You can include an `actions` array in your service call. On iOS you are limited to 4 actions, while Android is limited to 3.
