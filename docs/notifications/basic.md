@@ -140,7 +140,7 @@ automation:
 ### Clearing
 
 :::note ![iOS](/assets/iOS.svg) Version Requirement
-Clearing a notification on iOS requires app version 2021.5 (<span class="beta">BETA</span>) or later.
+Clearing a notification on iOS requires app version 2021.5 or later.
 :::
 
 You can clear an existing notification which has a tag by sending `clear_notification`.
