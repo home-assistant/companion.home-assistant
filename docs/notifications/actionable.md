@@ -13,13 +13,18 @@ Some useful examples of actionable notifications:
 
 ![Actionable notifications allow the user to send a command back to Home Assistant.](/assets/ios/actions.png)
 
-## Building actionable notifications
-
 :::caution Version Compatibility
-You must use the defined-in-advance [category-based](#macos-and-ios-before-20215) method for iOS prior to iOS-2021.5 and for macOS.
+You must use the defined-in-advance [category-based](#macos-and-ios-before-20215) method for iOS prior to iOS-2021.5 and for macOS. See [migration guide](#migrating-from-ios-20214-and-earlier) for more info on converting existing notifications.
+
+Dynamic actions on watchOS require having the Watch App installed. You can do this in the system Watch app if not already installed.
 :::
 
-You can include an `actions` array in your service call. On iOS you are limited to 4 actions, while Android is limited to 3.
+## Building actionable notifications
+
+You can include an `actions` array in your service call.
+
+![Android](/assets/android.svg) Android allows 3 actions.  
+![iOS](/assets/iOS.svg) allows around 10 actions. Any more and the system UI for actions begins having scrolling issues.
 
 ```yaml
 service: notify.mobile_app_<your_device_id_here>
@@ -207,6 +212,10 @@ automation:
 ```
 
 ## Migrating from iOS 2021.4 and earlier
+
+:::note
+Initially upgrading to 2021.5 may require a restart to allow dynamic actions to show up. This will only be necessary once.
+:::
 
 Starting in iOS version 2021.5, actions are specified inline with notifications. To migrate, do the following:
 
