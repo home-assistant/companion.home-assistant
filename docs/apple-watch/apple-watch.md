@@ -20,21 +20,3 @@ The Apple Watch has a variety of Faces and Complications. It's useful to consult
 :::note app version 
 Ring and Gauge features do not work in app releases prior to 2020.7.
 :::
-
-## Complication Updating
-
-### 2020.7 and newer
-
-Complications will update roughly on :00, :15, :30, and :45 on the hour; the exact timing is determined by the system. Editing a Complication will immediately sync it to the Watch, but you may need to launch the Watch app for the Complications to update.
-
-The app keeps inactive Complications up-to-date to make Face-changing easier. If the Home Assistant app is not on your active Watch Face, it will update much less often and you may find it displaying older information when switching Faces.
-
-### 2020.6 and older
-
-<!-- Added by request, probably remove or rewrite this later -->
-By default the app will sync your complications every 30 minutes although the first update after creating a complication may take longer. To try and force a manual sync, follow these steps:
-
-1. In the Home Assistant Companion app, navigate to App Configuration -> Apple Watch and stay on that screen.
-2. Now launch the Home Assistant Apple Watch app.
-3. Press the Back button inside Home Assistant Companion mobile app, bringing you back to the main settings screen.
-4. Press "Done" in the top right to sync and update the complications on your Apple Watch.
