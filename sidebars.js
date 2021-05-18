@@ -35,6 +35,7 @@ module.exports = {
     'Integrations': [
       'integrations/integrations',
       'integrations/android-power-menu',
+      'integrations/android-quick-settings',
       'integrations/android-shortcuts',
       'integrations/android-webview',
       'integrations/android-widgets',
