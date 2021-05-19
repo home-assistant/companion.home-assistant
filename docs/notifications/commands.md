@@ -25,7 +25,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. |
-| `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. &nbsp;<span class="beta">BETA</span><br /> |
+| `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_screen_on` | Turn on the device screen. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
@@ -232,7 +232,7 @@ automation:
 
 ## Media
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 
 Users are able to control any active media session on their devices. You must set `message: command_media` and the `title` must be one from the list below. The `channel` must be set to the package name you wish to control. The notification will post as normal if one of the required fields is left blank, has incorrect data or a media session is not active.
 
