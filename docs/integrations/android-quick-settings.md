@@ -3,7 +3,7 @@ title: "Android Quick Settings"
 id: 'android-quick-settings'
 ---
 
-![Android](/assets/android.svg)&nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)><br />
 
 The Android app offers support for quick settings [tiles](https://developer.android.com/reference/android/service/quicksettings/TileService) allowing the user to quickly execute a script or scene from the notification pull down menu. Users are able to fully customize the appearance of these tile and can reorganize them as they see fit. This feature is available on devices running Android 7.0+.
 
