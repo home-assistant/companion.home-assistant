@@ -29,7 +29,6 @@ automations:
             push:
               sound:
                 name: "default"
-
                 critical: 1
                 volume: 1.0
 
