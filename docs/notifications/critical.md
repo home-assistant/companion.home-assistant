@@ -33,12 +33,16 @@ automations:
                 volume: 1.0
 
 ```
-If you have previously read the [sounds documentation](sounds.md) this syntax should be mostly familiar. Note the example expands the `sound` attribute to include the `critical: 1` flag, and `volume: 1.0` to set the volume to 100 %.
+If you have previously read the [sounds documentation](sounds.md) this syntax should be mostly familiar. Note the example expands the `sound` attribute to include the `critical: 1` flag, and `volume: 1.0` to set the volume to 100 %.
 
 For **CarPlay** users, it's also worth mentioning that critical notifications are the only ones that can appear on the car's built-in display, making them very useful if you want to know when something critical happens while you're driving.
 
 ## ![Android](/assets/android.svg)
-For Android these notifications are designed to show up on the phone immediately. By default they do not override Do Not Disturb settings, if you would like to override this you will need to use [notification channels](basic.md#notification-channels). 
+For Android, notifications will appear immediately in most cases. However, in some cases (such as phone being stationary or when screen has been turned off for prolonged period of time), default notifications will not ring the phone until screen is turned on.
+
+To override that behavior, set `priority: high` and `ttl: 0`.
+
+By default they also do not override Do Not Disturb settings, if you would like to override this you will need to use [notification channels](basic.md#notification-channels). 
 
 ![Android](/assets/android.svg) &nbsp; Android example
 
