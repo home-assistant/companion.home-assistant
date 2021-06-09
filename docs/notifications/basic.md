@@ -579,10 +579,14 @@ On iOS 15, you can set the interruption level of a notification, which has the f
 
 | Value | Description | Overrides Focus |
 | -- | -- | -- |
-| `passive` | Quiet notifications | No |
+| `passive` | Quiet notifications without waking screen | No |
 | `active` | Default behavior | No |
-| `?time_sensitive?` | Important notifications | Yes |
+| `time-sensitive` | Important notifications | Yes |
 | `critical` | [Critical notifications](critical.md) | Yes, even mute |
+
+:::note ![iOS](/assets/iOS.svg) Requirement
+`time-sensitive` requires an app update for iOS 15 coming out later this year.
+:::
 
 You can read more about these levels in the [Apple documentation](https://developer.apple.com/design/human-interface-guidelines/ios/system-capabilities/notifications/).
 
