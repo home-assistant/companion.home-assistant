@@ -578,9 +578,9 @@ By setting the message to `delete_alert` you can silently update the app badge i
 On iOS 15, you can set the interruption level of a notification, which has the following types:
 
 * `passive` which delivers the notification without waking the screen
-* `active` which behaves like a normal notification, waking the screen
+* `active` which behaves like a normal notification
 * `time_sensitive` (todo: can't figure out what this is) which shows up at the top and outside of summaries
-* `critical` which behaves like a critical notification
+* `critical` which behaves like a [critical notification](critical.md)
 
 You can set this level in the payload. The blow example delivers a `passive` notification:
 
