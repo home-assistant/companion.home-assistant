@@ -92,13 +92,17 @@ You can trigger a Shortcut from Home Assistant using a notification like so:
         another_key: "another value"
 ```
 
-When you tap on the notification to launch Home Assistant, it will redirect you to the Shortcuts app to perform the given Shortcut. Once you complete the Shortcut, it'll return you to Home Assistant and fire an event.
+When you tap on the notification to launch Home Assistant, it will redirect you to the Shortcuts app to perform the given Shortcut. You can customize this behavior with the following keys in `shortcut` above:
+
+| Key | Values | Notes |
+| --- | ------ | ----- |
+| `ignore_result` | Any String, e.g. `"ignore"` | When set, does not re-open the Home Assistant app when completed. Also prevents the below event from firing. |
 
 :::note
 If the Shortcut doesn't require any input, it may appear as though the Shortcuts app wasn't launched at all. Check for the event being performed to see the results.
 :::
 
-The event fired is `ios.shortcut_run` with the result of the Shortcut with the following keys:
+Once you complete the Shortcut, it'll return you to Home Assistant and fire an event. The event fired is `ios.shortcut_run` with the result of the Shortcut with the following keys:
 
 | Key | Values | Description |
 | -- | -- | -- |
