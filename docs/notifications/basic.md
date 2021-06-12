@@ -573,6 +573,40 @@ automation:
 
 By setting the message to `delete_alert` you can silently update the app badge icon in the background without sending a notification to your phone.
 
+### Interruption Level
+
+On iOS 15, you can set the interruption level of a notification, which has the following types:
+
+| Value | Description | Overrides Focus |
+| -- | -- | -- |
+| `passive` | Quiet notifications without waking screen | No |
+| `active` | Default behavior | No |
+| `time-sensitive` | Important notifications | Yes |
+| `critical` | [Critical notifications](critical.md) | Yes, even mute |
+
+:::note ![iOS](/assets/iOS.svg) Requirement
+`time-sensitive` requires an app update for iOS 15 coming out later this year.
+:::
+
+You can read more about these levels in the [Apple documentation](https://developer.apple.com/design/human-interface-guidelines/ios/system-capabilities/notifications/).
+
+This level is set in the payload. The below example delivers a `passive` notification:
+
+```yaml
+automation:
+  - alias: "Notify Mobile app banana status"
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "Banana Status Update"
+          message: "The bananas are ripe."
+          data:
+            push:
+              interruption-level: passive
+```
+
 ### Presentation Options
 
 By default, if the app is open (in the foreground) when a notification arrives, it will display the same as when the app is not active (in the background), with a visual alert showing notification contents, a badge update (if one was sent in the notification) and the sound of your choice. You can control how a notification is displayed when the app is in the foreground by setting the `presentation_options` string array. Allowed values are `alert`, `badge` and `sound`.
