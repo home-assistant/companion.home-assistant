@@ -307,6 +307,13 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
+      <td><a href="/docs/notifications/notification-local">Local Push</a></td>
+      <td></td>
+      <td></td>
+      <td>✅</td>
+      <td>✅</td>
+    </tr>
+    <tr>
       <td><a href="/docs/notifications/notifications-basic">Message</a></td>
       <td>✅</td>
       <td></td>
