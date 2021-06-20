@@ -22,6 +22,7 @@
 /app/mac/latest https://github.com/home-assistant/iOS/releases/latest
 /app/ios/notifications-sounds /docs/notifications/notification-sounds
 /app/ios/notifications /docs/notifications/notifications-basic
+/app/ios/local-push /docs/notifications/notification-local
 
 
 # Documentation restructuring redirects

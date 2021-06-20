@@ -31,7 +31,9 @@ module.exports = {
       'notifications/notification-details',
       'notifications/notification-cleared',
       'notifications/notification-commands',
-      'notifications/notification-sounds'],
+      'notifications/notification-sounds',
+      'notifications/notification-local',
+      ],
     'Integrations': [
       'integrations/integrations',
       'integrations/android-power-menu',
