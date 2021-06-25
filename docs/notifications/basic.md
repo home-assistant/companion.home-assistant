@@ -573,6 +573,8 @@ automation:
 
 By setting the message to `delete_alert` you can silently update the app badge icon in the background without sending a notification to your phone.
 
+![iOS](/assets/iOS.svg) 2021.7 (<span class="beta">BETA</span>) will automatically reset the badge to 0 when launching the app. You can control this behavior in App Configuration > Notifications.
+
 ### Interruption Level
 
 On iOS 15, you can set the interruption level of a notification, which has the following types:
