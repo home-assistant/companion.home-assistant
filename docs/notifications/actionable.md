@@ -185,8 +185,9 @@ When the notification action is performed, the `mobile_app_notification_action` 
         "action_data": {
           "entity_id": "light.test",
           "my_custom_data": "foo_bar"
-        }
-        // Android users can also expect to see all data fields sent with the notification in this response
+        },
+        // Android users can also expect to see all data fields sent with the notification in this response such as the "tag"
+        "tag": "TEST"
     },
     "origin": "REMOTE",
     "time_fired": "2020-02-02T04:45:05.550251+00:00",
