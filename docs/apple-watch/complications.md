@@ -61,3 +61,7 @@ It may take a few seconds or a few minutes for the update to fully apply.
   data:
     message: update_complications
 ```
+
+:::info
+Manually updating via command does not yet work when using Local Push.
+:::
