@@ -20,3 +20,5 @@ Currently support is limited to the following domains:
 *  `script` Turn on script
 *  `switch` On/Off
 *  `vacuum` Start/Dock or On/Off depending on vacuum type
+
+NOTE: The Android power menu controls were moved in Android 12 Beta.  If your phone is running Android 12 or newer, the controls can now be accessed from the quick settings by [pulling down on the status bar.](https://9to5google.com/2021/06/09/android-12-beta-2-quick-settings-google-pay-home-controls-power/)
