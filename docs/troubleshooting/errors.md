@@ -33,7 +33,7 @@ This occurs when the data sent during set up does not meet Home Assistant's expe
 * When you are running a version of Home Assistant older than the minimum requirement (currently 0.104.0)
 * You have unexpected characters in your device's name. While setting up the Mobile App integration, we attempt to remove non-standard characters and emoji (as of Home Assistant 0.112). However, it is worth simplifying your device name to remove such characters if you are getting this error.
 
-### "URLSessionTask failed with error"
+### URLSessionTask failed with error
 This error is usually caused by one of the two following issues:
 *   You have denied local network access to the app. To solve the issue on iOS, open the Home Assistant entry in the system settings and verify that local network is enabled.
 *   You have configured an incorrect `external url` in your `configuration.yaml` file. E.g. when forwarding external port 443 to internal port 8123 in your router settings, you don't have to add a port for the external url, as port 443 is the port used for HTTPS.
