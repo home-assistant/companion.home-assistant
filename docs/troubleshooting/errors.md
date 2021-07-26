@@ -36,4 +36,4 @@ This occurs when the data sent during set up does not meet Home Assistant's expe
 ### URLSessionTask failed with error
 This error is usually caused by one of the two following issues:
 *   You have denied local network access to the app. To solve the issue on iOS, open the Home Assistant entry in the system settings and verify that local network is enabled.
-*   You have configured an incorrect `external url` in your `configuration.yaml` file. E.g. when forwarding external port 443 to internal port 8123 in your router settings, you don't have to add a port for the external url, as port 443 is the port used for HTTPS.
+*   You have configured an incorrect external url in your instance. E.g. when forwarding external port 443 to your instance's port (normally 8123), you don't have to append a port to your URL.
