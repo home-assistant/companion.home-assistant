@@ -360,7 +360,8 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
 
 ## High Accuracy Mode
-![Android](/assets/android.svg)  This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
 
 
 ## Interactive Sensor
