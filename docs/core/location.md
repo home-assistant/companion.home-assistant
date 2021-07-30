@@ -193,3 +193,7 @@ If the high accuracy mode is enabled, you will see a notification with details a
 The notification will show your current address, if the geocoded sensor is enabled as well. Otherwise, it will show your current coordinates. Also, it will show you the accuracy of the last location found.
 
 The high accuracy mode can be also enabled/disable by a notification command. [See here](/docs/notifications/notification-commands#high-accuracy-mode) for more details.
+
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+The state of high accuracy mode can be viewed by enabling the [sensor](sensors.md#high-accuracy-mode).
