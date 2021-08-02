@@ -513,7 +513,7 @@ automation:
 You can create notifications with a count up/down timer (chronometer) by passing the `chronometer` and `when` options. This feature requires at least Android 7.0.
 
 Do note that the notification will not disappear when the timer reaches 0. Instead, it will continue decrementing into negative values.
-You may want to utilize [notification timeouts](#notification-timeout) or [replace the notification](#replacing-notifications) when the timer hits zero.
+You may want to utilize [notification timeouts](#notification-timeout) or [replace the notification](#replacing) when the timer hits zero.
 
 - chronometer - true to enable chronometer mode
 - when - the timestamp to count up or down to (seconds since 01/01/1970)
@@ -532,6 +532,24 @@ automation:
           data:
             chronometer: true
             when: "1609459200"
+```
+
+### Alert Once
+
+On Android you have the option for making a notification only alert once on the device. This means it will only make a sound, vibrate and/or flash the LED once. Although it is not an Android requirement this feature will not appear to function if you do not have a [`tag`](#replacing) set. This setting is set to `false` by default as each and every notification will alert the user. This feature makes use of the [Alert Once API](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setOnlyAlertOnce(boolean))
+
+```yaml
+  - alias: Notify one time
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "One Time"
+          message: "This will only alert me the first time"
+          data:
+            tag: "Alarm"
+            alert_once: true
 ```
 
 ## iOS/macOS Specific
