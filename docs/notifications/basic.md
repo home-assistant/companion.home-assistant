@@ -536,6 +536,8 @@ automation:
 
 ### Alert Once
 
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
 On Android you have the option for making a notification only alert once on the device. This means it will only make a sound, vibrate and/or flash the LED once. Although it is not an Android requirement this feature will not appear to function if you do not have a [`tag`](#replacing) set. This setting is set to `false` by default as each and every notification will alert the user. This feature makes use of the [Alert Once API](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setOnlyAlertOnce(boolean))
 
 ```yaml
