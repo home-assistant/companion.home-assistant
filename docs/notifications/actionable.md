@@ -72,7 +72,7 @@ All of the following keys are optional.
 #### Icon Values
 
 :::note Version Compatibility
-This requiers iOS version 2021.10 or later and iOS 15 or later, or a future version of the macOS app on macOS 12 or later.
+This requires iOS version 2021.10 or later and iOS 15 or later, or a future version of the macOS app on macOS 12 or later.
 :::
 
 Icons for notification actions are only allowed from the [SF Symbols library](https://developer.apple.com/sf-symbols/), which is different than other icons in Home Assistant which come from [Material Design Icons library](https://materialdesignicons.com/). This is due to limitations placed on these actions from Apple.
