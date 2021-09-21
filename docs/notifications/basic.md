@@ -612,6 +612,8 @@ On iOS 15, you can set the interruption level of a notification, which has the f
 
 You can read more about these levels in the [Apple documentation](https://developer.apple.com/design/human-interface-guidelines/ios/system-capabilities/notifications/).
 
+By default, `time-sensitive` notifications will be read as an announcement. You can control what notifications are announced in the system Settings app > Notifications > Announce Notifications > Home Assistant.
+
 This level is set in the payload. The below example delivers a `passive` notification:
 
 ```yaml
