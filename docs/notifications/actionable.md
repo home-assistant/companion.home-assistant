@@ -14,7 +14,7 @@ Some useful examples of actionable notifications:
 ![Actionable notifications allow the user to send a command back to Home Assistant.](/assets/ios/actions.png)
 
 :::caution Version Compatibility
-You must use the defined-in-advance [category-based](#macos-and-ios-before-20215) method for iOS prior to iOS-2021.5 and for macOS. See [migration guide](#migrating-from-ios-20214-and-earlier) for more info on converting existing notifications.
+You must use the defined-in-advance [category-based](#macos-and-ios-before-20215) method for iOS prior to iOS-2021.5 and for macOS prior to macOS-2021.10. See [migration guide](#migrating-from-ios-20214-and-earlier) for more info on converting existing notifications.
 
 Dynamic actions on watchOS require having the Watch App installed. You can do this in the system Watch app if not already installed.
 :::
@@ -67,6 +67,32 @@ All of the following keys are optional.
 | `behavior` | `textInput` to prompt for text to return with the event. This also occurs when setting the action to `REPLY`. |
 | `textInputButtonTitle` | Title to use for text input for actions that prompt. | |
 | `textInputPlaceholder` | Placeholder to use for text input for actions that prompt. | |
+| `icon` | The icon to use for the notification. | Requires version 2021.10. See notes below. |
+
+#### Icon Values
+
+:::note Version Compatibility
+This requires iOS app version 2021.10 or later on iOS 15 or later, or a future version of the macOS app on macOS 12 or later.
+:::
+
+Icons for notification actions are only allowed from the [SF Symbols library](https://developer.apple.com/sf-symbols/), which is different than other icons in Home Assistant which come from [Material Design Icons library](https://materialdesignicons.com/). This is due to limitations placed on these actions from Apple.
+
+You must prefix the icon name in the catalogue with `sfsymbols:` (similar to prefixing with `mdi:` elsewhere), since we hope to expand this to support MDI in the future. For example:
+
+```yaml
+action:
+  - service: notify.mobile_app_<your_device_id_here>
+    data:
+      message: "Something happened at home!"
+      data:
+        actions:
+          - action: "ALARM"
+            title: "Sound Alarm"
+            icon: "sfsymbols:bell"
+          - action: "SILENCE"
+            title: "Silence Alarm"
+            icon: "sfsymbols:bell.slash"
+```
 
 ### `uri` values
 
@@ -213,7 +239,7 @@ automation:
       ...
 ```
 
-## Migrating from iOS 2021.4 and earlier
+## Migrating from iOS 2021.4 and macOS 2021.8 and earlier
 
 :::note
 Initially upgrading to 2021.5 may require a restart to allow dynamic actions to show up. This will only be necessary once.
@@ -278,7 +304,7 @@ automation:
       ...
 ```
 
-## macOS and iOS before 2021.5
+## macOS before 2021.10 and iOS before 2021.5
 
 In advance of sending a notification:
 
