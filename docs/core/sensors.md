@@ -101,6 +101,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | [Storage Sensors](#storage-sensor) | [See Below](#storage-sensor) | The amount of total and available internal & external storage on your Android device. |
 | [Traffic Stats Sensor](#traffic-stats-sensor) | None | Amount of data transmitted and received from mobile and total device usage since last reboot. |
 | [WiFi Sensors](#connection-type-sensor) | None | Several different sensors around the state of WiFi. |
+| [Work Profile](#work-profile-sensor) | None | Whether or not the work profile is currently active on the device. |
 
 ## Active Sensor
 ![macOS](/assets/macOS.svg) `sensor.active` provides whether the device is currently being used, based on a few different inputs which are provided as attributes to be informative.
@@ -553,3 +554,8 @@ For Android the behavior is slightly different due to the differences in the 2 o
 ## Traffic Stats Sensor
 ![Android](/assets/android.svg)<br />
 These sensors will show the total data transmitted and received by the device. There are both total and mobile sensors to use and the statistics reset on device reboot. These sensors use the [Traffic Stats API](https://developer.android.com/reference/android/net/TrafficStats).
+
+
+## Work Profile Sensor
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+This sensor will be `on` if the device's work profile has been enabled, otherwise it will be `off`. This sensor makes use of the [Device Policy Manager API](https://developer.android.com/reference/android/app/admin/DevicePolicyManager).
