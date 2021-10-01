@@ -7,7 +7,7 @@ Below is a list of common issues and troubleshooting advice to address them. For
 
 ## App crashes on set up
 
-If you are running Home Assistant 0.110 and the app crashes after clicking "continue" during set up, you need to add values for `internal_url` and `external_url`. This can be done through the user interface (Configuration>General). If you do not see this section, you may need to turn on "Advanced Mode" from your profile page first. If these fields are disabled it is likely you have have your configuration stored in `configuration.yaml`, in this case add the entries under `homeassistant:` i.e.:
+If you are running Home Assistant 0.110 and the app crashes after clicking "continue" during set up, you need to add values for `internal_url` and `external_url`. This can be done through the user interface via your [General Settings](https://my.home-assistant.io/redirect/general/). If you do not see this section, you may need to turn on "Advanced Mode" from your profile page first. If these fields are disabled it is likely you have have your configuration stored in `configuration.yaml`, in this case add the entries under `homeassistant:` i.e.:
 
 ```yaml
 homeassistant:
@@ -61,14 +61,13 @@ This is probably not an issue with the Companion App but more likely with Home A
 If you are using iOS app prior to version 2020.2 or the Android app, to change the color of the status bar to match your Home Assistant theme, please use the [`frontend.set_theme`](https://www.home-assistant.io/components/frontend/#theme-automation) service instead of the dropdown menu in the Home Assistant profile page. Using the service will generate an event allowing the Companion App to detect the theme change and apply the correct color to the status bar. See the [theming](../integrations/theming.md) documentation for details of which keys are used. Note that colors must be specified as hex values (e.g. `#0099ff`) in your theme and specifying element colors through variable names is not supported.
 
 ## I am running the Companion App on multiple devices, the `sensor` names are too similar and confusing, what can I do?
-Starting in Home Assistant Core 0.106, the default sensor names will be registered with your device name as set in the iOS settings app or the Android App Configuration page. For now, you will need to rename each sensor from within the Integrations section of Home Assistant's Configuration page by following these steps.
+Starting in Home Assistant Core 0.106, the default sensor names will be registered with your device name as set in the iOS settings app or the Android App Configuration page. For now, you will need to rename each sensor from within the [Integrations Dashboard](https://my.home-assistant.io/redirect/integrations/) of Home Assistant's Configuration page by following these steps.
 
-1.  Open the Home Assistant "Configuration" page from the sidebar (if using the app, swipe right to access this)
-2.  Click or tap on "Integrations"
-3.  Find the "Mobile App: _Device Name_" integration corresponding the device you wish to rename the sensors of and open it
-4.  For each sensor you wish to rename, click or tap on the sensor name and then the cog symbol.
-5.  Under "Entity ID" change the entity id as required. Do **not** change `sensor.` or `device_tracker.` part of the ID
-6.  Repeat Steps 4 and 5 for each sensor you wish to rename
+1.  Go to the [Integrations Dashboard](https://my.home-assistant.io/redirect/integrations/) with Configuration.
+2.  Find the "Mobile App: _Device Name_" integration corresponding the device you wish to rename the sensors of and open it
+3.  For each sensor you wish to rename, click or tap on the sensor name and then the cog symbol.
+4.  Under "Entity ID" change the entity id as required. Do **not** change `sensor.` or `device_tracker.` part of the ID
+5.  Repeat Steps 4 and 5 for each sensor you wish to rename
 
 
 ## Opening or resuming the Companion App generates authentication errors in my Home Assistant notifications
@@ -83,7 +82,7 @@ To fix this change the location permission for the Home Assistant App to "Always
 
 1.  Check that Home Assistant Core, the [Android app](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) and [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview) are up to date.
 2.  Clear Storage or App data in Android app.
-3.  In Home Assistant navigate to Configuration > Integration. Remove the mobile app entry for the device in question. If you see more than 1 remove them all.
+3.  In Home Assistant navigate to the [Integrations Dashboard](https://my.home-assistant.io/redirect/integrations/). Remove the mobile app entry for the device in question. If you see more than 1 remove them all.
 4.  Restart Home Assistant.
 5.  Log back into the Android app. If you have more than 1 device, make sure to rename the device during onboarding.
 
