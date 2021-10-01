@@ -24,7 +24,7 @@ Depending on your set up, location data is sent directly from your phone to your
 
 ## Getting started
 
-Once you have installed and opened the Home Assistant Companion App for the first time, a new `device_tracker.` entity will be created. By default the entity will have a name of the form `device_tracker.<device_ID>` where `<device_ID>` is the device name you have set (![iOS](/assets/iOS.svg) Settings>General>About or ![Android](/assets/android.svg) Settings>About Phone). You can check the entity name within Home Assistant by visiting the [Integrations page](https://my.home-assistant.io/redirect/integrations/) of the Configuration page from the sidebar then clicking or tapping on the Mobile App integration for your device and scrolling through the list of entities. You can edit the entity's `name` attribute as you desire if needed.
+Once you have installed and opened the Home Assistant Companion App for the first time, a new `device_tracker.` entity will be created. By default the entity will have a name of the form `device_tracker.<device_ID>` where `<device_ID>` is the device name you have set (![iOS](/assets/iOS.svg) Settings>General>About or ![Android](/assets/android.svg) Settings>About Phone). You can check the entity name within Home Assistant by visiting the [Integrations Dashboard](https://my.home-assistant.io/redirect/integrations/) of the Configuration page from the sidebar then clicking or tapping on the Mobile App integration for your device and scrolling through the list of entities. You can edit the entity's `name` attribute as you desire if needed.
 
 The following is a basic example to switch a light on when you enter your _home_ zone after dark.
 

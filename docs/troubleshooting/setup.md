@@ -61,9 +61,9 @@ This is probably not an issue with the Companion App but more likely with Home A
 If you are using iOS app prior to version 2020.2 or the Android app, to change the color of the status bar to match your Home Assistant theme, please use the [`frontend.set_theme`](https://www.home-assistant.io/components/frontend/#theme-automation) service instead of the dropdown menu in the Home Assistant profile page. Using the service will generate an event allowing the Companion App to detect the theme change and apply the correct color to the status bar. See the [theming](../integrations/theming.md) documentation for details of which keys are used. Note that colors must be specified as hex values (e.g. `#0099ff`) in your theme and specifying element colors through variable names is not supported.
 
 ## I am running the Companion App on multiple devices, the `sensor` names are too similar and confusing, what can I do?
-Starting in Home Assistant Core 0.106, the default sensor names will be registered with your device name as set in the iOS settings app or the Android App Configuration page. For now, you will need to rename each sensor from within the Integrations section of Home Assistant's Configuration page by following these steps.
+Starting in Home Assistant Core 0.106, the default sensor names will be registered with your device name as set in the iOS settings app or the Android App Configuration page. For now, you will need to rename each sensor from within the [Integrations Dashboard](https://my.home-assistant.io/redirect/integrations/) of Home Assistant's Configuration page by following these steps.
 
-1.  Go to the [Integrations Section](https://my.home-assistant.io/redirect/integrations/) with Configuration.
+1.  Go to the [Integrations Dashboard](https://my.home-assistant.io/redirect/integrations/) with Configuration.
 2.  Find the "Mobile App: _Device Name_" integration corresponding the device you wish to rename the sensors of and open it
 3.  For each sensor you wish to rename, click or tap on the sensor name and then the cog symbol.
 4.  Under "Entity ID" change the entity id as required. Do **not** change `sensor.` or `device_tracker.` part of the ID
