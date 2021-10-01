@@ -8,8 +8,7 @@
 module.exports = {
   docs: {
     'Getting Started': [
-      'getting_started/getting-started',
-      'getting_started/migration'],
+      'getting_started/getting-started'],
     'Core Features': [
       'core/core',
       'core/actions',
@@ -20,8 +19,8 @@ module.exports = {
       'notifications/notifications-basic',
       'notifications/actionable-notifications',
       {
-        'type':'category',
-        'label':'Attachments',
+        'type': 'category',
+        'label': 'Attachments',
         'items': [
           'notifications/notification-attachments',
           'notifications/dynamic-content'
@@ -33,7 +32,7 @@ module.exports = {
       'notifications/notification-commands',
       'notifications/notification-sounds',
       'notifications/notification-local',
-      ],
+    ],
     'Integrations': [
       'integrations/integrations',
       'integrations/android-power-menu',
@@ -53,14 +52,14 @@ module.exports = {
       'apple-watch/apple-watch',
       'apple-watch/watch-actions',
       'apple-watch/complications'
-      ],
+    ],
     'Troubleshooting': [
-        'troubleshooting/faqs',
-        'troubleshooting/errors',
-        'troubleshooting/networking',
-        'troubleshooting/resetting',
-        'troubleshooting/troubleshooting-integrations',
-        'troubleshooting/more-help'
-        ]
+      'troubleshooting/faqs',
+      'troubleshooting/errors',
+      'troubleshooting/networking',
+      'troubleshooting/resetting',
+      'troubleshooting/troubleshooting-integrations',
+      'troubleshooting/more-help'
+    ]
   },
 };

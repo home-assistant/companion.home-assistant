@@ -18,13 +18,13 @@ const features = [
           <br />
           <b><a href='/docs/notifications/notifications-basic'>Notifications</a></b>
           {' '}Remain constantly informed, even when away from home.
-            <br />
+          <br />
           <b><a href='docs/integrations/integrations'>Integrations</a></b>
           {' '}All the ways you can integrate Home Assistant into iOS, watchOS and other apps.
-            <br />
+          <br />
           <b><a href='/docs/troubleshooting/faqs'>Troubleshooting</a></b>
           {' '}If you need some help, this is a great place to start.
-          </p>
+        </p>
       </>
     ),
   },
@@ -44,11 +44,11 @@ const features = [
         <ul>
           <li><a href="https://github.com/home-assistant/iOS">
             Home Assistant for iOS
-            </a>
+          </a>
           </li>
           <li><a href="https://github.com/home-assistant/android">
             Home Assistant  for Android
-            </a>
+          </a>
           </li>
         </ul>
       </>
@@ -59,9 +59,9 @@ const features = [
     description: (
       <>
         <ul style={{ flex: "1" }}>
-          <li><a href='/docs/getting_started/migration'>
-            Migrating to version 2019.1
-        </a></li>
+          <li><a href='/docs/getting_started/getting-started'>
+            Getting Started
+          </a></li>
           <li><a href='/docs/notifications/actionable-notifications'>
             Actionable notifications
           </a></li>
