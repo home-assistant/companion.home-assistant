@@ -93,7 +93,7 @@ To fix this change the location permission for the Home Assistant App to "Always
 1.  Ensure the app has location permissions granted, all the time.
 2.  Ensure that location (GPS) is enabled on your device.
 3.  Turn off battery optimizations for the app.
-4.  Ensure that all 3 of the Location toggles are enabled in App Configuration > Manage Sensors in the Android app.
+4.  Under App Configuration > Manage Sensors ensure that the following Location Sensors are enabled: Background Location, Location Zone and Single Accurate Location
 5.  Turn on unrestricted data for the Android app. (Samsung users will need to disable data saver for Home Assistant as well.)
 6.  Check that background access setting under App Configuration shows the app has proper access.
 
