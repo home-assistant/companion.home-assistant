@@ -46,7 +46,7 @@ The `tag` parameter will need to be set to the Intent Action string, or the noti
 
 `subject` can also be set to the MIME type if you need to set it. You will need to know the MIME type string if the activity requires it.
 
-Some applications also require the class or component to be provided. For these applications you will need to provide the package as the `channel` and the full and complete class name under the `intent_class_name` parameter. You will need to know what class name to provide as each application is different. This specific parameter is avaialble in the <span class="beta">BETA</span> version of the application.
+Some applications also require the class or component to be provided. For these applications you will need to provide the package as the `channel` and the full and complete class name under the `intent_class_name` parameter. You will need to know what class name to provide as each application is different.
 
 The below example follows [Google's documentation](https://developers.google.com/maps/documentation/urls/android-intents#launch-turn-by-turn-navigation) to show you how this feature works by launching Google Maps Navigation.
 
@@ -131,7 +131,7 @@ automation:
 
 Using notification commands you are now able to send a broadcast intent to another app in order to control that app based on the intent. Not all apps support intents and if they do they may document it for users to control. You must set `message: command_broadcast_intent` and the `title` must contain the intent action while `channel` must contain the package the intent is for. The package name and action are provided by the app you wish to send the intent to.
 
-Some applications also require the class or component to be provided. For these applications you will need to provide the package as the `channel` and the full and complete class name under the `intent_class_name` parameter. You will need to know what class name to provide as each application is different. This specific parameter is avaialble in the <span class="beta">BETA</span> version of the application.
+Some applications also require the class or component to be provided. For these applications you will need to provide the package as the `channel` and the full and complete class name under the `intent_class_name` parameter. You will need to know what class name to provide as each application is different.
 
 If an invalid format is sent you may either see a notification or a toast message.
 
