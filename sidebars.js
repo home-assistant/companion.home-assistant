@@ -53,6 +53,9 @@ module.exports = {
       'apple-watch/watch-actions',
       'apple-watch/complications'
     ],
+    'Wear OS': [
+      'wear-os/wear-os'
+    ],
     'Troubleshooting': [
       'troubleshooting/faqs',
       'troubleshooting/errors',
