@@ -20,7 +20,13 @@ const features = [
           {' '}Remain constantly informed, even when away from home.
           <br />
           <b><a href='docs/integrations/integrations'>Integrations</a></b>
-          {' '}All the ways you can integrate Home Assistant into iOS, watchOS and other apps.
+          {' '}All the ways you can integrate Home Assistant into Android and iOS.
+          <br />
+          <b><a href='/docs/apple-watch/apple-watch'>Apple Watch</a></b>
+          {' '}Actions and complications all from your Watch app.
+          <br />
+          <b><a href='/docs/wear-os/wear-os'>Wear OS</a></b>
+          {' '}Control your home from your Wear OS device <span class="beta">BETA</span>
           <br />
           <b><a href='/docs/troubleshooting/faqs'>Troubleshooting</a></b>
           {' '}If you need some help, this is a great place to start.
