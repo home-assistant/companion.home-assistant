@@ -33,3 +33,6 @@ The ![Android](/assets/android.svg) Android app has the ability to launch the [q
 ## Keep screen On
 The ![Android](/assets/android.svg) Android app has the ability to keep screen on while webview activity is active by enabling corresponding setting in App Configuration. This lets your device’s screen stay on indefinitely and ignore the Android built-in Sleep settings.
 &nbsp;<span class="beta">BETA</span> This feature may also be controlled by Notification command, [see details](https://companion.home-assistant.io/docs/notifications/notification-commands#screen-on).
+
+## Autoplay Video
+The ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span> Android app has the ability to autoplay videos when you load the more info panel. Some devices may already do this by default but others may require this setting by enabling it in App Configuration. Enabling this setting may increase data usage unexpectedly, proceed with caution.
