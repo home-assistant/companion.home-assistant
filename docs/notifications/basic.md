@@ -552,6 +552,24 @@ On Android you have the option for making a notification only alert once on the 
             alert_once: true
 ```
 
+### Notification Status Bar Icon
+[Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+
+On Android you also have the option of changing the notification status bar icon to any icon on [Material Design](https://materialdesignicons.com/). By default the Home Assistant icon will appear. The expected format is the same in Home Assistant `mdi:cellphone`.
+
+```yaml
+  - alias: Check your phone
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "Cellphone icon"
+          message: "This will show a cellphone icon in the status bar"
+          data:
+            notification_icon: "mdi:cellphone"
+```
+
 ## iOS/macOS Specific
 
 ### Sounds
