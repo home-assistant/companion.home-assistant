@@ -555,7 +555,7 @@ On Android you have the option for making a notification only alert once on the 
 ### Notification Status Bar Icon
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 
-On Android you also have the option of changing the notification status bar icon to any icon on [Material Design](https://materialdesignicons.com/). By default the Home Assistant icon will appear. The expected format is the same in Home Assistant `mdi:cellphone`. If you provide an invalid icon name then no icon will be shown.
+On Android you also have the option of changing the notification status bar icon to any icon on [Material Design](https://materialdesignicons.com/). By default the Home Assistant icon will appear. The expected format is the same in Home Assistant `mdi:cellphone`. If you provide an invalid icon name then no icon will be shown. Requires Android 6+.
 
 ```yaml
   - alias: Check your phone
