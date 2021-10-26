@@ -370,7 +370,7 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
-      <td><a href="/docs/notifications/notifications-basic#notification-status-bar-icon">Status Bar icon</a></td>
+      <td><a href="/docs/notifications/notifications-basic#notification-status-bar-icon">Status Bar Icon</a></td>
       <td>✅</td>
       <td></td>
       <td></td>
