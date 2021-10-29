@@ -93,12 +93,6 @@ data:
 
 Be aware, that to send a camera image you must send a push category which has to be called `camera`, `camera1`, `camera2`, `camera3` or `camera4` otherwise you won't get the camera image delivered.
 
-You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
-
-<div class='videoWrapper'>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LmYwpxPKW0g" frameborder="0" allowfullscreen></iframe>
-</div>
-
 ## Combining with actionable notifications on iOS versions prior to 2021.5
 
 On versions prior to 2021.5, the `category` key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom [actions](actionable.md) to add actions to the content extension.
