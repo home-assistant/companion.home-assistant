@@ -236,13 +236,19 @@ This Bluetooth Connection state will be the total number of connected bluetooth 
 There will also be a binary sensor for the `bluetooth_state` that will represent whether or not bluetooth is turned on for the device. This sensor will update anytime the state of bluetooth changes.
 
 ![Android](/assets/android.svg)
-A BLE Transmitter sensor allows your device to transmit a BLE iBeacon.  This is useful in conjunction with projects like [roomassistant](https://www.room-assistant.io/) and [esp32-mqtt-room ](https://jptrsn.github.io/ESP32-mqtt-room/) to allow room level tracking.  The current transmitting ID (UUID-Major-Minor) is reported as an attribute that can be copied for use with these systems.
+A BLE Transmitter sensor allows your device to transmit a BLE iBeacon.  This is useful in conjunction with projects like [roomassistant](https://www.room-assistant.io/) and [esp32-mqtt-room ](https://jptrsn.github.io/ESP32-mqtt-room/) and [espresence](https://espresense.com/) to allow room level tracking.  The current transmitting ID (UUID-Major-Minor) is reported as an attribute that can be copied for use with these systems.
 
 :::caution
-This sensor can impact battery life, particularly if used wih Transmit Power set to High. The iBeacon is transmitted every second (low latency to save battery, but sufficient for room presence).
+This sensor can impact battery life, particularly if used wih Transmit Power set to High.
 :::
 
-Settings are available to change the UUID, Major and Minor masks. These can be used to change the overall identifier, as well as to allow groups, e.g. family phone devices can have particular Major value which can be whitelisted in apps like roomassistant. These settings are validated: UUID should be the [standard format](https://en.wikipedia.org/wiki/Universally_unique_identifier), Major and Minor need to be within 0 and 65535. There are also settings to change the Transmit power (between Ultra Low, Low, Medium and High) as well as as toggle to allow this sensor to be turned on when the Enable all sensors toggle is activated. This is set to false, to prevent this sensor draining battery unnecessarily.
+Settings are available to change the UUID, Major and Minor masks. These can be used to change the overall identifier, as well as to allow groups, e.g. family phone devices can have particular Major value which can be whitelisted in apps like roomassistant. These settings are validated: UUID should be the [standard format](https://en.wikipedia.org/wiki/Universally_unique_identifier), Major and Minor need to be within 0 and 65535. 
+
+There are also settings to alter:
+*   the Transmit power (between Ultra Low, Low, Medium and High)
+*   <span class="beta">BETA</span> the Measured Power (a negative number indicating measured power at distance of 1m.  Default is -59)
+*   <span class="beta">BETA</span> the Advertise mode (between Low Power (1Hz), Balanced (3Hz) and Low latency (10Hz))
+*   whether to allow this sensor to be turned on when the Enable all sensors toggle is activated (by default this is set to false, to prevent this sensor draining battery unnecessarily)
 
 A Transmit setting toggle will start or stop the BLE transmissions - this setting is also toggled via the notification command that can turn the services on and off. 
 
