@@ -90,7 +90,7 @@ To fix this change the location permission for the Home Assistant App to "Always
 ## Location is not updating in Android app
 ![Android](/assets/android.svg) If you find that location updates are not coming in here are a few things to check.
 
-1.  Ensure the app has location permissions granted, all the time.
+1.  Ensure the app has location permissions granted, all the time. (Users on Android 12 will need to ensure Precise location is given during the prompt)
 2.  Ensure that location (GPS) is enabled on your device.
 3.  Turn off battery optimizations for the app.
 4.  Under App Configuration > Manage Sensors ensure that the following Location Sensors are enabled: Background Location, Location Zone and Single Accurate Location
