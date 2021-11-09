@@ -13,6 +13,12 @@ Home Assistant has started to offer a beta version of the Wear OS app in the Goo
 * `script`
 * `switch`
 
+# Tiles
+
+The shortcuts tile shows up to 7 shortcuts, which can be chosen from the settings section in the Wear OS app.
+
+# Beta
+
 You can sign up for the beta [here](https://play.google.com/apps/testing/io.homeassistant.companion.android). Once installed you will be directed to adding your server and logging in.
 
 Keep an eye out on this page as the application is enhanced with new features!
