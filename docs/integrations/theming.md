@@ -7,6 +7,10 @@ id: 'theming'
 
 ![Android](/assets/android.svg) &nbsp; Android<br /><br />
 Colors should be specified in hex format (e.g. `#0099ff`) and defining element colors through variable names is not supported.
+- `app-header-background-color` for the status- and navigation bar background color ![Android](/assets/android.svg)
+
+![Android](/assets/android.svg) &nbsp; Android <span class="beta">BETA</span><br /><br />
+Colors should be specified in hex format (e.g. `#0099ff`) and defining element colors through variable names is not supported.
 - `primary-background-color` for the navigation bar background color ![Android](/assets/android.svg)
 - `app-header-background-color` for the status bar background color ![Android](/assets/android.svg)
 
