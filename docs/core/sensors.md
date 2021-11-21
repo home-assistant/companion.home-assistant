@@ -62,6 +62,8 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 
 ![Android](/assets/android.svg) Android Sensor List
 
+How to enable additional sensors for android (like last_notification, for example):
+
 Each ![Android](/assets/android.svg) sensor below can be enabled by navigating to the `App Configuration` page then selecting `Manage Sensors`. By default, most are disabled with the exception of the [battery sensors](#battery-sensors) and any that were given permission during onboarding. Once enabled the sensor will begin to send data to your Home Assistant server, if you chose to disable it later on the sensor will stop updating. Upon enabling a sensor the app will request for permissions, if required. If you do not see a sensor listed below then your device does not support it. Some of the sensors below offer custom settings for each of their own needs, read about each one to see what it offers. These settings can be found in the same location where you enable the sensor.
 
 All sensors update during a periodic 15-minute interval and they will also update if other certain conditions are met. Read about each sensor below to understand how often to expect updates. During the 15-minute update interval a low priority foreground notification is temporarily created to prevent the Android system from halting the worker. This notification does not make a sound unless the user has installed a third-party app that intercepts notifications and decides to make a sound. If you are on Android 8.0+ you are free to minimize and/or turn off the notification channel for the `SensorWorker`.
