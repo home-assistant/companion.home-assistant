@@ -19,6 +19,10 @@ Users can also go to Settings on the device and set favorite entities which will
 
 The shortcuts tile shows up to 7 shortcuts, which can be chosen from the settings section in the Wear OS app.
 
+# Sensors
+
+The Wear OS app will have [sensors](../core/sensors.md). To start with, it will only report the [battery sensors](../core/sensors.md#battery-sensors).
+
 # Beta
 
 You can sign up for the beta [here](https://play.google.com/apps/testing/io.homeassistant.companion.android). Once installed you will be directed to adding your server and logging in.
