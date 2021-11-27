@@ -9,6 +9,7 @@ Home Assistant has started to offer a beta version of the Wear OS app in the Goo
 
 * `input_boolean`
 * `light`
+* `lock`
 * `scene`
 * `script`
 * `switch`
