@@ -13,6 +13,8 @@ The sensors provided by the companion app are:
 On iOS, sensors update in limited situations: when your location changes, periodically when the app is running in the foreground, when you pull-to-refresh the web view, in the background at a rate determined by iOS, and when performing an "Update Sensors" or via "Send Location" shortcut or push notification.
 
 On macOS, sensors update in the same situations as above as well as immediately when some sensors change.
+
+If multiple servers are connected to an iOS or mac app, currently the sensor settings will be common for all connected servers.
 :::
 
 | Sensor | Attributes | Description |
