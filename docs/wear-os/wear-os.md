@@ -18,7 +18,7 @@ Home Assistant has started to offer a beta version of the Wear OS app in the Goo
 
 Users can also go to Settings in the Wear OS app and set favorite entities which will appear at the top of the list. These entities will also be present before the rest of the entities are loaded so that they can be executed immediately upon launching the app. If you delete an entity from your Home Assistant instance there is also a setting option to clear the favorites to remove the stale entity.
 
-The favorites can also be managed from the phone app by going to App Configuration > Wear OS app > Manage Favorites
+The favorites can also be managed from the phone app by going to App Configuration > Wear OS app > Manage Favorites. The phone app also allows you to drag and drop the entities to change the order in which they appear on the home screen.
 
 ## Tiles
 
