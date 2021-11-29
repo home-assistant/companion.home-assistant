@@ -119,7 +119,7 @@ Restart Home Assistant and then the iOS app. It will then begin using iBeacons _
 
 ![iOS](/assets/iOS.svg)
 
-If multiple servers are connected to the iOS app, all available servers will receive the the same location updates.
+If multiple servers are connected to an iOS/mac app, all available servers will receive the the same location updates.
 
 ## Sending an intent
 
