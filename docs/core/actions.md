@@ -44,7 +44,7 @@ ios:
 
 Colors should be in hex format and icons should be from the [mdi](https://materialdesignicons.com/) set.
 
-After saving these changes you will need to restart Home Assistant and then, in the Companion App, go to the Actions section of App Configuration. It should sync automatically, but you can also pull-to-refresh to sync.
+After saving these changes you will need to restart Home Assistant and then, in the Companion App, go to the Actions section of Companion App Configuration. It should sync automatically, but you can also pull-to-refresh to sync.
 
 When multiple servers are connected to the app there is no need to specify the `server` value in `configuration.yaml`, the app will automatically detect the origin of the action when imported.
 
@@ -62,14 +62,14 @@ When an action button is pressed a `ios.action_fired` event is fired on Home Ass
 
 The attributes contained within `data` are:
 
-| Attribute                 | Value                                                                                                                                                                                  |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `actionID`                | A unique identifier for the action.                                                                                                                                                    |
-| `actionName`              | The name of the action as given in the `Name` field when creating the action in iOS or `action` field when using Android.                                                              |
-| `sourceDeviceID`          | The device ID set in the App Configuration page of the companion app.                                                                                                                  |
-| `sourceDeviceName`        | The name of the device from which the action was triggered. This is the Device Name set in iOS under Settings App>General>About or for Android it is set in Settings > About Phone.    |
-| `sourceDevicePermanentID` | A unique identifier of the device through which the action was triggered                                                                                                               |
-| `triggerSource`           | What part of iOS the action with fired from. Either: `widget` for the Today screen, `appShortcut` for quick actions accessed through 3D touch or `watch` if fired from an Apple Watch. |
+| Attribute | Value |
+| ------ | ------ |
+| `actionID` | A unique identifier for the action. |
+| `actionName` | The name of the action as given in the `Name` field when creating the action in iOS or `action` field when using Android. |
+| `sourceDeviceID` | The device ID set in the Companion App Configuration page of the companion app. |
+| `sourceDeviceName` | The name of the device from which the action was triggered. This is the Device Name set in iOS under Settings App>General>About or for Android it is set in Settings > About Phone. |
+| `sourceDevicePermanentID` | A unique identifier of the device through which the action was triggered |
+| `triggerSource` | What part of iOS the action with fired from. Either: `widget` for the Today screen, `appShortcut` for quick actions accessed through 3D touch or `watch` if fired from an Apple Watch. |
 
 The attributes contained within `context` are:
 

@@ -29,13 +29,13 @@ Notifications delivered via Local Push do not count against [Rate Limits](detail
 
 ## Configuration
 
-![iOS](/assets/iOS.svg) can disable Local Push by editing the internal connection settings for the server. Go to App Configuration, tap on the server row, then tap Internal URL.
+![iOS](/assets/iOS.svg) can disable Local Push by editing the internal connection settings for the server. Go to Companion App Configuration, tap on the server row, then tap Internal URL.
 
 ![macOS](/assets/macOS.svg) does not have an option to disable Local Push, see requirements above for more information.
 
 ## Viewing Status
 
-You can view the status of Local Push under App Configuration in the Notifications section. This will show one of a few statuses:
+You can view the status of Local Push under Companion App Configuration in the Notifications section. This will show one of a few statuses:
 
 * Disabled, when toggled off by the connection setting or not currently on the internal network.
 * Unsupported, when the iOS version does not support Local Push.
