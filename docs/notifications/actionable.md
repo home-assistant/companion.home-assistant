@@ -13,12 +13,14 @@ Some useful examples of actionable notifications:
 
 ![Actionable notifications allow the user to send a command back to Home Assistant.](/assets/ios/actions.png)
 
+![iOS](/assets/iOS.svg) If you have multiple servers connected to an iOS or mac app, the notification actions will be fired on the server that sent the notification.
+
+
 :::caution Version Compatibility
 You must use the defined-in-advance [category-based](#macos-and-ios-before-20215) method for iOS prior to iOS-2021.5 and for macOS prior to macOS-2021.10. See [migration guide](#migrating-from-ios-20214-and-earlier) for more info on converting existing notifications.
 
 Dynamic actions on watchOS require having the Watch App installed. You can do this in the system Watch app if not already installed.
 :::
-
 ## Building actionable notifications
 
 You can include an `actions` array in your service call.

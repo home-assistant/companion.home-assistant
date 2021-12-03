@@ -1,22 +1,23 @@
 ---
 title: "Location"
-id: 'location'
+id: "location"
 ---
 
 ## Overview
 
 Location updates are sent from your device to Home Assistant in a number of situations:
-*   When you enter or exit a [zone](https://www.home-assistant.io/components/zone/) defined in Home Assistant. For Android ensure the zone based tracking toggle is enabled in App Configuration.
-*   When an iBeacon is detected or lost (see [below](#ibeacons)). ![iOS](/assets/iOS.svg)
-*   When the app is opened and it was not already open in the background.
-*   Via an automated background fetch.
-*   When an update is requested via [special notification](/docs/notifications/notification-commands#request-location-updates)
-*   When a [URL Handler](integrations/url-handler.md) link is opened. ![iOS](/assets/iOS.svg)
-*   When the app is called via a [X-Callback-URL](integrations/x-callback-url.md). ![iOS](/assets/iOS.svg)
-*   When your devices detects a [_significant location change_](#location-tracking-when-outside-a-home-assistant-zone).
-*   Manually when the app is refreshed (swipe down when at the top of a page) or from the shortcut menu opened from 3D touching the app icon. ![iOS](/assets/iOS.svg)
-*   When an update is requested by [sending an intent](#sending-an-intent). ![Android](/assets/android.svg)
-*   When some [sensors](sensors.md) are updated upon a state change. ![Android](/assets/android.svg)
+
+- When you enter or exit a [zone](https://www.home-assistant.io/components/zone/) defined in Home Assistant. For Android ensure the zone based tracking toggle is enabled in App Configuration.
+- When an iBeacon is detected or lost (see [below](#ibeacons)). ![iOS](/assets/iOS.svg)
+- When the app is opened and it was not already open in the background.
+- Via an automated background fetch.
+- When an update is requested via [special notification](/docs/notifications/notification-commands#request-location-updates)
+- When a [URL Handler](integrations/url-handler.md) link is opened. ![iOS](/assets/iOS.svg)
+- When the app is called via a [X-Callback-URL](integrations/x-callback-url.md). ![iOS](/assets/iOS.svg)
+- When your devices detects a [_significant location change_](#location-tracking-when-outside-a-home-assistant-zone).
+- Manually when the app is refreshed (swipe down when at the top of a page) or from the shortcut menu opened from 3D touching the app icon. ![iOS](/assets/iOS.svg)
+- When an update is requested by [sending an intent](#sending-an-intent). ![Android](/assets/android.svg)
+- When some [sensors](sensors.md) are updated upon a state change. ![Android](/assets/android.svg)
 
 You can check the cause of the most recent location update by checking the value of `sensor.last_update_trigger` ![iOS](/assets/iOS.svg)
 
@@ -30,7 +31,7 @@ The following is a basic example to switch a light on when you enter your _home_
 
 ```yaml
 automation:
-  - alias: 'Turn door light on when getting home'
+  - alias: "Turn door light on when getting home"
     trigger:
       - platform: state
         entity_id: device_tracker.<device_ID>
@@ -45,20 +46,21 @@ automation:
 ```
 
 ## Entity attributes
+
 The newly created `device_tracker` entity may provide some of the following attributes depending on your operating system.
 
-| Name              | Unit          |
-|-------------------|---------------|
-| `source`   |  _None_  |
-| `battery_level`  |  percentage  |
-| `latitude`          | degrees       |
-| `longitude`         | degrees       |
-| `gps_accuracy`      | meters        |
-| `altitude`          | meters        |
-| `course`            | degrees       |
-| `speed`             | meters per second |
-| `vertical_accuracy` | meters        |
-| `floor`             | floors  ![iOS](/assets/iOS.svg)      |
+| Name                | Unit                           |
+| ------------------- | ------------------------------ |
+| `source`            | _None_                         |
+| `battery_level`     | percentage                     |
+| `latitude`          | degrees                        |
+| `longitude`         | degrees                        |
+| `gps_accuracy`      | meters                         |
+| `altitude`          | meters                         |
+| `course`            | degrees                        |
+| `speed`             | meters per second              |
+| `vertical_accuracy` | meters                         |
+| `floor`             | floors ![iOS](/assets/iOS.svg) |
 
 If you want to know more about the specifics of these attributes, please refer to the relevant documentation of your operating system:
 
@@ -87,7 +89,7 @@ What's the real story on significant-change location updates? Who knows, because
 
 ## Location tracking in Home Assistant zones
 
-At launch, Home Assistant for iOS sets up geofences for all zones in your Home Assistant configuration. Enter and exit notifications are sent to Home Assistant.  For Android you will need to ensure that Zone Based Tracking is enabled in the App Configuration page.
+At launch, Home Assistant for iOS sets up geofences for all zones in your Home Assistant configuration. Enter and exit notifications are sent to Home Assistant. For Android you will need to ensure that Zone Based Tracking is enabled in the App Configuration page.
 
 ### Configuration
 
@@ -113,6 +115,12 @@ Restart Home Assistant and then the iOS app. It will then begin using iBeacons _
 [apple-location-programming-guide]: https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW9
 [stackoverflow]: http://stackoverflow.com/a/13331625/486182
 
+## Multi-server location updates
+
+![iOS](/assets/iOS.svg)
+
+If multiple servers are connected to an iOS/mac app, all available servers will receive the the same location updates.
+
 ## Sending an intent
 
 ![Android](/assets/android.svg) Sending an intent is an advanced feature intended for users who are familiar with Android automation apps. Users can request a location update by sending an intent using an app such as Tasker or any other automation app that allows the user to send an intent. You will need to make sure that the app is running in the [background](/docs/troubleshooting/faqs#location-is-not-updating-in-android-app) and that the Single Accurate Location sensor is enabled for the updates to trigger properly.
@@ -126,7 +134,6 @@ The following steps are an example of how to send an intent using Tasker:
 5.  Under Package enter `io.homeassistant.companion.android`
 6.  Save the task
 7.  Use the task with any Tasker profile to request a location update
-
 
 ## Android Location Settings
 
