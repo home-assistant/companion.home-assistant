@@ -65,3 +65,5 @@ The app has registered all URLs under `https://www.home-assistant.io/ios/` as va
 What this allows for is NFC support. You can write a NFC tag with a NDEF URL like the above and whenever your device sees that NFC tag, a notification will appear for you to open the app with.
 
 Once you open the app, it will do whatever action you told it to in the URL.
+
+If multiple servers are connected to an iOS or mac app, you will be prompted to select a server when opening a universal link.

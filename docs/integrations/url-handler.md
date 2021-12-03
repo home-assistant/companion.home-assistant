@@ -8,6 +8,8 @@ Home Assistant for iOS supports opening from other apps via URL.
 
 Query parameters are passed as a dictionary in the call.
 
+If multiple servers are connected to an iOS or mac app, you will be prompted to select a server when handling a `navigate` link, `call_service`, or `fire_event`  links will be handled using the first server in the list.
+
 ## Navigate
 This allows you to update the frontend page location via a deeplink. This requires version 2021.3 or later.
 
