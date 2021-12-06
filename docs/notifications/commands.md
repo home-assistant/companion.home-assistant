@@ -198,9 +198,7 @@ automation:
           title: "nodomain.freeyourgadget.gadgetbridge.Q_PUSH_CONFIG"
           data:
             channel: "nodomain.freeyourgadget.gadgetbridge"
-            group: "EXTRA_CONFIG_JSON:%7B%22push%22%3A%7B%22set%22%3A%7B%22\
-              widgetCustom0._.config.upper_text%22%3A%22Hi%22%7D%7D%7D\
-              :urlencoded"
+            group: "EXTRA_CONFIG_JSON:%7B%22push%22%3A%7B%22set%22%3A%7B%22widgetCustom0._.config.upper_text%22%3A%22Hi%22%7D%7D%7D:urlencoded"
 ```
 
 ## Do Not Disturb
