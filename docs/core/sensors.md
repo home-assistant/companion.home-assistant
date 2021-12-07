@@ -49,9 +49,11 @@ If multiple servers are connected to an iOS or mac app, currently the sensor set
 | `binary_sensor.active` | [See Below](#active-sensor) | Whether the device is actively being used. |
 | `sensor.active_camera` | `All`, `Active` | The name of the active camera, or `Inactive` if not in use. |
 | `sensor.active_microphone` | `All`, `Active` | The name of the active microphone, or `Inactive` if not in use. |
+| `sensor.active_speaker` | `All`, `Active` | Requires app version 2021.12 or later. The name of the active speaker, or `Inactive` if not in use. |
 | `sensor.frontmost_app` | [See Below](#frontmost-app-sensor) | Requires app version 2021.2 or later. The name of the current frontmost app. |
 | `binary_sensor.camera_in_use` | None | Whether a camera on the system is currently in use. |
 | `binary_sensor.microphone_in_use` | None | Whether a microphone on the system is currently in use. |
+| `binary_sensor.speaker_in_use` | None | Requires app version 2021.12 or later. Whether a speaker on the system is currently in use. |
 | `sensor.displays` | `Display IDs`, `Display Names` | Requires app version 2021.2 or later. Number of displays connected to the device. |
 | `sensor.primary_display_id` | None | Requires app version 2021.2 or later. ID of the current primary display, which is the display with the menu bar. In the form of a UUID, for example `BE82E2E6-EA40-4963-93AD-A0BDC9D2F18F`. |
 | `sensor.primary_display_name` | None | Requires app version 2021.2 or later. Name of the current primary display, which is the display with the menu bar. |
