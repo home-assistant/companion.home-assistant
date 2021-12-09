@@ -184,6 +184,23 @@ automation:
             group: "alarm_label:work,alarm_enabled:false"
 ```
 
+Special characters in extras are supported by urlencoding the extra value and appending `:urlencoded` to the end. For example, to send a JSON-formatted extra to Gadgetbridge we can do the following:
+
+```yaml
+automation:
+  - alias: Send broadcast intent with JSON-formatted extra
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_broadcast_intent"
+          title: "nodomain.freeyourgadget.gadgetbridge.Q_PUSH_CONFIG"
+          data:
+            channel: "nodomain.freeyourgadget.gadgetbridge"
+            group: "EXTRA_CONFIG_JSON:%7B%22push%22%3A%7B%22set%22%3A%7B%22widgetCustom0._.config.upper_text%22%3A%22Hi%22%7D%7D%7D:urlencoded"
+```
+
 ## Do Not Disturb
 
 ![Android](/assets/android.svg) &nbsp;Android 6+ only
