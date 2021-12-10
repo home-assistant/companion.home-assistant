@@ -12,7 +12,7 @@ const features = [
     description: (
       <>
         <p>
-          <b><a href='/docs/getting_started/getting-started'>Getting Started</a></b> Getting to know your new best friend.
+          <b><a href='/docs/getting_started'>Getting Started</a></b> Getting to know your new best friend.
           <br />
           <b><a href='/docs/core/core'>Core Features</a></b> The best bits of the Companion App.
           <br />
@@ -65,7 +65,7 @@ const features = [
     description: (
       <>
         <ul style={{ flex: "1" }}>
-          <li><a href='/docs/getting_started/getting-started'>
+          <li><a href='/docs/getting_started'>
             Getting Started
           </a></li>
           <li><a href='/docs/notifications/actionable-notifications'>
@@ -112,7 +112,7 @@ function Home() {
                     'button button--outline button--secondary button--lg',
                     styles.getStarted,
                   )}
-                  to={useBaseUrl('docs/getting_started/getting-started')}>
+                  to={useBaseUrl('docs/getting_started')}>
                   Get Started
                 </Link>
               </div>
