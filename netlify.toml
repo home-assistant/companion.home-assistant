@@ -58,7 +58,7 @@
 
 [[redirects]]
   from = "/docs/en/next/getting_started/index.html"
-  to = "/docs/getting_started/getting-started"
+  to = "/docs/getting_started"
   status = 301
   force = true
 
