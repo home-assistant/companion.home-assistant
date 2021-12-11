@@ -13,7 +13,7 @@ You can create actions either from within the app itself or in your Home Assista
 
 ### Creating Actions in the App
 
-Actions are created from the Actions section of the App Configuration page within the companion App for iOS. Each action has required fields depending on your device:
+Actions are created from the Actions section of Companion App in [Configuration](https://my.home-assistant.io/redirect/config/) page within the companion App for iOS. Each action has required fields depending on your device:
 
 - `Name`: the name of the action, this will be returned in the [Home Assistant event](https://www.home-assistant.io/docs/configuration/events/) fired by the app.
 - `Server`: if you have multiple Home Assistant servers connected, select the server the action should be sent to.
