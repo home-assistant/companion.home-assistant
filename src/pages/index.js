@@ -14,18 +14,18 @@ const features = [
         <p>
           <b><a href='/docs/getting_started'>Getting Started</a></b> Getting to know your new best friend.
           <br />
-          <b><a href='/docs/core/core'>Core Features</a></b> The best bits of the Companion App.
+          <b><a href='/docs/core'>Core Features</a></b> The best bits of the Companion App.
           <br />
           <b><a href='/docs/notifications/notifications-basic'>Notifications</a></b>
           {' '}Remain constantly informed, even when away from home.
           <br />
-          <b><a href='docs/integrations/integrations'>Integrations</a></b>
+          <b><a href='docs/integrations'>Integrations</a></b>
           {' '}All the ways you can integrate Home Assistant into Android and iOS.
           <br />
-          <b><a href='/docs/apple-watch/apple-watch'>Apple Watch</a></b>
+          <b><a href='/docs/apple-watch'>Apple Watch</a></b>
           {' '}Actions and complications all from your Watch app.
           <br />
-          <b><a href='/docs/wear-os/wear-os'>Wear OS</a></b>
+          <b><a href='/docs/wear-os'>Wear OS</a></b>
           {' '}Control your home from your Wear OS device <span class="beta">BETA</span>
           <br />
           <b><a href='/docs/troubleshooting/faqs'>Troubleshooting</a></b>
