@@ -344,7 +344,7 @@ automation:
 
 On Android you can turn on the screen using a notification by simply sending `message: command_screen_on`. This will not remove or disable any lock screens you have setup on the device. The reason behind this is the risk associated with the app being unable to set the device policy back (app crash) or if the device requires the policy to be setup again after being removed. All of which is out of the app's control. You may want to adjust the screen timeout setting on your device to control when the screen will turn back off.
 
-&nbsp;<span class="beta">BETA</span> Also you can optionally add `title: keep_screen_on` to enable [Keep screen On](https://companion.home-assistant.io/docs/integrations/android-webview#keep-screen-on) feature in App Configuration. The screen will remain on only if the webview activity is currently active, otherwise it will turn back off. Notification with `title` having another value will reset this setting to default Disabled state.
+&nbsp;<span class="beta">BETA</span> Also you can optionally add `title: keep_screen_on` to enable [Keep screen On](https://companion.home-assistant.io/docs/integrations/android-webview#keep-screen-on) feature in the Companion App section within [Configuration](https://my.home-assistant.io/redirect/config/). The screen will remain on only if the webview activity is currently active, otherwise it will turn back off. Notification with `title` having another value will reset this setting to default Disabled state.
 
 ```yaml
 automation:
