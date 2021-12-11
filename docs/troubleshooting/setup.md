@@ -23,7 +23,7 @@ When you have saved these changes, restart Home Assisant and, after Home Assista
 ## I don't see a `notify.mobile_app` service for my device in my `dev-services` panel
 Once you have [set up](/getting_started/index.md) the Companion app you will need to restart Home Assistant for the `notify.mobile_app` service call to register. On iOS the `notify.mobile_app_<Device_ID>` service will be created provided you granted notification permissions during setup, on Android the service call will appear after the restart. If you can't see this, [force quit on iOS](https://support.apple.com/HT201330) or force stop on Android. Then relaunch the Companion app and finally restart your Home Assistant instance. The service should now be listed in the `Developer Tools > Services` panel.
 
-![iOS](/assets/iOS.svg) If you don't see the service call on iOS, check the notification settings within the app (swipe right to bring up the sidebar, then tap "Configuration", and then tap "Companion App", then "Notifications"). If the "Push ID" box is empty, tap the Reset button below it.
+![iOS](/assets/iOS.svg) If you don't see the service call on iOS, check the notification settings within the app (swipe right to bring up the sidebar, then tap "[Configuration](https://my.home-assistant.io/redirect/config/)", and then tap "Companion App", then "Notifications"). If the "Push ID" box is empty, tap the Reset button below it.
 
 ![Android](/assets/android.svg) If you still don't see the service call on Android follow the steps to [start fresh](#starting-fresh-with-the-android-app).
 
@@ -37,16 +37,16 @@ If this notification is delivered the problem is most likely with your payload.
 
 If the above doesn't work, try the following:
 
-1.  _Check your message limits:_ To allow us to provide a free notification service, each app target is limited to 150 notifications per day. [Location updates](../notifications/notification-commands#request-location-updates) and other special notifications do not count towards this limit. ![iOS](/assets/iOS.svg) In iOS you can check your remaining notifications within the Companion app by swiping right to open the sidebar and tapping "Configuration", and then tap "Companion App" then "Notifications" and scroll to the bottom of the page. The limit resets everyday at midnight UTC.
+1.  _Check your message limits:_ To allow us to provide a free notification service, each app target is limited to 150 notifications per day. [Location updates](../notifications/notification-commands#request-location-updates) and other special notifications do not count towards this limit. ![iOS](/assets/iOS.svg) In iOS you can check your remaining notifications within the Companion app by swiping right to open the sidebar and tapping "[Configuration](https://my.home-assistant.io/redirect/config/)", and then tap "Companion App" then "Notifications" and scroll to the bottom of the page. The limit resets everyday at midnight UTC.
 
-2.  _Reset your push ID token:_ ![iOS](/assets/iOS.svg) If you have checked you still have notifications remaining, you can reset your notification at the top of the "Notifications" page within the "Companion App Configuration" page. After doing this you may need to [force quit](https://support.apple.com/HT201330) the iOS Companion app and then reopen the app and finally restart your Home Assistant instance.
+2.  _Reset your push ID token:_ ![iOS](/assets/iOS.svg) If you have checked you still have notifications remaining, you can reset your notification at the top of the "Notifications" page within the "Companion App" page of [Configuration](https://my.home-assistant.io/redirect/config/). After doing this you may need to [force quit](https://support.apple.com/HT201330) the iOS Companion app and then reopen the app and finally restart your Home Assistant instance.
 
 3.  _Check your iOS settings:_ ![iOS](/assets/iOS.svg) In the iOS Settings application, navigate to Notifications, then select Home Assistant, and ensure that "Allow Notifications" is toggled on.
 
 4. _Start fresh with the Android app:_ ![Android](/assets/android.svg) If you still can't recieve notifications in the Android app then try to [start fresh](#starting-fresh-with-the-android-app).
 
 ## I receive an SSL error and/or I am unable to connect to my Home Assistant Instance when away from Home
-This often happens when you have the [Home Assistant Cloud](https://www.home-assistant.io/cloud/) enabled but have do not have [Remote UI](https://www.nabucasa.com/config/remote/) turned on. To address this either enable the [Remote UI](https://www.nabucasa.com/config/remote/) or swipe right to open the sidebar and the tap "Configuration", and then tap "Companion App" then under "Settings" tap "Connection". Make sure the switch next to "Connect Via Cloud" is off and enter the remote address of your Home Assistant Instance in the "External URL" field. This address must be for an encrypted connection, for instructions on setting up an encrypted remote connection to your Home Assistant instances, please see the [Home Assistant docs](https://www.home-assistant.io/docs/configuration/remote/) or [this guidde to setting up Let's Encrypt with Duck DNS](https://www.home-assistant.io/docs/ecosystem/certificates/lets_encrypt/).
+This often happens when you have the [Home Assistant Cloud](https://www.home-assistant.io/cloud/) enabled but have do not have [Remote UI](https://www.nabucasa.com/config/remote/) turned on. To address this either enable the [Remote UI](https://www.nabucasa.com/config/remote/) or swipe right to open the sidebar and the tap "Configuration", and then tap "Companion App" then under "Settings" tap "Connection". Make sure the switch next to "Connect Via Cloud" is off and enter the remote address of your Home Assistant Instance in the "External URL" field. This address must be for an encrypted connection, for instructions on setting up an encrypted remote connection to your Home Assistant instances, please see the [Home Assistant docs](https://www.home-assistant.io/docs/configuration/remote/) or [this guide to setting up Let's Encrypt with Duck DNS](https://www.home-assistant.io/docs/ecosystem/certificates/lets_encrypt/).
 
 If you do not have [Home Assistant Cloud](https://www.home-assistant.io/cloud/) set up at all, the problem is likely that the remote connection is not secured. The Companion App requires an encrypted connection for remote connections. Please see the [Home Assistant docs](https://www.home-assistant.io/docs/configuration/remote/) or [this guide to setting up Let's Encrypt with Duck DNS](https://www.home-assistant.io/docs/ecosystem/certificates/lets_encrypt/) for instructions on setting up a secured connection.
 
@@ -93,9 +93,9 @@ To fix this change the location permission for the Home Assistant App to "Always
 1.  Ensure the app has location permissions granted, all the time. (Users on Android 12 will need to ensure Precise location is given during the prompt)
 2.  Ensure that location (GPS) is enabled on your device.
 3.  Turn off battery optimizations for the app.
-4.  Under Companion App Configuration > Manage Sensors ensure that the following Location Sensors are enabled: Background Location, Location Zone and Single Accurate Location
+4.  Under [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors ensure that the following Location Sensors are enabled: Background Location, Location Zone and Single Accurate Location
 5.  Turn on unrestricted data for the Android app. (Samsung users will need to disable data saver for Home Assistant as well.)
-6.  Check that background access setting under Companion App Configuration shows the app has proper access.
+6.  Check that background access setting shows the app has proper access under in [Configuration](https://my.home-assistant.io/redirect/config/) Companion App.
 
 If you are still seeing location issues then you may find it helpful to use the [crash logs](#android-crash-logs) to determine whats going on as we report the entire location decision making process there. When you look at the logs pay attention to the lines that contain `LocBroadcastReceiver` to follow the decisions.  Below is an example of what you can expect to see to ensure that location updates are coming to the phone.  The app still has a decision making process to ensure we get a valid location to actually send back.
 
@@ -134,7 +134,7 @@ This is the expected logs for successful location results.  If you do not see lo
 ## Notify service call is too similar or not showing up in Android
 If you have more than 1 device of the same model and you did not rename your device in Companion App Configuration after logging in then you may have a conflict.
 
-1.  Navigate to Configuration in the sidebar.
+1.  Navigate to [Configuration](https://my.home-assistant.io/redirect/config/) in the sidebar.
 2.  Tap "Companion App"
 3.  Change the Device Name under Device Registration.
 4.  Restart Home Assistant to register the new notify service call. (i.e. `notify.mobile_app_<device_name>`)
@@ -154,11 +154,11 @@ If you want to ensure that the sensors are updated when your device starts charg
 ## Seeing toast messages for Configured Entity not found
 ![Android](/assets/android.svg) This error is meant to show up when the app is unable to update a widget on your home screen for either an invalid/missing entity or the call to your Home Assistant instance failed. There are cases where widgets could be lost from the home screen and the app attempts to update those and fails. As the app does not get notified when a widget is lost (as opposed to removed by dragging off the screen) you will need to delete the widget from the Companion App Configuration page.
 
-1.  Navigate to "Configuration" in the sidebar.
-2.  Tap "Companion App"
+1.  Navigate to [Configuration](https://my.home-assistant.io/redirect/config/) in the sidebar.
+2.  Tap Companion App
 3.  Select Manage Widgets.
 4.  Find any widget that no longer exists on your home screen.
 5.  Delete the widget to remove it from the list and to stop the toast messages.
 
 ## Android Crash Logs
-![Android](/assets/android.svg) The Android app makes use of Google's ADB [Logcat](https://developer.android.com/studio/command-line/logcat) feature to log errors. From time to time you may wish to inspect the logs or a developer may ask for crash logs in order to fix your issue. There is an option under Companion App Configuration > Show and Share Logs. This feature makes it a lot of easier to refresh, share and view the logs. The logs can then be used when you want to create an [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) or when a developer asks for them to troubleshoot an issue. It is important to note that the device logs may or may not contain sensitive information like your Home Assistant URL so make sure to remove sensitive information before sharing.
+![Android](/assets/android.svg) The Android app makes use of Google's ADB [Logcat](https://developer.android.com/studio/command-line/logcat) feature to log errors. From time to time you may wish to inspect the logs or a developer may ask for crash logs in order to fix your issue. There is an option under [Configuration](https://my.home-assistant.io/redirect/config/) Companion App > Show and Share Logs. This feature makes it a lot of easier to refresh, share and view the logs. The logs can then be used when you want to create an [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) or when a developer asks for them to troubleshoot an issue. It is important to note that the device logs may or may not contain sensitive information like your Home Assistant URL so make sure to remove sensitive information before sharing.
