@@ -17,9 +17,7 @@ Some useful examples of actionable notifications:
 
 
 :::caution Version Compatibility
-You must use the defined-in-advance [category-based](#macos-and-ios-before-20215) method for iOS prior to iOS-2021.5 and for macOS prior to macOS-2021.10. See [migration guide](#migrating-from-ios-20214-and-earlier) for more info on converting existing notifications.
-
-Dynamic actions on watchOS require having the Watch App installed. You can do this in the system Watch app if not already installed.
+Category-based notifications on iOS and macOS are deprecated. See the [migration guide](#migrating-from-categories) for more info on converting existing notifications.
 :::
 ## Building actionable notifications
 
@@ -241,11 +239,7 @@ automation:
       ...
 ```
 
-## Migrating from iOS 2021.4 and macOS 2021.8 and earlier
-
-:::note
-Initially upgrading to 2021.5 may require a restart to allow dynamic actions to show up. This will only be necessary once.
-:::
+## Migrating from Categories
 
 Starting in iOS version 2021.5, actions are specified inline with notifications. To migrate, do the following:
 
@@ -306,151 +300,7 @@ automation:
       ...
 ```
 
-## macOS before 2021.10 and iOS before 2021.5
-
-In advance of sending a notification:
-
-1.  Define a notification category in your Home Assistant configuration which contain 1-4 actions.
-2.  At launch iOS app requests notification categories from Home Assistant (can also be done manually in notification settings).
-
-When sending a notification:
-
-1.  Send a notification with `data.push.category` set to a pre-defined notification category identifier.
-2.  Push notification delivered to device.
-3.  User opens notification.
-3.  Action tapped.
-4.  Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
-
-<img alt="How the iOS device and Home Assistant work together to enable actionable notifications." class="invertDark" src="/assets/NotificationActionFlow.png" />
-
-### Definitions
--   **Category** - A category represents a type of notification that the app might receive. Think of it as a unique group of actions.
--   **Actions** - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports.
-
-### Category parameters
-| Name | Default | Description |
-| ------------ | ------------- | -------------  |
-| `name:` | **required** | A friendly name for this category. |
-| `identifier:` | **required** | A unique identifier for the category. Must be lowercase and have no special characters or spaces (underscores are ok). |
-| `actions:` | **required** | A list of actions. See below. |
-
-### Actions parameters
-
-| Name | Default | Description |
-| ------------ | ------------- | ------------- |
-| `identifier:` | **required** | A unique identifier for this action. Can be entirely either upper or lower case (but should not mix the two) and have no special characters or spaces (underscores are ok). Only needs to be unique to the category, not unique globally. |
-| `title:` | **required** | The text to display on the button. Keep it short. |
-| `activationMode:` | optional | The mode in which to run the app when the action is performed. Setting this to `foreground` will make the app open after selecting. Default value is `background`. |
-| `authenticationRequired:` | optional | If `true`, the user must unlock the device before the action is performed. |
-| `destructive:` | optional | When `true`, the corresponding button is displayed with a red text color to indicate the action is destructive. |
-| `behavior:` | optional | When `textInput` the system provides a way for the user to enter a text response to be included with the notification. The entered text will be sent back to Home Assistant. Default value is `default`. |
-| `textInputButtonTitle:` | optional* | The button label. *Required* if `behavior` is `textInput`. |
-| `textInputPlaceholder:` | optional | The placeholder text to show in the text input field. Only used if `behavior` is `textInput` |
-
-Here's a fully built example configuration:
-
-```yaml
-ios:
-  push:
-    categories:
-      - name: Alarm
-        identifier: 'alarm'
-        actions:
-          - identifier: 'SOUND_ALARM'
-            title: 'Sound Alarm'
-            activationMode: 'background'
-            authenticationRequired: true
-            destructive: true
-            behavior: 'default'
-          - identifier: 'SILENCE_ALARM'
-            title: 'Silence Alarm'
-            activationMode: 'background'
-            authenticationRequired: true
-            destructive: false
-            behavior: 'textInput'
-            textInputButtonTitle: 'Silencio!'
-            textInputPlaceholder: 'Placeholder'
-```
-
-Rather than defining categories using YAML within `configuration.yaml`, you can create them directly within the Companion App. This can be done from the Notifications page of the App Configuration Menu (accessed from the sidebar menu).
-
-Two variables are available for use in the `Hidden preview placeholder` and `Category summary`. `%u` will give the total number of notifications which have been sent under the same thread ID (see [this document](basic.md#grouping) for more details). `%@` will give the text specified with `summary:` in the `push:` section of the notification payload.
-
-### Building automations for notification actions
-
-Here is an example automation to send a notification with a category in the payload:
-
-```yaml
-automation:
-  - alias: Notify Mobile app
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          title: "Check this out!"
-          message: "Something happened at home!"
-          data:
-            push:
-              category: "alarm" # Needs to match the top level identifier you used in the ios configuration
-            action_data: # Anything passed in action_data will get echoed back to Home Assistant.
-              entity_id: light.test
-              my_custom_data: foo_bar
-```
-
-If you want to navigate to a Lovelace page or launch an app for a notification, you can use the `url` key.
-
-To navigate to a dashboard when tapping a notification:
-```yaml
-action:
-  - service: notify.mobile_app_<your_device_id_here>
-    data:
-      message: "Something happened at home!"
-      data:
-        url: /lovelace/cameras
-```
-
-To navigate to a specific dashboard when tapping a notification action:
-```yaml
-action:
-  - service: notify.mobile_app_<your_device_id_here>
-    data:
-      message: "Something happened at home!"
-      data:
-        push:
-          category: "ALARM"
-        url:
-          _: "/lovelace/cameras" # if the notification itself is tapped
-          SOUND_ALARM: "/lovelace/alarm" # if the 'SOUND_ALARM' action is tapped
-```
-
-You can also use application-launching URLs. For example, launch an external website using `https://example.com` or make a phone call using `tel:2125551212`.
-
-When an action is selected an event named `ios.notification_action_fired` will be emitted on the Home Assistant event bus. Below is an example payload:
-
-```json
-{
-  "sourceDeviceName": "Robbie's iPhone 7 Plus",
-  "sourceDeviceID": "robbies_iphone_7_plus",
-  "actionName": "SOUND_ALARM",
-  "textInput": "",
-  "action_data": {}
-}
-```
-
-Here's an example automation for the given payload:
-
-```yaml
-automation:
-  - alias: "Sound the alarm iOS"
-    trigger:
-      - platform: event
-        event_type: ios.notification_action_fired
-        event_data:
-          actionName: "SOUND_ALARM"
-    action:
-      ...
-```
+The above is the minimum necessary to migrate. You can also rewrite your automations to use `wait_for_trigger` like previous examples, though this is more work and not strictly necessary.
 
 ## Compatibility with different devices
 
