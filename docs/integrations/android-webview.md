@@ -31,8 +31,8 @@ This example will launch the barcode scanning app ready to scan via the Intent s
 The ![Android](/assets/android.svg) Android app has the ability to launch the [quick bar](https://www.home-assistant.io/docs/tools/quick-bar/) by detecting a 3 finger swipe down gesture. Initially the entity view will be shown to users and additional gestures will flip between the 2 quick bar views. The quick bar can be closed by simply pressing the back button. The quick bar can only be launched when inside the webview after you have logged in.
 
 ## Keep screen On
-The ![Android](/assets/android.svg) Android app has the ability to keep screen on while webview activity is active by enabling corresponding setting in App Configuration. This lets your device’s screen stay on indefinitely and ignore the Android built-in Sleep settings.
+The ![Android](/assets/android.svg) Android app has the ability to keep screen on while webview activity is active by enabling corresponding setting in Companion App Configuration. This lets your device’s screen stay on indefinitely and ignore the Android built-in Sleep settings.
 &nbsp;<span class="beta">BETA</span> This feature may also be controlled by Notification command, [see details](https://companion.home-assistant.io/docs/notifications/notification-commands#screen-on).
 
 ## Autoplay Video
-The ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span> Android app has the ability to autoplay videos when you load the more info panel. Some devices may already do this by default but others may require this setting by enabling it in App Configuration. Enabling this setting may increase data usage unexpectedly, proceed with caution.
+The ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span> Android app has the ability to autoplay videos when you load the more info panel. Some devices may already do this by default but others may require this setting by enabling it in Companion App Configuration. Enabling this setting may increase data usage unexpectedly, proceed with caution.

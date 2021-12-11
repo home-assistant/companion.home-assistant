@@ -41,7 +41,7 @@ The iOS app allows you to use your own custom sounds in push notifications. The 
 6.  Click Sync in the lower right.
 7.  Once the sync is complete, disconnect the device from the computer.
 8.  On your iOS device, open the Home Assistant app.
-9.  Go to App Configuration -> Notifications -> Sounds.
+9.  Go to [Configuration](https://my.home-assistant.io/redirect/config/) -> Companion App -> Notifications -> Sounds.
 10. Tap the "Import sounds from iTunes File Sharing" button.
 
 Assuming that you correctly formatted the sounds they are now available to use in push notifications.
@@ -52,7 +52,7 @@ For this method you need to have a cloud storage app (such as [Dropbox](https://
 
 1.  If you don't already have the iOS app for your cloud storage setup, find the appropriate app in the App Store, install and log in to it.
 2.  Upload your desired notification sounds to a convenient location on your cloud storage.
-3.  In the Home Assistant companion app, open the App Configuration page from the sidebar.
+3.  In the Home Assistant companion app, open the [Configuration](https://my.home-assistant.io/redirect/config/) menu from the sidebar and go to the Companion App section.
 4.  Under Settings, tap Notifications and then Sounds.
 5.  Tap "Import custom sound".
 6.  Navigate to the folder containing the sound or sounds you wish to add. Note you can switch between cloud providers using the Locations button in the upper-left corner.
@@ -63,12 +63,12 @@ For this method you need to have a cloud storage app (such as [Dropbox](https://
 
 Apart from the tri-tone—the default text tone, which can be accessed with `sound: default`—the iOS system sounds are not imported into the Home Assistant companion app. These can however be imported through the following steps:
 
-1.  In the Home Assistant companion app, open the App Configuration page from the sidebar.
+1.  In the Home Assistant companion app, open the Companion App page from the Home Assistant [Configuration menu](https://my.home-assistant.io/redirect/config/).
 2.  Under Settings, tap Notifications and then Sounds.
 3.  Tap the "System" tab and then "Import system sounds".
 4.  After a few seconds you should be informed the files have been successfully imported.
 5.  Restart your device.
-6.  iOS sounds can now be used. You can view a the App Configuration page under Notifications and then Sounds and System.
+6.  iOS sounds can now be used.
 
 <details><summary>For a full list of sounds imported from iOS, click here.</summary>
 This list is representative for iOS 12, the actual list of imported sounds may vary depending on the configuration of your device and iOS version.
