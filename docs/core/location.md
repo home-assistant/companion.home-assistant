@@ -6,21 +6,22 @@ id: "location"
 ## Overview
 
 Location updates are sent from your device to Home Assistant in a number of situations:
-*   When you enter or exit a [zone](https://www.home-assistant.io/components/zone/) defined in Home Assistant. For Android ensure the zone based tracking toggle is enabled in the Companion App section in [Configuration](https://my.home-assistant.io/redirect/config/).
-*   When an iBeacon is detected or lost (see [below](#ibeacons)). ![iOS](/assets/iOS.svg)
-*   When the app is opened and it was not already open in the background.
-*   Via an automated background fetch.
-*   When an update is requested via [special notification](/docs/notifications/notification-commands#request-location-updates)
-*   When a [URL Handler](integrations/url-handler.md) link is opened. ![iOS](/assets/iOS.svg)
-*   When the app is called via a [X-Callback-URL](integrations/x-callback-url.md). ![iOS](/assets/iOS.svg)
-*   When your devices detects a [_significant location change_](#location-tracking-when-outside-a-home-assistant-zone).
-*   Manually when the app is refreshed (swipe down when at the top of a page) or from the shortcut menu opened from 3D touching the app icon. ![iOS](/assets/iOS.svg)
-*   When an update is requested by [sending an intent](#sending-an-intent). ![Android](/assets/android.svg)
-*   When some [sensors](sensors.md) are updated upon a state change. ![Android](/assets/android.svg)
+
+- When you enter or exit a [zone](https://www.home-assistant.io/components/zone/) defined in Home Assistant. For Android ensure the zone based tracking toggle is enabled in App Configuration.
+- When an iBeacon is detected or lost (see [below](#ibeacons)). ![iOS](/assets/iOS.svg)
+- When the app is opened and it was not already open in the background.
+- Via an automated background fetch.
+- When an update is requested via [special notification](/docs/notifications/notification-commands#request-location-updates)
+- When a [URL Handler](integrations/url-handler.md) link is opened. ![iOS](/assets/iOS.svg)
+- When the app is called via a [X-Callback-URL](integrations/x-callback-url.md). ![iOS](/assets/iOS.svg)
+- When your devices detects a [_significant location change_](#location-tracking-when-outside-a-home-assistant-zone).
+- Manually when the app is refreshed (swipe down when at the top of a page) or from the shortcut menu opened from 3D touching the app icon. ![iOS](/assets/iOS.svg)
+- When an update is requested by [sending an intent](#sending-an-intent). ![Android](/assets/android.svg)
+- When some [sensors](sensors.md) are updated upon a state change. ![Android](/assets/android.svg)
 
 You can check the cause of the most recent location update by checking the value of `sensor.last_update_trigger` ![iOS](/assets/iOS.svg)
 
-Depending on your set up, location data is sent directly from your phone to your Home Assistant instances or via the Home Assistant Cloud Service. This will depend on the URLs specified in the Connection section of the Companion App section in [Configuration](https://my.home-assistant.io/redirect/config/). Location data is not sent via any other servers or organizations. Of course, if you decide not to grant the Home Assistant Companion App location permission or if you subsequently remove the location permissions (![iOS](/assets/iOS.svg) Settings>Privacy>Location Services or ![Android](/assets/android.svg) Settings>Privacy>Permissions), no location data will be sent from your device to Home Assistant. **It is important to note that none of the [sensors](sensors.md) will work if location is disabled on iOS![iOS](/assets/iOS.svg), on Android ![Android](/assets/android.svg) you can still expect to see some sensors that are not tied to location permissions**. An alternative is to disable the `device_tracker.<device_name>` entity from the [entity registry](https://www.home-assistant.io/integrations/config/#entity-registry).
+Depending on your set up, location data is sent directly from your phone to your Home Assistant instances or via the Home Assistant Cloud Service. This will depend on the URLs specified in the Connection section of the App Configuration menu. Location data is not sent via any other servers or organizations. Of course, if you decide not to grant the Home Assistant Companion App location permission or if you subsequently remove the location permissions (![iOS](/assets/iOS.svg) Settings>Privacy>Location Services or ![Android](/assets/android.svg) Settings>Privacy>Permissions), no location data will be sent from your device to Home Assistant. **It is important to note that none of the [sensors](sensors.md) will work if location is disabled on iOS![iOS](/assets/iOS.svg), on Android ![Android](/assets/android.svg) you can still expect to see some sensors that are not tied to location permissions**. An alternative is to disable the `device_tracker.<device_name>` entity from the [entity registry](https://www.home-assistant.io/integrations/config/#entity-registry).
 
 ## Getting started
 
@@ -136,7 +137,7 @@ The following steps are an example of how to send an intent using Tasker:
 
 ## Android Location Settings
 
-![Android](/assets/android.svg) Android users can find custom sensor settings for location tracking under [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors > Location Sensors. The settings allow you to adjust the minimum required accuracy for the location to be reported to Home Assistant. You can adjust this setting independently from Zone Tracking, Background Location and Single Accurate Location (first request we send). This will allow you to get faster zone detection while also being accurate when the app is in the background. The Single Accurate Location sensor allows you to adjust the minimum time between updates to be sent to your server, the default is set to 1 minute (60000 milliseconds). The Single Accurate Location sensor also has a setting that allows you to include location updates as part of sensor update, note this may result in excessive location results when enabled.
+![Android](/assets/android.svg) Android users can find custom sensor settings for location tracking under App Configuration > Manage Sensors > Location Sensors. The settings allow you to adjust the minimum required accuracy for the location to be reported to Home Assistant. You can adjust this setting independently from Zone Tracking, Background Location and Single Accurate Location (first request we send). This will allow you to get faster zone detection while also being accurate when the app is in the background. The Single Accurate Location sensor allows you to adjust the minimum time between updates to be sent to your server, the default is set to 1 minute (60000 milliseconds). The Single Accurate Location sensor also has a setting that allows you to include location updates as part of sensor update, note this may result in excessive location results when enabled.
 
 ### High accuracy mode
 

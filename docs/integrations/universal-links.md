@@ -43,7 +43,7 @@ Some NFC tags are read-only and cannot be used as a Home Assistant NFC tag. Othe
 
 ## Writing NFC tags
 
-You can write NFC tags by opening the app -> [Configuration](https://my.home-assistant.io/redirect/config/) -> Companion App -> NFC Cards -> Write.
+You can write NFC tags by opening the app -> App Configuration -> NFC Cards -> Write.
 
 <div class='videoWrapper'>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Xc120lClUgA" frameborder="0" allowfullscreen></iframe>
