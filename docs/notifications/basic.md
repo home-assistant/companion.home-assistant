@@ -624,7 +624,7 @@ On iOS 15, you can set the interruption level of a notification, which has the f
 | `critical` | [Critical notifications](critical.md) | Yes, even mute |
 
 :::note ![iOS](/assets/iOS.svg) Requirement
-`time-sensitive` requires iOS-2021.10 or later.
+`time-sensitive` requires iOS/macOS-2021.12 or later.
 :::
 
 You can read more about these levels in the [Apple documentation](https://developer.apple.com/design/human-interface-guidelines/ios/system-capabilities/notifications/).
