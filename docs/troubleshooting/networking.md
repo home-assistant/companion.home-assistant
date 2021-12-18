@@ -68,6 +68,7 @@ You can now access your Home Assistant via `https://my-home.duckdns.org` both in
 Note: If you don't use the NGINX Home Assistant add-on but instead roll your own, please ensure that websockets support is enabled.
 
 ## Addendum: TLS Client Certificates (MTLS)
+![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 In order to avoid anyone reaching your Home Assistant installation you can use Client Certificate with either [NGINX](https://www.home-assistant.io/docs/ecosystem/nginx/) or Cloudflare.
 Home Assistant Android application now supports MTLS certificates.
 What do you need:
@@ -75,7 +76,9 @@ What do you need:
 - Client certificate in PEM format
 - Client certificate key in PEM format
 How to set it up:
+- Launch Home Assistant app; it automatically creates application folders in internal memory.
 - Copy client certificate in internal memory -> `Android/data/io.homeassistant.companion.android/files` and rename it to `tls_client.pem`
 - Copy client certificate key in internal memory -> `Android/data/io.homeassistant.companion.android/files` and rename it to `tls_client.key`
-- Launch Home Assistant app and configure it as usual
+- Kill then relaunch Home Assistant app and configure it as usual
+Destination path could be slightly different if you use different app flavours, like minimal app.
 Note: App loads key files on startup
