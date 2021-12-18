@@ -66,3 +66,16 @@ http:
 Once that's done your router's port-forwarding should be `TCP 443` to your Home Assistant internal IP `192.168.1.4 Port 443`. Do NOT create a forward to `192.168.1.4 Port 8123` as that is now unencrypted http and should only be accessible from your local network.
 You can now access your Home Assistant via `https://my-home.duckdns.org` both internally and externally while having `http://192.168.1.4:8123` available to be used as unencrypted endpoint for things like `konnected.io`.
 Note: If you don't use the NGINX Home Assistant add-on but instead roll your own, please ensure that websockets support is enabled.
+
+## Addendum: TLS Client Certificates (MTLS)
+In order to avoid anyone reaching your Home Assistant installation you can use Client Certificate with either [NGINX](https://www.home-assistant.io/docs/ecosystem/nginx/) or Cloudflare.
+Home Assistant Android application now supports MTLS certificates.
+What do you need:
+- Home Assistant already configured to accept only clients using TLS Client Certificates
+- Client certificate in PEM format
+- Client certificate key in PEM format
+How to set it up:
+- Copy client certificate in internal memory -> `Android/data/io.homeassistant.companion.android/files` and rename it to `tls_client.pem`
+- Copy client certificate key in internal memory -> `Android/data/io.homeassistant.companion.android/files` and rename it to `tls_client.key`
+- Launch Home Assistant app and configure it as usual
+Note: App loads key files on startup
