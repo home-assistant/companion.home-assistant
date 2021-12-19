@@ -74,10 +74,10 @@ Home Assistant Android application now supports MTLS certificates.
 What do you need:
 - Home Assistant already configured to accept only clients using TLS Client Certificates
 - Client certificate in PEM format
-- Client certificate key in PEM format
+- Client certificate key in PEM format, without DES (no password)
 How to set it up:
 - Launch Home Assistant app; it automatically creates application folders in internal memory.
-- Copy client certificate in internal memory -> `Android/data/io.homeassistant.companion.android/files` and rename it to `tls_client.pem`
+- Copy client certificate in internal memory -> `Android/data/io.homeassistant.companion.android/files` and rename it to `tls_client.crt`
 - Copy client certificate key in internal memory -> `Android/data/io.homeassistant.companion.android/files` and rename it to `tls_client.key`
 - Kill then relaunch Home Assistant app and configure it as usual
 Destination path could be slightly different if you use different app flavours, like minimal app.
