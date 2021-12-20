@@ -393,14 +393,14 @@ Note: Sensors with Allow Lists will not appear as new entities in Home Assistant
 
 This sensor will reflect the last notification posted on the device. This sensor requires a special permission that the app will take the user to so they can grant access to notifications. This sensors state will default to the text of the notification or if not available the posting package name. This sensor offers a setting to enable an Allow List to let the user select which packages they wish to get notification data from, notifications sent by Home Assistant are always ignored. We recommend that users make use of this setting as by default all notifications including invisible ones get sent and might cause unintentional battery drain if the setting is left untouched. This can be very useful to integrate any app that sends a notification but does not offer direct integration (ex: food delivery apps or 2FA SMS codes). There are several attributes a user can expect to see, although not all attributes will contain data. This sensor makes use of the [NotificationListenerService API](https://developer.android.com/reference/android/service/notification/NotificationListenerService#onNotificationRemoved(android.service.notification.StatusBarNotification)).  More details on each attribute can be found in the [Notification Extras](https://developer.android.com/reference/android/app/Notification).
 
-![Android](/assets/android.svg)<span class="beta">BETA</span<br />
+![Android](/assets/android.svg)<span class="beta">BETA</span><br />
 There is now a requirement for an allow list, if one is not provided then this sensor will stop sending data. You need to either create an allow list or enable the new setting to "Disable Allow List Requirement". Keep in mind without an allow list this sensor has the potential to drain a lot of battery. We highly recommend creating an allow list over diasbling this requirement.
 
 ### Last Removed Notification
 
 This sensor is similar to Last Notification except that it will update when a notification has been removed from the device, either by the user or an application. You can expect to see similar attributes for this sensor, some of which are outlined below. This sensor requires the same permission as mentioned up above. This sensor also has an allow list that functions similar to Last Notification.
 
-![Android](/assets/android.svg)<span class="beta">BETA</span<br />
+![Android](/assets/android.svg)<span class="beta">BETA</span><br />
 There is now a requirement for an allow list, if one is not provided then this sensor will stop sending data. You need to either create an allow list or enable the new setting to "Disable Allow List Requirement". Keep in mind without an allow list this sensor has the potential to drain a lot of battery. We highly recommend creating an allow list over diasbling this requirement.
 
 ### Active Notification Count
