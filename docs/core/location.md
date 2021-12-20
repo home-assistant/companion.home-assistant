@@ -16,7 +16,6 @@ Location updates are sent from your device to Home Assistant in a number of situ
 *   When your devices detects a [_significant location change_](#location-tracking-when-outside-a-home-assistant-zone).
 *   Manually when the app is refreshed (swipe down when at the top of a page) or from the shortcut menu opened from 3D touching the app icon. ![iOS](/assets/iOS.svg)
 *   When an update is requested by [sending an intent](#sending-an-intent). ![Android](/assets/android.svg)
-*   When some [sensors](sensors.md) are updated upon a state change. ![Android](/assets/android.svg)
 
 You can check the cause of the most recent location update by checking the value of `sensor.last_update_trigger` ![iOS](/assets/iOS.svg)
 
