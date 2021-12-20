@@ -249,7 +249,7 @@ This sensor can impact battery life, particularly if used wih Transmit Power set
 Settings are available to change the UUID, Major and Minor masks. These can be used to change the overall identifier, as well as to allow groups, e.g. family phone devices can have particular Major value which can be whitelisted in apps like roomassistant. These settings are validated: UUID should be the [standard format](https://en.wikipedia.org/wiki/Universally_unique_identifier), Major and Minor need to be within 0 and 65535. 
 There are also settings to alter:
 *   the Transmit power (between Ultra Low, Low, Medium and High)
-*   <span class="beta">BETA</span> the Advertise mode (between Low Power (1Hz), Balanced (3Hz) and Low latency (10Hz))
+*   the Advertise mode (between Low Power (1Hz), Balanced (3Hz) and Low latency (10Hz))
 *   whether to allow this sensor to be turned on when the Enable all sensors toggle is activated (by default this is set to false, to prevent this sensor draining battery unnecessarily)
 
 A Transmit setting toggle will start or stop the BLE transmissions - this setting is also toggled via the notification command that can turn the services on and off. 
