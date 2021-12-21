@@ -7,15 +7,19 @@ Along with providing [location services](location.md), the companion app also ad
 
 The sensors provided by the companion app are:
 
-![iOS](/assets/iOS.svg)and ![macOS](/assets/macOS.svg)Sensor List
+## iOS & macOS Sensors
 
-:::note Sensor Updates
+### Multi-Server Support
+
+If multiple servers are connected to an iOS or macOS app, currently the sensor settings will be common for all connected servers.
+
+### When Sensors Update
+
 On iOS, sensors update in limited situations: when your location changes, periodically when the app is running in the foreground, when you pull-to-refresh the web view, in the background at a rate determined by iOS, and when performing an "Update Sensors" or via "Send Location" shortcut or push notification.
 
 On macOS, sensors update in the same situations as above as well as immediately when some sensors change.
 
-If multiple servers are connected to an iOS or mac app, currently the sensor settings will be common for all connected servers.
-:::
+### Sensor List
 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
@@ -64,11 +68,13 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 {{ states.sensor.connection_type.attributes['Cellular Technology'] }}
 ```
 
-![Android](/assets/android.svg) Android Sensor List
+## Android Android Sensors
 
 Each ![Android](/assets/android.svg) sensor below can be enabled by navigating to Companion App in [Configuration](https://my.home-assistant.io/redirect/config/) page then selecting `Manage Sensors`. By default, most are disabled with the exception of the [battery sensors](#battery-sensors) and any that were given permission during onboarding. Once enabled the sensor will begin to send data to your Home Assistant server, if you chose to disable it later on the sensor will stop updating. Upon enabling a sensor the app will request for permissions, if required. If you do not see a sensor listed below then your device does not support it. Some of the sensors below offer custom settings for each of their own needs, read about each one to see what it offers. These settings can be found in the same location where you enable the sensor.
 
 All sensors update during a periodic 15-minute interval and they will also update if other certain conditions are met. Read about each sensor below to understand how often to expect updates. During the 15-minute update interval a low priority foreground notification is temporarily created to prevent the Android system from halting the worker. This notification does not make a sound unless the user has installed a third-party app that intercepts notifications and decides to make a sound. If you are on Android 8.0+ you are free to minimize and/or turn off the notification channel for the `SensorWorker`.
+
+### Sensor List
 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
