@@ -473,7 +473,7 @@ This sensor displays exactly what caused the last update of location and sensor 
 
 ## Last Used App Sensor
 ![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
-This sensor will report the package name of the last used application, this sensor updates during the normal sensor update interval and makes use of [UsageStatsManager API](https://developer.android.com/reference/android/app/usage/UsageStatsManager).
+This sensor will report either the application name or package name of the last used application, this sensor updates during the normal sensor update interval and makes use of [UsageStatsManager API](https://developer.android.com/reference/android/app/usage/UsageStatsManager).
 
 
 ## Light Sensor
