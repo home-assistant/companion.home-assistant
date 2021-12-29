@@ -99,6 +99,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | [Notification Sensors](#notification-sensors) | See Below | Details about the notifications on the device. |
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
 | `sensor.last_update` | None | The state will reflect the intent that caused the last update to get sent. |
+| `sensor.last_used_app` | None | The last used application on the device. |
 | `sensor.light` | None | The current level of illuminance the device detects. |
 | `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
 | `sensor.pressure` | None | The pressure reading from the device. |
@@ -469,6 +470,11 @@ This sensor displays exactly what caused the last update of location and sensor 
 | iBeacon Region Entered | Triggered when an iBeacon is seen that corresponds to a known zone. |
 | Registration | Triggered once when the app is first connected to your Home Assistant instance. |
 | Signaled | Triggered when the app detects a change, such as battery state changes, while running. |
+
+## Last Used App Sensor
+![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+This sensor will report either the application name or package name of the last used application, this sensor updates during the normal sensor update interval and makes use of [UsageStatsManager API](https://developer.android.com/reference/android/app/usage/UsageStatsManager).
+
 
 ## Light Sensor
 ![Android](/assets/android.svg)<br />
