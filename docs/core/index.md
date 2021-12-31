@@ -779,5 +779,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
       <td></td>
     </tr>
+    <tr>
+      <td><a href="/docs/core/sensors#work-profile-sensor">Work Profile</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+      <td></td>
+    </tr>
   </tbody>
 </table>
