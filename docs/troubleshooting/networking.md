@@ -83,4 +83,6 @@ How to set it up:
 - Copy client certificate key in internal memory -> `Android/data/io.homeassistant.companion.android/files` and rename it to `tls_client.key`
 - Kill then relaunch Home Assistant app and configure it as usual
 
-Destination path could be slightly different if you use different app flavours, like minimal app. App load key files on startup, that's why we need to kill it after placing key files.
+Destination path could be slightly different if you use different app flavours, like minimal app.
+After successful key import, tls_client.cer and tls_client.key will be automatically deleted.
+App load key files on startup, that's why we need to kill it after placing key files.
