@@ -473,7 +473,7 @@ This sensor displays exactly what caused the last update of location and sensor 
 | Signaled | Triggered when the app detects a change, such as battery state changes, while running. |
 
 ## Last Used App Sensor
-![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+![Android](/assets/android.svg)<br />
 This sensor will report either the application name or package name of the last used application, this sensor updates during the normal sensor update interval and makes use of [UsageStatsManager API](https://developer.android.com/reference/android/app/usage/UsageStatsManager).
 
 
@@ -576,5 +576,5 @@ These sensors will show the total data transmitted and received by the device. T
 
 
 ## Work Profile Sensor
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)<br />
 This sensor will be `on` if the device's work profile has been enabled, otherwise it will be `off`. This sensor makes use of the [Device Policy Manager API](https://developer.android.com/reference/android/app/admin/DevicePolicyManager).
