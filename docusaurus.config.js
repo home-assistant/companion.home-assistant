@@ -67,11 +67,6 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} Home Assistant. Built with Docusaurus.`,
     },
     image: 'img/default-social.png',
-    algolia: {
-      apiKey: '07eb926ba58945e17a895f6ca531e3c2',
-      indexName: 'companion-home-assistant',
-      algoliaOptions: {} // Optional, if provided by Algolia
-    },
     googleAnalytics: {
       trackingID: 'UA-57927901-7'
     }
@@ -88,6 +83,17 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+      },
+    ],
+  ],
+  plugins: [
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        indexDocs: true,
+        indexBlog: true,
+        highlightSearchTermsOnTargetPage: true,
       },
     ],
   ],
