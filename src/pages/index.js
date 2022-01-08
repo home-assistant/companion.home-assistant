@@ -25,6 +25,9 @@ const features = [
           <b><a href='/docs/apple-watch'>Apple Watch</a></b>
           {' '}Actions and complications all from your Watch app.
           <br />
+          <b><a href='/docs/oculus-quest/oculus-quest'>Oculus Quest</a></b>
+          {' '}Get data from your Quest into Home Assistant.
+          <br />
           <b><a href='/docs/wear-os'>Wear OS</a></b>
           {' '}Control your home from your Wear OS device <span class="beta">BETA</span>
           <br />

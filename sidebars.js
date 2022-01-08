@@ -53,6 +53,9 @@ module.exports = {
       'apple-watch/watch-actions',
       'apple-watch/complications'
     ],
+    'Oculus Quest': [
+      'oculus-quest/oculus-quest'
+    ],
     'Wear OS': [
       'wear-os/wear-os'
     ],
