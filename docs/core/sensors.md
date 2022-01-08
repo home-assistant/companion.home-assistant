@@ -92,7 +92,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 | `sensor.current_time_zone` | [See Below](#current-time-zone-sensor) | The current time zone the device is in. |
 | `sensor.current_version` | None | The current installed version of the application. |
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
-| `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
+| `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on mobile phone cell towers and WiFi nodes that the mobile client can detect. |
 | `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
 | [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
 | [Mobile Data Sensors](#mobile-data-sensors) | None | Several different sensors around the state of mobile data. |
