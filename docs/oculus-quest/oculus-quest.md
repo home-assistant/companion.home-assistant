@@ -23,3 +23,8 @@ The app features many of the sensors offered by the main version as the Quest ru
 Not all features of the Android app will work on the Oculus Quest as it runs a heavily modified fork of Android. There are no google services, no widgets, no shortcuts and no standard notifications.
 
 On this page we will be covering specific features and sensors built for the Oculus Quest as they are ready, stay tuned for more updates!
+
+
+<hr>
+<h2>Headset Mounted Sensor</h2>
+This sensor shows when the headset is being used and it even updates immediately. It shows as a binary sensor on the front end 
