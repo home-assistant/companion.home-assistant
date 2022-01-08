@@ -25,6 +25,9 @@ const features = [
           <b><a href='/docs/apple-watch'>Apple Watch</a></b>
           {' '}Actions and complications all from your Watch app.
           <br />
+          <b><a href='/docs/oculus-quest'>Oculus Quest</a></b>
+          {' '}Get data from your Quest into Home Assistant.
+          <br />
           <b><a href='/docs/wear-os'>Wear OS</a></b>
           {' '}Control your home from your Wear OS device <span class="beta">BETA</span>
           <br />
@@ -44,6 +47,10 @@ const features = [
         <br />
         <a href="https://apps.apple.com/us/app/home-assistant/id1099568401?itsct=apps_box_badge&amp;itscg=30200" style={{ display: 'inline-block', width: '200px' }}>
           <img class="download-badge" width="175" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1492214400&h=3ef4307fa479838e52fe9bd8bd17913b" alt="Download on the App Store" />
+        </a>
+        <br />
+        <a href="https://sidequestvr.com/app/6427/home-assistant" style={{ display: 'inline-block', width: '200px' }}>
+          <img class="download-badge" width="175" src="https://sidequestvr.com/assets/images/branding/Get-it-on-SIDEQUEST.png" alt="Download on SideQuest" />
         </a>
 
         <h2>Source Code</h2>
