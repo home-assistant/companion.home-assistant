@@ -9,10 +9,12 @@ The ![Android](/assets/android.svg) Android app will automatically integrate wit
 Currently support is limited to the following domains:
 
 *  `automation` On/Off
+*  `button` Press
 *  `climate` Temperature slider
 *  `cover` Open/Close
 *  `fan` On/Off, speed slider
 *  `input_boolean` On/Off
+*  `input_button` Press
 *  `input_number` Number control slider
 *  `light` On/Off, Brightness control slider
 *  `lock` Lock/Unlock
