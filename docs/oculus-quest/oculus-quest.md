@@ -24,7 +24,8 @@ Not all features of the Android app will work on the Oculus Quest as it runs a h
 
 On this page we will be covering specific features and sensors built for the Oculus Quest as they are ready, stay tuned for more updates!
 
+### Sensor List
 
-<hr>
-<h2>Headset Mounted Sensor</h2>
-This sensor shows when the headset is being used and it even updates immediately. It shows as a binary sensor on the front end 
+| Sensor | Attributes | Description |
+| --------- | --------- | ----------- |
+|`binary_sensor.in_use` | None | Whether the headset is in use (Updates immediately) |
