@@ -5,7 +5,11 @@ id: "wear-os"
 
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 
-Home Assistant has started to offer a beta version of the Wear OS app in the Google Play Store. Support at this moment is very minimal. You must be a beta user of the phone app to participate in the beta for the watch app. The following list of domains are currently supported to toggle/execute once you login and select them:
+Home Assistant has started to offer a beta version of the Wear OS app in the Google Play Store. Support at this moment is very minimal. You must be a beta user of the phone app to participate in the beta for the watch app.
+
+## Home Screen
+
+ The following list of domains are currently supported to toggle/execute once you login and select them:
 
 * `input_boolean`
 * `light`
@@ -14,15 +18,19 @@ Home Assistant has started to offer a beta version of the Wear OS app in the Goo
 * `script`
 * `switch`
 
-## Favorites
+### Favorites
 
-Users can also go to Settings in the Wear OS app and set favorite entities which will appear at the top of the list. These entities will also be present before the rest of the entities are loaded so that they can be executed immediately upon launching the app. If you delete an entity from your Home Assistant instance there is also a setting option to clear the favorites to remove the stale entity.
+Users can go to Settings in the Wear OS app and set favorite entities which will appear at the top of the list. These entities will be present before the rest of the entities are loaded so that they can be executed immediately upon launching the app. If you delete an entity from your Home Assistant instance there is also a setting option to clear the favorites to remove the stale entity.
 
 The favorites can also be managed from the phone app by going to App Configuration > Wear OS app > Manage Favorites. The phone app also allows you to drag and drop the entities to change the order in which they appear on the home screen.
 
-## Areas
+### Areas
 
 If any devices or entities have been added to areas in Home Assistant, these areas will be shown in the Wear OS app below the favorites. Tapping on an area will show all entities in that area. Any domains with entities not added to an area will be shown near the bottom of the list as 'More entities'.
+
+### Settings
+
+The settings screen can be found at the bottom of the home screen. This is where you will be able to add favorites on the watch as well as configuring tiles. You will also find options to enable haptic feedback and/or a toast confirmation to know when you selected an entity. These settings will reflect on the home screen and the shortcuts tile.
 
 ## Tiles
 
