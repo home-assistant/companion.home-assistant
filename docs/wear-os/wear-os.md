@@ -26,7 +26,10 @@ If any devices or entities have been added to areas in Home Assistant, these are
 
 ## Tiles
 
-The shortcuts tile shows up to 7 shortcuts, which can be chosen from the settings section in the Wear OS app.
+Right now, two tiles are supported:
+
+* The shortcuts tile shows up to 7 shortcuts, which can be chosen from the settings section in the Wear OS app.
+* The template tile shows a rendered template. The template can only be set from the android companion app. Note: it is not possible to scroll in a tile, the template should fit on the watch screen.
 
 ## Sensors
 
