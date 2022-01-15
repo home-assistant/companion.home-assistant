@@ -9,7 +9,7 @@ Home Assistant has started to offer a beta version of the Wear OS app in the Goo
 
 ## Home Screen
 
- The following list of domains are currently supported to toggle/execute once you login and select them:
+The following list of domains are currently supported to toggle/execute once you login and select them:
 
 * `input_boolean`
 * `light`
@@ -36,7 +36,7 @@ The settings screen can be found at the bottom of the home screen. This is where
 
 Right now, two tiles are supported:
 
-* The shortcuts tile shows up to 7 shortcuts, which can be chosen from the settings section in the Wear OS app.
+* The shortcuts tile shows up to 7 shortcuts, which can be chosen from the settings section in the Wear OS app. You will be able to select the same set of entities you can access from the home screen.
 * The template tile shows a rendered template. The template can only be set from the android companion app. Note: it is not possible to scroll in a tile, the template should fit on the watch screen.
 
 ## Sensors
