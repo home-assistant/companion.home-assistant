@@ -5,11 +5,11 @@ id: "wear-os"
 
 ![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
 
-Home Assistant has started to offer a beta version of the Wear OS app in the Google Play Store. Support at this moment is very minimal. You must be a beta user of the phone app to participate in the beta for the watch app.
+Home Assistant has started to offer a beta version of the Wear OS app in the Google Play Store. Support at this moment is very minimal. You must be a beta user of the phone app to [participate in the beta](https://play.google.com/apps/testing/io.homeassistant.companion.android) for the watch app.
 
 ## Home Screen
 
-The following list of domains are currently supported to toggle/execute once you login and select them:
+The following list of domains are currently supported to toggle/execute once you log in and select them:
 
 * `input_boolean`
 * `light`
