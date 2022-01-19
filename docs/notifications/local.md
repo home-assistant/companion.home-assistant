@@ -9,6 +9,7 @@ Local Push uses the [WebSocket API](https://developers.home-assistant.io/docs/ap
 | -------- | ------- |
 | ![iOS](/assets/iOS.svg) | 2021.7 |
 | ![macOS](/assets/macOS.svg) | 2021.7 |
+| ![Android](/assets/android.svg) | <span class='beta'>BETA</span> |
 
 :::info
 Local Push requires HA core-2021.6 or later in combination with a supported platform above.
@@ -23,6 +24,8 @@ Local Push requires HA core-2021.6 or later in combination with a supported plat
 
 ![macOS](/assets/macOS.svg) will always maintain a Local Push connection as long as the app is running and has no additional battery impact.
 
+![Android](/assets/android.svg) will maintain a Local Push connection as specified by your configuration.  Depending on your setting this may have adverse affects on battery life.
+
 ## Rate limits
 
 Notifications delivered via Local Push do not count against [Rate Limits](details.md).
@@ -33,8 +36,10 @@ Notifications delivered via Local Push do not count against [Rate Limits](detail
 
 ![macOS](/assets/macOS.svg) does not have an option to disable Local Push, see requirements above for more information.
 
-## Viewing Status
+![Android](/assets/android.svg) can configure the Local Push settings in [Configuration](https://my.home-assistant.io/redirect/config/) -> Companion App -> Local Notifications 
 
+## Viewing Status
+![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg):
 You can view the status of Local Push in the Server section Companion App in [Configuration](https://my.home-assistant.io/redirect/config/). This will show one of a few statuses:
 
 * Disabled, when toggled off by the connection setting or not currently on the internal network.
