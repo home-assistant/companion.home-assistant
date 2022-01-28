@@ -22,3 +22,7 @@ Currently support is limited to the following domains:
 *  `script` Turn on script
 *  `switch` On/Off
 *  `vacuum` Start/Dock or On/Off depending on vacuum type
+
+:::info
+The Android power menu controls were moved in Android 12.  If your phone is running Android 12 or newer, the controls can now be accessed from the quick settings by pulling down on the status bar.
+:::
