@@ -202,6 +202,37 @@ automation:
             group: "EXTRA_CONFIG_JSON:%7B%22push%22%3A%7B%22set%22%3A%7B%22widgetCustom0._.config.upper_text%22%3A%22Hi%22%7D%7D%7D:urlencoded"
 ```
 
+<span class='beta'>BETA</span> Similarly to using urlencoding, you can add specific types to your intent extra. Your values will then be converted according to the type you specified. Make sure the type conversion is possible/meaningful.
+
+Currently supported types are:
+
+- Integer `EXTRA:101:int`
+- Double `EXTRA:10.1:double`
+- Float `EXTRA:10.1:float`
+- Long `EXTRA:101:long`
+- Short `EXTRA:1:short`
+- Boolean `EXTRA:true:boolean`
+- Char `EXTRA:a:char`
+- ArrayList<Integer\> `EXTRA:1;2;3:ArrayList<Integer>`
+- ArrayList<String\> `EXTRA:a;b;c:ArrayList<String>`
+
+If you do not specify a specific type, the type is guessed based on your input. Numbers will be converted to Integers, `true` or `false` will be converted to Boolean values. Otherwise the intent extra will be set as String.
+
+```yaml
+automation:
+  - alias: Send broadcast intent with ArrayList<Integer> extra
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_broadcast_intent"
+          title: "sample.intent.SAMPLE"
+          data:
+            channel: "sample"
+            group: "EXTRA:1;2;3:ArrayList<Integer>"
+```
+
 ## Do Not Disturb
 
 ![Android](/assets/android.svg) &nbsp;Android 6+ only
