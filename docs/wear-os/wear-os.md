@@ -11,6 +11,8 @@ Home Assistant has started to offer a beta version of the Wear OS app in the Goo
 
 The following list of domains are currently supported to toggle/execute once you log in and select them:
 
+* `cover`
+* `fan`
 * `input_boolean`
 * `light`
 * `lock`
