@@ -28,7 +28,7 @@ The favorites can also be managed from the phone app by going to App Configurati
 
 ### Areas
 
-If any devices or entities have been added to areas in Home Assistant, these areas will be shown in the Wear OS app below the favorites. Tapping on an area will show all entities in that area. Any domains with entities not added to an area will be shown near the bottom of the list as 'More entities'.
+If any devices or entities have been added to areas in Home Assistant, these areas will be shown in the Wear OS app below the favorites. Tapping on an area will show all primary entities in that area. Any domains with primary entities not added to an area will be shown near the bottom of the list as 'More entities'. Configuration and diagnostic entities are only shown in 'All entities', at the bottom of the list.
 
 ### Settings
 
