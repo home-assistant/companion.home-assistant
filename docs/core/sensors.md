@@ -330,7 +330,10 @@ This sensor will represent the current installed version of the Android app.
 
 ## Do Not Disturb Sensor
 ![Android](/assets/android.svg)<br />
-This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes. This sensor uses a [Global](https://developer.android.com/reference/kotlin/android/provider/Settings.Global?hl=en) variable that is not officially documented but has been available since Android 5.0.
+This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes. This sensor uses the [Global](https://developer.android.com/reference/kotlin/android/provider/Settings.Global?hl=en) variable that is not officially documented but has been available since Android 5.0.
+
+![Android](/assets/android.svg)<span class='beta'>BETA</span><br />
+This sensor uses the [NotificationManager API](https://developer.android.com/reference/android/app/NotificationManager#getCurrentInterruptionFilter()) which is only available on Android 6+ devices.
 
 
 ## Doze Sensor
