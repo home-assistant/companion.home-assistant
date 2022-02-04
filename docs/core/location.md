@@ -133,9 +133,20 @@ The following steps are an example of how to send an intent using Tasker:
 6.  Save the task
 7.  Use the task with any Tasker profile to request a location update
 
-## Android Location Settings
+## Android Location Sensors
 
-![Android](/assets/android.svg) Android users can find custom sensor settings for location tracking under [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors > Location Sensors. The settings allow you to adjust the minimum required accuracy for the location to be reported to Home Assistant. You can adjust this setting independently from Zone Tracking, Background Location and Single Accurate Location (first request we send). This will allow you to get faster zone detection while also being accurate when the app is in the background. The Single Accurate Location sensor allows you to adjust the minimum time between updates to be sent to your server, the default is set to 1 minute (60000 milliseconds). The Single Accurate Location sensor also has a setting that allows you to include location updates as part of sensor update, note this may result in excessive location results when enabled.
+![Android](/assets/android.svg) Android users can find custom sensor settings for location tracking under [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors > Location Sensors. These sensors all require that the app has proper location permissions and location is enabled on the device, if either of these requirements are not met then the sensors will become disabled.
+
+*  The first sensor is `Background Location` this sensor is responsible for registering frequent background updates using [Google's Fused Location API](https://developers.google.com/location-context/fused-location-provider). Updates come in typically between 1-3 minutes but can be as often as every 30 seconds when you are using navigation like Google Maps.
+*  `Background Location` also offers [high accuracy mode](#high-accuracy-mode) so you can get even faster updates. The state of this mode can be determined by the next location sensor `High Accuracy Mode` which simply reports if the mode is enabled. This sensor is not directly related to location updates that you get from Google.
+*  The third location sensor is `Location Zone`, when enabled this sensor will get a list of all configured [`zones`](https://www.home-assistant.io/integrations/zone/) and will use Google's location service to create geofences containing `zone` data. This will allow for faster entry and exit detection while remaining battery friendly.
+*  The last location sensor is `Single Accurate Location` this sensor only gets used if the reported accuracy did not meet the criteria as set in the [sensor settings](#location-sensor-settings). This sensor is also used when the [notification command](/docs/notifications/notification-commands#request-location-updates) or an [intent](#sending-an-intent) was received by the app.
+
+### Location Sensor Settings
+
+ The settings allow you to adjust the required accuracy for the location to be reported to Home Assistant. Each location report received from Google contains reported accuracy, sometimes this number can be very high or low depending on certain environmental conditions. Typically the higher the number the more inaccurate the report is. You can adjust this setting independently from Background Location, Location Zone and Single Accurate Location. This will allow you to get faster zone detection while also being accurate when the app is in the background. The default value is `200` and in most use cases this will not need to be changed however you may find during [troubleshooting](/docs/troubleshooting/faqs#location-is-not-updating-in-android-app) that some reports are being skipped. In those cases you can adjust this number to go higher in order to capture those skipped reports.
+ 
+  The Single Accurate Location sensor allows you to adjust the minimum time between updates to be sent to your server, the default is set to 1 minute (60000 milliseconds). The Single Accurate Location sensor also has a setting that allows you to include location updates as part of sensor update, note this may result in excessive location results when enabled. Typically you will not want to adjust these settings.
 
 ### High accuracy mode
 
