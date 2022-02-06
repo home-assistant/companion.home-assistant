@@ -205,17 +205,17 @@ Possible states for `app_standby_bucket` sensor (please refer to the API linked 
 
 ## Audio Sensors
 ![Android](/assets/android.svg) <br />
-These sensors use the [AudioManager](https://developer.android.com/reference/kotlin/android/media/AudioManager?hl=en) so the state will represent the ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. The sensor will update any time the ringer mode on the device has changed. There are also additional attributes that trigger updates as mentioned below:
+These sensors use the [AudioManager API](https://developer.android.com/reference/kotlin/android/media/AudioManager?hl=en) to retrieve their state. Look at the table below to find out more about each sensor including how often they update.
 
 | Sensor | Description |
 | --------- | --------- |
-| `audio_mode` | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `in_call`, `in_communication` or `unknown` |
-| `is_headphones` | Boolean value if headsets or headphones are plugged in, will update if device detects them. |
+| `audio_mode` | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `in_call`, `in_communication` or `unknown`. This sensor will update during the normal interval. |
+| `is_headphones` | Boolean value if headsets or headphones are plugged in, will update as soon as the device detects the change. |
 | `is_mic_muted` | Boolean value if the microphone is currently muted, Android 6.0+ will update as this value changes. |
-| `is_music_active` | Boolean value if the device is actively playing music. |
+| `is_music_active` | Boolean value if the device is actively playing music, this sensor will update during the normal interval. |
 | `is_speakerphone_on` | Boolean value if the device speakerphone is enabled, Android 6.0+ will update as this value changes. |
-| `ringer_mode` | The ringer mode on the device, possible values are `normal`, `vibriate` or `silent` |
-| `volume_level_*` | The current device volume level for the given volume attributes: `alarm`, `call`, `music`, `ring` |
+| `ringer_mode` | The ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. This sensor will update as soon as the ringer mode changes. |
+| `volume_level_*` | The current device volume level for the given volume attributes: `alarm`, `call`, `music`, `ring`. These sensors will update during the normal interval. |
 
 
 ## Battery Sensors
