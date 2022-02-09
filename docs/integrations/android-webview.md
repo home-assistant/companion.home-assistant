@@ -35,5 +35,8 @@ The ![Android](/assets/android.svg) Android app has the ability to keep screen o
 
 This feature may also be controlled by Notification command, [see details](https://companion.home-assistant.io/docs/notifications/notification-commands#screen-on).
 
+## Pinch To Zoom
+The ![Android](/assets/android.svg) Android app has the ability to enable Pinch-To-Zoom to allow multi-touch zoom by enabling corresponding setting in Companion App Configuration. 
+
 ## Autoplay Video
 The ![Android](/assets/android.svg) Android app has the ability to autoplay videos when you load the more info panel. Some devices may already do this by default but others may require this setting by enabling it in Companion App Configuration. Enabling this setting may increase data usage unexpectedly, proceed with caution.
