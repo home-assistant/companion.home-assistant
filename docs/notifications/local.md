@@ -9,7 +9,7 @@ Local Push uses the [WebSocket API](https://developers.home-assistant.io/docs/ap
 | -------- | ------- |
 | ![iOS](/assets/iOS.svg) | 2021.7 |
 | ![macOS](/assets/macOS.svg) | 2021.7 |
-| ![Android](/assets/android.svg) | <span class='beta'>BETA</span> |
+| ![Android](/assets/android.svg) | 2022.2 |
 
 :::info
 Local Push requires HA core-2021.6 or later in combination with a supported platform above.
