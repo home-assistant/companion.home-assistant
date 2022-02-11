@@ -38,6 +38,11 @@ If you have previously read the [sounds documentation](sounds.md) this syntax sh
 For **CarPlay** users, it's also worth mentioning that critical notifications are the only ones that can appear on the car's built-in display, making them very useful if you want to know when something critical happens while you're driving.
 
 ## ![Android](/assets/android.svg)
+
+:::info
+The below options will only impact when [local push notifications](local.md) are not used. If you are on the minimal version you do not need to worry about this.
+:::
+
 For Android, notifications will appear immediately in most cases. However, in some cases (such as phone being stationary or when screen has been turned off for prolonged period of time), default notifications will not ring the phone until screen is turned on.
 
 To override that behavior, set `priority: high` and `ttl: 0`.
