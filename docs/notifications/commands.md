@@ -28,7 +28,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_screen_on` | Turn on the device screen. |
-| `command_update_sensors` | Updates all enabled sensors, if the state changed since the last update. <span class="beta">BETA</span><br /> |
+| `command_update_sensors` | Updates all enabled sensors, if the state changed since the last update. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
 | `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. |
 | `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
@@ -202,7 +202,7 @@ automation:
             group: "EXTRA_CONFIG_JSON:%7B%22push%22%3A%7B%22set%22%3A%7B%22widgetCustom0._.config.upper_text%22%3A%22Hi%22%7D%7D%7D:urlencoded"
 ```
 
-<span class='beta'>BETA</span> Similarly to using urlencoding, you can add specific types to your intent extra. Your values will then be converted according to the type you specified. Make sure the type conversion is possible/meaningful.
+Similarly to using urlencoding, you can add specific types to your intent extra. Your values will then be converted according to the type you specified. Make sure the type conversion is possible/meaningful.
 
 Currently supported types are:
 
@@ -391,7 +391,7 @@ automation:
 ```
 
 ## Update Sensors
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)<br />
 
 The app will check all enabled sensors for an update and if the state has changed since the last update it will send over the update. Check [sensor](/docs/core/sensors) documentation for more details on sensors.
 

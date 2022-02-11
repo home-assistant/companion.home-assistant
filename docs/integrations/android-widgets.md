@@ -5,7 +5,6 @@ id: 'android-widgets'
 
 The ![Android](/assets/android.svg) Android app allows the user to create widgets on the home screen so the user can perform a variety of actions like execute a service call, display the state of an entity or even render a template. You can add the widget like you normally would for any app depending on your devices launcher. The widget will not work when Data Saver is enabled, you will also need to ensure that background data for the app is enabled. If you notice that a widget is no longer working try to recreate it. Widgets can also be edited by navigating to Companion App > Manage Widgets, if you are on Android 12 you can also edit the widget by long pressing it and clicking on the edit icon.
 
-<span class='beta'>BETA</span><br />
 Widgets can also be added from the Manage Widgets settings page, as long as the device supports it.
 
 ## Camera
