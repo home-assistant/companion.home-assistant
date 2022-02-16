@@ -87,15 +87,15 @@ To fix this change the location permission for the Home Assistant App to "Always
 5.  Log back into the Android app. If you have more than 1 device, make sure to rename the device during onboarding.
 
 
-## Location is not updating in Android app
-![Android](/assets/android.svg) If you find that location updates are not coming in here are a few things to check.
+## Device Tracker is not updating in Android app
+![Android](/assets/android.svg) If you find that the device tracker is not updating as you would expect follow the below steps to ensure nothing has changed. If the below steps do not work then continue looking at the logs mentioned just below the steps.
 
 1.  Ensure the app has location permissions granted, all the time. (Users on Android 12 will need to ensure Precise location is given during the prompt)
 2.  Ensure that location (GPS) is enabled on your device.
 3.  Turn off battery optimizations for the app.
 4.  Under [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors ensure that the following Location Sensors are enabled: Background Location, Location Zone and Single Accurate Location
 5.  Turn on unrestricted data for the Android app. (Samsung users will need to disable data saver for Home Assistant as well.)
-6.  Check that background access setting shows the app has proper access under in [Configuration](https://my.home-assistant.io/redirect/config/) Companion App.
+6.  Check that the background access setting shows the app has proper access under in [Configuration](https://my.home-assistant.io/redirect/config/) Companion App.
 
 If you are still seeing location issues then you may find it helpful to use the [crash logs](#android-crash-logs) to determine whats going on as we report the entire location decision making process there. When you look at the logs pay attention to the lines that contain `LocBroadcastReceiver` to follow the decisions.  Below is an example of what you can expect to see to ensure that location updates are coming to the phone.  The app still has a decision making process to ensure we get a valid location to actually send back.
 
