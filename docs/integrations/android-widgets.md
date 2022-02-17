@@ -40,7 +40,7 @@ This widget will let the user control any media player on their home screen. The
 2.  Scroll down to Home Assistant in the widget list
 3.  Drag the Media Player widget to an open space on the home screen
 4.  Enter the Entity ID you wish to control
-5.  If needed hide the Seek/Skip buttons
+5.  If needed hide the Seek/Skip buttons, or show the Volume buttons <span class="beta">BETA</span>
 6.  Supply a label for the widget
 7.  Save the widget
 
