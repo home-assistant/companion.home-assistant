@@ -9,6 +9,11 @@ id: 'android-webview'
 ## Autoplay Video
 The ![Android](/assets/android.svg) Android app has the ability to autoplay videos when you load the more info panel. Some devices may already do this by default but others may require this setting by enabling it in Companion App Configuration. Enabling this setting may increase data usage unexpectedly, proceed with caution.
 
+## Keep screen On
+The ![Android](/assets/android.svg) Android app has the ability to keep screen on while webview activity is active by enabling corresponding setting in Companion App Configuration. This lets your device’s screen stay on indefinitely and ignore the Android built-in Sleep settings.
+
+This feature may also be controlled by Notification command, [see details](https://companion.home-assistant.io/docs/notifications/notification-commands#screen-on).
+
 ## Links
 
 The ![Android](/assets/android.svg) Android app has the ability to intercept certain types of links to allow the user to directly launch another app found on the device (or take the user to install the app if not found). Users can also use the [Intent Scheme](https://developer.chrome.com/docs/multidevice/android/intents/#syntax) to perform any action that is supported by the app.
@@ -28,11 +33,6 @@ This example will launch the barcode scanning app ready to scan via the Intent s
   name: Scan
   url: "intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end"
 ```
-
-## Keep screen On
-The ![Android](/assets/android.svg) Android app has the ability to keep screen on while webview activity is active by enabling corresponding setting in Companion App Configuration. This lets your device’s screen stay on indefinitely and ignore the Android built-in Sleep settings.
-
-This feature may also be controlled by Notification command, [see details](https://companion.home-assistant.io/docs/notifications/notification-commands#screen-on).
 
 ## Pinch To Zoom
 The ![Android](/assets/android.svg) <span class="beta">BETA</span> Android app has the ability to enable Pinch-To-Zoom to allow multi-touch zoom by enabling corresponding setting in Companion App Configuration. 
