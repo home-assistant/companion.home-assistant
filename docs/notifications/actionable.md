@@ -123,6 +123,16 @@ With action set to `URI` you can also trigger the More Info panel for any entity
   uri: "entityId:sun.sun"
 ```
 
+<span class="beta">BETA</span> <br />
+
+You can also open the notification history when using the format `settings://notification_history`
+
+```yaml
+- action: "URI"
+  title: "Notification History"
+  uri: "settings://notification_history"
+```
+
 #### ![iOS](/assets/iOS.svg) specific
 
 You can also use application-launching URLs. For example, to make a telephone call:
