@@ -66,6 +66,9 @@ module.exports = {
       'troubleshooting/resetting',
       'troubleshooting/troubleshooting-integrations',
       'troubleshooting/more-help'
+    ],
+    'Gallery': [
+      'gallery/android'
     ]
   },
 };

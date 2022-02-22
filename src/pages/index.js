@@ -33,6 +33,9 @@ const features = [
           <br />
           <b><a href='/docs/troubleshooting/faqs'>Troubleshooting</a></b>
           {' '}If you need some help, this is a great place to start.
+          <br />
+          <b><a href='/docs/gallery/android'>Gallery</a></b>
+          {' '}Screenshots of the applications.
         </p>
       </>
     ),
