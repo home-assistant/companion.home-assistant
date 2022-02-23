@@ -105,6 +105,39 @@ automation:
           title: "turn_off"
 ```
 
+<span class='beta'>BETA</span><br />
+
+You can also adjust the advertise mode and transmit power of the BLE Transmitter. To adjust the Advertise mode you will need to set `title` to `ble_set_advertise_mode` and then set the `ble_advertise` parameter to either `ble_advertise_low_latency`, `ble_advertise_balanced` or `ble_advertise_low_power`
+
+```yaml
+automation:
+  - alias: Change Advertise Mode BLE transmitter
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_ble_transmitter"
+          title: "ble_set_advertise_mode"
+          data:
+            ble_advertise: "ble_advertise_balanced"
+```
+
+To adjust Transmit Power you will need to set `title` to `ble_set_transmit_power` and then set the `ble_transmit` parameter to either `ble_transmit_high`, `ble_transmit_medium`, `ble_transmit_low` or `ble_transmit_ultra_low`
+
+```yaml
+automation:
+  - alias: Change Transmit Power BLE transmitter
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_ble_transmitter"
+          title: "ble_set_transmit_power"
+          data:
+            ble_transmit: "ble_transmit_high"
+```
 
 ## Bluetooth
 
