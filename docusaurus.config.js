@@ -17,6 +17,7 @@ module.exports = {
       items: [
         { to: '/docs/getting_started', label: 'Docs', position: 'left' },
         { to: '/download', label: 'Download', position: 'left' },
+        { to: '/docs/gallery/android', label: 'Gallery', position: 'left' },
         { to: '/docs/troubleshooting/more-help', label: 'Support', position: 'left' },
         {
           href: 'https://www.github.com/home-assistant/iOS',
