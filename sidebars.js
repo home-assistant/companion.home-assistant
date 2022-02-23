@@ -68,4 +68,9 @@ module.exports = {
       'troubleshooting/more-help'
     ]
   },
+  gallery: {
+    'Gallery': [
+      'gallery/android'
+    ]
+  },
 };
