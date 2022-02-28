@@ -78,9 +78,7 @@ All sensors update during a periodic 15-minute interval and they will also updat
 
 <span class='beta'>BETA</span><br />
 
-You can get faster sensor updates when you enable "Faster Sensor Updates" by navigating to Companion App in [Configuration](https://my.home-assistant.io/redirect/config/). This will update any poll-based sensor every minute. Once you change this setting you will need to restart the app for the changes to take place. You may experience adverse affects on battery life, the below option will alleviate this.
-
-In addition you can enable "Faster Sensor Updates While Charging" to only receive faster updates if the device is charging, otherwise the updates will respect the schedule mentioned above. You will need to have the `is_charging` sensor enabled in order to use this feature.
+You can change the frequency of sensor updates by navigating to Companion App in [Configuration](https://my.home-assistant.io/redirect/config/) and select Sensor Update Frequency. You can select between Normal, Fast While Charging or Fast Always. Normal is the default mentioned in the previous paragraph. When set to Fast Always updates will come in every minute. When set to Fast While Charging updates will only come in every minute only while the device is charging, otherwise the default interval will be used. This option will require the `is_charging` sensor to be enabled. After changing this option you will need to restart the app.
 
 ### Sensor List
 
