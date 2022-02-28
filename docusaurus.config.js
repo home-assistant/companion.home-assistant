@@ -67,10 +67,7 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Home Assistant. Built with Docusaurus.`,
     },
-    image: 'img/default-social.png',
-    googleAnalytics: {
-      trackingID: 'UA-57927901-7'
-    }
+    image: 'img/default-social.png'
   },
   presets: [
     [
@@ -83,6 +80,9 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        googleAnalytics: {
+          trackingID: 'UA-57927901-7'
         },
       },
     ],
