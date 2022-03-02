@@ -34,10 +34,10 @@ If any devices or entities have been added to areas in Home Assistant, these are
 
 ### More details
 
-Long pressing any entity opens the more details screen. This screen contains more information on the state and when the entity was last updated. For lights, the following options are also given on the details screen, if the light supports it:
+Long pressing any entity opens the more details screen. This screen contains more information on the state and when the entity was last updated. The following options are given on the detail screen, depending on what is supported for the entity:
 
-- Brightness control
-- Color temperature control
+- `fan`: Speed control
+- `light`: Brightness control and Color temperature control
 
 ### Settings
 
