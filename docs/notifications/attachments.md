@@ -52,7 +52,7 @@ Please ensure your attachment meets the criteria below, otherwise it will not sh
 | Attachment Type  | Maximum file size | Allowed Formats | Supported Platform  |
 | :-------: | --------------- | ------------------|------------------------- |
 |    Image    | 10 MB    | JPEG, GIF, PNG          | ![Android](/assets/android.svg) Android & ![iOS](/assets/iOS.svg) |
-|   Video   | 50 MB   | MPEG, MPEG2, MPEG4, AVI   | ![iOS](/assets/iOS.svg) |
+|   Video   | 50 MB   | MPEG, MPEG2, MPEG4, AVI   | ![Android](/assets/android.svg) Android & ![iOS](/assets/iOS.svg) |
 |   Audio    | 5 MB  | AIFF, WAV, MP3, MPEG4 Audio          | ![iOS](/assets/iOS.svg) |
 
 ![iOS](/assets/iOS.svg) version 2021.5 or later will attempt to re-download larger files when opening the content if they exceeded the size.
@@ -67,10 +67,12 @@ You can use the following keys to add attachments. See supported media types abo
 | `image` | `/media/local/photo.jpg`<br /><br />`https://example.com/image.jpg` |
 | `audio` | `/media/local/audio.mp3`<br /><br />`https://example.com/audio.mp3` |
 
-When present, values will be used in the order of the table above. For example, you can specify a `video` and `image` and iOS will pick up the video while Android will pick up the image.
+When present, values will be used in the order of the table above. For example, you can specify a `audio` and `image` and iOS will pick up the audio while Android will pick up the image.
 
 :::info ![Android](/assets/android.svg) &nbsp; Notes:
 *   If you are setting the [`icon_url`](basic.md#notification-icon) and `image` property then only the image will be displayed on the device.
+*   If you are setting the `image`] and `video` property then only the video will be displayed on the device.
+*   Video will be shown as a series of frames captured from the video file.
 *   GIF will not be animated in notification shade
 :::
 
