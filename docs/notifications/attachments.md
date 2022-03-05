@@ -67,7 +67,7 @@ You can use the following keys to add attachments. See supported media types abo
 | `image` | `/media/local/photo.jpg`<br /><br />`https://example.com/image.jpg` |
 | `audio` | `/media/local/audio.mp3`<br /><br />`https://example.com/audio.mp3` |
 
-When present, values will be used in the order of the table above. For example, you can specify a `audio` and `image` and iOS will pick up the audio while Android will pick up the image.
+When present, values will be used in the order of the table above. For example, you can specify an `audio` and `image` and iOS will pick up the audio while Android will pick up the image.
 
 :::info ![Android](/assets/android.svg) &nbsp; Notes:
 *   If you are setting the [`icon_url`](basic.md#notification-icon) and `image` property then only the image will be displayed on the device.
