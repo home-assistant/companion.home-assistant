@@ -52,7 +52,7 @@ Please ensure your attachment meets the criteria below, otherwise it will not sh
 | Attachment Type  | Maximum file size | Allowed Formats | Supported Platform  |
 | :-------: | --------------- | ------------------|------------------------- |
 |    Image    | 10 MB    | JPEG, GIF, PNG          | ![Android](/assets/android.svg) Android & ![iOS](/assets/iOS.svg) |
-|   Video   | 50 MB   | MPEG, MPEG2, MPEG4, AVI   | ![Android](/assets/android.svg) Android & ![iOS](/assets/iOS.svg) |
+|   Video   | 50 MB   | MPEG, MPEG2, MPEG4, AVI   | ![Android](/assets/android.svg) Android <span class='beta'>BETA</span><br /> & ![iOS](/assets/iOS.svg) |
 |   Audio    | 5 MB  | AIFF, WAV, MP3, MPEG4 Audio          | ![iOS](/assets/iOS.svg) |
 
 ![iOS](/assets/iOS.svg) version 2021.5 or later will attempt to re-download larger files when opening the content if they exceeded the size.
