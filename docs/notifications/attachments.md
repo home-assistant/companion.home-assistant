@@ -71,8 +71,8 @@ When present, values will be used in the order of the table above. For example, 
 
 :::info ![Android](/assets/android.svg) &nbsp; Notes:
 *   If you are setting the [`icon_url`](basic.md#notification-icon) and `image` property then only the image will be displayed on the device.
-*   If you are setting the `image`] and `video` property then only the video will be displayed on the device.
-*   Video will be shown as a series of frames captured from the video file.
+*   If you are setting the `image` and `video` property then only the video will be displayed on the device.
+*   Video will be shown as a series of frames captured from the video file. It will not work well with videos that are < 10s long.
 *   GIF will not be animated in notification shade
 :::
 
