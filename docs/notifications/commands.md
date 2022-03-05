@@ -85,6 +85,10 @@ automation:
             tag: "android.intent.action.VIEW"
 ```
 
+<span class='beta'>BETA</span><br />
+
+In order to use the Intent Action `android.intent.action.CALL` you will also need to grant the app Phone permissions. If not granted the app will direct you to the app info screen to grant the permissions along with a toast message letting you know the missing permissions.
+
 ## BLE Beacon Transmitter
 
 ![Android](/assets/android.svg)
