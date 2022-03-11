@@ -240,24 +240,25 @@ When the notification action is performed, the `mobile_app_notification_action` 
 ### Blocking Behaviour
 The above example will wait, until the notification action is performed. This might lead to unexpected behaviour, depending on the [automation mode](https://www.home-assistant.io/docs/automation/modes/) of the script. For "single" mode, this will lead to a situation, where the script is not executed again if the previous notification action has not yet been performed. For "queue" and "parallel" this will happen if a certain number of notifications have not yet been performed. For "restart" mode it means, that as soon as the script is triggered again notification actions of the older instances of the script will not fire the coresponding action. Depending on the use case, there are several options:
 
--   In Android you can listen to the event that is fired when the notification is closed, and handle it accordingly. This can be achieved by adding the following lines
-```
-      - platform: event
-        event_type: mobile_app_notification_cleared
-        event_data:
-          action_1_key: '{{ action_open }}'
-```
-and 
-```
-    - conditions: "{{ wait.trigger.event.event_type == "mobile_app_notification_cleared" }}"
-      sequence:
-          - service: persistent_notification.create
-            data:
-              title: App notification result
-              message: The notification was closed
-```
 -   You can use a [time out](https://www.home-assistant.io/docs/scripts/#wait-timeout) to allow new executions of the script. However, this will lead to dangling notifications on your mobile phone. 
--   It is possible to [clear notifications](https://companion.home-assistant.io/docs/notifications/notifications-basic#clearing) which can bei combined with timeouts and parallel execution mode to achieve good results. 
+-   It is possible to [clear notifications](https://companion.home-assistant.io/docs/notifications/notifications-basic#clearing) which can be combined with timeouts and parallel execution mode to achieve good results. 
+-   In Android you can listen to the [notification cleared event](https://companion.home-assistant.io/docs/notifications/notification-cleared/event) that is fired when the notification is closed, and handle it accordingly. This can be achieved by adding the following lines
+  ```
+        - platform: event
+          event_type: mobile_app_notification_cleared
+          event_data:
+            action_1_key: '{{ action_open }}'
+  ```
+  and 
+  ```
+      - conditions: "{{ wait.trigger.event.event_type == "mobile_app_notification_cleared" }}"
+        sequence:
+            - service: persistent_notification.create
+              data:
+                title: App notification result
+                message: The notification was closed
+  ```
+  Keep in mind that the event will not be fired when the Home Assistant app crashes or is closed, so a timeout should still be considered.
 
 ### Catch All Triggers
 You can also create automations that trigger for any notification action. For example, if you wanted to include a `SILENCE` action on a variety of notifications, but only handle it in one place:
