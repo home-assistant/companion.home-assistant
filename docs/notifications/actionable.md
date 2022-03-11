@@ -19,6 +19,11 @@ Some useful examples of actionable notifications:
 :::caution Version Compatibility
 Category-based notifications on iOS and macOS are deprecated. See the [migration guide](#migrating-from-categories) for more info on converting existing notifications.
 :::
+
+:::info Apple Watch
+Actions on watchOS require the Watch App to be installed. You can install it the system Watch app.
+:::
+
 ## Building actionable notifications
 
 You can include an `actions` array in your service call.
