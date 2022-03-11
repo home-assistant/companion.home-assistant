@@ -386,6 +386,8 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
 
+![Android](/assets/android.svg) <span class='beta'>BETA</span> all attributes will be lowercase and all spaces are replaced with an underscore.
+
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
 
 ## High Accuracy Mode
