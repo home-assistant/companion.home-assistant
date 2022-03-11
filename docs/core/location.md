@@ -119,7 +119,7 @@ Restart Home Assistant and then the iOS app. It will then begin using iBeacons _
 
 If multiple servers are connected to an iOS/mac app, all available servers will receive the the same location updates.
 
-![iOS](/assets/iOS.svg)<span class="beta">BETA</span>
+![iOS](/assets/iOS.svg)
 In iOS-2022.2 & core-2022.2 or later, you can configure how locations are sent on a per-server basis. In App Configuration, open the server's settings and change Location Sent setting under Privacy. Options available:
 
 - **Exact** sends the GPS coordinates of your device.

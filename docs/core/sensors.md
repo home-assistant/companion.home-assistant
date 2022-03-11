@@ -13,7 +13,7 @@ The sensors provided by the companion app are:
 
 If multiple servers are connected to an iOS or macOS app, currently the sensor settings will be common for all connected servers.
 
-![iOS](/assets/iOS.svg)<span class="beta">BETA</span>
+![iOS](/assets/iOS.svg)
  In iOS-2022.2 or later, you can configure whether sensors are sent on a per-server basis. In App Configuration, open the server's settings and change Sensors Sent setting under Privacy. Options available:
 
 - **All** sends all enabled sensors.
