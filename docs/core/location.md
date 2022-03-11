@@ -119,6 +119,13 @@ Restart Home Assistant and then the iOS app. It will then begin using iBeacons _
 
 If multiple servers are connected to an iOS/mac app, all available servers will receive the the same location updates.
 
+![iOS](/assets/iOS.svg)<span class="beta">BETA</span>
+In iOS-2022.2 & core-2022.2 or later, you can configure how locations are sent on a per-server basis. In App Configuration, open the server's settings and change Location Sent setting under Privacy. Options available:
+
+- **Exact** sends the GPS coordinates of your device.
+- **Zone Name Only** sends just the zone name (or `not_home`), which can be useful for presence detection without exposing location. Only zones for the server in question are considered.
+- **Never** will not send GPS coordinates nor zone information.
+
 ## Sending an intent
 
 ![Android](/assets/android.svg) Sending an intent is an advanced feature intended for users who are familiar with Android automation apps. Users can request a location update by sending an intent using an app such as Tasker or any other automation app that allows the user to send an intent. You will need to make sure that the app is running in the [background](/docs/troubleshooting/faqs#location-is-not-updating-in-android-app) and that the Single Accurate Location sensor is enabled for the updates to trigger properly.
