@@ -51,7 +51,7 @@ So to accomodate this and still have encryption for external access, we use a re
 In your configuration.yaml file the following changes are needed:
 ```
 homeassistant:
-  external_url: my-home.duckdns.org # Note we no longer have a :8123 Port here
+  external_url: https://my-home.duckdns.org # Note we no longer have a :8123 Port here
 
 http:
   use_x_forwarded_for: true     # To ensure HA understands that client requests come via reverse proxy
