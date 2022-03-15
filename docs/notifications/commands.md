@@ -322,6 +322,24 @@ automation:
           title: "turn_off"
 ```
 
+<span class='beta'>BETA</span><br />
+
+You can also adjust the update interval of high accuracy mode by following the example below. You must send a valid value higher than `5` anything else will result in the notification posting to the device. After performing this command high accuracy mode will restart which can take a few seconds to complete.
+
+```yaml
+automation:
+  - alias: Set high accuracy update interval
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_high_accuracy_mode"
+          title: "high_accuracy_set_update_interval"
+          data:
+            high_accuracy_update_interval: 60
+```
+
 ## Media
 
 ![Android](/assets/android.svg)
