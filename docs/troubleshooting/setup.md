@@ -78,10 +78,10 @@ This is normally due to having a camera entity present on a Lovelace picture ent
 To fix this change the location permission for the Home Assistant App to "Always" in iOS Settings>Privacy>Location Services.
 
 ## Starting fresh with the Android app
-![Android](/assets/android.svg) At times you may need to start fresh with the Android app as a new feature may not be working properly or something odd happens.
+![Android](/assets/android.svg) At times you may need to start fresh with the Android app as a new feature may not be working properly or something odd happens. Make sure to follow each step precisely without skipping anything.
 
 1.  Check that Home Assistant Core, the [Android app](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) and [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview) are up to date.
-2.  Clear Storage or App data in Android app.
+2.  Clear Storage or App data in Android app. Do not assume it is safe to uninstall and reinstall as that triggers auto-backup which we are trying to avoid here.
 3.  In Home Assistant navigate to the [Integrations Dashboard](https://my.home-assistant.io/redirect/integrations/). Remove the mobile app entry for the device in question. If you see more than 1 remove them all.
 4.  Restart Home Assistant.
 5.  Log back into the Android app. If you have more than 1 device, make sure to rename the device during onboarding.
