@@ -131,7 +131,7 @@ automations:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           title: "The house is on fire and the cat's stuck in the dryer!"
-          message: "TTS"
+          message: TTS
           data:
             ttl: 0
             priority: high
