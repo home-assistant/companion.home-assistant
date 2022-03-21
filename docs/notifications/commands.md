@@ -85,7 +85,6 @@ automation:
             tag: "android.intent.action.VIEW"
 ```
 
-<span class='beta'>BETA</span><br />
 
 In order to use the Intent Action `android.intent.action.CALL` you will also need to grant the app Phone permissions. If not granted the app will direct you to the app info screen to grant the permissions along with a toast message letting you know the missing permissions.
 
@@ -109,7 +108,6 @@ automation:
           title: "turn_off"
 ```
 
-<span class='beta'>BETA</span><br />
 
 You can also adjust the advertise mode and transmit power of the BLE Transmitter. To adjust the Advertise mode you will need to set `title` to `ble_set_advertise_mode` and then set the `ble_advertise` parameter to either `ble_advertise_low_latency`, `ble_advertise_balanced` or `ble_advertise_low_power`
 
