@@ -35,10 +35,10 @@ This example will launch the barcode scanning app ready to scan via the Intent s
 ```
 
 ## Pinch To Zoom
-The ![Android](/assets/android.svg) <span class="beta">BETA</span> Android app has the ability to enable Pinch-To-Zoom to allow multi-touch zoom by enabling corresponding setting in Companion App Configuration. 
+The ![Android](/assets/android.svg) Android app has the ability to enable Pinch-To-Zoom to allow multi-touch zoom by enabling corresponding setting in Companion App Configuration. 
 
 ## Remote Debugging
-The ![Android](/assets/android.svg) <span class="beta">BETA</span> Android app has the ability to enable [chrome remote debugging](https://developer.chrome.com/docs/devtools/remote-debugging/) to allow for easier troubleshooting of front end issues. You can enable this setting in Companion App Configuration.
+The ![Android](/assets/android.svg) Android app has the ability to enable [chrome remote debugging](https://developer.chrome.com/docs/devtools/remote-debugging/) to allow for easier troubleshooting of front end issues. You can enable this setting in Companion App Configuration.
 
 ## Swipe Gestures
 

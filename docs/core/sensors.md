@@ -82,8 +82,6 @@ Each ![Android](/assets/android.svg) sensor below can be enabled by navigating t
 
 All sensors update during a periodic 15-minute interval and they will also update if other certain conditions are met. Read about each sensor below to understand how often to expect updates. During the 15-minute update interval a low priority foreground notification is temporarily created to prevent the Android system from halting the worker. This notification does not make a sound unless the user has installed a third-party app that intercepts notifications and decides to make a sound. If you are on Android 8.0+ you are free to minimize and/or turn off the notification channel for the `SensorWorker`.
 
-<span class='beta'>BETA</span><br />
-
 You can change the frequency of sensor updates by navigating to Companion App in [Configuration](https://my.home-assistant.io/redirect/config/) and select Sensor Update Frequency. You can select between Normal, Fast While Charging or Fast Always. Normal is the default mentioned in the previous paragraph. When set to Fast Always updates will come in every minute. When set to Fast While Charging updates will only come in every minute only while the device is charging, otherwise the default interval will be used. After changing this option you will need to restart the app.
 
 ### Sensor List
@@ -387,7 +385,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span> all attributes will be lowercase and all spaces are replaced with an underscore.
+![Android](/assets/android.svg) all attributes will be lowercase and all spaces are replaced with an underscore.
 
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
 
