@@ -128,7 +128,6 @@ With action set to `URI` you can also trigger the More Info panel for any entity
   uri: "entityId:sun.sun"
 ```
 
-<span class="beta">BETA</span> <br />
 
 You can also open the notification history when using the format `settings://notification_history`
 

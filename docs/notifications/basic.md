@@ -60,7 +60,7 @@ When tapping on a notification, you can choose to open a URL, which can fall int
 - For a particular action in Actionable Notifications, see [its documentation](/docs/notifications/actionable-notifications).
 - ![Android](/assets/android.svg) An application using `app://<package name>` where `<package name>` is replaced with the actual package you wish to open.
 - ![Android](/assets/android.svg) The More Info panel of an entity using `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`.
-- ![Android](/assets/android.svg) <span class="beta">BETA</span> You can also open the notification history by using `settings://notification_history`
+- ![Android](/assets/android.svg) You can also open the notification history by using `settings://notification_history`
 
 For relative URLs, you can open a lovelace view in the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view or a lovelace dashboard in the format `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards/) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard.
 
