@@ -477,6 +477,7 @@ On Android you can control the devices volume level by sending `message: command
 | ------- | ----------- |
 | `alarm_stream` | Set the volume level for the alarm stream. |
 | `call_stream` | Set the volume level for the voice call stream. <span class='beta'>BETA</span> |
+| `dtmf_stream` | Set the volume level for DTMF tones. <span class='beta'>BETA</span> |
 | `music_stream` | Set the volume level for the music stream. |
 | `notification_stream` | Set the volume level for the notification stream. |
 | `ring_stream` | Set the volume level for the ring stream. |
