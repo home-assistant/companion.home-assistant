@@ -42,4 +42,4 @@ The ![Android](/assets/android.svg) Android app has the ability to enable [chrom
 
 ## Swipe Gestures
 
-The ![Android](/assets/android.svg) Android app has the ability to launch the [quick bar](https://www.home-assistant.io/docs/tools/quick-bar/) by detecting a 3 finger swipe down gesture. Initially the entity filter will be shown, you can switch to the command palette by typing `>` at the start of the input. The quick bar can be closed by simply pressing the back button. The quick bar can only be launched when inside the webview after you have logged in.
+The ![Android](/assets/android.svg) Android app has the ability to launch the [quick bar](https://www.home-assistant.io/docs/tools/quick-bar/) by detecting a 3 finger swipe down gesture. Initially the entity filter will be shown, you can switch to the command palette by typing `>` at the start of the input. The quick bar can only be launched when inside the webview after you have logged in.
