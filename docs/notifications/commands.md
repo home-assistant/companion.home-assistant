@@ -338,6 +338,25 @@ automation:
             high_accuracy_update_interval: 60
 ```
 
+## Launch App
+
+![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+
+If you would like to simply just launch an application you can use `message: command_launch_app` to launch any application installed on your device. You must send the package name you wish to open using the `package_name` parameter, if not set then you will see the notification post as normal. If the application is not installed on the device then the user will be directed to the Google Play Store to install the application. This command requires the Draw Over Other Apps permission, the first time you send this command you will be directed to granting this special permission to the Home Assistant application.
+
+```yaml
+automation:
+  - alias: Launch app
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_launch_app"
+          data:
+            package_name: "com.twitter.android"
+```
+
 ## Media
 
 ![Android](/assets/android.svg)
