@@ -476,9 +476,11 @@ On Android you can control the devices volume level by sending `message: command
 | `channel` | Description |
 | ------- | ----------- |
 | `alarm_stream` | Set the volume level for the alarm stream. |
+| `call_stream` | Set the volume level for the voice call stream. <span class='beta'>BETA</span> |
 | `music_stream` | Set the volume level for the music stream. |
 | `notification_stream` | Set the volume level for the notification stream. |
 | `ring_stream` | Set the volume level for the ring stream. |
+| `system_stream` | Set the volume level for the system stream. <span class='beta'>BETA</span> |
 | Anything else | The notification will post as a normal notification and the command will not process. |
 <br />
 
