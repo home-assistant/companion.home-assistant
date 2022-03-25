@@ -322,7 +322,7 @@ automation:
 
 <span class='beta'>BETA</span><br />
 
-You can also adjust the update interval of high accuracy mode by following the example below. You must send a valid value higher than `5` anything else will result in the notification posting to the device. After performing this command high accuracy mode will restart which can take a few seconds to complete.
+You can also adjust the update interval of high accuracy mode by following the example below. You must send a valid value that cannot be less than `5`. Anything else will result in the notification posting to the device. After performing this command high accuracy mode will restart which can take a few seconds to complete.
 
 ```yaml
 automation:
