@@ -408,7 +408,7 @@ These sensors will reflect various states from the [Keyguard Manager](https://de
 ## Notification Sensors
 ![Android](/assets/android.svg)<br />
 
-Note: Sensors with Allow Lists will not appear as new entities in Home Assistant until one of the allowed apps recieves a new notification.
+Note: Sensors with Allow Lists will not appear as new entities in Home Assistant until one of the allowed apps receives a new notification.
 
 ### Last Notification
 
