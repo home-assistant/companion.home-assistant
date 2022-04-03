@@ -432,7 +432,7 @@ automation:
         data:
           message: "Motion Detected"
           data:
-            icon_url: "https://github.com/home-assistant/home-assistant-assets/blob/master/logo-round-192x192.png?raw=true"
+            icon_url: "https://github.com/home-assistant/assets/blob/master/logo/logo-small.png?raw=true"
 ```
 
 ### Text To Speech Notifications
