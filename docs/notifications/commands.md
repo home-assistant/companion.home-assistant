@@ -28,7 +28,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_screen_on` | Turn on the device screen. |
-| `command_persistent_connection` | Toggle persistent connection mode. [see below](#persistent) for the available modes. |
+| `command_persistent_connection` | <span class='beta'>BETA</span> Toggle persistent connection mode. [see below](#persistent) for the available modes. |
 | `command_update_sensors` | Updates all enabled sensors, if the state changed since the last update. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
 | `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. |
@@ -465,6 +465,7 @@ automation:
 
 ## Persistent
 
+<span class='beta'>BETA</span>
 ![Android](/assets/android.svg)
 
 On Android you can toggle the persistent connection mode using a notification by sending `message: command_persistent_connection` and passing `data -> persistent: (always, home_wifi, screen_on, never)`
