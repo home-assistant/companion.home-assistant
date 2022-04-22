@@ -52,7 +52,7 @@ const features = [
           <img class="download-badge" width="175" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1492214400&h=3ef4307fa479838e52fe9bd8bd17913b" alt="Download on the App Store" />
         </a>
         <br />
-        <a href="https://f-droid.org/en/packages/io.homeassistant.companion.android.minimal" style={{ display: 'inline-block', width: '200px' }}>
+        <a href="https://f-droid.org/packages/io.homeassistant.companion.android.minimal" style={{ display: 'inline-block', width: '200px' }}>
           <img class="download-badge" width="200" src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" />
         </a>
         <br />
