@@ -53,7 +53,7 @@ const features = [
         </a>
         <br />
         <a href="https://f-droid.org/en/packages/io.homeassistant.companion.android.minimal" style={{ display: 'inline-block', width: '200px' }}>
-          <img class="download-badge" width="175" src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" />
+          <img class="download-badge" width="200" src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" />
         </a>
         <br />
         <a href="https://sidequestvr.com/app/6427/home-assistant" style={{ display: 'inline-block', width: '200px' }}>
