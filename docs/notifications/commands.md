@@ -145,7 +145,7 @@ automation:
 
 ## Beacon Monitor
 
-![Android](/assets/android.svg)
+![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
 
 You can turn the Beacon Monitor on or off using `message: command_beacon_monitor` with the `title` being either `turn_off` or `turn_on`. If `title` is blank, not set or not one of the above expected values then the notification will post as normal.
 
