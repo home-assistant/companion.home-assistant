@@ -7,7 +7,9 @@ The ![Android](/assets/android.svg) Android app allows the user to create widget
 
 Widgets can also be added from the Manage Widgets settings page, as long as the device supports it.
 
-## Camera
+## Available widgets
+
+### Camera
 
 This widget will update every hour or when it is tapped. The widget will just contain the latest snapshot from the selected camera.
 
@@ -17,7 +19,7 @@ This widget will update every hour or when it is tapped. The widget will just co
 4.  Enter the Entity ID of the camera you wish to use
 5.  Save the widget
 
-## Entity State
+### Entity State
 
 This widget will update every 30 minutes or when it is tapped. This widget will allow the user to select any entity they wish to get the state and an attribute from as well as setting the text size and adding a custom separator between the state and attributes.
 
@@ -32,7 +34,7 @@ This widget will update every 30 minutes or when it is tapped. This widget will 
 9.  Save the widget
 
 
-## Media Player
+### Media Player
 
 This widget will let the user control any media player on their home screen. There are a couple of options available to hide or show the seek and skip buttons.
 
@@ -44,7 +46,7 @@ This widget will let the user control any media player on their home screen. The
 6.  Supply a label for the widget
 7.  Save the widget
 
-## Service Call
+### Service Call
 
 This widget will make the service call when it is tapped. The user will see a green check mark if the call was successful and red if not. Red would indicate either the widget was not setup properly, the Home Assistant server is unavailable or some other error that would be indicated in the Home Assistant log.
 
@@ -57,14 +59,22 @@ This widget will make the service call when it is tapped. The user will see a gr
 7.  Save the widget
 
 
-## Template
+### Template
 
 This widget will display any text that you wish to show in a widget using [Home Assistants templating feature](https://www.home-assistant.io/docs/configuration/templating/). This is an advanced feature but allows the user to display a wide variety of data. The widget will render the templates live below the text field so you can preview what it would look like. 
 
-You may also use HTML to format the text displayed such as adding a new line, making something bold or changing the color. <br /><br />
+You may also use HTML to format the text displayed such as adding a new line (`<br>`), making something bold (`<b>`) or large (`<big>`) or changing the color (`<font color='#03a9f4'>`).
 
 1.  Long press on any open space in the home screen
 2.  Scroll down to Home Assistant in the widget list
 3.  Drag the Template widget to an open space on the home screen
 4.  Fill in the template data and observe the rendering below
 5.  Save the widget
+
+## Theming
+
+Most widgets allow selecting a theme to use. The available themes depend on your device and the specific widget. Possible options are:
+
+ - *Dynamic color*: uses the colors from your device and wallpaper to make the widget fit in with your home screen and device. This theme is only available on supported devices running Android 12 or newer.
+ - *Light/dark theme*: uses your device theme to make the widget fit in with your apps.
+ - *Transparent*: removes the widget background and allows you to set a text/icon color, to make the widget stand out less.
