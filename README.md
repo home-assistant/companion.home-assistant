@@ -7,7 +7,7 @@ This is the source for the [Home Assistant Companion documentation](https://comp
 
 ## Updating the docs
 
-Documentation is built using [Docusaurus](https://v2.docusaurus.io/).
+Documentation is built using [Docusaurus](https://docusaurus.io/).
 
 ## Editing on GitHub
 
