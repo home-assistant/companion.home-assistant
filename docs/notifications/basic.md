@@ -442,7 +442,7 @@ automation:
 You can change how much of a notification is visible on the lock screen by using the `visibility` option. Possible values for this property are:
 
  - `public`: always show all notification content
- - `private` (default): visibility depends on your setting in the system Settings app > Notifications; if the option to show sensitive notifications when locked is enabled all notification content will be shown, otherwise only basic information such as the icon an app name are visible
+ - `private` (default): visibility depends on your setting in the system Settings app > Notifications; if the option to show sensitive notifications when locked is enabled all notification content will be shown, otherwise only basic information such as the icon and app name are visible
  - `secret`: always hide notification from lock screen
 
 :::info
