@@ -446,7 +446,7 @@ You can change how much of a notification is visible on the lock screen by using
  - `secret`: always hide notification from lock screen
 
 :::info
-When you change the lock screen visibility _specifically for Home Assistant notifications_ in the system settings to only hide sensitive notification content when locked, this will also treat any `public` notifications as `private` and you will not be able to see the contents on a locked device.
+When you change the lock screen visibility _specifically for Home Assistant notifications_ in the system settings to hide sensitive notification content when locked, this will also treat any `public` notifications as `private` and you will not be able to see the contents on a locked device.
 :::
 
 ```yaml
