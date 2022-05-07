@@ -274,9 +274,11 @@ There are also settings to alter:
 A Transmit setting toggle will start or stop the BLE transmissions - this setting is also toggled via the notification command that can turn the services on and off. 
 
 ![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
-The Beacon Distance sensor shows the distance to the closest iBeacon. In addition there are also all iBeacons listed which are in range in the attributes. This sensor will update when there is a new distance measurement available.
+The Beacon Monitor shows scans for BLE iBeacons. The state of the sensor shows if the app is monitoring or not. All beacons in range and their distance are listed in the attributes. This sensor will update when there is a new distance measurement available.
 
 Settings are available to change scan period and interval which can be useful to preserve battery life. The setting Filter Iterations and Filter RSSI Multiplier can be adjusted to archive more stable measurements. All of these setting will affect the responsiveness of the sensor.
+
+A Monitor setting toggle will start or stop the scans - this setting can also be adjusted via the notification command.
 
 ## Cellular Provider Sensor
 The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
