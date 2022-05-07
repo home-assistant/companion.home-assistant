@@ -104,6 +104,7 @@ You can change the frequency of sensor updates by navigating to Companion App in
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
+| `sensor.high_accuracy_update_interval` | None | The update interval for high accuracy mode on the device. <span class='beta'>BETA</span> |
 | [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
 | [Mobile Data Sensors](#mobile-data-sensors) | None | Several different sensors around the state of mobile data. |
 | [Notification Sensors](#notification-sensors) | See Below | Details about the notifications on the device. |
@@ -396,6 +397,8 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 ## High Accuracy Mode
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
 
+## High Accuracy Update Interval
+![Android](/assets/android.svg) <span class='beta'>BETA</span> This sensors state will reflect the update interval for the device in seconds for [high accuracy mode](location.md#high-accuracy-mode). This sensor will update as soon as the value changes either manaully or by the [notification command](../notifications/commands.md#high-accuracy-mode).
 
 ## Interactive Sensor
 ![Android](/assets/android.svg) This sensors state will reflect if the device is in an interactive state. This is typically when the screen comes on and off but may vary from device to device. This sensor will update as soon state changes are detected, data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).

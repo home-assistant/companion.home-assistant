@@ -626,6 +626,13 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
+      <td><a href="/docs/core/sensors#high-accuracy-update-interval">High Accuracy Update Interval</a></td>
+      <td>✅</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#interactive-sensor">Interactive</a></td>
       <td>✅</td>
       <td>✅</td>
