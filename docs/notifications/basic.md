@@ -435,6 +435,33 @@ automation:
             icon_url: "https://github.com/home-assistant/assets/blob/master/logo/logo-small.png?raw=true"
 ```
 
+### Notification Sensitivity / Lock Screen Visibility
+
+<span class='beta'>BETA</span>
+
+You can change how much of a notification is visible on the lock screen by using the `visibility` option. Possible values for this property are:
+
+ - `public`: always show all notification content
+ - `private` (default): visibility depends on your setting in the system Settings app > Notifications; if the option to show sensitive notifications when locked is enabled all notification content will be shown, otherwise only basic information such as the icon and app name are visible
+ - `secret`: always hide notification from lock screen
+
+:::info
+When you change the lock screen visibility _specifically for Home Assistant notifications_ in the system settings to hide sensitive notification content when locked, this will also treat any `public` notifications as `private` and you will not be able to see the contents on a locked device.
+:::
+
+```yaml
+automation:
+  - alias: "Notify of Lost Device"
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "This phone is lost, please return it to ..."
+          data:
+            visibility: public
+```
+
 ### Text To Speech Notifications
 
 Instead of posting a notification on the device you can instead get your device to speak the notification. This notification works different than the others. You will set `message: TTS` and the actual text to speak would be in the `title`. Current support is limited to the current Text To Speech locale set on the device. If there is an error processing the message you will see a toast message appear on the device. Check to make sure that the [Google Text To Speech](https://play.google.com/store/apps/details?id=com.google.android.tts) engine is up to date and set as the default, in case you run into any issues.
