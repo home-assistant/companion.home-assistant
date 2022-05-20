@@ -54,7 +54,7 @@ You can attach media and other content to notifications. See [Attachments](/docs
 
 When tapping on a notification, you can choose to open a URL, which can fall into one of the following buckets:
 
-- A relative URL to your Home Assistant instance, like `/lovelace/test`.
+- A relative URL to your Home Assistant instance, like `/test`.
     - ![iOS](/assets/iOS.svg) If you have multiple servers connected to an iOS or mac app, relative URLs will be treated with respect to the server that sent the notification. 
 - An full URL like `https://example.com`
 - For a particular action in Actionable Notifications, see [its documentation](/docs/notifications/actionable-notifications).
