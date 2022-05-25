@@ -21,7 +21,7 @@ If multiple servers are connected to an iOS or macOS app, currently the sensor s
 
 ### When Sensors Update
 
-On iOS, sensors update in limited situations: when your location changes, periodically when the app is running in the foreground, when you pull-to-refresh the web view, in the background at a rate determined by iOS, and when performing an "Update Sensors" or via "Send Location" shortcut or push notification.
+On iOS, sensors update in limited situations: when your location changes, periodically when the app is running in the foreground, when you pull-to-refresh the web view, in the background at a rate determined by iOS, and when performing an "Update Sensors" or via "Send Location" shortcut or push notification. When <a href="/docs/notifications/notification-local">Local Push</a> is enabled and available in ![iOS](/assets/iOS.svg) 2022.6 or later, periodic updates will also be performed.
 
 On macOS, sensors update in the same situations as above as well as immediately when some sensors change.
 
