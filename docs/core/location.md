@@ -167,7 +167,9 @@ The background location sensor has also the option to run in high accuracy mode.
 You can define a Bluetooth and/or a zone constraint to restrict the use of the high accuracy mode.
 
 :::info
-If you use both constraints (Bluetooth, Zone), then only one constraint must apply to enable the high accuracy mode.
+If you use both constraints (Bluetooth, Zone), then only one constraint must apply to enable the high accuracy mode by default.
+
+You can enable the combination of both constraints by enabling the according option. See [Combination](/docs/core/location#combination-of-zones-constraint-and-bluetooth-constraint) <span class='beta'>BETA</span>
 :::
 
 #### Bluetooth constraint
@@ -209,6 +211,14 @@ Arriving home zone:
 Leaving home zone:
 
 - Exiting `zone.home` -> High accuracy mode **disabled**
+
+###### Combination of Zones constraint and Bluetooth constraint <span class='beta'>BETA</span>
+
+It is possible to combine in two ways. First and default option is a simple or combination which is used, when the according switch is turned off. As mentioned in the info box above, only one constraint must apply to enable high accuracy mode.
+
+If the combination switch is turned on however, both constraints must apply to enable high accuracy mode.
+
+As an example for enabled state would be: You are connected to your car via bluetooth AND when your device recognizes you enter a specific zone or its radius around, the high accuracy mode is turned on. If you are leaving this zone but stay connected with your car (e.g. driving further away), the high accuracy mode will be disabled. Same applies if you are walking around your home but you are not connected to your car, the high accuracy mode will stay disabled.
 
 #### Notification
 
