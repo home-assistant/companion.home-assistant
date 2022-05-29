@@ -465,8 +465,7 @@ automation:
 
 ## Persistent
 
-<span class='beta'>BETA</span>
-![Android](/assets/android.svg)
+![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
 
 On Android you can toggle the persistent connection mode using a notification by sending `message: command_persistent_connection` and passing `data -> persistent: (always, home_wifi, screen_on, never)`
 
