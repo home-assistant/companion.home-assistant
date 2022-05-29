@@ -162,3 +162,13 @@ If you want to ensure that the sensors are updated when your device starts charg
 
 ## Android Crash Logs
 ![Android](/assets/android.svg) The Android app makes use of Google's ADB [Logcat](https://developer.android.com/studio/command-line/logcat) feature to log errors. From time to time you may wish to inspect the logs or a developer may ask for crash logs in order to fix your issue. There is an option under [Configuration](https://my.home-assistant.io/redirect/config/) Companion App > Show and Share Logs. This feature makes it a lot of easier to refresh, share and view the logs. The logs can then be used when you want to create an [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) or when a developer asks for them to troubleshoot an issue. It is important to note that the device logs may or may not contain sensitive information like your Home Assistant URL so make sure to remove sensitive information before sharing.
+
+## Android app battery drain
+![Android](/assets/android.svg) The android app offers many features, some of which may drain more battery than others. The default settings on the app strive to keep the app as battery friendly as possible. There may come a time when you enable a feature which may lead to more battery drain than desired. This section will list all the things to check on the application before you decide to [start fresh](#starting-fresh-with-the-android-app). For the below options you will need to go to Companion App Settings to check and disable them one by one.
+
+1.  If on the full version check that high accuracy mode is not left enabled all the time.
+2.  If on the full version check that Single Accurate Location sensor does not have "Include in sensor updates" option enabled.
+3.  Check that Persistent Connection is set to "Never".
+4.  If the Bluetooth Transmitter sensor is enabled check that the transmitter is not left on all the time, only enable it when you wish to use it.
+5.  Check that Sensor Update Frequency is set to "Normal".
+6.  Check that none of the Notification Sensors have the allow list disabled in their respective settings. You always want to define an allow list to prevent heavy battery usage.
