@@ -21,7 +21,7 @@ The mobile_app platform provides many enhancements to the simple notification ge
 
 ## Sending notifications to multiple devices
 
-To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/components/notify.group/):
+To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/integrations/group#notify-groups):
 ```yaml
 notify:
   - name: ALL_DEVICES
@@ -62,7 +62,7 @@ When tapping on a notification, you can choose to open a URL, which can fall int
 - ![Android](/assets/android.svg) The More Info panel of an entity using `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`.
 - ![Android](/assets/android.svg) You can also open the notification history by using `settings://notification_history`
 
-For relative URLs, you can open a lovelace view in the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view or a lovelace dashboard in the format `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards/) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard.
+For relative URLs, you can open a lovelace view in the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/dashboards/views#path) in the defined view or a lovelace dashboard in the format `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/dashboards/dashboards/) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/dashboards/views#path) within that dashboard.
 
 
 
@@ -638,7 +638,7 @@ automation:
 
 By setting the message to `delete_alert` you can silently update the app badge icon in the background without sending a notification to your phone.
 
-![iOS](/assets/iOS.svg) 2021.7 will automatically reset the badge to 0 when launching the app. You can control this behavior in Configuration](https://my.home-assistant.io/redirect/config/) Companion App > Notifications.
+![iOS](/assets/iOS.svg) 2021.7 will automatically reset the badge to 0 when launching the app. You can control this behavior in [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Notifications.
 
 ### Interruption Level
 
