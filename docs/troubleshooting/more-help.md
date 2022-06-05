@@ -7,7 +7,7 @@ If after reading the docs here you are still having issues, try the following re
 
 **For general help and configuration advice**
 *   Visit the [iOS Discord Channel](https://discordapp.com/channels/330944238910963714/551871772484698112) or [Android Discord Channel](https://discordapp.com/channels/330944238910963714/562408603345092636)
-*   Post on the [iOS forums](https://community.home-assistant.io/c/mobile-apps/ios) or [Android forums](https://community.home-assistant.io/c/mobile-apps/android-companion).
+*   Post on the [iOS forums](https://community.home-assistant.io/c/mobile-apps/ios/41) or [Android forums](https://community.home-assistant.io/c/mobile-apps/android-companion/42).
 
 **For bug reports or feature requests**
 *   Please raise an issue on the [iOS GitHub repository](https://github.com/home-assistant/iOS) or the [Android GitHub repository](https://github.com/home-assistant/android).
