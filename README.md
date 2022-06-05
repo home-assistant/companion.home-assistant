@@ -24,7 +24,7 @@ The easiest way to get started with development is to use Visual Studio Code wit
 ##### Prerequisites
 
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-- Docker
+- [Docker](https://docs.docker.com/get-docker/)
   - For Linux, macOS, or Windows 10 Pro/Enterprise/Education use the [current release version of Docker](https://docs.docker.com/get-docker/)
 - [Visual Studio code](https://code.visualstudio.com/)
 - [Remote - Containers (VSC Extension)][extension-link]
