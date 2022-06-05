@@ -21,7 +21,7 @@ The mobile_app platform provides many enhancements to the simple notification ge
 
 ## Sending notifications to multiple devices
 
-To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/components/notify.group/):
+To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/integrations/group#notify-groups):
 ```yaml
 notify:
   - name: ALL_DEVICES
