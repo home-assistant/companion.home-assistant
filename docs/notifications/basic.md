@@ -638,7 +638,7 @@ automation:
 
 By setting the message to `delete_alert` you can silently update the app badge icon in the background without sending a notification to your phone.
 
-![iOS](/assets/iOS.svg) 2021.7 will automatically reset the badge to 0 when launching the app. You can control this behavior in Configuration](https://my.home-assistant.io/redirect/config/) Companion App > Notifications.
+![iOS](/assets/iOS.svg) 2021.7 will automatically reset the badge to 0 when launching the app. You can control this behavior in [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Notifications.
 
 ### Interruption Level
 
