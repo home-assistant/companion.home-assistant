@@ -52,7 +52,7 @@ Right now, two tiles are supported:
 
 ## Complications
 
-An entity state complication can be displayed on your watchface. The complication is of the 'short text' type and will display the current state of the selected entity. Depending on the watch face it will also show the entity name and icon. When you add an entity to a watch face, you're presented with a config view where you can select the entity to display. To change an entity, just change the complication and select the entity state complication again.
+An entity state complication can be displayed on your watchface. The complication is of the 'short text' type and will display the current state of the selected entity. Depending on the watch face it will also show the entity name and icon. When you add an entity to a watch face, you can select the entity to display. To change the selected entity, just change the complication and select the entity state complication again.
 
 The complications are updated automatically whenever the screen is turned on and roughly every 15 minutes. You can force a complication to update by tapping it on the watch face.
 
