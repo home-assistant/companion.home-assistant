@@ -104,7 +104,7 @@ You can change the frequency of sensor updates by navigating to Companion App in
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
-| `sensor.high_accuracy_update_interval` | None | The update interval for high accuracy mode on the device. <span class='beta'>BETA</span> |
+| `sensor.high_accuracy_update_interval` | None | The update interval for high accuracy mode on the device. |
 | [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
 | [Mobile Data Sensors](#mobile-data-sensors) | None | Several different sensors around the state of mobile data. |
 | [Notification Sensors](#notification-sensors) | See Below | Details about the notifications on the device. |
@@ -226,7 +226,7 @@ These sensors use the [AudioManager API](https://developer.android.com/reference
 | `is_music_active` | Boolean value if the device is actively playing music, this sensor will update during the normal interval. |
 | `is_speakerphone_on` | Boolean value if the device speakerphone is enabled, Android 10+ will update as this value changes. |
 | `ringer_mode` | The ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. This sensor will update as soon as the ringer mode changes. |
-| `volume_level_*` | The current device volume level for the given volume attributes: `alarm`, `call`, `music`, `ring`. These sensors will update during the normal interval. `accessibility`, `dtmf`, `notification` and `system` are available in the <span class='beta'>BETA</span> |
+| `volume_level_*` | The current device volume level for the given volume attributes: `accessibility`, `alarm`, `call`, `dtmf`, `music`, `notification`, `ring`, `system`. These sensors will update during the normal interval. |
 
 
 ## Battery Sensors
@@ -321,7 +321,7 @@ For Android several different types of connection sensors are available and they
 | `link_speed` | The current link speed of the device to the connected network |
 | `signal_strength` | The signal strength of the device to the WiFi network |
 | `wifi_state` | Whether or not WiFi is turned on for the device |
-| `transport_type` | The transport type for the current network connection. <span class='beta'>BETA</span> |
+| `transport_type` | The transport type for the current network connection. |
 
 ![Android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. These settings are turned off by default. These sensors require either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
 
@@ -394,7 +394,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
 
 ## High Accuracy Update Interval
-![Android](/assets/android.svg) <span class='beta'>BETA</span> This sensors state will reflect the update interval for the device in seconds for [high accuracy mode](location.md#high-accuracy-mode). This sensor will update as soon as the value changes either manaully or by the [notification command](../notifications/commands.md#high-accuracy-mode).
+![Android](/assets/android.svg) This sensors state will reflect the update interval for the device in seconds for [high accuracy mode](location.md#high-accuracy-mode). This sensor will update as soon as the value changes either manaully or by the [notification command](../notifications/commands.md#high-accuracy-mode).
 
 ## Interactive Sensor
 ![Android](/assets/android.svg) This sensors state will reflect if the device is in an interactive state. This is typically when the screen comes on and off but may vary from device to device. This sensor will update as soon state changes are detected, data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).

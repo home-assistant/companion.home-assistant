@@ -3,9 +3,11 @@ title: "Overview"
 id: "wear-os"
 ---
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 
-Home Assistant has started to offer a beta version of the Wear OS app in the Google Play Store. Support at this moment is very minimal. You must be a beta user of the phone app to [participate in the beta](https://play.google.com/apps/testing/io.homeassistant.companion.android) for the watch app.
+You can access Home Assistant directly from your Wear OS watch, even when not connected to your phone using a WiFi or cellular connection on the watch or when using an iPhone. 
+
+The app does not support all Home Assistant features. Keep an eye out on this page as the app is enhanced with new features!
 
 ## Home Screen
 
@@ -53,9 +55,3 @@ Right now, two tiles are supported:
 ## Sensors
 
 The Wear OS app will have [sensors](../core/sensors.md). To start with, it will only report the [battery sensors](../core/sensors.md#battery-sensors). Its important to note that sensor updates require the app to post a notification to the device in order to prevent it from being killed by the OS. You can go to into Wear device settings and turn off the SensorWorker Notification channel to stop these notifications from buzzing on your wrist.
-
-## Beta
-
-You can sign up for the beta [here](https://play.google.com/apps/testing/io.homeassistant.companion.android). Once installed you will be directed to adding your server and logging in.
-
-Keep an eye out on this page as the application is enhanced with new features!
