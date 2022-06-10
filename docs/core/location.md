@@ -169,7 +169,7 @@ You can define a Bluetooth and/or a zone constraint to restrict the use of the h
 :::info
 If you use both constraints (Bluetooth, Zone), then only one constraint must apply to enable the high accuracy mode by default.
 
-You can enable the combination of both constraints by enabling the according option. See [Combination](/docs/core/location#combination-of-zones-constraint-and-bluetooth-constraint) <span class='beta'>BETA</span>
+You can enable the combination of both constraints by enabling the according option. See [Combination](/docs/core/location#combination-of-zones-constraint-and-bluetooth-constraint).
 :::
 
 #### Bluetooth constraint
@@ -212,7 +212,7 @@ Leaving home zone:
 
 - Exiting `zone.home` -> High accuracy mode **disabled**
 
-###### Combination of Zones constraint and Bluetooth constraint <span class='beta'>BETA</span>
+###### Combination of Zones constraint and Bluetooth constraint
 
 It is possible to combine in two ways. First and default option is a simple or combination which is used, when the according switch is turned off. As mentioned in the info box above, only one constraint must apply to enable high accuracy mode.
 
@@ -229,4 +229,4 @@ The high accuracy mode can be also enabled/disable by a notification command. [S
 
 The state of high accuracy mode can be viewed by enabling the [sensor](sensors.md#high-accuracy-mode).
 
-<span class='beta'>BETA</span> The update interval for high accuracy mode can also be viewed by enabling the [sensor](sensors.md#high-accuracy-mode).
+The update interval for high accuracy mode can also be viewed by enabling the [sensor](sensors.md#high-accuracy-mode).

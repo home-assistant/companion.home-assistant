@@ -28,7 +28,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_screen_on` | Turn on the device screen. |
-| `command_persistent_connection` | <span class='beta'>BETA</span> Toggle persistent connection mode. [see below](#persistent) for the available modes. |
+| `command_persistent_connection` | Toggle persistent connection mode, [see below](#persistent) for the available modes. |
 | `command_update_sensors` | Updates all enabled sensors, if the state changed since the last update. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
 | `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. |
@@ -321,8 +321,6 @@ automation:
           title: "turn_off"
 ```
 
-<span class='beta'>BETA</span><br />
-
 You can also adjust the update interval of high accuracy mode by following the example below. You must send a valid value that cannot be less than `5`. Anything else will result in the notification posting to the device. After performing this command high accuracy mode will restart which can take a few seconds to complete.
 
 ```yaml
@@ -341,7 +339,7 @@ automation:
 
 ## Launch App
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+![Android](/assets/android.svg)
 
 If you would like to simply just launch an application you can use `message: command_launch_app` to launch any application installed on your device. You must send the package name you wish to open using the `package_name` parameter, if not set then you will see the notification post as normal. If the application is not installed on the device then the user will be directed to the Google Play Store to install the application. This command requires the Draw Over Other Apps permission, the first time you send this command you will be directed to granting this special permission to the Home Assistant application.
 
@@ -465,7 +463,7 @@ automation:
 
 ## Persistent
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+![Android](/assets/android.svg)
 
 On Android you can toggle the persistent connection mode using a notification by sending `message: command_persistent_connection` and passing `data -> persistent: (always, home_wifi, screen_on, never)`
 
@@ -496,12 +494,12 @@ On Android you can control the devices volume level by sending `message: command
 | `channel` | Description |
 | ------- | ----------- |
 | `alarm_stream` | Set the volume level for the alarm stream. |
-| `call_stream` | Set the volume level for the voice call stream. <span class='beta'>BETA</span> |
-| `dtmf_stream` | Set the volume level for DTMF tones. <span class='beta'>BETA</span> |
+| `call_stream` | Set the volume level for the voice call stream. |
+| `dtmf_stream` | Set the volume level for DTMF tones. |
 | `music_stream` | Set the volume level for the music stream. |
 | `notification_stream` | Set the volume level for the notification stream. |
 | `ring_stream` | Set the volume level for the ring stream. |
-| `system_stream` | Set the volume level for the system stream. <span class='beta'>BETA</span> |
+| `system_stream` | Set the volume level for the system stream. |
 | Anything else | The notification will post as a normal notification and the command will not process. |
 <br />
 
