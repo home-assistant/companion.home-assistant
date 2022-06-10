@@ -73,8 +73,6 @@ You may also use HTML to format the text displayed such as adding a new line (`<
 
 ## Theming
 
-<span class="beta">BETA</span>
-
 Most widgets allow selecting a theme to use. The available themes depend on your device and the specific widget. Possible options are:
 
  - *Dynamic color*: uses the colors from your device and wallpaper to make the widget fit in with your home screen and device. This theme is only available on supported devices running Android 12 or newer.

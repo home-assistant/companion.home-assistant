@@ -437,8 +437,6 @@ automation:
 
 ### Notification Sensitivity / Lock Screen Visibility
 
-<span class='beta'>BETA</span>
-
 You can change how much of a notification is visible on the lock screen by using the `visibility` option. Possible values for this property are:
 
  - `public`: always show all notification content
