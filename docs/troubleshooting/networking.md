@@ -68,5 +68,9 @@ Once that's done your router's port-forwarding should be `TCP 443` to your Home 
 You can now access your Home Assistant via `https://my-home.duckdns.org` both internally and externally while having `http://192.168.1.4:8123` available to be used as unencrypted endpoint for things like `konnected.io`.
 Note: If you don't use the NGINX Home Assistant add-on but instead roll your own, please ensure that websockets support is enabled.
 
+### TLS Client Authentication
+
+![Android](/assets/android.svg)<span class="beta">BETA</span>
+
 If your Home Assistant requires TLS Client Authentication (because it is behind a reverse proxy configured to perform TLS Client Authentication), the app will ask for a certificate.
 Please refer to your device and Android version documentation to install the certificate, an example for Pixel phones is available here [Add & remove certificates](https://support.google.com/pixelphone/answer/2844832?hl=en).
