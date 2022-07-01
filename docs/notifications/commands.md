@@ -89,6 +89,31 @@ automation:
 
 In order to use the Intent Action `android.intent.action.CALL` you will also need to grant the app Phone permissions. If not granted the app will direct you to the app info screen to grant the permissions along with a toast message letting you know the missing permissions.
 
+If you are a &nbsp;<span class="beta">BETA</span> user please see the below table for new parameters to use:
+
+| Old Parameter | New Parameter |
+|--------|--------|
+| `channel` | `intent_package_name` |
+| `group` | `intent_extras` |
+| `subject` | `intent_type` |
+| `tag` | `intent_action` |
+| `title` | `intent_uri` |
+
+```yaml
+automation:
+  - alias: Search google maps
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_activity"
+          data:
+            intent_package_name: "com.google.android.apps.maps"
+            intent_action: "android.intent.action.VIEW"
+            intent_uri: "geo:0,0?q=1600+Amphitheatre+Parkway%2C+CA"
+```
+
 ## BLE Beacon Transmitter
 
 ![Android](/assets/android.svg)
@@ -108,7 +133,6 @@ automation:
           message: "command_ble_transmitter"
           title: "turn_off"
 ```
-
 
 You can also adjust the advertise mode and transmit power of the BLE Transmitter. To adjust the Advertise mode you will need to set `title` to `ble_set_advertise_mode` and then set the `ble_advertise` parameter to either `ble_advertise_low_latency`, `ble_advertise_balanced` or `ble_advertise_low_power`
 
@@ -142,6 +166,21 @@ automation:
             ble_transmit: "ble_transmit_high"
 ```
 
+If you are a &nbsp;<span class="beta">BETA</span> user you must use `command` in place of `title` like the below example:
+
+```yaml
+automation:
+  - alias: Turn off BLE transmitter
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_ble_transmitter"
+          data:
+            command: "turn_off"
+```
+
 ## Bluetooth
 
 ![Android](/assets/android.svg)
@@ -160,6 +199,21 @@ automation:
         data:
           message: "command_bluetooth"
           title: "turn_off"
+```
+
+If you are a &nbsp;<span class="beta">BETA</span> user you must use `command` in place of `title` like the below example:
+
+```yaml
+automation:
+  - alias: Command bluetooth
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_bluetooth"
+          data:
+            command: "turn_off"
 ```
 
 ## Broadcast Intent
@@ -269,6 +323,30 @@ automation:
             group: "EXTRA:1;2;3:ArrayList<Integer>"
 ```
 
+
+If you are a &nbsp;<span class="beta">BETA</span> user please see the below table for new parameters to use:
+
+| Old Parameter | New Parameter |
+|--------|--------|
+| `channel` | `intent_package_name` |
+| `group` | `intent_extras` |
+| `title` | `intent_action` |
+
+```yaml
+automation:
+  - alias: Send broadcast intent with extras
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_broadcast_intent"
+          data:
+            intent_action: "com.urbandroid.sleep.alarmclock.ALARM_STATE_CHANGE"
+            intent_package_name: "com.urbandroid.sleep"
+            intent_extras: "alarm_label:work,alarm_enabled:false"
+```
+
 ## Do Not Disturb
 
 ![Android](/assets/android.svg) &nbsp;Android 6+ only
@@ -300,6 +378,20 @@ automation:
           title: "priority_only"
 ```
 
+If you are a &nbsp;<span class="beta">BETA</span> user you must use `command` in place of `title` like the below example:
+
+```yaml
+automation:
+  - alias: Command do not disturb
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_dnd"
+          data:
+            command: "priority_only"
+```
 
 ## High accuracy mode
 
@@ -335,6 +427,21 @@ automation:
           title: "high_accuracy_set_update_interval"
           data:
             high_accuracy_update_interval: 60
+```
+
+If you are a &nbsp;<span class="beta">BETA</span> user you must use `command` in place of `title` like the below example:
+
+```yaml
+automation:
+  - alias: Turn off high accuracy mode
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_high_accuracy_mode"
+          data:
+            command: "turn_off"
 ```
 
 ## Launch App
@@ -388,6 +495,27 @@ automation:
             channel: "com.spotify.music"
 ```
 
+If you are a &nbsp;<span class="beta">BETA</span> user please see the below table for new parameters to use:
+
+| Old Parameter | New Parameter |
+|--------|--------|
+| `channel` | `media_package_name` |
+| `title` | `media_command` |
+
+```yaml
+automation:
+  - alias: Pause spotify
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_media"
+          data:
+            media_command: "pause"
+            media_package_name: "com.spotify.music"
+```
+
 ## Request Location Updates
 
 ![Android](/assets/android.svg) ![iOS](/assets/iOS.svg)
@@ -439,6 +567,21 @@ automation:
         data:
           message: "command_ringer_mode"
           title: "vibrate"
+```
+
+If you are a &nbsp;<span class="beta">BETA</span> user you must use `command` in place of `title` like the below example:
+
+```yaml
+automation:
+  - alias: Command ringer mode
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_ringer_mode"
+          data:
+            command: "vibrate"
 ```
 
 ## Screen On
@@ -517,6 +660,27 @@ automation:
             channel: "music_stream"
 ```
 
+If you are a &nbsp;<span class="beta">BETA</span> user please see the below table for new parameters to use:
+
+| Old Parameter | New Parameter |
+|--------|--------|
+| `channel` | `media_stream` |
+| `title` | `command` |
+
+```yaml
+automation:
+  - alias: Command volume level
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_volume_level"
+          data:
+            media_stream: "music_stream"
+            command: 20
+```
+
 ## Webview
 
 ![Android](/assets/android.svg)
@@ -535,4 +699,19 @@ automation:
         data:
           message: "command_webview"
           title: "/lovelace/settings"
+```
+
+If you are a &nbsp;<span class="beta">BETA</span> user you must use `command` in place of `title` like the below example:
+
+```yaml
+automation:
+  - alias: Open android webview
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_webview"
+          data:
+            command: "/lovelace/settings"
 ```

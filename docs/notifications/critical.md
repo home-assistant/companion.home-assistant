@@ -115,6 +115,30 @@ automations:
             priority: high
             channel: alarm_stream
 ```
+
+If you are a &nbsp;<span class="beta">BETA</span> user please see the below table for new parameters to use:
+
+| Old Parameter | New Parameter |
+|--------|--------|
+| `channel` | `media_stream` |
+| `title` | `tts_text` |
+
+```yaml
+automation:
+  - alias: "Fire Detected TTS alarm"
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: TTS
+          data:
+            ttl: 0
+            priority: high
+            media_stream: "alarm_stream"
+            tts_text: "The house is on fire and the cat's stuck in the dryer!"
+```
+
 ### ![Android](/assets/android.svg) Text To Speech Alarm Stream Max Volume
 Alternatively using Text To Speech you can also make the notification speak as loud as it can, and then revert back to the original volume level:
 
@@ -136,4 +160,27 @@ automations:
             ttl: 0
             priority: high
             channel: alarm_stream_max
+```
+
+If you are a &nbsp;<span class="beta">BETA</span> user please see the below table for new parameters to use:
+
+| Old Parameter | New Parameter |
+|--------|--------|
+| `channel` | `media_stream` |
+| `title` | `tts_text` |
+
+```yaml
+automation:
+  - alias: "Fire Detected TTS loud"
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: TTS
+          data:
+            ttl: 0
+            priority: high
+            media_stream: "alarm_stream_max"
+            tts_text: "The house is on fire and the cat's stuck in the dryer!"
 ```
