@@ -535,6 +535,27 @@ automation:
           title: Motion has been detected
 ```
 
+If you are a &nbsp;<span class="beta">BETA</span> user please see the below table for new parameters to use:
+
+| Old Parameter | New Parameter |
+|--------|--------|
+| `channel` | `media_stream` |
+| `title` | `tts_text` |
+
+```yaml
+automation:
+  - alias: "Notify of Motion TTS alarm"
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: TTS
+          data:
+            media_stream: "alarm_stream"
+            tts_text: "Motion has been detected"
+```
+
 ### Chronometer Notifications
 
 You can create notifications with a count up/down timer (chronometer) by passing the `chronometer` and `when` options. This feature requires at least Android 7.0.
