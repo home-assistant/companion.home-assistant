@@ -151,15 +151,6 @@ If you want to ensure that the sensors are updated when your device starts charg
 ## Text to speech notifications are not working
 ![Android](/assets/android.svg) Check that [Google Text to Speech](https://play.google.com/store/apps/details?id=com.google.android.tts) is updated. Check that it is also set as the default Text to Speech engine, this may be required for certain manufacturers.
 
-## Seeing toast messages for Configured Entity not found
-![Android](/assets/android.svg) This error is meant to show up when the app is unable to update a widget on your home screen for either an invalid/missing entity or the call to your Home Assistant instance failed. There are cases where widgets could be lost from the home screen and the app attempts to update those and fails. As the app does not get notified when a widget is lost (as opposed to removed by dragging off the screen) you will need to delete the widget from the Companion App Configuration page.
-
-1.  Navigate to [Configuration](https://my.home-assistant.io/redirect/config/) in the sidebar.
-2.  Tap Companion App
-3.  Select Manage Widgets.
-4.  Find any widget that no longer exists on your home screen.
-5.  Delete the widget to remove it from the list and to stop the toast messages.
-
 ## Android Crash Logs
 ![Android](/assets/android.svg) The Android app makes use of Google's ADB [Logcat](https://developer.android.com/studio/command-line/logcat) feature to log errors. From time to time you may wish to inspect the logs or a developer may ask for crash logs in order to fix your issue. There is an option under [Configuration](https://my.home-assistant.io/redirect/config/) Companion App > Show and Share Logs. This feature makes it a lot of easier to refresh, share and view the logs. The logs can then be used when you want to create an [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) or when a developer asks for them to troubleshoot an issue. It is important to note that the device logs may or may not contain sensitive information like your Home Assistant URL so make sure to remove sensitive information before sharing.
 
