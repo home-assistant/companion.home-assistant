@@ -52,6 +52,18 @@ Right now, two tiles are supported:
 * The shortcuts tile shows up to 7 shortcuts, which can be chosen from the settings section in the Wear OS app. You will be able to select the same set of entities you can access from the home screen.
 * The template tile shows a rendered template. The template can only be set from the android companion app. Note: it is not possible to scroll in a tile, the template should fit on the watch screen.
 
+### Styling the template tile
+
+<span class="beta">BETA</span>
+
+You may use HTML to format the text displayed. The following tags are currently supported:
+
+* Adding a new line: `<br>`
+* Making something bold: `<b>`
+* Changing the text size: `<big>` or `<small>`
+* Changing the color: `<font color='#03a9f4'>`
+* Using headers: `<h1>`, `<h2>`, etc.
+
 ## Complications
 
 <span class="beta">BETA</span>
