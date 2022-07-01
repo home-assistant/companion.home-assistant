@@ -59,10 +59,10 @@ Right now, two tiles are supported:
 You may use HTML to format the text displayed. The following tags are currently supported:
 
 * Adding a new line: `<br>`
-* Making something bold: `<b>`
-* Changing the text size: `<big>` or `<small>`
-* Changing the color: `<font color='#03a9f4'>`
-* Using headers: `<h1>`, `<h2>`, etc.
+* Changing the text style: `<b>bold</b>`, `<i>italic</i>` or `<u>underline</u>`
+* Changing the text size: `<big>large</big>` or `<small>tiny</small>`
+* Changing the color: `<font color='#03a9f4'>colored text</font>`
+* Using headers: `<h1>title</h1>`, `<h2>subtitle</h2>`, etc.
 
 ## Complications
 
