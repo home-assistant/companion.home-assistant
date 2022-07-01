@@ -52,3 +52,10 @@ Requires Home Assistant ios-2021.12 and core-2021.10.
 :::
 
 Once you have set up your first server, you can add additional Home Assistant instances via the App Configuration page and the "Add Server" option. Servers on the same local network as your device will be discovered and listed automatically or you can manually enter the address in the same way as setting up the first server.
+
+## TLS Client Authentication
+
+![Android](/assets/android.svg)<span class="beta">BETA</span>
+
+If your Home Assistant requires TLS Client Authentication (because it is behind a reverse proxy configured to perform TLS Client Authentication), the app will ask for a certificate.
+Please refer to your device and Android version documentation to install the certificate, an example for Pixel phones is available here [Add & remove certificates](https://support.google.com/pixelphone/answer/2844832?hl=en).
