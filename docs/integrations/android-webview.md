@@ -40,6 +40,9 @@ The ![Android](/assets/android.svg) Android app has the ability to enable Pinch-
 ## Remote Debugging
 The ![Android](/assets/android.svg) Android app has the ability to enable [chrome remote debugging](https://developer.chrome.com/docs/devtools/remote-debugging/) to allow for easier troubleshooting of front end issues. You can enable this setting in Companion App Configuration.
 
+## CSP Frame Ancestors
+If the server uses the frame ancestors [CSP directive](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors), it needs to include the origin that the app is connecting to. Otherwise the webview will show the error message "ERR_BLOCKED_BY_RESPONSE". The origin to allow is the IP (or domain if a DNS resolves your home assistant instance) and the port that is configured in the settings as Home Assistant URL.
+
 ## Swipe Gestures
 
 The ![Android](/assets/android.svg) Android app has the ability to launch the [quick bar](https://www.home-assistant.io/docs/tools/quick-bar/) by detecting a 3 finger swipe down gesture. Initially the entity filter will be shown, you can switch to the command palette by typing `>` at the start of the input. The quick bar can only be launched when inside the webview after you have logged in.
