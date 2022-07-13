@@ -448,6 +448,9 @@ Below you can find some details that can be given with some notifications.
 | `is_ongoing` | If the notification is persistent on the device. |
 | `package` | The package that posted the notification. |
 | `post_time` | The time the notification was posted on the device. |
+| `channel_id` | The name of the channel the notification posted to. |
+| `group_id` | The name of the group the notification posted to. |
+| `category` | The category that the notification defined. |
 
 
 ### Media Session Sensor
