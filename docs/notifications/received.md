@@ -5,7 +5,7 @@ id: "notification-received"
 
 ![Android](/assets/android.svg) <span class='beta'>BETA</span>
 
-If you wish to fire an event any time a notification is received on the device you will need to enable the event from [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Notification Received Event. All notiifcation data will be present in the event data for the event type `mobile_app_notification_received`.
+Anytime a notification is received on the Android device an event will be sent to Home Assistant. All notification data will be present in the event data for the event type `mobile_app_notification_received`.
 
 Example event data:
 
