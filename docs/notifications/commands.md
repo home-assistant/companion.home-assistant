@@ -204,7 +204,7 @@ automation:
           message: "command_ble_transmitter"
           data:
             command: "ble_set_uuid"
-            ble_uuid: "abcd"
+            ble_uuid: "b4306bba-0e3a-44df-9518-dc74284e8214"
 ```
 
 ## Bluetooth
