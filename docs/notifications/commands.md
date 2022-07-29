@@ -181,6 +181,32 @@ automation:
             command: "turn_off"
 ```
 
+<span class="beta">BETA</span>
+
+Users can also change the reporting UUID, Major and Minor parameters by using the following commands and their respective parameters. You can send any type of string value for the UUID, Major and Minor attributes. If any data is missing the notification will post as normal on the device.
+
+| Command | Parameter |
+|---------|---------|
+| `ble_set_uuid` | `ble_uuid` |
+| `ble_set_major` | `ble_major` |
+| `ble_set_minor` | `ble_minor` |
+
+Example to change the UUID for the transmitter:
+
+```yaml
+automation:
+  - alias: Change BLE transmitter UUID
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_ble_transmitter"
+          data:
+            command: "ble_set_uuid"
+            ble_uuid: "b4306bba-0e3a-44df-9518-dc74284e8214"
+```
+
 ## Bluetooth
 
 ![Android](/assets/android.svg)
