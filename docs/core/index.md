@@ -28,7 +28,7 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
-      <td><a href="/docs/integrations/android-power-menu">Android Power Menu</a></td>
+      <td><a href="/docs/integrations/android-device-controls">Android Device Controls</a></td>
       <td>✅</td>
       <td>✅</td>
       <td></td>
