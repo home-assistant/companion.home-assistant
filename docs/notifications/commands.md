@@ -28,6 +28,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_screen_on` | Turn on the device screen. |
+| `command_stop_tts` | Stops Text To Speech if it's currently in use. <span class='beta'>BETA</span> |
 | `command_persistent_connection` | Toggle persistent connection mode, [see below](#persistent) for the available modes. |
 | `command_update_sensors` | Updates all enabled sensors, if the state changed since the last update. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
@@ -628,6 +629,23 @@ automation:
         data:
           message: "command_screen_on"
           title: "keep_screen_on"
+```
+
+## Stop TTS
+
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+If you wish to stop the device from completing its Text to Speech notification you can stop it by sending the command `message: command_stop_tts`.
+
+```yaml
+automation:
+  - alias: Stop TTS
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_stop_tts"
 ```
 
 ## Persistent
