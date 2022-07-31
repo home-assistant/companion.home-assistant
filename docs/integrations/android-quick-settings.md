@@ -9,4 +9,19 @@ The Android app offers support for quick settings [tiles](https://developer.andr
 
 The app currently offers 12 tiles for users to setup. Each tile must have a label set and can optionally have a sublabel set. A custom icon can also be used to help differentiate between the tiles. After a label and entity ID have been selected you will be able to update the tile data. Once you have updated your tile data you will be able to edit your devices quick settings menu and then you can drag the Home Assistant icon from the list of tiles into the active section. Once a tile has been added the label and icon will update and the icon will remain in an inactive state. When you select a tile that has proper data set you will see the icon momentarily light up as we execute the service call. Upon success the tile will go back to an inactive state, if there is a failure the tile not be selectable and a toast error message will be shown. If you drag a tile that was not setup yet then the tile will be unavailable preventing action.
 
-The following domains support the `toggle` service call: cover, fan, humidifier, input_boolean, light, media_player, remote, siren, switch
+The following domains are supported: 
+
+*  `button` Press
+*  `cover` Toggle
+*  `fan` Toggle
+*  `humidifier` Toggle
+*  `input_boolean` Toggle
+*  `input_button` Press
+*  `light` Toggle
+*  `lock` Lock/Unlock <span class='beta'>BETA</span>
+*  `media_player` Toggle
+*  `remote` Toggle
+*  `siren` Toggle
+*  `scene` Turn on scene
+*  `script` Turn on script
+*  `switch` Toggle
