@@ -654,6 +654,17 @@ automation:
 
 The app will check all enabled sensors for an update and if the state has changed since the last update it will send over the update. Check [sensor](/docs/core/sensors) documentation for more details on sensors.
 
+```yaml
+automation:
+  - alias: Update sensors
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_update_sensors"
+```
+
 ## Volume Level
 
 ![Android](/assets/android.svg)
