@@ -384,7 +384,6 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `AreasOfInterest` | The relevant areas of interest associated with the placemark. ![iOS](/assets/iOS.svg)only |
 | `Ocean` | The name of the ocean associated with the placemark. ![iOS](/assets/iOS.svg)only |
 | `InlandWater` | The name of the inland water body associated with the placemark. ![iOS](/assets/iOS.svg)only |
-| `language` | The localized name for the language of the placemark. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
 | `phone` | The phone number for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
 | `premises` | The premises for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
 | `url` | The URL for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
