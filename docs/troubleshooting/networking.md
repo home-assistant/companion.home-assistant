@@ -70,7 +70,7 @@ Note: If you don't use the NGINX Home Assistant add-on but instead roll your own
 
 ### TLS Client Authentication
 
-![Android](/assets/android.svg)<span class="beta">BETA</span>
+![Android](/assets/android.svg)
 
 If your Home Assistant requires TLS Client Authentication (because it is behind a reverse proxy configured to perform TLS Client Authentication), the app will ask for a certificate.
 Please refer to your device and Android version documentation to install the certificate, an example for Pixel phones is available here [Add & remove certificates](https://support.google.com/pixelphone/answer/2844832?hl=en).

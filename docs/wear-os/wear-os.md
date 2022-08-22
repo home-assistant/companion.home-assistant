@@ -54,8 +54,6 @@ Right now, two tiles are supported:
 
 ### Styling the template tile
 
-<span class="beta">BETA</span>
-
 You may use HTML to format the text displayed. The following tags are currently supported:
 
 * Adding a new line: `<br>`
@@ -65,8 +63,6 @@ You may use HTML to format the text displayed. The following tags are currently 
 * Using headers: `<h1>title</h1>`, `<h2>subtitle</h2>`, etc.
 
 ## Complications
-
-<span class="beta">BETA</span>
 
 An entity state complication can be displayed on your watchface. The complication is of the 'short text' type and will display the current state of the selected entity. Depending on the watch face it will also show the entity name and icon. When you add an entity to a watch face, you can select the entity to display. To change the selected entity, just change the complication and select the entity state complication again.
 

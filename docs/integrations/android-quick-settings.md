@@ -18,7 +18,7 @@ The following domains are supported:
 *  `input_boolean` Toggle
 *  `input_button` Press
 *  `light` Toggle
-*  `lock` Lock/Unlock <span class='beta'>BETA</span>
+*  `lock` Lock/Unlock
 *  `media_player` Toggle
 *  `remote` Toggle
 *  `siren` Toggle
