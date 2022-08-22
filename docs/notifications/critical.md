@@ -94,7 +94,7 @@ automations:
             media_stream: alarm_stream
 ```
 
-If you have updated the android app to 2022.8+ then replace the parameter `channel` with `media_stream`
+If you have updated the Android app to 2022.8+ then replace the parameter `channel` with `media_stream`.
 
 ### ![Android](/assets/android.svg) Text To Speech Alarm Stream
 Or you can use Text To Speech to speak the notification:
@@ -118,7 +118,7 @@ automations:
             tts_text: "The house is on fire and the cat's stuck in the dryer!"
 ```
 
-Please see the below table for new parameters to use after updating the android app to 2022.8+:
+Please see the below table for new parameters to use after updating the Android app to 2022.8+:
 
 | Old Parameter | New Parameter |
 |--------|--------|
@@ -149,7 +149,7 @@ automations:
             tts_text: "The house is on fire and the cat's stuck in the dryer!"
 ```
 
-Please see the below table for new parameters to use after updating the android app to 2022.8+:
+Please see the below table for new parameters to use after updating the Android app to 2022.8+:
 
 | Old Parameter | New Parameter |
 |--------|--------|
