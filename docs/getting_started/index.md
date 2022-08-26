@@ -55,7 +55,7 @@ Once you have set up your first server, you can add additional Home Assistant in
 
 ## TLS Client Authentication
 
-![Android](/assets/android.svg)<span class="beta">BETA</span> excluding Wear OS
+![Android](/assets/android.svg) excluding Wear OS
 
 If your Home Assistant requires TLS Client Authentication (because it is behind a reverse proxy configured to perform TLS Client Authentication), the app will ask for a certificate. If no matching certificate is installed or supplied, you might see an error or a blank screen depending on your setup.
 

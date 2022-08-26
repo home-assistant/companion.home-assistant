@@ -240,7 +240,7 @@ The battery sensors listed below describe the state of the battery for a few dif
 | --------- | --------- |
 | `battery_health` | The health of the battery |
 | `battery_level` | The percentage of battery remaining |
-| `battery_power` | The current wattage on the device <span class="beta">BETA</span> |
+| `battery_power` | The current wattage on the device |
 | `battery_state` | The state of charging on the device |
 | `battery_temperature` | The current battery temperature |
 | `charger_type` | The type of charger being used on the device |
@@ -322,7 +322,7 @@ For Android several different types of connection sensors are available and they
 | `link_speed` | The current link speed of the device to the connected network |
 | `signal_strength` | The signal strength of the device to the WiFi network |
 | `wifi_state` | Whether or not WiFi is turned on for the device |
-| `transport_type` | The transport type for the current network connection. <span class='beta'>BETA</span> An attribute will reflect if the current network is metered. |
+| `transport_type` | The transport type for the current network connection. An attribute will reflect if the current network is metered. |
 
 ![Android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. These settings are turned off by default. These sensors require either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
 
@@ -449,9 +449,9 @@ Below you can find some details that can be given with some notifications.
 | `is_ongoing` | If the notification is persistent on the device. |
 | `package` | The package that posted the notification. |
 | `post_time` | The time the notification was posted on the device. |
-| `channel_id` | The ID of the channel the notification posted to. This attribute is only available on Android 8+. <span class="beta">BETA</span> |
-| `group_id` | The ID of the group the notification posted to. <span class="beta">BETA</span> |
-| `category` | The category that the notification defined. <span class="beta">BETA</span> |
+| `channel_id` | The ID of the channel the notification posted to. This attribute is only available on Android 8+. |
+| `group_id` | The ID of the group the notification posted to. |
+| `category` | The category that the notification defined. |
 
 
 ### Media Session Sensor

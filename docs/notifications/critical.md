@@ -71,7 +71,7 @@ automations:
 ```
 
 ### ![Android](/assets/android.svg) Alarm Stream
-You can also force the notification to play from the alarm stream so it will make the device ring even if on vibrate/silent ringer mode. Users on Android 7 and below can still use the `channel` example below as we are just using it to override the default notification behavior for sound. In order to make a notification show up immediately and make a sound regardless of ringer mode follow one of the examples below.
+You can also force the notification to play from the alarm stream so it will make the device ring even if on vibrate/silent ringer mode. Users on Android 7 and below can still use the `media_stream` example below as we are just using it to override the default notification behavior for sound. In order to make a notification show up immediately and make a sound regardless of ringer mode follow one of the examples below.
 
 Using this method to can send a normal notification:
 
@@ -91,8 +91,10 @@ automations:
           data:
             ttl: 0
             priority: high
-            channel: alarm_stream
+            media_stream: alarm_stream
 ```
+
+If you have updated the Android app to 2022.8+ then replace the parameter `channel` with `media_stream`.
 
 ### ![Android](/assets/android.svg) Text To Speech Alarm Stream
 Or you can use Text To Speech to speak the notification:
@@ -108,36 +110,21 @@ automations:
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          title: "The house is on fire and the cat's stuck in the dryer!"
           message: TTS
           data:
             ttl: 0
             priority: high
-            channel: alarm_stream
+            media_stream: alarm_stream
+            tts_text: "The house is on fire and the cat's stuck in the dryer!"
 ```
 
-If you are a &nbsp;<span class="beta">BETA</span> user please see the below table for new parameters to use:
+Please see the below table for new parameters to use after updating the Android app to 2022.8+:
 
 | Old Parameter | New Parameter |
 |--------|--------|
 | `channel` | `media_stream` |
 | `title` | `tts_text` |
 
-```yaml
-automation:
-  - alias: "Fire Detected TTS alarm"
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          message: TTS
-          data:
-            ttl: 0
-            priority: high
-            media_stream: "alarm_stream"
-            tts_text: "The house is on fire and the cat's stuck in the dryer!"
-```
 
 ### ![Android](/assets/android.svg) Text To Speech Alarm Stream Max Volume
 Alternatively using Text To Speech you can also make the notification speak as loud as it can, and then revert back to the original volume level:
@@ -154,33 +141,17 @@ automations:
     action:
       - service: notify.mobile_app_<your_device_id_here>
         data:
-          title: "The house is on fire and the cat's stuck in the dryer!"
           message: TTS
           data:
             ttl: 0
             priority: high
-            channel: alarm_stream_max
+            media_stream: alarm_stream_max
+            tts_text: "The house is on fire and the cat's stuck in the dryer!"
 ```
 
-If you are a &nbsp;<span class="beta">BETA</span> user please see the below table for new parameters to use:
+Please see the below table for new parameters to use after updating the Android app to 2022.8+:
 
 | Old Parameter | New Parameter |
 |--------|--------|
 | `channel` | `media_stream` |
 | `title` | `tts_text` |
-
-```yaml
-automation:
-  - alias: "Fire Detected TTS loud"
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          message: TTS
-          data:
-            ttl: 0
-            priority: high
-            media_stream: "alarm_stream_max"
-            tts_text: "The house is on fire and the cat's stuck in the dryer!"
-```

@@ -462,7 +462,7 @@ automation:
 
 ### Text To Speech Notifications
 
-Instead of posting a notification on the device you can instead get your device to speak the notification. This notification works different than the others. You will set `message: TTS` and the actual text to speak would be in the `title`. Current support is limited to the current Text To Speech locale set on the device. If there is an error processing the message you will see a toast message appear on the device. Check to make sure that the [Google Text To Speech](https://play.google.com/store/apps/details?id=com.google.android.tts) engine is up to date and set as the default, in case you run into any issues.
+Instead of posting a notification on the device you can instead get your device to speak the notification. This notification works different than the others. You will set `message: TTS` and the actual text to speak would be in the `tts_text`. Current support is limited to the current Text To Speech locale set on the device. If there is an error processing the message you will see a toast message appear on the device. Check to make sure that the [Google Text To Speech](https://play.google.com/store/apps/details?id=com.google.android.tts) engine is up to date and set as the default, in case you run into any issues.
 
 ```yaml
 automation:
@@ -473,10 +473,11 @@ automation:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           message: "TTS"
-          title: "Motion has been detected"
+          data:
+            tts_text: "Motion has been detected"
 ```
 
-By default Text To Speech notifications use the music stream so they will bypass the ringer mode on the device as long as the device's volume is not set to 0. You have the option of using `channel: alarm_stream` to have your notification spoken regardless of music volume.
+By default Text To Speech notifications use the music stream so they will bypass the ringer mode on the device as long as the device's volume is not set to 0. You have the option of using `media_stream: alarm_stream` to have your notification spoken regardless of music volume.
 
 ```yaml
 automation:
@@ -487,12 +488,12 @@ automation:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           message: TTS
-          title: "Motion has been detected"
           data:
-            channel: "alarm_stream"
+            tts_text: "Motion has been detected"
+            media_stream: "alarm_stream"
 ```
 
-If you find that your alarm stream volume is too low you can use `channel: alarm_stream_max` which will temporarily set the alarm stream volume to the max level, play the notification and then revert back to the original volume level.
+If you find that your alarm stream volume is too low you can use `media_stream: alarm_stream_max` which will temporarily set the alarm stream volume to the max level, play the notification and then revert back to the original volume level.
 
 ```yaml
 automation:
@@ -503,9 +504,9 @@ automation:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           message: "TTS"
-          title: "Alarm has been triggered"
           data:
-            channel: "alarm_stream_max"
+            tts_text: "Alarm has been triggered"
+            media_stream: "alarm_stream_max"
 ```
 
 You may not want the TTS notification to be spoken in certain situations (e.g. if the Ringer mode is not `normal` or DND is enabled). This can be done by adding a condition in your automation that checks the state of [other sensors](https://companion.home-assistant.io/docs/core/sensors). Few examples are presented below:
@@ -532,29 +533,17 @@ automation:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           message: TTS
-          title: Motion has been detected
+          data:
+            tts_text: Motion has been detected
 ```
 
-If you are a &nbsp;<span class="beta">BETA</span> user please see the below table for new parameters to use:
+Please see the below table for new parameters to use after updating the Android app to 2022.8+:
 
 | Old Parameter | New Parameter |
 |--------|--------|
 | `channel` | `media_stream` |
 | `title` | `tts_text` |
 
-```yaml
-automation:
-  - alias: "Notify of Motion TTS alarm"
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          message: TTS
-          data:
-            media_stream: "alarm_stream"
-            tts_text: "Motion has been detected"
-```
 
 ### Chronometer Notifications
 
