@@ -12,7 +12,7 @@ The following domains are supported:
 
 *  `automation` On/Off
 *  `button` Press
-*  `camera` Snapshot image (only supported on Android 12 or newer) <span class="beta">BETA</span>
+*  `camera` Snapshot image (only supported on Android 12 or newer)
 *  `climate` Temperature slider
 *  `cover` Open/Close
 *  `fan` On/Off, speed slider
