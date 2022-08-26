@@ -228,7 +228,7 @@ automation:
           message: "command_broadcast_intent"
           data:
             intent_package_name: "package-name"
-            intent_action: "action
+            intent_action: "action"
 ```
 
 An example of an application that accepts broadcast intents is [Sleep as Android](https://docs.sleep.urbandroid.org/devs/intent_api.html#action-intents-to-control-sleep). To start a sleep tracking event the format would be as follows:
