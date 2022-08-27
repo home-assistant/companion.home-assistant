@@ -613,7 +613,6 @@ automation:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_volume_level"
-          title: 20
           data:
             media_stream: "music_stream"
             command: 20
