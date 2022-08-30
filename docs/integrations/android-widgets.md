@@ -21,7 +21,7 @@ This widget will update every hour or when it is tapped. The widget will just co
 
 ### Entity State
 
-This widget will update every 30 minutes or when it is tapped. This widget will allow the user to select any entity they wish to get the state and an attribute from as well as setting the text size and adding a custom separator between the state and attributes.
+This widget will be updated when the entity state changes or when it is tapped. This widget will allow the user to select any entity they wish to get the state and an attribute from as well as setting the text size and adding a custom separator between the state and attributes.
 
 1.  Long press on any open space in the home screen
 2.  Scroll down to Home Assistant in the widget list
@@ -36,7 +36,7 @@ This widget will update every 30 minutes or when it is tapped. This widget will 
 
 ### Media Player
 
-This widget will let the user control any media player on their home screen. There are a couple of options available to hide or show the seek and skip buttons.
+This widget will let the user control any media player on their home screen and will be updated when the media player state changes or when the album art is tapped. There are a couple of options available to hide or show the seek and skip buttons.
 
 1.  Long press on any open space in the home screen
 2.  Scroll down to Home Assistant in the widget list
