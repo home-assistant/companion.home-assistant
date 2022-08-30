@@ -370,10 +370,10 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | Attribute | Description |
 | --------- | --------- |
 | `Location` | The latitude and longitude coordinates of the placemark. |
-| `Name` | The name of the placemark. ![iOS](/assets/iOS.svg) iOS only, for Android check the state of the sensor. |
+| `Name` | The name of the placemark. ![iOS](/assets/iOS.svg)only and ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
 | `Country` | The name of the country associated with the placemark. |
 | `ISOCountryCode` | The abbreviated country name. |
-| `TimeZone` | The time zone associated with the placemark. ![iOS](/assets/iOS.svg) iOS only |
+| `TimeZone` | The time zone associated with the placemark. ![iOS](/assets/iOS.svg)only |
 | `AdministrativeArea` | The state or province associated with the placemark. |
 | `SubAdministrativeArea` | Additional administrative area information for the placemark. |
 | `PostalCode` | The postal code associated with the placemark. |
@@ -381,13 +381,17 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `SubLocality` | Additional city-level information for the placemark. |
 | `Thoroughfare` | The street address associated with the placemark. |
 | `SubThoroughfare` | Additional street-level information for the placemark. |
-| `AreasOfInterest` | The relevant areas of interest associated with the placemark. ![iOS](/assets/iOS.svg) iOS only |
-| `Ocean` | The name of the ocean associated with the placemark. ![iOS](/assets/iOS.svg) iOS only |
-| `InlandWater` | The name of the inland water body associated with the placemark. ![iOS](/assets/iOS.svg) iOS only |
+| `AreasOfInterest` | The relevant areas of interest associated with the placemark. ![iOS](/assets/iOS.svg)only |
+| `Ocean` | The name of the ocean associated with the placemark. ![iOS](/assets/iOS.svg)only |
+| `InlandWater` | The name of the inland water body associated with the placemark. ![iOS](/assets/iOS.svg)only |
+| `phone` | The phone number for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
+| `premises` | The premises for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
+| `url` | The URL for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
 
-![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
+![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run. All attributes will be lowercase and all spaces are replaced with an underscore.
 
-![Android](/assets/android.svg) all attributes will be lowercase and all spaces are replaced with an underscore.
+![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+The sensor will only send an update if it is accurate and recent. The sensor will also update with location updates if location tracking is enabled.
 
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
 
