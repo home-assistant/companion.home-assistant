@@ -246,7 +246,7 @@ The battery sensors listed below describe the state of the battery for a few dif
 | `charger_type` | The type of charger being used on the device |
 | `is_charging` | Whether or not the device is actively charging |
 
-<span class="beta">BETA</span>
+![Android](/assets/android.svg) <span class="beta">BETA</span>
 
 The `battery_power` sensor attempts to convert microamperes to amperes however some devices do not follow Android documentation and may return a different unit. For these devices you may need to adjust the sensor setting for `Battery Current Divisor` to properly convert the `current` to amperes.
 
