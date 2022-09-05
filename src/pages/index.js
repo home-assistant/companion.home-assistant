@@ -29,7 +29,7 @@ const features = [
           {' '}Get data from your Quest into Home Assistant.
           <br />
           <b><a href='/docs/wear-os'>Wear OS</a></b>
-          {' '}Control your home from your Wear OS device <span class="beta">BETA</span>
+          {' '}Control your home from your Wear OS device.
           <br />
           <b><a href='/docs/troubleshooting/faqs'>Troubleshooting</a></b>
           {' '}If you need some help, this is a great place to start.

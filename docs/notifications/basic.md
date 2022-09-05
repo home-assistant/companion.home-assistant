@@ -21,7 +21,7 @@ The mobile_app platform provides many enhancements to the simple notification ge
 
 ## Sending notifications to multiple devices
 
-To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/components/notify.group/):
+To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/integrations/group#notify-groups):
 ```yaml
 notify:
   - name: ALL_DEVICES
@@ -62,7 +62,7 @@ When tapping on a notification, you can choose to open a URL, which can fall int
 - ![Android](/assets/android.svg) The More Info panel of an entity using `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`.
 - ![Android](/assets/android.svg) You can also open the notification history by using `settings://notification_history`
 
-For relative URLs, you can open a lovelace view in the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/lovelace/views/#path) in the defined view or a lovelace dashboard in the format `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/lovelace/dashboards/) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/lovelace/views/#path) within that dashboard.
+For relative URLs, you can open a lovelace view in the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/dashboards/views#path) in the defined view or a lovelace dashboard in the format `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/dashboards/dashboards/) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/dashboards/views#path) within that dashboard.
 
 
 
@@ -435,9 +435,34 @@ automation:
             icon_url: "https://github.com/home-assistant/assets/blob/master/logo/logo-small.png?raw=true"
 ```
 
+### Notification Sensitivity / Lock Screen Visibility
+
+You can change how much of a notification is visible on the lock screen by using the `visibility` option. Possible values for this property are:
+
+ - `public`: always show all notification content
+ - `private` (default): visibility depends on your setting in the system Settings app > Notifications; if the option to show sensitive notifications when locked is enabled all notification content will be shown, otherwise only basic information such as the icon and app name are visible
+ - `secret`: always hide notification from lock screen
+
+:::info
+When you change the lock screen visibility _specifically for Home Assistant notifications_ in the system settings to hide sensitive notification content when locked, this will also treat any `public` notifications as `private` and you will not be able to see the contents on a locked device.
+:::
+
+```yaml
+automation:
+  - alias: "Notify of Lost Device"
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "This phone is lost, please return it to ..."
+          data:
+            visibility: public
+```
+
 ### Text To Speech Notifications
 
-Instead of posting a notification on the device you can instead get your device to speak the notification. This notification works different than the others. You will set `message: TTS` and the actual text to speak would be in the `title`. Current support is limited to the current Text To Speech locale set on the device. If there is an error processing the message you will see a toast message appear on the device. Check to make sure that the [Google Text To Speech](https://play.google.com/store/apps/details?id=com.google.android.tts) engine is up to date and set as the default, in case you run into any issues.
+Instead of posting a notification on the device you can instead get your device to speak the notification. This notification works different than the others. You will set `message: TTS` and the actual text to speak would be in the `tts_text`. Current support is limited to the current Text To Speech locale set on the device. If there is an error processing the message you will see a toast message appear on the device. Check to make sure that the [Google Text To Speech](https://play.google.com/store/apps/details?id=com.google.android.tts) engine is up to date and set as the default, in case you run into any issues.
 
 ```yaml
 automation:
@@ -448,10 +473,11 @@ automation:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           message: "TTS"
-          title: "Motion has been detected"
+          data:
+            tts_text: "Motion has been detected"
 ```
 
-By default Text To Speech notifications use the music stream so they will bypass the ringer mode on the device as long as the device's volume is not set to 0. You have the option of using `channel: alarm_stream` to have your notification spoken regardless of music volume.
+By default Text To Speech notifications use the music stream so they will bypass the ringer mode on the device as long as the device's volume is not set to 0. You have the option of using `media_stream: alarm_stream` to have your notification spoken regardless of music volume.
 
 ```yaml
 automation:
@@ -462,12 +488,12 @@ automation:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           message: TTS
-          title: "Motion has been detected"
           data:
-            channel: "alarm_stream"
+            tts_text: "Motion has been detected"
+            media_stream: "alarm_stream"
 ```
 
-If you find that your alarm stream volume is too low you can use `channel: alarm_stream_max` which will temporarily set the alarm stream volume to the max level, play the notification and then revert back to the original volume level.
+If you find that your alarm stream volume is too low you can use `media_stream: alarm_stream_max` which will temporarily set the alarm stream volume to the max level, play the notification and then revert back to the original volume level.
 
 ```yaml
 automation:
@@ -478,9 +504,9 @@ automation:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           message: "TTS"
-          title: "Alarm has been triggered"
           data:
-            channel: "alarm_stream_max"
+            tts_text: "Alarm has been triggered"
+            media_stream: "alarm_stream_max"
 ```
 
 You may not want the TTS notification to be spoken in certain situations (e.g. if the Ringer mode is not `normal` or DND is enabled). This can be done by adding a condition in your automation that checks the state of [other sensors](https://companion.home-assistant.io/docs/core/sensors). Few examples are presented below:
@@ -507,8 +533,17 @@ automation:
       - service: notify.mobile_app_<your_device_id_here>
         data:
           message: TTS
-          title: Motion has been detected
+          data:
+            tts_text: Motion has been detected
 ```
+
+Please see the below table for new parameters to use after updating the Android app to 2022.8+:
+
+| Old Parameter | New Parameter |
+|--------|--------|
+| `channel` | `media_stream` |
+| `title` | `tts_text` |
+
 
 ### Chronometer Notifications
 
@@ -611,7 +646,7 @@ automation:
 
 By setting the message to `delete_alert` you can silently update the app badge icon in the background without sending a notification to your phone.
 
-![iOS](/assets/iOS.svg) 2021.7 will automatically reset the badge to 0 when launching the app. You can control this behavior in Configuration](https://my.home-assistant.io/redirect/config/) Companion App > Notifications.
+![iOS](/assets/iOS.svg) 2021.7 will automatically reset the badge to 0 when launching the app. You can control this behavior in [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Notifications.
 
 ### Interruption Level
 

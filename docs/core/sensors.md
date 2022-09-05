@@ -21,7 +21,7 @@ If multiple servers are connected to an iOS or macOS app, currently the sensor s
 
 ### When Sensors Update
 
-On iOS, sensors update in limited situations: when your location changes, periodically when the app is running in the foreground, when you pull-to-refresh the web view, in the background at a rate determined by iOS, and when performing an "Update Sensors" or via "Send Location" shortcut or push notification.
+On iOS, sensors update in limited situations: when your location changes, periodically when the app is running in the foreground, when you pull-to-refresh the web view, in the background at a rate determined by iOS, and when performing an "Update Sensors" or via "Send Location" shortcut or push notification. When <a href="/docs/notifications/notification-local">Local Push</a> is enabled and available in ![iOS](/assets/iOS.svg) 2022.6 or later, periodic updates will also be performed.
 
 On macOS, sensors update in the same situations as above as well as immediately when some sensors change.
 
@@ -104,7 +104,7 @@ You can change the frequency of sensor updates by navigating to Companion App in
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
-| `sensor.high_accuracy_update_interval` | None | The update interval for high accuracy mode on the device. <span class='beta'>BETA</span> |
+| `sensor.high_accuracy_update_interval` | None | The update interval for high accuracy mode on the device. |
 | [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
 | [Mobile Data Sensors](#mobile-data-sensors) | None | Several different sensors around the state of mobile data. |
 | [Notification Sensors](#notification-sensors) | See Below | Details about the notifications on the device. |
@@ -226,7 +226,7 @@ These sensors use the [AudioManager API](https://developer.android.com/reference
 | `is_music_active` | Boolean value if the device is actively playing music, this sensor will update during the normal interval. |
 | `is_speakerphone_on` | Boolean value if the device speakerphone is enabled, Android 10+ will update as this value changes. |
 | `ringer_mode` | The ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. This sensor will update as soon as the ringer mode changes. |
-| `volume_level_*` | The current device volume level for the given volume attributes: `alarm`, `call`, `music`, `ring`. These sensors will update during the normal interval. `accessibility`, `dtmf`, `notification` and `system` are available in the <span class='beta'>BETA</span> |
+| `volume_level_*` | The current device volume level for the given volume attributes: `accessibility`, `alarm`, `call`, `dtmf`, `music`, `notification`, `ring`, `system`. These sensors will update during the normal interval. |
 
 
 ## Battery Sensors
@@ -234,17 +234,21 @@ These sensors use the [AudioManager API](https://developer.android.com/reference
 The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
 
 ![Android](/assets/android.svg)<br />
-The battery sensors listed below describe the state of the battery for a few different data points. The sensor's icon reflects the charging status, and type of charging being used. The `battery_state`, `charger_type` and `is_charging` sensor will be updated when the device has a charger connected or disconnected. The `battery_health`, `battery_level` and `battery_temperature` sensors will be updated any time any of the other sensors get an update as well as when the device reports low battery or when it has recovered from the low battery alert. All of these sensors make use of [BatteryManager](https://developer.android.com/reference/android/os/BatteryManager).
+The battery sensors listed below describe the state of the battery for a few different data points. The sensor's icon reflects the charging status, and type of charging being used. The `battery_state`, `charger_type` and `is_charging` sensor will be updated when the device has a charger connected or disconnected. The `battery_health`, `battery_level`, `battery_power` and `battery_temperature` sensors will be updated any time any of the other sensors get an update as well as when the device reports low battery or when it has recovered from the low battery alert. All of these sensors make use of [BatteryManager](https://developer.android.com/reference/android/os/BatteryManager).
 
 | Sensor | Description |
 | --------- | --------- |
 | `battery_health` | The health of the battery |
 | `battery_level` | The percentage of battery remaining |
+| `battery_power` | The current wattage on the device |
 | `battery_state` | The state of charging on the device |
 | `battery_temperature` | The current battery temperature |
 | `charger_type` | The type of charger being used on the device |
 | `is_charging` | Whether or not the device is actively charging |
 
+![Android](/assets/android.svg) <span class="beta">BETA</span>
+
+The `battery_power` sensor attempts to convert microamperes to amperes however some devices do not follow Android documentation and may return a different unit. For these devices you may need to adjust the sensor setting for `Battery Current Divisor` to properly convert the `current` to amperes.
 
 ## Bluetooth Sensors
 ![Android](/assets/android.svg)<br />
@@ -327,7 +331,7 @@ For Android several different types of connection sensors are available and they
 | `link_speed` | The current link speed of the device to the connected network |
 | `signal_strength` | The signal strength of the device to the WiFi network |
 | `wifi_state` | Whether or not WiFi is turned on for the device |
-| `transport_type` | The transport type for the current network connection. <span class='beta'>BETA</span> |
+| `transport_type` | The transport type for the current network connection. An attribute will reflect if the current network is metered. |
 
 ![Android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. These settings are turned off by default. These sensors require either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
 
@@ -375,10 +379,10 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | Attribute | Description |
 | --------- | --------- |
 | `Location` | The latitude and longitude coordinates of the placemark. |
-| `Name` | The name of the placemark. ![iOS](/assets/iOS.svg) iOS only, for Android check the state of the sensor. |
+| `Name` | The name of the placemark. ![iOS](/assets/iOS.svg)only and ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
 | `Country` | The name of the country associated with the placemark. |
 | `ISOCountryCode` | The abbreviated country name. |
-| `TimeZone` | The time zone associated with the placemark. ![iOS](/assets/iOS.svg) iOS only |
+| `TimeZone` | The time zone associated with the placemark. ![iOS](/assets/iOS.svg)only |
 | `AdministrativeArea` | The state or province associated with the placemark. |
 | `SubAdministrativeArea` | Additional administrative area information for the placemark. |
 | `PostalCode` | The postal code associated with the placemark. |
@@ -386,13 +390,17 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `SubLocality` | Additional city-level information for the placemark. |
 | `Thoroughfare` | The street address associated with the placemark. |
 | `SubThoroughfare` | Additional street-level information for the placemark. |
-| `AreasOfInterest` | The relevant areas of interest associated with the placemark. ![iOS](/assets/iOS.svg) iOS only |
-| `Ocean` | The name of the ocean associated with the placemark. ![iOS](/assets/iOS.svg) iOS only |
-| `InlandWater` | The name of the inland water body associated with the placemark. ![iOS](/assets/iOS.svg) iOS only |
+| `AreasOfInterest` | The relevant areas of interest associated with the placemark. ![iOS](/assets/iOS.svg)only |
+| `Ocean` | The name of the ocean associated with the placemark. ![iOS](/assets/iOS.svg)only |
+| `InlandWater` | The name of the inland water body associated with the placemark. ![iOS](/assets/iOS.svg)only |
+| `phone` | The phone number for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
+| `premises` | The premises for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
+| `url` | The URL for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
 
-![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
+![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run. All attributes will be lowercase and all spaces are replaced with an underscore.
 
-![Android](/assets/android.svg) all attributes will be lowercase and all spaces are replaced with an underscore.
+![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+The sensor will only send an update if it is accurate and recent. The sensor will also update with location updates if location tracking is enabled.
 
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
 
@@ -400,7 +408,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
 
 ## High Accuracy Update Interval
-![Android](/assets/android.svg) <span class='beta'>BETA</span> This sensors state will reflect the update interval for the device in seconds for [high accuracy mode](location.md#high-accuracy-mode). This sensor will update as soon as the value changes either manaully or by the [notification command](../notifications/commands.md#high-accuracy-mode).
+![Android](/assets/android.svg) This sensors state will reflect the update interval for the device in seconds for [high accuracy mode](location.md#high-accuracy-mode). This sensor will update as soon as the value changes either manaully or by the [notification command](../notifications/commands.md#high-accuracy-mode).
 
 ## Interactive Sensor
 ![Android](/assets/android.svg) This sensors state will reflect if the device is in an interactive state. This is typically when the screen comes on and off but may vary from device to device. This sensor will update as soon state changes are detected, data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
@@ -454,6 +462,9 @@ Below you can find some details that can be given with some notifications.
 | `is_ongoing` | If the notification is persistent on the device. |
 | `package` | The package that posted the notification. |
 | `post_time` | The time the notification was posted on the device. |
+| `channel_id` | The ID of the channel the notification posted to. This attribute is only available on Android 8+. |
+| `group_id` | The ID of the group the notification posted to. |
+| `category` | The category that the notification defined. |
 
 
 ### Media Session Sensor

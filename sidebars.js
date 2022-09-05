@@ -32,10 +32,11 @@ module.exports = {
       'notifications/notification-commands',
       'notifications/notification-sounds',
       'notifications/notification-local',
+      'notifications/notification-received',
     ],
     'Integrations': [
       'integrations/integrations',
-      'integrations/android-power-menu',
+      'integrations/android-device-controls',
       'integrations/android-quick-settings',
       'integrations/android-shortcuts',
       'integrations/android-webview',

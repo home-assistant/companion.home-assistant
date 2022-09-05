@@ -5,7 +5,7 @@ id: getting-started
 
 ## Installation & System Requirements
 
-The Home Assistant Companion App can be downloaded from the [iOS App Store](https://apps.apple.com/app/home-assistant-companion/id1099568401) or [Play Store](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android). The iOS App requires iOS 10 or greater, this means the oldest devices supported are the iPhone 5, 4<sup>th</sup> generation iPad and the 6<sup>th</sup> generation iPod touch. The Android app has 2 separate flavors `full` or `minimal`. Both flavors require Android 5.0 or greater. The `full` flavor is the one offered via the Play Store and requires Google Play Services in order to function properly. More details on the differences between the 2 flavors can be found [here](../core/android-flavors.md).
+The Home Assistant Companion App can be downloaded from the [iOS App Store](https://apps.apple.com/app/home-assistant/id1099568401) or [Play Store](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android). The iOS App requires iOS 10 or greater, this means the oldest devices supported are the iPhone 5, 4<sup>th</sup> generation iPad and the 6<sup>th</sup> generation iPod touch. The Android app has 2 separate flavors `full` or `minimal`. Both flavors require Android 5.0 or greater. The `full` flavor is the one offered via the Play Store and requires Google Play Services in order to function properly. More details on the differences between the 2 flavors can be found [here](../core/android-flavors.md).
 
 You need to be running Home Assistant 0.104.0 or newer. The mobile apps requires the following integrations to be enabled in your Home Assistant instance:
 
@@ -52,3 +52,11 @@ Requires Home Assistant ios-2021.12 and core-2021.10.
 :::
 
 Once you have set up your first server, you can add additional Home Assistant instances via the App Configuration page and the "Add Server" option. Servers on the same local network as your device will be discovered and listed automatically or you can manually enter the address in the same way as setting up the first server.
+
+## TLS Client Authentication
+
+![Android](/assets/android.svg) excluding Wear OS
+
+If your Home Assistant requires TLS Client Authentication (because it is behind a reverse proxy configured to perform TLS Client Authentication), the app will ask for a certificate. If no matching certificate is installed or supplied, you might see an error or a blank screen depending on your setup.
+
+Please refer to your device and Android version documentation to install the certificate. Make sure to install the certificate as a "VPN & app user certificate". An example for Pixel phones is available here: [Add & remove certificates](https://support.google.com/pixelphone/answer/2844832?hl=en). 

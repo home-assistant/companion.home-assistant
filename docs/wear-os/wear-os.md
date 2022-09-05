@@ -3,9 +3,11 @@ title: "Overview"
 id: "wear-os"
 ---
 
-![Android](/assets/android.svg) &nbsp;<span class="beta">BETA</span><br />
+![Android](/assets/android.svg)
 
-Home Assistant has started to offer a beta version of the Wear OS app in the Google Play Store. Support at this moment is very minimal. You must be a beta user of the phone app to [participate in the beta](https://play.google.com/apps/testing/io.homeassistant.companion.android) for the watch app.
+You can access Home Assistant directly from your Wear OS watch, even when not connected to your phone using a WiFi or cellular connection on the watch or when using an iPhone. 
+
+The app does not support all Home Assistant features. Keep an eye out on this page as the app is enhanced with new features!
 
 ## Home Screen
 
@@ -30,7 +32,7 @@ The favorites can also be managed from the phone app by going to App Configurati
 
 ### Areas
 
-If any devices or entities have been added to areas in Home Assistant, these areas will be shown in the Wear OS app below the favorites. Tapping on an area will show all primary entities in that area. Any domains with primary entities not added to an area will be shown near the bottom of the list as 'More entities'. Configuration and diagnostic entities are only shown in 'All entities', at the bottom of the list.
+If any devices or entities have been added to areas in Home Assistant, these areas will be shown in the Wear OS app below the favorites. Tapping on an area will show all primary entities in that area. Any domains with primary entities not added to an area will be shown near the bottom of the list as 'More entities'. Configuration and diagnostic entities and hidden entities are only shown in 'All entities', at the bottom of the list.
 
 ### More details
 
@@ -50,12 +52,24 @@ Right now, two tiles are supported:
 * The shortcuts tile shows up to 7 shortcuts, which can be chosen from the settings section in the Wear OS app. You will be able to select the same set of entities you can access from the home screen.
 * The template tile shows a rendered template. The template can only be set from the android companion app. Note: it is not possible to scroll in a tile, the template should fit on the watch screen.
 
+### Styling the template tile
+
+You may use HTML to format the text displayed. The following tags are currently supported:
+
+* Adding a new line: `<br>`
+* Changing the text style: `<b>bold</b>`, `<i>italic</i>` or `<u>underline</u>`
+* Changing the text size: `<big>large</big>` or `<small>tiny</small>`
+* Changing the color: `<font color='#03a9f4'>colored text</font>`
+* Using headers: `<h1>title</h1>`, `<h2>subtitle</h2>`, etc.
+
+## Complications
+
+An entity state complication can be displayed on your watchface. The complication is of the 'short text' type and will display the current state of the selected entity. Depending on the watch face it will also show the entity name and icon. When you add an entity to a watch face, you can select the entity to display. To change the selected entity, just change the complication and select the entity state complication again.
+
+The complications are updated automatically whenever the screen is turned on and roughly every 15 minutes. You can force a complication to update by tapping it on the watch face.
+
+Hint: use a [template sensor](https://www.home-assistant.io/integrations/template/#state-based-template-binary-sensors-buttons-numbers-selects-and-sensors) for full flexibility.
+
 ## Sensors
 
 The Wear OS app will have [sensors](../core/sensors.md). To start with, it will only report the [battery sensors](../core/sensors.md#battery-sensors). Its important to note that sensor updates require the app to post a notification to the device in order to prevent it from being killed by the OS. You can go to into Wear device settings and turn off the SensorWorker Notification channel to stop these notifications from buzzing on your wrist.
-
-## Beta
-
-You can sign up for the beta [here](https://play.google.com/apps/testing/io.homeassistant.companion.android). Once installed you will be directed to adding your server and logging in.
-
-Keep an eye out on this page as the application is enhanced with new features!

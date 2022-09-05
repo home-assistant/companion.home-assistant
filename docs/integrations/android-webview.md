@@ -18,7 +18,7 @@ This feature may also be controlled by Notification command, [see details](https
 
 The ![Android](/assets/android.svg) Android app has the ability to intercept certain types of links to allow the user to directly launch another app found on the device (or take the user to install the app if not found). Users can also use the [Intent Scheme](https://developer.chrome.com/docs/multidevice/android/intents/#syntax) to perform any action that is supported by the app.
 
-Examples using Lovelace entity card [weblink](https://www.home-assistant.io/lovelace/entities/#weblink):
+Examples using Lovelace entity card [weblink](https://www.home-assistant.io/dashboards/entities/#weblink):
 
 This example will launch Twitter if it is installed on the device, otherwise it will open the Google Play store app or website.
 ```yaml
@@ -43,3 +43,5 @@ The ![Android](/assets/android.svg) Android app has the ability to enable [chrom
 ## Swipe Gestures
 
 The ![Android](/assets/android.svg) Android app has the ability to launch the [quick bar](https://www.home-assistant.io/docs/tools/quick-bar/) by detecting a 3 finger swipe down gesture. Initially the entity filter will be shown, you can switch to the command palette by typing `>` at the start of the input. The quick bar can only be launched when inside the webview after you have logged in.
+
+This gesture is only supported on Home Assistant core 2022.6 or earlier.
