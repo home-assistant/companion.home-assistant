@@ -20,7 +20,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | ------- | ----------- |
 | `clear_notification` | Removes a notification from the status bar, [more details](basic.md#clearing). |
 | `command_activity` | Launch an activity with a specified URI to any app, [more details](#activity) and use cases below. |
-| `command_app_lock` | Change the companion app lock settings, [more details](#app-lock) and use cases below. |
+| `command_app_lock` | Change the companion app lock settings, [more details](#app-lock) and use cases below. <span class='beta'>BETA</span>|
 | `command_bluetooth` | Turn bluetooth on or off. |
 | `command_ble_transmitter` | Turn BLE beacon transmitter on or off. |
 | `command_beacon_monitor` | Turn Beacon Monitoring on or off. |
@@ -105,7 +105,7 @@ Please see the below table for new parameters to use after updating the Android 
 
 ## App lock
 
-![Android](/assets/android.svg)
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
 
 To take control of an Android companion app's security Users can alter the app lock settings using `message: command_app_lock`. All settings related to the app lock can be configured in a single command. The following settings are accessible through the notify command:
 
