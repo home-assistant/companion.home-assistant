@@ -163,3 +163,7 @@ If you want to ensure that the sensors are updated when your device starts charg
 4.  If the Bluetooth Transmitter sensor is enabled check that the transmitter is not left on all the time, only enable it when you wish to use it.
 5.  Check that Sensor Update Frequency is set to "Normal".
 6.  Check that none of the Notification Sensors have the allow list disabled in their respective settings. You always want to define an allow list to prevent heavy battery usage.
+
+
+## iOS 16 device name missing from `notify` service and/or entities
+![iOS](/assets/iOS.svg) tries to protect privacy by not allowing apps to access your device name by default. If, after updating to iOS 16 you find that your `notify` service or entities that were previosuly `notify.mobile_app_<device_name>` are showing as `notify.mobile_app_iphone`, please change the device name in [Settings](https://my.home-assistant.io/redirect/config/) > Companion App> Server\* > Device Name. You may need to reload the mobile app integration in the [Integration Dashboard](https://my.home-assistant.io/redirect/integrations/) for the correct service to be shown. \*Note that servers are listed at the top of the Companion App settings page, if you have multiple servers set up in the app, you will need to carry out these steps for each server.
