@@ -423,7 +423,7 @@ If you have updated the Android app to 2022.8 you must use `command` in place of
 
 ![Android](/assets/android.svg)
 
-If you would like to simply just launch an application you can use `message: command_launch_app` to launch any application installed on your device. You must send the package name you wish to open using the `package_name` parameter, if not set then you will see the notification post as normal. If the application is not installed on the device then the user will be directed to the Google Play Store to install the application. This command requires the Draw Over Other Apps permission, the first time you send this command you will be directed to granting this special permission to the Home Assistant application.
+If you would like to simply just launch an application you can use `message: command_launch_app` to launch any application installed on your device. You must send the package name you wish to open using the `package_name` parameter, if not set then you will see the notification post as normal. If the application is not installed on the device then the user will be directed to the Google Play Store to install the application. This command requires the Draw Over Other Apps permission, the first time you send this command you will be directed to granting this special permission to the Home Assistant application. To find the `package_name` of an app you wish to open, you can use a web browser to search for the app in the Google Play Store, or F-droid, and look in the URL.
 
 ```yaml
 automation:
