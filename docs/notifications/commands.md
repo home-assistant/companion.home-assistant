@@ -111,9 +111,9 @@ To take control of an Android companion app's security Users can alter the app l
 
 | Parameter | Type | Description |
 |---------|---------|--------|
-| `app_lock_enabled` | boolean | Wether the biometric / screenlock will be enabled |
+| `app_lock_enabled` | boolean | Whether the biometric / screen lock will be enabled |
 | `app_lock_timeout` | integer | Session timeout in seconds |
-| `home_bypass_enabled` | boolean | Wether the lock is bypassed when connected to home WiFi |
+| `home_bypass_enabled` | boolean | Whether the lock is bypassed when connected to home WiFi |
 
 Example:
 
