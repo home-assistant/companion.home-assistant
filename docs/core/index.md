@@ -591,6 +591,13 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
+      <td><a href="/docs/core/sensors#dynamic-color-sensor">Dynamic Color</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#pedometer-sensors">Floors Ascended</a></td>
       <td></td>
       <td></td>
