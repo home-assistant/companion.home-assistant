@@ -137,6 +137,17 @@ You can also open the notification history when using the format `settings://not
   uri: "settings://notification_history"
 ```
 
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+You can also use an [intent scheme URI](https://developer.chrome.com/docs/multidevice/android/intents/#syntax) to start an action in an installed application.
+
+```yaml
+- action: "URI"
+  title: "Intent Scheme"
+  uri: "intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end"
+```
+
+
 #### ![iOS](/assets/iOS.svg) specific
 
 You can also use application-launching URLs. For example, to make a telephone call:
