@@ -149,12 +149,12 @@ You can also use an [intent scheme URI](https://developer.chrome.com/docs/multid
 
 ![Android](/assets/android.svg) <span class='beta'>BETA</span>
 
-You can send a specific [app link](https://developer.android.com/training/app-links) to an app by using `app-link://<app_link>` where `<app_link>` is the actual app link you wish to send.
+You can send a specific [deep link](https://developer.android.com/training/app-links#deep-links) to an app by using `deep-link://<deep_link>` where `<deep_link>` is the actual deep link you wish to send.
 
 ```yaml
 - action: "URI"
-  title: "App Link"
-  uri: "app-link://example://link/to/content"
+  title: "Deep Link"
+  uri: "deep-link://example://link/to/content"
 ```
 
 #### ![iOS](/assets/iOS.svg) specific
