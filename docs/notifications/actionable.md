@@ -147,6 +147,15 @@ You can also use an [intent scheme URI](https://developer.chrome.com/docs/multid
   uri: "intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end"
 ```
 
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+You can send a specific [app link](https://developer.android.com/training/app-links) to an app by using `app-link://<app_link>` where `<app_link>` is the actual app link you wish to send.
+
+```yaml
+- action: "URI"
+  title: "App Link"
+  uri: "app-link://example://link/to/content"
+```
 
 #### ![iOS](/assets/iOS.svg) specific
 
