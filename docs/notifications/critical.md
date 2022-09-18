@@ -71,7 +71,7 @@ automations:
 ```
 
 ### ![Android](/assets/android.svg) Alarm Stream
-You can also force the notification to play from the alarm stream so it will make the device ring even if on vibrate/silent ringer mode. Users on Android 7 and below can still use the `media_stream` example below as we are just using it to override the default notification behavior for sound. In order to make a notification show up immediately and make a sound regardless of ringer mode follow one of the examples below.
+You can also force the notification to play from the alarm stream so it will make the device ring even if on vibrate/silent ringer mode. Users on Android 7 and below can still use the `chanell` example below as we are just using it to override the default notification behavior for sound. In order to make a notification show up immediately and make a sound regardless of ringer mode follow one of the examples below.
 
 Using this method to can send a normal notification:
 
@@ -91,10 +91,9 @@ automations:
           data:
             ttl: 0
             priority: high
-            media_stream: alarm_stream
+            channel: alarm_stream
 ```
 
-If you have updated the Android app to 2022.8+ then replace the parameter `channel` with `media_stream`.
 
 ### ![Android](/assets/android.svg) Text To Speech Alarm Stream
 Or you can use Text To Speech to speak the notification:
