@@ -71,7 +71,7 @@ automations:
 ```
 
 ### ![Android](/assets/android.svg) Alarm Stream
-You can also force the notification to play from the alarm stream so it will make the device ring even if on vibrate/silent ringer mode. Users on Android 7 and below can still use the `chanell` example below as we are just using it to override the default notification behavior for sound. In order to make a notification show up immediately and make a sound regardless of ringer mode follow one of the examples below.
+You can also force the notification to play from the alarm stream so it will make the device ring even if on vibrate/silent ringer mode. Users on Android 7 and below can still use the `channel` example below as we are just using it to override the default notification behavior for sound. In order to make a notification show up immediately and make a sound regardless of ringer mode follow one of the examples below.
 
 Using this method to can send a normal notification:
 
