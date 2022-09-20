@@ -246,7 +246,7 @@ The battery sensors listed below describe the state of the battery for a few dif
 | `charger_type` | The type of charger being used on the device |
 | `is_charging` | Whether or not the device is actively charging |
 
-![Android](/assets/android.svg) <span class="beta">BETA</span>
+![Android](/assets/android.svg)
 
 The `battery_power` sensor attempts to convert microamperes to amperes however some devices do not follow Android documentation and may return a different unit. For these devices you may need to adjust the sensor setting for `Battery Current Divisor` to properly convert the `current` to amperes.
 
@@ -277,7 +277,7 @@ There are also settings to alter:
 
 A Transmit setting toggle will start or stop the BLE transmissions - this setting is also toggled via the notification command that can turn the services on and off. 
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+![Android](/assets/android.svg) <br />
 The Beacon Monitor shows scans for BLE iBeacons. The state of the sensor shows if the app is monitoring or not. All beacons in range and their distance are listed in the attributes. This sensor will update when there is a new distance measurement available.
 
 Settings are available to change scan period and interval which can be useful to preserve battery life. The setting Filter Iterations and Filter RSSI Multiplier can be adjusted to archive more stable measurements. All of these setting will affect the responsiveness of the sensor.
@@ -379,7 +379,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | Attribute | Description |
 | --------- | --------- |
 | `Location` | The latitude and longitude coordinates of the placemark. |
-| `Name` | The name of the placemark. ![iOS](/assets/iOS.svg)only and ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
+| `Name` | The name of the placemark. ![iOS](/assets/iOS.svg)only and ![Android](/assets/android.svg) |
 | `Country` | The name of the country associated with the placemark. |
 | `ISOCountryCode` | The abbreviated country name. |
 | `TimeZone` | The time zone associated with the placemark. ![iOS](/assets/iOS.svg)only |
@@ -393,14 +393,11 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `AreasOfInterest` | The relevant areas of interest associated with the placemark. ![iOS](/assets/iOS.svg)only |
 | `Ocean` | The name of the ocean associated with the placemark. ![iOS](/assets/iOS.svg)only |
 | `InlandWater` | The name of the inland water body associated with the placemark. ![iOS](/assets/iOS.svg)only |
-| `phone` | The phone number for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
-| `premises` | The premises for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
-| `url` | The URL for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
+| `phone` | The phone number for the placemark, if available. ![Android](/assets/android.svg) |
+| `premises` | The premises for the placemark, if available. ![Android](/assets/android.svg) |
+| `url` | The URL for the placemark, if available. ![Android](/assets/android.svg) |
 
-![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run. All attributes will be lowercase and all spaces are replaced with an underscore.
-
-![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
-The sensor will only send an update if it is accurate and recent. The sensor will also update with location updates if location tracking is enabled.
+![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run. All attributes will be lowercase and all spaces are replaced with an underscore. The sensor will only send an update if it is accurate and recent. The sensor will also update with location updates if location tracking is enabled.
 
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
 
