@@ -25,3 +25,22 @@ Example event data:
     }
 }
 ```
+
+<span class='beta'>BETA</span>
+
+If you are on the beta version of the Android app then you will need to set `confirmation: true` as a parameter in your notification in order to receive this event. If you do not set this parameter then no event will be sent from the device when the notification is received.
+
+Example:
+
+```yaml
+automation:
+  - alias: Notification received confirmation
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "This notification has been received"
+          data:
+            confirmation: true
+```
