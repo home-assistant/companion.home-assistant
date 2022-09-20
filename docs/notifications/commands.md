@@ -184,7 +184,7 @@ If you have updated the Android app to 2022.8 you must use `command` in place of
 
 ## Beacon Monitor
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+![Android](/assets/android.svg) <br />
 
 You can turn the Beacon Monitor on or off using `message: command_beacon_monitor` with the `command` being either `turn_off` or `turn_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
 
