@@ -13,7 +13,7 @@ If multiple servers are connected to an iOS or mac app, you will be prompted to 
 :::
 
 ## Navigate
-This allows you to update the frontend page location via a deeplink. This requires version 2021.3 or later.
+This allows you to update the frontend page location via a deeplink.
 
 For example: if you had a dashboard at `/lovelace/webcams` you can use `homeassistant://navigate/lovelace/webcams` to launch the app there.
 
