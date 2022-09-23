@@ -486,7 +486,7 @@ For android this sensors state will reflect the [intent](https://developer.andro
 
 ![Android](/assets/android.svg) <span class='beta'>BETA</span>
 
-If you have updated your device to Android 13 and you notice an intent you registered for in settings is no longer being triggered by the app then you will need to add categories that the intent is expecting. You can add categories after the intent by editing the setting for the intent and adding a `,` followed by the category. If more than 1 category is required then you will need to add each category followed by a `,` until there are no more categories to add. For example if your intent requires 2 categories the format will be: `intent,category1,category2`. After saving the intent and category make sure to restart the application.
+If you notice an intent you registered for in settings is no longer being triggered by the app then you will need to add categories that the intent is expecting. You can add categories after the intent by editing the setting for the intent and adding a `,` followed by the category. If more than 1 category is required then you will need to add each category followed by a `,` until there are no more categories to add. For example if your intent requires 2 categories the format will be: `intent,category1,category2`. After saving the intent and category make sure to restart the application.
 
 ![iOS](/assets/iOS.svg)<br />
 This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
