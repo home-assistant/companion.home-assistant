@@ -384,7 +384,7 @@ If you have updated the Android app to 2022.8 you must use `command` in place of
 
 ![Android](/assets/android.svg)
 
-Users can turn the high accuracy mode of the background location sensor on or off using `message: command_high_accuracy_mode` with the `command` being either `turn_off`, `turn_on`, `force_off` or `force_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
+Users can turn the high accuracy mode of the background location sensor on or off using `message: command_high_accuracy_mode` with the `command` being either `turn_off`, `turn_on`, `force_off` or `force_on`<span class='beta'> (the force options are BETA)</span>. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
 
 Example:
 
@@ -401,7 +401,7 @@ automation:
             command: "turn_off"
 ```
 
-The difference between turn and force is only relevant if you have zone or bluetooth constraints set in the high accuracy mode settings.  In this case `force_on` will make high accuracy mode active until either `force_off` is sent, or the constraints go from active to inactive.  Similarly, `force_off` will turn off high accuracy mode until either `force_on` is sent, or the constraints go from inactive to active.
+<span class='beta'>BETA </span>The difference between turn and force is only relevant if you have zone or bluetooth constraints set in the high accuracy mode settings.  In this case `force_on` will make high accuracy mode active until either `force_off` is sent, or the constraints go from active to inactive.  Similarly, `force_off` will turn off high accuracy mode until either `force_on` is sent, or the constraints go from inactive to active.
 
 You can also adjust the update interval of high accuracy mode by following the example below. You must send a valid value that cannot be less than `5`. Anything else will result in the notification posting to the device. After performing this command high accuracy mode will restart which can take a few seconds to complete.
 
