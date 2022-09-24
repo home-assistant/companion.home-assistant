@@ -101,6 +101,7 @@ You can change the frequency of sensor updates by navigating to Companion App in
 | `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
 | `sensor.current_time_zone` | [See Below](#current-time-zone-sensor) | The current time zone the device is in. |
 | `sensor.current_version` | None | The current installed version of the application. |
+| [Dynamic Color](#dynamic-color-sensor) | RGB Color | The hexadecimal color value for the accent color used in the current device theme. <span class="beta">BETA</span> |
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
@@ -349,6 +350,13 @@ This sensor will represent the current time zone the device is in. There are als
 ## Current Version Sensor
 ![Android](/assets/android.svg)
 This sensor will represent the current installed version of the Android app.
+
+
+## Dynamic Color Sensor
+![Android](/assets/android.svg) <span class="beta">BETA</span> Only available on devices with support for Material 3 Dynamic color.
+
+This sensors state will be a hexadecimal color value for the accent color used in the current device theme. [Dynamic color](https://m3.material.io/styles/color/dynamic-color/overview) can either be derived from the wallpaper or chosen by the user. An attribute also exists for `rgb_color` in case you wanted to use this color in an automation for the [`light.turn_on`](https://www.home-assistant.io/integrations/light/#service-lightturn_on) service call. This sensor uses the [Dynamic Colors API](https://developer.android.com/reference/com/google/android/material/color/DynamicColors).
+
 
 ## Do Not Disturb Sensor
 ![Android](/assets/android.svg) 6+ only<br />
