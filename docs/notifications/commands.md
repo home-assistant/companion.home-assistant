@@ -20,6 +20,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | ------- | ----------- |
 | `clear_notification` | Removes a notification from the status bar, [more details](basic.md#clearing). |
 | `command_activity` | Launch an activity with a specified URI to any app, [more details](#activity) and use cases below. |
+| `command_auto_screen_brightness` | Control if automatic screen brightness is enabled. <span class='beta'>BETA</span> |
 | `command_bluetooth` | Turn bluetooth on or off. |
 | `command_ble_transmitter` | Turn BLE beacon transmitter on or off. |
 | `command_beacon_monitor` | Turn Beacon Monitoring on or off. |
@@ -28,6 +29,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. |
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
+| `command_screen_brightness_level` | Control the screen brightness level on the device. <span class='beta'>BETA</span> |
 | `command_screen_on` | Turn on the device screen. |
 | `command_stop_tts` | Stops Text To Speech if it's currently in use. |
 | `command_persistent_connection` | Toggle persistent connection mode, [see below](#persistent) for the available modes. |
@@ -101,6 +103,26 @@ Please see the below table for new parameters to use after updating the Android 
 | `tag` | `intent_action` |
 | `title` | `intent_uri` |
 
+
+## Auto Screen Brightness
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+You can control if automatic brightness is enabled or not on the device by using `message: command_auto_screen_brightness` with the `command` being either `turn_off` or `turn_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
+
+Example:
+
+```yaml
+automation:
+  - alias: Turn off automatic screen brightness
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_auto_screen_brightness"
+          data:
+            command: "turn_off"
+```
 
 ## BLE Beacon Transmitter
 
@@ -534,6 +556,25 @@ automation:
 
 If you have updated the Android app to 2022.8 you must use `command` in place of `title`.
 
+
+## Screen Brightness Level
+
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+You can control the screen brightness level on the device by sending `message: command_screen_brightness_level` with `command` being the level of brightness the screen should be. Valid values are between `0` and `255`. If you do not send a number or send a blank value then the notificaton will post as normal. If you send a value below `0` or above `255` then the app will default to `0` or `255` respectively.
+
+```yaml
+automation:
+  - alias: Set screen brightness level
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_screen_brightness_level"
+          data:
+            command: 50
+```
 
 ## Screen On
 
