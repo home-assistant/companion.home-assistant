@@ -484,6 +484,10 @@ This sensors state will be the date and time of the last reboot from the device 
 
 For android this sensors state will reflect the [intent](https://developer.android.com/reference/android/content/Intent) of the most recent update sent. Additionally the sensor offers settings to allow the user to receive [app events](../integrations/app-events.md) from other Android apps that broadcast an intent. Users can register for as many intents as they like, an event will be sent to Home Assistant once the intent has been received. Once you save an intent be sure to restart the application to register for the intent.
 
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+If you notice an intent you registered for in settings is no longer being triggered by the app then you will need to add categories that the intent is expecting. You can add categories after the intent by editing the setting for the intent and adding a `,` followed by the category. If more than 1 category is required then you will need to add each category followed by a `,` until there are no more categories to add. For example if your intent requires 2 categories the format will be: `intent,category1,category2`. After saving the intent and category make sure to restart the application.
+
 ![iOS](/assets/iOS.svg)<br />
 This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
 
