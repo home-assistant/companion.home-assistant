@@ -137,6 +137,26 @@ You can also open the notification history when using the format `settings://not
   uri: "settings://notification_history"
 ```
 
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+You can also use an [intent scheme URI](https://developer.chrome.com/docs/multidevice/android/intents/#syntax) to start an action in an installed application.
+
+```yaml
+- action: "URI"
+  title: "Intent Scheme"
+  uri: "intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end"
+```
+
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+You can send a specific [deep link](https://developer.android.com/training/app-links#deep-links) to an app by using `deep-link://<deep_link>` where `<deep_link>` is the actual deep link you wish to send.
+
+```yaml
+- action: "URI"
+  title: "Deep Link"
+  uri: "deep-link://example://link/to/content"
+```
+
 #### ![iOS](/assets/iOS.svg) specific
 
 You can also use application-launching URLs. For example, to make a telephone call:
