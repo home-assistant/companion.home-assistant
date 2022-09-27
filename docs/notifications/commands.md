@@ -248,6 +248,9 @@ automation:
 
 If you have updated the Android app to 2022.8 you must use `command` in place of `title`.
 
+:::note Version Compatibility
+<span class="beta">BETA</span> This command is not supported on devices running Android 13 or later.
+:::
 
 ## Broadcast Intent
 
