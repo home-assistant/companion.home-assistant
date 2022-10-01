@@ -142,7 +142,7 @@ The following steps are an example of how to send an intent using Tasker:
 
 ## Android Location Sensors
 
-![Android](/assets/android.svg) Android users can find custom sensor settings for location tracking under [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors > Location Sensors. These sensors all require that the app has proper location permissions and location is enabled on the device, if either of these requirements are not met then the sensors will become disabled.
+![Android](/assets/android.svg) Android users can find custom sensor settings for location tracking under [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors > Location Sensors. These sensors all require that the app has proper location permissions and location is enabled on the device, if either of these requirements are not met then the sensors will become disabled.
 
 *  The first sensor is `Background Location` this sensor is responsible for registering frequent background updates using [Google's Fused Location API](https://developers.google.com/location-context/fused-location-provider). Updates come in typically between 1-3 minutes but can be as often as every 30 seconds when you are using navigation like Google Maps.
 *  `Background Location` also offers [high accuracy mode](#high-accuracy-mode) so you can get even faster updates. The state of this mode can be determined by the next location sensor `High Accuracy Mode` which simply reports if the mode is enabled. This sensor is not directly related to location updates that you get from Google.
