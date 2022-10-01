@@ -32,4 +32,4 @@ On Android 11, you can use added controls when your device is locked.
 
 On Android 12, you cannot use added controls when your device is locked.
 
-On Android 13, you can control the use of added controls when your device is locked. First, make sure you've enabled the option to use device controls when locked in the system settings (Settings app > Display > Lock screen). Now you can use added controls when your device is locked! If you want to change the setting for specific controls or entities, open Home Assistant and go to Settings > Companion app > Manage Device Controls.
+On Android 13, you can control the use of added controls when your device is locked. First, make sure you've enabled the option to use device controls when locked in the system settings (Settings app > Display > Lock screen). Now you can use added controls when your device is locked! If you want to change the setting for specific controls or entities, open Home Assistant and go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Manage Device Controls.
