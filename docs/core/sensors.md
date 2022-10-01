@@ -270,20 +270,21 @@ A BLE Transmitter sensor allows your device to transmit a BLE iBeacon.  This is 
 This sensor can impact battery life, particularly if used wih Transmit Power set to High. The iBeacon is transmitted every second (low latency to save battery, but sufficient for room presence).
 :::
 
-Settings are available to change the UUID, Major and Minor masks. These can be used to change the overall identifier, as well as to allow groups, e.g. family phone devices can have particular Major value which can be whitelisted in apps like roomassistant. These settings are validated: UUID should be the [standard format](https://en.wikipedia.org/wiki/Universally_unique_identifier), Major and Minor need to be within 0 and 65535. 
+Settings are available to change the UUID, Major and Minor masks. These can be used to change the overall identifier, as well as to allow groups, e.g. family phone devices can have particular Major value which can be whitelisted in apps like roomassistant. These settings are validated: UUID should be the [standard format](https://en.wikipedia.org/wiki/Universally_unique_identifier), Major and Minor need to be within 0 and 65535.
+
 There are also settings to alter:
 *   the Transmit power (between Ultra Low, Low, Medium and High)
 *   the Advertise mode (between Low Power (1Hz), Balanced (3Hz) and Low latency (10Hz))
-*   whether to allow this sensor to be turned on when the Enable all sensors toggle is activated (by default this is set to false, to prevent this sensor draining battery unnecessarily)
+*   the Measured power (must be a negative number)
 
-A Transmit setting toggle will start or stop the BLE transmissions - this setting is also toggled via the notification command that can turn the services on and off. 
+A Transmit setting toggle will start or stop the BLE transmissions. This setting as well as most of the above settings can be changed via the [notification command](../notifications/commands.md#ble-beacon-transmitter).
 
 ![Android](/assets/android.svg) <br />
 The Beacon Monitor shows scans for BLE iBeacons. The state of the sensor shows if the app is monitoring or not. All beacons in range and their distance are listed in the attributes. This sensor will update when there is a new distance measurement available.
 
 Settings are available to change scan period and interval which can be useful to preserve battery life. The setting Filter Iterations and Filter RSSI Multiplier can be adjusted to archive more stable measurements. All of these setting will affect the responsiveness of the sensor.
 
-A Monitor setting toggle will start or stop the scans - this setting can also be adjusted via the notification command.
+A Monitor setting toggle will start or stop the scans - this setting can also be adjusted via the [notification command](../notifications/commands.md#beacon-monitor).
 
 ## Cellular Provider Sensor
 The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
