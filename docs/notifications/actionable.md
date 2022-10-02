@@ -137,6 +137,26 @@ You can also open the notification history when using the format `settings://not
   uri: "settings://notification_history"
 ```
 
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+You can also use an [intent scheme URI](https://developer.chrome.com/docs/multidevice/android/intents/#syntax) to start an action in an installed application.
+
+```yaml
+- action: "URI"
+  title: "Intent Scheme"
+  uri: "intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end"
+```
+
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+You can send a specific [deep link](https://developer.android.com/training/app-links#deep-links) to an app by using `deep-link://<deep_link>` where `<deep_link>` is the actual deep link you wish to send.
+
+```yaml
+- action: "URI"
+  title: "Deep Link"
+  uri: "deep-link://example://link/to/content"
+```
+
 #### ![iOS](/assets/iOS.svg) specific
 
 You can also use application-launching URLs. For example, to make a telephone call:
@@ -246,7 +266,7 @@ The above example will wait, until the notification action is performed. This mi
 
 -   You can use a [time out](https://www.home-assistant.io/docs/scripts/#wait-timeout) to allow new executions of the script. However, this will lead to dangling notifications on your mobile phone. 
 -   It is possible to [clear notifications](https://companion.home-assistant.io/docs/notifications/notifications-basic#clearing) which can be combined with timeouts and parallel execution mode to achieve good results. 
--   In Android you can listen to the [notification cleared event](https://companion.home-assistant.io/docs/notifications/notification-cleared/event) that is fired when the notification is closed, and handle it accordingly. This can be achieved by adding the following lines
+-   In Android you can listen to the [notification cleared event](https://companion.home-assistant.io/docs/notifications/notification-cleared) that is fired when the notification is closed, and handle it accordingly. This can be achieved by adding the following lines
   ```
         - platform: event
           event_type: mobile_app_notification_cleared

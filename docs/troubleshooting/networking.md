@@ -30,12 +30,19 @@ The easiest solution to this is to use the [AdGuard Home](https://github.com/has
 Here you click `Add DNS rewrite` and enter your `my-home.duckdns.org` and the internal IP `192.168.1.4` of your Home Assistant, followed by clicking on `save`. What happens now is that all DNS queries for the address `my-home.duckdns.org` from inside your home network will be answered by AdGuard via its own rewrite table, thus pointing toward the internal address of your Home Assistant instead of asking public DNS servers on the web which will all answer with the public IP of your router.
 Even if you don't need split brain DNS, you may also want to set this up as it will enable you to access Home Assistant via it's public name even when your internet connection is down and hairpin NAT won't work. One less dependency on the Cloud!
 
-## Setting up the iOS app
+## Setting up the app
 If you've followed all our advice, your app should find your Home Assistant instance automatically during onboarding when connected to your home wifi network. You can also go through onboarding anywhere you're connected to the internet by manually entering `https://my-home.duckdns.org:8123` and the setup will finish with that address in the `External URL` field in the app connection settings. There should be no need to enter an internal URL as the same address will work regardless of where your phone is connected.
-If you want to (or have to) use Nabu Casa Cloud, there are two more steps required:
--   In iOS settings, set location access permissoin for Home Assistant to Always. This is required because starting with iOS 13, Apple will only let apps with such permission have access to the wifi SSID which is used by the app to determine whether to use internal or external URLs.
--   Once permission is given, add your Home Assistant address to internal URL (if you come from the top of this article, this could be `http://hassio.local:8123`
--   If you've set up Nabu Casa Cloud in your Home Assistant the checkbox to "Connect via Cloud" should now become available. Once you activate the checkbox, external URL will become deactivated.
+
+If you want to (or have to) use Nabu Casa Cloud or a different URL depending on the network you're connected to, there are more steps required:
+
+-   In system settings, set the location access permission for Home Assistant to 'Always' on iOS or 'Allow all the time' on Android. This is required because iOS 13 and newer and all Android versions will only let apps with such permission have access to the wifi SSID which is used by the app to determine whether to use internal or external URLs.
+-   Once permission is given, add your Home Assistant address to internal URL (if you come from the top of this article, this could be `http://homeassistant.local:8123`)
+-  ![iOS](/assets/iOS.svg) If you've set up Nabu Casa Cloud in your Home Assistant the checkbox to "Connect via Cloud" should now become available. Once you activate the checkbox, external URL will become deactivated.
+-  ![Android](/assets/android.svg) Manually change your Home Assistant's external URL to your Nabu Casa Cloud URL.
+
+:::note Using the BSSID instead of SSID
+![Android](/assets/android.svg) <span class='beta'>BETA</span> You can also enter a wifi network BSSID in the app's settings in case you have multiple access points with the same SSID, and only want to use the internal URL when connected to a specific access point. To do so, add a new SSID with the name `BSSID:` followed by the BSSID (for example: `BSSID:1A:2B:3C:4D:5E:6F`).
+:::
 
 ## Addendum: CG-NAT
 If your ISP doesn't give you a public IPv4 address you're down to basically only two solutions: You can call your ISP and ask if they can give you a real address or if there is an upgrade for your connection available (oddly enough, asking nicely will work with many ISPs out there) or use Nabu Casa Cloud.
