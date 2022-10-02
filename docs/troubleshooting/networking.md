@@ -41,7 +41,7 @@ If you want to (or have to) use Nabu Casa Cloud or a different URL depending on 
 -  ![Android](/assets/android.svg) Manually change your Home Assistant's external URL to your Nabu Casa Cloud URL.
 
 :::note Using the BSSID instead of SSID
-![Android](/assets/android.svg) <span class='beta'>BETA</span> You can also enter a wifi network BSSID in the app's settings in case you have multiple access points with the same SSID, and only want to use the internal URL when connected to a specific access point. To do so, add a new SSID with the name `BSSID:` followed by the BSSID (for example: `BSSID:1A:2B:3C:4D:5E:6F`).
+![Android](/assets/android.svg) You can also enter a wifi network BSSID in the app's settings in case you have multiple access points with the same SSID, and only want to use the internal URL when connected to a specific access point. To do so, add a new SSID with the name `BSSID:` followed by the BSSID (for example: `BSSID:1A:2B:3C:4D:5E:6F`).
 :::
 
 ## Addendum: CG-NAT
