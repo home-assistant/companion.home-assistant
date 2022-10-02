@@ -106,6 +106,7 @@ Please see the below table for new parameters to use after updating the Android 
 
 
 ## App lock
+
 ![Android](/assets/android.svg) <span class='beta'>BETA</span>
 
 To take control of an Android companion app's security Users can alter the app lock settings using `message: command_app_lock`. All settings related to the app lock can be configured in a single command. The following settings are accessible through the notify command:
@@ -135,6 +136,7 @@ automation:
 
 
 ## Auto Screen Brightness
+
 ![Android](/assets/android.svg) <span class='beta'>BETA</span>
 
 You can control if automatic brightness is enabled or not on the device by using `message: command_auto_screen_brightness` with the `command` being either `turn_off` or `turn_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
