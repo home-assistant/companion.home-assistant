@@ -76,13 +76,13 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 
 ## Android Sensors
 
-Each ![Android](/assets/android.svg) sensor below can be enabled by navigating to Companion App in [Configuration](https://my.home-assistant.io/redirect/config/) page then selecting `Manage Sensors`. By default, most are disabled with the exception of the [battery sensors](#battery-sensors) and any that were given permission during onboarding. Once enabled the sensor will begin to send data to your Home Assistant server, if you chose to disable it later on the sensor will stop updating. Upon enabling a sensor the app will request for permissions, if required. If you do not see a sensor listed below then your device does not support it. Some of the sensors below offer custom settings for each of their own needs, read about each one to see what it offers. These settings can be found in the same location where you enable the sensor.
+Each ![Android](/assets/android.svg) sensor below can be enabled by navigating to [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors. By default, most are disabled with the exception of the [battery sensors](#battery-sensors) and any that were given permission during onboarding. Once enabled the sensor will begin to send data to your Home Assistant server, if you chose to disable it later on the sensor will stop updating. Upon enabling a sensor the app will request for permissions, if required. If you do not see a sensor listed below then your device does not support it. Some of the sensors below offer custom settings for each of their own needs, read about each one to see what it offers. These settings can be found in the same location where you enable the sensor.
 
 ### How Sensors Update
 
 All sensors update during a periodic 15-minute interval and they will also update if other certain conditions are met. Read about each sensor below to understand how often to expect updates. During the 15-minute update interval a low priority foreground notification is temporarily created to prevent the Android system from halting the worker. This notification does not make a sound unless the user has installed a third-party app that intercepts notifications and decides to make a sound. If you are on Android 8.0+ you are free to minimize and/or turn off the notification channel for the `SensorWorker`.
 
-You can change the frequency of sensor updates by navigating to Companion App in [Configuration](https://my.home-assistant.io/redirect/config/) and select Sensor Update Frequency. You can select between Normal, Fast While Charging or Fast Always. Normal is the default mentioned in the previous paragraph. When set to Fast Always updates will come in every minute. When set to Fast While Charging updates will only come in every minute only while the device is charging, otherwise the default interval will be used. After changing this option you will need to restart the app.
+You can change the frequency of sensor updates by navigating to [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Sensor Update Frequency. You can select between Normal, Fast While Charging or Fast Always. Normal is the default mentioned in the previous paragraph. When set to Fast Always updates will come in every minute. When set to Fast While Charging updates will only come in every minute only while the device is charging, otherwise the default interval will be used. After changing this option you will need to restart the app.
 
 ### Sensor List
 
@@ -101,6 +101,7 @@ You can change the frequency of sensor updates by navigating to Companion App in
 | `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
 | `sensor.current_time_zone` | [See Below](#current-time-zone-sensor) | The current time zone the device is in. |
 | `sensor.current_version` | None | The current installed version of the application. |
+| [Dynamic Color](#dynamic-color-sensor) | RGB Color | The hexadecimal color value for the accent color used in the current device theme. <span class="beta">BETA</span> |
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
@@ -119,6 +120,7 @@ You can change the frequency of sensor updates by navigating to Companion App in
 | `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
+| `sensor.screen_brightness` | [See Below](#screen-brightness-sensor) | The current value of screen brightness. <span class='beta'>BETA</span> |
 | `sensor.steps` | None | The number of steps taken from the user since the last device reboot. Requires activity recognition permissions on supported devies. |
 | [Storage Sensors](#storage-sensor) | [See Below](#storage-sensor) | The amount of total and available internal & external storage on your Android device. |
 | [Traffic Stats Sensor](#traffic-stats-sensor) | None | Amount of data transmitted and received from mobile and total device usage since last reboot. |
@@ -246,7 +248,7 @@ The battery sensors listed below describe the state of the battery for a few dif
 | `charger_type` | The type of charger being used on the device |
 | `is_charging` | Whether or not the device is actively charging |
 
-![Android](/assets/android.svg) <span class="beta">BETA</span>
+![Android](/assets/android.svg)
 
 The `battery_power` sensor attempts to convert microamperes to amperes however some devices do not follow Android documentation and may return a different unit. For these devices you may need to adjust the sensor setting for `Battery Current Divisor` to properly convert the `current` to amperes.
 
@@ -277,7 +279,7 @@ There are also settings to alter:
 
 A Transmit setting toggle will start or stop the BLE transmissions - this setting is also toggled via the notification command that can turn the services on and off. 
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+![Android](/assets/android.svg) <br />
 The Beacon Monitor shows scans for BLE iBeacons. The state of the sensor shows if the app is monitoring or not. All beacons in range and their distance are listed in the attributes. This sensor will update when there is a new distance measurement available.
 
 Settings are available to change scan period and interval which can be useful to preserve battery life. The setting Filter Iterations and Filter RSSI Multiplier can be adjusted to archive more stable measurements. All of these setting will affect the responsiveness of the sensor.
@@ -350,6 +352,13 @@ This sensor will represent the current time zone the device is in. There are als
 ![Android](/assets/android.svg)
 This sensor will represent the current installed version of the Android app.
 
+
+## Dynamic Color Sensor
+![Android](/assets/android.svg) <span class="beta">BETA</span> Only available on devices with support for Material 3 Dynamic color.
+
+This sensors state will be a hexadecimal color value for the accent color used in the current device theme. [Dynamic color](https://m3.material.io/styles/color/dynamic-color/overview) can either be derived from the wallpaper or chosen by the user. An attribute also exists for `rgb_color` in case you wanted to use this color in an automation for the [`light.turn_on`](https://www.home-assistant.io/integrations/light/#service-lightturn_on) service call. This sensor uses the [Dynamic Colors API](https://developer.android.com/reference/com/google/android/material/color/DynamicColors).
+
+
 ## Do Not Disturb Sensor
 ![Android](/assets/android.svg) 6+ only<br />
 This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes. This sensor uses the [NotificationManager API](https://developer.android.com/reference/android/app/NotificationManager#getCurrentInterruptionFilter()) which is only available on Android 6+ devices.
@@ -379,7 +388,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | Attribute | Description |
 | --------- | --------- |
 | `Location` | The latitude and longitude coordinates of the placemark. |
-| `Name` | The name of the placemark. ![iOS](/assets/iOS.svg)only and ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
+| `Name` | The name of the placemark. ![iOS](/assets/iOS.svg)only and ![Android](/assets/android.svg) |
 | `Country` | The name of the country associated with the placemark. |
 | `ISOCountryCode` | The abbreviated country name. |
 | `TimeZone` | The time zone associated with the placemark. ![iOS](/assets/iOS.svg)only |
@@ -393,14 +402,15 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `AreasOfInterest` | The relevant areas of interest associated with the placemark. ![iOS](/assets/iOS.svg)only |
 | `Ocean` | The name of the ocean associated with the placemark. ![iOS](/assets/iOS.svg)only |
 | `InlandWater` | The name of the inland water body associated with the placemark. ![iOS](/assets/iOS.svg)only |
-| `phone` | The phone number for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
-| `premises` | The premises for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
-| `url` | The URL for the placemark, if available. ![Android](/assets/android.svg) <span class='beta'>BETA</span> |
+| `phone` | The phone number for the placemark, if available. ![Android](/assets/android.svg) |
+| `premises` | The premises for the placemark, if available. ![Android](/assets/android.svg) |
+| `url` | The URL for the placemark, if available. ![Android](/assets/android.svg) |
 
-![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run. All attributes will be lowercase and all spaces are replaced with an underscore.
+![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run. All attributes will be lowercase and all spaces are replaced with an underscore. The sensor will only send an update if it is accurate and recent. The sensor will also update with location updates if location tracking is enabled.
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
-The sensor will only send an update if it is accurate and recent. The sensor will also update with location updates if location tracking is enabled.
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+A setting also exists to keep the sensor up to date with location updates, by default this is turned off.
 
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
 
@@ -487,6 +497,10 @@ This sensors state will be the date and time of the last reboot from the device 
 
 For android this sensors state will reflect the [intent](https://developer.android.com/reference/android/content/Intent) of the most recent update sent. Additionally the sensor offers settings to allow the user to receive [app events](../integrations/app-events.md) from other Android apps that broadcast an intent. Users can register for as many intents as they like, an event will be sent to Home Assistant once the intent has been received. Once you save an intent be sure to restart the application to register for the intent.
 
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+If you notice an intent you registered for in settings is no longer being triggered by the app then you will need to add categories that the intent is expecting. You can add categories after the intent by editing the setting for the intent and adding a `,` followed by the category. If more than 1 category is required then you will need to add each category followed by a `,` until there are no more categories to add. For example if your intent requires 2 categories the format will be: `intent,category1,category2`. After saving the intent and category make sure to restart the application.
+
 ![iOS](/assets/iOS.svg)<br />
 This sensor displays exactly what caused the last update of location and sensor data from the device to Home Assistant.
 
@@ -572,6 +586,11 @@ This sensor will show the current proximity reading from the device. This sensor
 ## Public IP Sensor
 ![Android](/assets/android.svg)<br />
 This sensor uses the [ipify API](https://www.ipify.org/) in order to determine the devices public IP address. This sensor will update during the normal sensor update interval.
+
+
+## Screen Brightness Sensor
+![Android](/assets/android.svg)<span class='beta'>BETA</span><br />
+This sensor will report the screen brightness value as its state. An attribute also exists if the screen is currently using automatic brightness mode or not. This sensor makes use of the [Settings.System API](https://developer.android.com/reference/android/provider/Settings.System).
 
 
 ## Storage Sensor
