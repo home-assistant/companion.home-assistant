@@ -72,4 +72,14 @@ Hint: use a [template sensor](https://www.home-assistant.io/integrations/templat
 
 ## Sensors
 
-The Wear OS app will have [sensors](../core/sensors.md). To start with, it will only report the [battery sensors](../core/sensors.md#battery-sensors). Its important to note that sensor updates require the app to post a notification to the device in order to prevent it from being killed by the OS. You can go to into Wear device settings and turn off the SensorWorker Notification channel to stop these notifications from buzzing on your wrist.
+The Wear OS app also offers [sensors](../core/sensors.md#android-sensors) to consume your wearable data in Home Assistant, please refer to the link to learn more about how sensors update on Android. Not all sensors offered by the phone app will be offered by the Wear OS app. Please see the list below for what sensors are currently supported by the Wear OS app. If a sensor requires permissions you will be prompted to accept, otherwise the sensor will not enable and send data.
+
+List of supported sensors:
+
+*  [Battery](../core/sensors.md#battery-sensors) (enabled by default)
+
+<span class='beta'>BETA</span>
+
+*  [Network](../core/sensors.md#connection-type-sensor)
+
+Its important to note that sensor updates require the app to post a notification to the device in order to prevent it from being killed by the OS. You can go to into Wear device settings and turn off the SensorWorker Notification channel to stop these notifications from buzzing on your wrist.
