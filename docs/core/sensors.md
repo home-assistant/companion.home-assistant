@@ -101,7 +101,7 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
 | `sensor.current_time_zone` | [See Below](#current-time-zone-sensor) | The current time zone the device is in. |
 | `sensor.current_version` | None | The current installed version of the application. |
-| [Dynamic Color](#dynamic-color-sensor) | RGB Color | The hexadecimal color value for the accent color used in the current device theme. <span class="beta">BETA</span> |
+| [Dynamic Color](#dynamic-color-sensor) | RGB Color | The hexadecimal color value for the accent color used in the current device theme. |
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
@@ -355,7 +355,7 @@ This sensor will represent the current installed version of the Android app.
 
 
 ## Dynamic Color Sensor
-![Android](/assets/android.svg) <span class="beta">BETA</span> Only available on devices with support for Material 3 Dynamic color.
+![Android](/assets/android.svg) Only available on devices with support for Material 3 Dynamic color.
 
 This sensors state will be a hexadecimal color value for the accent color used in the current device theme. [Dynamic color](https://m3.material.io/styles/color/dynamic-color/overview) can either be derived from the wallpaper or chosen by the user. An attribute also exists for `rgb_color` in case you wanted to use this color in an automation for the [`light.turn_on`](https://www.home-assistant.io/integrations/light/#service-lightturn_on) service call. This sensor uses the [Dynamic Colors API](https://developer.android.com/reference/com/google/android/material/color/DynamicColors).
 
@@ -407,11 +407,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 | `premises` | The premises for the placemark, if available. ![Android](/assets/android.svg) |
 | `url` | The URL for the placemark, if available. ![Android](/assets/android.svg) |
 
-![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run. All attributes will be lowercase and all spaces are replaced with an underscore. The sensor will only send an update if it is accurate and recent. The sensor will also update with location updates if location tracking is enabled.
-
-![Android](/assets/android.svg) <span class='beta'>BETA</span>
-
-A setting also exists to keep the sensor up to date with location updates, by default this is turned off.
+![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run. All attributes will be lowercase and all spaces are replaced with an underscore. The sensor will only send an update if it is accurate and recent. The sensor will also update with location updates if location tracking is enabled. A setting also exists to keep the sensor up to date with location updates, by default this is turned off.
 
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
 
@@ -497,8 +493,6 @@ This sensors state will be the date and time of the last reboot from the device 
 ![Android](/assets/android.svg)
 
 For android this sensors state will reflect the [intent](https://developer.android.com/reference/android/content/Intent) of the most recent update sent. Additionally the sensor offers settings to allow the user to receive [app events](../integrations/app-events.md) from other Android apps that broadcast an intent. Users can register for as many intents as they like, an event will be sent to Home Assistant once the intent has been received. Once you save an intent be sure to restart the application to register for the intent.
-
-![Android](/assets/android.svg) <span class='beta'>BETA</span>
 
 If you notice an intent you registered for in settings is no longer being triggered by the app then you will need to add categories that the intent is expecting. You can add categories after the intent by editing the setting for the intent and adding a `,` followed by the category. If more than 1 category is required then you will need to add each category followed by a `,` until there are no more categories to add. For example if your intent requires 2 categories the format will be: `intent,category1,category2`. After saving the intent and category make sure to restart the application.
 
