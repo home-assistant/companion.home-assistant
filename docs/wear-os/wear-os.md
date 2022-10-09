@@ -88,6 +88,7 @@ List of supported sensors:
 *  [Last Update](../core/sensors.md#last-update-trigger-sensor)
 *  [Network](../core/sensors.md#connection-type-sensor)
 *  [Next Alarm](../core/sensors.md#next-alarm-sensor)
+*  On Body - A sensor to indicate whether the wearable believes it is on the body or not. This sensor makes use of the [low latency off body detection](https://developer.android.com/reference/android/hardware/Sensor#TYPE_LOW_LATENCY_OFFBODY_DETECT) sensor.
 *  [Steps](../core//sensors.md#pedometer-sensors)
 *  Theater Mode - A sensor to reflect the state of Theater mode on the device. For best results enable the Interactive sensor.
 
