@@ -9,7 +9,7 @@ Complications allow you to show the value of your Home Assistant sensors on your
 
 Complications are created within the Home Assistant Companion App on a paired iPhone via the Apple Watch page in the Companion App section of [Configuration](https://my.home-assistant.io/redirect/config/).
 
-Complications are listed by their position and grouped by face type. For some positions, there are multiple templates available, after selecting the position you can select the desired template. Complication values are set using [Jinja2 templates](https://www.home-assistant.io/docs/configuration/templating/). In addition to setting the template for the displayed text, an icon can also be selected. The color of each text line and icon can be set independently. For an overview of the different complications and how they appear on different watch faces, see [these Apple Developers guidelines](https://developer.apple.com/design/human-interface-guidelines/watchos/app-architecture/complications/).
+Complications are listed by their position and grouped by face type. For some positions, there are multiple templates available, after selecting the position you can select the desired template. Complication values are set using [Jinja2 templates](https://www.home-assistant.io/docs/configuration/templating/). In addition to setting the template for the displayed text, an icon can also be selected. The color of each text line and icon can be set independently. For an overview of the different complications and how they appear on different watch faces, see [these Apple Developers guidelines](https://developer.apple.com/design/human-interface-guidelines/components/system-experiences/complications/).
 
 ## Ring/Gauge Complications
 
