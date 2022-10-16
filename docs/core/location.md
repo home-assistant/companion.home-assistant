@@ -67,7 +67,10 @@ If you want to know more about the specifics of these attributes, please refer t
 
 ## Manage location tracking level
 
-When using core 2022.2 with ![iOS](/assets/iOS.svg) 2022.2 or ![Android](/assets/android.svg) <span class="BETA">BETA</span> or later, you can configure how locations are sent on a per-server basis. In Companion App Settings, on ![iOS](/assets/iOS.svg) open the server's settings and change Location Sent setting under Privacy, or on ![Android](/assets/android.svg) go to Manage Sensors > Background Location and change the Location Sent setting.
+When using core 2022.2 with ![iOS](/assets/iOS.svg) 2022.2 or ![Android](/assets/android.svg) <span class="beta">BETA</span> or later, you can configure how locations are sent on a per-server basis in the Companion App Settings:
+
+ - ![iOS](/assets/iOS.svg) Open the server's settings and change the Location Sent setting under Privacy.
+ - ![Android](/assets/android.svg) Go to Manage Sensors > Background Location and change the Location Sent setting.
 
 Options available:
 
