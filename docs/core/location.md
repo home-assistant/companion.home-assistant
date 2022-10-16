@@ -65,6 +65,16 @@ If you want to know more about the specifics of these attributes, please refer t
 [Android](https://developer.android.com/reference/android/location/Location) or
 [iOS](https://developer.apple.com/documentation/corelocation/cllocation)
 
+## Manage location tracking level
+
+When using core 2022.2 with ![iOS](/assets/iOS.svg) 2022.2 or ![Android](/assets/android.svg) <span class="BETA">BETA</span> or later, you can configure how locations are sent on a per-server basis. In Companion App Settings, on ![iOS](/assets/iOS.svg) open the server's settings and change Location Sent setting under Privacy, or on ![Android](/assets/android.svg) go to Manage Sensors > Background Location and change the Location Sent setting.
+
+Options available:
+
+- **Exact** sends the GPS coordinates of your device.
+- **Zone Name Only** sends just the zone name (or `not_home`), which can be useful for presence detection without exposing location. Only zones for the server in question are considered.
+- **![iOS](/assets/iOS.svg) Never** or **![Android](/assets/android.svg) Disabled** will not send GPS coordinates nor zone information.
+
 ## Location tracking when outside a Home Assistant zone
 
 ![iOS](/assets/iOS.svg)
@@ -118,13 +128,6 @@ Restart Home Assistant and then the iOS app. It will then begin using iBeacons _
 ![iOS](/assets/iOS.svg)
 
 If multiple servers are connected to an iOS/mac app, all available servers will receive the the same location updates.
-
-![iOS](/assets/iOS.svg)
-In iOS-2022.2 & core-2022.2 or later, you can configure how locations are sent on a per-server basis. In App Configuration, open the server's settings and change Location Sent setting under Privacy. Options available:
-
-- **Exact** sends the GPS coordinates of your device.
-- **Zone Name Only** sends just the zone name (or `not_home`), which can be useful for presence detection without exposing location. Only zones for the server in question are considered.
-- **Never** will not send GPS coordinates nor zone information.
 
 ## Sending an intent
 
