@@ -20,6 +20,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | ------- | ----------- |
 | `clear_notification` | Removes a notification from the status bar, [more details](basic.md#clearing). |
 | `command_activity` | Launch an activity with a specified URI to any app, [more details](#activity) and use cases below. |
+| `command_app_lock` | Change the companion app lock settings, [more details](#app-lock) and use cases below. <span class='beta'>BETA</span>|
 | `command_auto_screen_brightness` | Control if automatic screen brightness is enabled. <span class='beta'>BETA</span> |
 | `command_bluetooth` | Turn bluetooth on or off. |
 | `command_ble_transmitter` | Turn BLE beacon transmitter on or off. |
@@ -104,7 +105,38 @@ Please see the below table for new parameters to use after updating the Android 
 | `title` | `intent_uri` |
 
 
+## App lock
+
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+To take control of an Android companion app's security Users can alter the app lock settings using `message: command_app_lock`. All settings related to the app lock can be configured in a single command. The following settings are accessible through the notify command:
+
+| Parameter | Type | Description |
+|---------|---------|--------|
+| `app_lock_enabled` | boolean | Whether the biometric / screen lock will be enabled |
+| `app_lock_timeout` | integer | Session timeout in seconds |
+| `home_bypass_enabled` | boolean | Whether the lock is bypassed when connected to home WiFi |
+
+Example:
+
+```yaml
+automation:
+  - alias: Reset App lock to defaults
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_app_lock"
+          data:
+            app_lock_enabled: true
+            app_lock_timeout: 60
+            home_bypass_enabled: false
+```
+
+
 ## Auto Screen Brightness
+
 ![Android](/assets/android.svg) <span class='beta'>BETA</span>
 
 You can control if automatic brightness is enabled or not on the device by using `message: command_auto_screen_brightness` with the `command` being either `turn_off` or `turn_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
