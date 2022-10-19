@@ -21,7 +21,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `clear_notification` | Removes a notification from the status bar, [more details](basic.md#clearing). |
 | `command_activity` | Launch an activity with a specified URI to any app, [more details](#activity) and use cases below. |
 | `command_app_lock` | Change the companion app lock settings, [more details](#app-lock) and use cases below. <span class='beta'>BETA</span>|
-| `command_auto_screen_brightness` | Control if automatic screen brightness is enabled. <span class='beta'>BETA</span> |
+| `command_auto_screen_brightness` | Control if automatic screen brightness is enabled. |
 | `command_bluetooth` | Turn bluetooth on or off. |
 | `command_ble_transmitter` | Turn BLE beacon transmitter on or off. |
 | `command_beacon_monitor` | Turn Beacon Monitoring on or off. |
@@ -30,7 +30,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. |
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
-| `command_screen_brightness_level` | Control the screen brightness level on the device. <span class='beta'>BETA</span> |
+| `command_screen_brightness_level` | Control the screen brightness level on the device. |
 | `command_screen_off_timeout` | Control the screen off timeout on the device. <span class='beta'>BETA</span> |
 | `command_screen_on` | Turn on the device screen. |
 | `command_stop_tts` | Stops Text To Speech if it's currently in use. |
@@ -138,7 +138,7 @@ automation:
 
 ## Auto Screen Brightness
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span>
+![Android](/assets/android.svg)
 
 You can control if automatic brightness is enabled or not on the device by using `message: command_auto_screen_brightness` with the `command` being either `turn_off` or `turn_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
 
@@ -439,11 +439,7 @@ If you have updated the Android app to 2022.8 you must use `command` in place of
 
 ![Android](/assets/android.svg)
 
-Users can turn the high accuracy mode of the background location sensor on or off using `message: command_high_accuracy_mode` with the `command` being either `turn_off` or `turn_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
-
-<span class='beta'>BETA</span>
-
-In beta there are also two new options `force_off` and `force_on`.  The difference between turn and force is only relevant if you have zone or bluetooth constraints set in the high accuracy mode settings.  In this case `force_on` will make high accuracy mode active until either `force_off` is sent, or the constraints go from active to inactive.  Similarly, `force_off` will turn off high accuracy mode until either `force_on` is sent, or the constraints go from inactive to active.
+Users can turn the high accuracy mode of the background location sensor on or off using `message: command_high_accuracy_mode` with the `command` being either `turn_off`, `turn_on`, `force_off` or `force_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal. The difference between `turn` and `force` is only relevant if you have zone and/or bluetooth constraints set in the high accuracy mode settings. In this case `force_on` will make high accuracy mode active until either `force_off` is sent, or the constraints go from active to inactive.  Similarly, `force_off` will turn off high accuracy mode until either `force_on` is sent, or the constraints go from inactive to active.
 
 Example:
 
@@ -596,7 +592,7 @@ If you have updated the Android app to 2022.8 you must use `command` in place of
 
 ## Screen Brightness Level
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span>
+![Android](/assets/android.svg)
 
 You can control the screen brightness level on the device by sending `message: command_screen_brightness_level` with `command` being the level of brightness the screen should be. Valid values are between `0` and `255`. If you do not send a number or send a blank value then the notificaton will post as normal. If you send a value below `0` or above `255` then the app will default to `0` or `255` respectively.
 
