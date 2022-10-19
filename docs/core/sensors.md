@@ -120,7 +120,7 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
-| `sensor.screen_brightness` | [See Below](#screen-brightness-sensor) | The current value of screen brightness. <span class='beta'>BETA</span> |
+| `sensor.screen_brightness` | [See Below](#screen-brightness-sensor) | The current value of screen brightness. |
 | `sensor.screen_off_timeout` | None | The current value of screen off timeout setting. <span class='beta'>BETA</span> |
 | `sensor.steps` | None | The number of steps taken from the user since the last device reboot. Requires activity recognition permissions on supported devies. |
 | [Storage Sensors](#storage-sensor) | [See Below](#storage-sensor) | The amount of total and available internal & external storage on your Android device. |
@@ -585,7 +585,7 @@ This sensor uses the [ipify API](https://www.ipify.org/) in order to determine t
 
 
 ## Screen Brightness Sensor
-![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+![Android](/assets/android.svg)<br />
 This sensor will report the screen brightness value as its state. An attribute also exists if the screen is currently using automatic brightness mode or not. This sensor makes use of the [Settings.System API](https://developer.android.com/reference/android/provider/Settings.System).
 
 ## Screen Off Timeout Sensor
