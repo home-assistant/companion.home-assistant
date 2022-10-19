@@ -260,7 +260,9 @@ automation:
 
 ## Bluetooth
 
-![Android](/assets/android.svg)
+![Android](/assets/android.svg) &nbsp;All Android versions
+
+![Android](/assets/android.svg) <span class="beta">BETA</span> &nbsp;Android 12 or older
 
 Users can turn Bluetooth on or off using `message: command_bluetooth` with the `command` being either `turn_off` or `turn_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
 
@@ -280,7 +282,6 @@ automation:
 ```
 
 If you have updated the Android app to 2022.8 you must use `command` in place of `title`.
-
 
 ## Broadcast Intent
 

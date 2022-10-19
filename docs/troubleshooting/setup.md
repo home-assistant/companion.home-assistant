@@ -37,11 +37,13 @@ If this notification is delivered the problem is most likely with your payload.
 
 If the above doesn't work, try the following:
 
-1.  _Check your message limits:_ To allow us to provide a free notification service, each app target is limited to 150 notifications per day. [Location updates](../notifications/notification-commands#request-location-updates) and other special notifications do not count towards this limit. ![iOS](/assets/iOS.svg) In iOS you can check your remaining notifications within the Companion app by swiping right to open the sidebar and tapping "[Settings](https://my.home-assistant.io/redirect/config/)", and then tap "Companion App" then "Notifications" and scroll to the bottom of the page. The limit resets everyday at midnight UTC.
+1.  _Check your message limits:_ To allow us to provide a free notification service, each app target is limited to 500 notifications per day. [Location updates](../notifications/notification-commands#request-location-updates) and other special notifications do not count towards this limit. ![iOS](/assets/iOS.svg) In iOS you can check your remaining notifications within the Companion app by swiping right to open the sidebar and tapping "[Settings](https://my.home-assistant.io/redirect/config/)", and then tap "Companion App" then "Notifications" and scroll to the bottom of the page. The limit resets everyday at midnight UTC.
 
 2.  _Reset your push ID token:_ ![iOS](/assets/iOS.svg) If you have checked you still have notifications remaining, you can reset your notification at the top of the "Notifications" page within the "Companion App" page of [Settings](https://my.home-assistant.io/redirect/config/). After doing this you may need to [force quit](https://support.apple.com/HT201330) the iOS Companion app and then reopen the app and finally restart your Home Assistant instance.
 
-3.  _Check your iOS settings:_ ![iOS](/assets/iOS.svg) In the iOS Settings application, navigate to Notifications, then select Home Assistant, and ensure that "Allow Notifications" is toggled on.
+3.  _Check your system settings:_
+    - ![iOS](/assets/iOS.svg) In the iOS Settings application, navigate to Notifications, then select Home Assistant, and ensure that "Allow Notifications" is toggled on.
+    - ![Android](/assets/android.svg) In the Android Settings application, navigate to Apps, then select Home Assistant, then select Notifications, and ensure that "All Home Assistant notifications" is toggled on. If you're only receiving some notifications, check if the [notification channel](../notifications/notifications-basic#notification-channels) you're using is toggled on.
 
 4. _Start fresh with the Android app:_ ![Android](/assets/android.svg) If you still can't recieve notifications in the Android app then try to [start fresh](#starting-fresh-with-the-android-app).
 
