@@ -31,6 +31,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_screen_brightness_level` | Control the screen brightness level on the device. <span class='beta'>BETA</span> |
+| `command_screen_off_timeout` | Control the screen off timeout on the device. <span class='beta'>BETA</span> |
 | `command_screen_on` | Turn on the device screen. |
 | `command_stop_tts` | Stops Text To Speech if it's currently in use. |
 | `command_persistent_connection` | Toggle persistent connection mode, [see below](#persistent) for the available modes. |
@@ -610,6 +611,25 @@ automation:
           message: "command_screen_brightness_level"
           data:
             command: 50
+```
+
+## Screen Off Timeout
+
+![Android](/assets/android.svg) <span class='beta'>BETA</span>
+
+You can control the screen off timeout on the device by sending `message: command_screen_off_timeout` with `command` being the timeout value in milliseconds. If you do not send a number or send a blank value then the notificaton will post as normal. The values will respect the minimum and maximum defined by the android system, for example on a Pixel device anything below `10000` will be treated as a 10 second timeout.
+
+```yaml
+automation:
+  - alias: Set screen off timeout
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_screen_off_timeout"
+          data:
+            command: 10000
 ```
 
 ## Screen On
