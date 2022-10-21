@@ -80,7 +80,16 @@ List of supported sensors:
 
 <span class='beta'>BETA</span>
 
+*  [App Data](../core/sensors.md#app-data-sensors), [App Importance](../core/sensors.md#app-importance-sensor), [App Memory](../core/sensors.md#app-memory-sensor), [App Usage](../core/sensors.md#app-usage-sensors), [Current Version](../core/sensors.md#current-version-sensor)
+*  [Audio](../core/sensors.md#audio-sensors)
+*  Bedtime Mode - A sensor to reflect the state of Bedtime mode on the device. For best results enable Do Not Disturb or Interactive sensor. Only available on Wear OS 3 devices
+*  [Do Not Disturb](../core/sensors.md#do-not-disturb-sensor)
+*  [Doze](../core/sensors.md#doze-sensor), [Interactive](../core/sensors.md#interactive-sensor), [Power Save](../core/sensors.md#power-save-sensor)
+*  [Last Update](../core/sensors.md#last-update-trigger-sensor)
 *  [Network](../core/sensors.md#connection-type-sensor)
+*  [Next Alarm](../core/sensors.md#next-alarm-sensor)
+*  [Steps](../core//sensors.md#pedometer-sensors)
+*  Theater Mode - A sensor to reflect the state of Theater mode on the device. For best results enable the Interactive sensor.
 
 Its important to note that sensor updates require the app to post a notification to the device in order to prevent it from being killed by the OS. You can go to into Wear device settings and turn off the SensorWorker Notification channel to stop these notifications from buzzing on your wrist.
 
