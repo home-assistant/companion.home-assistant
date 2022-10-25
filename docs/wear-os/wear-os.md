@@ -91,7 +91,7 @@ List of supported sensors:
 *  On Body - A sensor to indicate whether the wearable believes it is on the body or not. This sensor makes use of the [low latency off body detection](https://developer.android.com/reference/android/hardware/Sensor#TYPE_LOW_LATENCY_OFFBODY_DETECT) sensor.
 *  [Steps](../core//sensors.md#pedometer-sensors)
 *  Theater Mode - A sensor to reflect the state of Theater mode on the device. For best results enable the Interactive sensor.
-*  Wet Mode - A sensor to indicate the state of Wet Mode on the current deivce. This sensor is also known as Touch Lock or Water Lock on some devices. This is a special mode where the user must press and hold the crown/power button for 2 seconds to re-enable touch.
+*  Wet Mode - A sensor to indicate the state of Wet Mode on the current device. This sensor is also known as Touch Lock or Water Lock on some devices. This is a special mode where the user must press and hold the crown/power button for 2 seconds to re-enable touch.
 
 Its important to note that sensor updates require the app to post a notification to the device in order to prevent it from being killed by the OS. You can go to into Wear device settings and turn off the SensorWorker Notification channel to stop these notifications from buzzing on your wrist.
 
