@@ -80,7 +80,7 @@ List of supported sensors:
 
 <span class='beta'>BETA</span>
 
-*  Activity State - A sensor to reflect the current user activity state which can be either: asleep, exercise, passive or unknown. Data is provided by [Health Services API](https://developer.android.com/training/wearables/health-services/passive#useractivityinfo)
+*  Activity State - A sensor to reflect the current user activity state which can be either: asleep, exercise, passive or unknown. Data is provided by [Health Services API](https://developer.android.com/training/wearables/health-services/passive#useractivityinfo). Only available on Wear OS 3 devices.
 *  [App Data](../core/sensors.md#app-data-sensors), [App Importance](../core/sensors.md#app-importance-sensor), [App Memory](../core/sensors.md#app-memory-sensor), [App Usage](../core/sensors.md#app-usage-sensors), [Current Version](../core/sensors.md#current-version-sensor)
 *  [Audio](../core/sensors.md#audio-sensors)
 *  Bedtime Mode - A sensor to reflect the state of Bedtime mode on the device. For best results enable Do Not Disturb or Interactive sensor. Only available on Wear OS 3 devices
