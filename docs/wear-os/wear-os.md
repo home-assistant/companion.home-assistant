@@ -86,6 +86,7 @@ List of supported sensors:
 *  Bedtime Mode - A sensor to reflect the state of Bedtime mode on the device. For best results enable Do Not Disturb or Interactive sensor. Only available on Wear OS 3 devices
 *  [Do Not Disturb](../core/sensors.md#do-not-disturb-sensor)
 *  [Doze](../core/sensors.md#doze-sensor), [Interactive](../core/sensors.md#interactive-sensor), [Power Save](../core/sensors.md#power-save-sensor)
+*  Heart Rate - Current heart rate in beats per minute, an attribute also exists for the reported accuracy from the sensor. This sensor makes use of the [heart rate sensor](https://developer.android.com/reference/android/hardware/Sensor#TYPE_HEART_RATE)
 *  [Last Update](../core/sensors.md#last-update-trigger-sensor)
 *  [Network](../core/sensors.md#connection-type-sensor)
 *  [Next Alarm](../core/sensors.md#next-alarm-sensor)
