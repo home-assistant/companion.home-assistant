@@ -80,12 +80,14 @@ List of supported sensors:
 
 <span class='beta'>BETA</span>
 
-*  Activity State - A sensor to reflect the current user activity state which can be either: asleep, exercise, passive or unknown. Data is provided by [Health Services API](https://developer.android.com/training/wearables/health-services/passive#useractivityinfo). Only available on Wear OS 3 devices.
 *  [App Data](../core/sensors.md#app-data-sensors), [App Importance](../core/sensors.md#app-importance-sensor), [App Memory](../core/sensors.md#app-memory-sensor), [App Usage](../core/sensors.md#app-usage-sensors), [Current Version](../core/sensors.md#current-version-sensor)
 *  [Audio](../core/sensors.md#audio-sensors)
 *  Bedtime Mode - A sensor to reflect the state of Bedtime mode on the device. For best results enable Do Not Disturb or Interactive sensor. Only available on Wear OS 3 devices
 *  [Do Not Disturb](../core/sensors.md#do-not-disturb-sensor)
 *  [Doze](../core/sensors.md#doze-sensor), [Interactive](../core/sensors.md#interactive-sensor), [Power Save](../core/sensors.md#power-save-sensor)
+*  Health Services -  Data is provided by [Health Services API](https://developer.android.com/training/wearables/health-services/passive#useractivityinfo). The following sensors are only available on Wear OS 3 devices.
+    *   Activity State - A sensor to reflect the current user activity state which can be either: asleep, exercise, passive or unknown.
+    *   Daily Floors - The total number floors climbed over a day, where the previous day ends and a new day begins at 12:00 AM local time.
 *  [Last Update](../core/sensors.md#last-update-trigger-sensor)
 *  [Network](../core/sensors.md#connection-type-sensor)
 *  [Next Alarm](../core/sensors.md#next-alarm-sensor)
