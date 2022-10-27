@@ -85,7 +85,7 @@ List of supported sensors:
 *  Bedtime Mode - A sensor to reflect the state of Bedtime mode on the device. For best results enable Do Not Disturb or Interactive sensor. Only available on Wear OS 3 devices
 *  [Do Not Disturb](../core/sensors.md#do-not-disturb-sensor)
 *  [Doze](../core/sensors.md#doze-sensor), [Interactive](../core/sensors.md#interactive-sensor), [Power Save](../core/sensors.md#power-save-sensor)
-*  Health Services -  Data is provided by [Health Services API](https://developer.android.com/training/wearables/health-services/passive#useractivityinfo). The following sensors are only available on Wear OS 3 devices.
+*  Health Services -  Data is provided by [Health Services API](https://developer.android.com/training/wearables/health-services). The following sensors are only available on Wear OS 3 devices.
     *   Activity State - A sensor to reflect the current user activity state which can be either: asleep, exercise, passive or unknown.
     *   Daily Floors - The total number floors climbed over a day, where the previous day ends and a new day begins at 12:00 AM local time.
 *  [Last Update](../core/sensors.md#last-update-trigger-sensor)
