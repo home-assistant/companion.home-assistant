@@ -58,7 +58,8 @@ module.exports = {
       'meta-quest/meta-quest'
     ],
     'Wear OS': [
-      'wear-os/wear-os'
+      'wear-os/wear-os',
+      'wear-os/sensors'
     ],
     'Troubleshooting': [
       'troubleshooting/faqs',
