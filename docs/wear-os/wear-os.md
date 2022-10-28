@@ -7,7 +7,7 @@ id: "wear-os"
 
 You can access Home Assistant directly from your Wear OS watch, even when not connected to your phone using a WiFi or cellular connection on the watch or when using an iPhone. 
 
-The app does not support all Home Assistant features. Keep an eye out on this page as the app is enhanced with new features!
+The app does not support all Home Assistant features. Keep an eye out on this page as the app is enhanced with new features! Take a look at the [Sensors!](./wear-os/sensors)
 
 ## Home Screen
 
