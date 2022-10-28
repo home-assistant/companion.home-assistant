@@ -2,7 +2,6 @@
 title: "Sensors"
 id: 'sensors'
 ---
-![Android](/assets/android.svg)
 
 The Wear OS app also offers [sensors](../core/sensors.md#android-sensors) to consume your wearable data in Home Assistant, please refer to the link to learn more about how sensors update on Android. Not all sensors offered by the phone app will be offered by the Wear OS app. Please see the list below for what sensors are currently supported by the Wear OS app. If a sensor requires permissions you will be prompted to accept, otherwise the sensor will not enable and send data.
 
@@ -16,15 +15,15 @@ Sensor updates are dependent upon the watch having data connectivity and the app
 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
-| [Battery](../core/sensors.md#battery-sensors) (enabled by default) | None | Several different sensors around the state of the devices battery. |
 | `sensor.activity_state` | Exercise type, Time | A sensor to reflect the current user activity state which can be either: asleep, exercise, passive or unknown. Data is provided by [Health Services API](https://developer.android.com/training/wearables/health-services/passive#useractivityinfo). Only available on Wear OS 3 devices. <span class='beta'>BETA</span>  |
 | [App Data](../core/sensors.md#app-data-sensors) | None | Sensors that show how much data was sent or received by the app. <span class='beta'>BETA</span> |
 | [App Importance](../core/sensors.md#app-importance-sensor) | None | The current importance of the app to determine if its in the foreground or cached. <span class='beta'>BETA</span> |
 | [App Memory](../core/sensors.md#app-memory-sensor) | None | Information about the memory that is available for the app. <span class='beta'>BETA</span> |
 | [App Usage](../core/sensors.md#app-usage-sensors) | None | Sensors that represent how the app is treated based on its usage. <span class='beta'>BETA</span> |
 | [Audio](../core/sensors.md#audio-sensors) | None | Several different sensors around different types of audio detection from the device. <span class='beta'>BETA</span> |
-| [Current Version](../core/sensors.md#current-version-sensor) | None | The current installed version of the application. <span class='beta'>BETA</span> |
+| [Battery](../core/sensors.md#battery-sensors) (enabled by default) | None | Several different sensors around the state of the devices battery. |
 | `binary_sensor.bedtime_mode` | None | A sensor to reflect the state of Bedtime mode on the device. For best results enable Do Not Disturb or Interactive sensor. Only available on Wear OS 3 devices <span class='beta'>BETA</span> |
+| [Current Version](../core/sensors.md#current-version-sensor) | None | The current installed version of the application. <span class='beta'>BETA</span> |
 | [Do Not Disturb](../core/sensors.md#do-not-disturb-sensor) | None | The state of do not disturb on the device. <span class='beta'>BETA</span> |
 | [Doze](../core/sensors.md#doze-sensor) | None | Whether or not the device is in doze mode. <span class='beta'>BETA</span> |
 | [Interactive](../core/sensors.md#interactive-sensor) | None | Whether or not the device is in an interactive state. <span class='beta'>BETA</span> |
