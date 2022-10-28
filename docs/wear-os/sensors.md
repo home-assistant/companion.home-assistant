@@ -26,6 +26,7 @@ Sensor updates are dependent upon the watch having data connectivity and the app
 | [Current Version](../core/sensors.md#current-version-sensor) | None | The current installed version of the application. <span class='beta'>BETA</span> |
 | [Do Not Disturb](../core/sensors.md#do-not-disturb-sensor) | None | The state of do not disturb on the device. <span class='beta'>BETA</span> |
 | [Doze](../core/sensors.md#doze-sensor) | None | Whether or not the device is in doze mode. <span class='beta'>BETA</span> |
+| `sensor.heart_rate` | Accuracy | Current heart rate in beats per minute. This sensor makes use of the [heart rate sensor](https://developer.android.com/reference/android/hardware/Sensor#TYPE_HEART_RATE). <span class='beta'>BETA</span> |
 | [Interactive](../core/sensors.md#interactive-sensor) | None | Whether or not the device is in an interactive state. <span class='beta'>BETA</span> |
 | [Last Update](../core/sensors.md#last-update-trigger-sensor) | None | The state will reflect the intent that caused the last update to get sent. <span class='beta'>BETA</span> |
 | [Network](../core/sensors.md#connection-type-sensor) | None | Several different sensors around the state of WiFi. <span class='beta'>BETA</span> |
