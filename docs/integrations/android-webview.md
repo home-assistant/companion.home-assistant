@@ -10,7 +10,7 @@ id: 'android-webview'
 The ![Android](/assets/android.svg) Android app has the ability to autoplay videos when you load the more info panel. Some devices may already do this by default but others may require this setting by enabling it in [Settings](https://my.home-assistant.io/redirect/config/) > Companion App. Enabling this setting may increase data usage unexpectedly, proceed with caution.
 
 ## Always show first view on app start
-The ![Android](/assets/android.svg) Android app has the ability to always open the first view of the users selected dashboard on opening the app. The first view is the first tab on the Home Assistant header bar.
+The ![Android](/assets/android.svg) <span class='beta'>BETA</span> Android app has the ability to always open the first view of the users selected dashboard on opening the app. The first view is the first tab on the Home Assistant header bar.
 
 ![First View](/assets/ha_first_view.png)
 
