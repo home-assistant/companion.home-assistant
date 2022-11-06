@@ -10,11 +10,15 @@ id: 'android-webview'
 The ![Android](/assets/android.svg) Android app has the ability to autoplay videos when you load the more info panel. Some devices may already do this by default but others may require this setting by enabling it in [Settings](https://my.home-assistant.io/redirect/config/) > Companion App. Enabling this setting may increase data usage unexpectedly, proceed with caution.
 
 ## Always show first view on app start
-The ![Android](/assets/android.svg) <span class='beta'>BETA</span> Android app has the ability to always open the first view of the users selected dashboard on opening the app. The first view is the first tab on the Home Assistant header bar.
+The ![Android](/assets/android.svg) <span class='beta'>BETA</span> Android app has the ability to always open the first view of the users selected default dashboard on opening the app. The first view is the first tab on the Home Assistant header bar.
 
 ![First View](/assets/ha_first_view.png)
 
 This is quite useful, if your first view contains all your important information about your smart home. If you then close the app on a different *not so important view* and sometime later open the app again, you will immediately see your important smart home information on the first view again.
+
+:::caution
+If you are in the Home Assistant configuration or the companion app configuration, then the first view of the dashboard is not shown after you open the app!
+:::
 
 ## Keep screen On
 The ![Android](/assets/android.svg) Android app has the ability to keep screen on while webview activity is active by enabling corresponding setting in [Settings](https://my.home-assistant.io/redirect/config/) > Companion App. This lets your device’s screen stay on indefinitely and ignore the Android built-in Sleep settings.
