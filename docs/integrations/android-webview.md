@@ -17,7 +17,7 @@ The ![Android](/assets/android.svg) <span class='beta'>BETA</span> Android app h
 This is quite useful, if your first view contains all your important information about your smart home. If you then close the app on a different *not so important view* and sometime later open the app again, you will immediately see your important smart home information on the first view again.
 
 :::caution
-If you are in the Home Assistant configuration or the companion app configuration, then the first view of the dashboard is not shown after you open the app!
+If you are in the Home Assistant configuration or the companion app configuration, then the first view of the dashboard is not shown when you open the app!
 :::
 
 ## Keep screen On
