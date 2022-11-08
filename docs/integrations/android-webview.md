@@ -44,4 +44,6 @@ The ![Android](/assets/android.svg) Android app has the ability to enable [chrom
 
 The ![Android](/assets/android.svg) Android app has the ability to launch the [quick bar](https://www.home-assistant.io/docs/tools/quick-bar/) by detecting a 3 finger swipe down gesture. Initially the entity filter will be shown, you can switch to the command palette by typing `>` at the start of the input. The quick bar can only be launched when inside the webview after you have logged in.
 
-This gesture is only supported on Home Assistant core 2022.6 or earlier.
+:::caution
+The swipe gestures were broken from Home Assistant core 2022.7.0 till Home Assistant Core 2022.9.0 Please update to Home Assistant core 2022.10.0 or later
+:::
