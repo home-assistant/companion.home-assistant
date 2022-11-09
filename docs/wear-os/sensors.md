@@ -11,11 +11,10 @@ It's important to note that sensor updates require the app to post a notificatio
 Sensor updates are dependent upon the watch having data connectivity and the app being allowed to send an update. Some devices implement stricter battery saving techniques than others so updates may not happen as frequently as you would expect.
 :::
 
-### Sensor List
+## Sensor List
 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
-| `sensor.activity_state` | Exercise type, Time | A sensor to reflect the current user activity state which can be either: asleep, exercise, passive or unknown. Data is provided by [Health Services API](https://developer.android.com/training/wearables/health-services/passive#useractivityinfo). Only available on Wear OS 3 devices. <span class='beta'>BETA</span>  |
 | [App Data](../core/sensors.md#app-data-sensors) | None | Sensors that show how much data was sent or received by the app. <span class='beta'>BETA</span> |
 | [App Importance](../core/sensors.md#app-importance-sensor) | None | The current importance of the app to determine if its in the foreground or cached. <span class='beta'>BETA</span> |
 | [App Memory](../core/sensors.md#app-memory-sensor) | None | Information about the memory that is available for the app. <span class='beta'>BETA</span> |
@@ -26,6 +25,7 @@ Sensor updates are dependent upon the watch having data connectivity and the app
 | [Current Version](../core/sensors.md#current-version-sensor) | None | The current installed version of the application. <span class='beta'>BETA</span> |
 | [Do Not Disturb](../core/sensors.md#do-not-disturb-sensor) | None | The state of do not disturb on the device. <span class='beta'>BETA</span> |
 | [Doze](../core/sensors.md#doze-sensor) | None | Whether or not the device is in doze mode. <span class='beta'>BETA</span> |
+| [Health Services](#health-services) | [See below](#health-services) | A group of sensors provided by the Health Services API. <span class='beta'>BETA</span> |
 | `sensor.heart_rate` | Accuracy | Current heart rate in beats per minute. This sensor makes use of the [heart rate sensor](https://developer.android.com/reference/android/hardware/Sensor#TYPE_HEART_RATE). <span class='beta'>BETA</span> |
 | [Interactive](../core/sensors.md#interactive-sensor) | None | Whether or not the device is in an interactive state. <span class='beta'>BETA</span> |
 | [Last Update](../core/sensors.md#last-update-trigger-sensor) | None | The state will reflect the intent that caused the last update to get sent. <span class='beta'>BETA</span> |
@@ -36,3 +36,17 @@ Sensor updates are dependent upon the watch having data connectivity and the app
 | [Steps](../core//sensors.md#pedometer-sensors) | None | The number of steps taken from the user since the last device reboot. Requires activity recognition permissions on supported devies. <span class='beta'>BETA</span> |
 | `binary_sensor.theater_mode` | None | A sensor to reflect the state of Theater mode on the device. For best results enable the Interactive sensor. <span class='beta'>BETA</span> |
 | `binary_sensor.wet_mode` | None | A sensor to indicate the state of Wet Mode on the current device. This sensor is also known as Touch Lock or Water Lock on some devices. This is a special mode where the user must press and hold the crown/power button for 2 seconds to re-enable touch. <span class='beta'>BETA</span> |
+
+
+### Health Services
+
+<span class='beta'>BETA</span> Wear OS 3 Only <br /><br />
+
+A list of sensors that contain data provided by Googles [Health Services API](https://developer.android.com/training/wearables/health-services/passive#useractivityinfo).
+
+The following sensors are available (if your device supports them):
+
+| Sensor | Attribute | Description |
+| --------- | --------- | ----------- |
+| `sensor.activity_state` | Exercise type, Time | A sensor to reflect the current user activity state which can be either: asleep, exercise, passive or unknown. <span class='beta'>BETA</span> |
+| `sensor.daily_floors` | None | The total number floors climbed over a day, where the previous day ends and a new day begins at 12:00 AM local time. <span class='beta'>BETA</span> |
