@@ -28,6 +28,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. |
+| `command_launch_app` | Launch an application, [see below](#launch-app) for how it works and whats required. |
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_screen_brightness_level` | Control the screen brightness level on the device. |
