@@ -49,4 +49,7 @@ The following sensors are available (if your device supports them):
 | Sensor | Attribute | Description |
 | --------- | --------- | ----------- |
 | `sensor.activity_state` | Exercise type, Time | A sensor to reflect the current user activity state which can be either: asleep, exercise, passive or unknown. <span class='beta'>BETA</span> |
+| `sensor.daily_calories` | None | The total number of calories over a day (including both BMR and active calories), where the previous day ends and a new day begins at 12:00 AM local time. <span class='beta'>BETA</span> |
+| `sensor.daily_distance` | None | The total distance over a day, where the previous day ends and a new day begins at 12:00 AM local time. <span class='beta'>BETA</span> |
 | `sensor.daily_floors` | None | The total number floors climbed over a day, where the previous day ends and a new day begins at 12:00 AM local time. <span class='beta'>BETA</span> |
+| `sensor.daily_steps` | None | The total step count over a day, where the previous day ends and a new day begins at 12:00 AM local time. <span class='beta'>BETA</span> |
