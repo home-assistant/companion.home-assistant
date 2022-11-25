@@ -13,6 +13,7 @@ Once a tile has been added, the state, label and icon will update to reflect the
 
 The following domains are supported: 
 
+*  `automation` Toggle
 *  `button` Press
 *  `cover` Toggle
 *  `fan` Toggle
