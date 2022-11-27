@@ -22,7 +22,6 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_activity` | Launch an activity with a specified URI to any app, [more details](#activity) and use cases below. |
 | `command_app_lock` | Change the companion app lock settings, [more details](#app-lock) and use cases below. |
 | `command_auto_screen_brightness` | Control if automatic screen brightness is enabled. |
-| `command_bluetooth` | Turn bluetooth on or off. |
 | `command_ble_transmitter` | Turn BLE beacon transmitter on or off. |
 | `command_beacon_monitor` | Turn Beacon Monitoring on or off. |
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
@@ -258,29 +257,6 @@ automation:
           data:
             command: "turn_off"
 ```
-
-## Bluetooth
-
-![Android](/assets/android.svg) &nbsp;Android 12 or older
-
-Users can turn Bluetooth on or off using `message: command_bluetooth` with the `command` being either `turn_off` or `turn_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
-
-Example:
-
-```yaml
-automation:
-  - alias: Command bluetooth
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          message: "command_bluetooth"
-          data:
-            command: "turn_off"
-```
-
-If you have updated the Android app to 2022.8 you must use `command` in place of `title`.
 
 ## Broadcast Intent
 
