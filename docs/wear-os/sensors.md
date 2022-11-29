@@ -22,19 +22,31 @@ Sensor updates are dependent upon the watch having data connectivity and the app
 | [Audio](../core/sensors.md#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
 | [Battery](../core/sensors.md#battery-sensors) (enabled by default) | None | Several different sensors around the state of the devices battery. |
 | `binary_sensor.bedtime_mode` | None | A sensor to reflect the state of Bedtime mode on the device. For best results enable Do Not Disturb or Interactive sensor. Only available on Wear OS 3 devices |
+| `sensor.current_time_zone` | [See Attributes](../core/sensors.md#current-time-zone-sensor) | The current time zone the device is in. <span class='beta'>BETA</span> |
 | [Current Version](../core/sensors.md#current-version-sensor) | None | The current installed version of the application. |
 | [Do Not Disturb](../core/sensors.md#do-not-disturb-sensor) | None | The state of do not disturb on the device. |
 | [Doze](../core/sensors.md#doze-sensor) | None | Whether or not the device is in doze mode. |
 | [Health Services](#health-services) | [See below](#health-services) | A group of sensors provided by the Health Services API. |
 | `sensor.heart_rate` | Accuracy | Current heart rate in beats per minute. This sensor makes use of the [heart rate sensor](https://developer.android.com/reference/android/hardware/Sensor#TYPE_HEART_RATE). |
 | [Interactive](../core/sensors.md#interactive-sensor) | None | Whether or not the device is in an interactive state. |
+| [Keyguard Sensors](../core/sensors.md#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. <span class='beta'>BETA</span> |
+| `sensor.last_reboot` | [See Attributes](../core/sensors.md#last-reboot-sensor) | The timestamp of the device's last reboot. <span class='beta'>BETA</span> |
 | [Last Update](../core/sensors.md#last-update-trigger-sensor) | None | The state will reflect the intent that caused the last update to get sent. |
+| `sensor.light` | None | The current level of illuminance the device detects. <span class='beta'>BETA</span> |
+| [Mobile Data Sensors](../core/sensors.md#mobile-data-sensors) | None | Several different sensors around the state of mobile data. <span class='beta'>BETA</span> |
+| `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. <span class='beta'>BETA</span> |
+| `sensor.pressure` | None | The pressure reading from the device. <span class='beta'>BETA</span> |
+| `sensor.proximity` | None | The current proximity reading from the device, certain devices will only show boolean value of `near` or `far`. <span class='beta'>BETA</span> |
 | [Network](../core/sensors.md#connection-type-sensor) | None | Several different sensors around the state of WiFi. |
 | [Next Alarm](../core/sensors.md#next-alarm-sensor) | [See Attributes](../core/sensors.md#next-alarm-sensor) | Date of the next scheduled alarm. |
 | `binary_sensor.on_body_sensor` | None | A sensor to indicate whether the wearable believes it is on the body or not. This sensor makes use of the [low latency off body detection](https://developer.android.com/reference/android/hardware/Sensor#TYPE_LOW_LATENCY_OFFBODY_DETECT) sensor. |
 | [Power Save](../core/sensors.md#power-save-sensor) | None | Whether or not the device is in power saving mode. |
+| `sensor.screen_brightness` | [See Attributes](../core/sensors.md#screen-brightness-sensor) | The current value of screen brightness. <span class='beta'>BETA</span> |
+| `sensor.screen_off_timeout` | None | The current value of screen off timeout setting. <span class='beta'>BETA</span> |
 | [Steps](../core//sensors.md#pedometer-sensors) | None | The number of steps taken from the user since the last device reboot. Requires activity recognition permissions on supported devies. |
+| [Storage Sensors](../core/sensors.md#storage-sensor) | [See Attributes](../core/sensors.md#storage-sensor) | The amount of total and available internal & external storage on your Android device. <span class='beta'>BETA</span> |
 | `binary_sensor.theater_mode` | None | A sensor to reflect the state of Theater mode on the device. For best results enable the Interactive sensor. |
+| [Traffic Stats Sensor](../core/sensors.md#traffic-stats-sensor) | None | Amount of data transmitted and received from mobile and total device usage since last reboot. <span class='beta'>BETA</span> |
 | `binary_sensor.wet_mode` | None | A sensor to indicate the state of Wet Mode on the current device. This sensor is also known as Touch Lock or Water Lock on some devices. This is a special mode where the user must press and hold the crown/power button for 2 seconds to re-enable touch. |
 
 
