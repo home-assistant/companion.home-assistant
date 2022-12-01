@@ -71,10 +71,6 @@ Starting in Home Assistant Core 0.106, the default sensor names will be register
 4.  Under "Entity ID" change the entity id as required. Do **not** change `sensor.` or `device_tracker.` part of the ID
 5.  Repeat Steps 4 and 5 for each sensor you wish to rename
 
-
-## Opening or resuming the Companion App generates authentication errors in my Home Assistant notifications
-This is normally due to having a camera entity present on a Lovelace picture entities or picture elements card. A workaround for this is to remove the the camera entity in the short term while this is resolved. You may be able to use [live stream view](https://github.com/home-assistant/core/issues/23055) to address this. This is a known bug with Home Assistant which you can track and help address [here](https://github.com/home-assistant/core/issues/23055).
-
 ## `kCLError` when pulling down to manually refresh the app/update Location
 
 To fix this change the location permission for the Home Assistant App to "Always" in iOS Settings>Privacy>Location Services.
