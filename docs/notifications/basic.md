@@ -149,6 +149,8 @@ Clearing a notification on iOS requires app version 2021.5 or later.
 
 You can clear an existing notification which has a tag by sending `clear_notification`.
 
+Platform limitations may require the companion app to be have been recently used to clear the notification.
+
 ![iOS](/assets/iOS.svg) will only clear the most recent [critical notification](critical.md) from a given tag.
 
 ```yaml
