@@ -11,7 +11,11 @@ The app currently offers 12 tiles to setup. Each tile must have a label set and 
 
 Once a tile has been added, the state, label and icon will update to reflect the entity's state and tile settings. When you select a tile you will see the tile momentarily light up as the app calls the server. If successfull the tile will go back to show the entity's state, if there is a failure the tile changes to a disabled state and an error message will be shown.
 
-If you are on the <span class='beta'>BETA</span> an additional option to vibrate when clicked is available on a per tile basis. Once enabled the tile will vibrate once when clicked and twice if the service call fails.
+:::note <span class='beta'>BETA</span>
+
+ - Tiles will use the entity's icon by default. You can set a custom icon in the tile settings to override it.
+ - An additional option to vibrate when clicked is available on a per tile basis. Once enabled the tile will vibrate once when clicked and twice if the service call fails.
+:::
 
 The following domains are supported: 
 
