@@ -43,8 +43,8 @@ Sensor updates are dependent upon the watch having data connectivity and the app
 | [Power Save](../core/sensors.md#power-save-sensor) | None | Whether or not the device is in power saving mode. |
 | `sensor.screen_brightness` | [See Attributes](../core/sensors.md#screen-brightness-sensor) | The current value of screen brightness. <span class='beta'>BETA</span> |
 | `sensor.screen_off_timeout` | None | The current value of screen off timeout setting. <span class='beta'>BETA</span> |
-| `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. <span class='beta'>BETA</span> |
-| `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. <span class='beta'>BETA</span> |
+| `sensor.sim_1` | [See Attributes](../core/sensors.md#cellular-provider-sensor) | Name of your cellular provider. <span class='beta'>BETA</span> |
+| `sensor.sim_2` | [See Attributes](../core/sensors.md#cellular-provider-sensor) | Name of your cellular provider. <span class='beta'>BETA</span> |
 | [Steps](../core//sensors.md#pedometer-sensors) | None | The number of steps taken from the user since the last device reboot. Requires activity recognition permissions on supported devies. |
 | [Storage Sensors](../core/sensors.md#storage-sensor) | [See Attributes](../core/sensors.md#storage-sensor) | The amount of total and available internal & external storage on your Android device. <span class='beta'>BETA</span> |
 | `binary_sensor.theater_mode` | None | A sensor to reflect the state of Theater mode on the device. For best results enable the Interactive sensor. |
