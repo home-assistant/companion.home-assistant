@@ -284,7 +284,9 @@ A Transmit setting toggle will start or stop the BLE transmissions. This setting
 ![Android](/assets/android.svg) <br />
 The Beacon Monitor shows scans for BLE iBeacons. The state of the sensor shows if the app is monitoring or not. All beacons in range and their distance are listed in the attributes. This sensor will update when there is a new distance measurement available.
 
-Settings are available to change scan period and interval which can be useful to preserve battery life. The setting Filter Iterations and Filter RSSI Multiplier can be adjusted to archive more stable measurements. All of these setting will affect the responsiveness of the sensor.
+Settings are available to change scan period and interval which can be useful to preserve battery life. The setting Filter Iterations and Filter RSSI Multiplier can be adjusted to archive more stable measurements. All of these settings will affect the responsiveness of the sensor.
+
+If you are on the <span class='beta'>BETA</span> a UUID filter is also available, to limit the reported beacons to those matching (or not matching) a list of UUIDs.
 
 A Monitor setting toggle will start or stop the scans - this setting can also be adjusted via the [notification command](../notifications/commands.md#beacon-monitor).
 
