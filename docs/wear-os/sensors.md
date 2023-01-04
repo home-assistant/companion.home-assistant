@@ -9,6 +9,8 @@ It's important to note that sensor updates require the app to post a notificatio
 
 :::info
 Sensor updates are dependent upon the watch having data connectivity and the app being allowed to send an update. Some devices implement stricter battery saving techniques than others so updates may not happen as frequently as you would expect.
+
+There is currently no support for sensor settings. Some sensors may not be fully operational as a result. For example, the BLE Transmitter and Beacon Monitor sensors can only be enabled, none of the settings can be changed as of this moment. These sensors may not be completely functional while we work on adding sensor settings, the default settings will allow for primary functionality.
 :::
 
 ## Sensor List
@@ -22,6 +24,7 @@ Sensor updates are dependent upon the watch having data connectivity and the app
 | [Audio](../core/sensors.md#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
 | [Battery](../core/sensors.md#battery-sensors) (enabled by default) | None | Several different sensors around the state of the devices battery. |
 | `binary_sensor.bedtime_mode` | None | A sensor to reflect the state of Bedtime mode on the device. For best results enable Do Not Disturb or Interactive sensor. Only available on Wear OS 3 devices |
+| [Bluetooth Sensors](../core/sensors.md#bluetooth-sensors) | [See Attributes](../core/sensors.md#bluetooth-sensors) | Several different sensors about the state of bluetooth on the device. Sensors are also available for beacon transmitting and monitoring. <span class='beta'>BETA</span> |
 | `sensor.current_time_zone` | [See Attributes](../core/sensors.md#current-time-zone-sensor) | The current time zone the device is in. |
 | [Current Version](../core/sensors.md#current-version-sensor) | None | The current installed version of the application. |
 | [Do Not Disturb](../core/sensors.md#do-not-disturb-sensor) | None | The state of do not disturb on the device. |
@@ -54,7 +57,7 @@ Sensor updates are dependent upon the watch having data connectivity and the app
 
 ### Health Services
 
-Wear OS 3 Only<br /><br />
+Wear OS 3 Only<br />
 
 A list of sensors that contain data provided by Googles [Health Services API](https://developer.android.com/training/wearables/health-services/passive#useractivityinfo).
 
