@@ -98,7 +98,7 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | [App Usage Sensors](#app-usage-sensors) | None | Sensors that represent how the app is treated based on its usage. |
 | [Audio Sensors](#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
 | [Battery Sensors](#battery-sensors) | None | Several different sensors around the state of the devices battery. |
-| `sensor.bluetooth_connection` | [See Below](#bluetooth-sensor) | The state of the sensor will reflect the total number of connected bluetooth devices. |
+| [Bluetooth Sensors](#bluetooth-sensors) | [See Below](#bluetooth-sensors) | Several different sensors about the state of bluetooth on the device. Sensors are also available for beacon transmitting and monitoring. |
 | `sensor.current_time_zone` | [See Below](#current-time-zone-sensor) | The current time zone the device is in. |
 | `sensor.current_version` | None | The current installed version of the application. |
 | [Dynamic Color](#dynamic-color-sensor) | RGB Color | The hexadecimal color value for the accent color used in the current device theme. |
