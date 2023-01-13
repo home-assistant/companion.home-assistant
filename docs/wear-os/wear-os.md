@@ -66,3 +66,28 @@ An entity state complication can be displayed on your watchface. The complicatio
 The complications are updated automatically whenever the screen is turned on and roughly every 15 minutes. You can force a complication to update by tapping it on the watch face.
 
 Hint: use a [template sensor](https://www.home-assistant.io/integrations/template/#state-based-template-binary-sensors-buttons-numbers-selects-and-sensors) for full flexibility.
+
+## Notifications
+
+<span class='beta'>BETA</span><br /><br />
+
+Wear OS devices will relay [notifications](../notifications/basic.md) from any phone app by default, meaning the notification needs to be sent to the phone first before it reaches the wearable. The Android app now allows for notifications to be sent directly to the watch itself, skipping the phone. Not all notification features supported by the phone app will be supported by the Wear OS app due to platform limitations.
+
+Currently only the following parameters are supported.
+
+*  `message`
+*  `title`
+
+Example:
+
+```yaml
+automation:
+  - alias: 'Send Wearable Notification'
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "Notification message"
+          title: "Notification title"
+```
