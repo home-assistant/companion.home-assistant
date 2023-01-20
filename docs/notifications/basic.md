@@ -19,6 +19,10 @@ automation:
 The mobile_app platform provides many enhancements to the simple notification generated above. The image below, for example, shows an [iOS actionable notification](actionable.md) allowing you to trigger different automations from each button.
 ![A push notification showing all of the basic options `title` and `message` as well as `subtitle` and actions.](/assets/ios/example.png)
 
+:::info
+The Wear OS app has support for some notification features. Please check the [docs](../wear-os/wear-os.md#notifications) to see what is currently supported.
+:::
+
 ## Sending notifications to multiple devices
 
 To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/integrations/group#notify-groups):
