@@ -31,7 +31,7 @@ const features = [
           <b><a href='/docs/wear-os'>Wear OS</a></b>
           {' '}Control your home from your Wear OS device.
           <br />
-          <b><a href='/docs/android-auto'>Meta Quest</a></b>
+          <b><a href='/docs/android-auto'>Android Auto</a></b>
           {' '}Control your home from your Android Auto compatable vehicle.
           <br />
           <b><a href='/docs/troubleshooting/faqs'>Troubleshooting</a></b>
