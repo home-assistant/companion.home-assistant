@@ -3,7 +3,7 @@ title: "Overview"
 id: "android-auto"
 ---
 
-![Android](/assets/android.svg)<br />
+![Android](/assets/android.svg)<span class='beta'>BETA</span><br />
 ![Android Auto](/img/android_auto_logo.svg)<br />
 
 Home Assistant has started to offer an Android Auto experience.  This will allow you to interact with various entities safely while driving your vehicle.  It will also allow you to navigate to any `zone` or `device_tracker` that has a location associated with it.
