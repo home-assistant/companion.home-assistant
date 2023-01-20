@@ -61,6 +61,9 @@ module.exports = {
       'wear-os/wear-os',
       'wear-os/sensors'
     ],
+    'Android Auto': [
+      'android-auto/android-auto'
+    ],
     'Troubleshooting': [
       'troubleshooting/faqs',
       'troubleshooting/errors',
