@@ -117,7 +117,6 @@ automations:
             tts_text: "The house is on fire and the cat's stuck in the dryer!"
 ```
 
-
 ### ![Android](/assets/android.svg) Text To Speech Alarm Stream Max Volume
 Alternatively using Text To Speech you can also make the notification speak as loud as it can, and then revert back to the original volume level:
 

@@ -498,7 +498,6 @@ automation:
             media_package_name: "com.spotify.music"
 ```
 
-
 ## Request Location Updates
 
 ![Android](/assets/android.svg) ![iOS](/assets/iOS.svg)
@@ -552,7 +551,6 @@ automation:
           data:
             command: "vibrate"
 ```
-
 
 ## Screen Brightness Level
 
@@ -696,7 +694,6 @@ automation:
             media_stream: "music_stream"
             command: 20
 ```
-
 
 ## Webview
 

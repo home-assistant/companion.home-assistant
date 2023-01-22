@@ -545,7 +545,6 @@ automation:
             tts_text: Motion has been detected
 ```
 
-
 ### Chronometer Notifications
 
 You can create notifications with a count up/down timer (chronometer) by passing the `chronometer` and `when` options. This feature requires at least Android 7.0.
