@@ -545,13 +545,6 @@ automation:
             tts_text: Motion has been detected
 ```
 
-Please see the below table for new parameters to use after updating the Android app to 2022.8+:
-
-| Old Parameter | New Parameter |
-|--------|--------|
-| `channel` | `media_stream` |
-| `title` | `tts_text` |
-
 
 ### Chronometer Notifications
 
