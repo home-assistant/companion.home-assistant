@@ -96,16 +96,6 @@ automation:
 
 In order to use the Intent Action `android.intent.action.CALL` you will also need to grant the app Phone permissions. If not granted the app will direct you to the app info screen to grant the permissions along with a toast message letting you know the missing permissions.
 
-Please see the below table for new parameters to use after updating the Android app to 2022.8+:
-
-| Old Parameter | New Parameter |
-|--------|--------|
-| `channel` | `intent_package_name` |
-| `group` | `intent_extras` |
-| `subject` | `intent_type` |
-| `tag` | `intent_action` |
-| `title` | `intent_uri` |
-
 
 ## App lock
 
@@ -236,8 +226,6 @@ automation:
             ble_uuid: "b4306bba-0e3a-44df-9518-dc74284e8214"
 ```
 
-If you have updated the Android app to 2022.8 you must use `command` in place of `title`.
-
 ## Beacon Monitor
 
 ![Android](/assets/android.svg) <br />
@@ -279,8 +267,6 @@ automation:
           data:
             command: "turn_off"
 ```
-
-If you have updated the Android app to 2022.8 you must use `command` in place of `title`.
 
 ## Broadcast Intent
 
@@ -392,15 +378,6 @@ automation:
             intent_action: "sample.intent.SAMPLE"
 ```
 
-
-Please see the below table for new parameters to use after updating the Android app to 2022.8+:
-
-| Old Parameter | New Parameter |
-|--------|--------|
-| `channel` | `intent_package_name` |
-| `group` | `intent_extras` |
-| `title` | `intent_action` |
-
 ## Do Not Disturb
 
 ![Android](/assets/android.svg) &nbsp;Android 6+ only
@@ -432,8 +409,6 @@ automation:
           data:
             command: "priority_only"
 ```
-
-If you have updated the Android app to 2022.8 you must use `command` in place of `title`.
 
 ## High accuracy mode
 
@@ -471,8 +446,6 @@ automation:
             high_accuracy_update_interval: 60
             command: "high_accuracy_set_update_interval"
 ```
-
-If you have updated the Android app to 2022.8 you must use `command` in place of `title`.
 
 ## Launch App
 
@@ -524,14 +497,6 @@ automation:
             media_command: "pause"
             media_package_name: "com.spotify.music"
 ```
-
-Please see the below table for new parameters to use after updating the Android app to 2022.8+:
-
-| Old Parameter | New Parameter |
-|--------|--------|
-| `channel` | `media_package_name` |
-| `title` | `media_command` |
-
 
 ## Request Location Updates
 
@@ -586,9 +551,6 @@ automation:
           data:
             command: "vibrate"
 ```
-
-If you have updated the Android app to 2022.8 you must use `command` in place of `title`.
-
 
 ## Screen Brightness Level
 
@@ -733,14 +695,6 @@ automation:
             command: 20
 ```
 
-Please see the below table for new parameters to use after updating the Android app to 2022.8+:
-
-| Old Parameter | New Parameter |
-|--------|--------|
-| `channel` | `media_stream` |
-| `title` | `command` |
-
-
 ## Webview
 
 ![Android](/assets/android.svg)
@@ -761,5 +715,3 @@ automation:
           data:
             command: "/lovelace/settings"
 ```
-
-If you have updated the Android app to 2022.8 you must use `command` in place of `title`.
