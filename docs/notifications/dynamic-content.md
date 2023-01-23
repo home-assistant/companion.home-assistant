@@ -38,6 +38,15 @@ data:
 
 Be aware, that to send a map you must send a push `category` which has to be called `map`, `map1`, `map2`, `map3` or `map4`  otherwise you won't get the map delivered.
 
+### Zoom level
+
+In order to change the default zoom level of the map, the following properties under `action_data` can be used. If not set, a default value of `0.1` degrees will be used.
+
+| Name | Type | Description |
+| ------------ | ------------- | ------------- |  
+| `latitude_delta:` | string | The amount of north-to-south distance (in degrees) to display. |
+| `longitude_delta:` | string | The amount of east-to-west distance (in degrees) to display. |
+
 ### Showing a second pin
 
 You can use the following properties under `action_data` to display a second pin. If used, the first pin will be red and the second pin green.
