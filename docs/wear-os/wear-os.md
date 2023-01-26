@@ -77,6 +77,8 @@ Currently only the following parameters are supported.
 
 *  `message`
 *  `title`
+*  [`notification_icon`](../notifications/basic.md#notification-status-bar-icon)
+*  [`tag`](../notifications/basic.md#replacing) (Support limited to replacing a notification only)
 
 Example:
 
@@ -90,4 +92,18 @@ automation:
         data:
           message: "Notification message"
           title: "Notification title"
+          data:
+            notification_icon: "mdi:fire"
+            tag: "notification"
 ```
+
+:::info
+To speed up delivery of notifications you may need to use the first critical notification format listed in the [docs](../notifications/critical.md#android). Alarm stream and TTS notifications are currently not supported in Wear OS.
+:::
+
+### Notification Commands
+
+The Wear OS app has basic support for [notification commands](../notifications/commands.md). Unfortunately not all commands will be able to be supported in the app. The below list of commands are currently supported:
+
+*  [BLE Transmitter](../notifications/commands.md#ble-beacon-transmitter)
+*  [Beacon Monitor](../notifications/commands.md#beacon-monitor)
