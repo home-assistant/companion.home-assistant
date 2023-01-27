@@ -24,7 +24,7 @@ There is currently no support for sensor settings. Some sensors may not be fully
 | [Audio](../core/sensors.md#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
 | [Battery](../core/sensors.md#battery-sensors) (enabled by default) | None | Several different sensors around the state of the devices battery. |
 | `binary_sensor.bedtime_mode` | None | A sensor to reflect the state of Bedtime mode on the device. For best results enable Do Not Disturb or Interactive sensor. Only available on Wear OS 3 devices |
-| [Bluetooth Sensors](../core/sensors.md#bluetooth-sensors) | [See Attributes](../core/sensors.md#bluetooth-sensors) | Several different sensors about the state of bluetooth on the device. Sensors are also available for beacon transmitting and monitoring. <span class='beta'>BETA</span> |
+| [Bluetooth Sensors](../core/sensors.md#bluetooth-sensors) | [See Attributes](../core/sensors.md#bluetooth-sensors) | Several different sensors about the state of bluetooth on the device. Sensors are also available for beacon transmitting and monitoring. |
 | `sensor.current_time_zone` | [See Attributes](../core/sensors.md#current-time-zone-sensor) | The current time zone the device is in. |
 | [Current Version](../core/sensors.md#current-version-sensor) | None | The current installed version of the application. |
 | [Do Not Disturb](../core/sensors.md#do-not-disturb-sensor) | None | The state of do not disturb on the device. |
