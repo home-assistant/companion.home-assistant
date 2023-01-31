@@ -69,7 +69,6 @@ Hint: use a [template sensor](https://www.home-assistant.io/integrations/templat
 
 ## Notifications
 
-<span class='beta'>BETA</span><br /><br />
 
 Wear OS devices will relay [notifications](../notifications/basic.md) from any app on the connected device by default, meaning the notification needs to be sent to the connected device first before it reaches the wearable. The Wear OS app allows for notifications to be sent directly to the watch itself, skipping the connected device. Not all notification features supported by the connected device will be supported by the Wear OS app due to platform limitations.
 
@@ -109,5 +108,7 @@ The Wear OS app has basic support for [notification commands](../notifications/c
 *  [Beacon Monitor](../notifications/commands.md#beacon-monitor)
 
 ### Text To Speech Notifications
+
+<span class='beta'>BETA</span><br /><br />
 
 The Wear OS app also has support for [Text To Speech notifications](../notifications/basic.md#text-to-speech-notifications). Please refer to the link above for the format to use as well as considerations on its usage.
