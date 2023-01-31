@@ -67,6 +67,11 @@ The complications are updated automatically whenever the screen is turned on and
 
 Hint: use a [template sensor](https://www.home-assistant.io/integrations/template/#state-based-template-binary-sensors-buttons-numbers-selects-and-sensors) for full flexibility.
 
+
+<span class='beta'>BETA</span>
+
+An Assist complication can be used to quickly interact with the Assist feature directly from the watchface.
+
 ## Notifications
 
 
