@@ -427,7 +427,7 @@ automation:
 ```
 
 :::note Device compatibility
-Not all devices support HTML formatting in notifications, and will show basic unformatted text instead.
+Not all devices support HTML formatting in notifications, and some formatting may not be shown in dark mode. When not supported, notifications will show unformatted text instead.
 :::
 
 ### Notification Icon
