@@ -505,7 +505,10 @@ automation:
 Do not rely on this functionality due to the time limitations mentioned below.
 :::
 
-You can force a device to attempt to report its location by sending a special notification. The notification is not visible to the device owner and only works when the app is running or in the background. On success the sensor.last_update_trigger will change to "Push Notification".
+You can force a device to attempt to report its location by sending a special notification. The notification is not visible to the device owner and only works when the app is running or in the background.
+
+![iOS](/assets/iOS.svg)
+On success the sensor.last_update_trigger will change to "Push Notification".
 
 ```yaml
 automation:
