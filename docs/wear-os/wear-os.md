@@ -87,6 +87,8 @@ Currently only the following parameters are supported.
 *  `title`
 *  [`notification_icon`](../notifications/basic.md#notification-status-bar-icon)
 *  [`tag`](../notifications/basic.md#replacing) (Support limited to replacing a notification only)
+*  [`channel`](../notifications/basic.md#notification-channels)
+*  [`vibrationPattern`](../notifications/basic.md#notification-vibration-pattern)
 
 Example:
 
