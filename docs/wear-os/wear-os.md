@@ -111,6 +111,11 @@ automation:
 To speed up delivery of notifications you may need to use the first critical notification format listed in the [docs](../notifications/critical.md#android). Alarm stream and TTS notifications are currently not supported in Wear OS.
 :::
 
+<span class='beta'>BETA</span>
+
+Basic support for [actionable notifications](../notifications/actionable.md) has been added. Any action with [`URI`](../notifications/actionable.md#uri-values) will be ignored and treated as a normal action. Any action that results in an event being sent back is supported, such as reply.
+
+
 ### Notification Commands
 
 The Wear OS app has basic support for [notification commands](../notifications/commands.md). Unfortunately not all commands will be able to be supported in the app. The below list of commands are currently supported:
