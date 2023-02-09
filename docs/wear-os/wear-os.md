@@ -85,10 +85,10 @@ Currently only the following parameters are supported.
 
 *  `message`
 *  `title`
-*  [`notification_icon`](../notifications/basic.md#notification-status-bar-icon)
+*  [`notification_icon`](../notifications/basic.md#notification-status-bar-icon) (Not all devices will show the icon)
 *  [`tag`](../notifications/basic.md#replacing) (Support limited to replacing a notification only)
 *  [`channel`](../notifications/basic.md#notification-channels)
-*  [`vibrationPattern`](../notifications/basic.md#notification-vibration-pattern)
+*  [`vibrationPattern`](../notifications/basic.md#notification-vibration-pattern) (May need to set the vibration if your device does not vibrate by default, the pattern may not be respected based on the device)
 
 Example:
 
