@@ -45,13 +45,13 @@ If you have difficulties completing setting up the app, please see the [troubles
 
 ## Adding Additional Servers
 
-![iOS](/assets/iOS.svg)<span class="beta">BETA</span>
+![iOS](/assets/iOS.svg) or ![Android](/assets/android.svg) <span class="beta">BETA</span>
 
 :::note
-Requires Home Assistant ios-2021.12 and core-2021.10.
+Requires Home Assistant 2021.10 or newer.
 :::
 
-Once you have set up your first server, you can add additional Home Assistant instances via the App Configuration page and the "Add Server" option. Servers on the same local network as your device will be discovered and listed automatically or you can manually enter the address in the same way as setting up the first server.
+Once you have set up your first server, you can add additional Home Assistant instances via [Settings](https://my.home-assistant.io/redirect/config/) > Companion App and the "Add Server" option. Servers on the same local network as your device will be discovered and listed automatically or you can manually enter the address in the same way as setting up the first server.
 
 ## TLS Client Authentication
 

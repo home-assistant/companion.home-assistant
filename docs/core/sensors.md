@@ -5,19 +5,20 @@ id: 'sensors'
 
 Along with providing [location services](location.md), the companion app also adds several additional sensors to Home Assistant. If you don't want the `device_tracker` entity but still want sensors to update then just disable the entity in the [entity registry](https://www.home-assistant.io/integrations/config/#entity-registry) to stop location updates and keep sensor updates.
 
-The sensors provided by the companion app are:
+The sensors provided by the companion app depend on which app you're using, see the lists below.
 
-## iOS & macOS Sensors
+## Multi-Server Support
 
-### Multi-Server Support
+If multiple servers are connected to the companion app, currently the sensor settings will be common for all connected servers.
 
-If multiple servers are connected to an iOS or macOS app, currently the sensor settings will be common for all connected servers.
-
-![iOS](/assets/iOS.svg)
- In iOS-2022.2 or later, you can configure whether sensors are sent on a per-server basis. In App Configuration, open the server's settings and change Sensors Sent setting under Privacy. Options available:
+![iOS](/assets/iOS.svg) You can configure whether sensors are sent on a per-server basis. In [Settings](https://my.home-assistant.io/redirect/config/) > Companion App, open the server's settings and change Sensors Sent setting under Privacy. Options available:
 
 - **All** sends all enabled sensors.
 - **None** does not send any sensors.
+
+![Android](/assets/android.svg) <span class='beta'>BETA</span> Enabled sensors are sent to all connected servers.
+
+## iOS & macOS Sensors
 
 ### When Sensors Update
 
