@@ -67,10 +67,10 @@ If you want to know more about the specifics of these attributes, please refer t
 
 ## Manage location tracking level
 
-When using core 2022.2 with ![iOS](/assets/iOS.svg) 2022.2 or ![Android](/assets/android.svg) 2022.11 or later, you can configure how locations are sent on a per-server basis in the Companion App Settings:
+When using core 2022.2 or later, you can configure how locations are sent in the Companion App Settings:
 
- - ![iOS](/assets/iOS.svg) Open the server's settings and change the Location Sent setting under Privacy.
- - ![Android](/assets/android.svg) Go to Manage Sensors > Background Location and change the Location Sent setting.
+ - ![iOS](/assets/iOS.svg) The setting can be managed on a per-server basis. Open the server's settings and change the Location Sent setting under Privacy.
+ - ![Android](/assets/android.svg) The setting applies to all connected servers. Go to Manage Sensors > Background Location and change the Location Sent setting.
 
 Options available:
 
@@ -125,12 +125,6 @@ Restart Home Assistant and then the iOS app. It will then begin using iBeacons _
 [apple-energy-guide]: https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/LocationBestPractices.html#//apple_ref/doc/uid/TP40015243-CH24-SW4
 [apple-location-programming-guide]: https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW9
 [stackoverflow]: http://stackoverflow.com/a/13331625/486182
-
-## Multi-server location updates
-
-![iOS](/assets/iOS.svg)
-
-If multiple servers are connected to an iOS/mac app, all available servers will receive the the same location updates.
 
 ## Sending an intent
 
