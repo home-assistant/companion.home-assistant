@@ -106,6 +106,10 @@ automation:
             clickAction: "/lovelace/cameras"
 ```
 
+:::info
+The below sections for [Grouping](#grouping), [Replacing](#replacing) and [Clearing](#clearing) do not take multiple servers into account. If you use the same text for `group` or `tag` you should expect to see the same behavior regardless of which server sent the notification. You may consider adding the server name to the current text to make the behavior server specific.
+:::
+
 ### Grouping
 
 Combine notifications together visually.
