@@ -9,14 +9,14 @@ The sensors provided by the companion app depend on which app you're using, see 
 
 ## Multi-Server Support
 
-If multiple servers are connected to the companion app, currently the sensor settings will be common for all connected servers.
+If multiple servers are connected to the companion app, you can configure whether sensors are sent on a per-server basis. Currently the sensor settings will be common for all connected servers.
 
-![iOS](/assets/iOS.svg) You can configure whether sensors are sent on a per-server basis. In [Settings](https://my.home-assistant.io/redirect/config/) > Companion App, open the server's settings and change Sensors Sent setting under Privacy. Options available:
+![iOS](/assets/iOS.svg) In [Settings](https://my.home-assistant.io/redirect/config/) > Companion App, open the server's settings and change Sensors Sent setting under Privacy. Options available:
 
 - **All** sends all enabled sensors.
 - **None** does not send any sensors.
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span> Enabled sensors are sent to all connected servers.
+![Android](/assets/android.svg) <span class='beta'>BETA</span> In [Settings](https://my.home-assistant.io/redirect/config/) > Companion App, go to Manage Sensors and select the sensor you'd like to manage. Tap on the expand/collapse icon at the top of the screen to change settings for a specific server.
 
 ## iOS & macOS Sensors
 

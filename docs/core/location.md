@@ -70,7 +70,7 @@ If you want to know more about the specifics of these attributes, please refer t
 When using core 2022.2 or later, you can configure how locations are sent in the Companion App Settings:
 
  - ![iOS](/assets/iOS.svg) The setting can be managed on a per-server basis. Open the server's settings and change the Location Sent setting under Privacy.
- - ![Android](/assets/android.svg) The setting applies to all connected servers. Go to Manage Sensors > Background Location and change the Location Sent setting.
+ - ![Android](/assets/android.svg) Enabling location tracking can be managed on a per-server basis, exact/zone name only applies to all servers. Go to Manage Sensors > Background Location and change the Location Sent setting.
 
 Options available:
 
