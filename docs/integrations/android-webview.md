@@ -45,6 +45,10 @@ This example will launch the barcode scanning app ready to scan via the Intent s
   url: "intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end"
 ```
 
+## Screen orientation
+<span class='beta'>BETA</span><br /><br />
+The ![Android](/assets/android.svg) Android app has the ability to fix the webview landscape / portrait / system orientation by enabling corresponding setting in [Settings](https://my.home-assistant.io/redirect/config/) > Companion App.
+
 ## Pinch To Zoom
 The ![Android](/assets/android.svg) Android app has the ability to enable Pinch-To-Zoom to allow multi-touch zoom by enabling corresponding setting in [Settings](https://my.home-assistant.io/redirect/config/) > Companion App. 
 
