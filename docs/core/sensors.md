@@ -302,7 +302,7 @@ A Monitor setting toggle will start or stop the scans - this setting can also be
 
 <span class='beta'>BETA</span>
 
-When the app is actively scanning for beacons you will see a separate notification showing on the device. This is a foreground service to let the scan be more reliable in the background. This notification has a separate app provided channel which you can adjust on Android 8.0+.
+When the app is actively scanning for beacons a notification will be shown to make background scanning more reliable. If you are on Android 8.0+ you are free to minimize and/or turn off the notification channel for the `Beacon Scanning`.
 
 ## Cellular Provider Sensor
 The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
