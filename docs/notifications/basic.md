@@ -67,6 +67,7 @@ When tapping on a notification, you can choose to open a URL, which can fall int
 - ![Android](/assets/android.svg) You can also open the notification history by using `settings://notification_history`
 - ![Android](/assets/android.svg) You can also use an [intent scheme URI](https://developer.chrome.com/docs/multidevice/android/intents/#syntax) to start an action in an installed application.
 - ![Android](/assets/android.svg) You can send a specific [deep link](https://developer.android.com/training/app-links#deep-links) to an app by using `deep-link://<deep_link>` where `<deep_link>` is the actual deep link you wish to send.
+- ![Android](/assets/android.svg) <span class='beta'>BETA</span> If you prefer to not open the app by default and instead do nothing you can use `noAction`.
 
 For relative URLs, you can open a lovelace view in the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/dashboards/views#path) in the defined view or a lovelace dashboard in the format `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/dashboards/dashboards/) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/dashboards/views#path) within that dashboard.
 
