@@ -64,5 +64,7 @@ The ![Android](/assets/android.svg) Android app supports various three-finger ge
  - Swipe down: Open the [quick bar](https://www.home-assistant.io/docs/tools/quick-bar/). Initially the entity filter will be shown, you can switch to the command palette by typing `>` at the start of the input. The quick bar can only be launched when inside the webview after you have logged in.
 
 :::caution
+Gestures may not work correctly when your device offers other three-finger gestures, such as for screenshots.
+
 The quick bar gesture doesn't work on Home Assistant core 2022.7.0 - 2022.9.7. Please update to Home Assistant core 2022.10.0 or later.
 :::
