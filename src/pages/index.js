@@ -34,6 +34,9 @@ const features = [
           <b><a href='/docs/meta-quest'>Meta Quest</a></b>
           {' '}Get data from your Quest into Home Assistant.
           <br />
+          <b><a href='/docs/carplay'>CarPlay</a></b>
+          {' '}Control your home from your CarPlay compatable vehicle.
+          <br />
           <b><a href='/docs/troubleshooting/faqs'>Troubleshooting</a></b>
           {' '}If you need some help, this is a great place to start.
           <br />
