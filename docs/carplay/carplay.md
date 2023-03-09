@@ -3,7 +3,7 @@ title: "Overview"
 id: "carplay"
 ---
 
-![iOS](/assets/ios.svg)
+![iOS](/assets/iOS.svg)
 
 Home Assistant has started to offer an CarPlay experience.  This will allow you to interact with various entities safely while driving your vehicle.
 
