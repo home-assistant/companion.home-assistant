@@ -25,6 +25,10 @@ You can use relative URLs in the format `/media/local/direct.jpg` with this inte
 A file stored in `/media/file.jpg` on-disk is represented by `/media/local/file.jpg` in the notification. Note the addition of the `local` part of the path.
 :::
 
+:::warning
+An image stored in /media folder will be publicly available (no authentication required) after it has been sent as a notification attachment
+:::
+
 ### `www` folder
 
 You will want to store the image in the `www` folder located in your Home Assistant [config directory](https://www.home-assistant.io/docs/configuration/). This will then expose the image to the internet so that you may use it in your notifications and receive them anywhere.
