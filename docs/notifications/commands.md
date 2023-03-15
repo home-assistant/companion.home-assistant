@@ -18,7 +18,7 @@ The Companion apps offer a lot of different notification options. In place of po
 
 | Command | Description |
 | ------- | ----------- |
-| `clear_notification` | Removes a notification from the status bar, [more details](basic.md#clearing). |
+| `clear_notification`* | Removes a notification from the status bar, [more details](basic.md#clearing). |
 | `command_activity` | Launch an activity with a specified URI to any app, [more details](#activity) and use cases below. |
 | `command_app_lock` | Change the companion app lock settings, [more details](#app-lock) and use cases below. |
 | `command_auto_screen_brightness` | Control if automatic screen brightness is enabled. |
@@ -34,14 +34,15 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_screen_brightness_level` | Control the screen brightness level on the device. |
 | `command_screen_off_timeout` | Control the screen off timeout on the device. |
 | `command_screen_on` | Turn on the device screen. |
-| `command_stop_tts` | Stops Text To Speech if it's currently in use. |
+| `command_stop_tts`* | Stops Text To Speech if it's currently in use. |
 | `command_persistent_connection` | Toggle persistent connection mode, [see below](#persistent) for the available modes. |
 | `command_update_sensors` | Updates all enabled sensors, if the state changed since the last update. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
 | `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. |
-| `remove_channel` | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
+| `remove_channel`* | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
+\* <span class='beta'>BETA</span> These commands will always work, even when other commands are disabled.
 
 ## Activity
 
