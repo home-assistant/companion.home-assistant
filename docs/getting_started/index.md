@@ -45,7 +45,7 @@ If you have difficulties completing setting up the app, please see the [troubles
 
 ## Adding Additional Servers
 
-![iOS](/assets/iOS.svg) or ![Android](/assets/android.svg) <span class="beta">BETA</span>
+![iOS](/assets/iOS.svg) or ![Android](/assets/android.svg)
 
 :::note
 Requires Home Assistant 2021.10 or newer.
