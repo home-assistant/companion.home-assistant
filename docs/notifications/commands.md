@@ -355,30 +355,30 @@ Currently supported types are:
 |Type|Example|
 |----|-------|
 |[Integer](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20int))|`EXTRA:101:int`|
-|[Integer Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20int[]))|`EXTRA:101;102;103:int[]`|
+|[Integer Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20int[])) <span class='beta'>BETA</span>|`EXTRA:101;102;103:int[]`|
 |[ArrayList<Integer\>](https://developer.android.com/reference/android/content/Intent#putIntegerArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.Integer%3E))|`EXTRA:1;2;3:ArrayList<Integer>`|
 |[Double](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20double))|`EXTRA:10.1:double`|
-|[Double Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20double[]))|`EXTRA:10.1;10.2;10.3:double[]`|
+|[Double Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20double[])) <span class='beta'>BETA</span>|`EXTRA:10.1;10.2;10.3:double[]`|
 |[Float](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20float))|`EXTRA:10.1:float`|
-|[Float Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20float[]))|`EXTRA:10.1;10.2;10.3:float[]`|
+|[Float Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20float[])) <span class='beta'>BETA</span>|`EXTRA:10.1;10.2;10.3:float[]`|
 |[Long](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20long))|`EXTRA:101:long`|
-|[Long Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20long[]))|`EXTRA:101;102;103:long[]`|
+|[Long Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20long[])) <span class='beta'>BETA</span>|`EXTRA:101;102;103:long[]`|
 |[Short](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20short))|`EXTRA:1:short`|
-|[Short Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20short[]))|`EXTRA:1;2;3:short[]`|
-|[Byte](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20byte))|`EXTRA:127:byte`|
-|[Byte Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20byte[]))|`EXTRA:127:64:byte[]`|
+|[Short Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20short[])) <span class='beta'>BETA</span>|`EXTRA:1;2;3:short[]`|
+|[Byte](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20byte)) <span class='beta'>BETA</span>|`EXTRA:127:byte`|
+|[Byte Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20byte[])) <span class='beta'>BETA</span>|`EXTRA:127:64:byte[]`|
 |[Boolean](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20boolean))|`EXTRA:true:boolean`|
-|[Boolean Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20boolean[]))|`EXTRA:true;true;false:boolean[]`|
+|[Boolean Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20boolean[])) <span class='beta'>BETA</span>|`EXTRA:true;true;false:boolean[]`|
 |[Char](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20char))|`EXTRA:a:char`|
-|[Char Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20char[]))|`EXTRA:a;b;c:char[]`|
+|[Char Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20char[])) <span class='beta'>BETA</span>|`EXTRA:a;b;c:char[]`|
 |[String Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String[]))|`EXTRA:a;b;c:String[]`|
-|[String Array (urlencoded)](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String[]))|`EXTRA:colon%3A;semicolon%3B;comma%2C:String[].urlencoded`|
+|[String Array (urlencoded)](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String[])) <span class='beta'>BETA</span>|`EXTRA:colon%3A;semicolon%3B;comma%2C:String[].urlencoded`|
 |[ArrayList<String\>](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:a;b;c:ArrayList<String>`|
-|[ArrayList<String\> (urlencoded)](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:colon%3A;semicolon%3B;comma%2C:ArrayList<String>.urlencoded`|
+|[ArrayList<String\> (urlencoded)](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E)) <span class='beta'>BETA</span>|`EXTRA:colon%3A;semicolon%3B;comma%2C:ArrayList<String>.urlencoded`|
 
 If you do not specify a specific type, the type is guessed based on your input. Numbers will be converted to Integers, `true` or `false` will be converted to Boolean values. Otherwise the intent extra will be set as String.
 
-Here is another example for sending movement data to Sleep as Android using the [Wearable integration API](https://docs.sleep.urbandroid.org/devs/wearable_api.html#send-movement-data):
+Here is another example for sending movement data to Sleep as Android using the [Wearable integration API](https://docs.sleep.urbandroid.org/devs/wearable_api.html#send-movement-data) <span class='beta'>BETA</span>:
 
 ```yaml
 automation:
