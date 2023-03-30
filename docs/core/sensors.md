@@ -16,7 +16,7 @@ If multiple servers are connected to the companion app, you can configure whethe
 - **All** sends all enabled sensors.
 - **None** does not send any sensors.
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span> In [Settings](https://my.home-assistant.io/redirect/config/) > Companion App, go to Manage Sensors and select the sensor you'd like to manage. Tap on the expand/collapse icon at the top of the screen to change settings for a specific server.
+![Android](/assets/android.svg) In [Settings](https://my.home-assistant.io/redirect/config/) > Companion App, go to Manage Sensors and select the sensor you'd like to manage. Tap on the expand/collapse icon at the top of the screen to change settings for a specific server.
 
 ## iOS & macOS Sensors
 
@@ -77,12 +77,7 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 
 ## Android Sensors
 
-Each ![Android](/assets/android.svg) sensor below can be enabled by navigating to [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors. By default, most are disabled with the exception of the [battery sensors](#battery-sensors) and any that were given permission during onboarding. Once enabled the sensor will begin to send data to your Home Assistant server, if you chose to disable it later on the sensor will stop updating. Upon enabling a sensor the app will request for permissions, if required. If you do not see a sensor listed below then your device does not support it. Some of the sensors below offer custom settings for each of their own needs, read about each one to see what it offers. These settings can be found in the same location where you enable the sensor.
-
-<span class='beta'>BETA</span>
-
-Only a few battery sensors are enabled by default on new installs: `battery_level`, `battery_state` and `charger_type`
-
+Each ![Android](/assets/android.svg) sensor below can be enabled by navigating to [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors. By default, most are disabled with the exception of the `battery_level`, `battery_state`, `charger_type` and any that were given permission during onboarding. Once enabled the sensor will begin to send data to your Home Assistant server, if you chose to disable it later on the sensor will stop updating. Upon enabling a sensor the app will request for permissions, if required. If you do not see a sensor listed below then your device does not support it. Some of the sensors below offer custom settings for each of their own needs, read about each one to see what it offers. These settings can be found in the same location where you enable the sensor.
 
 ### How Sensors Update
 
@@ -299,8 +294,6 @@ The Beacon Monitor shows scans for BLE iBeacons. The state of the sensor shows i
 Settings are available to change scan period and interval which can be useful to preserve battery life. The setting Filter Iterations and Filter RSSI Multiplier can be adjusted to archive more stable measurements. All of these settings will affect the responsiveness of the sensor. A UUID filter is also available, to limit the reported beacons to those matching (or not matching) a list of UUIDs.
 
 A Monitor setting toggle will start or stop the scans - this setting can also be adjusted via the [notification command](../notifications/commands.md#beacon-monitor).
-
-<span class='beta'>BETA</span>
 
 When the app is actively scanning for beacons a notification will be shown to make background scanning more reliable. If you are on Android 8.0+ you are free to minimize and/or turn off the notification channel for the `Beacon Monitor Scanning`.
 

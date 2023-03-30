@@ -28,8 +28,6 @@ Users can go to Settings in the Wear OS app and set favorite entities which will
 
 The favorites can also be managed from the phone app by going to App Configuration > Wear OS app > Manage Favorites. The phone app also allows you to drag and drop the entities to change the order in which they appear on the home screen.
 
-<span class ='beta'>BETA</span>
-
 If you only wish to display the favorite entities and nothing else from the Wear OS app you can do so by opening the app and navigating to Settings then selecting "Only Show Favorites" option. This will hide the areas and domains so you only see the favorites.
 
 ### Areas
@@ -65,16 +63,11 @@ You may use HTML to format the text displayed. The following tags are currently 
 
 ## Complications
 
-An entity state complication can be displayed on your watchface. The complication is of the 'short text' type and will display the current state of the selected entity. Depending on the watch face it will also show the entity name and icon. When you add an entity to a watch face, you can select the entity to display. This only works when editing the watch face on the watch, not in the watch app on the phone. To change the selected entity, just change the complication and select the entity state complication again.
+* An entity state complication can be displayed on your watchface. The complication is of the 'short text' type and will display the current state of the selected entity. Depending on the watch face it will also show the entity name and icon. When you add an entity to a watch face, you can select the entity to display. This only works when editing the watch face on the watch, not in the watch app on the phone. To change the selected entity, just change the complication and select the entity state complication again. The complications are updated automatically whenever the screen is turned on and roughly every 15 minutes. You can force a complication to update by tapping it on the watch face.
 
-The complications are updated automatically whenever the screen is turned on and roughly every 15 minutes. You can force a complication to update by tapping it on the watch face.
+  Hint: use a [template sensor](https://www.home-assistant.io/integrations/template/#state-based-template-binary-sensors-buttons-numbers-selects-and-sensors) for full flexibility.
 
-Hint: use a [template sensor](https://www.home-assistant.io/integrations/template/#state-based-template-binary-sensors-buttons-numbers-selects-and-sensors) for full flexibility.
-
-
-<span class='beta'>BETA</span>
-
-An Assist complication can be used to quickly interact with the Assist feature directly from the watchface.
+* An Assist complication can be used to quickly interact with the Assist feature directly from the watchface.
 
 ## Notifications
 
@@ -119,7 +112,5 @@ The Wear OS app has basic support for [notification commands](../notifications/c
 *  [Beacon Monitor](../notifications/commands.md#beacon-monitor)
 
 ### Text To Speech Notifications
-
-<span class='beta'>BETA</span><br /><br />
 
 The Wear OS app also has support for [Text To Speech notifications](../notifications/basic.md#text-to-speech-notifications). Please refer to the link above for the format to use as well as considerations on its usage.

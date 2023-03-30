@@ -46,7 +46,6 @@ This example will launch the barcode scanning app ready to scan via the Intent s
 ```
 
 ## Screen orientation
-<span class='beta'>BETA</span><br /><br />
 The ![Android](/assets/android.svg) Android app has the ability to fix the webview landscape / portrait / system orientation by enabling corresponding setting in [Settings](https://my.home-assistant.io/redirect/config/) > Companion App.
 
 ## Pinch To Zoom
@@ -59,8 +58,8 @@ The ![Android](/assets/android.svg) Android app has the ability to enable [chrom
 
 The ![Android](/assets/android.svg) Android app supports various three-finger gestures:
 
- - <span class='beta'>BETA</span> Swipe left/right: Quickly activate the previous/next server in the app.
- - <span class='beta'>BETA</span> Swipe up: Quickly activate a different server in the app. You will be prompted to select a server from a list.
+ - Swipe left/right: Quickly activate the previous/next server in the app.
+ - Swipe up: Quickly activate a different server in the app. You will be prompted to select a server from a list.
  - Swipe down: Open the [quick bar](https://www.home-assistant.io/docs/tools/quick-bar/). Initially the entity filter will be shown, you can switch to the command palette by typing `>` at the start of the input. The quick bar can only be launched when inside the webview after you have logged in.
 
 :::caution
