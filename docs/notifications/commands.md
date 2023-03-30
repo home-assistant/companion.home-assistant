@@ -42,7 +42,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `remove_channel`* | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
-\* <span class='beta'>BETA</span> These commands will always work, even when other commands are disabled.
+\*  These commands will always work, even when other commands are disabled.
 
 ## Activity
 
