@@ -330,7 +330,11 @@ automation:
 
 ```
 
-Special characters in extras are supported by urlencoding the extra value and appending `:urlencoded` to the end. For example, to send a JSON-formatted extra to Gadgetbridge we can do the following:
+If you do not specify a specific type, the type is guessed based on your input. Numbers will be converted to Integers, `true` or `false` will be converted to Boolean values. Otherwise the intent extra will be set as String.
+
+<span class='beta'>BETA</span>
+
+It is not unlikely that the data, that you are trying to send, contains special characters or characters that are used as delimiters when parsing the intent_extra parameter (`,`, `:` or `;`). In this case, it is recommended that you specify the data type as `String.urlencoded` by appending it after another colon `:` at the end. For example, to send a JSON-formatted extra to Gadgetbridge we can do the following:
 
 ```yaml
 automation:
@@ -343,12 +347,34 @@ automation:
           message: "command_broadcast_intent"
           data:
             intent_package_name: "nodomain.freeyourgadget.gadgetbridge"
-            intent_extras: "EXTRA_CONFIG_JSON:%7B%22push%22%3A%7B%22set%22%3A%7B%22widgetCustom0._.config.upper_text%22%3A%22Hi%22%7D%7D%7D:urlencoded"
+            intent_extras: "EXTRA_CONFIG_JSON:%7B%22push%22%3A%7B%22set%22%3A%7B%22widgetCustom0._.config.upper_text%22%3A%22Hi%22%7D%7D%7D:String.urlencoded"
             intent_action: "nodomain.freeyourgadget.gadgetbridge.Q_PUSH_CONFIG"
 
 ```
 
-Similarly to using urlencoding, you can add specific types to your intent extra. Your values will then be converted according to the type you specified. Make sure the type conversion is possible/meaningful.
+Strings can be urlencoded in templates by applying the [filter](https://www.home-assistant.io/docs/configuration/templating/#string-filters) `urlencode`. For example the template `{{ ",:;" | urlencode }}` results in `%2C%3A%3B`.
+
+<span class='beta'>BETA</span>
+
+If you are trying to send data as an Array or ArrayList, the individual values are separated by a semicolon `;`. The type of the Array, such as `float[]`, must be specified when sending values in this way. For example you can send multiple sensor values as movement data to Sleep as Android using the [Wearable integration API](https://docs.sleep.urbandroid.org/devs/wearable_api.html#send-movement-data):
+
+```yaml
+automation:
+  - alias: Send broadcast intent to Sleep as Android with movement data in float array
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_broadcast_intent"
+          data:
+            intent_package_name: "com.urbandroid.sleep"
+            intent_extras: "MAX_RAW_DATA:0.2;0.2;0.4;0.3;5.4;6.8;1.2:float[]"
+            intent_action: "com.urbandroid.sleep.watch.DATA_UPDATE"
+
+```
+
+In addition to the types above, you can add other specific types to your intent extra. Your values will then be converted according to the type you specified. Make sure the type conversion is possible/meaningful.
 
 Currently supported types are:
 
@@ -371,29 +397,12 @@ Currently supported types are:
 |[Boolean Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20boolean[])) <span class='beta'>BETA</span>|`EXTRA:true;true;false:boolean[]`|
 |[Char](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20char))|`EXTRA:a:char`|
 |[Char Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20char[])) <span class='beta'>BETA</span>|`EXTRA:a;b;c:char[]`|
-|[String Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String[]))|`EXTRA:a;b;c:String[]`|
+|[String](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String)) <span class='beta'>BETA</span>|`EXTRA:abc:String`|
+|[String (urlencoded)](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String))|`EXTRA:%2C%3A%3B:String.urlencoded` <span class='beta'>BETA</span> or `EXTRA:%2C%3A%3B:urlencoded`|
+|[String Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String[])) <span class='beta'>BETA</span>|`EXTRA:a;b;c:String[]`|
 |[String Array (urlencoded)](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String[])) <span class='beta'>BETA</span>|`EXTRA:colon%3A;semicolon%3B;comma%2C:String[].urlencoded`|
 |[ArrayList<String\>](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:a;b;c:ArrayList<String>`|
 |[ArrayList<String\> (urlencoded)](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E)) <span class='beta'>BETA</span>|`EXTRA:colon%3A;semicolon%3B;comma%2C:ArrayList<String>.urlencoded`|
-
-If you do not specify a specific type, the type is guessed based on your input. Numbers will be converted to Integers, `true` or `false` will be converted to Boolean values. Otherwise the intent extra will be set as String.
-
-Here is another example for sending movement data to Sleep as Android using the [Wearable integration API](https://docs.sleep.urbandroid.org/devs/wearable_api.html#send-movement-data) <span class='beta'>BETA</span>:
-
-```yaml
-automation:
-  - alias: Send broadcast intent to Sleep as Android with movement data in float array
-    trigger:
-      ...
-    action:
-      - service: notify.mobile_app_<your_device_id_here>
-        data:
-          message: "command_broadcast_intent"
-          data:
-            intent_package_name: "com.urbandroid.sleep"
-            intent_extras: "MAX_RAW_DATA:0.2;0.2;0.4;0.3;5.4;6.8;1.2:float[]"
-            intent_action: "com.urbandroid.sleep.watch.DATA_UPDATE"
-```
 
 ## Do Not Disturb
 
