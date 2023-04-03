@@ -334,7 +334,7 @@ If you do not specify a specific type, the type is guessed based on your input. 
 
 <span class='beta'>BETA</span>
 
-It is not unlikely that the data, that you are trying to send, contains special characters or characters that are used as delimiters when parsing the intent_extra parameter (`,`, `:` or `;`). In this case, it is recommended that you specify the data type as `String.urlencoded` by appending it after another colon `:` at the end. For example, to send a JSON-formatted extra to Gadgetbridge we can do the following:
+It is not unlikely that the data you are trying to send contains special characters or characters that are used as delimiters when parsing the intent_extra parameter (`,`, `:` or `;`). In this case, it is recommended that you specify the data type as `String.urlencoded` by appending it after another colon `:` at the end. For example, to send a JSON formatted extra to Gadgetbridge, you could use the following:
 
 ```yaml
 automation:
