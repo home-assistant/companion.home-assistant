@@ -87,49 +87,49 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 
 ### Sensor List
 
-| Sensor                                          | Attributes | Description                                                                                                                                          |
-|-------------------------------------------------| --------- |------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `binary_sensor.doze`                            | [See Below](#doze-sensor) | Whether or not the device is in doze mode.                                                                                                           |
-| `binary_sensor.interactive`                     | None | Whether or not the device is in an interactive state.                                                                                                |
-| `binary_sensor.power_save`                      | None | Whether or not the device is in power saving mode.                                                                                                   |
-| [Activity Sensors](#activity-sensors)           | See Below | The current activity type, sleep confidence and sleep segment as computed by Google. Requires activity recognition permissions on supported devices. |
-| `binary_sensor.android_auto`                    | [See Below](#android-auto-sensor) | A binary sensor to indicate if the device is connected to Android Auto.                                                                              |
-| [Android OS Sensors](#android-os-sensors)       | None | Several different sensors around the Android OS.                                                                                                     |
-| [App Data Sensors](#app-data_sensors)           | None | Sensors that show how much data was sent or received by the app.                                                                                     |
-| [App Importance Sensor](#app-importance-sensor) | None | The current importance of the app to determine if its in the foreground or cached.                                                                   |
-| `sensor.app_memory`                             | [See Below](#app-memory-sensor) | Information about the memory that is available for the app.                                                                                          |
-| [App Usage Sensors](#app-usage-sensors)         | None | Sensors that represent how the app is treated based on its usage.                                                                                    |
-| [Audio Sensors](#audio-sensors)                 | None | Several different sensors around different types of audio detection from the device.                                                                 |
-| [Battery Sensors](#battery-sensors)             | None | Several different sensors around the state of the devices battery.                                                                                   |
-| [Bluetooth Sensors](#bluetooth-sensors)         | [See Below](#bluetooth-sensors) | Several different sensors about the state of bluetooth on the device. Sensors are also available for beacon transmitting and monitoring.             |
-| `sensor.current_time_zone`                      | [See Below](#current-time-zone-sensor) | The current time zone the device is in.                                                                                                              |
-| `sensor.current_version`                        | None | The current installed version of the application.                                                                                                    |
-| [Dynamic Color](#dynamic-color-sensor)          | RGB Color | The hexadecimal color value for the accent color used in the current device theme.                                                                   |
-| `sensor.do_not_disturb`                         | None | The state of do not disturb on the device.                                                                                                           |
-| `sensor.geocoded_location`                      | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data.                                                                                                                |
-| `binary_sensor.high_accuracy_mode`              | None | The state of high accuracy mode on the device.                                                                                                       |
-| `sensor.high_accuracy_update_interval`          | None | The update interval for high accuracy mode on the device.                                                                                            |
-| [Keyguard Sensors](#keyguard-sensors)           | None | Sensors that represent various states about the device being locked or secured.                                                                      |
-| [Mobile Data Sensors](#mobile-data-sensors)     | None | Several different sensors around the state of mobile data.                                                                                           |
-| [Notification Sensors](#notification-sensors)   | See Below | Details about the notifications on the device.                                                                                                       |
-| `sensor.last_reboot`                            | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot.                                                                                                           |
-| `sensor.last_update`                            | None | The state will reflect the intent that caused the last update to get sent.                                                                           |
-| `sensor.last_used_app`                          | None | The last used application on the device.                                                                                                             |
-| `sensor.light`                                  | None | The current level of illuminance the device detects.                                                                                                 |
-| `sensor.phone_state`                            | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed.                                                        |
-| `sensor.pressure`                               | None | The pressure reading from the device.                                                                                                                |
-| `sensor.proximity`                              | None | The current proximity reading from the device, certain devices will only show boolean value of `near` or `far`.                                      |
-| `sensor.public_ip`                              | None | The public IP address of the device as generated by ipify API.                                                                                       |
-| `sensor.next_alarm`                             | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm.                                                                                                                    |
-| `sensor.sim_1`                                  | [See Below](#cellular-provider-sensor) | Name of your cellular provider.                                                                                                                      |
-| `sensor.sim_2`                                  | [See Below](#cellular-provider-sensor) | Name of your cellular provider.                                                                                                                      |
-| `sensor.screen_brightness`                      | [See Below](#screen-brightness-sensor) | The current value of screen brightness.                                                                                                              |
-| `sensor.screen_off_timeout`                     | None | The current value of screen off timeout setting.                                                                                                     |
-| `sensor.steps`                                  | None | The number of steps taken from the user since the last device reboot. Requires activity recognition permissions on supported devies.                 |
-| [Storage Sensors](#storage-sensor)              | [See Below](#storage-sensor) | The amount of total and available internal & external storage on your Android device.                                                                |
-| [Traffic Stats Sensor](#traffic-stats-sensor)   | None | Amount of data transmitted and received from mobile and total device usage since last reboot.                                                        |
-| [WiFi Sensors](#connection-type-sensor)         | None | Several different sensors around the state of WiFi.                                                                                                  |
-| [Work Profile](#work-profile-sensor)            | None | Whether or not the work profile is currently active on the device.                                                                                   |
+| Sensor | Attributes | Description |
+| --------- | --------- | ----------- |
+| `binary_sensor.doze` | [See Below](#doze-sensor) | Whether or not the device is in doze mode. |
+| `binary_sensor.interactive` | None | Whether or not the device is in an interactive state. |
+| `binary_sensor.power_save` | None | Whether or not the device is in power saving mode. |
+| [Activity Sensors](#activity-sensors) | See Below | The current activity type, sleep confidence and sleep segment as computed by Google. Requires activity recognition permissions on supported devices. |
+| `binary_sensor.android_auto` | [See Below](#android-auto-sensor) | A binary sensor to indicate if the device is connected to Android Auto. |
+| [Android OS Sensors](#android-os-sensors) | None | Several different sensors around the Android OS. |
+| [App Data Sensors](#app-data_sensors) | None | Sensors that show how much data was sent or received by the app. |
+| [App Importance Sensor](#app-importance-sensor) | None | The current importance of the app to determine if its in the foreground or cached. |
+| `sensor.app_memory` | [See Below](#app-memory-sensor) | Information about the memory that is available for the app. |
+| [App Usage Sensors](#app-usage-sensors) | None | Sensors that represent how the app is treated based on its usage. |
+| [Audio Sensors](#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
+| [Battery Sensors](#battery-sensors) | None | Several different sensors around the state of the devices battery. |
+| [Bluetooth Sensors](#bluetooth-sensors) | [See Below](#bluetooth-sensors) | Several different sensors about the state of bluetooth on the device. Sensors are also available for beacon transmitting and monitoring. |
+| `sensor.current_time_zone` | [See Below](#current-time-zone-sensor) | The current time zone the device is in. |
+| `sensor.current_version` | None | The current installed version of the application. |
+| [Dynamic Color](#dynamic-color-sensor) | RGB Color | The hexadecimal color value for the accent color used in the current device theme. |
+| `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
+| `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
+| `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
+| `sensor.high_accuracy_update_interval` | None | The update interval for high accuracy mode on the device. |
+| [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
+| [Mobile Data Sensors](#mobile-data-sensors) | None | Several different sensors around the state of mobile data. |
+| [Notification Sensors](#notification-sensors) | See Below | Details about the notifications on the device. |
+| `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
+| `sensor.last_update` | None | The state will reflect the intent that caused the last update to get sent. |
+| `sensor.last_used_app` | None | The last used application on the device. |
+| `sensor.light` | None | The current level of illuminance the device detects. |
+| `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
+| `sensor.pressure` | None | The pressure reading from the device. |
+| `sensor.proximity` | None | The current proximity reading from the device, certain devices will only show boolean value of `near` or `far`. |
+| `sensor.public_ip` | None | The public IP address of the device as generated by ipify API. |
+| `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
+| `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
+| `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
+| `sensor.screen_brightness` | [See Below](#screen-brightness-sensor) | The current value of screen brightness. |
+| `sensor.screen_off_timeout` | None | The current value of screen off timeout setting. |
+| `sensor.steps` | None | The number of steps taken from the user since the last device reboot. Requires activity recognition permissions on supported devies. |
+| [Storage Sensors](#storage-sensor) | [See Below](#storage-sensor) | The amount of total and available internal & external storage on your Android device. |
+| [Traffic Stats Sensor](#traffic-stats-sensor) | None | Amount of data transmitted and received from mobile and total device usage since last reboot. |
+| [WiFi Sensors](#connection-type-sensor) | None | Several different sensors around the state of WiFi. |
+| [Work Profile](#work-profile-sensor) | None | Whether or not the work profile is currently active on the device. |
 
 ## Active Sensor
 ![macOS](/assets/macOS.svg) `sensor.active` provides whether the device is currently being used, based on a few different inputs which are provided as attributes to be informative.
