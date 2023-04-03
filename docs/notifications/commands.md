@@ -392,7 +392,7 @@ Currently supported types are:
 |[Short](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20short))|`EXTRA:1:short`|
 |[Short Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20short[])) <span class='beta'>BETA</span>|`EXTRA:1;2;3:short[]`|
 |[Byte](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20byte)) <span class='beta'>BETA</span>|`EXTRA:127:byte`|
-|[Byte Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20byte[])) <span class='beta'>BETA</span>|`EXTRA:127:64:byte[]`|
+|[Byte Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20byte[])) <span class='beta'>BETA</span>|`EXTRA:127;64:byte[]`|
 |[Boolean](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20boolean))|`EXTRA:true:boolean`|
 |[Boolean Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20boolean[])) <span class='beta'>BETA</span>|`EXTRA:true;true;false:boolean[]`|
 |[Char](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20char))|`EXTRA:a:char`|
