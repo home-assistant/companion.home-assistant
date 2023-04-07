@@ -472,6 +472,12 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
+      <td><a href="/docs/core/sensors#android-os-sensors">Android OS Sensors</a><span class='beta'>BETA</span></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#app-data-sensors">App Data Sensors</a></td>
       <td>✅</td>
       <td>✅</td>
