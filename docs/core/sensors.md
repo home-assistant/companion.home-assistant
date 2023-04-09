@@ -93,7 +93,7 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | `binary_sensor.interactive` | None | Whether or not the device is in an interactive state. |
 | `binary_sensor.power_save` | None | Whether or not the device is in power saving mode. |
 | [Activity Sensors](#activity-sensors) | See Below | The current activity type, sleep confidence and sleep segment as computed by Google. Requires activity recognition permissions on supported devices. |
-| `binary_sensor.android_auto` | [See Below](#android-auto-sensor) | A binary sensor to indicate if the device is connected to Android Auto. |
+| [Android Auto Sensors](#android-auto-sensors) | None | Several different sensors about the state of the car and Android Auto. |
 | [App Data Sensors](#app-data_sensors) | None | Sensors that show how much data was sent or received by the app. |
 | [App Importance Sensor](#app-importance-sensor) | None | The current importance of the app to determine if its in the foreground or cached. |
 | `sensor.app_memory` | [See Below](#app-memory-sensor) | Information about the memory that is available for the app. |
@@ -177,9 +177,23 @@ The attribute for the state will reflect the `confidence` rating from the [Activ
 ![Android](/assets/android.svg)
 The Sleep Confidence and Sleep Segment sensors utilize the new [Sleep API](https://developers.google.com/location-context/sleep) from Google services. Sleep Segment updates about once a day and Sleep Confidence will update about every 10 minutes. All data is provided by Google.
 
-## Android Auto
+## Android Auto Sensors
 ![Android](/assets/android.svg)
-This sensor is used to determine if the device is connected to Android Auto.  The attributes will return the specific type of connection.
+The connection sensor is used to determine if the device is connected to Android Auto. The attributes will return the specific type of connection.
+
+The CarInfo sensors listed below describe the state of the car for a few different data points. These sensors may not be available depending on your Android Auto hardware/software and on your phone software.
+
+:::caution
+ Note that you need to start the Home-Assistant app on your Android Auto screen each time that you connect the phone to the car to allow these sensors to work (once started, you can dismiss the app). By default, if you have one of these sensors enabled, a notification will be shown when you connect you phone to start the app. You can disable this by muting the "Open Android Auto App" notification channel.
+:::
+
+|| Sensor | Description |
+| --------- | --------- |
+| `android_auto_battery_level` | The percentage of battery remaining |
+| `android_auto_car_name` | The name of the car. The manufacturer name and manufactured year are in the attributes |
+| `android_auto_car_status` | The charging status of the car (only for EVs). The state of the charging port is in the attributes  |
+| `android_auto_fuel_level` | The percentage of fuel remaining |
+| `android_auto_odometer` | The the value of the car odometer in meters |
 
 
 ## App Data Sensors
