@@ -189,11 +189,11 @@ The CarInfo sensors listed below describe the state of the car for a few differe
 
 || Sensor | Description |
 | --------- | --------- |
-| `android_auto_battery_level` | The percentage of battery remaining |
-| `android_auto_car_name` | The name of the car. The manufacturer name and manufactured year are in the attributes |
-| `android_auto_car_status` | The charging status of the car (only for EVs). The state of the charging port is in the attributes  |
-| `android_auto_fuel_level` | The percentage of fuel remaining |
-| `android_auto_odometer` | The the value of the car odometer in meters |
+| `android_auto_battery_level` | <span class='beta'>BETA</span> The percentage of battery remaining |
+| `android_auto_car_name` | <span class='beta'>BETA</span> The name of the car. The manufacturer name and manufactured year are in the attributes |
+| `android_auto_car_status` | <span class='beta'>BETA</span> The charging status of the car (only for EVs). The state of the charging port is in the attributes  |
+| `android_auto_fuel_level` | <span class='beta'>BETA</span> The percentage of fuel remaining |
+| `android_auto_odometer` | <span class='beta'>BETA</span> The the value of the car odometer in meters |
 
 
 ## App Data Sensors
