@@ -51,7 +51,7 @@ const features = [
           <img class="download-badge" width="200" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt='Get it on Google Play' />
         </a>
         <br />
-        <a href="https://apps.apple.com/us/app/home-assistant/id1099568401?itsct=apps_box_badge&amp;itscg=30200" style={{ display: 'inline-block', width: '200px' }}>
+        <a href="https://apps.apple.com/app/home-assistant/id1099568401?itsct=apps_box_badge&amp;itscg=30200" style={{ display: 'inline-block', width: '200px' }}>
           <img class="download-badge" width="175" src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1492214400&h=3ef4307fa479838e52fe9bd8bd17913b" alt="Download on the App Store" />
         </a>
         <br />
