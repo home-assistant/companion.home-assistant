@@ -379,7 +379,7 @@ automation:
           message: "Motion detected"
           data:
             persistent: true # Set to true to create a persistent notification
-            tag: "persistent" # Tag is required for the persistent notification
+            tag: "motion" # A tag is required for the persistent notification, it can be any value
 ```
 
 To remove the persistent notification we send `clear_notification` to the `tag` that we defined.
@@ -394,7 +394,7 @@ automation:
         data:
           message: "clear_notification"
           data:
-            tag: "persistent" # The tag for the persistent notification you wish to clear
+            tag: "motion" # The tag for the persistent notification you wish to clear
 ```
 
 ### Notification Timeout
