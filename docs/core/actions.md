@@ -13,7 +13,7 @@ You can create actions either from within the app itself or in your Home Assista
 
 ### Creating Actions in the App
 
-Actions are created from the Actions section of Companion App in [Configuration](https://my.home-assistant.io/redirect/config/) page within the companion App for iOS. Each action has required fields depending on your device:
+Actions are created only in Companion App on iOS. Navigate to `Settings` > `Companion App` > `Actions section`. Each action has required fields depending on your device:
 
 - `Name`: the name of the action, this will be returned in the [Home Assistant event](https://www.home-assistant.io/docs/configuration/events/) fired by the app.
 - `Server`: if you have multiple Home Assistant servers connected, select the server the action should be sent to.
@@ -107,7 +107,7 @@ The [Apple Watch App](/apple-watch/apple-watch.md) provides access to actions yo
 
 ## Home Screen Quick Actions
 
-[Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions and is accessed by 3D Touching the Home Assistant companion app icon on your home screen.
+[Home Screen Quick Actions](https://support.apple.com/en-au/guide/iphone/iphcc8f419db/ios) provides a convenient shortcut to your actions and is accessed by Force Touching the Home Assistant companion app icon on your home screen.
 
 ## Today View Widget
 
