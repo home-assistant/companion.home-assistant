@@ -107,7 +107,7 @@ The [Apple Watch App](/apple-watch/apple-watch.md) provides access to actions yo
 
 ## Home Screen Quick Actions
 
-[Home Screen Quick Actions](https://support.apple.com/en-au/guide/iphone/iphcc8f419db/ios) provides a convenient shortcut to your actions and is accessed by Force Touching the Home Assistant companion app icon on your home screen.
+[Home Screen Quick Actions](https://support.apple.com/guide/iphone/iphcc8f419db/ios) provides a convenient shortcut to your actions and is accessed by touching and holding the Home Assistant companion app icon on your home screen.
 
 ## Today View Widget
 
