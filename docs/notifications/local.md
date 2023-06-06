@@ -36,7 +36,7 @@ Notifications delivered via Local Push do not count against [Rate Limits](detail
 
 ![macOS](/assets/macOS.svg) does not have an option to disable Local Push, see requirements above for more information.
 
-![Android](/assets/android.svg) can configure the Local Push settings in [Settings](https://my.home-assistant.io/redirect/config/) -> Companion App -> Persistent Connection 
+![Android](/assets/android.svg) can configure the Local Push settings in [Settings](https://my.home-assistant.io/redirect/config/) -> Companion App -> (Select Desired Server) -> Persistent Connection 
 
 ## Viewing Status
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg):
