@@ -544,7 +544,7 @@ automation:
         entity_id: sensor.<your_device_id_here>_audio_mode # Only speak if the phone is idle (not ringing or in a call)
         state: normal
       - condition: state
-        entity_id: sensor.<your_device_id_here>_is_music_active # Only speak if the phone is not playing music
+        entity_id: binary_sensor.<your_device_id_here>_music_active # Only speak if the phone is not playing music
         state: 'off'
     action:
       - service: notify.mobile_app_<your_device_id_here>
