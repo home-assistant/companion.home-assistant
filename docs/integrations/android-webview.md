@@ -52,7 +52,7 @@ The ![Android](/assets/android.svg) Android app has the ability to fix the webvi
 The ![Android](/assets/android.svg) Android app has the ability to enable Pinch-To-Zoom to allow multi-touch zoom by enabling corresponding setting in [Settings](https://my.home-assistant.io/redirect/config/) > Companion App. 
 
 ## Remote Debugging
-The ![Android](/assets/android.svg) Android app has the ability to enable [Chrome remote debugging](https://developer.chrome.com/docs/devtools/remote-debugging/) to allow for easier troubleshooting of front end issues. You can enable this setting in [Settings](https://my.home-assistant.io/redirect/config/) > Companion App (<span class='beta'>BETA</span: Settings > Companion App > Troubleshooting).
+The ![Android](/assets/android.svg) Android app has the ability to enable [Chrome remote debugging](https://developer.chrome.com/docs/devtools/remote-debugging/) to allow for easier troubleshooting of front end issues. You can enable this setting in [Settings](https://my.home-assistant.io/redirect/config/) > Companion App (<span class='beta'>BETA</span>: Settings > Companion App > Troubleshooting).
 
 ## Swipe Gestures
 
