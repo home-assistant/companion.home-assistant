@@ -35,6 +35,7 @@
 /docs/notifications/location-notification /docs/notifications/notification-commands
 /docs/getting_started/migration /docs/getting_started
 /docs/oculus-quest /docs/meta-quest
+/docs/wear-os/wear-os /docs/wear-os
 
 # Docusaurus 2.0.0b10 slug changes
 /docs/getting_started/getting-started /docs/getting_started
