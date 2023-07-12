@@ -382,6 +382,10 @@ automation:
             tag: "motion" # A tag is required for the persistent notification, it can be any value
 ```
 
+:::info
+Starting in [Android 14](https://developer.android.com/about/versions/14/behavior-changes-all#non-dismissable-notifications) persistent notifications will be dismissable except when the device is locked or the "Clear All" button was selected.
+:::
+
 To remove the persistent notification we send `clear_notification` to the `tag` that we defined.
 
 ```yaml
