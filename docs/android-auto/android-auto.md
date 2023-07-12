@@ -5,9 +5,9 @@ id: "android-auto"
 
 ![Android](/assets/android.svg)
 
-Home Assistant offers an Android Auto experience. This will allow you to interact with various entities safely while driving your vehicle. It will also allow you to navigate to any `zone`, `person`, `sensor` or `device_tracker` that has a location associated with it.
+Home Assistant offers an Android Auto experience. This will allow you to interact with various entities safely while driving your vehicle. It will also allow you to navigate to any `zone`, `person`, `sensor` or `device_tracker`* that has a location associated with it.
 
-<span class='beta'>BETA</span> users will not see any `device_tracker` entity that is considered `home` in the navigation screen.
+\* Device tracker entities that are considered `home` will not be shown in the navigation screen.
 
 ### Setup
 
@@ -25,7 +25,7 @@ In order to use this integration you will need a phone as well as a vehicle with
 - `script`
 - `switch`
 
-### Notifications <span class='beta'>BETA</span>
+### Notifications
 
 By default Home Assistant notifications do not show up in the Android Auto interface. To show Home Assistant notifications in Android Auto, add [`car_ui: true` to the notification data](../notifications/basic.md#android-auto-visibility). Notifications will now show up on your phone _and_ in Android Auto. Opening the notification from Android Auto will open the driving interface for Home Assistant.
 
