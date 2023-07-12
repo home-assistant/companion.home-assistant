@@ -364,6 +364,10 @@ automation:
 
 ### Persistent Notification
 
+:::info
+Starting in [Android 14](https://developer.android.com/about/versions/14/behavior-changes-all#non-dismissable-notifications) persistent notifications will be dismissable by the user except when the phone is locked or user has selected "Clear All" button.
+:::
+
 Persistent notifications are notifications that cannot be dismissed by swiping away. These are useful if you have something important like an alarm being triggered. In order to use this property you must set the `tag` property as well. The `persistent` property only takes boolean (`true/false`) values, with `false` being the default. The persistent notification will still be dismissed once selected, to avoid this use `sticky: true` so the notification stays.
 
 In the example below we will create a notification and then later on we will remove it.
