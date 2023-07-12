@@ -620,7 +620,7 @@ On Android you also have the option of changing the notification status bar icon
             notification_icon: "mdi:cellphone"
 ```
 
-### Android Auto visibility <span class='beta'>BETA</span>
+### Android Auto visibility
 
 By default Home Assistant notifications do not show up in the Android Auto interface. By adding `car_ui: true`, notifications will become visible and opening them from Android Auto will start the driving interface. For more details on how notifications work in Android Auto, [review the Android Auto documentation](../android-auto/android-auto.md#notifications).
 
