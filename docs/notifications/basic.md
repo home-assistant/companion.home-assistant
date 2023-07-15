@@ -379,8 +379,12 @@ automation:
           message: "Motion detected"
           data:
             persistent: true # Set to true to create a persistent notification
-            tag: "persistent" # Tag is required for the persistent notification
+            tag: "motion" # A tag is required for the persistent notification, it can be any value
 ```
+
+:::info
+Starting in [Android 14](https://developer.android.com/about/versions/14/behavior-changes-all#non-dismissable-notifications) persistent notifications will be dismissable except when the device is locked or the "Clear All" button was selected.
+:::
 
 To remove the persistent notification we send `clear_notification` to the `tag` that we defined.
 
@@ -394,7 +398,7 @@ automation:
         data:
           message: "clear_notification"
           data:
-            tag: "persistent" # The tag for the persistent notification you wish to clear
+            tag: "motion" # The tag for the persistent notification you wish to clear
 ```
 
 ### Notification Timeout
@@ -544,7 +548,7 @@ automation:
         entity_id: sensor.<your_device_id_here>_audio_mode # Only speak if the phone is idle (not ringing or in a call)
         state: normal
       - condition: state
-        entity_id: sensor.<your_device_id_here>_is_music_active # Only speak if the phone is not playing music
+        entity_id: binary_sensor.<your_device_id_here>_music_active # Only speak if the phone is not playing music
         state: 'off'
     action:
       - service: notify.mobile_app_<your_device_id_here>
@@ -614,6 +618,23 @@ On Android you also have the option of changing the notification status bar icon
           message: "This will show a cellphone icon in the status bar"
           data:
             notification_icon: "mdi:cellphone"
+```
+
+### Android Auto visibility
+
+By default Home Assistant notifications do not show up in the Android Auto interface. By adding `car_ui: true`, notifications will become visible and opening them from Android Auto will start the driving interface. For more details on how notifications work in Android Auto, [review the Android Auto documentation](../android-auto/android-auto.md#notifications).
+
+```yaml
+  - alias: Send door unlocked alert
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "Door unlocked"
+          message: "Everyone left home but the door is still unlocked"
+          data:
+            car_ui: true
 ```
 
 ## iOS/macOS Specific

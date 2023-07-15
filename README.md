@@ -28,7 +28,7 @@ The easiest way to get started with development is to use Visual Studio Code wit
 - [Visual Studio code](https://code.visualstudio.com/)
 - [Remote - Containers (VSC Extension)][extension-link]
 
-[More info about requirements and devcontainer in general](https://code.visualstudio.com/docs/remote/containers#_getting-started)
+[More info about requirements and devcontainer in general](https://code.visualstudio.com/docs/devcontainers/containers#_getting-started)
 
 [extension-link]: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 
