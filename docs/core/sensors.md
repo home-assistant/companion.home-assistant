@@ -314,10 +314,11 @@ The sensors listed below describe the state of the car for a few different data 
 
 :::caution
  Note that you need to start the Home-Assistant app on your Android Auto screen each time that you connect the phone to the car to allow these sensors to work (once started, you can dismiss the app).
+
  To make things easier, you may want to use the [`car_ui` parameter](../android-auto/android-auto.md#notifications) to show a notification on your car when you [connect your phone](./sensors.md#android-auto).
 :::
 
-|| Sensor | Description |
+| Sensor | Description |
 | --------- | --------- |
 | `car_battery` | <span class='beta'>BETA</span> The percentage of battery remaining |
 | `car_name` | <span class='beta'>BETA</span> The name of the car. The manufacturer name and manufactured year are in the attributes |
