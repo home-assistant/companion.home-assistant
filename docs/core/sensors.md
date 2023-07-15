@@ -177,24 +177,9 @@ The attribute for the state will reflect the `confidence` rating from the [Activ
 ![Android](/assets/android.svg)
 The Sleep Confidence and Sleep Segment sensors utilize the new [Sleep API](https://developers.google.com/location-context/sleep) from Google services. Sleep Segment updates about once a day and Sleep Confidence will update about every 10 minutes. All data is provided by Google.
 
-## Android Auto Sensors
+## Android Auto
 ![Android](/assets/android.svg)
-The connection sensor is used to determine if the device is connected to Android Auto. The attributes will return the specific type of connection.
-
-The CarInfo sensors listed below describe the state of the car for a few different data points. These sensors may not be available depending on your Android Auto hardware/software and on your phone software.
-
-:::caution
- Note that you need to start the Home-Assistant app on your Android Auto screen each time that you connect the phone to the car to allow these sensors to work (once started, you can dismiss the app). By default, if you have one of these sensors enabled, a notification will be shown when you connect you phone to start the app. You can disable this by muting the "Open Android Auto App" notification channel.
-:::
-
-|| Sensor | Description |
-| --------- | --------- |
-| `android_auto_battery_level` | <span class='beta'>BETA</span> The percentage of battery remaining |
-| `android_auto_car_name` | <span class='beta'>BETA</span> The name of the car. The manufacturer name and manufactured year are in the attributes |
-| `android_auto_car_status` | <span class='beta'>BETA</span> The charging status of the car (only for EVs). The state of the charging port is in the attributes  |
-| `android_auto_fuel_level` | <span class='beta'>BETA</span> The percentage of fuel remaining |
-| `android_auto_odometer` | <span class='beta'>BETA</span> The the value of the car odometer in meters |
-
+This sensor is used to determine if the device is connected to Android Auto.  The attributes will return the specific type of connection.
 
 ## App Data Sensors
 ![Android](/assets/android.svg)
@@ -310,6 +295,24 @@ Settings are available to change scan period and interval which can be useful to
 A Monitor setting toggle will start or stop the scans - this setting can also be adjusted via the [notification command](../notifications/commands.md#beacon-monitor).
 
 When the app is actively scanning for beacons a notification will be shown to make background scanning more reliable. If you are on Android 8.0+ you are free to minimize and/or turn off the notification channel for the `Beacon Monitor Scanning`.
+
+## Car Sensors
+![Android](/assets/android.svg)
+
+The sensors listed below describe the state of the car for a few different data points. Currently this is only available for Android Auto (but these sensors may not be available depending on your phone software).
+
+:::caution
+ Note that you need to start the Home-Assistant app on your Android Auto screen each time that you connect the phone to the car to allow these sensors to work (once started, you can dismiss the app).
+ To make things easier, you may want to use the [`car_ui` parameter](../android-auto/android-auto.md#notifications) to show a notification on your car when you [connect your phone](./sensors.md#android-auto).
+:::
+
+|| Sensor | Description |
+| --------- | --------- |
+| `car_battery` | <span class='beta'>BETA</span> The percentage of battery remaining |
+| `car_name` | <span class='beta'>BETA</span> The name of the car. The manufacturer name and manufactured year are in the attributes |
+| `car_charging_status` | <span class='beta'>BETA</span> The charging status of the car (only for EVs). The state of the charging port is in the attributes  |
+| `car_fuel` | <span class='beta'>BETA</span> The percentage of fuel remaining |
+| `car_odometer` | <span class='beta'>BETA</span> The the value of the car odometer in meters |
 
 ## Cellular Provider Sensor
 The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
