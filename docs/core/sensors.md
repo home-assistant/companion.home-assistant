@@ -102,6 +102,7 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | [Audio Sensors](#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
 | [Battery Sensors](#battery-sensors) | None | Several different sensors around the state of the devices battery. |
 | [Bluetooth Sensors](#bluetooth-sensors) | [See Below](#bluetooth-sensors) | Several different sensors about the state of bluetooth on the device. Sensors are also available for beacon transmitting and monitoring. |
+| [Car Sensors](#car-sensors) | [See Below](#car-sensors) | Several different sensors about the state of the car. |
 | `sensor.current_time_zone` | [See Below](#current-time-zone-sensor) | The current time zone the device is in. |
 | `sensor.current_version` | None | The current installed version of the application. |
 | [Dynamic Color](#dynamic-color-sensor) | RGB Color | The hexadecimal color value for the accent color used in the current device theme. |
@@ -305,6 +306,25 @@ Settings are available to change scan period and interval which can be useful to
 A Monitor setting toggle will start or stop the scans - this setting can also be adjusted via the [notification command](../notifications/commands.md#beacon-monitor).
 
 When the app is actively scanning for beacons a notification will be shown to make background scanning more reliable. If you are on Android 8.0+ you are free to minimize and/or turn off the notification channel for the `Beacon Monitor Scanning`.
+
+## Car Sensors
+![Android](/assets/android.svg)
+
+The sensors listed below describe the state of the car for a few different data points. Currently this is only available for Android Auto (but these sensors may not be available depending on your phone software).
+
+:::caution
+ Note that you need to start the Home-Assistant app on your Android Auto screen each time that you connect the phone to the car to allow these sensors to work (once started, you can dismiss the app).
+
+ To make things easier, you may want to use the [`car_ui` parameter](../android-auto/android-auto.md#notifications) to show a notification on your car when you [connect your phone](./sensors.md#android-auto).
+:::
+
+| Sensor | Description |
+| --------- | --------- |
+| `car_battery` | <span class='beta'>BETA</span> The percentage of battery remaining |
+| `car_name` | <span class='beta'>BETA</span> The name of the car. The manufacturer name and manufactured year are in the attributes |
+| `car_charging_status` | <span class='beta'>BETA</span> The charging status of the car (only for EVs). The state of the charging port is in the attributes  |
+| `car_fuel` | <span class='beta'>BETA</span> The percentage of fuel remaining |
+| `car_odometer` | <span class='beta'>BETA</span> The the value of the car odometer in meters |
 
 ## Cellular Provider Sensor
 The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
