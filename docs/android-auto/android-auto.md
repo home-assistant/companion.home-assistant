@@ -50,3 +50,7 @@ Notifications in Android Auto share settings with your phone and do not support 
             channel: "Door unlocked"
             importance: high
 ```
+
+### Favorites <span class='beta'>BETA</span>
+
+If you would like to control only certain entities you can select some entities to be shown in the app. Simply go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Android Auto Favorites and select the entities you wish to view. Once selected a new Favorites category will be shown at the top of the list of categories. This category will contain all the selected entities based on the current server.
