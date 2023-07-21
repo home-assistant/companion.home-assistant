@@ -25,6 +25,10 @@ In order to use this integration you will need a phone as well as a vehicle with
 - `script`
 - `switch`
 
+:::note
+The amount of entities shown will depend on the imposed limit set by the vehicle.
+:::
+
 ### Notifications
 
 By default Home Assistant notifications do not show up in the Android Auto interface. To show Home Assistant notifications in Android Auto, add [`car_ui: true` to the notification data](../notifications/basic.md#android-auto-visibility). Notifications will now show up on your phone _and_ in Android Auto. Opening the notification from Android Auto will open the driving interface for Home Assistant.
