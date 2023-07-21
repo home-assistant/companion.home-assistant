@@ -310,7 +310,7 @@ When the app is actively scanning for beacons a notification will be shown to ma
 ## Car Sensors
 ![Android](/assets/android.svg)
 
-The sensors listed below describe the state of the car for a few different data points. Currently this is only available for Android Auto (but these sensors may not be available depending on your phone software).
+The sensors listed below describe the state of the car for a few different data points. Currently this is only available for Android Auto. These sensors may not provide data depending on your phone and/or car software.
 
 :::caution
  Note that you need to start the Home-Assistant app on your Android Auto screen each time that you connect the phone to the car to allow these sensors to work (once started, you can dismiss the app).
@@ -321,9 +321,11 @@ The sensors listed below describe the state of the car for a few different data 
 | Sensor | Description |
 | --------- | --------- |
 | `car_battery` | <span class='beta'>BETA</span> The percentage of battery remaining |
-| `car_name` | <span class='beta'>BETA</span> The name of the car. The manufacturer name and manufactured year are in the attributes |
 | `car_charging_status` | <span class='beta'>BETA</span> The charging status of the car (only for EVs). The state of the charging port is in the attributes  |
+| `car_ev_connector` | <span class='beta'>BETA</span> List of available EV connectors for the car |
 | `car_fuel` | <span class='beta'>BETA</span> The percentage of fuel remaining |
+| `car_fuel_type` | <span class='beta'>BETA</span> List of available fuel types for the car. |
+| `car_name` | <span class='beta'>BETA</span> The name of the car. The manufacturer name and manufactured year are in the attributes |
 | `car_odometer` | <span class='beta'>BETA</span> The the value of the car odometer in meters |
 
 ## Cellular Provider Sensor
