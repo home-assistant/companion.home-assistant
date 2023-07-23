@@ -53,4 +53,4 @@ Notifications in Android Auto share settings with your phone and do not support 
 
 ### Favorites <span class='beta'>BETA</span>
 
-If you would like to control only certain entities you can select some entities to be shown in the app. Simply go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Android Auto Favorites and select the entities you wish to view. Once you have added favorites the next time you start the Home Assistant app in the car you will be shown your favorite entities. From there you can toggle entities, navigate to an entity, view all entities and also change your server.
+If you would like to gain quick access to certain entities you can select some entities to be shown in the app. Simply go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Android Auto Favorites and select the entities you wish to view. Once you have added favorites the next time you start the Home Assistant app in the car you will be shown your favorite entities. From there you can toggle entities, navigate to an entity, view all entities and also change your server.
