@@ -63,7 +63,7 @@ You may use HTML to format the text displayed. The following tags are currently 
 
 ## Complications
 
-* An entity state complication can be displayed on your watchface. The complication will display the current state of the selected entity, and optionally the name and unit of the measurement. Depending on the watchface, the complication may also show the entity name and icon, and supports 'short text' and 'long text' complication types.
+* An entity state complication can be displayed on your watchface. The complication will display the current state of the selected entity, and optionally the name (and unit <span class='beta'>BETA</span>) of the measurement. Depending on the watchface, the complication may also show the entity name and icon, and supports 'short text' and 'long text' complication types.
 
   When you add an entity to a watchface, you can select the entity to display. This only works when editing the watchface on the watch, not in the watch app on the phone. To change the selected entity, just change the complication and select the entity state complication again. The complications are updated automatically whenever the screen is turned on and roughly every 15 minutes. You can force a complication to update by tapping it on the watchface.
 
