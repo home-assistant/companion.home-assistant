@@ -47,7 +47,8 @@ The settings screen can be found at the bottom of the home screen. This is where
 
 ## Tiles
 
-* The Shortcuts tile shows up to 7 shortcuts, which can be chosen from the settings section in the Wear OS app. You will be able to select the same set of entities you can access from the home screen.
+* The Shortcuts tile shows up to 7 shortcuts, which can be chosen from the settings section in the Wear OS app. You will be able to select the same set of entities you can access from the home screen. 
+<span class='beta'>BETA</span> Starting from Wear OS 3, any number of separately configurable tiles can be added, only limited by Wear OS's limit for the total number of tiles.
 * The Template tile shows a rendered template. The template can only be set from the android companion app. Note: it is not possible to scroll in a tile, the template should fit on the watch screen.
 * The Assist tile allows you to send a voice transcription to the [`conversation`](https://www.home-assistant.io/integrations/conversation/) integration to process. The results are then shown on the screen. This feature requires Home Assistant Core 2023.1 and also the `conversation` integration enabled.
 
