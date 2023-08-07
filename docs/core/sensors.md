@@ -310,10 +310,10 @@ When the app is actively scanning for beacons a notification will be shown to ma
 ## Car Sensors
 ![Android](/assets/android.svg)
 
-The sensors listed below describe the state of the car for a few different data points. Currently this is only available for Android Auto. These sensors may not provide data depending on your phone and/or car software.
+The sensors listed below describe the state of the car for a few different data points. Currently this is only available for Android Auto. These sensors may not provide data depending on your phone and/or car software. If you see a state of `unknown` check the `status` attribute to see the reason for why it has no data.
 
 :::caution
- Note that you need to start the Home-Assistant app on your Android Auto screen each time that you connect the phone to the car to allow these sensors to work (once started, you can dismiss the app).
+ Note that you need to start the Home-Assistant app on your Android Auto screen each time that you connect the phone to the car to allow these sensors to work (once started, you can dismiss the app). If the app is not started the state will be `unavailable`.
 
  To make things easier, you may want to use the [`car_ui` parameter](../android-auto/android-auto.md#notifications) to show a notification on your car when you [connect your phone](./sensors.md#android-auto).
 :::
