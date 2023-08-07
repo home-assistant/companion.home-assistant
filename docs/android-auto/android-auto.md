@@ -15,6 +15,7 @@ In order to use this integration you will need a phone as well as a vehicle with
 
 ### Supported Actionable Domains
 
+- `alarm_control_panel` <span class='beta'>BETA</span> If a code is not required will allow for `arm_away` & `disarm` otherwise no action
 - `button`
 - `cover`
 - `input_boolean`
