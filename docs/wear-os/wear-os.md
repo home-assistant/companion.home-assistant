@@ -113,6 +113,7 @@ The Wear OS app has basic support for [notification commands](../notifications/c
 
 *  [BLE Transmitter](../notifications/commands.md#ble-beacon-transmitter)
 *  [Beacon Monitor](../notifications/commands.md#beacon-monitor)
+*  [Update Sensors](../notifications/commands.md#update-sensors) <span class='beta'>BETA</span>
 
 ### Text To Speech Notifications
 
