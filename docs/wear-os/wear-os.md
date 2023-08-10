@@ -104,7 +104,7 @@ automation:
 ```
 
 :::info
-To speed up delivery of notifications you may need to use the first critical notification format listed in the [docs](../notifications/critical.md#android). Alarm stream and TTS notifications are currently not supported in Wear OS.
+To speed up delivery of notifications you may need to use the first critical notification format listed in the [docs](../notifications/critical.md#android). Alarm stream notifications are currently not supported in Wear OS.
 :::
 
 ### Notification Commands
