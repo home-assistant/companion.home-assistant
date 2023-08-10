@@ -104,7 +104,7 @@ automation:
 ```
 
 :::info
-To speed up delivery of notifications you may need to use the first critical notification format listed in the [docs](../notifications/critical.md#android). Alarm stream and TTS notifications are currently not supported in Wear OS.
+To speed up delivery of notifications you may need to use the first critical notification format listed in the [docs](../notifications/critical.md#android). Alarm stream notifications are currently not supported in Wear OS.
 :::
 
 ### Notification Commands
@@ -113,6 +113,7 @@ The Wear OS app has basic support for [notification commands](../notifications/c
 
 *  [BLE Transmitter](../notifications/commands.md#ble-beacon-transmitter)
 *  [Beacon Monitor](../notifications/commands.md#beacon-monitor)
+*  [Stop TTS](../notifications/commands.md#stop-tts)
 *  [Update Sensors](../notifications/commands.md#update-sensors) <span class='beta'>BETA</span>
 
 ### Text To Speech Notifications
