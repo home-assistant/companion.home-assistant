@@ -3,7 +3,7 @@ title: "Standard Attachments"
 id: notification-attachments
 ---
 
-Notifications may contain an image, video, or audio file attachment that is displayed alongside the notification. See [See table for supported media](#supported-media-types) for a breakdown of support by platform.
+Notifications may contain an image, video, or audio file attachment that is displayed alongside the notification. See [table for supported media](#supported-media-types) for a breakdown of support by platform.
 
 ## Downloading
 
@@ -44,6 +44,10 @@ A file stored in `/www/file.jpg` on-disk is represented by `/local/file.jpg` in 
 :::tip
 To expand a notification on 3D Touch devices simply force touch any notification. On non-3D Touch devices swipe and tap the "View" button.
 :::
+
+## Image entities
+
+Images from image entities can use `/api/image_proxy/image.name` where `image.name` is replaced by the entity ID of the image entity you wish to use.
 
 ## Supported media types
 
