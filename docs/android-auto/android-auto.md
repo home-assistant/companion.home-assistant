@@ -15,7 +15,7 @@ In order to use this integration you will need a phone as well as a vehicle with
 
 ### Supported Actionable Domains
 
-- `alarm_control_panel` <span class='beta'>BETA</span> If a code is not required will allow for `arm_away` & `disarm` otherwise no action
+- `alarm_control_panel` If a code is not required will allow for `arm_away` & `disarm` otherwise no action
 - `button`
 - `cover`
 - `input_boolean`
@@ -52,7 +52,7 @@ Notifications in Android Auto share settings with your phone and do not support 
             importance: high
 ```
 
-### Favorites <span class='beta'>BETA</span>
+### Favorites
 
 If you would like to gain quick access to certain entities you can select some entities to be shown in the app. Simply go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Android Auto Favorites and select the entities you wish to view. Once you have added favorites the next time you start the Home Assistant app in the car you will be shown your favorite entities. From there you can toggle entities, navigate to an entity, view all entities and also change your server.
 

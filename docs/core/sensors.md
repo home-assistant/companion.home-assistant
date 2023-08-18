@@ -320,13 +320,13 @@ The sensors listed below describe the state of the car for a few different data 
 
 | Sensor | Description |
 | --------- | --------- |
-| `car_battery` | <span class='beta'>BETA</span> The percentage of battery remaining |
-| `car_charging_status` | <span class='beta'>BETA</span> The charging status of the car (only for EVs). The state of the charging port is in the attributes  |
-| `car_ev_connector` | <span class='beta'>BETA</span> List of available EV connectors for the car |
-| `car_fuel` | <span class='beta'>BETA</span> The percentage of fuel remaining |
-| `car_fuel_type` | <span class='beta'>BETA</span> List of available fuel types for the car. |
-| `car_name` | <span class='beta'>BETA</span> The name of the car. The manufacturer name and manufactured year are in the attributes |
-| `car_odometer` | <span class='beta'>BETA</span> The the value of the car odometer in meters |
+| `car_battery` | The percentage of battery remaining |
+| `car_charging_status` | The charging status of the car (only for EVs). The state of the charging port is in the attributes  |
+| `car_ev_connector` | List of available EV connectors for the car |
+| `car_fuel` | The percentage of fuel remaining |
+| `car_fuel_type` | List of available fuel types for the car. |
+| `car_name` | The name of the car. The manufacturer name and manufactured year are in the attributes |
+| `car_odometer` | The the value of the car odometer in meters |
 
 ## Cellular Provider Sensor
 The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
