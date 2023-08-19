@@ -21,7 +21,7 @@ This widget will update every hour or when it is tapped. The widget will just co
 
 ### Entity State
 
-This widget will be updated when the entity state changes or when it is tapped. This widget will allow the user to select any entity they wish to get the state and an attribute from as well as setting the text size and adding a custom separator between the state and attributes.
+This widget will be updated when the entity state changes or when it is manually refreshed. This widget will allow the user to select any entity they wish to get the state and an attribute from as well as setting the text size and adding a custom separator between the state and attributes.
 
 1.  Long press on any open space in the home screen
 2.  Scroll down to Home Assistant in the widget list
@@ -30,8 +30,9 @@ This widget will be updated when the entity state changes or when it is tapped. 
 5.  If needed select the attribute checkbox and select the attribute you wish to add to the state
 6.  If needed adjust the widget text size
 7.  If needed add a custom separator to sit between the state and attribute
-8.  Supply a name for the widget
-9.  Save the widget
+8.  <span class='beta'>BETA</span> If supported choose the tap action for the widget: toggle the entity or refresh the state manually (if not supported a tap will refresh)
+9.  Supply a name for the widget
+10.  Save the widget
 
 
 ### Media Player
