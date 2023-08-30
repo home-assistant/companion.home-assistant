@@ -64,6 +64,9 @@ module.exports = {
     'Android Auto': [
       'android-auto/android-auto'
     ],
+    'CarPlay': [
+      'carplay/carplay'
+    ],
     'Troubleshooting': [
       'troubleshooting/faqs',
       'troubleshooting/errors',

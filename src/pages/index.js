@@ -34,6 +34,9 @@ const features = [
           <b><a href='/docs/android-auto'>Android Auto</a></b>
           {' '}Control your home from your Android Auto compatable vehicle.
           <br />
+          <b><a href='/docs/carplay'>CarPlay</a></b>
+          {' '}Control your home from your CarPlay compatable vehicle.
+          <br />
           <b><a href='/docs/troubleshooting/faqs'>Troubleshooting</a></b>
           {' '}If you need some help, this is a great place to start.
           <br />
