@@ -25,14 +25,14 @@ const features = [
           <b><a href='/docs/apple-watch'>Apple Watch</a></b>
           {' '}Actions and complications all from your Watch app.
           <br />
+          <b><a href='/docs/wear-os'>Wear OS</a></b>
+          {' '}Control your home from your Wear OS device.
+          <br />
           <b><a href='/docs/android-auto'>Android Auto/Automotive</a></b>
           {' '}Control your home from your Android Auto/Automotive compatable vehicle.
           <br />
           <b><a href='/docs/meta-quest'>Meta Quest</a></b>
           {' '}Get data from your Quest into Home Assistant.
-          <br />
-          <b><a href='/docs/wear-os'>Wear OS</a></b>
-          {' '}Control your home from your Wear OS device.
           <br />
           <b><a href='/docs/troubleshooting/faqs'>Troubleshooting</a></b>
           {' '}If you need some help, this is a great place to start.
