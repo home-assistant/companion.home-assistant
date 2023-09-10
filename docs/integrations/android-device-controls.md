@@ -38,9 +38,9 @@ On Android 13 and later, you can control the use of added controls when your dev
 
 ## <span class='beta'>BETA</span> Use a dashboard instead of built-in controls
 
-Starting with Android 14, on supported devices you can also show a Home Assistant dashboard instead of the built-in controls when using the device controls feature. Both modes have their own advantages: the built-in controls allow you to manage use while locked for each entity and control multiple servers side by side, while a dashboard supports all Home Assistant features and allows fully customizing appearance to suit your needs. The documentation above describes built-in controls.
+Starting with Android 14, on supported devices you can also show a Home Assistant dashboard instead of the built-in controls when using the device controls feature. Both modes have their own advantages: the built-in controls are easy to use, allow you to manage locked settings for each entity and control multiple servers side by side, while a dashboard supports all Home Assistant features and allows fully customizing the controls to suit your needs. The documentation above describes built-in controls.
 
-To switch between modes, open the app and go to [Settings]([https://my.home-assistant.io/](https://my.home-assistant.io/redirect/config/) > Companion app > Manage device controls. There will be an option to change the device controls mode here. If you choose Dashboard, you can also enter the dashboard path to use (ex: `/lovelace/default_view` or `/lovelace-dashboardname/viewname`) to use a different dashboard than the default.
+To switch between modes, open the app and go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Manage device controls. There will be an option to change the device controls mode here. If you choose Dashboard, you can also enter the dashboard path to use (ex: `/lovelace/default_view` or `/lovelace-dashboardname/viewname`) to use a different dashboard than the default.
 
 :::info
 When switching from built-in device controls to a dashboard: if you previously used built-in device controls, you may need to remove all controls before the dashboard will be shown.
