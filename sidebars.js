@@ -54,15 +54,15 @@ module.exports = {
       'apple-watch/watch-actions',
       'apple-watch/complications'
     ],
+    'Android Auto/Automotive': [
+      'android-auto/android-auto'
+    ],
     'Meta Quest': [
       'meta-quest/meta-quest'
     ],
     'Wear OS': [
       'wear-os/wear-os',
       'wear-os/sensors'
-    ],
-    'Android Auto': [
-      'android-auto/android-auto'
     ],
     'Troubleshooting': [
       'troubleshooting/faqs',
