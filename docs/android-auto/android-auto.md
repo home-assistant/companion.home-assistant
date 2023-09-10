@@ -32,9 +32,9 @@ The amount of entities shown will depend on the imposed limit set by the vehicle
 
 ### Favorites
 
-If you would like to gain quick access to certain entities you can select some entities to be shown in the app. Simply go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Android Auto Favorites (or Driving Favorites when parked) and select the entities you wish to view. Once you have added favorites the next time you start the Home Assistant app in the vehicle you will be shown your favorite entities. From there you can toggle entities, navigate to an entity, view all entities and also change your server.
+If you would like to gain quick access to certain entities you can select some entities to be shown in the app. Simply go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Android Auto favorites (or Driving favorites when parked) and select the entities you wish to view. Once you have added favorites the next time you start the Home Assistant app in the vehicle you will be shown your favorite entities. From there you can toggle entities, navigate to an entity, view all entities and also change your server.
 
-`binary_sensor` and `sensor` entities can be added to favorites in order to view their state in the driving interface.
+In addition to adding the above supported domains you can also add `binary_sensor` and `sensor` entities to favorites in order to view their state in the driving interface.
 
 :::info
 If you installed the app from the Google Play Store on your AAOS vehicle then currently you will not be able to set your favorite entities. In the meantime you are free to use the AA app.
@@ -64,7 +64,7 @@ Notifications in AA, share settings with your phone and do not support all notif
 
 ### Sensors
 
-The sensors offered for AA and AAOS are described on the main sensor page. The following list of sensors are currently supported.
+The sensors available for AA and AAOS are described on the main [sensors](../core/sensors.md#android-sensors) page. The below list of sensors are unique to AA and AAOS:
 
 *  [Android Auto Connection](../core/sensors.md#android-auto)
 *  [Car Sensors](../core/sensors.md#car-sensors) - Currently unavailabe for AAOS users
