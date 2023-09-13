@@ -78,24 +78,31 @@ To fix this change the location permission for the Home Assistant App to "Always
 ## Starting fresh with the Android app
 ![Android](/assets/android.svg) At times you may need to start fresh with the Android app as a new feature may not be working properly or something odd happens. Make sure to follow each step precisely without skipping anything.
 
+:::info
+Not all but some issues can be solved by simply logging out of the app and logging back in. If you have [trusted networks](https://www.home-assistant.io/docs/authentication/providers/#trusted-networks) setup in your server make sure to login to the app entering your credentials so the app can continue to work when not on the trusted network. If after you attempt to log out and log back and the issue still persists then please continue with the below steps.
+:::
+
 1.  Check that Home Assistant Core, the [Android app](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) and [Android System WebView](https://play.google.com/store/apps/details?id=com.google.android.webview) are up to date.
 2.  Clear Storage or App data in Android app. Do not assume it is safe to uninstall and reinstall as that triggers auto-backup which we are trying to avoid here.
 3.  In Home Assistant navigate to the [Integrations Dashboard](https://my.home-assistant.io/redirect/integrations/). Remove the mobile app entry for the device in question. If you see more than 1 remove them all.
 4.  Restart Home Assistant.
-5.  Log back into the Android app. If you have more than 1 device, make sure to rename the device during onboarding.
+5.  Log back into the Android app. If you have more than 1 device, make sure to rename the device during onboarding. Remember to login using your credentials instead of Trusted Networks.
 
 
 ## Device Tracker is not updating in Android app
 ![Android](/assets/android.svg) If you find that the device tracker is not updating as you would expect follow the below steps to ensure nothing has changed. If the below steps do not work then continue looking at the logs mentioned just below the steps.
 
-1.  Ensure the app has location permissions granted, all the time. (Users on Android 12 will need to ensure Precise location is given during the prompt)
+1.  Ensure the app has location permissions granted, all the time. (Users on Android 12 will need to ensure Precise location is selected during the prompt)
 2.  Ensure that location (GPS) is enabled on your device.
-3.  Turn off battery optimizations for the app.
-4.  Under [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors ensure that the following Location Sensors are enabled: Background Location, Location Zone and Single Accurate Location
+3.  Turn off battery optimizations for the app. Some manufacturers may add additional battery saving features (ex: Power Saving), make sure to disable all of those as well.
+4.  Under [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors ensure that the following Location Sensors are enabled: Background Location, Location Zone and Single Accurate Location. If you have multiple servers check to make sure the correct servers have each sensor enabled.
 5.  Turn on unrestricted data for the Android app. (Samsung users will need to disable data saver for Home Assistant as well.)
 6.  Check that the background access setting shows the app has proper access under in [Settings](https://my.home-assistant.io/redirect/config/) Companion App.
+7. If the issue still persists keep reading below as the next step involves inspecting the logs.
 
-If you are still seeing location issues then you may find it helpful to use the [crash logs](#android-crash-logs) to determine whats going on as we report the entire location decision making process there. When you look at the logs pay attention to the lines that contain `LocBroadcastReceiver` to follow the decisions.  Below is an example of what you can expect to see to ensure that location updates are coming to the phone.  The app still has a decision making process to ensure we get a valid location to actually send back.
+Sometimes the above steps will still not result in location updates reaching your server, at this point you need to look at the [crash logs](#android-crash-logs) to determine whats going on. The entire location decision making process is printed to the logs to help you understand whats happening. When you look at the logs pay attention to the lines that contain `LocBroadcastReceiver` to follow the decisions. Keep in mind you want roughly 10 minutes of logs so you may need to keep the app open to generate longer logs while the issue is happening. 
+
+Below is an example of what you can expect to see to ensure that location updates are coming to the phone. The app still has a decision making process to ensure we get a valid location to actually send back.
 
 ```
 2021-02-03 09:03:00.900 7306-7306/? D/LocBroadcastReceiver: Received location update.
@@ -106,6 +113,11 @@ If you are still seeing location issues then you may find it helpful to use the 
 2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Begin evaluating if location update should be skipped
 2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Received location that is 74 milliseconds old, 1612371780829 compared to 1612371780903 with source fused
 2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Duplicate location received, not sending to HA
+```
+
+These are the logs you can expect to see when a duplicate location is received. The app will not send the same location update to the server if it has not changed for 15 minutes since the last update was sent.
+
+```
 2021-02-03 09:06:34.241 7306-7306/? D/LocBroadcastReceiver: Received location update.
 2021-02-03 09:06:34.245 7306-7306/? D/LocBroadcastReceiver: Last Location: 
     Coords:(37.4220656, -122.0840897)
@@ -116,7 +128,11 @@ If you are still seeing location issues then you may find it helpful to use the 
 2021-02-03 09:06:34.309 7306-7430/? D/LocBroadcastReceiver: Location update sent successfully
 ```
 
-This is the expected logs for successful location results.  If you do not see logs like this then make sure to follow the steps up above as more than likely the app does not have proper access to run in the background without any interference.  If the android system kills the app then you will not see these updates.
+This is the expected logs for successful location results. If you do not see logs like this then make sure to follow the steps up above as more than likely the app does not have proper access to run in the background without any interference.  If the android system kills the app then you will not see these updates.
+
+The logs will indicate whether a report was skipped due to time, accuracy or something else. If a report was skipped due to accuracy then double check the GPS coordinates to ensure they were correct and consider changing the [sensor setting for accuracy](../core/location.md#location-sensor-settings).
+
+If you still experience an issue please submit a GitHub [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) and remember to attach the 10 minutes of logs from this troubleshooting step as its required to help.
 
 
 ## Using a self-signed certificate leads to a blank page in Android
@@ -147,7 +163,7 @@ If you want to ensure that the sensors are updated when your device starts charg
 ![Android](/assets/android.svg) On Android, sensors will show up as and when they have an update. Some will show up immediately upon enabling and others will show up once permissions have been granted and the state was retrieved. If you do not see a sensor then you may need to wait for the sensor to get a state update so it can send it to your Home Assistant server.
 
 ## Text to speech notifications are not working
-![Android](/assets/android.svg) Check that [Google Text to Speech](https://play.google.com/store/apps/details?id=com.google.android.tts) is updated. Check that it is also set as the default Text to Speech engine, this may be required for certain manufacturers.
+![Android](/assets/android.svg) Check that [Speech Recognition & Synthesis](https://play.google.com/store/apps/details?id=com.google.android.tts) is updated. Check that it is also set as the default Text to Speech engine, this may be required for certain manufacturers.
 
 ## Android Crash Logs
 ![Android](/assets/android.svg) The Android app makes use of Google's ADB [Logcat](https://developer.android.com/studio/command-line/logcat) feature to log errors. From time to time you may wish to inspect the logs or a developer may ask for crash logs in order to fix your issue. There is an option under [Settings](https://my.home-assistant.io/redirect/config/) Companion App > Troubleshooting > Show and Share Logs. This feature makes it a lot of easier to refresh, share and view the logs. The logs can then be used when you want to create an [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) or when a developer asks for them to troubleshoot an issue. It is important to note that the device logs may or may not contain sensitive information like your Home Assistant URL so make sure to remove sensitive information before sharing.
