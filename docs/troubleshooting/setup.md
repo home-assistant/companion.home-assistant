@@ -130,7 +130,7 @@ Below you will find the expected log for successful location results. If you do 
 
 The logs will indicate whether a report was skipped due to time, accuracy or something else. If multiple reports are skipped due to accuracy then double check the GPS coordinates to ensure they were correct and consider increasing the [sensor setting for accuracy](../core/location.md#location-sensor-settings). If for example you see a valid report getting skipped with accuracy around `350` then set the setting to `400` as a buffer. Larger values may also lead to inconsistent results so go by valid reports in the logs.
 
-If you still experience an issue please submit a GitHub [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) and remember to attach the 10 minutes of logs from this troubleshooting step as its required to help.
+If you still experience an issue after following the above steps please submit a GitHub [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) and remember to attach at least 10 minutes of logs from this troubleshooting step as its easier to help and may be requested.
 
 
 ## Using a self-signed certificate leads to a blank page in Android
