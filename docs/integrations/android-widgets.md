@@ -66,7 +66,7 @@ You may set the checkbox "Require authentication". If it is set, device credenti
 
 This widget will display any text that you wish to show in a widget using [Home Assistants templating feature](https://www.home-assistant.io/docs/configuration/templating/). This is an advanced feature but allows the user to display a wide variety of data. The template will be updated instantly on relevant states changes. When editing the widget, the template will be shown below the text field so you can preview what it would look like.
 
-You may also use HTML to format the text displayed such as adding a new line (`<br>`), making something bold (`<b>`) or large (`<big>`) or changing the color (`<font color='#03a9f4'>`).
+You may also use HTML to format the text displayed such as adding a new line (`<br>`), making something bold (`<b>`) or large (`<big>`), changing the color (`<font color='#03a9f4'>`) or aligning it to the start or end of a line (`<p style="text-align: end">`).
 
 If the template in the widget isn't updating instantly, you're most likely hitting [rate limits](https://www.home-assistant.io/integrations/template/#rate-limiting-updates). Try optimizing your template to get faster updates, or tap on the widget to update it manually. You can also use the preview in [`Developer Tools > Template`](https://my.home-assistant.io/redirect/developer_template/) to test your template updates.
 
