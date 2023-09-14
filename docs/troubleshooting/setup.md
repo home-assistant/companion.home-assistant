@@ -102,7 +102,7 @@ Not all but some issues can be solved by simply logging out of the app and loggi
 
 Sometimes the above steps will still not result in location updates reaching your server, at this point you need to look at the [crash logs](#android-crash-logs) to determine whats going on. The entire location decision making process is printed to the logs to help you understand whats happening. When you look at the logs pay attention to the lines that contain `LocBroadcastReceiver` to follow the decisions. Keep in mind you want roughly 10 minutes of logs so you may need to keep the app open to generate longer logs while the issue is happening. 
 
-Below is an example of what you can expect to see to ensure that location updates are coming to the phone. The app still has a decision making process to ensure we get a valid location to actually send back.
+Below is an example of what you can expect to see to ensure that location updates are coming to the phone. The app still has a decision making process to ensure we get a valid location to actually send back. These are the logs you can expect to see when a duplicate location is received. The app will not send the same location update to the server if it has not changed for 15 minutes since the last update was sent.
 
 ```
 2021-02-03 09:03:00.900 7306-7306/? D/LocBroadcastReceiver: Received location update.
@@ -115,7 +115,7 @@ Below is an example of what you can expect to see to ensure that location update
 2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Duplicate location received, not sending to HA
 ```
 
-These are the logs you can expect to see when a duplicate location is received. The app will not send the same location update to the server if it has not changed for 15 minutes since the last update was sent.
+Below you will find the expected logs for successful location results. If you do not see logs like this then make sure to follow the steps up above as more than likely the app does not have proper access to run in the background without any interference. If the Android system kills the app then you will not see these updates.
 
 ```
 2021-02-03 09:06:34.241 7306-7306/? D/LocBroadcastReceiver: Received location update.
@@ -127,8 +127,6 @@ These are the logs you can expect to see when a duplicate location is received. 
 2021-02-03 09:06:34.245 7306-7306/? D/LocBroadcastReceiver: Received location that is 1126 milliseconds old, 1612371993119 compared to 1612371994245 with source fused
 2021-02-03 09:06:34.309 7306-7430/? D/LocBroadcastReceiver: Location update sent successfully
 ```
-
-This is the expected logs for successful location results. If you do not see logs like this then make sure to follow the steps up above as more than likely the app does not have proper access to run in the background without any interference.  If the android system kills the app then you will not see these updates.
 
 The logs will indicate whether a report was skipped due to time, accuracy or something else. If a report was skipped due to accuracy then double check the GPS coordinates to ensure they were correct and consider changing the [sensor setting for accuracy](../core/location.md#location-sensor-settings).
 

@@ -29,7 +29,7 @@ When you open the app for the first time you'll be guided through the process of
 
 ![First onboarding screen](/assets/Onboarding_start.jpg)
 
-After tapping "continue" on the first screen, the app will start checking your network for Home Assistant instances. If an instance is found, simply tap the instance and follow the prompts to connect and log in to your Home Assistant. If you are not connected to the same local network as your Home Assistant instance, tap "Enter Address Manually" and enter the address you use to remotely connect to your Home Assistant instance (using the [Home Assistant Cloud](https://www.nabucasa.com/config/remote/) Remote UI is recommended but not required). Remember to login using your credentials and not to use [Trusted Networks](https://www.home-assistant.io/docs/authentication/providers/#trusted-networks), if you have that enabled otherwise the app will only work on the trusted network.
+After tapping "continue" on the first screen, the app will start checking your network for Home Assistant instances. If an instance is found, simply tap the instance and follow the prompts to connect and log in to your Home Assistant. If you are not connected to the same local network as your Home Assistant instance, tap "Enter Address Manually" and enter the address you use to remotely connect to your Home Assistant instance (using the [Home Assistant Cloud](https://www.nabucasa.com/config/remote/) Remote UI is recommended but not required).
 
 Once you have connected and logged into your Home Assistant instance, you will be asked to grant permission for the app to work with your iOS device beyond basic browsing of your Home Assistant instance. You are not required to grant these permissions in order to use the app however they provide a much greater degree of integration between your device and Home Assistant. The permissions that are requested are:
 
@@ -42,6 +42,10 @@ Once you have connected and logged into your Home Assistant instance, you will b
 Once you have granted or denied permissions, the app will create the required connections to your Home Assistant instance and then take you to your Home Assistant home screen. Depending on the app version, you may see a "What's New" screen in between the end of setup and be taken to your home screen.
 
 If you have difficulties completing setting up the app, please see the [troubleshooting guide](../troubleshooting/setup.md).
+
+:::info
+Remember to login using your credentials and not to use [Trusted Networks](https://www.home-assistant.io/docs/authentication/providers/#trusted-networks), if you have that enabled otherwise the app will only work on the trusted network.
+:::
 
 ## Adding Additional Servers
 
