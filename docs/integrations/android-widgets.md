@@ -30,7 +30,7 @@ This widget will be updated when the entity state changes or when it is manually
 5.  If needed select the attribute checkbox and select the attribute you wish to add to the state
 6.  If needed adjust the widget text size
 7.  If needed add a custom separator to sit between the state and attribute
-8.  <span class='beta'>BETA</span> If supported choose the tap action for the widget: toggle the entity or refresh the state manually (if not supported a tap will refresh)
+8.  If supported choose the tap action for the widget: toggle the entity or refresh the state manually (if not supported a tap will refresh)
 9.  Supply a name for the widget
 10.  Save the widget
 

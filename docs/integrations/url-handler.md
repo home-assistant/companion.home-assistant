@@ -8,7 +8,7 @@ Home Assistant supports opening from other apps via URL.
 Query parameters are passed as a dictionary in the call.
 
 :::info
-![iOS](/assets/iOS.svg) and ![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+![iOS](/assets/iOS.svg) and ![Android](/assets/android.svg)
 If multiple servers are connected to an app, you will be prompted to select a server when handling a `navigate` link, `call_service`, or `fire_event`  links will be handled using the first server in the list.
 
 ![Android](/assets/android.svg)<br />
