@@ -102,7 +102,7 @@ Not all but some issues can be solved by simply logging out of the app and loggi
 
 Sometimes the above steps will still not result in location updates reaching your server, at this point you need to look at the [crash logs](#android-crash-logs) to determine whats going on. The entire location decision making process is printed to the logs to help you understand whats happening. When you look at the logs pay attention to the lines that contain `LocBroadcastReceiver` to follow the decisions. Keep in mind you want roughly 10 minutes of logs so you may need to keep the app open to generate longer logs while the issue is happening. 
 
-Below is an example of what you can expect to see to ensure that location updates are coming to the phone. The app still has a decision making process to ensure we get a valid location to actually send back. These are the logs you can expect to see when a duplicate location is received. The app will not send the same location update to the server if it has not changed for 15 minutes since the last update was sent.
+Below is an example of what you can expect to see to ensure that location updates are coming to the phone. The app still has a decision making process to ensure it gets a valid location to actually send back. These are the logs you can expect to see when a duplicate location is received. The app will not send the same location update to the server if it has not changed for 15 minutes since the last update was sent.
 
 ```
 2021-02-03 09:03:00.900 7306-7306/? D/LocBroadcastReceiver: Received location update.
@@ -115,7 +115,7 @@ Below is an example of what you can expect to see to ensure that location update
 2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Duplicate location received, not sending to HA
 ```
 
-Below you will find the expected logs for successful location results. If you do not see logs like this then make sure to follow the steps up above as more than likely the app does not have proper access to run in the background without any interference. If the Android system kills the app then you will not see these updates.
+Below you will find the expected log for successful location results. If you do not see lines like these, make sure to follow the previously mentioned steps. No location updates in the app log is usually caused by no proper access to run in the background without any interference, or because the Android system killed the app.
 
 ```
 2021-02-03 09:06:34.241 7306-7306/? D/LocBroadcastReceiver: Received location update.
@@ -128,7 +128,7 @@ Below you will find the expected logs for successful location results. If you do
 2021-02-03 09:06:34.309 7306-7430/? D/LocBroadcastReceiver: Location update sent successfully
 ```
 
-The logs will indicate whether a report was skipped due to time, accuracy or something else. If a report was skipped due to accuracy then double check the GPS coordinates to ensure they were correct and consider changing the [sensor setting for accuracy](../core/location.md#location-sensor-settings).
+The logs will indicate whether a report was skipped due to time, accuracy or something else. If a report was skipped due to accuracy then double check the GPS coordinates to ensure they were correct and consider increasing the [sensor setting for accuracy](../core/location.md#location-sensor-settings). If for example you see a valid report getting skipped with accuracy around `350` then set the setting to `400` as a buffer. Larger values may also lead to inconsistent results so go by valid reports in the logs.
 
 If you still experience an issue please submit a GitHub [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) and remember to attach the 10 minutes of logs from this troubleshooting step as its required to help.
 
