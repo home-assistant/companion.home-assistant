@@ -483,7 +483,7 @@ automation:
 
 ### Text To Speech Notifications
 
-Instead of posting a notification on the device you can instead get your device to speak the notification. This notification works different than the others. You will set `message: TTS` and the actual text to speak would be in the `tts_text`. Current support is limited to the current Text To Speech locale set on the device. If there is an error processing the message you will see a toast message appear on the device. Check to make sure that the [Google Text To Speech](https://play.google.com/store/apps/details?id=com.google.android.tts) engine is up to date and set as the default, in case you run into any issues.
+Instead of posting a notification on the device you can instead get your device to speak the notification. This notification works different than the others. You will set `message: TTS` and the actual text to speak would be in the `tts_text`. Current support is limited to the current Text To Speech locale set on the device. If there is an error processing the message you will see a toast message appear on the device. Check to make sure that the [Speech Recognition & Synthesis](https://play.google.com/store/apps/details?id=com.google.android.tts) engine is up to date and set as the default, in case you run into any issues.
 
 ```yaml
 automation:

@@ -43,6 +43,10 @@ Once you have granted or denied permissions, the app will create the required co
 
 If you have difficulties completing setting up the app, please see the [troubleshooting guide](../troubleshooting/setup.md).
 
+:::info
+Remember to login using your credentials and not to use [Trusted Networks](https://www.home-assistant.io/docs/authentication/providers/#trusted-networks), if you have that enabled otherwise the app will only work on the trusted network.
+:::
+
 ## Adding Additional Servers
 
 ![iOS](/assets/iOS.svg) or ![Android](/assets/android.svg)
