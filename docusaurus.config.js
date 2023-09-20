@@ -11,8 +11,8 @@ module.exports = {
       title: 'Companion Apps',
       logo: {
         alt: 'Home Assistant',
-        src: 'img/logo-pretty.svg',
-        srcDark: 'img/logo-pretty.svg',
+        src: 'img/logo.svg',
+        srcDark: 'img/logo.svg',
       },
       items: [
         { to: '/docs/getting_started', label: 'Docs', position: 'left' },
@@ -32,6 +32,12 @@ module.exports = {
       ],
     },
     footer: {
+      logo: {
+        alt: "Home Assistant",
+        src: "img/logo-white.svg",
+        height: "30px",
+        href: "https://www.home-assistant.io",
+      },
       style: 'dark',
       links: [
         {
