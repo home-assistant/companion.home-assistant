@@ -57,7 +57,7 @@ There is currently no support for sensor settings. Some sensors may not be fully
 
 ### Health Services
 
-Wear OS 3 Only<br />
+Wear OS 3+ Only<br />
 
 A list of sensors that contain data provided by Googles [Health Services API](https://developer.android.com/training/wearables/health-services/passive#useractivityinfo).
 
