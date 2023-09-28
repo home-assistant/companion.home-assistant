@@ -90,19 +90,29 @@ Not all but some issues can be solved by simply logging out of the app and loggi
 
 
 ## Device Tracker is not updating in Android app
-![Android](/assets/android.svg) If you find that the device tracker is not updating as you would expect follow the below steps to ensure nothing has changed. If the below steps do not work then continue looking at the logs mentioned just below the steps.
+![Android](/assets/android.svg) If you find that the device tracker is not updating as you would expect follow the below steps to ensure optimal settings.
 
-1.  Ensure the app has location permissions granted, all the time. (Users on Android 12 will need to ensure Precise location is selected during the prompt)
-2.  Ensure that location (GPS) is enabled on your device.
-3.  Turn off battery optimizations for the app. Some manufacturers may add additional battery saving features (ex: Power Saving), make sure to disable all of those as well.
-4.  Under [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors ensure that the following Location Sensors are enabled: Background Location, Location Zone and Single Accurate Location. If you have multiple servers check to make sure the correct servers have each sensor enabled.
-5.  Turn on unrestricted data for the Android app. (Samsung users will need to disable data saver for Home Assistant as well.)
-6.  Check that the background access setting shows the app has proper access under in [Settings](https://my.home-assistant.io/redirect/config/) Companion App.
-7. If the issue still persists keep reading below as the next step involves inspecting the logs.
+1.  In [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Manage sensors, ensure that the following Location Sensors are enabled: Background Location, Location Zone and Single Accurate Location. If you use multiple servers, make sure the correct servers have each sensor enabled.
+2.  Ensure the app has location permissions granted, all the time. (On Android 12 and newer, allow Precise location when prompted)
+3.  Ensure that location (GPS) is enabled on your device.
+4.  Turn off battery optimizations for the app. Some manufacturers may add additional battery saving features (ex: Power Saving), make sure to disable all of those as well.
+5.  Turn on unrestricted data for the app. (Samsung users will need to disable data saver for Home Assistant as well)
+6.  Check that the background access setting shows the app has proper access under in [Settings](https://my.home-assistant.io/redirect/config/) > Companion app.
 
-Sometimes the above steps will still not result in location updates reaching your server, at this point you need to look at the [crash logs](#android-crash-logs) to determine whats going on. The entire location decision making process is printed to the logs to help you understand whats happening. When you look at the logs pay attention to the lines that contain `LocBroadcastReceiver` to follow the decisions. Keep in mind you want roughly 10 minutes of logs so you may need to keep the app open to generate longer logs while the issue is happening. 
+Sometimes the above steps will still not result in location updates reaching your server. The app can receive a lot of location updates and may skip some of them. To determine why, review the app location history logs. Note: these steps assume you are using the <span class='beta'>BETA</span> version of the app, if not it is recommended to update or follow the manual review steps below.
 
-Below is an example of what you can expect to see to ensure that location updates are coming to the phone. The app still has a decision making process to ensure it gets a valid location to actually send back. These are the logs you can expect to see when a duplicate location is received. The app will not send the same location update to the server if it has not changed for 15 minutes since the last update was sent.
+Go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Troubleshooting > Location tracking and enable location history. The app will now keep a log of all location updates received in the last 48 hours.
+
+ - Each update will show the source (for example, "Background location") and result (for example, "Sent"). The app verifies that a location is valid before sending it, and an update may be skipped due to time, accuracy, duplicates, or other reasons.
+ - The app should receive updates multiple times an hour. If you do not see updates after enabling the history, make sure to follow the previously mentioned steps. No location history is usually caused by limited background access for the Home Assistant app, or the Android system killing the app.
+ - If multiple updates are skipped due to accuracy then check the GPS coordinates to ensure they were correct, and consider increasing the [sensor setting for accuracy](../core/location.md#location-sensor-settings). For example, if you see a valid location getting skipped with accuracy around `350` then set the minimum accuracy setting to `400` as a buffer. Larger values may also lead to inconsistent results so go by valid reports in the logs.
+
+<details>
+<summary>Manual review steps</summary>
+
+You can also manually review the location history by using the [crash logs](#android-crash-logs) to determine whats going on. These logs contain more details, but are only kept while the app is open. The entire location decision making process is printed to the logs to help you understand whats happening. When you look at the logs pay attention to the lines that contain `LocBroadcastReceiver` to follow the decisions. Keep in mind you want roughly 10 minutes of logs so you may need to keep the app open to generate longer logs while the issue is happening. 
+
+Below is an example of what you can expect to see to ensure that location updates are coming to the phone. The app will verify that a location is valid before sending it back. These are the logs you can expect to see when a duplicate location is received. The app will not send the same location update to the server if it has not changed for 15 minutes since the last update was sent.
 
 ```
 2021-02-03 09:03:00.900 7306-7306/? D/LocBroadcastReceiver: Received location update.
@@ -115,7 +125,7 @@ Below is an example of what you can expect to see to ensure that location update
 2021-02-03 09:03:00.903 7306-7306/? D/LocBroadcastReceiver: Duplicate location received, not sending to HA
 ```
 
-Below you will find the expected log for successful location results. If you do not see lines like these, make sure to follow the previously mentioned steps. No location updates in the app log is usually caused by no proper access to run in the background without any interference, or because the Android system killed the app.
+Below you will find the expected log for successful location results. If you do not see lines like these, make sure to follow the previously mentioned steps.
 
 ```
 2021-02-03 09:06:34.241 7306-7306/? D/LocBroadcastReceiver: Received location update.
@@ -128,10 +138,10 @@ Below you will find the expected log for successful location results. If you do 
 2021-02-03 09:06:34.309 7306-7430/? D/LocBroadcastReceiver: Location update sent successfully
 ```
 
-The logs will indicate whether a report was skipped due to time, accuracy or something else. If multiple reports are skipped due to accuracy then double check the GPS coordinates to ensure they were correct and consider increasing the [sensor setting for accuracy](../core/location.md#location-sensor-settings). If for example you see a valid report getting skipped with accuracy around `350` then set the setting to `400` as a buffer. Larger values may also lead to inconsistent results so go by valid reports in the logs.
+The logs will indicate whether a report was skipped due to time, accuracy, duplicates or something else.
+</details>
 
-If you still experience an issue after following the above steps please submit a GitHub [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) and remember to attach at least 10 minutes of logs from this troubleshooting step as its easier to help and may be requested.
-
+If you still do not receive location updates after following the above steps and believe this is incorrect, submit a GitHub [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=). If possible attach at least 10 minutes of logs from this troubleshooting step to make it easier for others to help (this may be requested).
 
 ## Using a self-signed certificate leads to a blank page in Android
 ![Android](/assets/android.svg) If you are using a self-signed certificate on Android then you may get stuck at a blank screen after entering and/or selecting your Home Assistant instance. In order to correct this issue you will need to make sure the URL is valid and that you import the certificate into Android's Trusted Certificates. Steps to perform this can be found [here](https://support.google.com/nexus/answer/2844832?hl=en). These steps were written for devices on Android 9+ but are very close for older supported devices.
