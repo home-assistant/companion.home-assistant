@@ -3,7 +3,7 @@ module.exports = {
   tagline: 'Everything you need to know to use Home Assistant Companion',
   url: 'https://companion.home-assistant.io',
   baseUrl: '/',
-  favicon: 'img/favicon.png',
+  favicon: 'img/brand/favicon.png',
   organizationName: 'home-assistant', // Usually your GitHub org/user name.
   projectName: 'companion.home-assistant', // Usually your repo name.
   themeConfig: {
@@ -11,8 +11,8 @@ module.exports = {
       title: 'Companion Apps',
       logo: {
         alt: 'Home Assistant',
-        src: 'img/logo-pretty.svg',
-        srcDark: 'img/logo-pretty.svg',
+        src: 'img/brand/logo.svg',
+        srcDark: 'img/brand/logo.svg',
       },
       items: [
         { to: '/docs/getting_started', label: 'Docs', position: 'left' },
@@ -32,6 +32,12 @@ module.exports = {
       ],
     },
     footer: {
+      logo: {
+        alt: "Home Assistant",
+        src: "img/brand/logo-white.svg",
+        height: "30px",
+        href: "https://www.home-assistant.io",
+      },
       style: 'dark',
       links: [
         {
