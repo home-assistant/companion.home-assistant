@@ -91,7 +91,7 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | --------- | --------- | ----------- |
 | `binary_sensor.doze` | [See Below](#doze-sensor) | Whether or not the device is in doze mode. |
 | `binary_sensor.interactive` | None | Whether or not the device is in an interactive state. |
-| `binary_sensor.nfc_state` | None | <span class='beta'>BETA</span> Whether or not the device has its NFC sensor enabled. |
+| `binary_sensor.nfc_state` | None | Whether or not the device has its NFC sensor enabled. |
 | `binary_sensor.power_save` | None | Whether or not the device is in power saving mode. |
 | [Activity Sensors](#activity-sensors) | See Below | The current activity type, sleep confidence and sleep segment as computed by Google. Requires activity recognition permissions on supported devices. |
 | `binary_sensor.android_auto` | [See Below](#android-auto-sensor) | A binary sensor to indicate if the device is connected to Android Auto. |
@@ -470,7 +470,9 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 These sensors will reflect various states from the [Keyguard Manager](https://developer.android.com/reference/android/app/KeyguardManager). You will be able to determine if the device is actively locked, has a password setup or even if the device requires a password to unlock. These sensors will update with the periodic sensor interval.
 
 ## NFC State Sensor
-![Android](/assets/android.svg) <span class='beta'>BETA</span> This sensors state will reflect if the device has its NFC sensor currently enabled or not. This sensor will update as soon state changes are detected. Data is provided by [NfcAdapter](https://developer.android.com/reference/android/nfc/NfcAdapter).
+![Android](/assets/android.svg)
+
+ This sensors state will reflect if the device has its NFC sensor currently enabled or not. This sensor will update as soon state changes are detected. Data is provided by [NfcAdapter](https://developer.android.com/reference/android/nfc/NfcAdapter).
 
 ## Notification Sensors
 ![Android](/assets/android.svg)<br />
