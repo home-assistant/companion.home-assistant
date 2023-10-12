@@ -38,8 +38,6 @@ On Android 13 and later, you can control the use of added controls when your dev
 
 ## Use a dashboard instead of built-in controls
 
-<span class='beta'>BETA</span>
-
 Starting with Android 14, on supported devices you can also show a Home Assistant dashboard instead of the built-in controls when using the device controls feature. Both modes have their own advantages: the built-in controls are easy to use, allow you to manage locked settings for each entity and control multiple servers side by side, while a dashboard supports all Home Assistant features and allows fully customizing the controls to suit your needs. The documentation above describes built-in controls.
 
 To switch between modes, open the app and go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Manage device controls and choose either 'Built-in' or 'Dashboard'. After selecting Dashboard, you can also enter the dashboard path to use (ex: `/lovelace/default_view` or `/lovelace-dashboardname/viewname`) to use a different dashboard than the default.

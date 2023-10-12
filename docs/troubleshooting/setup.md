@@ -99,7 +99,7 @@ Not all but some issues can be solved by simply logging out of the app and loggi
 5.  Turn on unrestricted data for the app. (Samsung users will need to disable data saver for Home Assistant as well)
 6.  Check that the background access setting shows the app has proper access under in [Settings](https://my.home-assistant.io/redirect/config/) > Companion app.
 
-Sometimes the above steps will still not result in location updates reaching your server. The app can receive a lot of location updates and may skip some of them. To determine why, review the app location history logs. Note: these steps assume you are using the <span class='beta'>BETA</span> version of the app, if not it is recommended to update or follow the manual review steps below.
+Sometimes the above steps will still not result in location updates reaching your server. The app can receive a lot of location updates and may skip some of them. To determine why, review the app location history logs.
 
 Go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Troubleshooting > Location tracking and enable location history. The app will now keep a log of all location updates received in the last 48 hours.
 
