@@ -37,7 +37,7 @@ There is currently no support for sensor settings. Some sensors may not be fully
 | [Last Update](../core/sensors.md#last-update-trigger-sensor) | None | The state will reflect the intent that caused the last update to get sent. |
 | `sensor.light_sensor` | None | The current level of illuminance the device detects. |
 | [Mobile Data Sensors](../core/sensors.md#mobile-data-sensors) | None | Several different sensors around the state of mobile data. |
-| `binary_sensor.nfc_state` | None | <span class='beta'>BETA</span> Whether or not the device has its NFC sensor enabled. |
+| `binary_sensor.nfc_state` | None | Whether or not the device has its NFC sensor enabled. |
 | `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
 | `sensor.pressure_sensor` | None | The pressure reading from the device. |
 | `sensor.proximity_sensor` | None | The current proximity reading from the device, certain devices will only show boolean value of `near` or `far`. |
