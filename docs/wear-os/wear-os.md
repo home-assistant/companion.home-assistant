@@ -117,6 +117,7 @@ The Wear OS app has basic support for [notification commands](../notifications/c
 *  [Beacon Monitor](../notifications/commands.md#beacon-monitor)
 *  [Stop TTS](../notifications/commands.md#stop-tts)
 *  [Update Sensors](../notifications/commands.md#update-sensors)
+*  <span class='beta'>BETA 2023.10.3+</span> [Clearing notifications](../notifications/basic.md#clearing)
 
 ### Text To Speech Notifications
 
