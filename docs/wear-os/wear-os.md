@@ -115,7 +115,7 @@ The Wear OS app has basic support for [notification commands](../notifications/c
 
 *  [BLE Transmitter](../notifications/commands.md#ble-beacon-transmitter)
 *  [Beacon Monitor](../notifications/commands.md#beacon-monitor)
-*  [Clearing notifications](../notifications/basic.md#clearing) <span class='beta'>BETA 2023.10.3+</span>
+*  [Clearing notifications](../notifications/basic.md#clearing) <span class='beta'>BETA</span>
 *  [Stop TTS](../notifications/commands.md#stop-tts)
 *  [Update Sensors](../notifications/commands.md#update-sensors)
 
