@@ -17,7 +17,7 @@ This allows you to update the frontend page location via a deeplink.
 For example: if you had a dashboard at `/lovelace/webcams` you can use `homeassistant://navigate/lovelace/webcams` to launch the app there.
 
 #### Define server
-![iOS](/assets/iOS.svg)<br />
+![iOS](/assets/iOS.svg) <span class='beta'>BETA</span><br />
 By default the App will ask which server you want to navigate to in case you have multiple servers.
 To define which server you want to navigate to, use the query param `?server=` like the example below:<br /><br />
 `homeassistant://navigate/lovelace/webcams?server=My%20home` when your server name is `My Home`, or use `?server=default` if you want to navigate to the first server available.
