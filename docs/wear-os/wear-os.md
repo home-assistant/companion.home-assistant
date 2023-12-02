@@ -119,7 +119,7 @@ The Wear OS app has basic support for [notification commands](../notifications/c
 *  [Stop TTS](../notifications/commands.md#stop-tts)
 *  [Update Sensors](../notifications/commands.md#update-sensors)
 
-### Notification Cleared
+### Notification Cleared <span class='beta'>BETA</span>
 
 The Wear OS app also has support for [Notification Cleared](../notifications/notification-cleared/) events. An event will be sent from the companion app when the notification is cleared.
 
