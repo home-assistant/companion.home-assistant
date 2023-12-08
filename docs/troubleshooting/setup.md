@@ -146,6 +146,13 @@ If you still do not receive location updates after following the above steps and
 ## Using a self-signed certificate leads to a blank page in Android
 ![Android](/assets/android.svg) If you are using a self-signed certificate on Android then you may get stuck at a blank screen after entering and/or selecting your Home Assistant instance. In order to correct this issue you will need to make sure the URL is valid and that you import the certificate into Android's Trusted Certificates. Steps to perform this can be found [here](https://support.google.com/nexus/answer/2844832?hl=en). These steps were written for devices on Android 9+ but are very close for older supported devices.
 
+## Using a self-signed certificate leads to the error "The Home Assistant Certificate authority is not trusted"
+When creating the certificate, make sure the it is valid for your Home Assistant host. Using openssl, this can be achieved by (adjust YOUR_HA_STATIC_IP_HERE and parameters where needed):
+
+```
+openssl req -x509 -newkey rsa:4096 -sha256 -days 365 -nodes -keyout key.pem -out cert.pem -subj "/CN=YOUR_HA_STATIC_IP_HERE" -addext "subjectAltName=IP:YOUR_HA_STATIC_IP_HERE"
+```
+
 ## Android widget is not working
 ![Android](/assets/android.svg) If you find that a widget is no longer working then these steps may help you resolve the issue.
 
