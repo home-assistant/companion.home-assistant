@@ -345,7 +345,7 @@ automation:
       - platform: event
         event_type: ios.notification_action_fired
         event_data:
-          actionName: "SOUND_ALARM"
+          actionName: "ALARM"
     action:
       ...
 # replacement
@@ -355,7 +355,7 @@ automation:
       - platform: event
         event_type: mobile_app_notification_action
         event_data:
-          action: "SOUND_ALARM"
+          action: "ALARM"
     action:
       ...
 ```
