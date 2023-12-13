@@ -81,3 +81,5 @@ Note: If you don't use the NGINX Home Assistant add-on but instead roll your own
 
 If your Home Assistant requires TLS Client Authentication (because it is behind a reverse proxy configured to perform TLS Client Authentication), the app will ask for a certificate.
 Please refer to your device and Android version documentation to install the certificate, an example for Pixel phones is available here [Add & remove certificates](https://support.google.com/pixelphone/answer/2844832?hl=en).
+
+<span class='beta'>BETA</span> Wear OS does not support authentication with installed certificates. The app cannot transfer the certificate to the Wear OS app automatically, therefore you are asked to provide a certificate during the Wear OS app onboarding. If a new certificate is required, you have to start the onboarding process again by logging out from the Wear OS app.
