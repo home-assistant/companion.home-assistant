@@ -59,10 +59,10 @@ Once you have set up your first server, you can add additional Home Assistant in
 
 ## TLS Client Authentication
 
-![Android](/assets/android.svg) (<span class='beta'>BETA</span> Wear OS)
+![Android](/assets/android.svg)
 
 If your Home Assistant requires TLS Client Authentication (because it is behind a reverse proxy configured to perform TLS Client Authentication), the app will ask for a certificate. If no matching certificate is installed or supplied, you might see an error or a blank screen depending on your setup.
 
 Please refer to your device and Android version documentation to install the certificate. Make sure to install the certificate as a "VPN & app user certificate". An example for Pixel phones is available here: [Add & remove certificates](https://support.google.com/pixelphone/answer/2844832?hl=en).
 
-<span class='beta'>BETA</span> Wear OS does not support authentication with installed certificates. The app cannot transfer the certificate to the Wear OS app automatically, therefore you are asked to provide a certificate during the Wear OS app onboarding.
+Wear OS does not support authentication with installed certificates. The app cannot transfer the certificate to the Wear OS app automatically, therefore you are asked to provide a certificate during the Wear OS app onboarding.

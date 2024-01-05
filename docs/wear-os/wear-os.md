@@ -115,11 +115,11 @@ The Wear OS app has basic support for [notification commands](../notifications/c
 
 *  [BLE Transmitter](../notifications/commands.md#ble-beacon-transmitter)
 *  [Beacon Monitor](../notifications/commands.md#beacon-monitor)
-*  [Clearing notifications](../notifications/basic.md#clearing) <span class='beta'>BETA</span>
+*  [Clearing notifications](../notifications/basic.md#clearing)
 *  [Stop TTS](../notifications/commands.md#stop-tts)
 *  [Update Sensors](../notifications/commands.md#update-sensors)
 
-### Notification Cleared <span class='beta'>BETA</span>
+### Notification Cleared
 
 The Wear OS app also has support for [Notification Cleared](../notifications/notification-cleared/) events. An event will be sent from the companion app when the notification is cleared.
 
