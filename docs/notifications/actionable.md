@@ -316,7 +316,7 @@ action:
           category: "ALARM"
         url:
           _: "/lovelace/cameras" # if the notification itself is tapped
-          SOUND_ALARM: "/lovelace/alarm" # if the 'SOUND_ALARM' action is tapped
+          ALARM: "/lovelace/alarm" # if the 'ALARM' action is tapped
 # replacement
 action:
   - service: notify.mobile_app_<your_device_id_here>
