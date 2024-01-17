@@ -316,7 +316,7 @@ action:
           category: "ALARM"
         url:
           _: "/lovelace/cameras" # if the notification itself is tapped
-          SOUND_ALARM: "/lovelace/alarm" # if the 'SOUND_ALARM' action is tapped
+          ALARM: "/lovelace/alarm" # if the 'ALARM' action is tapped
 # replacement
 action:
   - service: notify.mobile_app_<your_device_id_here>
@@ -345,7 +345,7 @@ automation:
       - platform: event
         event_type: ios.notification_action_fired
         event_data:
-          actionName: "SOUND_ALARM"
+          actionName: "ALARM"
     action:
       ...
 # replacement
@@ -355,7 +355,7 @@ automation:
       - platform: event
         event_type: mobile_app_notification_action
         event_data:
-          action: "SOUND_ALARM"
+          action: "ALARM"
     action:
       ...
 ```
