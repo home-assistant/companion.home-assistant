@@ -5,7 +5,7 @@ id: "actions"
 
 ![Apple](/assets/apple.svg) Specific
 
-Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS, [Apple Watch](/apple-watch/apple-watch.md) and CarPlay.
+Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS, [Apple Watch](/apple-watch/apple-watch.md), and CarPlay.
 
 ## Creating Actions
 
