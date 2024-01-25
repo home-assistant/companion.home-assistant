@@ -19,6 +19,8 @@ This widget will update every hour or when it is tapped. The widget will just co
 4.  Enter the Entity ID of the camera you wish to use
 5.  Save the widget
 
+<span class='beta'>BETA</span> This widget has been renamed to Picture widget and now also allows selecting image entities. The widget doesn't update instantly for image entities, and instead refreshes hourly or when tapped like with cameras.
+
 ### Entity State
 
 This widget will be updated when the entity state changes or when it is manually refreshed. This widget will allow the user to select any entity they wish to get the state and an attribute from as well as setting the text size and adding a custom separator between the state and attributes.
