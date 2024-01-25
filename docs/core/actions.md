@@ -5,7 +5,7 @@ id: "actions"
 
 ![Apple](/assets/apple.svg) Specific
 
-Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS and [Apple Watch](/apple-watch/apple-watch.md).
+Actions is a generic system that allows you to easily integrate the Home Assistant automations system into multiple areas of iOS, [Apple Watch](/apple-watch/apple-watch.md), and CarPlay.
 
 ## Creating Actions
 
@@ -22,6 +22,8 @@ Actions are created from the Actions section of Companion App in [Configuration]
 - `Background Color`: the color of the button created for the action.
 - `Icon`: an icon to display to the left of the text on the action's button.
 - `Icon Color`: the color of the icon on the action's button.
+- `Show in CarPlay`: boolean to display or hide action in CarPlay.
+- `Show in Watch`: boolean to display or hide action in Apple Watch.
 
 For the three color fields, the color is selected by tapping the color-picker circle in each field.
 
@@ -40,6 +42,8 @@ ios:
       icon:
         icon: earth
         color: "#ffffff"
+      show_in_carplay: false
+      show_in_watch: true
 ```
 
 Colors should be in hex format and icons should be from the [mdi](https://materialdesignicons.com/) set.
