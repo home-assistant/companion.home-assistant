@@ -9,18 +9,6 @@ Widgets can also be added from the Manage Widgets settings page, as long as the 
 
 ## Available widgets
 
-### Camera
-
-This widget will update every hour or when it is tapped. The widget will just contain the latest snapshot from the selected camera.
-
-1.  Long press on any open space in the home screen
-2.  Scroll down to Home Assistant in the widget list
-3.  Drag the Camera Widget to an open space on the home screen
-4.  Enter the Entity ID of the camera you wish to use
-5.  Save the widget
-
-<span class='beta'>BETA</span> This widget has been renamed to Picture widget and now also allows selecting image entities. The widget doesn't update instantly for image entities, and instead refreshes hourly or when tapped like with cameras.
-
 ### Entity State
 
 This widget will be updated when the entity state changes or when it is manually refreshed. This widget will allow the user to select any entity they wish to get the state and an attribute from as well as setting the text size and adding a custom separator between the state and attributes.
@@ -48,6 +36,16 @@ This widget will let the user control any media player on their home screen and 
 5.  If needed hide the Seek/Skip buttons, the media source label, or show the Volume buttons
 6.  Supply a label for the widget
 7.  Save the widget
+
+### Picture
+
+This widget shows the latest snapshot of a camera or an image entity, and updates every hour or when it is tapped.
+
+1.  Long press on any open space in the home screen
+2.  Scroll down to Home Assistant in the widget list
+3.  Drag the Camera Widget to an open space on the home screen
+4.  Enter the Entity ID of the camera you wish to use
+5.  Save the widget
 
 ### Service Call
 
