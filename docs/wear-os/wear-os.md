@@ -61,7 +61,7 @@ Wear OS limits how frequently apps can update tiles and how interactive they can
  - <span class='beta'>BETA</span> In view (only updates when you scroll a tile into view)
  - Every x minutes/hours (updates the tile in the background, even when not viewed)
 
-For intervals that update in the background, the system does not guarantee updates: if the tiles are not placed at the start or end of the tiles list, they will most likely update less frequently. You may see an old version of a tile for 1-2 seconds while it updates.
+For intervals other than manual, the system does not guarantee updates: if the tiles are not placed at the start or end of the tiles list, they will most likely update less frequently. You may see an old version of a tile for 1-2 seconds while it updates.
 
 <span class='beta'>BETA</span> The options for updating every x minutes/hours still update the tile when viewed. For example: choosing an update interval of 1 hour will indicate to the system that the tile should be updated when viewed, and every hour in the background since it was last viewed.
 :::
