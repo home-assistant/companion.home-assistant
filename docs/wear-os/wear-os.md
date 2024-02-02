@@ -52,7 +52,13 @@ The settings screen can be found at the bottom of the home screen. This is where
 * The Shortcuts tile shows up to 7 shortcuts, which can be chosen from the settings section in the Wear OS app. You will be able to select the same set of entities you can access from the home screen.  Starting from Wear OS 3, any number of separately configurable tiles can be added, only limited by Wear OS's limit for the total number of tiles.
 * The Template tile shows a rendered template. The template can only be set from the Android companion app. Note: it is not possible to scroll in a tile, the template should fit on the watch screen.
 * The Camera tile shows a snapshot of the selected camera.
-* The Assist tile allows you to send a voice transcription to the [`conversation`](https://www.home-assistant.io/integrations/conversation/) integration to process. The results are then shown on the screen. This feature requires Home Assistant Core 2023.1 and also the `conversation` integration enabled.
+* The Assist tile allows you to quickly [open Assist on your watch](https://www.home-assistant.io/voice_control/android/#assist-on-wear-os).
+
+:::note About tile refreshes
+Wear OS limits how frequently apps can update tiles and how interactive they can be. For the camera and template tiles you can choose a refresh interval which indicates to the system how often the tile should be refreshed. However, this is not guaranteed: if the tiles are not placed at the start or end of the tiles list, they will most likely update less frequently.
+
+<span class='beta'>BETA</span> The option 'in view' updates the camera and template tiles when you scroll them into view. For intervals other than 'manual', 'in view' also applies. For example: choosing an update interval of 1 hour will indicate to the system that the tile should be updated when viewed, and every hour in the background since it was last viewed.
+:::
 
 ### Styling the template tile
 
