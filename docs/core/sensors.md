@@ -561,7 +561,7 @@ This sensor displays exactly what caused the last update of location and sensor 
 | Signaled | Triggered when the app detects a change, such as battery state changes, while running. |
 
 ## Last Used App Sensor
-![Android](/assets/android.svg)<br />
+![Android](/assets/android.svg) 6+<br />
 
 The state of the sensor will always be the package name of the last used application to ensure it is always a unique value. The label of the application will be an attribute of the sensor, if it is known. This sensor updates during the normal sensor update interval and makes use of [UsageStatsManager API](https://developer.android.com/reference/android/app/usage/UsageStatsManager).
 
