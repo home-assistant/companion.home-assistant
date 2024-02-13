@@ -378,6 +378,7 @@ For Android several different types of connection sensors are available and they
 | `wifi_state` | Whether or not WiFi is turned on for the device |
 | `transport_type` | The transport type for the current network connection. An attribute will reflect if the current network is metered. |
 | `hotspot_state` | Whether or not the device is currently broadcasting a WiFi hotspot. (Not available on Wear OS) |
+| `ip6_addresses` | The ip6_addresses bound to the currently active network|
 
 ![Android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. These settings are turned off by default. These sensors require either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
 
