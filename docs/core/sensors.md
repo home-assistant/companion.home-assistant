@@ -273,7 +273,7 @@ The `battery_power` sensor attempts to convert microamperes to amperes however s
 
 ## Bluetooth Sensors
 ![Android](/assets/android.svg)<br />
-This Bluetooth Connection state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes. This sensor makes use of Android's [Bluetooth](https://developer.android.com/reference/android/bluetooth/package-summary?hl=en) package.
+This Bluetooth Connection state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes. This sensor makes use of Android's [Bluetooth](https://developer.android.com/reference/android/bipluetooth/package-summary?hl=en) package.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -378,7 +378,7 @@ For Android several different types of connection sensors are available and they
 | `wifi_state` | Whether or not WiFi is turned on for the device |
 | `transport_type` | The transport type for the current network connection. An attribute will reflect if the current network is metered. |
 | `hotspot_state` | Whether or not the device is currently broadcasting a WiFi hotspot. (Not available on Wear OS) |
-| `ip6_addresses` | The ip6_addresses bound to the currently active network|
+| `ip6_addresses` | <span class='beta'>BETA</span> The ip6_addresses bound to the currently active network|
 
 ![Android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. These settings are turned off by default. These sensors require either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
 
