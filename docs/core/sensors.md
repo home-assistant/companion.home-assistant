@@ -273,7 +273,7 @@ The `battery_power` sensor attempts to convert microamperes to amperes however s
 
 ## Bluetooth Sensors
 ![Android](/assets/android.svg)<br />
-This Bluetooth Connection state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes. This sensor makes use of Android's [Bluetooth](https://developer.android.com/reference/android/bipluetooth/package-summary?hl=en) package.
+This Bluetooth Connection state will be the total number of connected bluetooth devices. The sensor will update as soon as the bluetooth state of the device changes. This sensor makes use of Android's [Bluetooth](https://developer.android.com/reference/android/bluetooth/package-summary?hl=en) package.
 
 | Attribute | Description |
 | --------- | --------- |
