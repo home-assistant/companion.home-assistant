@@ -436,7 +436,7 @@ automation:
 ```
 
 :::note Device compatibility
-Not all devices support HTML formatting in notifications, and some formatting may not be shown in dark mode. When not supported, notifications will show unformatted text instead.
+Not all devices support HTML formatting in notifications, and some formatting may not be shown in dark mode. When not supported, notifications will show unformatted text instead. Invalid HTML may lead to missing or improper text being displayed.
 :::
 
 ### Notification Icon
