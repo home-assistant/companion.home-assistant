@@ -436,11 +436,7 @@ automation:
 ```
 
 :::note Device compatibility
-Not all devices support HTML formatting in notifications, and some formatting may not be shown in dark mode. When not supported, notifications will show unformatted text instead.
-:::
-
-:::info
-If you would like to include `<` or `>` as an actual character in the text then please replace these characters with proper encoding. For example: `<` should be `&lt;` otherwise text after the character will not be shown.
+Not all devices support HTML formatting in notifications, and some formatting may not be shown in dark mode. When not supported, notifications will show unformatted text instead. Invalid HTML may lead to missing or improper text being displayed.
 :::
 
 ### Notification Icon
