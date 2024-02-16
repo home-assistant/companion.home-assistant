@@ -13,17 +13,17 @@ Not all features are supported by Android at the moment but eventually most feat
   <thead>
     <tr>
       <th><strong>Integrations</strong></th>
-      <th><img alt="Android" src="/assets/android.svg" /> Full</th>
-      <th><img alt="Android" src="/assets/android.svg" /> Minimal</th>
+      <th>✅<img alt="Android" src="/assets/android.svg" /> Full</th>
+      <th>✅<img alt="Android" src="/assets/android.svg" /> Minimal</th>
       <th><img alt="iOS" src="/assets/iOS.svg" /></th>
       <th><img alt="macOS" src="/assets/macOS.svg" /></th>
       </tr>
   </thead>
   <tbody>
     <tr>
-      <td><a href="/docs/core/actions">Actions</a></td>
-      <td></td>
-      <td></td>
+      <td>✅<a href="/docs/core/actions">Actions</a></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
       <td>✅</td>
     </tr>
@@ -31,35 +31,35 @@ Not all features are supported by Android at the moment but eventually most feat
       <td><a href="/docs/integrations/android-device-controls">Android Device Controls</a></td>
       <td>✅</td>
       <td>✅</td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/integrations/android-quick-settings">Android Quick Settings</a></td>
       <td>✅</td>
       <td>✅</td>
-      <td></td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/integrations/android-shortcuts">Android Shortcuts</a></td>
       <td>✅</td>
       <td>✅</td>
-      <td></td>
+      <td>✅</td>
       <td></td>
     </tr>
     <tr>
       <td><a href="/docs/integrations/android-webview">Android WebView</a></td>
       <td>✅</td>
       <td>✅</td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/integrations/android-widgets">Android Widgets</a></td>
       <td>✅</td>
       <td>✅</td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/integrations/app-events">App Events</a></td>
@@ -70,15 +70,15 @@ Not all features are supported by Android at the moment but eventually most feat
     </tr>
     <tr>
       <td><a href="/docs/integrations/haptics">Haptic Feedback</a></td>
-      <td></td>
-      <td></td>
       <td>✅</td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
     </tr>
     <tr>
-      <td><a href="/docs/integrations/siri-shortcuts">Siri Shortcuts</a></td>
-      <td></td>
-      <td></td>
+      <td>✅<a href="/docs/integrations/siri-shortcuts">Siri Shortcuts</a></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
       <td></td>
     </tr>
@@ -98,22 +98,22 @@ Not all features are supported by Android at the moment but eventually most feat
     </tr>
     <tr>
       <td><a href="/docs/integrations/url-handler">URL Handler</a></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/integrations/universal-links">Universal Links</a></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/integrations/x-callback-url">X-Callback-URL</a></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
       <td>✅</td>
     </tr>
@@ -121,8 +121,8 @@ Not all features are supported by Android at the moment but eventually most feat
   <thead>
     <tr>
       <th><strong>Location Updates</strong></th>
-      <th><img alt="Android" src="/assets/android.svg" /> Full</th>
-      <th><img alt="Android" src="/assets/android.svg" /> Minimal</th>
+      <th>✅<img alt="Android" src="/assets/android.svg" /> Full</th>
+      <th>✅<img alt="Android" src="/assets/android.svg" /> Minimal</th>
       <th><img alt="iOS" src="/assets/iOS.svg" /></th>
       <th><img alt="macOS" src="/assets/macOS.svg" /></th>
     </tr>
@@ -131,70 +131,70 @@ Not all features are supported by Android at the moment but eventually most feat
     <tr>
       <td><a href="/docs/core/location#overview">App Opened</a></td>
       <td>✅</td>
-      <td></td>
+      <td>✅</td>
       <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/core/location#overview">App Refreshed</a></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/core/location#overview">Background</a></td>
       <td>✅</td>
-      <td></td>
       <td>✅</td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/core/location#location-tracking-in-home-assistant-zones">Enter/Exit Zone</a></td>
       <td>✅</td>
-      <td></td>
       <td>✅</td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/core/location#ibeacons">iBeacon</a></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/core/location#sending-an-intent">Intent</a></td>
       <td>✅</td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/notifications/notification-commands#request-location-updates">Notification</a></td>
       <td>✅</td>
-      <td></td>
+      <td>✅</td>
       <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/core/location#location-tracking-when-outside-a-home-assistant-zone">Significant Location Change</a></td>
       <td>✅</td>
-      <td></td>
+      <td>✅</td>
       <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/core/location#overview">URL Handler</a></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/core/location#overview">X-Callback-URL</a></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
       <td>✅</td>
     </tr>
@@ -211,15 +211,15 @@ Not all features are supported by Android at the moment but eventually most feat
     <tr>
       <td><a href="/docs/notifications/actionable-notifications">Actionable</a></td>
       <td>✅</td>
-      <td></td>
+      <td>✅</td>
       <td>✅</td>
       <td>✅</td>
     </tr>
     <tr>
       <td><a href="/docs/notifications/notifications-basic#alert-once">Alert Once</a></td>
       <td>✅</td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td></td>
     </tr>
     <tr>
