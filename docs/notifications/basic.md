@@ -439,6 +439,10 @@ automation:
 Not all devices support HTML formatting in notifications, and some formatting may not be shown in dark mode. When not supported, notifications will show unformatted text instead.
 :::
 
+:::info
+If you would like to include `<` or `>` as an actual character in the text then please replace these characters with proper encoding. For example: `<` should be `&lt;` otherwise text after the character will not be shown.
+:::
+
 ### Notification Icon
 
 You can set the icon for a notification by providing the `icon_url`. The URL provided must be either publicly accessible or can be a relative path (i.e. `/local/icon/icon.png`), more details can be found in [attachments](attachments.md). It is important to note that if you set the `image` then Android will not show the icon for the notification, the `image` will be shown in its place. So the `message` will be shown with the `image` and with the image as the icon.
