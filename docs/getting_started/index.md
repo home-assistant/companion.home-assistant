@@ -57,6 +57,15 @@ Requires Home Assistant 2021.10 or newer.
 
 Once you have set up your first server, you can add additional Home Assistant instances via [Settings](https://my.home-assistant.io/redirect/config/) > Companion App and the "Add Server" option. Servers on the same local network as your device will be discovered and listed automatically or you can manually enter the address in the same way as setting up the first server.
 
+## Adding Custom Headers
+
+![iOS](/assets/iOS.svg)
+
+:::note
+Requires Home Assistant 2024.1 or newer.
+:::
+
+If your connection requires you to add custom headers, for example a Cloudflare application, you can add those headers via [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Click on your server and then "Custom Headers". For each header you can select if it should be used for the internal and/or external URL.
 ## TLS Client Authentication
 
 ![Android](/assets/android.svg)
