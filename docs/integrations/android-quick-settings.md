@@ -29,6 +29,10 @@ The following domains are supported:
 *  `script` Turn on script
 *  `switch` Toggle
 
+State Display via Binary Sensor:
+
+To address entities that perform actions (such as toggling or pressing) without changing their state, tiles can now be linked to a `binary_sensor`. This sensor provides visual feedback on the tile, representing the actual state of the entity. This feature is ideal for entities like switches controlling mechanisms (e.g., a garage door opener) where the state (open or closed) needs to be monitored separately.
+
 Optional additional settings:
 
 * Tiles will use the entity icon by default. Tap on the icon to use a different icon for the tile.
