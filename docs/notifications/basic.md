@@ -242,7 +242,7 @@ automation:
 
 ### Notification Channels
 
-Notification channels allows users to separate their notifications easily (i.e. alarm vs laundry) so they can customize aspects like what type of sound is made and a lot of other device specific features. Devices running Android 8.0+ are able to create and manage notification channels on the fly using automations. Once a channel is created you can navigate to your notification settings and you will find the newly created channel, from there you can customize the behavior based on what your device allows.
+Notification channels (on some devices: _notification categories_) allow you to separate your notifications easily (i.e. alarm vs laundry) and customize aspects like the notification sound and a lot of other device specific features. Devices running Android 8.0+ are able to create and manage notification channels on the fly using automations. Once a channel is created you can navigate to your notification settings and you will find the newly created channel, from there you can customize the behavior based on what your device allows.
 
 #### Creating a channel
 
