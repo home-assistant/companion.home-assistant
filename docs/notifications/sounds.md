@@ -3,8 +3,14 @@ title: "Sounds"
 id: "notification-sounds"
 ---
 
-![iOS](/assets/iOS.svg)<br />
-Adding a custom sound to a notification allows you to easily identify the notification without even looking at your device. Home Assistant for iOS comes with some notification sounds pre-installed, but you can also upload your own.
+Adding a custom sound to a notification allows you to easily identify the notification without even looking at your device. How to set a custom sound, depends on the operating system.
+
+ - ![Android](/assets/android.svg) On Android, notification sounds are linked to [notification channels/categories](basic.md#notification-channels). On your device, edit the channel settings to change the notification sound to another system sound or choose your own.
+ - ![iOS](/assets/iOS.svg) Home Assistant for iOS comes with some notification sounds pre-installed, but you can also upload your own.
+
+:::info
+The information below describes using custom notification sounds on iOS. For Android, go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Notification channels to change the sounds and refer to your device settings.
+:::
 
 Here is an example notification that uses one of the pre-installed sounds.
 
