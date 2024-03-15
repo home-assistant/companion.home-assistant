@@ -54,6 +54,9 @@ The ![Android](/assets/android.svg) Android app has the ability to enable Pinch-
 ## Remote Debugging
 The ![Android](/assets/android.svg) Android app has the ability to enable [Chrome remote debugging](https://developer.chrome.com/docs/devtools/remote-debugging/) to allow for easier troubleshooting of front end issues. You can enable this setting in [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Troubleshooting.
 
+## CSP Frame Ancestors
+If the server uses the frame ancestors [CSP directive](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/frame-ancestors), it needs to include the origin that the app is connecting to. Otherwise the webview will show the error message "ERR_BLOCKED_BY_RESPONSE". The origin to allow is the IP (or domain if a DNS resolves your home assistant instance) and the port that is configured in the settings as Home Assistant URL.
+
 ## Swipe Gestures
 
 The ![Android](/assets/android.svg) Android app supports various three-finger gestures:
