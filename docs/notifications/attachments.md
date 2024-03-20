@@ -77,7 +77,7 @@ When present, values will be used in the order of the table above. For example, 
 *   If you are setting the [`icon_url`](basic.md#notification-icon) and `image` property then only the image will be displayed on the device.
 *   If you are setting the `image` and `video` property then only the video will be displayed on the device.
 *   Video will be shown as a series of frames captured from the video file. It will not work well with videos that are < 10s long.
-*   GIF will not be animated in notification shade
+*   GIF will only be animated in notification shade on Android 14+
 :::
 
 ## Example service call
@@ -138,4 +138,4 @@ The same notification but expanded to show the full size image attachment:
 
  [See table for supported media](#supported-media-types)
 
-- `GIF` filetype will not be animated in notification shade
+- `GIF` filetype will only be animated in notification shade on Android 14+
