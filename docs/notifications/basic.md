@@ -567,7 +567,7 @@ You may want to utilize [notification timeouts](#notification-timeout) or [repla
 
 - chronometer - true to enable chronometer mode
 - when - the timestamp to count up or down to (seconds since 01/01/1970)
-- when_relative - true makes the value of "when" relative in seconds like "timeout"
+- <span class='beta'>BETA</span> when_relative - true makes the value of "when" relative in seconds like "timeout"
 
 ```yaml
 automation:
