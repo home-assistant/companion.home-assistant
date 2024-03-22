@@ -296,6 +296,7 @@ There are also settings to alter:
 *   the Transmit power (between Ultra Low, Low, Medium and High)
 *   the Advertise mode (between Low Power (1Hz), Balanced (3Hz) and Low latency (10Hz))
 *   the Measured power at 1 meter (must be a negative number)
+*   <span class='beta'>BETA</span> whether Transmit is only enabled on Home Wifi Network SSIDs 
 
 A Transmit setting toggle will start or stop the BLE transmissions. This setting as well as most of the above settings can be changed via the [notification command](../notifications/commands.md#ble-beacon-transmitter).
 
