@@ -567,6 +567,7 @@ You may want to utilize [notification timeouts](#notification-timeout) or [repla
 
 - chronometer - true to enable chronometer mode
 - when - the timestamp to count up or down to (seconds since 01/01/1970)
+- <span class='beta'>BETA</span> when_relative - true makes the value of "when" relative in seconds like "timeout"
 
 ```yaml
 automation:
@@ -580,8 +581,10 @@ automation:
           message: >-
             Next Alarm At {{ states('sensor.<your_device_id_here>_next_alarm') }}
           data:
+            timeout: 120
             chronometer: true
-            when: "1609459200"
+            when: 120
+            when_relative: true
 ```
 
 ### Alert Once
