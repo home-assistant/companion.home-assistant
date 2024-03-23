@@ -73,7 +73,7 @@ The attributes contained within `data` are:
 | `sourceDeviceID` | The device ID set in the Companion App section of [Configuration](https://my.home-assistant.io/redirect/config/) on your device. |
 | `sourceDeviceName` | The name of the device from which the action was triggered. This is the Device Name set in iOS under Settings App>General>About or for Android it is set in Settings > About Phone. |
 | `sourceDevicePermanentID` | A unique identifier of the device through which the action was triggered |
-| `triggerSource` | What part of iOS the action with fired from. Either: `widget` for the Today screen, `appShortcut` for quick actions accessed through 3D touch or `watch` if fired from an Apple Watch. |
+| `triggerSource` | What part of iOS the action with fired from. Either: `widget` for the Today screen, `appShortcut` for quick actions accessed through 3D touch or `watch` if fired from an Apple Watch. When triggering from Apple's CarPlay the source will be `carPlay`. |
 
 The attributes contained within `context` are:
 
