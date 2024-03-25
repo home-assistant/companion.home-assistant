@@ -9,14 +9,13 @@ This sections provides the minimal system requirements and installation instruct
 
 ### System Requirements
 
-- The iOS App requires iOS 10 or greater, this means the oldest devices supported are the iPhone 5, 4<sup>th</sup> generation iPad and the 6<sup>th</sup> generation iPod touch. 
+- The iOS App requires iOS 10 or greater, this means the oldest devices supported are the iPhone 5, 4<sup>th</sup> generation iPad, and the 6<sup>th</sup> generation iPod touch. 
 - The Android app has 2 separate flavors `full` or `minimal`. Both flavors require Android 5.0 or greater. The `full` flavor is the one offered via the Play Store and requires Google Play Services in order to function properly. More details on the differences between the 2 flavors can be found [here](../core/android-flavors.md).
 - You need to be running Home Assistant 0.104.0 or newer.
 - The mobile apps requires the following integrations to be enabled in your Home Assistant instance, `configuration.yaml`:
   - `default_config:`
 - If for some reason you have disabled `default_config:` make sure your `configuration.yaml` at least contains:
   - `mobile_app:`
-  - `discovery:`
 - For some features the following integrations also need to be enabled:
   - `cloud:` is used for securely connecting to your Home Assistant via Nabu Casa subscription via Remote UI and cloud webhooks
   - `ios:` is used if you want advanced notifications like actionable notifications and categories ![iOS](/assets/iOS.svg)
@@ -44,7 +43,7 @@ This sections provides the minimal system requirements and installation instruct
    - The permissions that are requested are the following:
 
      - **Location:** Allows your device to provide location to Home Assistant, a `device_tracker` entity will be created which can be used in automations and conditions within Home Assistant. As mentioned above, due to changes in iOS 13, this permission is requested before logging into Home Assistant. For Android this permission is requested as part of the onboarding process when you first log in. If this permission is denied then `device_tracker` and `sensor` entities will not be created.
-     - **Motion & Pedometer:** ![iOS](/assets/iOS.svg) Allows Home Assistant to access pedometer data from your iOS device, this creates sensors for number of steps taken today, floors ascended and descended, distance walked today, and current activity. It does not provide any access to data held within the Health app or any other data beyond basic motion data from the device's motion chip.
+     - **Motion & Pedometer:** ![iOS](/assets/iOS.svg) Allows Home Assistant to access pedometer data from your iOS device, this creates sensors for the number of steps taken today, floors ascended and descended, distance walked today, and current activity. It does not provide any access to data held within the Health app or any other data beyond basic motion data from the device's motion chip.
      - **Notifications:** Allows notifications to be sent to your device by Home Assistant. Along with normal notifications, Home Assistant can send Critical Notifications; these are intended for high-priority messages and will always play a sound even if the device is in silent mode ![iOS](/assets/iOS.svg). You will be asked to give permission for both notification types. Check for the ![Android](/assets/android.svg) Android logo to see what is currently supported on Android devices. You may need to restart Home Assistant once after logging in for the notification service call to register.
 
     ![Home assistant setting up the app](/assets/Onboarding_connecting.gif)
