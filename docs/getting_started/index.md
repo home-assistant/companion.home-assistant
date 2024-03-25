@@ -5,6 +5,7 @@ id: getting-started
 
 ## Installation
 
+This sections provides the minimal system requirements and installation instructions.
 
 ### System Requirements
 
@@ -22,21 +23,22 @@ id: getting-started
 
 ## Setting Up
 
-- If your Home Assistant instance is correctly set up for [remote access](https://www.home-assistant.io/docs/configuration/remote/), you should be able set up the Companion App from any location. 
+- If your Home Assistant instance is correctly set up for [remote access](https://www.home-assistant.io/docs/configuration/remote/), you should be able set up the Companion App from any location.
 - If you're connected to the same network as your Home Assistant, it will automatically be detected during set up.
 
-1. When you open the app for the first time, you'll be guided through the process of connecting to your Home Assistant instance. Follow the steps.
+1. Download the Home Assistant Companion App from the [iOS App Store](https://apps.apple.com/app/home-assistant/id1099568401) or [Play Store](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android).
+2. When you open the app for the first time, you'll be guided through the process of connecting to your Home Assistant instance. Follow the steps.
    - You are asked to grant the required permissions to integrate your phone with Home Assistant.
    - One of the permissions requested is for location access. 
    - If this permission is denied, then you will not get a `device_tracker` or any `sensor` entity created for the device.
 
     ![First onboarding screen](/assets/Onboarding_start.jpg)
 
-2. Once you are done on the first screen, select **Continue**.
+3. Once you are done on the first screen, select **Continue**.
    - The app will start checking your network for Home Assistant instances.
      - If an instance is found, tap the instance and follow the prompts to connect and log in to your Home Assistant.
      - If you are not connected to the same local network as your Home Assistant instance, tap **Enter Address Manually** and enter the address you use to remotely connect to your Home Assistant instance (using the [Home Assistant Cloud](https://www.nabucasa.com/config/remote/) Remote UI is recommended but not required).
-3. Once you have connected and logged into your Home Assistant instance, you will be asked to grant permission for the app to work with your iOS device beyond basic browsing of your Home Assistant instance.
+4. Once you have connected and logged into your Home Assistant instance, you will be asked to grant permission for the app to work with your iOS device beyond basic browsing of your Home Assistant instance.
    - You are not required to grant these permissions in order to use the app.
    - However, they provide a much greater degree of integration between your device and Home Assistant. 
    - The permissions that are requested are the following:
@@ -47,10 +49,10 @@ id: getting-started
 
     ![Home assistant setting up the app](/assets/Onboarding_connecting.gif)
 
-4. Once you have granted or denied permissions, the app will create the required connections to your Home Assistant instance and then take you to your Home Assistant home screen.
+5. Once you have granted or denied permissions, the app will create the required connections to your Home Assistant instance and then take you to your Home Assistant home screen.
    - Depending on the app version, you may see a "What's New" screen in between the end of setup and be taken to your home screen.
    - Once you see the home screen, the installation is complete.
-5. If you have difficulties completing setting up the app, refer to the [troubleshooting guide](../troubleshooting/setup.md).
+6. If you have difficulties completing setting up the app, refer to the [troubleshooting guide](../troubleshooting/setup.md).
 
 ## Adding Additional Servers
 
