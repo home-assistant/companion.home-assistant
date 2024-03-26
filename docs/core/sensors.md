@@ -270,7 +270,7 @@ The battery sensors listed below describe the state of the battery for a few dif
 ![Android](/assets/android.svg)
 
 :::info
-The `battery_power` sensor is configured by default to convert the values returned by the device to amperes and volts. However, some devices do not follow Android documentation and may return values in a different unit, which results in the sensor being incorrect. For these devices you may need to adjust the sensor setting for 'Battery current divisor' to properly convert the `current` to amperes (and when using <span class='beta'>BETA</span>: and for 'Battery voltage divisor' to properly convert the `voltage` to volts).
+The `battery_power` sensor converts the values returned by the device to amperes and volts. However, some devices do not follow Android documentation and may return values in a different unit, which results in the sensor being incorrect. For these devices you may need to adjust the sensor setting for 'Battery current divisor' to properly convert the `current` to amperes (and when using <span class='beta'>BETA</span>: and for 'Battery voltage divisor' to properly convert the `voltage` to volts).
 
 Common values for the Battery current divisor: 1000000 (default, microamperes), 1000 (milliamperes), 1000000000 (nanoamperes)
 
