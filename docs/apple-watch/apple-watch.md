@@ -6,7 +6,7 @@ id: "apple-watch"
 Home Assistant has deep integration with the Apple Watch. You can display Home Assistant information as complications directly on your watch face or launch actions from the Watch app.
 
 :::info requirements
-The Apple Watch integration requires watchOS 5. In order to install watchOS 5 you must have an iPhone 5s or later with iOS 12 or later, and an Apple Watch Series 1 or newer. The first-generation Series 0 Apple Watch is not compatible with watchOS 5. You can identify your Apple Watch model [here](https://support.apple.com/HT204507).
+The Apple Watch integration requires watchOS 8. In order to install watchOS 8 you must have an Apple Watch Series 3 or newer. You can identify your Apple Watch model [here](https://support.apple.com/HT204507).
 :::
 
 ## Complication types
