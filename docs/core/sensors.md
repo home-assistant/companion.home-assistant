@@ -247,7 +247,7 @@ These sensors use the [AudioManager API](https://developer.android.com/reference
 | `is_music_active` | Boolean value if the device is actively playing music, this sensor will update during the normal interval. |
 | `is_speakerphone_on` | Boolean value if the device speakerphone is enabled, Android 10+ will update as this value changes. |
 | `ringer_mode` | The ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. This sensor will update as soon as the ringer mode changes. |
-| `volume_level_*` | The current device volume level for the given volume attributes: `accessibility`, `alarm`, `call`, `dtmf`, `music`, `notification`, `ring`, `system`. These sensors will update during the normal interval, or as soon as a change is detected if using the <span class='beta'>BETA</span> version. |
+| `volume_level_*` | The current device volume level for the given volume attributes: `accessibility`, `alarm`, `call`, `dtmf`, `music`, `notification`, `ring`, `system`. These sensors will update during the normal interval, or as soon as a change is detected. |
 
 
 ## Battery Sensors
@@ -268,7 +268,7 @@ The battery sensors listed below describe the state of the battery for a few dif
 | `is_charging` | Whether or not the device is actively charging |
 
 :::info
-The `battery_power` sensor converts the values returned by the device to amperes and volts. However, some devices do not follow Android documentation and may return values in a different unit, which results in the sensor being incorrect. For these devices you may need to adjust the sensor setting for 'Battery current divisor' to properly convert the `current` to amperes (and when using <span class='beta'>BETA</span>: and for 'Battery voltage divisor' to properly convert the `voltage` to volts).
+The `battery_power` sensor converts the values returned by the device to amperes and volts. However, some devices do not follow Android documentation and may return values in a different unit, which results in the sensor being incorrect. For these devices you may need to adjust the sensor setting for 'Battery current divisor' to properly convert the `current` to amperes or 'Battery voltage divisor' to properly convert the `voltage` to volts.
 
 Common values for the Battery current divisor: 1000000 (default, microamperes), 1000 (milliamperes), 1000000000 (nanoamperes)
 
@@ -300,7 +300,7 @@ There are also settings to alter:
 *   the Transmit power (between Ultra Low, Low, Medium and High)
 *   the Advertise mode (between Low Power (1Hz), Balanced (3Hz) and Low latency (10Hz))
 *   the Measured power at 1 meter (must be a negative number)
-*   <span class='beta'>BETA</span> whether Transmit is only enabled on Home Wifi Network SSIDs 
+*   whether Transmit is only enabled on Home Wifi Network SSIDs 
 
 A Transmit setting toggle will start or stop the BLE transmissions. This setting as well as most of the above settings can be changed via the [notification command](../notifications/commands.md#ble-beacon-transmitter).
 
@@ -383,7 +383,7 @@ For Android several different types of connection sensors are available and they
 | `wifi_state` | Whether or not WiFi is turned on for the device |
 | `transport_type` | The transport type for the current network connection. An attribute will reflect if the current network is metered. |
 | `hotspot_state` | Whether or not the device is currently broadcasting a WiFi hotspot. (Not available on Wear OS) |
-| `ip6_addresses` | <span class='beta'>BETA</span> The ip6_addresses bound to the currently active network|
+| `ip6_addresses` | The ip6_addresses bound to the currently active network |
 
 ![Android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. These settings are turned off by default. These sensors require either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
 
