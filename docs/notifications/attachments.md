@@ -93,7 +93,7 @@ automation:
           message: "Something happened at home!"
           data:
             # an example of an absolute url
-            image: "https://github.com/home-assistant/assets/blob/master/logo/logo.png?raw=true"
+            image: "https://www.home-assistant.io/images/default-social.png"
             # example of a relative url
             image: "/media/local/image.png"
             # the same works for video
