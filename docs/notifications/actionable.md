@@ -275,7 +275,7 @@ The above example will wait, until the notification action is performed. This mi
   ```
   and 
   ```
-      - conditions: "{{ wait.trigger.event.event_type == "mobile_app_notification_cleared" }}"
+      - conditions: "{{ wait.trigger.event.event_type == 'mobile_app_notification_cleared' }}"
         sequence:
             - service: persistent_notification.create
               data:
