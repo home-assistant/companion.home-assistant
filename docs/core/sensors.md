@@ -266,7 +266,7 @@ The battery sensors listed below describe the state of the battery for a few dif
 | `battery_temperature` | The current battery temperature |
 | `charger_type` | The type of charger being used on the device |
 | `is_charging` | Whether or not the device is actively charging |
-| `remaining_charge_time` | <span class='beta'>BETA</span> Computed remaining charge time, `-1` will represent when no time can be computed |
+| `remaining_charge_time` | <span class='beta'>BETA</span> Computed remaining charge time in minutes, `unavailable` and `0` states represent when charge time cannot be calculated |
 
 :::info
 The `battery_power` sensor converts the values returned by the device to amperes and volts. However, some devices do not follow Android documentation and may return values in a different unit, which results in the sensor being incorrect. For these devices you may need to adjust the sensor setting for 'Battery current divisor' to properly convert the `current` to amperes or 'Battery voltage divisor' to properly convert the `voltage` to volts.
