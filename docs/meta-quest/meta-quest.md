@@ -17,6 +17,8 @@ Home Assistant has started to offer the [minimal flavor](/core/android-flavors.m
 | ----- | --------- |
 | Meta Quest | Yes |
 | Meta Quest 2 | Yes |
+| Meta Quest Pro | Yes |
+| Meta Quest 3 | Yes |
 
 The app features many of the sensors offered by the main version as the Quest runs Android. Check out the Manage Sensors screen in settings to see what sensors are currently supported. To learn about each Android sensor and how sensors work in general make sure to check the [sensors](/core/sensors.md#android-sensors) documentation.
 
