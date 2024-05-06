@@ -384,8 +384,12 @@ For Android several different types of connection sensors are available and they
 | `transport_type` | The transport type for the current network connection. An attribute will reflect if the current network is metered. |
 | `hotspot_state` | Whether or not the device is currently broadcasting a WiFi hotspot. (Not available on Wear OS) |
 | `ip6_addresses` | The ip6_addresses bound to the currently active network |
+| `cell_connection` | The id of the currently connected network mobile network cell. | 
 
-![Android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. These settings are turned off by default. These sensors require either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
+![Android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. 
+The `cell_connnection` sensor offers a way to locate devices with a low level of precision. This is generally usefull when using the `minimal` flavor of the app lacking locations services. The value of the sensor uniquely identify mobile network cells, following the definition of [opencellid.org](https://opencellid.org). It is composed of the network type, the mobile country code (MCC), the mobile network code (MNC), the location area code (LAC) and the cell identification code (CID), separated by colons. The location of the cell can be querried on [opencellid.org](https://opencellid.org). More information is available on their [wiki](https://wiki.opencellid.org/wiki/FAQ).
+These settings are turned off by default. These sensors require either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
+
 
 ## Current Time Zone Sensor
 ![Android](/assets/android.svg)
