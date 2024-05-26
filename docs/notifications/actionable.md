@@ -101,7 +101,7 @@ action:
 
 ### `uri` values
 
-To navigate to a frontend page, use the format `/lovelace/test` where `test` is replaced by your defined [`path`]([https://www.home-assistant.io/dashboards/views/#path](https://www.home-assistant.io/dashboards/views/#path)) in the defined view. If you plan to use a lovelace dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/dashboards/dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/dashboards/views/#path) within that dashboard. For example:
+To navigate to a frontend page, use the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/dashboards/views/#path) in the defined view. If you plan to use a dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/dashboards/dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/dashboards/views/#path) within that dashboard. For example:
 
 ```yaml
 - action: "URI"
