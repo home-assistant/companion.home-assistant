@@ -241,7 +241,7 @@ These sensors use the [AudioManager API](https://developer.android.com/reference
 
 | Sensor | Description |
 | --------- | --------- |
-| `audio_mode` | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `in_call`, `in_communication` or `unknown`. This sensor will update during the normal interval. <span class='beta'>BETA</span> can also include `call_redirect` or `communication_redirect` |
+| `audio_mode` | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `call_redirect`, `communication_redirect`, `in_call`, `in_communication` or `unknown`. This sensor will update during the normal interval. |
 | `is_headphones` | Boolean value if headsets or headphones are plugged in, will update as soon as the device detects the change. |
 | `is_mic_muted` | Boolean value if the microphone is currently muted, Android 10+ will update as this value changes. |
 | `is_music_active` | Boolean value if the device is actively playing music, this sensor will update during the normal interval. |
@@ -266,7 +266,7 @@ The battery sensors listed below describe the state of the battery for a few dif
 | `battery_temperature` | The current battery temperature |
 | `charger_type` | The type of charger being used on the device |
 | `is_charging` | Whether or not the device is actively charging |
-| `remaining_charge_time` | <span class='beta'>BETA</span> Computed remaining charge time in minutes. Returns `unavailable` if no time can be computed: either there is not enough current data to make a decision or the battery is currently discharging. Returns `0` if calculation is not complete but device is currently charging. |
+| `remaining_charge_time` | Computed remaining charge time in minutes. Returns `unavailable` if no time can be computed: either there is not enough current data to make a decision or the battery is currently discharging. Returns `0` if calculation is not complete but device is currently charging. |
 
 :::info
 The `battery_power` sensor converts the values returned by the device to amperes and volts. However, some devices do not follow Android documentation and may return values in a different unit, which results in the sensor being incorrect. For these devices you may need to adjust the sensor setting for 'Battery current divisor' to properly convert the `current` to amperes or 'Battery voltage divisor' to properly convert the `voltage` to volts.
