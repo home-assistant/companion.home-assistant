@@ -31,6 +31,9 @@ const features = [
           <b><a href='/docs/android-auto'>Android Auto/Automotive</a></b>
           {' '}Control your home from your Android Auto/Automotive compatible vehicle.
           <br />
+          <b><a href='/docs/carplay'>CarPlay</a></b>
+          {' '}Control your home from your CarPlay compatible vehicle.
+          <br />
           <b><a href='/docs/meta-quest'>Meta Quest</a></b>
           {' '}Get data from your Quest into Home Assistant.
           <br />
