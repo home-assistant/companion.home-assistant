@@ -80,4 +80,4 @@ If your Home Assistant requires TLS Client Authentication (because it is behind 
 
 Please refer to your device and Android version documentation to install the certificate. Make sure to install the certificate as a "VPN & app user certificate". An example for Pixel phones is available here: [Add & remove certificates](https://support.google.com/pixelphone/answer/2844832?hl=en).
 
-Wear OS does not support authentication with installed certificates. The app cannot transfer the certificate to the Wear OS app automatically, therefore you are asked to provide a certificate during the Wear OS app onboarding.
+Wear OS does not support authentication with installed certificates. The app cannot transfer the certificate to the Wear OS app automatically, therefore you are asked to provide a certificate during the Wear OS app onboarding. The certificate and key need to be provided as a single file in PKCS12 format. If that does not work, refer to the [troubleshooting steps](../troubleshooting/networking.md#tls-client-authentication).
