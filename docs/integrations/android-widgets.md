@@ -39,13 +39,13 @@ This widget will let the user control any media player on their home screen and 
 
 ### Picture
 
-This widget shows the latest snapshot of a camera or an image entity, and updates every hour or based on the configured tap action.
+This widget shows the latest snapshot of a camera or an image entity, and updates every hour or when the widget is tapped(<span class='beta'>BETA</span> based on the configured tap action).
 
 1.  Long press on any open space in the home screen
 2.  Scroll down to Home Assistant in the widget list
 3.  Drag the Camera Widget to an open space on the home screen
 4.  Enter the Entity ID of the camera you wish to use
-5.  Select the desired action on tap (Open Camera, Update Image)
+5.  <span class='beta'>BETA</span> Select the desired action on tap (Open Camera, Update Image)
 6.  Save the widget
 
 ### Service Call
