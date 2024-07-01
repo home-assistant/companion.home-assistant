@@ -14,7 +14,7 @@ If multiple servers are connected to an app, you will be prompted to select a se
 ## Navigate
 This allows you to update the frontend page location via a deeplink.
 
-For example: if you had a dashboard at `/lovelace/webcams` you can use `homeassistant://navigate/lovelace/webcams` to launch the app there.
+For example: if you had a dashboard at `/lovelace/webcams` you can use `homeassistant://navigate/lovelace/webcams` to launch the app there. To link to the shopping list, use `homeassistant://navigate/shopping-list`.
 
 #### Define server
 ![iOS](/assets/iOS.svg) <span class='beta'>BETA</span><br />
