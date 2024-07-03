@@ -13,6 +13,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `clear_badge` | Silently removes the badge from the App icon without displaying a notification. |
 | `clear_notification` | Removes a notification, [more details](basic.md#clearing). |
 | `update_complications` | Updates the complications on a paired Apple Watch. [More details](/apple-watch/complications.md). |
+| `update_widgets` | Updates the widgets on the lock screen. |
 
 ![Android](/assets/android.svg)
 
