@@ -45,7 +45,7 @@ This widget shows the latest snapshot of a camera or an image entity, and update
 2.  Scroll down to Home Assistant in the widget list
 3.  Drag the Camera Widget to an open space on the home screen
 4.  Enter the Entity ID of the camera you wish to use
-5.  <span class='beta'>BETA</span> Select the desired action on tap (Open Camera, Update Image)
+5.  <span class='beta'>BETA</span> Select the desired action on tap ("Refresh" to update the image from the camera, "Open" to open the camera entity)
 6.  Save the widget
 
 ### Service Call
