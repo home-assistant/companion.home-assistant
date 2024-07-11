@@ -94,6 +94,24 @@ automation:
             intent_uri: "geo:0,0?q=1600+Amphitheatre+Parkway%2C+CA"
 ```
 
+The below example open's the [VLC](https://www.videolan.org) media player and starts an RTSP video stream using the [android player intents](https://wiki.videolan.org/Android_Player_Intents):
+
+```yaml
+automation:
+  - alias: VLC RTSP Stream to Android Tablet
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<device_name>
+        data:
+          message: command_activity
+          data:
+            intent_action: android.intent.action.VIEW
+            intent_package_name: org.videolan.vlc
+            intent_class_name: org.videolan.vlc.gui.video.VideoPlayerActivity
+            intent_uri: "rtsp://<camera_url>"
+            intent_extras: "title:<camera_name>"
+```
 
 In order to use the Intent Action `android.intent.action.CALL` you will also need to grant the app Phone permissions. If not granted the app will direct you to the app info screen to grant the permissions along with a toast message letting you know the missing permissions.
 
