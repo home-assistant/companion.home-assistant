@@ -136,6 +136,10 @@ Replace an existing notification by using a tag for the notification. All subseq
 
 ![iOS](/assets/iOS.svg) does not support replacing [critical notifications](critical.md).
 
+:::info
+![Android](/assets/android.svg) if you plan on using `tag` and `group` in the same notification then use the same value to avoid unexpected behavior.
+:::
+
 ```yaml
 automation:
   - alias: "Notify of Motion iOS replacement"
