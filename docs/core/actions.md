@@ -18,8 +18,8 @@ Actions are created from the Actions section of Companion App in [Configuration]
 - `Name`: the name of the action, this will be returned in the [Home Assistant event](https://www.home-assistant.io/docs/configuration/events/) fired by the app.
 - `Server`: if you have multiple Home Assistant servers connected, select the server the action should be sent to.
 - `Text`: the descriptive text shown on the phone and watch. It is best to keep this relatively short as there is limited space on each action's button.
-- `Text Color`: the color of the text defined above.
-- `Background Color`: the color of the button created for the action.
+- `Text Color`: the color of the text defined above. **(Deprecated in iOS App v2024.7)**
+- `Background Color`: the color of the button created for the action. **(Deprecated in iOS App v2024.7)**
 - `Icon`: an icon to display to the left of the text on the action's button.
 - `Icon Color`: the color of the icon on the action's button.
 - `Show in CarPlay`: boolean to display or hide action in CarPlay.
@@ -35,10 +35,10 @@ You can define actions in your Home Assistant `configuration.yaml`. This require
 ios:
   actions:
     - name: Fred
-      background_color: "#000000"
+      background_color: "#000000" # Deprecated in iOS App v2024.7
       label:
         text: "Hello, World"
-        color: "#ff0000"
+        color: "#ff0000" # Deprecated in iOS App v2024.7
       icon:
         icon: earth
         color: "#ffffff"
@@ -53,6 +53,10 @@ After saving these changes you will need to restart Home Assistant and then, in 
 When multiple servers are connected to the app there is no need to specify the `server` value in `configuration.yaml`, the app will automatically detect the origin of the action when imported.
 
 ## Using Actions
+
+After having fulfilled all Action data (Text, name etc), tap "Create automation" button available on this same screen.
+
+*Alternatively:*
 
 When an action button is pressed a `ios.action_fired` event is fired on Home Assistant's event bus. The event data consists of a JSON-formatted dictionary of attributes relating to the action.
 
@@ -111,9 +115,9 @@ The [Apple Watch App](/apple-watch/apple-watch.md) provides access to actions yo
 
 ## Home Screen Quick Actions
 
-[Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions and is accessed by 3D Touching the Home Assistant companion app icon on your home screen.
+[Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions and is accessed by press and holding the Home Assistant companion app icon on your home screen.
 
-## Today View Widget
+## Today View Widget (Deprecated in 2024.7, use home-screen widgets instead)
 
 The [Today View Widget](https://support.apple.com/en-gb/HT207122) is another route through which actions can be fired. To add the Home Assistant widget to your Today View:
 
