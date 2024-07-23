@@ -54,7 +54,7 @@ When multiple servers are connected to the app there is no need to specify the `
 
 ## Using Actions
 
-After having fulfilled all Action data (Text, name etc), tap "Create automation" button available on this same screen.
+After having filled in all action data (text, name, etc.), tap the **Create automation** button.
 
 *Alternatively:*
 
