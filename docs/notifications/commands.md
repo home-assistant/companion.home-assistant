@@ -15,7 +15,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `update_complications` | Updates the complications on a paired Apple Watch. [More details](/apple-watch/complications.md). |
 | `update_widgets`* | Updates 'Gauge' and 'Details' widgets introduced on App v2024.7 (iOS will decide if the update is allowed or not, so don't worry if it doesn't work all the time). |
 
-\* On iOS, manual widget reloads are limited to around 40-70 per 24 hours depending on how often you look at the widget. This will not always reset at exactly midnight.
+\* On iOS, manual widget reloads are limited to around 40-70 per 24 hour, depending on how often you look at the widget. This will not always reset at exactly midnight.
 
 ![Android](/assets/android.svg)
 
