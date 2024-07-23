@@ -115,7 +115,7 @@ The [Apple Watch App](/apple-watch/apple-watch.md) provides access to actions yo
 
 ## Home Screen Quick Actions
 
-[Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions and is accessed by press and holding the Home Assistant companion app icon on your home screen.
+[Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions. To access it, press and hold the Home Assistant companion app icon on your home screen.
 
 ## Today View Widget (Deprecated in 2024.7, use home-screen widgets instead)
 
