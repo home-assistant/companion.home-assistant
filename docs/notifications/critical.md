@@ -35,6 +35,27 @@ automations:
 ```
 If you have previously read the [sounds documentation](sounds.md) this syntax should be mostly familiar. Note the example expands the `sound` attribute to include the `critical: 1` flag, and `volume: 1.0` to set the volume to 100 %.
 
+Alternatively, you can use the [`interruption-level` syntax](basic.md#interruption-level) to make a notification critical.
+```yaml
+automations:
+  - alias: "Dog barking loudly"
+
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.dog_bark_decibel_meter
+        above: "90"
+
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "Snoopy is going to wake the neighbors"
+          message: "The dog is barking and likely to wake the neighbors!"
+          data:
+            push:
+              interruption-level: critical
+
+```
+
 For **CarPlay** users, it's also worth mentioning that critical notifications are the only ones that can appear on the car's built-in display, making them very useful if you want to know when something critical happens while you're driving.
 
 ## ![Android](/assets/android.svg)
