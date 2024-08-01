@@ -151,7 +151,7 @@ automation:
 ```
 
 :::info
-![Android](/assets/android.svg) Do not use the same `tag` in different `group` to avoid unexpected behavior.
+![Android](/assets/android.svg) Do not use the same `tag` in a different `group` to avoid unexpected behavior.
 :::
 
 ### Clearing
