@@ -205,6 +205,7 @@ Not all features are supported by Android at the moment but eventually most feat
       <th><img alt="Android" src="/assets/android.svg" /> Full</th>
       <th><img alt="Android" src="/assets/android.svg" /> Minimal</th>
       <th><img alt="iOS" src="/assets/iOS.svg" /></th>
+      <th><img alt="macOS" src="/assets/macOS.svg" /></th>
     </tr>
   </thead>
   <tbody>
