@@ -150,6 +150,10 @@ automation:
             tag: "backyard-motion-detected"
 ```
 
+:::info
+![Android](/assets/android.svg) Do not use the same `tag` in a different `group` to avoid unexpected behavior.
+:::
+
 ### Clearing
 
 :::note ![iOS](/assets/iOS.svg) Version Requirement
