@@ -500,7 +500,7 @@ This sensor is similar to Last Notification except that it will update when a no
 This sensor will reflect the total active notifications on the device. This count will include notifications that are persistent and/or silent. At times it may even include the Sensor Worker notification. This sensor will update whenever any of the other sensors have an update. This sensor requires the same permissions as mentioned in Last Notification. There is no allow list for this sensor.<br /><br />
 
 
-Below you can find some details that can be given with some notifications. <span class='beta'>BETA</span> These will be provided as attributes unless you disable the corresponding sensor setting.
+Below you can find some details that can be given with some notifications. These will be provided as attributes unless you disable the corresponding sensor setting.
 
 
 | Attribute | Description |
