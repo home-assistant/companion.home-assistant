@@ -137,7 +137,7 @@ Replace an existing notification by using a tag for the notification. All subseq
 ![iOS](/assets/iOS.svg) does not support replacing [critical notifications](critical.md).
 
 :::info
-![Android](/assets/android.svg) if you plan on using `tag` and `group` in the same notification then use the same value to avoid unexpected behavior.
+![Android](/assets/android.svg) do not use the same `tag` in different `group` to avoid unexpected behavior.
 :::
 
 ```yaml
