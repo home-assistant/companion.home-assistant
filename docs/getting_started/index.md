@@ -9,7 +9,7 @@ This sections provides the minimal system requirements and installation instruct
 
 ### System Requirements
 
-- The iOS App requires iOS 15 or greater, this means the oldest devices supported are the iPhone 5, 4<sup>th</sup> generation iPad, and the 6<sup>th</sup> generation iPod touch. 
+- The iOS App requires iOS 15 or greater, this means the oldest device supported is the iPhone 6s. 
 - The Android app has 2 separate flavors `full` or `minimal`. Both flavors require Android 5.0 or greater. The `full` flavor is the one offered via the Play Store and requires Google Play Services in order to function properly. More details on the differences between the 2 flavors can be found [here](../core/android-flavors.md).
 - You need to be running Home Assistant 0.104.0 or newer.
 - The mobile apps requires the following integrations to be enabled in your Home Assistant instance, `configuration.yaml`:
