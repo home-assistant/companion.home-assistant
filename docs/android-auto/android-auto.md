@@ -51,7 +51,7 @@ Notifications in AA, share settings with your phone and do not support all notif
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Door unlocked"
           message: "Everyone left home but the door is still unlocked"
