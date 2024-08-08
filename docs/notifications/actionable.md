@@ -26,13 +26,13 @@ Actions on watchOS require the Watch App to be installed. You can install it the
 
 ## Building actionable notifications
 
-You can include an `actions` array in your service call.
+You can include an `actions` array in your action.
 
-![Android](/assets/android.svg) Android allows 3 actions.  
-![iOS](/assets/iOS.svg) allows around 10 actions. Any more and the system UI for actions begins having scrolling issues.
+![Android](/assets/android.svg) Android allows 3 notification actions.  
+![iOS](/assets/iOS.svg) allows around 10 notification actions. Any more and the system UI for notification actions begins having scrolling issues.
 
 ```yaml
-service: notify.mobile_app_<your_device_id_here>
+action: notify.mobile_app_<your_device_id_here>
 data:
   message: "Something happened at home!"
   data:
@@ -86,7 +86,7 @@ You must prefix the icon name in the catalogue with `sfsymbols:` (similar to pre
 
 ```yaml
 action:
-  - service: notify.mobile_app_<your_device_id_here>
+  - action: notify.mobile_app_<your_device_id_here>
     data:
       message: "Something happened at home!"
       data:
@@ -193,7 +193,7 @@ To avoid issues, you can create unique actions for each time your script is run.
     action_open: "{{ 'OPEN_' ~ context.id }}"
     action_close: "{{ 'CLOSE_' ~ context.id }}"
 - alias: "Ask to close or open the blinds"
-  service: notify.mobile_app_<your_device>
+  action: notify.mobile_app_<your_device>
   data:
     message: "The blinds are half-open. Do you want to adjust this?"
     data:
@@ -218,12 +218,12 @@ To avoid issues, you can create unique actions for each time your script is run.
   choose:
     - conditions: "{{ wait.trigger.event.data.action == action_open }}"
       sequence:
-        - service: cover.open_cover
+        - action: cover.open_cover
           target:
             entity_id: cover.some_cover
     - conditions: "{{ wait.trigger.event.data.action == action_close }}"
       sequence:
-        - service: cover.close_cover
+        - action: cover.close_cover
           target:
             entity_id: cover.some_cover
 ```
@@ -277,7 +277,7 @@ The above example will wait, until the notification action is performed. This mi
   ```
       - conditions: "{{ wait.trigger.event.event_type == 'mobile_app_notification_cleared' }}"
         sequence:
-            - service: persistent_notification.create
+            - action: persistent_notification.create
               data:
                 title: App notification result
                 message: The notification was closed
@@ -308,7 +308,7 @@ Starting in iOS version 2021.5, actions are specified inline with notifications.
 ```yaml
 # original
 action:
-  - service: notify.mobile_app_<your_device_id_here>
+  - action: notify.mobile_app_<your_device_id_here>
     data:
       message: "Something happened at home!"
       data:
@@ -319,7 +319,7 @@ action:
           ALARM: "/lovelace/alarm" # if the 'ALARM' action is tapped
 # replacement
 action:
-  - service: notify.mobile_app_<your_device_id_here>
+  - action: notify.mobile_app_<your_device_id_here>
     data:
       message: "Something happened at home!"
       data:
