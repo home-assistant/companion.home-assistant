@@ -230,6 +230,24 @@ automation:
             ble_uuid: "b4306bba-0e3a-44df-9518-dc74284e8214"
 ```
 
+<span class='beta'>BETA</span>
+
+Users can also change the measured power at 1 meter to help improve detection for their devices. This number must be a negative number. The default value `-59` will be set in some cases like junk characters, if data is missing or the number is positive the notification will post as normal on the device.
+
+```yaml
+automation:
+  - alias: Change BLE transmitter measured power
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: command_ble_transmitter
+          data:
+            command: ble_set_measured_power
+            ble_measured_power: "-75"
+```
+
 ## Beacon Monitor
 
 ![Android](/assets/android.svg) <br />
