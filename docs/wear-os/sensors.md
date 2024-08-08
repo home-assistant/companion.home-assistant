@@ -30,7 +30,7 @@ There is currently no support for sensor settings. Some sensors may not be fully
 | [Do Not Disturb](../core/sensors.md#do-not-disturb-sensor) | None | The state of do not disturb on the device. |
 | [Doze](../core/sensors.md#doze-sensor) | None | Whether or not the device is in doze mode. |
 | [Health Services](#health-services) | [See below](#health-services) | A group of sensors provided by the Health Services API. |
-| `sensor.heart_rate` | Accuracy | Current heart rate in beats per minute. This sensor makes use of the [heart rate sensor](https://developer.android.com/reference/android/hardware/Sensor#TYPE_HEART_RATE). |
+| `sensor.heart_rate` | Accuracy | Current heart rate in beats per minute. This sensor makes use of the [heart rate sensor](https://developer.android.com/reference/android/hardware/Sensor#TYPE_HEART_RATE). <span class='beta'>BETA</span> Only available on devices running Wear OS 3 and below. |
 | [Interactive](../core/sensors.md#interactive-sensor) | None | Whether or not the device is in an interactive state. |
 | [Keyguard Sensors](../core/sensors.md#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
 | `sensor.last_reboot` | [See Attributes](../core/sensors.md#last-reboot-sensor) | The timestamp of the device's last reboot. |
