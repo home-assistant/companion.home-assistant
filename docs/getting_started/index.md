@@ -28,10 +28,10 @@ This sections provides the minimal system requirements and installation instruct
 1. Download the Home Assistant Companion App from the [iOS App Store](https://apps.apple.com/app/home-assistant/id1099568401) or [Play Store](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android).
 2. When you open the app for the first time, you'll be guided through the process of connecting to your Home Assistant instance. Follow the steps.
    - You are asked to grant the required permissions to integrate your phone with Home Assistant.
-   - One of the permissions requested is for location access. 
+   - One of the permissions requested is for location access.
    - If this permission is denied, then you will not get a `device_tracker` or any `sensor` entity created for the device.
 
-    ![First onboarding screen](/assets/Onboarding_start.jpg)
+    ![Screenshot showing location tracking permission setting during onboarding](/assets/android_enable_location_tracking.png)
 
 3. Once you are done on the first screen, select **Continue**.
    - The app will start checking your network for Home Assistant instances.
@@ -46,7 +46,7 @@ This sections provides the minimal system requirements and installation instruct
      - **Motion & Pedometer:** ![iOS](/assets/iOS.svg) Allows Home Assistant to access pedometer data from your iOS device, this creates sensors for the number of steps taken today, floors ascended and descended, distance walked today, and current activity. It does not provide any access to data held within the Health app or any other data beyond basic motion data from the device's motion chip.
      - **Notifications:** Allows notifications to be sent to your device by Home Assistant. Along with normal notifications, Home Assistant can send Critical Notifications; these are intended for high-priority messages and will always play a sound even if the device is in silent mode ![iOS](/assets/iOS.svg). You will be asked to give permission for both notification types. Check for the ![Android](/assets/android.svg) Android logo to see what is currently supported on Android devices. You may need to restart Home Assistant once after logging in for the notification action to register.
 
-    ![Home assistant setting up the app](/assets/Onboarding_connecting.gif)
+    ![Home assistant setting up the app](/assets/android_allow_notifications.png)
 
 5. Once you have granted or denied permissions, the app will create the required connections to your Home Assistant instance and then take you to your Home Assistant home screen.
    - Depending on the app version, you may see a "What's New" screen in between the end of setup and be taken to your home screen.
