@@ -71,7 +71,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_activity"
           data:
@@ -88,7 +88,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_activity"
           data:
@@ -121,7 +121,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_app_lock"
           data:
@@ -145,7 +145,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_auto_screen_brightness"
           data:
@@ -166,7 +166,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_ble_transmitter"
           data:
@@ -181,7 +181,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_ble_transmitter"
           data:
@@ -197,7 +197,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_ble_transmitter"
           data:
@@ -222,7 +222,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_ble_transmitter"
           data:
@@ -244,7 +244,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_beacon_monitor"
           data:
@@ -265,7 +265,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_bluetooth"
           data:
@@ -290,7 +290,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_broadcast_intent"
           data:
@@ -306,7 +306,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_broadcast_intent"
           data:
@@ -323,7 +323,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_broadcast_intent"
           data:
@@ -343,7 +343,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_broadcast_intent"
           data:
@@ -363,7 +363,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_broadcast_intent"
           data:
@@ -428,7 +428,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_dnd"
           data:
@@ -449,7 +449,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_high_accuracy_mode"
           data:
@@ -464,7 +464,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_high_accuracy_mode"
           data:
@@ -484,7 +484,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_launch_app"
           data:
@@ -515,7 +515,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_media"
           data:
@@ -541,7 +541,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "request_location_update"
 ```
@@ -549,7 +549,7 @@ automation:
 Assuming the device receives the notification, it will attempt to get a location update within 5 seconds and report it to Home Assistant. This is a little bit hit or miss since Apple imposes a maximum time allowed for the app to work with the notification and location updates sometimes take longer than usual due to factors such as waiting for GPS acquisition.
 
 :::danger
-While it is possible to create an automation in Home Assistant to call this service regularly to update sensors, this is not recommended as doing this too frequently may have a negative impact on your device's battery life and health.
+While it is possible to create an automation in Home Assistant to call this action regularly to update sensors, this is not recommended as doing this too frequently may have a negative impact on your device's battery life and health.
 :::
 
 
@@ -573,7 +573,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_ringer_mode"
           data:
@@ -592,7 +592,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_screen_brightness_level"
           data:
@@ -611,7 +611,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_screen_off_timeout"
           data:
@@ -632,7 +632,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_screen_on"
           data:
@@ -651,7 +651,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_stop_tts"
 ```
@@ -668,7 +668,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_persistent_connection"
           data:
@@ -686,7 +686,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_update_sensors"
 ```
@@ -715,7 +715,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_volume_level"
           data:
@@ -737,7 +737,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_webview"
           data:

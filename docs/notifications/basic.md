@@ -3,7 +3,7 @@ title: "Introduction"
 id: "notifications-basic"
 ---
 
-The `mobile_app` notify platform accepts the standard `title`, `message` and `target` parameters used by the notify platform. The mobile\_app notify platform supports targets as services. As long as you granted notifications permissions during setup, you will find all your devices listed as targets for the notify service with names prefixed `notify.mobile_app_` followed by the Device ID of you device. This can be checked in the Companion App menu of the [Home Assistant Configuration menu](https://my.home-assistant.io/redirect/config/) and defaults to the name specified in the General>About within the iOS/macOS settings app or under About>Phone in Android settings (with spaces and non alphanumeric characters replaced by underscores). A requirement of the notify platform is that you must specify at least `message:` in your payload. A minimum working example of a notification is:
+The `mobile_app` notify platform accepts the standard `title`, `message` and `target` parameters used by the notify platform. The mobile\_app notify platform supports targets as services. As long as you granted notifications permissions during setup, you will find all your devices listed as targets for the notify action  with names prefixed `notify.mobile_app_` followed by the Device ID of you device. This can be checked in the Companion App menu of the [Home Assistant Configuration menu](https://my.home-assistant.io/redirect/config/) and defaults to the name specified in the General>About within the iOS/macOS settings app or under About>Phone in Android settings (with spaces and non alphanumeric characters replaced by underscores). A requirement of the notify platform is that you must specify at least `message:` in your payload. A minimum working example of a notification is:
 
 ```yaml
 automation:
@@ -11,7 +11,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "Notification text"
 ```
@@ -31,10 +31,10 @@ notify:
   - name: ALL_DEVICES
     platform: group
     services:
-      - service: mobile_app_iphone_one
-      - service: mobile_app_iphone_two
-      - service: mobile_app_ipad_one
-      - service: mobile_app_pixel_4_xl
+      - action: mobile_app_iphone_one
+      - action: mobile_app_iphone_two
+      - action: mobile_app_ipad_one
+      - action: mobile_app_pixel_4_xl
 ```
 Now, you can send notifications to everyone in the group using:
 ```yaml
@@ -43,7 +43,7 @@ Now, you can send notifications to everyone in the group using:
       trigger:
         ...
       action:
-        - service: notify.ALL_DEVICES
+        - action: notify.ALL_DEVICES
           data:
             message: "Something happened at home!"
 ```
@@ -79,7 +79,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
@@ -96,7 +96,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
@@ -123,7 +123,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Smart Home Alerts"
           message: "Something happened at home!"
@@ -142,7 +142,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
@@ -172,7 +172,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "clear_notification"
           data:
@@ -195,7 +195,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Smart Home Alerts"
           message: "Something happened at home!"
@@ -218,7 +218,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
@@ -236,7 +236,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
@@ -260,7 +260,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
@@ -286,7 +286,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "remove_channel"
           data:
@@ -318,7 +318,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "Motion Detected"
           data:
@@ -338,7 +338,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "Motion Detected"
           data:
@@ -358,7 +358,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: Motion detected
           data:
@@ -378,7 +378,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "Motion detected"
           data:
@@ -398,7 +398,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "clear_notification"
           data:
@@ -415,7 +415,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "Motion Detected"
           data:
@@ -432,7 +432,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: >
             This is a <b><span style="color: red">HTML</span></b> <i>text</i><br><br>This is a text after a new line
@@ -453,7 +453,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "Motion Detected"
           data:
@@ -478,7 +478,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "This phone is lost, please return it to ..."
           data:
@@ -495,7 +495,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "TTS"
           data:
@@ -510,7 +510,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: TTS
           data:
@@ -526,7 +526,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "TTS"
           data:
@@ -555,7 +555,7 @@ automation:
         entity_id: binary_sensor.<your_device_id_here>_music_active # Only speak if the phone is not playing music
         state: 'off'
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: TTS
           data:
@@ -579,7 +579,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Next Alarm"
           message: >-
@@ -600,7 +600,7 @@ On Android you have the option for making a notification only alert once on the 
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "One Time"
           message: "This will only alert me the first time"
@@ -619,7 +619,7 @@ On Android you also have the option of changing the notification status bar icon
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Cellphone icon"
           message: "This will show a cellphone icon in the status bar"
@@ -636,7 +636,7 @@ By default Home Assistant notifications do not show up in the Android Auto inter
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Door unlocked"
           message: "Everyone left home but the door is still unlocked"
@@ -655,7 +655,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "Ding-dong"
           data:
@@ -672,7 +672,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Smart Home Alerts"
           message: "Something happened at home!"
@@ -712,7 +712,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Banana Status Update"
           message: "The bananas are ripe."
@@ -731,7 +731,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.ALL_DEVICES
+      - action: notify.ALL_DEVICES
         data:
           message: "Something happened at home!"
           data:

@@ -5,7 +5,7 @@ id: "notification-received"
 
 ![Android](/assets/android.svg)
 
-You can receive an event when a notification is received on the device. In order to receive this event you will need to set `confirmation: true` as a parameter in your notification service call. All notification data will be present in the event data for the event type `mobile_app_notification_received`. If you do not set this parameter then no event will be sent from the device when the notification is received.
+You can receive an event when a notification is received on the device. In order to receive this event you will need to set `confirmation: true` as a parameter in your notification action. All notification data will be present in the event data for the event type `mobile_app_notification_received`. If you do not set this parameter then no event will be sent from the device when the notification is received.
 
 Example:
 
@@ -15,7 +15,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "This notification has been received"
           data:

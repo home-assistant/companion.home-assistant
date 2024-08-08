@@ -20,7 +20,7 @@ automation:
   trigger:
     ...
   action:
-    - service: notify.mobile_app_<your_device_id_here>
+    - action: notify.mobile_app_<your_device_id_here>
       data:
         message: “Your Roommate arrived”
         data:

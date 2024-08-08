@@ -9,7 +9,7 @@ Notifications may contain an image, video, or audio file attachment that is disp
 
 An attachment is an image, video, or audio file which is downloaded to the device when a notification is received and shown alongside the notification. A thumbnail is shown when the notification is not expanded. The full size attachment is shown when the notification is expanded.
 
-There are several locations to which you can save and you can use the [`camera.snapshot`](https://www.home-assistant.io/integrations/camera#service-snapshot) service to save snapshots.
+There are several locations to which you can save and you can use the [`camera.snapshot`](https://www.home-assistant.io/integrations/camera#action-snapshot) action to save snapshots.
 
 :::note
 Attachments are required to be accessible from the internet, but not necessarily without authentication. See sources below.
@@ -80,7 +80,7 @@ When present, values will be used in the order of the table above. For example, 
 *   GIF will only be animated in notification shade on Android 14+
 :::
 
-## Example service call
+## Example action
 
 ```yaml
 automation:
@@ -88,7 +88,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "Something happened at home!"
           data:
@@ -120,7 +120,7 @@ The same notification but expanded to show the full size image attachment:
  You can customize the attachment on the notifications using the following format:
 
  ```yaml
-- service: notify.mobile_app_<your_device_id_here>
+- action: notify.mobile_app_<your_device_id_here>
   data:
     message: "Something happened at home!"
     data:

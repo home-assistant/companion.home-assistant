@@ -17,8 +17,8 @@ As an example, if you wanted to create a shortcut to turn on a light (`light.por
 5. Tap the large plus to add another action, search for "Home Assistant" and select "Call Service".
 6. Tap "Service" which is highlighted in "Call Service with data".
 7. Scroll through the list of available services and find `light.turn_on`.
-8. Tap the arrow next at the end of the "Call Service with data" line and in the "Server" field select the Home Assistant server you wish to call the service on.
-9. As long as the Dictionary action is above the Home Assistant action there is no need to enter anymore details. If you prefer not to use the Dictionary action, you can select "Show More" and enter the service data in JSON format in the "Service Data" field.
+8. Tap the arrow next at the end of the "Call Service with data" line and in the "Server" field select the Home Assistant server you wish to perform the action on.
+9. As long as the Dictionary action is above the Home Assistant action there is no need to enter anymore details. If you prefer not to use the Dictionary action, you can select "Show More" and enter the action data in JSON format in the "Service Data" field.
 10. Tap next and enter or record a name/phrase to use with "Hey, Siri" to trigger the shortcut.
 
 The final shortcut should look similar to this:
@@ -27,13 +27,13 @@ The final shortcut should look similar to this:
 
 ## Shortcut Flow
 
-In the previous example we will used the Dictionary action to define our service data, this is an example of one action provide data to a subsequent action in the Shortcut flow. These data can come from other apps or other actions provided by Home Assistant, such as Render Text to get the state of an entity in Home Assistant. By default empty fields will try to use data on your device's clipboard if no other flow or payload data is provided.
+In the previous example we will used the Dictionary action to define our action data, this is an example of one action provide data to a subsequent action in the Shortcut flow. These data can come from other apps or other actions provided by Home Assistant, such as Render Text to get the state of an entity in Home Assistant. By default empty fields will try to use data on your device's clipboard if no other flow or payload data is provided.
 
 ## Actions
 
 ### Call Service
 
-You can call any service set up in Home Assistant (see the [Services Page in Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/)). As used in the [example above](#example).
+You can call any action set up in Home Assistant (see the [Actions Page in Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/)). As used in the [example above](#example).
 
 ### Fire Event
 
@@ -81,7 +81,7 @@ Shortcuts are deeply integrated into the OS. After creating one, you have numero
 You can trigger a Shortcut from Home Assistant using a notification like so:
 
 ```yaml
-- service: notify.mobile_app_<your_device_id_here>
+- action: notify.mobile_app_<your_device_id_here>
   data:
     message: "Trigger a Shortcut!"
     data:
@@ -110,8 +110,8 @@ Once you complete the Shortcut, it'll return you to Home Assistant and fire an e
 | `status` | `success`, `failure`, `cancelled` | The status of the execution |
 | `result` | Varies | The result provided by the Shortcut itself |
 | `error` | Dictionary, keys `error-Code` and `errorMessage` | Error description from the Shortcuts app if failure|
-| `input` | Varies | `shortcut` value in service call |
-| `name` | Varies | `shortcut.name` value in service call |
+| `input` | Varies | `shortcut` value in action |
+| `name` | Varies | `shortcut.name` value in action |
 
 ## Personal Automation
 

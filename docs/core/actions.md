@@ -101,7 +101,7 @@ automation:
         event_data:
           actionName: "Bed Time"
     action:
-      - service: light.turn_off
+      - action: light.turn_off
         entity_id: group.all_lights
 ```
 
