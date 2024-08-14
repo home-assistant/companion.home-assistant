@@ -21,7 +21,7 @@ Replacing `URL` with the address you use to access your Home Assistant instance.
 When you have saved these changes, restart Home Assisant and, after Home Assistant has finished restarting, reopen the the app. 
 
 ## I don't see a `notify.mobile_app` action for my device in my `dev-services` panel
-Once you have [set up](/getting_started/index.md) the Companion app you will need to restart Home Assistant for the `notify.mobile_app` action to register. On iOS the `notify.mobile_app_<Device_ID>` action will be created provided you granted notification permissions during setup, on Android the action will appear after the restart. If you can't see this, [force quit on iOS](https://support.apple.com/HT201330) or force stop on Android. Then relaunch the Companion app and finally restart your Home Assistant instance. The action should now be listed in the `Developer Tools > Actions` panel.
+Once you have [set up](/getting_started/index.mdx) the Companion app you will need to restart Home Assistant for the `notify.mobile_app` action to register. On iOS the `notify.mobile_app_<Device_ID>` action will be created provided you granted notification permissions during setup, on Android the action will appear after the restart. If you can't see this, [force quit on iOS](https://support.apple.com/HT201330) or force stop on Android. Then relaunch the Companion app and finally restart your Home Assistant instance. The action should now be listed in the `Developer Tools > Actions` panel.
 
 ![iOS](/assets/iOS.svg) If you don't see the action on iOS, check the notification settings within the app (swipe right to bring up the sidebar, then tap "[Settings](https://my.home-assistant.io/redirect/config/)", and then tap "Companion App", then "Notifications"). If the "Push ID" box is empty, tap the Reset button below it.
 
@@ -92,12 +92,18 @@ Not all but some issues can be solved by simply logging out of the app and loggi
 ## Device Tracker is not updating in Android app
 ![Android](/assets/android.svg) If you find that the device tracker is not updating as you would expect follow the below steps to ensure optimal settings.
 
-1.  In [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Manage sensors, ensure that the following Location Sensors are enabled: Background Location, Location Zone and Single Accurate Location. If you use multiple servers, make sure the correct servers have each sensor enabled.
+1.  Make sure your device and server meet the prerequisites for location tracking:
+    - Enable [remote access](https://www.home-assistant.io/docs/configuration/remote/) for your server.
+    - In [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Manage sensors, enable the following **Location sensors**: Background location, Location zone and Single accurate Location.
+      - If you use multiple servers, make sure the correct servers have each sensor enabled.
+    - If you did not install the app from the Play Store, verify that you are using the [`full` flavor](../core/android-flavors.md).
 2.  Ensure the app has location permissions granted, all the time. (On Android 12 and newer, allow Precise location when prompted)
 3.  Ensure that location (GPS) is enabled on your device.
-4.  Turn off battery optimizations for the app. Some manufacturers may add additional battery saving features (ex: Power Saving), make sure to disable all of those as well.
-5.  Turn on unrestricted data for the app. (Samsung users will need to disable data saver for Home Assistant as well)
-6.  Check that the background access setting shows the app has proper access under in [Settings](https://my.home-assistant.io/redirect/config/) > Companion app.
+4.  Allow background access and turn off 'battery optimizations' for the app.
+    - You can check background access in [Settings](https://my.home-assistant.io/redirect/config/) > Companion app. The setting should show a check mark ✔️.
+    - Some manufacturers may add additional battery saving features (ex: Power Saving), make sure to disable all of those as well. You can usually access these from the system settings app.
+5.  Turn on unrestricted data for the app.
+    - Samsung devices: you will need to disable data saver for Home Assistant as well.
 
 Sometimes the above steps will still not result in location updates reaching your server. The app can receive a lot of location updates and may skip some of them. To determine why, review the app location history logs.
 
