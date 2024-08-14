@@ -92,7 +92,7 @@ Not all but some issues can be solved by simply logging out of the app and loggi
 ## Device Tracker is not updating in Android app
 ![Android](/assets/android.svg) If you find that the device tracker is not updating as you would expect follow the below steps to ensure optimal settings.
 
-1.  Make sure your device meets the prerequisites for location tracking:
+1.  Make sure your device and server meet the prerequisites for location tracking:
    - Enable [remote access](https://www.home-assistant.io/docs/configuration/remote/) for your server.
    - In [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Manage sensors, enable the following **Location sensors**: Background location, Location zone and Single accurate Location.
      - If you use multiple servers, make sure the correct servers have each sensor enabled.
