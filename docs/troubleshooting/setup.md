@@ -93,17 +93,17 @@ Not all but some issues can be solved by simply logging out of the app and loggi
 ![Android](/assets/android.svg) If you find that the device tracker is not updating as you would expect follow the below steps to ensure optimal settings.
 
 1.  Make sure your device and server meet the prerequisites for location tracking:
-   - Enable [remote access](https://www.home-assistant.io/docs/configuration/remote/) for your server.
-   - In [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Manage sensors, enable the following **Location sensors**: Background location, Location zone and Single accurate Location.
-     - If you use multiple servers, make sure the correct servers have each sensor enabled.
-   - If you did not install the app from the Play Store, verify that you are using the [`full` flavor](../core/android-flavors.md).
+    - Enable [remote access](https://www.home-assistant.io/docs/configuration/remote/) for your server.
+    - In [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Manage sensors, enable the following **Location sensors**: Background location, Location zone and Single accurate Location.
+      - If you use multiple servers, make sure the correct servers have each sensor enabled.
+    - If you did not install the app from the Play Store, verify that you are using the [`full` flavor](../core/android-flavors.md).
 2.  Ensure the app has location permissions granted, all the time. (On Android 12 and newer, allow Precise location when prompted)
 3.  Ensure that location (GPS) is enabled on your device.
 4.  Allow background access and turn off 'battery optimizations' for the app.
-  - You can check background access in [Settings](https://my.home-assistant.io/redirect/config/) > Companion app. The setting should show a check mark ✔️.
-  - Some manufacturers may add additional battery saving features (ex: Power Saving), make sure to disable all of those as well. You can usually access these from the system settings app.
+    - You can check background access in [Settings](https://my.home-assistant.io/redirect/config/) > Companion app. The setting should show a check mark ✔️.
+    - Some manufacturers may add additional battery saving features (ex: Power Saving), make sure to disable all of those as well. You can usually access these from the system settings app.
 5.  Turn on unrestricted data for the app.
-  - Samsung devices: you will need to disable data saver for Home Assistant as well.
+    - Samsung devices: you will need to disable data saver for Home Assistant as well.
 
 Sometimes the above steps will still not result in location updates reaching your server. The app can receive a lot of location updates and may skip some of them. To determine why, review the app location history logs.
 
