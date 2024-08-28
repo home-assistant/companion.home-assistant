@@ -125,7 +125,7 @@ The [Apple Watch App](/apple-watch/apple-watch.md) provides access to actions yo
 
 ## Today View Widget
 
-**(Discontinued in iOS App v2024.8, use home-screen widgets instead)**
+**(Discontinued in iOS App v2024.8, use iOS widgets instead)**
 
 The [Today View Widget](https://support.apple.com/en-gb/HT207122) is another route through which actions can be fired. To add the Home Assistant widget to your Today View:
 
