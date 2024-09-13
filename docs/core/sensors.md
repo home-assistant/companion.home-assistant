@@ -106,6 +106,7 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | [Car Sensors](#car-sensors) | [See Below](#car-sensors) | Several different sensors about the state of the car. |
 | `sensor.current_time_zone` | [See Below](#current-time-zone-sensor) | The current time zone the device is in. |
 | `sensor.current_version` | None | The current installed version of the application. |
+| [Display Sensors](#display-sensors)| [See Below](#display-sensors) | Several sensors about the state of the devices display. |
 | [Dynamic Color](#dynamic-color-sensor) | RGB Color | The hexadecimal color value for the accent color used in the current device theme. |
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
@@ -125,8 +126,6 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
-| `sensor.screen_brightness` | [See Below](#screen-brightness-sensor) | The current value of screen brightness. |
-| `sensor.screen_off_timeout` | None | The current value of screen off timeout setting. |
 | `sensor.steps` | None | The number of steps taken from the user since the last device reboot. Requires activity recognition permissions on supported devices. |
 | [Storage Sensors](#storage-sensor) | [See Below](#storage-sensor) | The amount of total and available internal & external storage on your Android device. |
 | [Traffic Stats Sensor](#traffic-stats-sensor) | None | Amount of data transmitted and received from mobile and total device usage since last reboot. |
@@ -403,6 +402,27 @@ This sensor will represent the current time zone the device is in. There are als
 ![Android](/assets/android.svg)
 This sensor will represent the current installed version of the Android app.
 
+## Display Sensors
+
+### Is Face Down Sensor
+![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+This sensor will be true if the devices screen is facing down at the ground. This sensor makes use of the devices [accelerometer](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER) to determine the position.
+
+### Screen Brightness Sensor
+![Android](/assets/android.svg)<br />
+This sensor will report the screen brightness value as its state. An attribute also exists if the screen is currently using automatic brightness mode or not. This sensor makes use of the [Settings.System API](https://developer.android.com/reference/android/provider/Settings.System).
+
+### Screen Off Timeout Sensor
+![Android](/assets/android.svg) <br />
+This sensor will report the screen off timeout value as its state, in milliseconds. This sensor makes use of the [Settings.System API](https://developer.android.com/reference/android/provider/Settings.System).
+
+### Screen Orientation Sensor
+![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+This sensor reports the screens orientation, when the screen is on and the orientation changes this sensor will update immediately. This sensor uses the [Orientation API](https://developer.android.com/reference/android/content/res/Configuration.html#orientation).
+
+### Screen Rotation Sensor
+![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+This sensor reports the degrees of rotation relative to the device. When the screen is on and the orientation changes this sensor will update immediately. This sensor uses the [Rotation API](https://developer.android.com/reference/android/view/Display.html#getRotation()).
 
 ## Dynamic Color Sensor
 ![Android](/assets/android.svg) Only available on devices with support for Material 3 Dynamic color.
@@ -652,15 +672,6 @@ This sensor will show the current proximity reading from the device. This sensor
 ## Public IP Sensor
 ![Android](/assets/android.svg)<br />
 This sensor uses the [ipify API](https://www.ipify.org/) in order to determine the devices public IP address. This sensor will update during the normal sensor update interval.
-
-
-## Screen Brightness Sensor
-![Android](/assets/android.svg)<br />
-This sensor will report the screen brightness value as its state. An attribute also exists if the screen is currently using automatic brightness mode or not. This sensor makes use of the [Settings.System API](https://developer.android.com/reference/android/provider/Settings.System).
-
-## Screen Off Timeout Sensor
-![Android](/assets/android.svg) <br />
-This sensor will report the screen off timeout value as its state, in milliseconds. This sensor makes use of the [Settings.System API](https://developer.android.com/reference/android/provider/Settings.System).
 
 ## Storage Sensor
 ![iOS](/assets/iOS.svg)<br />
