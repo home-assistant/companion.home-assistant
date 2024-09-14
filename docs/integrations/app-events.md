@@ -24,6 +24,7 @@ To help with running automations, such as clearing app icon badges, or other tas
 | Event | Cause |
 | ----- | ----- |
 | `android.intent_received` | When the app receives a broadcast intent for a registered intent from [Last Update Sensor](../core/sensors.md#last-update-trigger-sensor). Event data will contain the intent action string and any intent extras, if available. |
+| `android.navigation_started` | When a navigation entity is selected from Android Auto/Automotive <span class='beta'>BETA</span> |
 | `android.zone_entered` | A zone was entered. Event data will contain all location data including the triggering zone. Available for [`full` flavor](/docs/core/android-flavors) users only. |
 | `android.zone_exited` | A zone was exited. Event data will contain all location data including the triggering zone. Available for [`full` flavor](/docs/core/android-flavors) users only. |
 | `mobile_app.migration_failed` | The app database was corrupted and has been reset during the migration to allow the app to open. Sensors will need to be re-enabled and widgets will need to be recreated. A notification will also be posted on the device informing the user of the issue. |
