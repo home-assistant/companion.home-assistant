@@ -1,7 +1,11 @@
 ---
-title: "Actions"
+title: "iOS Actions"
 id: "watch-actions"
 ---
+
+:::info Before continuing
+You can easily run scripts and active scenes directly by adding Script/Scene to your watch [configuration](/docs/apple-watch/#home).
+:::
 
 All [actions](/core/actions.md) that have been set up on a paired iPhone will be available on Apple Watch and can be accessed from the Home Assistant watch app or by tapping a [complication](complications.md).
 
