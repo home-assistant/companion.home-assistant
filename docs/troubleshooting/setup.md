@@ -105,6 +105,10 @@ Not all but some issues can be solved by simply logging out of the app and loggi
 5.  Turn on unrestricted data for the app.
     - Samsung devices: you will need to disable data saver for Home Assistant as well.
 
+:::info
+The steps above will check that the `device_tracker` entity and server are configured properly. If you are using the `person` entity and still experience an issue after following the above steps then double check the [`person` entity settings](https://my.home-assistant.io/redirect/people) for that particular user and remove any `device_tracker` that stays at home (example: a logged in tablet). 
+:::
+
 Sometimes the above steps will still not result in location updates reaching your server. The app can receive a lot of location updates and may skip some of them. To determine why, review the app location history logs.
 
 Go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Troubleshooting > Location tracking and enable location history. The app will now keep a log of all location updates received in the last 48 hours.
