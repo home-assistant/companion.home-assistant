@@ -3,12 +3,12 @@ title: "Overview"
 id: "apple-watch"
 ---
 
-Home Assistant has deep integration with the Apple Watch. You can display Home Assistant information as complications directly on your watch face and since app version 2024.9, run scripts, active scenes and iOS Actions.
+Home Assistant has deep integration with the Apple Watch. You can display Home Assistant information as complications directly on your watch face and since app version 2024.9, run scripts, active scenes, and iOS Actions.
 
 ## Home
 
-Since iOS App version 2024.9 release, you can now customize your Home Assistant watch experience using `Scripts`, `Scenes` and `iOS Actions`.
-Using your iPhone, open companion app settings and look under 'Apple Watch' section for 'Configuration', if you already had `iOS Actions` created, they will be migrated into the configuration screen, just hit 'Save' and reload on your watch.
+Since iOS App version 2024.9 release, you can now customize your Home Assistant watch experience using `Scripts`, `Scenes`, and `iOS Actions`.
+Using your iPhone, open the Companion app settings and under the **Apple Watch** section, look for **Configuration**. If you already had **iOS Actions** created, they will be migrated into the configuration screen. Select **Save** and reload on your watch.
 
 <img src='/assets/ios/watch-config.png' alt="Watch cofniguration screen" />
 
