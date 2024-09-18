@@ -59,7 +59,7 @@ You may set the checkbox "Require authentication". If it is set, device credenti
 3.  Drag the Service Call widget to an open space on the home screen
 4.  Select the action you wish to perform
 5.  Fill in the required action data for the selected action
-6.  Supply a name and icon for the widget
+6.  Supply a name, an icon and optionally an icon color using a hex format (eg. "#FF0000") for the widget
 7.  Save the widget
 
 :::info
