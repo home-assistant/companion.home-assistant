@@ -404,9 +404,9 @@ This sensor will represent the current installed version of the Android app.
 
 ## Display Sensors
 
-### Is Face Down Sensor
+### Is Face Down Or Up Sensor
 ![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
-This sensor will be true if the devices screen is facing down at the ground. This sensor makes use of the devices [accelerometer](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER) to determine the position.
+This sensor state will be `down` if the devices screen is facing down at the ground, `up` if the screen is facing up at the air or `unknown`. This sensor makes use of the devices [accelerometer](https://developer.android.com/reference/android/hardware/Sensor#TYPE_ACCELEROMETER) to determine the position. Raw accelerometer data is also provided as sensor attributes.
 
 ### Screen Brightness Sensor
 ![Android](/assets/android.svg)<br />
