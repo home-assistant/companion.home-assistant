@@ -23,7 +23,6 @@ automation:
     - action: notify.mobile_app_<your_device_id_here>
       data:
         message: “Your Roommate arrived”
-        data:
           push:
             sound: "US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav"
 ```
