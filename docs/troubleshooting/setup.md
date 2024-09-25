@@ -103,7 +103,7 @@ Not all but some issues can be solved by simply logging out of the app and loggi
     - You can check background access in [Settings](https://my.home-assistant.io/redirect/config/) > Companion app. The setting should show a check mark ✔️.
     - Some manufacturers may add additional battery saving features (ex: Power Saving), make sure to disable all of those as well. You can usually access these from the system settings app.
 5.  Turn on unrestricted data for the app.
-    - Samsung devices: you will need to disable data saver for Home Assistant as well.
+    - If Data Saver is on, Home Assistant may not send/receive data correctly.
 
 Sometimes the above steps will still not result in location updates reaching your server. The app can receive a lot of location updates and may skip some of them. To determine why, review the app location history logs.
 
