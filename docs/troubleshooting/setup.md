@@ -75,6 +75,15 @@ Starting in Home Assistant Core 0.106, the default sensor names will be register
 
 To fix this change the location permission for the Home Assistant App to "Always" in iOS Settings>Privacy>Location Services.
 
+## Person entity is not updated with recent location
+
+If you are using the `person` entity as opposed to the provided `device_tracker` entity you may at times notice its state not updating as you would expect. By default any new device you login to with the app will be added as a tracker. To fix issues with this entity please check its configuration.
+
+1.  Go to [Settings](https://my.home-assistant.io/redirect/config/) > People
+2.  Select the person having tracker issues
+3.  Remove any device that sits at home or is no longer used. Only keep devices that travel with you in this list.
+4.  Save the changes
+
 ## Starting fresh with the Android app
 ![Android](/assets/android.svg) At times you may need to start fresh with the Android app as a new feature may not be working properly or something odd happens. Make sure to follow each step precisely without skipping anything.
 
@@ -97,6 +106,7 @@ Not all but some issues can be solved by simply logging out of the app and loggi
     - In [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Manage sensors, enable the following **Location sensors**: Background location, Location zone and Single accurate Location.
       - If you use multiple servers, make sure the correct servers have each sensor enabled.
     - If you did not install the app from the Play Store, verify that you are using the [`full` flavor](../core/android-flavors.md).
+    - If you are using the `person` entity for tracking double check it is [setup properly](#person-entity-is-not-updated-with-recent-location).
 2.  Ensure the app has location permissions granted, all the time. (On Android 12 and newer, allow Precise location when prompted)
 3.  Ensure that location (GPS) is enabled on your device.
 4.  Allow background access and turn off 'battery optimizations' for the app.
