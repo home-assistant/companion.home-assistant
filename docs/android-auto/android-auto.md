@@ -67,4 +67,8 @@ Notifications in AA, share settings with your phone and do not support all notif
 The sensors available for AA and AAOS are described on the main [sensors](../core/sensors.md#android-sensors) page. The below list of sensors are unique to AA and AAOS:
 
 *  [Android Auto Connection](../core/sensors.md#android-auto)
-*  [Car Sensors](../core/sensors.md#car-sensors) - Currently unavailabe for AAOS users
+*  [Car Sensors](../core/sensors.md#car-sensors)
+
+:::info
+<span class='beta'>BETA</span><br /> If you are using the Home Assistant app installed via the Play Store in your vehicle then you can enable sensors by following the below steps while the vehicle is parked. Login to the app in the vehicle to sync up sensors with your server, then navigate to the home screen. From your server go to [Devices & Services](https://my.home-assistant.io/redirect/integrations/) > Select Mobile App > Select your vehicle name. Enable any sensors you like for the vehicle. Once completed start the app in the vehicle again. If you enabled any sensors that require special permissions the app will post a notification in the vehicle. You will need to click on that notification to open the app, enable the sensor again and grant any permissions the vehicle requests.
+:::
