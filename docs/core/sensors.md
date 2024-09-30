@@ -418,7 +418,7 @@ This sensor reports the screen's orientation, when the screen is on and the orie
 
 ### Screen Rotation Sensor
 ![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
-This sensor reports the degrees of rotation relative to the device. This sensor will only update for following rotation angles: `0`, `90`, `180` & `270`. This sensor updates during the normal sensor update interval. This sensor uses the [Rotation API](https://developer.android.com/reference/android/view/Display.html#getRotation()).
+This sensor reports the degrees of rotation relative to the device. This sensor will only update for following rotation angles: `0`, `90`, `180` & `270`. This sensor uses the [Rotation API](https://developer.android.com/reference/android/view/Display.html#getRotation()).
 
 ## Dynamic Color Sensor
 ![Android](/assets/android.svg) Only available on devices with support for Material 3 Dynamic color.
