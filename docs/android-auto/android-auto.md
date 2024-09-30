@@ -69,6 +69,14 @@ The sensors available for AA and AAOS are described on the main [sensors](../cor
 *  [Android Auto Connection](../core/sensors.md#android-auto)
 *  [Car Sensors](../core/sensors.md#car-sensors)
 
-:::info
-<span class='beta'>BETA</span><br /> If you are using the Home Assistant app installed via the Play Store in your vehicle then you can enable sensors by following the below steps while the vehicle is parked. Login to the app in the vehicle to sync up sensors with your server, then navigate to the home screen. From your server go to [Devices & Services](https://my.home-assistant.io/redirect/integrations/) > Select Mobile App > Select your vehicle name. Enable any sensors you like for the vehicle. Once completed start the app in the vehicle again. If you enabled any sensors that require special permissions the app will post a notification in the vehicle. You will need to click on that notification to open the app, enable the sensor again and grant any permissions the vehicle requests.
+Enabling or disabling sensors is only possible while the vehicle is parked. How to change your enabled sensors, depends on how you installed the app:
+
+ - Installed from the Play Store (<span class='beta'>BETA</span> required)
+   1. On another device, go to [**Settings** > **Devices & services**](https://my.home-assistant.io/redirect/integrations/) > **Devices**, and select your vehicle.
+   2. Select the sensor you want to change, click on the cogwheel, and turn **Enabled** on or off. 
+   3. Start the app in your vehicle to update the sensors.
+   4. If you enabled any sensors that require special permissions, the app will post a notification to complete enabling them. Tap on the notification to open the app, enable the sensor again and grant any requested permissions.
+ - Installed from the car manufacturer's store
+   1. Tap on **Native mode** in the top right of the screen.
+   2. Go to **Settings** > **Companion app** > **Manage sensors**, and enable or disable your sensors.
 :::
