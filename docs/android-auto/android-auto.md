@@ -79,4 +79,3 @@ Enabling or disabling sensors is only possible while the vehicle is parked. How 
  - Installed from the car manufacturer's store
    1. Tap on **Native mode** in the top right of the screen.
    2. Go to **Settings** > **Companion app** > **Manage sensors**, and enable or disable your sensors.
-:::
