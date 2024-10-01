@@ -45,7 +45,7 @@ On macOS, sensors update in the same situations as above as well as immediately 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
 | `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
-| `sensor.app_version` | None | The current Home Assistant companion App for iOS App version. |
+| `sensor.app_version` | None | The current **Home Assistant companion App for iOS** app version. |
 | `sensor.average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
