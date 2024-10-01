@@ -50,7 +50,7 @@ On macOS, sensors update in the same situations as above as well as immediately 
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
 | `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
-| `sensor.location_permission` | None | The current location permission selected by the user on location permission popup or modified in iOS settings. |
+| `sensor.location_permission` | None | The current location permission that was selected by the user. The permission can be set via the location permission popup or modified in the iOS settings. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.steps` | None | The number of steps taken by the user. |
