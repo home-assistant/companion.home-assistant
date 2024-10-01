@@ -54,8 +54,8 @@ On macOS, sensors update in the same situations as above as well as immediately 
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.steps` | None | The number of steps taken by the user. |
-| `sensor.watch_battery_level` | None | The battery level of 1 paired Apple Watch (Requires any Home Assistant complication installed on your watch face). |
-| `sensor.watch_battery_state` | None | The current charging state (either Charging, Not Charging, or Full) of 1 paired Apple Watch (Requires any Home Assistant complication installed on your watch face). |
+| `sensor.watch_battery_level` | None | The battery level of 1 paired Apple Watch. Requires any Home Assistant complication installed on your watch face. |
+| `sensor.watch_battery_state` | None | The current charging state (either Charging, Not Charging, or Full) of 1 paired Apple Watch. Requires any Home Assistant complication installed on your watch face. |
 
 ![macOS](/assets/macOS.svg)Specific Sensors
 
