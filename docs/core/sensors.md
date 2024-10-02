@@ -618,7 +618,7 @@ The pedometer sensors provide step-counting data from the devices built-in motio
 ## Phone Sensors
 
 ### Data Network Type Sensor
-![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+![Android](/assets/android.svg)<br />
 
 The radio technology (network type) provided by the SIM slot for data transmission. Data is provided by [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en).
 
@@ -633,7 +633,7 @@ This sensor will only show up if a user explicitly grants the `Phone` permission
 
 
 ### Signal Strengh Sensor
-![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+![Android](/assets/android.svg)<br />
 
 A sensor that represents the cellular signal strength in dBm provided by the SIM slot. Attributes will exist for signal quality and also Arbritary Strength Units. Due to power saving this data may not always be current. Data is provided by [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en).
 
