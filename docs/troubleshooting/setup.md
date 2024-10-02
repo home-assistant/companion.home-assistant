@@ -77,12 +77,13 @@ To fix this change the location permission for the Home Assistant App to "Always
 
 ## Person entity is not updated with recent location
 
-If you are using the `person` entity as opposed to the provided `device_tracker` entity you may at times notice its state not updating as you would expect. By default any new device you login to with the app will be added as a tracker. To fix issues with this entity please check its configuration.
+If you are using the `person` entity as opposed to the provided `device_tracker` entity, you may at times notice the `person` entity state not updating as you would expect. By default any new device you login to with the app will be added as a tracker to the person logging in, which may cause this issue. You can check the `person` entity using the following steps:
 
-1.  Go to [Settings](https://my.home-assistant.io/redirect/config/) > People
+1.  Go to [People](https://my.home-assistant.io/redirect/people/)
 2.  Select the person having tracker issues
-3.  Remove any device that sits at home or is no longer used. Only keep devices that travel with you in this list.
-4.  Save the changes
+3.  Review the devices that belong to this person
+4.  Remove any device that sits at home or is no longer used. Only keep devices that travel with you in this list.
+5.  Save the changes
 
 ## Starting fresh with the Android app
 ![Android](/assets/android.svg) At times you may need to start fresh with the Android app as a new feature may not be working properly or something odd happens. Make sure to follow each step precisely without skipping anything.
