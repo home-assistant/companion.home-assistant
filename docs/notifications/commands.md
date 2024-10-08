@@ -51,7 +51,7 @@ The Companion apps offer a lot of different notification options. In place of po
 
 ![Android](/assets/android.svg)
 
-On Android you can send `message: command_activity` to launch any activity. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the devices Display over other apps Policy. This is required in order for the app to gain control of this setting.
+On Android you can send `message: command_activity` to launch any activity. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the device\'s Display over other apps Policy. This is required in order for the app to gain control of this setting.
 
 The `intent_action` parameter will need to be set to the Intent Action string, or the notification will post as normal. If the activity requires a URI then you will need set that as the `intent_uri`, otherwise the notification will post as normal. `intent_package_name` can be set to the package of where the activity is to be launched, otherwise Android will make a best effort to pick a default. If the package cannot be found then the notification will post as normal. You must know the intending URI (if required), action and package to start the activity. Typically this will be a documented feature if supported by the app.
 
@@ -425,7 +425,7 @@ Currently supported types are:
 
 ![Android](/assets/android.svg) &nbsp;Android 6+ only
 
-On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the devices Notification Policy. This is required in order for the app to gain control of this setting.
+On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the device\'s Notification Policy. This is required in order for the app to gain control of this setting.
 
 In addition to sending the `message` you must also provide the state of Do Not Disturb that you wish to set as the `command`, see the table below for what is accepted. If the `command` does not match one of the listed commands then the notification will post as normal and the command will not process. This command is only available for users on Android 6+, users on lower versions will see the notification just like any other.
 <br />
@@ -575,7 +575,7 @@ While it is possible to create an automation in Home Assistant to call this acti
 
 ![Android](/assets/android.svg)
 
-On Android you can control the devices ringer mode by sending `message: command_ringer_mode` with an appropriate `command` as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. If the device has Do Not Disturb enabled then setting to `normal` or `vibrate` will turn it off. If the device does not have Do Not Disturb enabled then `silent` will turn it on.<br />
+On Android you can control the device\'s ringer mode by sending `message: command_ringer_mode` with an appropriate `command` as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. If the device has Do Not Disturb enabled then setting to `normal` or `vibrate` will turn it off. If the device does not have Do Not Disturb enabled then `silent` will turn it on.<br />
 
 | `command` | Description |
 | ------- | ----------- |
@@ -713,7 +713,7 @@ automation:
 
 ![Android](/assets/android.svg)
 
-On Android you can control the devices volume level by sending `message: command_volume_level` with an appropriate `command` that must be a number. If `command` is larger than the maximum level then the maximum level will be used or if `command` is less than `0` then we will default to `0`, anything else will result in the notification posting to the device. `media_stream` is also required as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. Changing the volume level will have a direct impact on Do Not Disturb and Ringer Modes, behavior will vary from device to device.<br />
+On Android you can control the device\'s volume level by sending `message: command_volume_level` with an appropriate `command` that must be a number. If `command` is larger than the maximum level then the maximum level will be used or if `command` is less than `0` then we will default to `0`, anything else will result in the notification posting to the device. `media_stream` is also required as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. Changing the volume level will have a direct impact on Do Not Disturb and Ringer Modes, behavior will vary from device to device.<br />
 
 | `media_stream` | Description |
 | ------- | ----------- |
