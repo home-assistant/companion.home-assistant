@@ -105,12 +105,12 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | `sensor.app_memory` | [See Below](#app-memory-sensor) | Information about the memory that is available for the app. |
 | [App Usage Sensors](#app-usage-sensors) | None | Sensors that represent how the app is treated based on its usage. |
 | [Audio Sensors](#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
-| [Battery Sensors](#battery-sensors) | None | Several different sensors around the state of the devices battery. |
+| [Battery Sensors](#battery-sensors) | None | Several different sensors around the state of the device\'s battery. |
 | [Bluetooth Sensors](#bluetooth-sensors) | [See Below](#bluetooth-sensors) | Several different sensors about the state of bluetooth on the device. Sensors are also available for beacon transmitting and monitoring. |
 | [Car Sensors](#car-sensors) | [See Below](#car-sensors) | Several different sensors about the state of the car. |
 | `sensor.current_time_zone` | [See Below](#current-time-zone-sensor) | The current time zone the device is in. |
 | `sensor.current_version` | None | The current installed version of the application. |
-| [Display Sensors](#display-sensors)| [See Below](#display-sensors) | Several sensors about the state of the devices display. |
+| [Display Sensors](#display-sensors)| [See Below](#display-sensors) | Several sensors about the state of the device\'s display. |
 | [Dynamic Color](#dynamic-color-sensor) | RGB Color | The hexadecimal color value for the accent color used in the current device theme. |
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
@@ -255,7 +255,7 @@ These sensors use the [AudioManager API](https://developer.android.com/reference
 
 ## Battery Sensors
 ![iOS](/assets/iOS.svg) <br />
-The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
+The Battery State sensor (`sensor.battery_state`) provides information on the current status of the device\'s battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
 
 ![Android](/assets/android.svg)<br />
 The battery sensors listed below describe the state of the battery for a few different data points. The sensor's icon reflects the charging status, and type of charging being used. The `battery_state`, `charger_type` and `is_charging` sensor will be updated when the device has a charger connected or disconnected. The `battery_health`, `battery_level`, `battery_power` and `battery_temperature` sensors will be updated any time any of the other sensors get an update as well as when the device reports low battery or when it has recovered from the low battery alert. All of these sensors make use of [BatteryManager](https://developer.android.com/reference/android/os/BatteryManager).
@@ -618,7 +618,7 @@ This sensors state will be the date and time of the next alarm in UTC format. Th
 
 ## Pedometer Sensors
 ![iOS](/assets/iOS.svg)<br />
-The pedometer sensors provide step-counting data from the devices built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
+The pedometer sensors provide step-counting data from the device\'s built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
 
 | Sensor | Description |
 | --------- | --------- |
@@ -645,7 +645,7 @@ Not all 5G networks are created equally, therefore some networks may identify as
 
 ### Phone State Sensor
 ![Android](/assets/android.svg)<br />
-This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your devices `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`. This sensor will update anytime a phone state change is detected and makes use of [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en). This sensor requires the [Read Phone State permission](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE).
+This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your device\'s `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`. This sensor will update anytime a phone state change is detected and makes use of [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en). This sensor requires the [Read Phone State permission](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE).
 
 
 ### Signal Strengh Sensor
@@ -671,7 +671,7 @@ This sensor will show the current proximity reading from the device. This sensor
 
 ## Public IP Sensor
 ![Android](/assets/android.svg)<br />
-This sensor uses the [ipify API](https://www.ipify.org/) in order to determine the devices public IP address. This sensor will update during the normal sensor update interval.
+This sensor uses the [ipify API](https://www.ipify.org/) in order to determine the device\'s public IP address. This sensor will update during the normal sensor update interval.
 
 ## Storage Sensor
 ![iOS](/assets/iOS.svg)<br />
