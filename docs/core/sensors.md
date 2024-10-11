@@ -481,6 +481,17 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
 
+## Health Connect Sensors
+![Android](/assets/android.svg) <span class='beta'>BETA</span> &bull; 14+, only when installed from the Play Store<br />
+These sensors will reflect health and fitness data stored by other apps on your device in [Health Connect](https://health.google/health-connect-android/). Unless otherwise noted, only the last 30 days of data is used.
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `health_connect_active_calories_burned` | kilocalories | The last estimate for number of active calories burned, excluding basal metabolic rate (BMR). |
+| `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
+| `health_connect_weight` | grams | The last recorded weight. |
+
+
 ## High Accuracy Mode
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
 
