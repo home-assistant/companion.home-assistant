@@ -640,6 +640,13 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
+      <td><a href="/docs/core/sensors#health-connect-sensors">Health Connect</a></td>
+      <td>✅</td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/core/sensors#high-accuracy-mode">High Accuracy Mode</a></td>
       <td>✅</td>
       <td></td>
