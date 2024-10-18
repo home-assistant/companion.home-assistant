@@ -71,7 +71,7 @@ The sensors available for AA and AAOS are described on the main [sensors](../cor
 
 Enabling or disabling sensors is only possible while the vehicle is parked. How to change your enabled sensors, depends on how you installed the app:
 
- - Installed from the Play Store (<span class='beta'>BETA</span> required)
+ - Installed from the Play Store
    1. On another device, go to [**Settings** > **Devices & services**](https://my.home-assistant.io/redirect/integrations/) > **Devices**, and select your vehicle.
    2. Select the sensor you want to change, click on the cogwheel, and turn **Enabled** on or off. 
    3. Start the app in your vehicle to update the sensors.
