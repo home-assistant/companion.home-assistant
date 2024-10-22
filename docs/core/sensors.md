@@ -114,6 +114,7 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | [Dynamic Color](#dynamic-color-sensor) | RGB Color | The hexadecimal color value for the accent color used in the current device theme. |
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
+| [Health Connect Sensors](#health-connect-sensors) | Varies | Health and fitness data stored by other apps on your device in Health Connect. |
 | `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
 | `sensor.high_accuracy_update_interval` | None | The update interval for high accuracy mode on the device. |
 | [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
@@ -482,6 +483,16 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 ![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run. All attributes will be lowercase and all spaces are replaced with an underscore. The sensor will only send an update if it is accurate and recent. The sensor will also update with location updates if location tracking is enabled. A setting also exists to keep the sensor up to date with location updates, by default this is turned off.
 
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
+
+## Health Connect Sensors
+![Android](/assets/android.svg) <span class='beta'>BETA</span> &bull; 14+, only when installed from the Play Store<br />
+These sensors will reflect health and fitness data stored by other apps on your device in [Health Connect](https://health.google/health-connect-android/). Unless otherwise noted, only the last 30 days of data is used.
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `health_connect_active_calories_burned` | kilocalories | The last estimate for number of active calories burned, excluding basal metabolic rate (BMR). |
+| `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
+| `health_connect_weight` | grams | The last recorded weight. |
 
 ## High Accuracy Mode
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
