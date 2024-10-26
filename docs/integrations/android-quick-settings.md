@@ -32,5 +32,5 @@ The following domains are supported:
 Optional additional settings:
 
 * Tiles will use the entity icon by default. Tap on the icon to use a different icon for the tile.
-* Vibrate when clicked can be enabled to vibrate once when the tile is clicked and twice if the service call fails.
+* Vibrate when clicked can be enabled to vibrate once when the tile is clicked and twice if the action fails.
 * Requires unlocked device can be enabled to only allow interacting with the tile if the device is unlocked.

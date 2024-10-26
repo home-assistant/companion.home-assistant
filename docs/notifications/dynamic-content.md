@@ -10,7 +10,7 @@ Dynamic content such as maps and camera streams can be displayed as part of a no
 Will show a centered map with a red pin at the given coordinates.
 
 ```yaml
-service: notify.mobile_app_<your_device_id_here>
+action: notify.mobile_app_<your_device_id_here>
 data:
   message: Something happened at home!
   data:
@@ -24,7 +24,7 @@ data:
 Before ![iOS](/assets/iOS.svg) version 2021.5, you need to include a `category` like so:
 
 ```yaml
-service: notify.mobile_app_<your_device_id_here>
+action: notify.mobile_app_<your_device_id_here>
 data:
   message: Something happened at home!
   data:
@@ -78,7 +78,7 @@ The preview thumbnail of the notification will display a still image from the ca
 You can use the attachment parameters `content-type` and `hide-thumbnail` with camera to control the thumbnail.
 
 ```yaml
-service: notify.mobile_app_<your_device_id_here>
+action: notify.mobile_app_<your_device_id_here>
 data:
   message: Motion Detected in the Living Room
   data:
@@ -90,7 +90,7 @@ data:
 Before ![iOS](/assets/iOS.svg) version 2021.5, you need to include a `category` like so:
 
 ```yaml
-service: notify.mobile_app_<your_device_id_here>
+action: notify.mobile_app_<your_device_id_here>
 data:
   message: Motion Detected in the Living Room
   data:

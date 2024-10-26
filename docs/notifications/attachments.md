@@ -9,7 +9,7 @@ Notifications may contain an image, video, or audio file attachment that is disp
 
 An attachment is an image, video, or audio file which is downloaded to the device when a notification is received and shown alongside the notification. A thumbnail is shown when the notification is not expanded. The full size attachment is shown when the notification is expanded.
 
-There are several locations to which you can save and you can use the [`camera.snapshot`](https://www.home-assistant.io/integrations/camera#service-snapshot) service to save snapshots.
+There are several locations to which you can save and you can use the [`camera.snapshot`](https://www.home-assistant.io/integrations/camera#action-snapshot) action to save snapshots.
 
 :::note
 Attachments are required to be accessible from the internet, but not necessarily without authentication. See sources below.
@@ -77,10 +77,10 @@ When present, values will be used in the order of the table above. For example, 
 *   If you are setting the [`icon_url`](basic.md#notification-icon) and `image` property then only the image will be displayed on the device.
 *   If you are setting the `image` and `video` property then only the video will be displayed on the device.
 *   Video will be shown as a series of frames captured from the video file. It will not work well with videos that are < 10s long.
-*   GIF will not be animated in notification shade
+*   GIF will only be animated in notification shade on Android 14+
 :::
 
-## Example service call
+## Example action
 
 ```yaml
 automation:
@@ -88,12 +88,12 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "Something happened at home!"
           data:
             # an example of an absolute url
-            image: "https://github.com/home-assistant/assets/blob/master/logo/logo.png?raw=true"
+            image: "https://www.home-assistant.io/images/default-social.png"
             # example of a relative url
             image: "/media/local/image.png"
             # the same works for video
@@ -120,7 +120,7 @@ The same notification but expanded to show the full size image attachment:
  You can customize the attachment on the notifications using the following format:
 
  ```yaml
-- service: notify.mobile_app_<your_device_id_here>
+- action: notify.mobile_app_<your_device_id_here>
   data:
     message: "Something happened at home!"
     data:
@@ -138,4 +138,4 @@ The same notification but expanded to show the full size image attachment:
 
  [See table for supported media](#supported-media-types)
 
-- `GIF` filetype will not be animated in notification shade
+- `GIF` filetype will only be animated in notification shade on Android 14+

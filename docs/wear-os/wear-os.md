@@ -52,7 +52,19 @@ The settings screen can be found at the bottom of the home screen. This is where
 * The Shortcuts tile shows up to 7 shortcuts, which can be chosen from the settings section in the Wear OS app. You will be able to select the same set of entities you can access from the home screen.  Starting from Wear OS 3, any number of separately configurable tiles can be added, only limited by Wear OS's limit for the total number of tiles.
 * The Template tile shows a rendered template. The template can only be set from the Android companion app. Note: it is not possible to scroll in a tile, the template should fit on the watch screen.
 * The Camera tile shows a snapshot of the selected camera.
-* The Assist tile allows you to send a voice transcription to the [`conversation`](https://www.home-assistant.io/integrations/conversation/) integration to process. The results are then shown on the screen. This feature requires Home Assistant Core 2023.1 and also the `conversation` integration enabled.
+* The Assist tile allows you to quickly [open Assist on your watch](https://www.home-assistant.io/voice_control/android/#assist-on-wear-os).
+
+:::note About tile refreshes
+Wear OS limits how frequently apps can update tiles and how interactive they can be. For the camera and template tiles you can choose a refresh interval which indicates to the system how often the tile should be refreshed.
+
+ - Manual (only updates when you tap the refresh button)
+ - In view (only updates when you scroll a tile into view)
+ - Every x minutes/hours (updates the tile in the background, even when not viewed)
+
+For intervals other than 'Manual', the system does not guarantee updates: if the tiles are not placed at the start or end of the tiles list, they will most likely update less frequently. You may see an old version of a tile for 1-2 seconds while it updates.
+
+The options for updating every x minutes/hours still update the tile when viewed. For example: choosing an update interval of 1 hour will indicate to the system that the tile should be updated when viewed, and every hour in the background since it was last viewed.
+:::
 
 ### Styling the template tile
 
@@ -98,7 +110,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "Notification message"
           title: "Notification title"
@@ -117,11 +129,11 @@ The Wear OS app has basic support for [notification commands](../notifications/c
 
 *  [BLE Transmitter](../notifications/commands.md#ble-beacon-transmitter)
 *  [Beacon Monitor](../notifications/commands.md#beacon-monitor)
-*  [Clearing notifications](../notifications/basic.md#clearing) <span class='beta'>BETA</span>
+*  [Clearing notifications](../notifications/basic.md#clearing)
 *  [Stop TTS](../notifications/commands.md#stop-tts)
 *  [Update Sensors](../notifications/commands.md#update-sensors)
 
-### Notification Cleared <span class='beta'>BETA</span>
+### Notification Cleared
 
 The Wear OS app also has support for [Notification Cleared](../notifications/notification-cleared/) events. An event will be sent from the companion app when the notification is cleared.
 

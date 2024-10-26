@@ -18,6 +18,7 @@ In order to use the app in your vehicle you will need to be signed in to either 
 - `alarm_control_panel` If a code is not required will allow for `arm_away` & `disarm` otherwise no action
 - `button`
 - `cover`
+- `fan` <span class='beta'>BETA</span>
 - `input_boolean`
 - `input_button`
 - `light`
@@ -51,7 +52,7 @@ Notifications in AA, share settings with your phone and do not support all notif
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           title: "Door unlocked"
           message: "Everyone left home but the door is still unlocked"
@@ -67,4 +68,15 @@ Notifications in AA, share settings with your phone and do not support all notif
 The sensors available for AA and AAOS are described on the main [sensors](../core/sensors.md#android-sensors) page. The below list of sensors are unique to AA and AAOS:
 
 *  [Android Auto Connection](../core/sensors.md#android-auto)
-*  [Car Sensors](../core/sensors.md#car-sensors) - Currently unavailabe for AAOS users
+*  [Car Sensors](../core/sensors.md#car-sensors)
+
+Enabling or disabling sensors is only possible while the vehicle is parked. How to change your enabled sensors, depends on how you installed the app:
+
+ - Installed from the Play Store
+   1. On another device, go to [**Settings** > **Devices & services**](https://my.home-assistant.io/redirect/integrations/) > **Devices**, and select your vehicle.
+   2. Select the sensor you want to change, click on the cogwheel, and turn **Enabled** on or off. 
+   3. Start the app in your vehicle to update the sensors.
+   4. If you enabled any sensors that require special permissions, the app will post a notification to complete enabling them. Tap on the notification to open the app, enable the sensor again and grant any requested permissions.
+ - Installed from the car manufacturer's store
+   1. Tap on **Native mode** in the top right of the screen.
+   2. Go to **Settings** > **Companion app** > **Manage sensors**, and enable or disable your sensors.

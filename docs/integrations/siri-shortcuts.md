@@ -17,8 +17,8 @@ As an example, if you wanted to create a shortcut to turn on a light (`light.por
 5. Tap the large plus to add another action, search for "Home Assistant" and select "Call Service".
 6. Tap "Service" which is highlighted in "Call Service with data".
 7. Scroll through the list of available services and find `light.turn_on`.
-8. Tap the arrow next at the end of the "Call Service with data" line and in the "Server" field select the Home Assistant server you wish to call the service on.
-9. As long as the Dictionary action is above the Home Assistant action there is no need to enter anymore details. If you prefer not to use the Dictionary action, you can select "Show More" and enter the service data in JSON format in the "Service Data" field.
+8. Tap the arrow next at the end of the "Call Service with data" line and in the "Server" field select the Home Assistant server you wish to perform the action on.
+9. As long as the Dictionary action is above the Home Assistant action there is no need to enter anymore details. If you prefer not to use the Dictionary action, you can select "Show More" and enter the action data in JSON format in the "Service Data" field.
 10. Tap next and enter or record a name/phrase to use with "Hey, Siri" to trigger the shortcut.
 
 The final shortcut should look similar to this:
@@ -27,13 +27,13 @@ The final shortcut should look similar to this:
 
 ## Shortcut Flow
 
-In the previous example we will used the Dictionary action to define our service data, this is an example of one action provide data to a subsequent action in the Shortcut flow. These data can come from other apps or other actions provided by Home Assistant, such as Render Text to get the state of an entity in Home Assistant. By default empty fields will try to use data on your device's clipboard if no other flow or payload data is provided.
+In the previous example we will used the Dictionary action to define our action data, this is an example of one action provide data to a subsequent action in the Shortcut flow. These data can come from other apps or other actions provided by Home Assistant, such as Render Text to get the state of an entity in Home Assistant. By default empty fields will try to use data on your device's clipboard if no other flow or payload data is provided.
 
 ## Actions
 
 ### Call Service
 
-You can call any service set up in Home Assistant (see the [Services Page in Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/)). As used in the [example above](#example).
+You can call any action set up in Home Assistant (see the [Actions Page in Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/)). As used in the [example above](#example).
 
 ### Fire Event
 
@@ -81,7 +81,7 @@ Shortcuts are deeply integrated into the OS. After creating one, you have numero
 You can trigger a Shortcut from Home Assistant using a notification like so:
 
 ```yaml
-- service: notify.mobile_app_<your_device_id_here>
+- action: notify.mobile_app_<your_device_id_here>
   data:
     message: "Trigger a Shortcut!"
     data:
@@ -110,8 +110,8 @@ Once you complete the Shortcut, it'll return you to Home Assistant and fire an e
 | `status` | `success`, `failure`, `cancelled` | The status of the execution |
 | `result` | Varies | The result provided by the Shortcut itself |
 | `error` | Dictionary, keys `error-Code` and `errorMessage` | Error description from the Shortcuts app if failure|
-| `input` | Varies | `shortcut` value in service call |
-| `name` | Varies | `shortcut.name` value in service call |
+| `input` | Varies | `shortcut` value in action |
+| `name` | Varies | `shortcut.name` value in action |
 
 ## Personal Automation
 
@@ -120,11 +120,9 @@ With Shortcuts Personal Automation, you can get the best of both worlds - by usi
 * Trigger your Home Assistant "morning routine" automation after stopping or snoozing the Wake-Up alarm on your iPhone.
 * When starting a workout on your Apple Watch, use Home Assistant to play your workout playlist. When finishing a workout on your Apple Watch, use Home Assistant to turn on your fan to cool down.
 * Get perfect car presence in Home Assistant by toggling an `input_boolean` in Home Assistant when you connect or disconnect from CarPlay, or connect to your cars Bluetooth system.
-* You can ensure that any Home Assistant automations using the iOS app's "Battery State" sensor run immediately by creating a Shortcuts personal automation with the "Charger" trigger (iOS 14) along with the "Send Location" Home Assistant app action. An example use of this is triggering your bedtime routine automation immediately after your phone is plugged in at night time, rather than waiting for the next sensors background update.
+* You can ensure that any Home Assistant automations using the iOS app's "Battery State" sensor run immediately by creating a Shortcuts personal automation with the "Charger" trigger (iOS 17) along with the "Send Location" Home Assistant app action. An example use of this is triggering your bedtime routine automation immediately after your phone is plugged in at night time, rather than waiting for the next sensors background update.
 * Place an NFC sticker on the lid of your pills bottle. Each time you take your medicine, scan the NFC sticker with your iPhone. Home Assistant can keep a log of the exact times you take your medicine, increment a [counter](https://www.home-assistant.io/integrations/counter/) which will help you know when to refill your prescription, and more.
 
-To create a Personal Automation in the Shortcuts app, go to the "Automations" tab, press the "+" button in the top right corner, and then tap the "Create Personal Automation" button. If you don't have any existing Automations in the shortcut app, just tap the "Create Personal Automation" button. There are 20 triggers available on iOS 14. See Apple's [Shortcuts user guide](https://support.apple.com/guide/shortcuts/create-a-new-personal-automation-apdfbdbd7123/3.5/ios/13.5) for more information on creating Personal Automations.
+To create a Personal Automation in the Shortcuts app, go to the "Automations" tab, press the "+" button in the top right corner, and then tap the "Create Personal Automation" button. If you don't have any existing Automations in the shortcut app, just tap the "Create Personal Automation" button. There are 21 triggers available on iOS 17. See Apple's [Shortcuts user guide](https://support.apple.com/guide/shortcuts/create-a-new-personal-automation-apdfbdbd7123/3.5/ios/13.5) for more information on creating Personal Automations.
 
-In iOS 14 the following personal automation trigger types can run automatically without any interaction: Time of Day, Alarm, Sleep, CarPlay, Apple Watch Workout, NFC, Open App, Close App, Airplane Mode, Do Not Disturb, Low Power Mode, Battery Level, Charger. Make sure to turn off the "Ask Before Running" toggle. 
-
-The remaining seven triggers: Arrive, Leave, Before I Commute, Email, Message, Wi-Fi, and Bluetooth require manual interaction in the form of tapping a notification in order to execute the shortcut.
+In iOS 17 all personal automation trigger types can run automatically without any interaction, except for the "Before I Commute" trigger.

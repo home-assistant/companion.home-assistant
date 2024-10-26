@@ -205,6 +205,7 @@ Not all features are supported by Android at the moment but eventually most feat
       <th><img alt="Android" src="/assets/android.svg" /> Full</th>
       <th><img alt="Android" src="/assets/android.svg" /> Minimal</th>
       <th><img alt="iOS" src="/assets/iOS.svg" /></th>
+      <th><img alt="macOS" src="/assets/macOS.svg" /></th>
     </tr>
   </thead>
   <tbody>
@@ -577,8 +578,8 @@ Not all features are supported by Android at the moment but eventually most feat
     </tr>
     <tr>
       <td><a href="/docs/core/sensors">Displays</a></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td></td>
       <td>✅</td>
     </tr>
@@ -636,6 +637,13 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
       <td></td>
       <td>✅</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><a href="/docs/core/sensors#health-connect-sensors">Health Connect</a></td>
+      <td>✅</td>
+      <td></td>
+      <td></td>
       <td></td>
     </tr>
     <tr>
@@ -716,7 +724,7 @@ Not all features are supported by Android at the moment but eventually most feat
       <td></td>
     </tr>
     <tr>
-      <td><a href="/docs/core/sensors#phone-state-sensor">Phone State</a></td>
+      <td><a href="/docs/core/sensors#phone-sensors">Phone Sensors</a></td>
       <td>✅</td>
       <td>✅</td>
       <td></td>
@@ -759,13 +767,6 @@ Not all features are supported by Android at the moment but eventually most feat
     </tr>
     <tr>
       <td><a href="/docs/core/sensors#next-alarm-sensor">Next Alarm</a></td>
-      <td>✅</td>
-      <td>✅</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="/docs/core/sensors#screen-brightness-sensor">Screen Brightness</a></td>
       <td>✅</td>
       <td>✅</td>
       <td></td>

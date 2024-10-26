@@ -45,13 +45,17 @@ On macOS, sensors update in the same situations as above as well as immediately 
 | Sensor | Attributes | Description |
 | --------- | --------- | ----------- |
 | `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
+| `sensor.app_version` | None | The current **Home Assistant companion App for iOS** app version. |
 | `sensor.average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
 | `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
+| `sensor.location_permission` | None | The current location permission that was selected by the user. The permission can be set via the location permission popup or modified in the iOS settings. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.steps` | None | The number of steps taken by the user. |
+| `sensor.watch_battery_level` | None | The battery level of 1 paired Apple Watch. Requires any Home Assistant complication installed on your watch face. |
+| `sensor.watch_battery_state` | None | The current charging state (either Charging, Not Charging, or Full) of 1 paired Apple Watch. Requires any Home Assistant complication installed on your watch face. |
 
 ![macOS](/assets/macOS.svg)Specific Sensors
 
@@ -101,32 +105,31 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | `sensor.app_memory` | [See Below](#app-memory-sensor) | Information about the memory that is available for the app. |
 | [App Usage Sensors](#app-usage-sensors) | None | Sensors that represent how the app is treated based on its usage. |
 | [Audio Sensors](#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
-| [Battery Sensors](#battery-sensors) | None | Several different sensors around the state of the devices battery. |
+| [Battery Sensors](#battery-sensors) | None | Several different sensors around the state of the device\'s battery. |
 | [Bluetooth Sensors](#bluetooth-sensors) | [See Below](#bluetooth-sensors) | Several different sensors about the state of bluetooth on the device. Sensors are also available for beacon transmitting and monitoring. |
 | [Car Sensors](#car-sensors) | [See Below](#car-sensors) | Several different sensors about the state of the car. |
 | `sensor.current_time_zone` | [See Below](#current-time-zone-sensor) | The current time zone the device is in. |
 | `sensor.current_version` | None | The current installed version of the application. |
+| [Display Sensors](#display-sensors)| [See Below](#display-sensors) | Several sensors about the state of the device\'s display. |
 | [Dynamic Color](#dynamic-color-sensor) | RGB Color | The hexadecimal color value for the accent color used in the current device theme. |
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
 | `sensor.high_accuracy_update_interval` | None | The update interval for high accuracy mode on the device. |
 | [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
-| [Mobile Data Sensors](#mobile-data-sensors) | None | Several different sensors around the state of mobile data. |
-| [Notification Sensors](#notification-sensors) | See Below | Details about the notifications on the device. |
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
 | `sensor.last_update` | None | The state will reflect the intent that caused the last update to get sent. |
 | `sensor.last_used_app` | None | The last used application on the device. |
 | `sensor.light` | None | The current level of illuminance the device detects. |
-| `sensor.phone_state` | None | The only tracked states are `idle`, `ringing` or `offhook`, no other information is accessed. |
+| [Mobile Data Sensors](#mobile-data-sensors) | None | Several different sensors around the state of mobile data. |
+| `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
+| [Notification Sensors](#notification-sensors) | See Below | Details about the notifications on the device. |
+| [Phone Sensors](#phone-sensors) | None | Sensors that represent different states of the phone modem. |
 | `sensor.pressure` | None | The pressure reading from the device. |
 | `sensor.proximity` | None | The current proximity reading from the device, certain devices will only show boolean value of `near` or `far`. |
 | `sensor.public_ip` | None | The public IP address of the device as generated by ipify API. |
-| `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
-| `sensor.screen_brightness` | [See Below](#screen-brightness-sensor) | The current value of screen brightness. |
-| `sensor.screen_off_timeout` | None | The current value of screen off timeout setting. |
 | `sensor.steps` | None | The number of steps taken from the user since the last device reboot. Requires activity recognition permissions on supported devices. |
 | [Storage Sensors](#storage-sensor) | [See Below](#storage-sensor) | The amount of total and available internal & external storage on your Android device. |
 | [Traffic Stats Sensor](#traffic-stats-sensor) | None | Amount of data transmitted and received from mobile and total device usage since last reboot. |
@@ -241,18 +244,18 @@ These sensors use the [AudioManager API](https://developer.android.com/reference
 
 | Sensor | Description |
 | --------- | --------- |
-| `audio_mode` | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `in_call`, `in_communication` or `unknown`. This sensor will update during the normal interval. |
+| `audio_mode` | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `call_redirect`, `communication_redirect`, `in_call`, `in_communication` or `unknown`. This sensor will update during the normal interval. |
 | `is_headphones` | Boolean value if headsets or headphones are plugged in, will update as soon as the device detects the change. |
 | `is_mic_muted` | Boolean value if the microphone is currently muted, Android 10+ will update as this value changes. |
 | `is_music_active` | Boolean value if the device is actively playing music, this sensor will update during the normal interval. |
 | `is_speakerphone_on` | Boolean value if the device speakerphone is enabled, Android 10+ will update as this value changes. |
 | `ringer_mode` | The ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. This sensor will update as soon as the ringer mode changes. |
-| `volume_level_*` | The current device volume level for the given volume attributes: `accessibility`, `alarm`, `call`, `dtmf`, `music`, `notification`, `ring`, `system`. These sensors will update during the normal interval. |
+| `volume_level_*` | The current device volume level for the given volume attributes: `accessibility`, `alarm`, `call`, `dtmf`, `music`, `notification`, `ring`, `system`. These sensors will update during the normal interval, or as soon as a change is detected. |
 
 
 ## Battery Sensors
 ![iOS](/assets/iOS.svg) <br />
-The Battery State sensor (`sensor.battery_state`) provides information on the current status of the devices battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
+The Battery State sensor (`sensor.battery_state`) provides information on the current status of the device\'s battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
 
 ![Android](/assets/android.svg)<br />
 The battery sensors listed below describe the state of the battery for a few different data points. The sensor's icon reflects the charging status, and type of charging being used. The `battery_state`, `charger_type` and `is_charging` sensor will be updated when the device has a charger connected or disconnected. The `battery_health`, `battery_level`, `battery_power` and `battery_temperature` sensors will be updated any time any of the other sensors get an update as well as when the device reports low battery or when it has recovered from the low battery alert. All of these sensors make use of [BatteryManager](https://developer.android.com/reference/android/os/BatteryManager).
@@ -266,10 +269,15 @@ The battery sensors listed below describe the state of the battery for a few dif
 | `battery_temperature` | The current battery temperature |
 | `charger_type` | The type of charger being used on the device |
 | `is_charging` | Whether or not the device is actively charging |
+| `remaining_charge_time` | Computed remaining charge time in minutes. Returns `unavailable` if no time can be computed: either there is not enough current data to make a decision or the battery is currently discharging. Returns `0` if calculation is not complete but device is currently charging. |
 
-![Android](/assets/android.svg)
+:::info
+The `battery_power` sensor converts the values returned by the device to amperes and volts. However, some devices do not follow Android documentation and may return values in a different unit, which results in the sensor being incorrect. For these devices you may need to adjust the sensor setting for 'Battery current divisor' to properly convert the `current` to amperes or 'Battery voltage divisor' to properly convert the `voltage` to volts.
 
-The `battery_power` sensor attempts to convert microamperes to amperes however some devices do not follow Android documentation and may return a different unit. For these devices you may need to adjust the sensor setting for `Battery Current Divisor` to properly convert the `current` to amperes.
+Common values for the Battery current divisor: 1000000 (default, microamperes), 1000 (milliamperes), 1000000000 (nanoamperes)
+
+Common values for the Battery voltage divisor: 1000 (default, millivolts), 1 (no conversion required, volts)
+:::
 
 ## Bluetooth Sensors
 ![Android](/assets/android.svg)<br />
@@ -284,7 +292,7 @@ This Bluetooth Connection state will be the total number of connected bluetooth 
 There will also be a binary sensor for the `bluetooth_state` that will represent whether or not bluetooth is turned on for the device. This sensor will update anytime the state of bluetooth changes.
 
 ![Android](/assets/android.svg)
-A BLE Transmitter sensor allows your device to transmit a BLE iBeacon. The iBeacon is capable of being detected by the [iBeacon integration](https://www.home-assistant.io/integrations/ibeacon) if your device sends the device name ([see why here](https://github.com/home-assistant/android/pull/2941#issuecomment-1272379540)). This sensor can also be useful in conjunction with projects like [roomassistant](https://www.room-assistant.io/) and [esp32-mqtt-room ](https://jptrsn.github.io/ESP32-mqtt-room/) to allow room level tracking.  The current transmitting ID (UUID-Major-Minor) is reported as an attribute that can be copied for use with these systems.
+A BLE Transmitter sensor allows your device to transmit a BLE iBeacon. The iBeacon is capable of being detected by the [iBeacon integration](https://www.home-assistant.io/integrations/ibeacon) if your device sends the device name ([see why here](https://github.com/home-assistant/android/pull/2941#issuecomment-1272379540)). If your device does not send its device name, it can still be detected if you explicitly allow the UUID via the iBeacon integration options. This sensor can also be useful in conjunction with projects like [roomassistant](https://www.room-assistant.io/) and [esp32-mqtt-room ](https://jptrsn.github.io/ESP32-mqtt-room/) to allow room level tracking.  The current transmitting ID (UUID-Major-Minor) is reported as an attribute that can be copied for use with these systems.
 
 :::caution
 This sensor can impact battery life, particularly if used wih Transmit Power set to High. The iBeacon is transmitted every second (low latency to save battery, but sufficient for room presence).
@@ -296,6 +304,7 @@ There are also settings to alter:
 *   the Transmit power (between Ultra Low, Low, Medium and High)
 *   the Advertise mode (between Low Power (1Hz), Balanced (3Hz) and Low latency (10Hz))
 *   the Measured power at 1 meter (must be a negative number)
+*   whether Transmit is only enabled on Home Wifi Network SSIDs 
 
 A Transmit setting toggle will start or stop the BLE transmissions. This setting as well as most of the above settings can be changed via the [notification command](../notifications/commands.md#ble-beacon-transmitter).
 
@@ -327,7 +336,9 @@ The sensors listed below describe the state of the car for a few different data 
 | `car_fuel` | The percentage of fuel remaining |
 | `car_fuel_type` | List of available fuel types for the car. |
 | `car_name` | The name of the car. The manufacturer name and manufactured year are in the attributes |
-| `car_odometer` | The the value of the car odometer in meters |
+| `car_odometer` | The value of the car odometer in meters |
+| `car_range_remaining` | The range remaining for the car in meters <span class='beta'>BETA</span> |
+| `car_speed` | The speed of the car in meters per second <span class='beta'>BETA</span> |
 
 ## Cellular Provider Sensor
 The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
@@ -377,7 +388,8 @@ For Android several different types of connection sensors are available and they
 | `signal_strength` | The signal strength of the device to the WiFi network |
 | `wifi_state` | Whether or not WiFi is turned on for the device |
 | `transport_type` | The transport type for the current network connection. An attribute will reflect if the current network is metered. |
-| `hotspot_state` | <span class='beta'>BETA</span> Whether or not the device is currently broadcasting a WiFi hotspot. (Not available on Wear OS) |
+| `hotspot_state` | Whether or not the device is currently broadcasting a WiFi hotspot. (Not available on Wear OS) |
+| `ip6_addresses` | The ip6_addresses bound to the currently active network |
 
 ![Android](/assets/android.svg) The `bssid` sensor offers settings to let you rename the current mac address to help avoid the need for templates and secret usage in automations and the front end. This is generally useful if you have multiple access points and want an easy way to differentiate between them. These settings are turned off by default. These sensors require either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run.
 
@@ -396,6 +408,23 @@ This sensor will represent the current time zone the device is in. There are als
 ![Android](/assets/android.svg)
 This sensor will represent the current installed version of the Android app.
 
+## Display Sensors
+
+### Screen Brightness Sensor
+![Android](/assets/android.svg)<br />
+This sensor will report the screen brightness value as its state. An attribute also exists if the screen is currently using automatic brightness mode or not. This sensor makes use of the [Settings.System API](https://developer.android.com/reference/android/provider/Settings.System).
+
+### Screen Off Timeout Sensor
+![Android](/assets/android.svg) <br />
+This sensor will report the screen off timeout value as its state, in milliseconds. This sensor makes use of the [Settings.System API](https://developer.android.com/reference/android/provider/Settings.System).
+
+### Screen Orientation Sensor
+![Android](/assets/android.svg) <br />
+This sensor reports the screen's orientation, when the screen is on and the orientation changes this sensor will update immediately. This sensor uses the [Orientation API](https://developer.android.com/reference/android/content/res/Configuration.html#orientation).
+
+### Screen Rotation Sensor
+![Android](/assets/android.svg) <br />
+This sensor reports the degrees of rotation relative to the device's "natural" orientation. This sensor will only update for following rotation angles: `0`, `90`, `180` & `270`. This sensor uses the [Rotation API](https://developer.android.com/reference/android/view/Display.html#getRotation()).
 
 ## Dynamic Color Sensor
 ![Android](/assets/android.svg) Only available on devices with support for Material 3 Dynamic color.
@@ -470,61 +499,6 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 
 These sensors will reflect various states from the [Keyguard Manager](https://developer.android.com/reference/android/app/KeyguardManager). You will be able to determine if the device is actively locked, has a password setup or even if the device requires a password to unlock. These sensors will update with the periodic sensor interval.
 
-## NFC State Sensor
-![Android](/assets/android.svg)
-
- This sensors state will reflect if the device has its NFC sensor currently enabled or not. This sensor will update as soon state changes are detected. Data is provided by [NfcAdapter](https://developer.android.com/reference/android/nfc/NfcAdapter).
-
-## Notification Sensors
-![Android](/assets/android.svg)<br />
-
-Note: Sensors with Allow Lists will not appear as new entities in Home Assistant until one of the allowed apps receives a new notification.
-
-### Last Notification
-
-This sensor will reflect the last notification posted on the device. This sensor requires a special permission that the app will take the user to so they can grant access to notifications. This sensors state will default to the text of the notification or if not available the posting package name. This sensor offers a setting for an Allow List to let the user select which packages they wish to get notification data from, notifications sent by Home Assistant are always ignored. You need to either create an allow list or enable the setting to "Disable Allow List Requirement". Keep in mind without an allow list this sensor has the potential to drain a lot of battery. We highly recommend creating an allow list over disabling this requirement. This can be very useful to integrate any app that sends a notification but does not offer direct integration (ex: food delivery apps or 2FA SMS codes). There are several attributes a user can expect to see, although not all attributes will contain data. This sensor makes use of the [NotificationListenerService API](https://developer.android.com/reference/android/service/notification/NotificationListenerService#onNotificationRemoved(android.service.notification.StatusBarNotification)).  More details on each attribute can be found in the [Notification Extras](https://developer.android.com/reference/android/app/Notification).
-
-### Last Removed Notification
-
-This sensor is similar to Last Notification except that it will update when a notification has been removed from the device, either by the user or an application. You can expect to see similar attributes for this sensor, some of which are outlined below. This sensor requires the same permission as mentioned up above. This sensor also has an allow list that functions similar to Last Notification.
-
-### Active Notification Count
-
-This sensor will reflect the total active notifications on the device. This count will include notifications that are persistent and/or silent. At times it may even include the Sensor Worker notification. This sensor will update whenever any of the other sensors have an update. This sensor requires the same permissions as mentioned in Last Notification. There is no allow list for this sensor.<br /><br />
-
-
-Below you can find some details that can be given with some notifications.
-
-
-| Attribute | Description |
-| --------- | --------- |
-| `android.appInfo` | App Info that contains the package name. |
-| `android.infoText` | Text that is informative to the notification. |
-| `android.largeIcon` | The large icon of the notification. |
-| `android.progress` | The progress of the notification, if it has a progress bar. |
-| `android.progressIndeterminate` | Whether or not the progress can be determined. |
-| `android.progressMax` | The max position of the progress (ex: 100 for 100%). |
-| `android.reduced.images` | If images on the notification were reduced. |
-| `android.remoteInputHistory` | The most recent input for the notification. |
-| `android.showChronometer` | If the chronometer is shown. |
-| `android.showWhen` | If the notification should be shown at a specific time. |
-| `android.subText` | The subtitle of the notification. |
-| `android.text` | The text of the notification. |
-| `android.title` | The title of the notification. |
-| `is_clearable` | If the notification can be cleared. |
-| `is_ongoing` | If the notification is persistent on the device. |
-| `package` | The package that posted the notification. |
-| `post_time` | The time the notification was posted on the device. |
-| `channel_id` | The ID of the channel the notification posted to. This attribute is only available on Android 8+. |
-| `group_id` | The ID of the group the notification posted to. |
-| `category` | The category that the notification defined. |
-
-
-### Media Session Sensor
-![Android](/assets/android.svg)<br />
-This sensor requires notification permissions in order to be enabled and send data. The state will be the playback state of the primary media session. If no media sessions are active then the state will be `unavailable`. Attributes will include a total count of active sessions and media data from all active sessions separated by package name. This sensor will update during the normal sensor update interval. To get the most out of this sensor we recommend using [Last Notification](#last-notification) to hook into your media apps to send faster updates. This sensor uses the [MediaController](https://developer.android.com/reference/android/media/session/MediaController) and [MediaSessionManager](https://developer.android.com/reference/android/media/session/MediaSessionManager) APIs to get the data.
-
-
 ## Last Reboot Sensor
 ![Android](/assets/android.svg)<br />
 This sensors state will be the date and time of the last reboot from the device in UTC format. The sensor will update during the normal sensor update interval. The state will be `unavailable` if the timestamp cannot be determined. This sensor uses the [SystemClock](https://developer.android.com/reference/android/os/SystemClock?hl=en) and current [System](https://developer.android.com/reference/java/lang/System?hl=en) time to calculate the timestamp. This sensor offers a deadband setting, that defaults to 1 minute, to account for time calculation issues seen over certain carriers.
@@ -561,7 +535,7 @@ This sensor displays exactly what caused the last update of location and sensor 
 | Signaled | Triggered when the app detects a change, such as battery state changes, while running. |
 
 ## Last Used App Sensor
-![Android](/assets/android.svg)<br />
+![Android](/assets/android.svg) 6+<br />
 
 The state of the sensor will always be the package name of the last used application to ensure it is always a unique value. The label of the application will be an attribute of the sensor, if it is known. This sensor updates during the normal sensor update interval and makes use of [UsageStatsManager API](https://developer.android.com/reference/android/app/usage/UsageStatsManager).
 
@@ -589,9 +563,64 @@ This sensors state will be the date and time of the next alarm in UTC format. Th
 | `Time in Milliseconds` | The time date and time of the next alarm in milliseconds. |
 
 
+## NFC State Sensor
+![Android](/assets/android.svg)
+
+ This sensors state will reflect if the device has its NFC sensor currently enabled or not. This sensor will update as soon state changes are detected. Data is provided by [NfcAdapter](https://developer.android.com/reference/android/nfc/NfcAdapter).
+
+## Notification Sensors
+![Android](/assets/android.svg)<br />
+
+Note: Sensors with Allow Lists will not appear as new entities in Home Assistant until one of the allowed apps receives a new notification.
+
+### Last Notification
+
+This sensor will reflect the last notification posted on the device. This sensor requires a special permission that the app will take the user to so they can grant access to notifications. This sensors state will default to the text of the notification or if not available the posting package name. This sensor offers a setting for an Allow List to let the user select which packages they wish to get notification data from, notifications sent by Home Assistant are always ignored. You need to either create an allow list or enable the setting to "Disable Allow List Requirement". Keep in mind without an allow list this sensor has the potential to drain a lot of battery. We highly recommend creating an allow list over disabling this requirement. This can be very useful to integrate any app that sends a notification but does not offer direct integration (ex: food delivery apps or 2FA SMS codes). There are several attributes a user can expect to see, although not all attributes will contain data. This sensor makes use of the [NotificationListenerService API](https://developer.android.com/reference/android/service/notification/NotificationListenerService#onNotificationRemoved(android.service.notification.StatusBarNotification)).  More details on each attribute can be found in the [Notification Extras](https://developer.android.com/reference/android/app/Notification).
+
+### Last Removed Notification
+
+This sensor is similar to Last Notification except that it will update when a notification has been removed from the device, either by the user or an application. You can expect to see similar attributes for this sensor, some of which are outlined below. This sensor requires the same permission as mentioned up above. This sensor also has an allow list that functions similar to Last Notification.
+
+### Active Notification Count
+
+This sensor will reflect the total active notifications on the device. This count will include notifications that are persistent and/or silent. At times it may even include the Sensor Worker notification. This sensor will update whenever any of the other sensors have an update. This sensor requires the same permissions as mentioned in Last Notification. There is no allow list for this sensor.<br /><br />
+
+
+Below you can find some details that can be given with some notifications. These will be provided as attributes unless you disable the corresponding sensor setting.
+
+
+| Attribute | Description |
+| --------- | --------- |
+| `android.appInfo` | App Info that contains the package name. |
+| `android.infoText` | Text that is informative to the notification. |
+| `android.largeIcon` | The large icon of the notification. |
+| `android.progress` | The progress of the notification, if it has a progress bar. |
+| `android.progressIndeterminate` | Whether or not the progress can be determined. |
+| `android.progressMax` | The max position of the progress (ex: 100 for 100%). |
+| `android.reduced.images` | If images on the notification were reduced. |
+| `android.remoteInputHistory` | The most recent input for the notification. |
+| `android.showChronometer` | If the chronometer is shown. |
+| `android.showWhen` | If the notification should be shown at a specific time. |
+| `android.subText` | The subtitle of the notification. |
+| `android.text` | The text of the notification. |
+| `android.title` | The title of the notification. |
+| `is_clearable` | If the notification can be cleared. |
+| `is_ongoing` | If the notification is persistent on the device. |
+| `package` | The package that posted the notification. |
+| `post_time` | The time the notification was posted on the device. |
+| `channel_id` | The ID of the channel the notification posted to. This attribute is only available on Android 8+. |
+| `group_id` | The ID of the group the notification posted to. |
+| `category` | The category that the notification defined. |
+
+
+### Media Session Sensor
+![Android](/assets/android.svg)<br />
+This sensor requires notification permissions in order to be enabled and send data. The state will be the playback state of the primary media session. If no media sessions are active then the state will be `unavailable`. Attributes will include a total count of active sessions and media data from all active sessions separated by package name. This sensor will update during the normal sensor update interval. To get the most out of this sensor we recommend using [Last Notification](#last-notification) to hook into your media apps to send faster updates. This sensor uses the [MediaController](https://developer.android.com/reference/android/media/session/MediaController) and [MediaSessionManager](https://developer.android.com/reference/android/media/session/MediaSessionManager) APIs to get the data.
+
+
 ## Pedometer Sensors
 ![iOS](/assets/iOS.svg)<br />
-The pedometer sensors provide step-counting data from the devices built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
+The pedometer sensors provide step-counting data from the device\'s built-in motion processor. They keep a tally of your daily on-foot activity, and reset at midnight. These sensors require motion permissions to be enabled.
 
 | Sensor | Description |
 | --------- | --------- |
@@ -604,9 +633,27 @@ The pedometer sensors provide step-counting data from the devices built-in motio
 ![Android](/assets/android.svg) Android users will only have a `sensor.steps` entity which will represent the total number of steps taken since the last device reboot. A recommended approach to getting your daily step count is to use the [Utility Meter integration](https://www.home-assistant.io/integrations/utility_meter) with `cycle: daily`. This sensor will update during the normal sensor update interval and makes use of the [Motion Sensor](https://developer.android.com/guide/topics/sensors/sensors_motion?hl=en). This sensor requires the [Activity Recognition permission](https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION).
 
 
-## Phone State Sensor
+## Phone Sensors
+
+### Data Network Type Sensor
 ![Android](/assets/android.svg)<br />
-This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your devices `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`. This sensor will update anytime a phone state change is detected and makes use of [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en). This sensor requires the [Read Phone State permission](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE).
+
+The radio technology (network type) provided by the SIM slot for data transmission. Data is provided by [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en).
+
+:::info
+Not all 5G networks are created equally, therefore some networks may identify as LTE
+:::
+
+
+### Phone State Sensor
+![Android](/assets/android.svg)<br />
+This sensor will only show up if a user explicitly grants the `Phone` permission for the app in your device\'s `App Info` screen. The only data tracked for this sensor are the following states: `idle`, `ringing`, `offhook`. This sensor will update anytime a phone state change is detected and makes use of [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en). This sensor requires the [Read Phone State permission](https://developer.android.com/reference/android/Manifest.permission#READ_PHONE_STATE).
+
+
+### Signal Strengh Sensor
+![Android](/assets/android.svg)<br />
+
+A sensor that represents the cellular signal strength in dBm provided by the SIM slot. Attributes will exist for signal quality and also Arbritary Strength Units. Due to power saving this data may not always be current. Data is provided by [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en).
 
 
 ## Power Save Sensor
@@ -626,16 +673,7 @@ This sensor will show the current proximity reading from the device. This sensor
 
 ## Public IP Sensor
 ![Android](/assets/android.svg)<br />
-This sensor uses the [ipify API](https://www.ipify.org/) in order to determine the devices public IP address. This sensor will update during the normal sensor update interval.
-
-
-## Screen Brightness Sensor
-![Android](/assets/android.svg)<br />
-This sensor will report the screen brightness value as its state. An attribute also exists if the screen is currently using automatic brightness mode or not. This sensor makes use of the [Settings.System API](https://developer.android.com/reference/android/provider/Settings.System).
-
-## Screen Off Timeout Sensor
-![Android](/assets/android.svg) <br />
-This sensor will report the screen off timeout value as its state, in milliseconds. This sensor makes use of the [Settings.System API](https://developer.android.com/reference/android/provider/Settings.System).
+This sensor uses the [ipify API](https://www.ipify.org/) in order to determine the device\'s public IP address. This sensor will update during the normal sensor update interval.
 
 ## Storage Sensor
 ![iOS](/assets/iOS.svg)<br />

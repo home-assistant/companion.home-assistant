@@ -3,10 +3,17 @@ title: "Overview"
 id: "apple-watch"
 ---
 
-Home Assistant has deep integration with the Apple Watch. You can display Home Assistant information as complications directly on your watch face or launch actions from the Watch app.
+Home Assistant has deep integration with the Apple Watch. You can display Home Assistant information as complications directly on your watch face and since app version 2024.9, run scripts, active scenes, and iOS Actions.
+
+## Home
+
+Since iOS App version 2024.9 release, you can now customize your Home Assistant watch experience using `Scripts`, `Scenes`, and `iOS Actions`.
+Using your iPhone, open the Companion app settings and under the **Apple Watch** section, look for **Configuration**. If you already had **iOS Actions** created, they will be migrated into the configuration screen. Select **Save** and reload on your watch.
+
+<img src='/assets/ios/watch-config.png' alt="Watch cofniguration screen" />
 
 :::info requirements
-The Apple Watch integration requires watchOS 5. In order to install watchOS 5 you must have an iPhone 5s or later with iOS 12 or later, and an Apple Watch Series 1 or newer. The first-generation Series 0 Apple Watch is not compatible with watchOS 5. You can identify your Apple Watch model [here](https://support.apple.com/HT204507).
+The Apple Watch integration requires watchOS 8. In order to install watchOS 8 you must have an Apple Watch Series 3 or newer. You can identify your Apple Watch model [here](https://support.apple.com/HT204507).
 :::
 
 ## Complication types
@@ -16,6 +23,10 @@ The Apple Watch has a variety of Faces and Complications. It's useful to consult
 - Text, which can render as a [template](https://www.home-assistant.io/docs/configuration/templating/), is displayed at various font weights and sizes depending on the template type.
 - Ring and Gauge, which appear circular lines. An open variant appears as a complete circle and a closed variant has concrete start and end locations in the icon. Rings and Gauges require numeric values between `0.0` (empty) and `1.0` (full) and also support [templates](https://www.home-assistant.io/docs/configuration/templating/).
 - Images can be selected from the [Material Design Icons](http://materialdesignicons.com) choices supported by the app. 
+
+:::info Supported Complication types
+As of watchOS 9, several (legacy) Complication types are no longer supported by Apple. The following Complication types can be used for watchOS 9 and higher: Graphic Circular, Graphic Corner, Graphic Rectangular & Modular Large. Further details on the different types can be found in the [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/components/system-experiences/complications/).
+:::
 
 :::note app version 
 Ring and Gauge features do not work in app releases prior to 2020.7.

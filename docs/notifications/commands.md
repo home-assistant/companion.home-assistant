@@ -13,6 +13,9 @@ The Companion apps offer a lot of different notification options. In place of po
 | `clear_badge` | Silently removes the badge from the App icon without displaying a notification. |
 | `clear_notification` | Removes a notification, [more details](basic.md#clearing). |
 | `update_complications` | Updates the complications on a paired Apple Watch. [More details](/apple-watch/complications.md). |
+| `update_widgets`* | Updates 'Gauge' and 'Details' widgets introduced on App v2024.7 (iOS will decide if the update is allowed or not, so don't worry if it doesn't work all the time). |
+
+\* On iOS, manual widget reloads are limited to around 40-70 per 24 hour, depending on how often you look at the widget. This will not always reset at exactly midnight.
 
 ![Android](/assets/android.svg)
 
@@ -48,7 +51,7 @@ The Companion apps offer a lot of different notification options. In place of po
 
 ![Android](/assets/android.svg)
 
-On Android you can send `message: command_activity` to launch any activity. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the devices Display over other apps Policy. This is required in order for the app to gain control of this setting.
+On Android you can send `message: command_activity` to launch any activity. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the device\'s Display over other apps Policy. This is required in order for the app to gain control of this setting.
 
 The `intent_action` parameter will need to be set to the Intent Action string, or the notification will post as normal. If the activity requires a URI then you will need set that as the `intent_uri`, otherwise the notification will post as normal. `intent_package_name` can be set to the package of where the activity is to be launched, otherwise Android will make a best effort to pick a default. If the package cannot be found then the notification will post as normal. You must know the intending URI (if required), action and package to start the activity. Typically this will be a documented feature if supported by the app.
 
@@ -68,7 +71,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_activity"
           data:
@@ -85,7 +88,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_activity"
           data:
@@ -118,7 +121,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_app_lock"
           data:
@@ -142,7 +145,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_auto_screen_brightness"
           data:
@@ -163,7 +166,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_ble_transmitter"
           data:
@@ -178,7 +181,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_ble_transmitter"
           data:
@@ -194,7 +197,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_ble_transmitter"
           data:
@@ -219,12 +222,30 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_ble_transmitter"
           data:
             command: "ble_set_uuid"
             ble_uuid: "b4306bba-0e3a-44df-9518-dc74284e8214"
+```
+
+<span class='beta'>BETA</span>
+
+Users can also change the measured power at 1 meter to help improve detection for their devices. This number must be a negative number. The default value `-59` will be set in some cases like junk characters, if data is missing or the number is positive the notification will post as normal on the device.
+
+```yaml
+automation:
+  - alias: Change BLE transmitter measured power
+    trigger:
+      ...
+    action:
+      - service: notify.mobile_app_<your_device_id_here>
+        data:
+          message: command_ble_transmitter
+          data:
+            command: ble_set_measured_power
+            ble_measured_power: "-75"
 ```
 
 ## Beacon Monitor
@@ -241,7 +262,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_beacon_monitor"
           data:
@@ -262,7 +283,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_bluetooth"
           data:
@@ -287,7 +308,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_broadcast_intent"
           data:
@@ -303,7 +324,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_broadcast_intent"
           data:
@@ -320,7 +341,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_broadcast_intent"
           data:
@@ -340,7 +361,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_broadcast_intent"
           data:
@@ -360,7 +381,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_broadcast_intent"
           data:
@@ -404,7 +425,7 @@ Currently supported types are:
 
 ![Android](/assets/android.svg) &nbsp;Android 6+ only
 
-On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the devices Notification Policy. This is required in order for the app to gain control of this setting.
+On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the device\'s Notification Policy. This is required in order for the app to gain control of this setting.
 
 In addition to sending the `message` you must also provide the state of Do Not Disturb that you wish to set as the `command`, see the table below for what is accepted. If the `command` does not match one of the listed commands then the notification will post as normal and the command will not process. This command is only available for users on Android 6+, users on lower versions will see the notification just like any other.
 <br />
@@ -425,7 +446,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_dnd"
           data:
@@ -446,7 +467,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_high_accuracy_mode"
           data:
@@ -461,7 +482,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_high_accuracy_mode"
           data:
@@ -481,7 +502,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_launch_app"
           data:
@@ -512,7 +533,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_media"
           data:
@@ -538,7 +559,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "request_location_update"
 ```
@@ -546,7 +567,7 @@ automation:
 Assuming the device receives the notification, it will attempt to get a location update within 5 seconds and report it to Home Assistant. This is a little bit hit or miss since Apple imposes a maximum time allowed for the app to work with the notification and location updates sometimes take longer than usual due to factors such as waiting for GPS acquisition.
 
 :::danger
-While it is possible to create an automation in Home Assistant to call this service regularly to update sensors, this is not recommended as doing this too frequently may have a negative impact on your device's battery life and health.
+While it is possible to create an automation in Home Assistant to call this action regularly to update sensors, this is not recommended as doing this too frequently may have a negative impact on your device's battery life and health.
 :::
 
 
@@ -554,7 +575,7 @@ While it is possible to create an automation in Home Assistant to call this serv
 
 ![Android](/assets/android.svg)
 
-On Android you can control the devices ringer mode by sending `message: command_ringer_mode` with an appropriate `command` as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. If the device has Do Not Disturb enabled then setting to `normal` or `vibrate` will turn it off. If the device does not have Do Not Disturb enabled then `silent` will turn it on.<br />
+On Android you can control the device\'s ringer mode by sending `message: command_ringer_mode` with an appropriate `command` as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. If the device has Do Not Disturb enabled then setting to `normal` or `vibrate` will turn it off. If the device does not have Do Not Disturb enabled then `silent` will turn it on.<br />
 
 | `command` | Description |
 | ------- | ----------- |
@@ -570,7 +591,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_ringer_mode"
           data:
@@ -589,7 +610,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_screen_brightness_level"
           data:
@@ -608,7 +629,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_screen_off_timeout"
           data:
@@ -629,7 +650,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_screen_on"
           data:
@@ -648,7 +669,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_stop_tts"
 ```
@@ -665,7 +686,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_persistent_connection"
           data:
@@ -683,7 +704,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_update_sensors"
 ```
@@ -692,7 +713,7 @@ automation:
 
 ![Android](/assets/android.svg)
 
-On Android you can control the devices volume level by sending `message: command_volume_level` with an appropriate `command` that must be a number. If `command` is larger than the maximum level then the maximum level will be used or if `command` is less than `0` then we will default to `0`, anything else will result in the notification posting to the device. `media_stream` is also required as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. Changing the volume level will have a direct impact on Do Not Disturb and Ringer Modes, behavior will vary from device to device.<br />
+On Android you can control the device\'s volume level by sending `message: command_volume_level` with an appropriate `command` that must be a number. If `command` is larger than the maximum level then the maximum level will be used or if `command` is less than `0` then we will default to `0`, anything else will result in the notification posting to the device. `media_stream` is also required as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. Changing the volume level will have a direct impact on Do Not Disturb and Ringer Modes, behavior will vary from device to device.<br />
 
 | `media_stream` | Description |
 | ------- | ----------- |
@@ -712,7 +733,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_volume_level"
           data:
@@ -734,7 +755,7 @@ automation:
     trigger:
       ...
     action:
-      - service: notify.mobile_app_<your_device_id_here>
+      - action: notify.mobile_app_<your_device_id_here>
         data:
           message: "command_webview"
           data:

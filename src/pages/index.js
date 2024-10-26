@@ -31,6 +31,9 @@ const features = [
           <b><a href='/docs/android-auto'>Android Auto/Automotive</a></b>
           {' '}Control your home from your Android Auto/Automotive compatible vehicle.
           <br />
+          <b><a href='/docs/carplay'>CarPlay</a></b>
+          {' '}Control your home from your CarPlay compatible vehicle.
+          <br />
           <b><a href='/docs/meta-quest'>Meta Quest</a></b>
           {' '}Get data from your Quest into Home Assistant.
           <br />
@@ -62,7 +65,17 @@ const features = [
         <a href="https://sidequestvr.com/app/6427/home-assistant" style={{ display: 'inline-block', width: '200px' }}>
           <img class="download-badge" width="175" src="https://sidequestvr.com/assets/images/branding/Get-it-on-SIDEQUEST.png" alt="Download on SideQuest" />
         </a>
-
+        <h2>Beta releases</h2>
+         <ul>
+          <li><a href="https://testflight.apple.com/join/1AlPbnLZ">
+             Home Assistant for iOS (Testflight)
+          </a>
+        </li>
+          <li><a href="https://play.google.com/apps/testing/io.homeassistant.companion.android">
+            Home Assistant for Android
+          </a>
+        </li>
+        </ul>
         <h2>Source Code</h2>
         <ul>
           <li><a href="https://github.com/home-assistant/iOS">
