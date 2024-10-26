@@ -38,7 +38,7 @@ automation:
       - condition: sun
         after: sunset
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         data:
           entity_id: light.frontdoor
 ```

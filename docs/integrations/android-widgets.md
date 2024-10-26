@@ -3,11 +3,25 @@ title: "Android Widgets"
 id: 'android-widgets'
 ---
 
-The ![Android](/assets/android.svg) Android app allows the user to create widgets on the home screen so the user can perform a variety of actions like execute a service call, display the state of an entity or even render a template. You can add the widget like you normally would for any app depending on your devices launcher. The widget will not work when Data Saver is enabled, you will also need to ensure that background data for the app is enabled. If you notice that a widget is no longer working try to recreate it. Widgets can also be edited by navigating to [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Widgets, if you are on Android 12 you can also edit the widget by long pressing it and clicking on the edit icon.
+The ![Android](/assets/android.svg) Android app allows the user to create widgets on the home screen so the user can perform a variety of actions like perform an action, display the state of an entity or even render a template. You can add the widget like you normally would for any app depending on your devices launcher. The widget will not work when Data Saver is enabled, you will also need to ensure that background data for the app is enabled. If you notice that a widget is no longer working try to recreate it. Widgets can also be edited by navigating to [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Widgets, if you are on Android 12 you can also edit the widget by long pressing it and clicking on the edit icon.
 
 Widgets can also be added from the Manage Widgets settings page, as long as the device supports it.
 
 ## Available widgets
+
+### Action button
+
+This widget will perform an action when it is tapped. The user will see a green check mark if the call was successful and red if not. Red would indicate either the widget was not setup properly, the Home Assistant server is unavailable or some other error that would be indicated in the Home Assistant log.
+
+You may set the checkbox "Require authentication". If it is set, device credentials (i.e. PIN, pattern, biometrics ...) are required before the action is performed.
+
+1.  Long press on any open space in the home screen
+2.  Scroll down to Home Assistant in the widget list
+3.  Drag the Action button widget to an open space on the home screen
+4.  Select the action you wish to perform
+5.  Fill in the required action data for the selected action
+6.  Supply a name and icon for the widget
+7.  Save the widget
 
 ### Entity State
 
@@ -39,28 +53,14 @@ This widget will let the user control any media player on their home screen and 
 
 ### Picture
 
-This widget shows the latest snapshot of a camera or an image entity, and updates every hour or when it is tapped.
+This widget shows the latest snapshot of a camera or an image entity, and updates every hour or when the widget is tapped(based on the configured tap action).
 
 1.  Long press on any open space in the home screen
 2.  Scroll down to Home Assistant in the widget list
 3.  Drag the Camera Widget to an open space on the home screen
 4.  Enter the Entity ID of the camera you wish to use
-5.  Save the widget
-
-### Service Call
-
-This widget will make the service call when it is tapped. The user will see a green check mark if the call was successful and red if not. Red would indicate either the widget was not setup properly, the Home Assistant server is unavailable or some other error that would be indicated in the Home Assistant log.
-
-You may set the checkbox "Require authentication". If it is set, device credentials (i.e. PIN, pattern, biometrics ...) are required before the service call is initiated.
-
-1.  Long press on any open space in the home screen
-2.  Scroll down to Home Assistant in the widget list
-3.  Drag the Service Call widget to an open space on the home screen
-4.  Select the service call you wish to perform
-5.  Fill in the required service data for the selected service call
-6.  Supply a name and icon for the widget
-7.  Save the widget
-
+5.  Select the desired action on tap ("Refresh" to update the image from the camera, "Open" to open the camera entity)
+6.  Save the widget
 
 ### Template
 

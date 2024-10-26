@@ -18,12 +18,17 @@ Actions are created from the Actions section of Companion App in [Configuration]
 - `Name`: the name of the action, this will be returned in the [Home Assistant event](https://www.home-assistant.io/docs/configuration/events/) fired by the app.
 - `Server`: if you have multiple Home Assistant servers connected, select the server the action should be sent to.
 - `Text`: the descriptive text shown on the phone and watch. It is best to keep this relatively short as there is limited space on each action's button.
-- `Text Color`: the color of the text defined above.
-- `Background Color`: the color of the button created for the action.
+- `Text Color`*: the color of the text defined above.
+- `Background Color`*: the color of the button created for the action. **(Requires `use_custom_colors`)**
 - `Icon`: an icon to display to the left of the text on the action's button.
 - `Icon Color`: the color of the icon on the action's button.
 - `Show in CarPlay`: boolean to display or hide action in CarPlay.
 - `Show in Watch`: boolean to display or hide action in Apple Watch.
+- `Use custom colors`**: boolean to enable custom colors in widgets and Apple watch, initially it is offered a tile-card UI, enabling this allows you to change background and text color. (Available from iOS App v2024.7.1)
+
+\* Requires `use_custom_colors` **true**
+
+** Available from iOS App v2024.7.1  
 
 For the three color fields, the color is selected by tapping the color-picker circle in each field.
 
@@ -35,15 +40,16 @@ You can define actions in your Home Assistant `configuration.yaml`. This require
 ios:
   actions:
     - name: Fred
-      background_color: "#000000"
+      background_color: "#000000" # Requires `use_custom_colors`
       label:
         text: "Hello, World"
-        color: "#ff0000"
+        color: "#ff0000" # Requires `use_custom_colors`
       icon:
         icon: earth
         color: "#ffffff"
       show_in_carplay: false
       show_in_watch: true
+      use_custom_colors: true
 ```
 
 Colors should be in hex format and icons should be from the [mdi](https://materialdesignicons.com/) set.
@@ -53,6 +59,10 @@ After saving these changes you will need to restart Home Assistant and then, in 
 When multiple servers are connected to the app there is no need to specify the `server` value in `configuration.yaml`, the app will automatically detect the origin of the action when imported.
 
 ## Using Actions
+
+After having filled in all action data (text, name, etc.), tap the **Create automation** button.
+
+*Alternatively:*
 
 When an action button is pressed a `ios.action_fired` event is fired on Home Assistant's event bus. The event data consists of a JSON-formatted dictionary of attributes relating to the action.
 
@@ -73,7 +83,7 @@ The attributes contained within `data` are:
 | `sourceDeviceID` | The device ID set in the Companion App section of [Configuration](https://my.home-assistant.io/redirect/config/) on your device. |
 | `sourceDeviceName` | The name of the device from which the action was triggered. This is the Device Name set in iOS under Settings App>General>About or for Android it is set in Settings > About Phone. |
 | `sourceDevicePermanentID` | A unique identifier of the device through which the action was triggered |
-| `triggerSource` | What part of iOS the action with fired from. Either: `widget` for the Today screen, `appShortcut` for quick actions accessed through 3D touch or `watch` if fired from an Apple Watch. |
+| `triggerSource` | What part of iOS the action with fired from. Either: `widget` for the Today screen, `appShortcut` for quick actions accessed through 3D touch or `watch` if fired from an Apple Watch. When triggering from Apple's CarPlay the source will be `carPlay`. |
 
 The attributes contained within `context` are:
 
@@ -97,7 +107,7 @@ automation:
         event_data:
           actionName: "Bed Time"
     action:
-      - service: light.turn_off
+      - action: light.turn_off
         entity_id: group.all_lights
 ```
 
@@ -111,9 +121,11 @@ The [Apple Watch App](/apple-watch/apple-watch.md) provides access to actions yo
 
 ## Home Screen Quick Actions
 
-[Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions and is accessed by 3D Touching the Home Assistant companion app icon on your home screen.
+[Home Screen Quick Actions](https://support.apple.com/guide/iphone/keep-apps-handy-iph414564dba/ios#iph1ffcbd691) provides a convenient shortcut to your actions. To access it, press and hold the Home Assistant companion app icon on your home screen.
 
 ## Today View Widget
+
+**(Discontinued in iOS App v2024.8, use iOS widgets instead)**
 
 The [Today View Widget](https://support.apple.com/en-gb/HT207122) is another route through which actions can be fired. To add the Home Assistant widget to your Today View:
 
