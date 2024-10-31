@@ -51,6 +51,7 @@ Each action may consist of the following keys:
 | `action` | **Required**. The identifier passed back in events | When set to `REPLY`, you will be prompted for text to send with the event. |
 | `title` | **Required**. The title of the button shown in the notification | |
 | `uri` | **Optional**. The URL to open when tapped | ![Android](/assets/android.svg) Android requires setting the `action` to `URI` to use this key. See [notes below](#uri-values). |
+| `behavior` | **Optional**. Set to `textInput` to prompt for text to return with the event. This also occurs when setting the action to `REPLY`. | Using this key allows you to use the `action` key to differentiate actions. ![Android](/assets/android.svg) On Android, this is only available when using the <span class='beta'>BETA</span>.|
 
 ### ![Android](/assets/android.svg) Android specific options
 
@@ -69,7 +70,6 @@ All of the following keys are optional.
 | `activationMode` | Set to `foreground` to launch the app when tapped. Defaults to `background` which just fires the event. | This is automatically set to `foreground` when providing a `uri`. |
 | `authenticationRequired` | `true` to require entering a passcode to use the action. | |
 | `destructive` | `true` to color the action's title red, indicating a destructive action. | |
-| `behavior` | `textInput` to prompt for text to return with the event. This also occurs when setting the action to `REPLY`. |
 | `textInputButtonTitle` | Title to use for text input for actions that prompt. | |
 | `textInputPlaceholder` | Placeholder to use for text input for actions that prompt. | |
 | `icon` | The icon to use for the notification. | Requires version 2021.10. See notes below. |
@@ -237,9 +237,9 @@ When the notification action is performed, the `mobile_app_notification_action` 
     "event_type": "mobile_app_notification_action",
     "data": {
         "action": "OPEN_<context_id_here>",
-        // will be present on:
-        // - Android and iOS, when `REPLY` is used as the action identifier
-        // - iOS when `behavior` is set to `textInput`
+        // will be present:
+        // - when `REPLY` is used as the action identifier
+        // - when `behavior` is set to `textInput`
         "reply_text": "Reply from user",
         // iOS-only, will be included if sent in the notification
         "action_data": {
