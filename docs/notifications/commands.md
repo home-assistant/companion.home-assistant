@@ -30,6 +30,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_beacon_monitor` | Turn Beacon Monitoring on or off. |
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
+| `command_flashlight` | Turn the flashlight LED on or off. <span class='beta'>BETA</span> |
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. |
 | `command_launch_app` | Launch an application, [see below](#launch-app) for how it works and whats required. |
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
@@ -451,6 +452,29 @@ automation:
           message: "command_dnd"
           data:
             command: "priority_only"
+```
+
+## Flashlight
+
+![Android](/assets/android.svg) <span class='beta'>BETA</span> &nbsp;Android 6+ only
+
+This command allows you to toggle the flashlight on or off directly from a notification, enabling control of the device's flashlight without opening the app. To use it, send `message: command_flashlight` with the `command` parameter set to either `turn_on` or `turn_off` to control the flashlight state.
+
+This command is only available for users on Android 6+, users on lower versions will see the notification just like any other.
+
+Example:
+
+```yaml
+automation:
+  - alias: Turn on flashlight
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_flashlight"
+          data:
+            command: "turn_on"
 ```
 
 ## High accuracy mode
