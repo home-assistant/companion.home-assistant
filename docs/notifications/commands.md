@@ -460,7 +460,7 @@ automation:
 
 This command allows you to toggle the flashlight on or off directly from a notification, enabling control of the device's flashlight without opening the app. To use it, send `message: command_flashlight` with the `command` parameter set to either `turn_on` or `turn_off` to control the flashlight state.
 
-This command is only available for users on Android 6+. If the device runs a lower version, the notification will not trigger any action.
+This command is only available for users on Android 6+, users on lower versions will see the notification just like any other.
 
 Example:
 
