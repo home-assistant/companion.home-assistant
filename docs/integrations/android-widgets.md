@@ -76,7 +76,7 @@ If the template in the widget isn't updating instantly, you're most likely hitti
 4.  Fill in the template data and observe the rendering below
 5.  Save the widget
 
-### Multi-action grid
+### Multi-action grid <span class='beta'>BETA</span>
 
 This widget lets the user set up multiple action buttons in a single widget. There's also a "Require authentication" option, which forces the user to authenticate before performing any action.
 
