@@ -491,6 +491,7 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
 | `health_connect_active_calories_burned` | kilocalories | The last estimate for number of active calories burned, excluding basal metabolic rate (BMR). |
+| `health_connect_heart_rate` | beats per minute | The last recorded heart rate. |
 | `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
 | `health_connect_weight` | grams | The last recorded weight. |
 
