@@ -491,6 +491,7 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
 | `health_connect_active_calories_burned` | kilocalories | The last estimate for number of active calories burned, excluding basal metabolic rate (BMR). |
+| `health_connect_blood_glucose` | milligrams per deciliter | The last recorded blood glucose reading in milligrams per deciliter. |
 | `health_connect_body_fat` | percent | The last recorded body fat percentage. |
 | `health_connect_distance` | meters | Total distance traveled since midnight. |
 | `health_connect_elevation_gained` | meters | Total elevation gained since midnight. |
