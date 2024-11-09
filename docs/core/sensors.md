@@ -485,7 +485,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
 
 ## Health Connect Sensors
-![Android](/assets/android.svg) <span class='beta'>BETA</span> &bull; 14+, only when installed from the Play Store<br />
+![Android](/assets/android.svg) <span class='beta'>BETA</span> &bull; 9+, only when installed from the Play Store (Android 9-13 ensure the [Health Connect app](https://play.google.com/store/apps/details?id=com.google.android.apps.healthdata) is installed and setup before enabling sensors)<br />
 These sensors will reflect health and fitness data stored by other apps on your device in [Health Connect](https://health.google/health-connect-android/). Unless otherwise noted, only the last 30 days of data is used.
 
 | Sensor | Unit | Description |
