@@ -593,6 +593,8 @@ automation:
 
 ### Progress Notifications
 
+<span class='beta'>BETA</span>
+
 You can create notifications with a progress bar by passing the `progress` option.
 
 The notification requires constant updates to track the progress. Once the process has completed you can remove the progress bar by sending a progress value of `-1`.
