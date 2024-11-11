@@ -597,7 +597,7 @@ automation:
 
 You can create notifications with a progress bar by passing the `progress` option.
 
-The notification requires constant updates to track the progress. Once the process has completed you can remove the progress bar by sending a progress value of `-1`.
+The notification requires constant updates to track the progress. Make sure to use `tag` to [replace](#replacing) the existing notification. Once the process has completed you can remove the progress bar by sending a progress value of `-1`.
 
 - progress - current progress value
 - progress_max - max value of your progress (defaults to `1`)
@@ -614,6 +614,7 @@ automation:
           title: "File Transfer"
           message: "File transfer in progress: 6 / 32 MB"
           data:
+            tag: file-transfer
             progress: 6
             progress_max: 32
 ```
