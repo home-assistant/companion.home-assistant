@@ -514,8 +514,8 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_steps` | steps | Total steps taken since midnight. |
 | `health_connect_systolic_blood_pressure` | millimeters of Mercury | The last recorded systolic blood pressure. |
 | `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
-| `health_connect_weight` | grams | The last recorded weight. |
 | `health_connect_vo2_max` | milliliters per minute per kilogram | The last recorded VO2 max score. |
+| `health_connect_weight` | grams | The last recorded weight. |
 
 ## High Accuracy Mode
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
