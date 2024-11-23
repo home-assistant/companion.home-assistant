@@ -496,20 +496,25 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
 | `health_connect_active_calories_burned` | kilocalories | The last estimate for number of active calories burned, excluding basal metabolic rate (BMR). |
+| `health_connect_basal_body_temperature` | celsus | The last recorded basal body temperature. |
 | `health_connect_basal_metabolic_rate` | kilocalories per day | The last recorded basal metabolic rate. |
 | `health_connect_blood_glucose` | milligrams per deciliter | The last recorded blood glucose reading. |
 | `health_connect_body_fat` | percent | The last recorded body fat percentage. |
 | `health_connect_body_temperature` | celsius | The last recorded body temperature. |
+| `health_connect_body_water_mass` | grams | The last recorded body water mass. |
 | `health_connect_bone_mass` | grams | The last recorded bone mass. |
 | `health_connect_diastolic_blood_pressure` | millimeters of Mercury | The last recorded diastolic blood pressure. |
 | `health_connect_distance` | meters | Total distance traveled since midnight. |
 | `health_connect_elevation_gained` | meters | Total elevation gained since midnight. |
 | `health_connect_floors_climbed` | floors | Total floors climbed since midnight. |
 | `health_connect_heart_rate` | beats per minute | The last recorded heart rate. |
+| `health_connect_heart_rate_variability` | milliseconds | The last recorded heart rate variability. |
 | `health_connect_height` | meters | The last recorded height. |
+| `health_connect_hydration` | milliliters | Total hydration since midnight. |
 | `health_connect_lean_body_mass` | grams | The last recorded lean body mass. |
 | `health_connect_oxygen_saturation` | percent | The last recorded oxygen saturation percentage. |
 | `health_connect_respiratory_rate` | breaths per minute | The last recorded respiratory rate. |
+| `health_connect_resting_heart_rate` | beats per minute | The last recorded resting heart rate. |
 | `health_connect_sleep_duration` | minutes | The last recorded sleep duration. |
 | `health_connect_steps` | steps | Total steps taken since midnight. |
 | `health_connect_systolic_blood_pressure` | millimeters of Mercury | The last recorded systolic blood pressure. |
