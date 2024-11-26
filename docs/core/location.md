@@ -147,6 +147,11 @@ The following steps are an example of how to send an intent using Tasker:
 *  The first sensor is `Background Location` this sensor is responsible for registering frequent background updates using [Google's Fused Location API](https://developers.google.com/location-context/fused-location-provider). Updates come in typically between 1-3 minutes but can be as often as every 30 seconds when you are using navigation like Google Maps.
 *  `Background Location` also offers [high accuracy mode](#high-accuracy-mode) so you can get even faster updates. The state of this mode can be determined by the next location sensor `High Accuracy Mode` which simply reports if the mode is enabled. This sensor is not directly related to location updates that you get from Google.
 *  The third location sensor is `Location Zone`, when enabled this sensor will get a list of all configured [`zones`](https://www.home-assistant.io/integrations/zone/) and will use Google's location service to create geofences containing `zone` data. This will allow for faster entry and exit detection while remaining battery friendly.
+
+:::info 
+<span class='beta'>BETA</span><br /> Google has a hard limit of 100 geofences per app. When combined with High Accuracy mode [zone with trigger range constraints](#zone-when-using-the-high-accuracy-mode-trigger-range-for-zone-meters-option-value-greater-than-0) you will need to double the count per zone included in the constraint. For example if you have 2 zones total and only want the trigger range for 1 zone that means there will be 3 geofences created.
+:::
+
 *  The last location sensor is `Single Accurate Location` this sensor only gets used if the reported accuracy did not meet the criteria as set in the [sensor settings](#location-sensor-settings). This sensor is also used when the [notification command](/docs/notifications/notification-commands#request-location-updates) or an [intent](#sending-an-intent) was received by the app.
 
 ### Location Sensor Settings
