@@ -486,7 +486,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ## Health Connect Sensors
 
-::info
+:::info
 These sensors are temporarily not available while awaiting approval by Google of Health Connect access for the Home Assistant Companion app
 :::
 
