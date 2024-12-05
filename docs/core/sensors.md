@@ -485,9 +485,14 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
 
 ## Health Connect Sensors
-![Android](/assets/android.svg) <span class='beta'>BETA</span> &bull; 9+, only when installed from the Play Store
 
 :::info
+These sensors are temporarily not available while awaiting approval by Google of Health Connect access for the Home Assistant Companion app
+:::
+
+![Android](/assets/android.svg) <span class='beta'>BETA</span> &bull; 9+, only when installed from the Play Store
+
+:::note
 On Android 13 or older, you need to install and set up the [Health Connect app](https://play.google.com/store/apps/details?id=com.google.android.apps.healthdata) to use these sensors.
 :::
 
