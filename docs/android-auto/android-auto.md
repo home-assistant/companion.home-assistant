@@ -18,7 +18,7 @@ In order to use the app in your vehicle you will need to be signed in to either 
 - `alarm_control_panel` If a code is not required will allow for `arm_away` & `disarm` otherwise no action
 - `button`
 - `cover`
-- `fan` <span class='beta'>BETA</span>
+- `fan`
 - `input_boolean`
 - `input_button`
 - `light`

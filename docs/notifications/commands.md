@@ -30,7 +30,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_beacon_monitor` | Turn Beacon Monitoring on or off. |
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
-| `command_flashlight` | Turn the flashlight LED on or off. <span class='beta'>BETA</span> |
+| `command_flashlight` | Turn the flashlight LED on or off. |
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. |
 | `command_launch_app` | Launch an application, [see below](#launch-app) for how it works and whats required. |
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
@@ -230,8 +230,6 @@ automation:
             command: "ble_set_uuid"
             ble_uuid: "b4306bba-0e3a-44df-9518-dc74284e8214"
 ```
-
-<span class='beta'>BETA</span>
 
 Users can also change the measured power at 1 meter to help improve detection for their devices. This number must be a negative number. The default value `-59` will be set in some cases like junk characters, if data is missing or the number is positive the notification will post as normal on the device.
 
@@ -456,7 +454,7 @@ automation:
 
 ## Flashlight
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span> &nbsp;Android 6+ only
+![Android](/assets/android.svg) &nbsp;Android 6+ only
 
 This command allows you to toggle the flashlight on or off directly from a notification, enabling control of the device's flashlight without opening the app. To use it, send `message: command_flashlight` with the `command` parameter set to either `turn_on` or `turn_off` to control the flashlight state.
 
