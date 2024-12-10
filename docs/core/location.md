@@ -150,7 +150,7 @@ The following steps are an example of how to send an intent using Tasker:
 
 :::info
 <span class='beta'>BETA</span><br /> Android apps can create up to 100 geofences. If you have more than 100 zones, Home Assistant will only create geofences and receive events for the first 100 zones.
-
+<br />
 When combined with High Accuracy mode [zone with trigger range constraints](/docs/core/location#zone-when-using-the-high-accuracy-mode-trigger-range-for-zone-meters-option-value-greater-than-0), each zone included in the constraint will create 2 geofences. For example, if you have 2 zones with trigger range configured for 1 zone then the app will create 3 geofences.
 :::
 
