@@ -51,7 +51,7 @@ Each action may consist of the following keys:
 | `action` | **Required**. The identifier passed back in events | When set to `REPLY`, you will be prompted for text to send with the event. |
 | `title` | **Required**. The title of the button shown in the notification | |
 | `uri` | **Optional**. The URL to open when tapped | ![Android](/assets/android.svg) Android requires setting the `action` to `URI` to use this key. See [notes below](#uri-values). |
-| `behavior` | **Optional**. Set to `textInput` to prompt for text to return with the event. This also occurs when setting the action to `REPLY`. | Using this key allows you to use the `action` key to differentiate actions. ![Android](/assets/android.svg) On Android, this is only available when using the <span class='beta'>BETA</span>.|
+| `behavior` | **Optional**. Set to `textInput` to prompt for text to return with the event. This also occurs when setting the action to `REPLY`. | Using this key allows you to use the `action` key to differentiate actions. |
 
 ### ![Android](/assets/android.svg) Android specific options
 
