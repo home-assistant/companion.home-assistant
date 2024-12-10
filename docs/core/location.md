@@ -148,8 +148,8 @@ The following steps are an example of how to send an intent using Tasker:
 *  `Background Location` also offers [high accuracy mode](#high-accuracy-mode) so you can get even faster updates. The state of this mode can be determined by the next location sensor `High Accuracy Mode` which simply reports if the mode is enabled. This sensor is not directly related to location updates that you get from Google.
 *  The third location sensor is `Location Zone`, when enabled this sensor will get a list of all configured [`zones`](https://www.home-assistant.io/integrations/zone/) and will use Google's location service to create geofences containing `zone` data. This will allow for faster entry and exit detection while remaining battery friendly.
 
-:::info
-<span class='beta'>BETA</span><br /> Android apps can create up to 100 geofences. If you have more than 100 zones, Home Assistant will only create geofences and receive events for the first 100 zones.<br />
+:::info <span class='beta'>BETA</span>
+Android apps can create up to 100 geofences. If you have more than 100 zones, Home Assistant will only create geofences and receive events for the first 100 zones.
 
 When combined with High Accuracy mode [zone with trigger range constraints](/docs/core/location#zone-when-using-the-high-accuracy-mode-trigger-range-for-zone-meters-option-value-greater-than-0), each zone included in the constraint will create 2 geofences. For example, if you have 2 zones with trigger range configured for 1 zone then the app will create 3 geofences.
 :::
