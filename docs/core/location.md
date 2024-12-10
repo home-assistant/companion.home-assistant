@@ -152,7 +152,7 @@ The following steps are an example of how to send an intent using Tasker:
 <span class='beta'>BETA</span><br /> Android apps can create up to 100 geofences. If you have more than 100 zones, Home Assistant will only create geofences and receive events for the first 100 zones.
 
 
-When combined with High Accuracy mode [zone with trigger range constraints](/docs/core/location#zone-when-using-the-high-accuracy-mode-trigger-range-for-zone-meters-option-value-greater-than-0), each zone included in the constraint will create 2 geofences. For example, if you have 2 zones with trigger range configured for 1 zone then the app will create 3 geofences.
+<br />When combined with High Accuracy mode [zone with trigger range constraints](/docs/core/location#zone-when-using-the-high-accuracy-mode-trigger-range-for-zone-meters-option-value-greater-than-0), each zone included in the constraint will create 2 geofences. For example, if you have 2 zones with trigger range configured for 1 zone then the app will create 3 geofences.
 :::
 
 *  The last location sensor is `Single Accurate Location` this sensor only gets used if the reported accuracy did not meet the criteria as set in the [sensor settings](#location-sensor-settings). This sensor is also used when the [notification command](/docs/notifications/notification-commands#request-location-updates) or an [intent](#sending-an-intent) was received by the app.
