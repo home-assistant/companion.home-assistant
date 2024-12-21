@@ -157,6 +157,13 @@ You can send a specific [deep link](https://developer.android.com/training/app-l
   uri: "deep-link://example://link/to/content"
 ```
 
+You can also use this for application-launching URLs. For example, to make a telephone call:
+```yaml
+- action: "URI"
+  title: "Deep Link"
+  uri: "deep-link://tel:2125551212"
+```
+
 #### ![iOS](/assets/iOS.svg) specific
 
 You can also use application-launching URLs. For example, to make a telephone call:
