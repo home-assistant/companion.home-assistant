@@ -160,7 +160,7 @@ You can send a specific [deep link](https://developer.android.com/training/app-l
 You can also use this for application-launching URLs. For example, to make a telephone call:
 ```yaml
 - action: "URI"
-  title: "Deep Link"
+  title: "Call Pizza Hut"
   uri: "deep-link://tel:2125551212"
 ```
 
