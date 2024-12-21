@@ -23,6 +23,7 @@ The following domains are supported:
 *  `input_number` Number control slider
 *  `light` On/Off, Brightness control slider
 *  `lock` Lock/Unlock
+*  `media_player` Play/Pause, Volume control slider <span class='beta'>BETA</span>
 *  `scene` Turn on scene
 *  `script` Turn on script
 *  `switch` On/Off
