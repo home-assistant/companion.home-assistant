@@ -18,14 +18,18 @@ The following domains are supported:
 *  `climate` Temperature slider, cycle through modes
 *  `cover` Open/Close
 *  `fan` On/Off, speed slider
+*  `humidifier` On/Off <span class='beta'>BETA</span>
 *  `input_boolean` On/Off
 *  `input_button` Press
 *  `input_number` Number control slider
 *  `light` On/Off, Brightness control slider
 *  `lock` Lock/Unlock
 *  `media_player` Play/Pause, Volume control slider <span class='beta'>BETA</span>
+*  `number` Number control slider <span class='beta'>BETA</span>
+*  `remote` On/Off <span class='beta'>BETA</span>
 *  `scene` Turn on scene
 *  `script` Turn on script
+*  `siren` On/Off <span class='beta'>BETA</span>
 *  `switch` On/Off
 *  `vacuum` Start/Dock or On/Off depending on vacuum type
 
