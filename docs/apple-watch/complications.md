@@ -11,6 +11,16 @@ Complications are created within the Home Assistant Companion App on a paired iP
 
 Complications are listed by their position and grouped by face type. For some positions, there are multiple templates available, after selecting the position you can select the desired template. Complication values are set using [Jinja2 templates](https://www.home-assistant.io/docs/configuration/templating/). In addition to setting the template for the displayed text, an icon can also be selected. The color of each text line and icon can be set independently. For an overview of the different complications and how they appear on different watch faces, see [these Apple Developers guidelines](https://developer.apple.com/design/human-interface-guidelines/components/system-experiences/complications/).
 
+## Creating a Complication for the new "Modular" Watch face
+
+WatchOS 9 removed the old "Modular" Watch face and renamed the "Infographic Modular" to "Modular". When creating a new complication for the new "Modular" Watch face, choose "Circular" or "Rectangular" from the "Graphic" section. The Complications in the "Modular" section no longer work.
+
+![New Complication](https://github.com/user-attachments/assets/46541b65-48da-4228-8035-06b90da73689)
+
+Example:
+
+![Graphic Circular Example](https://github.com/user-attachments/assets/57a69fd3-38b7-4b48-b401-2941504515f1)
+
 ## Ring/Gauge Complications
 
 To set how filled the ring of an open- or closed-ring complication is, normalize the value produced by your template to a number from `0.0` through `1.0`. A value of `0.0` will give an empty ring and `1.0` will give a full ring. You can accomplish this with a template like so:
