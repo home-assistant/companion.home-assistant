@@ -486,10 +486,6 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ## Health Connect Sensors
 
-:::info
-These sensors are temporarily not available while awaiting approval by Google of Health Connect access for the Home Assistant Companion app
-:::
-
 ![Android](/assets/android.svg) <span class='beta'>BETA</span> &bull; 9+, only when installed from the Play Store
 
 :::note
@@ -501,16 +497,12 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
 | `health_connect_active_calories_burned` | kilocalories | The last estimate for number of active calories burned, excluding basal metabolic rate (BMR). |
-| `health_connect_blood_glucose` | milligrams per deciliter | The last recorded blood glucose reading. |
-| `health_connect_body_fat` | percent | The last recorded body fat percentage. |
 | `health_connect_distance` | meters | Total distance traveled since midnight. |
 | `health_connect_elevation_gained` | meters | Total elevation gained since midnight. |
 | `health_connect_floors_climbed` | floors | Total floors climbed since midnight. |
-| `health_connect_heart_rate` | beats per minute | The last recorded heart rate. |
-| `health_connect_sleep_duration` | minutes | The last recorded sleep duration. |
 | `health_connect_steps` | steps | Total steps taken since midnight. |
 | `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
-| `health_connect_weight` | grams | The last recorded weight. |
+| `health_connect_vo2_max` | milliliters per minute per kilogram | The last recorded VO2 max score. |
 
 ## High Accuracy Mode
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
