@@ -21,28 +21,28 @@ Platform support of different types of deeplinks will vary, consult the table be
   </thead>
     <tbody>
       <tr>
-        <td>Navigate</a></td>
+        <td>Navigate</td>
         <td>✅</td>
         <td>✅</td>
         <td>✅</td>
         <td>✅</td>
       </tr>
       <tr>
-        <td>Call Service</a></td>
+        <td>Call Service</td>
         <td></td>
         <td></td>
         <td>✅</td>
         <td>✅</td>
       </tr>
         <tr>
-        <td>Fire Event</a></td>
+        <td>Fire Event</td>
         <td></td>
         <td></td>
         <td>✅</td>
         <td>✅</td>
       </tr>
         <tr>
-        <td>Send Location</a></td>
+        <td>Send Location</td>
         <td></td>
         <td></td>
         <td>✅</td>
