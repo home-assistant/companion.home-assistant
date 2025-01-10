@@ -53,8 +53,8 @@ The settings screen can be found at the bottom of the home screen. This is where
 * The Template tile shows a rendered template. The template can only be set from the Android companion app. Note: it is not possible to scroll in a tile, the template should fit on the watch screen.
 * The Camera tile shows a snapshot of the selected camera.
 * The Assist tile allows you to quickly [open Assist on your watch](https://www.home-assistant.io/voice_control/android/#assist-on-wear-os).
-* The Thermostat tile allows you to see and control the target temperature of a climate entity.
-
+* <span class='beta'>The Thermostat tile allows you to see and control the target temperature of a climate entity.</span>
+ 
 :::note About tile refreshes
 Wear OS limits how frequently apps can update tiles and how interactive they can be. For the camera, template and thermostat tiles you can choose a refresh interval which indicates to the system how often the tile should be refreshed.
 
@@ -78,7 +78,7 @@ You may use HTML to format the text displayed. The following tags are currently 
 * Using headers: `<h1>title</h1>`, `<h2>subtitle</h2>`, etc.
 
 ### Thermostat tile
-The thermostat tile can be used to change the target temperature of a climate enitity up or down by the step size. Since tile refreshing is limited it can happen that the target temperature shown is no longer accurate. Therefor, if a user changes the temperature through the tile the current target temperature is always first refreshed. If a user changes the temperature multiple times quickly, each click changes the temperature relative to the result previous click instead of getting the target temperature from the server. This is done to counteract the delay in changing target temperature by some thermostats.
+<span class='beta'>The thermostat tile can be used to change the target temperature of a climate enitity up or down by the step size. Since tile refreshing is limited it can happen that the target temperature shown is no longer accurate. Therefor, if a user changes the temperature through the tile the current target temperature is always first refreshed. If a user changes the temperature multiple times quickly, each click changes the temperature relative to the result previous click instead of getting the target temperature from the server. This is done to counteract the delay in changing target temperature by some thermostats.</span>
 
 ## Complications
 
