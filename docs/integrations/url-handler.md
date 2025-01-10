@@ -14,8 +14,7 @@ Platform support of different types of deeplinks will vary, consult the table be
     <tr>
       <th><strong>Deep Link Type</strong></th>
       <th><img alt="Android" src="/assets/android.svg" /> Full & Minimal</th>
-      <th><img alt="iOS" src="/assets/iOS.svg" /> iOS</th>
-      <th><img alt="macOS" src="/assets/macOS.svg" /> macOS</th>
+      <th><img alt="iOS" src="/assets/iOS.svg" /> & <img alt="macOS" src="/assets/macOS.svg" /></th>
       </tr>
   </thead>
     <tbody>
@@ -23,24 +22,20 @@ Platform support of different types of deeplinks will vary, consult the table be
         <td>Navigate</td>
         <td>✅</td>
         <td>✅</td>
-        <td>✅</td>
       </tr>
       <tr>
         <td>Call Service</td>
         <td></td>
-        <td>✅</td>
         <td>✅</td>
       </tr>
         <tr>
         <td>Fire Event</td>
         <td></td>
         <td>✅</td>
-        <td>✅</td>
       </tr>
         <tr>
         <td>Send Location</td>
         <td></td>
-        <td>✅</td>
         <td>✅</td>
       </tr>
     </tbody>
