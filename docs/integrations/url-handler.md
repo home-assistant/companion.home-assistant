@@ -82,7 +82,7 @@ Example: `homeassistant://fire_event/custom_event?entity_id=MY_CUSTOM_EVENT`
 Query parameters are passed as a dictionary in the call.
 
 :::info
-If multiple servers are connected to an app, `call_service` links will be handled using the first server in the list.
+If multiple servers are connected to an app, `fire_event` links will be handled using the first server in the list.
 :::
 
 ## Send one shot location
