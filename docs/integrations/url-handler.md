@@ -14,13 +14,13 @@ If multiple servers are connected to an app, you will be prompted to select a se
 ## Navigate
 This allows you to update the frontend page location via a deeplink.
 
-For example: if you had a dashboard at `/lovelace/webcams` you can use `homeassistant://navigate/lovelace/webcams` to launch the app there.
+For example: if you had a dashboard at `/webcams` you can use `homeassistant://navigate/webcams` to launch the app there. Similarly, you can navigate to a subview named `example` under your `/webcams` dashboard using `homeassistant://navigate/webcams/example`.
 
 #### Define server
 ![iOS](/assets/iOS.svg) <span class='beta'>BETA</span><br />
 By default the App will ask which server you want to navigate to in case you have multiple servers.
 To define which server you want to navigate to, use the query param `?server=` like the example below:<br /><br />
-`homeassistant://navigate/lovelace/webcams?server=My%20home` when your server name is `My Home`, or use `?server=default` if you want to navigate to the first server available.
+`homeassistant://navigate/webcams?server=My%20home` when your server name is `My Home`, or use `?server=default` if you want to navigate to the first server available.
 
 ## Call service
 ![iOS](/assets/iOS.svg)<br />
