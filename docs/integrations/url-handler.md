@@ -12,7 +12,7 @@ Platform support of different types of deeplinks will vary, consult the table be
 <table className="core-table">
   <thead>
     <tr>
-      <th><strong>Integrations</strong></th>
+      <th><strong>Deep Link Type</strong></th>
       <th><img alt="Android" src="/assets/android.svg" /> Full</th>
       <th><img alt="Android" src="/assets/android.svg" /> Minimal</th>
       <th><img alt="iOS" src="/assets/iOS.svg" /></th>
