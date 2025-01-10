@@ -17,7 +17,7 @@ This allows you to update the frontend page location via a deeplink. To build a 
 1. Navigate to the link you'd like to deeplink to in the web app, e.g. `http://homeassistant.local:8123/dashboard-mobile/my-subview`
 2. Copy the path portion of the URL, in this example that would be `/dashboard-mobile/my-subview`
 3. Craft your URL by starting with `homeassistant://navigate` and adding the path, e.g. `homeassistant://navigate/dashboard-mobile/my-subview`
-4. Optional: if you have multiple servers and want to link to one directly, add `?server=My%20Server%20Name` to the end (note that %20 is how you represent a space in a URL, commonly called URL encoding), e.g. `homeassistant://navigate/dashboard-mobile/my-subview?server=My%20House`
+4. ![iOS](/assets/iOS.svg) Optional (iOS only): if you have multiple servers and want to link to one directly, add `?server=My%20Server%20Name` to the end (note that %20 is how you represent a space in a URL, commonly called URL encoding), e.g. `homeassistant://navigate/dashboard-mobile/my-subview?server=My%20House`
 
 #### Define server
 ![iOS](/assets/iOS.svg) <span class='beta'>BETA</span><br />
