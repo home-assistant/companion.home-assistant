@@ -13,10 +13,9 @@ Platform support of different types of deeplinks will vary, consult the table be
   <thead>
     <tr>
       <th><strong>Deep Link Type</strong></th>
-      <th><img alt="Android" src="/assets/android.svg" /> Full</th>
-      <th><img alt="Android" src="/assets/android.svg" /> Minimal</th>
-      <th><img alt="iOS" src="/assets/iOS.svg" /></th>
-      <th><img alt="macOS" src="/assets/macOS.svg" /></th>
+      <th><img alt="Android" src="/assets/android.svg" /> Full & Minimal</th>
+      <th><img alt="iOS" src="/assets/iOS.svg" /> iOS</th>
+      <th><img alt="macOS" src="/assets/macOS.svg" /> macOS</th>
       </tr>
   </thead>
     <tbody>
@@ -25,11 +24,9 @@ Platform support of different types of deeplinks will vary, consult the table be
         <td>✅</td>
         <td>✅</td>
         <td>✅</td>
-        <td>✅</td>
       </tr>
       <tr>
         <td>Call Service</td>
-        <td></td>
         <td></td>
         <td>✅</td>
         <td>✅</td>
@@ -37,13 +34,11 @@ Platform support of different types of deeplinks will vary, consult the table be
         <tr>
         <td>Fire Event</td>
         <td></td>
-        <td></td>
         <td>✅</td>
         <td>✅</td>
       </tr>
         <tr>
         <td>Send Location</td>
-        <td></td>
         <td></td>
         <td>✅</td>
         <td>✅</td>
