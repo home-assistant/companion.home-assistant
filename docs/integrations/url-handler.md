@@ -19,7 +19,7 @@ This allows you to update the frontend page location via a deeplink. To build a 
 3. Craft your URL by starting with `homeassistant://navigate` and adding the path, e.g. `homeassistant://navigate/dashboard-mobile/my-subview`
 
 ### Specify server to navigate to
-![iOS](/assets/iOS.svg) <span class='beta'>BETA</span><br />
+![iOS](/assets/iOS.svg), ![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
 By default the App will ask which server you want to navigate to in case you have multiple servers.
 To define which server you want to navigate to, use the query param `?server=` like the example below:<br /><br />
 `homeassistant://navigate/webcams?server=My%20home` when your server name is `My Home`, or use `?server=default` if you want to navigate to the first server available.
