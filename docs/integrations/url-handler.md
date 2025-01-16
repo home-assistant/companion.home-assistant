@@ -5,15 +5,15 @@ id: 'url-handler'
 
 Home Assistant supports opening from other apps via URL.
 
-## Platform Compatibility
+## Platform compatibility
 
 Platform support of different types of deeplinks will vary, consult the table below to see which deeplink types are available for your platform.
 
 <table className="core-table">
   <thead>
     <tr>
-      <th><strong>Deep Link Type</strong></th>
-      <th><img alt="Android" src="/assets/android.svg" /> Full & Minimal</th>
+      <th><strong>Deeplink type</strong></th>
+      <th><img alt="Android" src="/assets/android.svg" /> Android</th>
       <th><img alt="iOS" src="/assets/iOS.svg" /> & <img alt="macOS" src="/assets/macOS.svg" /></th>
       </tr>
   </thead>
@@ -24,17 +24,17 @@ Platform support of different types of deeplinks will vary, consult the table be
         <td>✅</td>
       </tr>
       <tr>
-        <td>Call Service</td>
+        <td>Call service</td>
         <td></td>
         <td>✅</td>
       </tr>
         <tr>
-        <td>Fire Event</td>
+        <td>Fire event</td>
         <td></td>
         <td>✅</td>
       </tr>
         <tr>
-        <td>Send Location</td>
+        <td>Send location</td>
         <td></td>
         <td>✅</td>
       </tr>
@@ -75,5 +75,5 @@ Query parameters are passed as a dictionary in the call.
 If multiple servers are connected to an app, `fire_event` links will be handled using the first server in the list.
 :::
 
-## Send one shot location
+## Send location
 Example: `homeassistant://send_location/`
