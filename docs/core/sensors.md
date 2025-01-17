@@ -263,6 +263,7 @@ The battery sensors listed below describe the state of the battery for a few dif
 
 | Sensor | Description |
 | --------- | --------- |
+| `battery_cycle_count` <span class='beta'>BETA</span> | The number of charge cycles completed by the battery. Requires Android 14 or newer. Note: not all devices will report or update the cycle count. |
 | `battery_health` | The health of the battery |
 | `battery_level` | The percentage of battery remaining |
 | `battery_power` | The current wattage on the device |
@@ -270,7 +271,7 @@ The battery sensors listed below describe the state of the battery for a few dif
 | `battery_temperature` | The current battery temperature |
 | `charger_type` | The type of charger being used on the device |
 | `is_charging` | Whether or not the device is actively charging |
-| `remaining_charge_time` | Computed remaining charge time in minutes. Returns `unavailable` if no time can be computed: either there is not enough current data to make a decision or the battery is currently discharging. Returns `0` if calculation is not complete but device is currently charging. |
+| `remaining_charge_time` | Computed remaining charge time in minutes. Returns `unavailable` if no time can be computed: either there is not enough current data to make a decision or the battery is currently discharging. Returns `0` if calculation is not complete but device is currently charging. Requires Android 9 or newer. |
 
 :::info
 The `battery_power` sensor converts the values returned by the device to amperes and volts. However, some devices do not follow Android documentation and may return values in a different unit, which results in the sensor being incorrect. For these devices you may need to adjust the sensor setting for 'Battery current divisor' to properly convert the `current` to amperes or 'Battery voltage divisor' to properly convert the `voltage` to volts.
