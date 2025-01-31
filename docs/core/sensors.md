@@ -98,9 +98,9 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | `binary_sensor.nfc_state` | None | Whether or not the device has its NFC sensor enabled. |
 | `binary_sensor.power_save` | None | Whether or not the device is in power saving mode. |
 | [Activity Sensors](#activity-sensors) | See Below | The current activity type, sleep confidence and sleep segment as computed by Google. Requires activity recognition permissions on supported devices. |
-| `binary_sensor.android_auto` | [See Below](#android-auto-sensor) | A binary sensor to indicate if the device is connected to Android Auto. |
+| `binary_sensor.android_auto` | [See Below](#android-auto) | A binary sensor to indicate if the device is connected to Android Auto. |
 | [Android OS Sensors](#android-os-sensors) | None | Several different sensors around the Android OS. |
-| [App Data Sensors](#app-data_sensors) | None | Sensors that show how much data was sent or received by the app. |
+| [App Data Sensors](#app-data-sensors) | None | Sensors that show how much data was sent or received by the app. |
 | [App Importance Sensor](#app-importance-sensor) | None | The current importance of the app to determine if its in the foreground or cached. |
 | `sensor.app_memory` | [See Below](#app-memory-sensor) | Information about the memory that is available for the app. |
 | [App Usage Sensors](#app-usage-sensors) | None | Sensors that represent how the app is treated based on its usage. |
