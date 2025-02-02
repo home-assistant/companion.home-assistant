@@ -26,8 +26,7 @@ This error means that your Home Assistant can't negotiate the encrypted connecti
 This error is usually caused by one of the two following issues:
 *   You are running two Home Assistant instances with identical names. The solution is to rename one of them.
 *   You are missing `default_config:` from your `configuration.yaml` file. It is possible to only add `zeroconf:` to `configuration.yaml` but adding `default_config:` will add [several useful integrations](https://www.home-assistant.io/integrations/default_config/) along with `zeroconf:`.
-
-### Response status code was unacceptable: 400
+   ## Response status code was unacceptable: 400
 This occurs when the data sent during set up does not meet Home Assistant's expectations. This most commonly occurs in two circumstances:
 
 * When you are running a version of Home Assistant older than the minimum requirement (currently 0.104.0)
