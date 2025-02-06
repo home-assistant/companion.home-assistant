@@ -591,6 +591,32 @@ automation:
             when_relative: true
 ```
 
+### Progress Notifications
+
+You can create notifications with a progress bar by passing the `progress` option.
+
+The notification requires constant updates to track the progress. Make sure to use `tag` to [replace](#replacing) the existing notification. Once the process has completed you can remove the progress bar by sending a progress value of `-1`.
+
+- progress - current progress value
+- progress_max - max value of your progress (defaults to `1`)
+- progress_indeterminate - `true` makes the progress bar not showing a specific progress but instead a continuous animation (defaults to `false`)
+
+```yaml
+automation:
+  - alias: Notify of file transfer progress
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "File Transfer"
+          message: "File transfer in progress: 6 / 32 MB"
+          data:
+            tag: file-transfer
+            progress: 6
+            progress_max: 32
+```
+
 ### Alert Once
 
 On Android you have the option for making a notification only alert once on the device. This means it will only make a sound, vibrate and/or flash the LED once. Although it is not an Android requirement this feature will not appear to function if you do not have a [`tag`](#replacing) set. This setting is set to `false` by default as each and every notification will alert the user. This feature makes use of the [Alert Once API](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setOnlyAlertOnce(boolean))

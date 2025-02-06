@@ -9,6 +9,10 @@ You can access Home Assistant directly from your Wear OS watch, even when not co
 
 The app does not support all Home Assistant features. Keep an eye out on this page as the app is enhanced with new features! Take a look at the [Sensors!](sensors.md)
 
+## Prerequisites
+
+To set up Home Assistant on a watch, you need a paired Android phone with the Home Assistant app installed to login. After logging in, the phone app is no longer used.
+
 ## Home Screen
 
 The following list of domains are currently supported to toggle/execute once you log in and select them:

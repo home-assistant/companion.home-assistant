@@ -98,8 +98,8 @@ Not all features are supported by Android at the moment but eventually most feat
     </tr>
     <tr>
       <td><a href="/docs/integrations/url-handler">URL Handler</a></td>
-      <td></td>
-      <td></td>
+      <td>✅</td>
+      <td>✅</td>
       <td>✅</td>
       <td>✅</td>
     </tr>

@@ -98,9 +98,9 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | `binary_sensor.nfc_state` | None | Whether or not the device has its NFC sensor enabled. |
 | `binary_sensor.power_save` | None | Whether or not the device is in power saving mode. |
 | [Activity Sensors](#activity-sensors) | See Below | The current activity type, sleep confidence and sleep segment as computed by Google. Requires activity recognition permissions on supported devices. |
-| `binary_sensor.android_auto` | [See Below](#android-auto-sensor) | A binary sensor to indicate if the device is connected to Android Auto. |
+| `binary_sensor.android_auto` | [See Below](#android-auto) | A binary sensor to indicate if the device is connected to Android Auto. |
 | [Android OS Sensors](#android-os-sensors) | None | Several different sensors around the Android OS. |
-| [App Data Sensors](#app-data_sensors) | None | Sensors that show how much data was sent or received by the app. |
+| [App Data Sensors](#app-data-sensors) | None | Sensors that show how much data was sent or received by the app. |
 | [App Importance Sensor](#app-importance-sensor) | None | The current importance of the app to determine if its in the foreground or cached. |
 | `sensor.app_memory` | [See Below](#app-memory-sensor) | Information about the memory that is available for the app. |
 | [App Usage Sensors](#app-usage-sensors) | None | Sensors that represent how the app is treated based on its usage. |
@@ -114,6 +114,7 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | [Dynamic Color](#dynamic-color-sensor) | RGB Color | The hexadecimal color value for the accent color used in the current device theme. |
 | `sensor.do_not_disturb` | None | The state of do not disturb on the device. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
+| [Health Connect Sensors](#health-connect-sensors) | Varies | Health and fitness data stored by other apps on your device in Health Connect. |
 | `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
 | `sensor.high_accuracy_update_interval` | None | The update interval for high accuracy mode on the device. |
 | [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
@@ -262,6 +263,7 @@ The battery sensors listed below describe the state of the battery for a few dif
 
 | Sensor | Description |
 | --------- | --------- |
+| `battery_cycle_count` <span class='beta'>BETA</span> | The number of charge cycles completed by the battery. Requires Android 14 or newer. Note: not all devices will report or update the cycle count. |
 | `battery_health` | The health of the battery |
 | `battery_level` | The percentage of battery remaining |
 | `battery_power` | The current wattage on the device |
@@ -269,7 +271,7 @@ The battery sensors listed below describe the state of the battery for a few dif
 | `battery_temperature` | The current battery temperature |
 | `charger_type` | The type of charger being used on the device |
 | `is_charging` | Whether or not the device is actively charging |
-| `remaining_charge_time` | Computed remaining charge time in minutes. Returns `unavailable` if no time can be computed: either there is not enough current data to make a decision or the battery is currently discharging. Returns `0` if calculation is not complete but device is currently charging. |
+| `remaining_charge_time` | Computed remaining charge time in minutes. Returns `unavailable` if no time can be computed: either there is not enough current data to make a decision or the battery is currently discharging. Returns `0` if calculation is not complete but device is currently charging. Requires Android 9 or newer. |
 
 :::info
 The `battery_power` sensor converts the values returned by the device to amperes and volts. However, some devices do not follow Android documentation and may return values in a different unit, which results in the sensor being incorrect. For these devices you may need to adjust the sensor setting for 'Battery current divisor' to properly convert the `current` to amperes or 'Battery voltage divisor' to properly convert the `voltage` to volts.
@@ -337,8 +339,8 @@ The sensors listed below describe the state of the car for a few different data 
 | `car_fuel_type` | List of available fuel types for the car. |
 | `car_name` | The name of the car. The manufacturer name and manufactured year are in the attributes |
 | `car_odometer` | The value of the car odometer in meters |
-| `car_range_remaining` | The range remaining for the car in meters <span class='beta'>BETA</span> |
-| `car_speed` | The speed of the car in meters per second <span class='beta'>BETA</span> |
+| `car_range_remaining` | The range remaining for the car in meters |
+| `car_speed` | The speed of the car in meters per second |
 
 ## Cellular Provider Sensor
 The cellular provider sensor displays information about the user’s cellular service provider, such as its unique identifier and whether it allows VoIP calls on its network. `sensor.sim_1` corresponds to the physical SIM card installed and `sensor.sim_2` corresponds to the eSIM (this is only shown if the eSIM is enabled).
@@ -482,6 +484,31 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 ![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run. All attributes will be lowercase and all spaces are replaced with an underscore. The sensor will only send an update if it is accurate and recent. The sensor will also update with location updates if location tracking is enabled. A setting also exists to keep the sensor up to date with location updates, by default this is turned off.
 
 ![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
+
+## Health Connect Sensors
+
+![Android](/assets/android.svg) 9+, only when installed from the Play Store
+
+:::note
+On Android 13 or older, you need to install and set up the [Health Connect app](https://play.google.com/store/apps/details?id=com.google.android.apps.healthdata) to use these sensors.
+:::
+
+These sensors will reflect health and fitness data stored by other apps on your device in [Health Connect](https://health.google/health-connect-android/). Unless otherwise noted, only the last 30 days of data is used.
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `health_connect_active_calories_burned` | kilocalories | The last estimate for number of active calories burned, excluding basal metabolic rate (BMR). |
+| `health_connect_blood_glucose` | milligrams per deciliter | The last recorded blood glucose reading. <span class='beta'>BETA</span> |
+| `health_connect_diastolic_blood_pressure` | millimeters of Mercury | The last recorded diastolic blood pressure. <span class='beta'>BETA</span> |
+| `health_connect_distance` | meters | Total distance traveled since midnight. |
+| `health_connect_elevation_gained` | meters | Total elevation gained since midnight. |
+| `health_connect_floors_climbed` | floors | Total floors climbed since midnight. |
+| `health_connect_heart_rate` | beats per minute | The last recorded heart rate. <span class='beta'>BETA</span> |
+| `health_connect_steps` | steps | Total steps taken since midnight. |
+| `health_connect_systolic_blood_pressure` | millimeters of Mercury | The last recorded systolic blood pressure. <span class='beta'>BETA</span> |
+| `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
+| `health_connect_vo2_max` | milliliters per minute per kilogram | The last recorded VO2 max score. |
+| `health_connect_weight` | grams | The last recorded weight. <span class='beta'>BETA</span> |
 
 ## High Accuracy Mode
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.

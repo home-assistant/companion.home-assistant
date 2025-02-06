@@ -40,7 +40,7 @@ You can also make the minimum and maximum dynamic. For example, basing it on the
 {{ (adjusted - minimum) / (maximum - minimum) }}
 ```
 
-These examples both take care to avoid returning values <0 or >1.0, which is what the 'adjusted' variable is doing.
+These examples both take care to avoid returning values \<0 or >1.0, which is what the 'adjusted' variable is doing.
 
 ## Automatic updates
 

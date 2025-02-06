@@ -33,7 +33,7 @@ In the previous example we will used the Dictionary action to define our action 
 
 ### Call Service
 
-You can call any action set up in Home Assistant (see the [Actions Page in Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/)). As used in the [example above](#example).
+You can call any action set up in Home Assistant (see the [Actions Page in Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/)). As used in the [example above](#getting-started---example-shortcut).
 
 ### Fire Event
 

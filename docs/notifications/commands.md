@@ -30,6 +30,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_beacon_monitor` | Turn Beacon Monitoring on or off. |
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
+| `command_flashlight` | Turn the flashlight LED on or off. |
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. |
 | `command_launch_app` | Launch an application, [see below](#launch-app) for how it works and whats required. |
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
@@ -230,8 +231,6 @@ automation:
             ble_uuid: "b4306bba-0e3a-44df-9518-dc74284e8214"
 ```
 
-<span class='beta'>BETA</span>
-
 Users can also change the measured power at 1 meter to help improve detection for their devices. This number must be a negative number. The default value `-59` will be set in some cases like junk characters, if data is missing or the number is positive the notification will post as normal on the device.
 
 ```yaml
@@ -399,7 +398,7 @@ Currently supported types are:
 |----|-------|
 |[Integer](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20int))|`EXTRA:101:int`|
 |[Integer Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20int[]))|`EXTRA:101;102;103:int[]`|
-|[ArrayList<Integer\>](https://developer.android.com/reference/android/content/Intent#putIntegerArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.Integer%3E))|`EXTRA:1;2;3:ArrayList<Integer>`|
+|[ArrayList\<Integer\>](https://developer.android.com/reference/android/content/Intent#putIntegerArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.Integer%3E))|`EXTRA:1;2;3:ArrayList<Integer>`|
 |[Double](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20double))|`EXTRA:10.1:double`|
 |[Double Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20double[]))|`EXTRA:10.1;10.2;10.3:double[]`|
 |[Float](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20float))|`EXTRA:10.1:float`|
@@ -418,8 +417,8 @@ Currently supported types are:
 |[String (urlencoded)](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String))|`EXTRA:%2C%3A%3B:String.urlencoded` or `EXTRA:%2C%3A%3B:urlencoded`|
 |[String Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String[]))|`EXTRA:a;b;c:String[]`|
 |[String Array (urlencoded)](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String[]))|`EXTRA:colon%3A;semicolon%3B;comma%2C:String[].urlencoded`|
-|[ArrayList<String\>](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:a;b;c:ArrayList<String>`|
-|[ArrayList<String\> (urlencoded)](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:colon%3A;semicolon%3B;comma%2C:ArrayList<String>.urlencoded`|
+|[ArrayList\<String\>](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:a;b;c:ArrayList<String>`|
+|[ArrayList\<String\> (urlencoded)](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:colon%3A;semicolon%3B;comma%2C:ArrayList<String>.urlencoded`|
 
 ## Do Not Disturb
 
@@ -451,6 +450,29 @@ automation:
           message: "command_dnd"
           data:
             command: "priority_only"
+```
+
+## Flashlight
+
+![Android](/assets/android.svg) &nbsp;Android 6+ only
+
+This command allows you to toggle the flashlight on or off directly from a notification, enabling control of the device's flashlight without opening the app. To use it, send `message: command_flashlight` with the `command` parameter set to either `turn_on` or `turn_off` to control the flashlight state.
+
+This command is only available for users on Android 6+, users on lower versions will see the notification just like any other.
+
+Example:
+
+```yaml
+automation:
+  - alias: Turn on flashlight
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_flashlight"
+          data:
+            command: "turn_on"
 ```
 
 ## High accuracy mode
