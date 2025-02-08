@@ -53,7 +53,7 @@ The settings screen can be found at the bottom of the home screen. This is where
 * The Template tile shows a rendered template. The template can only be set from the Android companion app. Note: it is not possible to scroll in a tile, the template should fit on the watch screen.
 * The Camera tile shows a snapshot of the selected camera.
 * The Assist tile allows you to quickly [open Assist on your watch](https://www.home-assistant.io/voice_control/android/#assist-on-wear-os).
-* <span class='beta'>The Thermostat tile allows you to see and control the target temperature of a climate entity.</span>
+* <span class='beta'>BETA</span> The Thermostat tile allows you to see and control the target temperature of a climate entity.
  
 :::note About tile refreshes
 Wear OS limits how frequently apps can update tiles and how interactive they can be. For the camera, template and thermostat tiles you can choose a refresh interval which indicates to the system how often the tile should be refreshed.
