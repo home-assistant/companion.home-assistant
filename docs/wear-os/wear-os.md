@@ -78,7 +78,7 @@ You may use HTML to format the text displayed. The following tags are currently 
 * Using headers: `<h1>title</h1>`, `<h2>subtitle</h2>`, etc.
 
 ### Thermostat tile
-<span class='beta'>The thermostat tile can be used to change the target temperature of a climate enitity up or down by the step size. Since tile refreshing is limited it can happen that the target temperature shown is no longer accurate. Therefor, if a user changes the temperature through the tile the current target temperature is always first refreshed. If a user changes the temperature multiple times quickly, each click changes the temperature relative to the result previous click instead of getting the target temperature from the server. This is done to counteract the delay in changing target temperature by some thermostats.</span>
+<span class='beta'>BETA</span> The thermostat tile can be used to change the target temperature of a climate entity up or down by the step size. Since tile refreshing is limited it can happen that the target temperature shown is no longer accurate. Therefor, if a user changes the temperature through the tile the current target temperature is always first refreshed. If a user changes the temperature multiple times quickly, each click changes the temperature relative to the result previous click instead of getting the target temperature from the server. This is done to counteract the delay in changing target temperature by some thermostats.
 
 ## Complications
 
