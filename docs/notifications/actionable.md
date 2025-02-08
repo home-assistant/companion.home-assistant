@@ -151,10 +151,12 @@ You can also use an [intent scheme URI](https://developer.chrome.com/docs/multid
 
 You can send a specific [deep link](https://developer.android.com/training/app-links#deep-links) to an app by using `deep-link://<deep_link>` where `<deep_link>` is the actual deep link you wish to send.
 
+For example, to make a telephone call:
+
 ```yaml
 - action: "URI"
-  title: "Deep Link"
-  uri: "deep-link://example://link/to/content"
+  title: "Call Pizza Hut"
+  uri: "deep-link://tel:2125551212"
 ```
 
 #### ![iOS](/assets/iOS.svg) specific
