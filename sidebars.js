@@ -44,6 +44,7 @@ module.exports = {
       'integrations/app-events',
       'integrations/haptics',
       'integrations/sharing',
+      'integrations/ios-widgets',
       'integrations/siri-shortcuts',
       'integrations/theming',
       'integrations/universal-links',
