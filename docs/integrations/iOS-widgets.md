@@ -7,7 +7,7 @@ id: ios-widgets
 
 The iOS App comes with several built-in widgets. And since iOS app release 2025.3, there is now a "Custom Widget" (BETA) option to create a customized tile-card-like widget.
 
-For each widget you can configure by tapping on them while in edit mode, you will be prompted with a few options.
+Each widget comes with a few options. To configure, tap the widget to go into edit mode.
 
 iOS, iPadOS and macOS have different widget sizes available:
 - System
