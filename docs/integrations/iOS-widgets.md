@@ -5,11 +5,11 @@ id: ios-widgets
 
 # iOS Widgets
 
-The iOS App comes with several widgets builtin, take a look below on what each one is designed for, also since iOS app release 2025.3 there is now a "Custom Widget" (BETA) option where you can, as the name says, create a customized tile-card-like widget.
+The iOS App comes with several built-in widgets. And since iOS app release 2025.3, there is now a "Custom Widget" (BETA) option to create a customized tile-card-like widget.
 
 For each widget you can configure by tapping on them while in edit mode, you will be prompted with a few options.
 
-iOS, iPadOS and macOS have different widget sizes available, below you will find which sizes those widgets support from these options:
+iOS, iPadOS and macOS have different widget sizes available:
 - System
   - Small
   - Medium
@@ -20,10 +20,12 @@ iOS, iPadOS and macOS have different widget sizes available, below you will find
   - Inline
   - Rectangular
 
-# Assist In App
-Open Assist inside the App using the pipeline of your preference, when you add the widget to your Home Screen, tap on it once again to edit the widget, there you see the options available.
+# Assist In-App
+
+The Assist in-app widget allows you to open Assist inside the App, using the pipeline of your preference.  To edit the widget options, add the widget to your Home Screen and tap on it once again.
 
 ### Available in
+
 <table>
   <tr>
     <td>System small</td>
@@ -38,9 +40,11 @@ Open Assist inside the App using the pipeline of your preference, when you add t
 </table>
 
 # Scripts
-Execute scripts directly from the widget, this widget is available in small, medium, large and extra large (macOS) sizes.
-In it's configuration dialog you can choose to receive a notification after the script is executed.
+
+The **Scripts** widget allows you to execute scripts.
+To receive a notification after the script is executed, enable the option in its configuration dialog.
 ### Available in
+
 <table>
   <tr>
     <td>System small</td>
@@ -60,7 +64,9 @@ In it's configuration dialog you can choose to receive a notification after the 
 
 
 # Sensors
-Display sensors values, it's not realtime though, so consider what kind of information is relevant to be displayed, it is configured to update on the minimum interval iOS allows (~15 minutes).
+
+The **Sensors** widget displays sensor values, using the minimum update interval iOS allows (~15 minutes). Don't use this widget to display data that should show updates in real-time.
+
 <table>
   <tr>
     <td><img src='/assets/ios/sensors-widget.jpeg' alt="Sensors Widget" height="300"/></td>
@@ -69,7 +75,8 @@ Display sensors values, it's not realtime though, so consider what kind of infor
 </table>
 
 # Open Page
-Open any Home Assistant sidebar page.
+
+The **Open page** widget allows you to open any Home Assistant sidebar page.
 ### Available in
 <table>
   <tr>
@@ -89,8 +96,11 @@ Open any Home Assistant sidebar page.
 </table>
 
 # Gauge Widget (Advanced)
-Create a gauge representation using Home Assistant templating **(user needs to be Administrator to be able to use this feature)**, decide the minimum, maximum and current value, along with the display text (or emoji 🥳) in the center and bottom of the widget.
+
+The **Gauge** widget lets you create a gauge representation using Home Assistant templating **(user needs to be Administrator to be able to use this feature)**, decide the minimum, maximum, and current value, along with the display text (or emoji 🥳) in the center and bottom of the widget.
+
 ### Available in
+
 <table>
   <tr>
     <td>Accessory circular</td>
@@ -121,9 +131,12 @@ There is also an option to run an iOS Legacy Action, this will soon be converted
 </table>
 
 
-# Details Widget (Advanced)
-Display up to 3 lines of information using Home Assistant templating **(user needs to be Administrator to be able to use this feature)**.
+# Details (Advanced)
+
+The **Details** widget lets you display up to 3 lines of information using Home Assistant templating **(user needs to be Administrator to be able to use this feature)**.
+
 ### Available in
+
 <table>
   <tr>
     <td>Accessory Inline</td>
@@ -139,6 +152,7 @@ Display up to 3 lines of information using Home Assistant templating **(user nee
 </table>
 
 # Custom Widgets (BETA)
+
 The most customizable widget available, this one you can create it's configuration inside the App through **Companion App Settings → Widgets → Create**, decide which entities to display, choose their icon, icon color, display text, text color, background color, "On tap" action and if it requires confirmation before running.
 
 **The "On tap" action options are:**
