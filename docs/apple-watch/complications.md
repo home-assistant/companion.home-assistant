@@ -3,9 +3,8 @@ title: "Complications"
 id: "complications"
 ---
 
-:::info
+## Prerequisites
 All templating described below requires that the user is an administrator.
-:::
 
 Complications allow you to show the value of your Home Assistant sensors on your Apple Watch face. The Home Assistant Apple Watch App contains complications for most Apple Watch faces.
 
