@@ -153,7 +153,7 @@ The **Details** widget lets you display up to 3 lines of information using Home 
 
 # Custom Widgets (BETA)
 
-The most customizable widget available, this one you can create it's configuration inside the App through **Companion App Settings → Widgets → Create**, decide which entities to display, choose their icon, icon color, display text, text color, background color, "On tap" action and if it requires confirmation before running.
+The most customizable widget available, this one you can create it's configuration inside the App through **Companion App Settings > Widgets > Create**, decide which entities to display, choose their icon, icon color, display text, text color, background color, "On tap" action and if it requires confirmation before running.
 
 **The "On tap" action options are:**
 - Default (for most entities it toggles them and when not possible it will just refresh the widget)
