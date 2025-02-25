@@ -5,7 +5,7 @@ id: "watch-actions"
 
 :::info Before continuing
 You can easily run scripts and active scenes directly by adding Script/Scene to your watch [configuration](/docs/apple-watch/#home).
-iOS Actions won't receive future support, please migrate to other recommended solutions such as scripts widget, Apple Watch configuration.
+iOS Actions won't receive future support. Please migrate to other solutions, such as the **Scripts** widget, or Apple Watch configuration.
 :::
 
 Actions that are fired from Apple Watch will be delivered to the Home Assistant Event Bus in the same way as actions triggered on iPhone with the `ios.action_fired` event, however the payload of the event will differ slightly to clarify the source of the event. Actions triggered by Apple Watch will have the `triggerSource` key set to `watch`.
