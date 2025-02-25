@@ -20,11 +20,11 @@ iOS, iPadOS and macOS have different widget sizes available:
   - Inline
   - Rectangular
 
-# Assist In-App
+### Assist In-App
 
 The Assist in-app widget allows you to open Assist inside the App, using the pipeline of your preference.  To edit the widget options, add the widget to your Home Screen and tap on it once again.
 
-### Available in
+***Available in***
 
 <table>
   <tr>
@@ -39,11 +39,12 @@ The Assist in-app widget allows you to open Assist inside the App, using the pip
   </tr>
 </table>
 
-# Scripts
+### Scripts
 
 The **Scripts** widget allows you to execute scripts.
 To receive a notification after the script is executed, enable the option in its configuration dialog.
-### Available in
+
+***Available in***
 
 <table>
   <tr>
@@ -63,9 +64,19 @@ To receive a notification after the script is executed, enable the option in its
 </table>
 
 
-# Sensors
+### Sensors
 
 The **Sensors** widget displays sensor values, using the minimum update interval iOS allows (~15 minutes). Don't use this widget to display data that should show updates in real-time.
+
+***Available in***
+
+<table>
+  <tr>
+    <td>System small</td>
+    <td>System medium</td>
+    <td>System large</td>
+  </tr>
+</table>
 
 <table>
   <tr>
@@ -74,10 +85,11 @@ The **Sensors** widget displays sensor values, using the minimum update interval
   </tr>
 </table>
 
-# Open Page
+### Open Page
 
 The **Open page** widget allows you to open any Home Assistant sidebar page.
-### Available in
+***Available in***
+
 <table>
   <tr>
     <td>System small</td>
@@ -95,11 +107,11 @@ The **Open page** widget allows you to open any Home Assistant sidebar page.
   </tr>
 </table>
 
-# Gauge Widget (Advanced)
+### Gauge Widget (Advanced)
 
 The **Gauge** widget lets you create a gauge representation using Home Assistant templating **(user needs to be Administrator to be able to use this feature)**, decide the minimum, maximum, and current value, along with the display text (or emoji 🥳) in the center and bottom of the widget.
 
-### Available in
+***Available in***
 
 <table>
   <tr>
@@ -131,11 +143,11 @@ There is also an option to run an iOS Legacy Action, this will soon be converted
 </table>
 
 
-# Details (Advanced)
+### Details (Advanced)
 
 The **Details** widget lets you display up to 3 lines of information using Home Assistant templating **(user needs to be Administrator to be able to use this feature)**.
 
-### Available in
+***Available in***
 
 <table>
   <tr>
@@ -151,7 +163,7 @@ The **Details** widget lets you display up to 3 lines of information using Home 
   </tr>
 </table>
 
-# Custom Widgets (BETA)
+### Custom Widgets (BETA)
 
 The most customizable widget available, this one you can create it's configuration inside the App through **Companion App Settings > Widgets > Create**, decide which entities to display, choose their icon, icon color, display text, text color, background color, "On tap" action and if it requires confirmation before running.
 
@@ -171,7 +183,9 @@ The most customizable widget available, this one you can create it's configurati
 
 In iOS we have a limited budget of how many times a widget can be updated and even when we ask for this update (in background) it's not guaranteed that it will happens, iOS takes into consideration user usage of the App, if the screen is on/off, is the widget is visible and several other factors.
 To increase the amount of times it is refreshed you can [send a silent push notification with "update_widgets" command on it](/docs/notifications/notification-commands), you can even create an automation to send this push everytime a specific entity state changes.
-### Available in
+
+***Available in***
+
 <table>
   <tr>
     <td>System small</td>
