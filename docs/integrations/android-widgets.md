@@ -76,6 +76,18 @@ If the template in the widget isn't updating instantly, you're most likely hitti
 4.  Fill in the template data and observe the rendering below
 5.  Save the widget
 
+### Multi-action grid <span class='beta'>BETA</span>
+
+This widget lets the user set up multiple action buttons in a single widget. There's also a "Require authentication" option, which forces the user to authenticate before performing any action.
+
+1. Long press on any open space in the home screen
+2. Scroll down to Home Assistant in the widget list
+3. Drag the Action Grid widget to an open space in the home screen
+4. Optionally, add a name that will be shown at the top of the grid
+5. Tap on "Add action" and fill in the name, icon and action data
+6. Repeat step 5 for each action or tap on an existing action to edit
+7. Save the widget
+
 ## Theming
 
 Most widgets allow selecting a theme to use. The available themes depend on your device and the specific widget. Possible options are:
