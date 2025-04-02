@@ -78,7 +78,7 @@ If the template in the widget isn't updating instantly, you're most likely hitti
 
 ### To-do list <span class='beta'>BETA</span>
 
-This widget will display items from configured to-do list. Widget allows to open list inside app by clicking on the header or add button. Widget also allows to mark item as completed when checkbox is clicked. Widget will be refreshed each time entity changes or when refresh button is clicked.
+This widget will display items from a configured to-do list. You can open the list inside the app by clicking on the header or add button. The widget also allows you to mark items as completed when the checkbox is clicked. The widget will be refreshed each time the list changes or when the refresh button is clicked.
 
 1.  Long press on any open space in the home screen
 2.  Scroll down to Home Assistant in the widget list
