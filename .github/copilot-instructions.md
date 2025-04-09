@@ -13,7 +13,7 @@ You should follow the general guidelines about writing a documentation from Micr
    - Avoid unnecessary jargon or overly complex sentences.
 
 2. **Use active voice**:
-   - Write in the active voice whenever possible. For example, "Click the button" instead of "The button should be clicked."
+   - Write in the active voice whenever possible.
 
 3. **Follow Home Assistant standards**:
    - Ensure all documentation is consistent.
@@ -25,12 +25,12 @@ You should follow the general guidelines about writing a documentation from Micr
 
 5. **Be consistent**:
    - Use consistent terminology, formatting, and structure throughout the documentation.
-   - Follow the capitalization and punctuation rules outlined in the Microsoft Style Guide.
+   - Follow the rules outlined in the Microsoft Style Guide.
 
 ## Formatting guidelines
 
 1. **Headings**:
-   - Use sentence case capitalization, also in headings (e.g., "How to configure a device").
+   - Use sentence-style capitalization, also in headings (for example, "How to configure a device").
    - Organize content with appropriate heading levels (`#`, `##`, `###`).
 
 2. **Lists**:
@@ -38,7 +38,7 @@ You should follow the general guidelines about writing a documentation from Micr
    - Keep list items parallel in structure.
 
 3. **Code blocks**:
-   - Use fenced code blocks (```` ``` ````) with the appropriate language identifier (e.g., `yaml`, `python`).
+   - Use fenced code blocks (```` ``` ````) with the appropriate language identifier (for example, `yaml`, `python`).
    - Provide context or explanations for code snippets.
 
 4. **Links**:
@@ -65,11 +65,11 @@ You should follow the general guidelines about writing a documentation from Micr
 
 4. **Use proper grammar and spelling**:
    - Proofread content for grammatical errors and typos.
-   - Use American English spelling (e.g., "color" instead of "colour").
-   - The case of brand names, services, protocols, integrations and platforms must match its respective counterpart. For example, "Z-Wave" _not_ "Zwave", "Z-wave", "Z Wave" or "ZWave". Also, "Input Select" _not_ "input select" or "Input select".
+   - Use American English spelling (for example, "color" instead of "colour").
+   - The case of brand names, services, protocols, integrations, and platforms must match their respective counterparts. For example, "Z-Wave" _not_ "Zwave", "Z-wave", "Z Wave" or "ZWave". Also, "Input Select" _not_ "input select" or "Input select".
 
 5. **Tables**
-   - Be succinct. Minimize the number of columns and keep the amount of text as short as possible:
+   - Avoid the use of tables. They are problematic on mobile. Use lists instead. If you cannot avoid a table, minimize the number of columns and keep the amount of text as short as possible:
    - When limiting the amount of text is not possible, consider using other data structures for representing the information. For example, lists or `{% configuration_basic %}` can be used.
 
 6. **Misc**
