@@ -20,7 +20,7 @@
   split it into multiple PRs. This makes things easier and faster to code review.
 -->
 
-- [ ] Document existing features within Home Assistant
+- [ ] Document existing features within Home Assistant Companion App
 - [ ] Document new or changing features for which there is an existing pull request elsewhere
 - [ ] Spelling or grammatical corrections, or rewording for improved clarity
 - [ ] Changes to the backend of this documentation
