@@ -76,6 +76,17 @@ If the template in the widget isn't updating instantly, you're most likely hitti
 4.  Fill in the template data and observe the rendering below
 5.  Save the widget
 
+### To-do list <span class='beta'>BETA</span>
+
+This widget will display items from a configured to-do list. You can open the list inside the app by clicking on the header or add button. The widget also allows you to mark items as completed when the checkbox is clicked. The widget will be refreshed each time the list changes or when the refresh button is clicked.
+
+1.  Long press on any open space in the home screen
+2.  Scroll down to Home Assistant in the widget list
+3.  Drag the To-do widget to an open space on the home screen
+4.  Select to-do list to display
+5.  If needed select widget theme
+6.  Save the widget
+
 ## Theming
 
 Most widgets allow selecting a theme to use. The available themes depend on your device and the specific widget. Possible options are:
