@@ -50,3 +50,9 @@ To switch between modes, open the app and go to [Settings](https://my.home-assis
 :::info
 When switching from built-in device controls to a dashboard: if you previously used built-in device controls, you may need to remove all controls before the dashboard will be shown.
 :::
+
+## Split multiple servers into separate pages <span class='beta'>BETA</span>
+
+If you are logged into multiple servers in the companion app, you can split those servers into separate 'structures'. This will make the controls for each server appear on different pages within device controls (the same as if you had other apps feeding into device controls).
+
+This is disabled by default, but if you wish to enable it, you must have multiple servers added in the app. To enable it, open the app and go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Manage device controls and then toggle 'Split multiple servers into individual pages within device controls'. You may need to remove and re-add device controls in order to show the split within device controls.
