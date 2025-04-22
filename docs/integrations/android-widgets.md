@@ -76,7 +76,7 @@ If the template in the widget isn't updating instantly, you're most likely hitti
 4.  Fill in the template data and observe the rendering below
 5.  Save the widget
 
-### To-do list <span class='beta'>BETA</span>
+### To-do list
 
 This widget will display items from a configured to-do list. You can open the list inside the app by clicking on the header or add button. The widget also allows you to mark items as completed when the checkbox is clicked. The widget will be refreshed each time the list changes or when the refresh button is clicked.
 
