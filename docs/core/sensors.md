@@ -26,6 +26,9 @@ On iOS, sensors update in limited situations: when your location changes, period
 
 On macOS, sensors update in the same situations as above as well as immediately when some sensors change.
 
+### ![iOS](/assets/iOS.svg) From 2025.5
+Not all ![iOS](/assets/iOS.svg) sensors are enabled by default, if you don't see the sensor you want in Home Assistant, reach to Companion App Settings -> Sensors, and enable the desired one.
+
 ### Sensor List
 
 | Sensor | Attributes | Description |
