@@ -412,6 +412,7 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
       <td>✅</td>
     </tr>
+    <span class='beta'>BETA</span>
     <tr>
       <td><a href="/docs/notifications/notifications-unifiedpush">UnifiedPush</a></td>
       <td>✅</td>

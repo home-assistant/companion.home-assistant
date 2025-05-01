@@ -2,6 +2,7 @@
 title: "UnifiedPush"
 id: "notification-unifiedpush"
 ---
+<span class='beta'>BETA</span>
 
 [UnifiedPush](https://unifiedpush.org/) is a decentralized system to deliver notifications to your device instead of using Google's Firebase Cloud Messaging.
 
