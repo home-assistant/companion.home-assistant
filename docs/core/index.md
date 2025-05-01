@@ -413,6 +413,13 @@ Not all features are supported by Android at the moment but eventually most feat
       <td>✅</td>
     </tr>
     <tr>
+      <td><a href="/docs/notifications/notifications-unifiedpush">UnifiedPush</a></td>
+      <td>✅</td>
+      <td>✅</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
       <td><a href="/docs/notifications/notifications-basic#notification-vibration-pattern">Vibration Pattern</a></td>
       <td>✅</td>
       <td></td>
