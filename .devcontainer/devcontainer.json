@@ -1,8 +1,9 @@
 {
     "name": "companion.home-assistant",
     "dockerFile": "Dockerfile",
+    // 3000 is used for dev documentation
     "appPort": [
-        3000
+        "3001:3000"
     ],
     "postCreateCommand": "yarn install",
     "extensions": [
