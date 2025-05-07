@@ -7,6 +7,19 @@ The ![Android](/assets/android.svg) Android app allows the user to create widget
 
 Widgets can also be added from the Manage Widgets settings page, as long as the device supports it.
 
+:::note
+By default, widgets update every 30 minutes while the screen is on. In recent Android versions, widgets cannot update more frequently unless you grant additional permissions to the app.
+
+To ensure your widget stays up to date, follow these steps:
+
+1. Open **Android settings**.
+2. Navigate to **Notifications** > **(Privacy section) Notification read, reply & control**.
+3. Find the **Home Assistant** app.
+4. Enable **Allow notification access**. You can keep only the first item checked (`Real-time`).
+
+This allows the app to update widgets in real time. Keep in mind that frequent updates may impact battery life, especially if the entity used in the widget changes often.
+:::
+
 ## Available widgets
 
 ### Action button
