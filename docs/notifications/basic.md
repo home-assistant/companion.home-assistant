@@ -457,7 +457,7 @@ automation:
         data:
           message: "Motion Detected"
           data:
-            icon_url: "https://github.com/home-assistant/assets/blob/master/logo/logo-small.png?raw=true"
+            icon_url: "https://github.com/home-assistant/brands/blob/master/core_integrations/_homeassistant/icon.png?raw=true"
 ```
 
 ### Notification Sensitivity / Lock Screen Visibility
