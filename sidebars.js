@@ -32,6 +32,7 @@ module.exports = {
       'notifications/notification-commands',
       'notifications/notification-sounds',
       'notifications/notification-local',
+      'notifications/notification-unifiedpush',
       'notifications/notification-received',
     ],
     'Integrations': [
