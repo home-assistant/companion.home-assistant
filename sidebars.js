@@ -42,6 +42,7 @@ module.exports = {
       'integrations/android-webview',
       'integrations/android-widgets',
       'integrations/app-events',
+      'integrations/gestures',
       'integrations/haptics',
       'integrations/sharing',
       'integrations/ios-widgets',
