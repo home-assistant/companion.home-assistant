@@ -53,17 +53,3 @@ The ![Android](/assets/android.svg) Android app has the ability to enable Pinch-
 
 ## Remote Debugging
 The ![Android](/assets/android.svg) Android app has the ability to enable [Chrome remote debugging](https://developer.chrome.com/docs/devtools/remote-debugging/) to allow for easier troubleshooting of front end issues. You can enable this setting in [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Troubleshooting.
-
-## Swipe Gestures
-
-The ![Android](/assets/android.svg) Android app supports various three-finger gestures:
-
- - Swipe left/right: Quickly activate the previous/next server in the app.
- - Swipe up: Quickly activate a different server in the app. You will be prompted to select a server from a list.
- - Swipe down: Open the [quick bar](https://www.home-assistant.io/docs/tools/quick-bar/). Initially the entity filter will be shown, you can switch to the command palette by typing `>` at the start of the input. The quick bar can only be launched when inside the webview after you have logged in.
-
-:::caution
-Gestures may not work correctly if your device supports other three-finger gestures, such as for screenshots.
-
-The quick bar gesture doesn't work on Home Assistant core 2022.7.0 - 2022.9.7. Please update to Home Assistant core 2022.10.0 or later.
-:::
