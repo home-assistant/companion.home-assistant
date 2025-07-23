@@ -36,7 +36,7 @@ For Android devices: if your device has gestures that work in any app, such as f
 
 ### Servers
 
- - **Servers list**: Show a list of all servers added to the app, to quickly switch between to another server.
+ - **Servers list**: Show a list of all servers added to the app, to quickly switch between servers.
  - **Next server**: If you have multiple servers, active the next server in the list.
  - **Previous server**: If you have multiple servers, active the previous server in the list.
 
