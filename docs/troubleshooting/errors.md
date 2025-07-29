@@ -37,4 +37,4 @@ This occurs when the data sent during set up does not meet Home Assistant's expe
 This error is usually caused by one of the two following issues:
 *   You have denied local network access to the app. To solve the issue on iOS, open the Home Assistant entry in the system settings and verify that local network is enabled.
 *   You have configured an incorrect external url in your instance. E.g. when forwarding external port 443 to your instance's port (normally 8123), you don't have to append a port to your URL.
-* You are logged into Nabu Casa cloud without a subscription and trying to access your instance with a reverse proxy. Just log out from your Nabu Casa cloud account.
+* You are [logged into Home Assistant Cloud](https://support.nabucasa.com/hc/en-us/articles/25649130769949) without a subscription and trying to access your instance with a reverse proxy. Just log out from your Home Assistant Cloud account.
