@@ -743,8 +743,7 @@ automation:
           title: "Banana Status Update"
           message: "The bananas are ripe."
           data:
-            push:
-              interruption-level: passive
+            interruption-level: passive
 ```
 
 ### Presentation Options
