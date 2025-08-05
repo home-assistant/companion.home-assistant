@@ -7,6 +7,10 @@ The ![Android](/assets/android.svg) Android app allows the user to create widget
 
 Widgets can also be added from the Manage Widgets settings page, as long as the device supports it.
 
+<span class='beta'>BETA</span> You can also create a widget directly from an entity by opening its more-info dialog and selecting **Add to**.
+<img alt="Home Assistant more-info dialog Add to" src="/assets/android_add_to_widget.png" width='450' />
+
+
 :::note
 By default, widgets update every 30 minutes while the screen is on. In recent Android versions, widgets cannot update more frequently unless you grant additional permissions to the app.
 
