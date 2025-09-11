@@ -20,7 +20,7 @@ CarPlay has 4 tabs:
 - **Quick Access:** In your CarPlay configuration, you can decide what entities to display on the **Quick access** tab.
 
 - **Areas:** Brings easy access to your entities from the area in your home.
-- **Control:** Let's you access entities grouped by their domain.
+- **Control:** Lets you access entities grouped by their domain.
 - **Servers:** Allows you to switch between servers.
 
 ![CarPlay](/assets/ios/CarPlay.png)
