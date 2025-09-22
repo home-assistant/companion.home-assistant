@@ -303,7 +303,7 @@ If your device is on Android 8.0+ the following properties will become the defau
 
 These options will be ignored once they are set for a particular channel, only lowering of the `importance` will work (if the user has not already modified this).
 
-Devices running Android 5.0-7.1.2 do not have channels and do not need to worry about this note.
+Devices running Android 6-7.1.2 do not have channels and do not need to worry about this note.
 :::
 
 ### Notification Channel Importance
