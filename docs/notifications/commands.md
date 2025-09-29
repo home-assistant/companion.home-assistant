@@ -422,11 +422,11 @@ Currently supported types are:
 
 ## Do Not Disturb
 
-![Android](/assets/android.svg) &nbsp;Android 6+ only
+![Android](/assets/android.svg)
 
 On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the device\'s Notification Policy. This is required in order for the app to gain control of this setting.
 
-In addition to sending the `message` you must also provide the state of Do Not Disturb that you wish to set as the `command`, see the table below for what is accepted. If the `command` does not match one of the listed commands then the notification will post as normal and the command will not process. This command is only available for users on Android 6+, users on lower versions will see the notification just like any other.
+In addition to sending the `message` you must also provide the state of Do Not Disturb that you wish to set as the `command`, see the table below for what is accepted. If the `command` does not match one of the listed commands then the notification will post as normal and the command will not process.
 <br />
 
 
@@ -454,11 +454,9 @@ automation:
 
 ## Flashlight
 
-![Android](/assets/android.svg) &nbsp;Android 6+ only
+![Android](/assets/android.svg)
 
 This command allows you to toggle the flashlight on or off directly from a notification, enabling control of the device's flashlight without opening the app. To use it, send `message: command_flashlight` with the `command` parameter set to either `turn_on` or `turn_off` to control the flashlight state.
-
-This command is only available for users on Android 6+, users on lower versions will see the notification just like any other.
 
 Example:
 
