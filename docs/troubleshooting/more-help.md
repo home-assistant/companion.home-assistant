@@ -13,7 +13,9 @@ If after reading the docs here you are still having issues, try the following re
 *   Please raise an issue on the [iOS GitHub repository](https://github.com/home-assistant/iOS) or the [Android GitHub repository](https://github.com/home-assistant/android).
 
 **For feature requests**
-* To request a new feature, open a discussion in the Home Assistant GitHub organization using the [Android discussions page](https://github.com/orgs/home-assistant/discussions/new?category=android) or the [iOS and macOS discussions page](https://github.com/orgs/home-assistant/discussions/new?category=ios-macos).
+* To request a new feature, open a discussion in the Home Assistant GitHub organization. Use the discussion page of the related platform:
+  -  [Android discussions page](https://github.com/orgs/home-assistant/discussions/new?category=android)
+  -  [iOS and macOS discussions page](https://github.com/orgs/home-assistant/discussions/new?category=ios-macos).
 
 **For issues, corrections or amendments to these docs**
 *   Either use the edit button on the page you wish to amend (docs are written in [Markdown](https://daringfireball.net/projects/markdown/syntax)), you will need a [GitHub](https://www.github.com) account to submit changes; or
