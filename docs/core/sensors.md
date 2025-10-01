@@ -165,7 +165,7 @@ This sensor has a setting to decide the duration that is considered 'idle'.
 
 If iOS is unable to calculate an activity from motion data, `Unknown` will be given.
 
-It is possible for multiple activities to be returned, such as `Cycling` and `Stationary` (if you are cycling but at a stop light), the state of the sensor is simply the first of these return by iOS (not necessarily the most likely). A complete list of calculated activities is given by the `types` attribute. See [this post](https://nshipster.com/cmmotionactivity/#traveling-without-moving) by [@Mattt](https://twitter.com/mattt) over at [nshipster](https://nshipster.com/) for a description of how different scenarios yield multiple activities.
+It is possible for multiple activities to be returned, such as `Cycling` and `Stationary` (if you are cycling but at a stop light), the state of the sensor is simply the first of these return by iOS (not necessarily the most likely). A complete list of calculated activities is given by the `types` attribute. See [this post](https://nshipster.com/cmmotionactivity/#traveling-without-moving) by [@Mattt](https://x.com/mattt) over at [nshipster](https://nshipster.com/) for a description of how different scenarios yield multiple activities.
 
 The `confidence` attribute corresponds how accurate iOS believes the report of the current activity is. Possible values are:
 *   `Low`
