@@ -61,12 +61,40 @@ module.exports = {
           title: 'Social',
           items: [
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/home_assistant',
+              label: 'YouTube',
+              href: 'https://youtube.com/@home_assistant',
+            },
+            {
+              label: 'Reddit',
+              href: 'https://reddit.com/r/homeassistant',
+            },
+            {
+              label: 'Github',
+              href: 'https://github.com/home-assistant',
+            },
+            {
+              label: 'Mastodon',
+              href: 'https://fosstodon.org/@homeassistant',
+            },
+            {
+              label: 'Bluesky',
+              href: 'https://bsky.app/profile/home-assistant.io',
+            },
+            {
+              label: 'X (Twitter)',
+              href: 'https://x.com/home_assistant',
             },
             {
               label: 'Facebook',
               href: 'https://www.facebook.com/homeassistantio/',
+            },
+            {
+              label: 'Instagram',
+              href: 'https://www.instagram.com/homeassistant/',
+            },
+            {
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/company/home-assistant',
             },
           ],
         },
