@@ -69,7 +69,7 @@ module.exports = {
               href: 'https://reddit.com/r/homeassistant',
             },
             {
-              label: 'Github',
+              label: 'GitHub',
               href: 'https://github.com/home-assistant',
             },
             {
