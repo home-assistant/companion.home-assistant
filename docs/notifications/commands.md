@@ -431,7 +431,7 @@ In addition to sending the `message` you must also provide the state of Do Not D
 :::info
 On Android 15 and newer, Android will keep track of which apps are enabling/disabling Do Not Disturb, and only allow apps to adjust settings previously set _by the app_. This means:
 
- - If multiple apps enable Do Not Disturb, Android will use the strictest Do Not Disturb filter. For example, if you send a notification command with alarms only and another app sets Do Not Disturb to no interruptions, the no interruptions filter will 'win'.
+ - If multiple apps enable Do Not Disturb, Android will use the most restrictive Do Not Disturb filter. For example, if you send a notification command with alarms only and another app sets Do Not Disturb to no interruptions, the no interruptions filter will 'win'.
  - The app can only disable Do Not Disturb (`off`) if it was previously enabled using a notification command from Home Assistant.
 :::
 <br />
