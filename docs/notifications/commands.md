@@ -424,9 +424,16 @@ Currently supported types are:
 
 ![Android](/assets/android.svg) &nbsp;Android 6+ only
 
-On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the device\'s Notification Policy. This is required in order for the app to gain control of this setting.
+On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing you to enable Home Assistant access to the device\'s Notification Policy. This is required in order for the app to gain control of this setting.
 
-In addition to sending the `message` you must also provide the state of Do Not Disturb that you wish to set as the `command`, see the table below for what is accepted. If the `command` does not match one of the listed commands then the notification will post as normal and the command will not process. This command is only available for users on Android 6+, users on lower versions will see the notification just like any other.
+In addition to sending the `message` you must also provide the state of Do Not Disturb that you wish to set as the `command`, see the table below for what is accepted. If the `command` does not match one of the listed commands then the notification will post as normal and the command will not process.
+
+:::info
+On Android 15 and newer, Android will keep track of which apps are enabling/disabling Do Not Disturb, and only allow apps to adjust settings previously set _by the app_. This means:
+
+ - If multiple apps enable Do Not Disturb, Android will use the most restrictive Do Not Disturb filter. For example, if you send a notification command with alarms only and another app sets Do Not Disturb to no interruptions, the no interruptions filter will 'win'.
+ - The app can only disable Do Not Disturb (`off`) if it was previously enabled using a notification command from Home Assistant.
+:::
 <br />
 
 
