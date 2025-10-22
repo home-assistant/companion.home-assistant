@@ -51,8 +51,7 @@ automations:
           title: "Snoopy is going to wake the neighbors"
           message: "The dog is barking and likely to wake the neighbors!"
           data:
-            push:
-              interruption-level: critical
+            interruption-level: critical
 
 ```
 
