@@ -16,7 +16,7 @@ On iOS, you can specify your WiFi SSID (for example, "GrandmaHome5G") as your ho
 To retrieve the information above, both apps need the location access permission from your device. We understand that this is not desirable for all users, but that's a restriction imposed by Apple platforms and Android. This also doesn't mean that your location will be used for anything besides retrieving the network information. You are always in control if you want to share your location to your local Home Assistant server. Just access **Companion App Settings** > **Sensors** to define what to share and what not to share.
 
 :::warning Important
-To work properly in background, the location permission needs to also be set to allow **Always** and **Precise**.
+To work properly in the background, the location permission needs to also be set to allow **Always** and **Precise**.
 :::
 
 ## Option 2: Less secure
