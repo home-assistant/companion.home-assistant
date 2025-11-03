@@ -14,6 +14,8 @@ const features = [
         <p>
           <b><a href='/docs/getting_started'>Getting Started</a></b> Getting to know your new best friend.
           <br />
+          <b><a href='/docs/getting_started/connection_security_level'>Connection security level</a></b> Learn about securing your connection.
+          <br />
           <b><a href='/docs/core'>Core Features</a></b> The best bits of the Companion App.
           <br />
           <b><a href='/docs/notifications/notifications-basic'>Notifications</a></b>
