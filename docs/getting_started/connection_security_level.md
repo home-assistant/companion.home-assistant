@@ -16,7 +16,7 @@ You can specify your WiFi SSID (for example, "GrandmaHome5G"), VPN, or Ethernet 
 <p>Currently VPN and Ethernet home network configurations are only available on Android.</p>
 :::
 
-To retrieve the information above, both apps need the location access permission from your device. We understand that this is not desirable for all users, but that's a restriction imposed by Apple platforms and Android. This mean that your location is never going to be used for anything besides retrieving the network information. You are always in control if you want to share your location to your local Home Assistant server.
+To retrieve the information above, both apps need the location access permission from your device, since network information is considered one factor for location positioning. We understand that this is not desirable for all users, but that's a restriction imposed by Apple platforms and Android. This mean that your location is never going to be used for anything besides retrieving the network information. You are always in control if you want to share your location to your local Home Assistant server.
 
 :::warning Important
 The location permission must be set to **Always** and **Precise** for the app to function correctly in the background.
@@ -30,7 +30,7 @@ If you don’t grant location permission or disable location at the OS level but
 
 These security options were introduced to protect your Home Assistant instance from potential security risks when using non-encrypted connections.
 
-When you connect to Home Assistant using an unencrypted URL (such as `http://192.168.1.100:8123`), all data transmitted between your device and Home Assistant is sent in plain text. This includes your login credentials, and any commands you send. On your home network, this is generally acceptable since the traffic stays within your local network. However, if you accidentally connect from a public Wi-Fi network or untrusted location, malicious actors could potentially intercept your Home Assistant data.
+When you connect to Home Assistant using an unencrypted URL (such as `http://192.168.0.100:8123`), all data transmitted between your device and Home Assistant is sent in plain text. This includes your login credentials, and any commands you send. On your home network, this is generally acceptable since the traffic stays within your local network. However, if you accidentally connect from a public Wi-Fi network or untrusted location, malicious actors could potentially intercept your Home Assistant data.
 
 The **Most secure** option prevents these risks by ensuring non-encrypted connections only work when you're on your designated home network. The **Less secure** option removes this protection but it is not recommended.
 
