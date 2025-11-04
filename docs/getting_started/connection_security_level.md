@@ -21,4 +21,4 @@ The location permission must be set to **Always** and **Precise** for the app to
 
 ## Option 2: Less secure
 
-In case you prefer to not allow the app to know your location but still want to access a non-encrypted URL (for example, `http://homeassistant.local:8123`), you can choose this option, which will allow its usage. Keep in mind that this is not recommended at all, since it can expose your Home Assistant access to someone observing network traffic on public WiFi networks, for example.
+If you don’t grant location permission or disable location at the OS level but still need to access a non-encrypted URL (e.g., http://homeassistant.local:8123), you can choose this option. Use it only if absolutely necessary **it is not recommended**, as it may expose your Home Assistant data to network eavesdropping, especially on public Wi-Fi.
