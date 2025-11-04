@@ -8,7 +8,7 @@ Starting with Companion App version 2025.11, you will have to choose between 2 s
 
 ## Option 1: Most secure (recommended)
 
-This option makes sure we only connect to a non-encrypted URL (for example, `http://homeassistant.local:8123`) when you are currently on your specified home network, when you are not in the specified home network the app will display a screen blocking the access and describing what are the requirements to connect, this also means that background activity will be blocked until the criteria to connect meets or a secure connection can be established.
+This option ensures we only connect to a non-encrypted URL (for example, `http://homeassistant.local:8123`) when you are currently on your specified home network. When you are not on the specified home network, the app will display a screen blocking access and describing the requirements to connect. This also means that background activity will be blocked until the criteria to connect are met or a secure connection can be established.
 
 You can specify your WiFi SSID (for example, "GrandmaHome5G"), VPN, or Ethernet access to be considered your home network.
 
