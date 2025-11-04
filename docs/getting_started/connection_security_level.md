@@ -13,7 +13,7 @@ On the Android app, you can specify your WiFi SSID (for example, "GrandmaHome5G"
 
 On iOS, you can specify your WiFi SSID (for example, "GrandmaHome5G") as your home network, but it's not yet possible (2025.11.0) to use VPN or ethernet in this configuration. If those are required, consider the drawbacks from option 2 and use it if it makes sense.
 
-To retrieve the information above, both apps need the location access permission from your device. We understand that this is not desirable for all users, but that's a restriction imposed by Apple platforms and Android. This also doesn't mean that your location will be used for anything besides retrieving the network information. You are always in control if you want to share your location to your local Home Assistant server. Just access **Companion App Settings** > **Sensors** to define what to share and what not to share.
+To retrieve the information above, both apps need the location access permission from your device. We understand that this is not desirable for all users, but that's a restriction imposed by Apple platforms and Android. This mean that your location is never going to be used for anything besides retrieving the network information. You are always in control if you want to share your location to your local Home Assistant server.
 
 :::warning Important
 To work properly in the background, the location permission needs to also be set to allow **Always** and **Precise**.
