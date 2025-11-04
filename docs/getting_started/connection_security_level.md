@@ -5,7 +5,7 @@ id: "connection-security-level"
 
 Starting with Companion App version 2025.11, you will have to choose between 2 security options in the app if you want to use a non-encrypted URL to connect to Home Assistant (such as your local IP address for local connection).
 
-## Option 1: Most secure
+## Option 1: Most secure (recommended)
 
 This option makes sure we only connect to a non-encrypted URL (for example, `http://homeassistant.local:8123`) when you are currently on your specified home network.
 
