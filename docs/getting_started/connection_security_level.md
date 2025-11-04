@@ -16,7 +16,7 @@ You can specify your WiFi SSID (for example, "GrandmaHome5G"), VPN, or Ethernet 
 <p>Currently VPN and Ethernet home network configurations are only available on Android.</p>
 :::
 
-To retrieve the information above, both apps need the location access permission from your device, since network information is considered one factor for location positioning. We understand that this is not desirable for all users, but that's a restriction imposed by Apple platforms and Android. This mean that your location is never going to be used for anything besides retrieving the network information. You are always in control if you want to share your location to your local Home Assistant server.
+To retrieve the information above, both apps need the location access permission from your device, since network information is considered one factor for location positioning. We understand that this is not desirable for all users, but that's a restriction imposed by Apple platforms and Android. This means that your location is never going to be used for anything besides retrieving the network information. You are always in control if you want to share your location to your local Home Assistant server.
 
 :::warning Important
 The location permission must be set to **Always** and **Precise** for the app to function correctly in the background.
