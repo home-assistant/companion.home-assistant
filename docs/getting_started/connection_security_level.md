@@ -10,7 +10,7 @@ Starting with Companion App version 2025.11, you will have to choose between 2 s
 
 This option ensures the app only connect to a non-encrypted URL (for example, `http://homeassistant.local:8123`) when you are currently on your specified home network. When you are not on the specified home network, the app will display a screen blocking access and describing the requirements to connect. This also means that background activity will be blocked until a secure connection can be established.
 
-You can specify your WiFi SSID (for example, "GrandmaHome5G"), VPN, or Ethernet access to be considered your home network.
+You can specify your Wi-Fi SSID (for example, "GrandmaHome5G"), VPN, or Ethernet access to be considered your home network.
 
 :::info ![iOS](/assets/iOS.svg)
 <p>Currently VPN and Ethernet home network configurations are only available on Android.</p>
