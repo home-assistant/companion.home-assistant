@@ -14,10 +14,6 @@ You can specify your Wi-Fi SSID (for example, "GrandmaHome5G") to be considered 
 - On Android you can also set your VPN, or Ethernet access as home network.
 - On macOS you can define a "Hardware address" as home network, which is useful for wired connections.
 
-:::info ![iOS](/assets/iOS.svg)
-<p>Currently VPN and Ethernet home network configurations are only available on Android.</p>
-:::
-
 To retrieve the information above, the app needs the location access permission from your device, since network information could be used for location positioning. We understand that this is not desirable for all users, but this restriction is imposed by Apple platforms and Android. Your location will never be used for anything besides retrieving the network information. You are always in control if you want to share your location to your local Home Assistant server.
 
 :::warning Important
