@@ -30,8 +30,8 @@ If you don’t grant location permission or disable location at the OS level but
 
 These security options were introduced to protect your Home Assistant instance from potential security risks when using non-encrypted connections.
 
-When you connect to Home Assistant using an unencrypted URL (such as `http://192.168.0.100:8123`), all data transmitted between your device and Home Assistant is sent in plain text. This includes your login credentials, and any commands you send. On your home network, this is generally acceptable since the traffic stays within your local network. However, if you accidentally connect from a public Wi-Fi network or untrusted location, malicious actors could potentially intercept your Home Assistant data.
+When you connect to Home Assistant using an non-encrypted URL (such as `http://homeassistant.local:8123`), all data transmitted between your device and Home Assistant is sent in plain text. This includes your login credentials, and any commands you send. On your home network, this is generally acceptable since the traffic stays within your local network. However, if you accidentally connect from a public Wi-Fi network or untrusted location, malicious actors could potentially intercept your Home Assistant data.
 
-The **Most secure** option prevents these risks by ensuring non-encrypted connections only work when you're on your designated home network. The **Less secure** option removes this protection but it is not recommended.
+The **Most secure** option prevents these risks by ensuring non-encrypted connections only work when you're on your home network. The **Less secure** option removes this protection, and is not recommended for most users.
 
 For maximum security, we recommend using HTTPS connections with valid SSL certificates always, especially when accessing Home Assistant remotely.
