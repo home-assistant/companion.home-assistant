@@ -7,7 +7,7 @@ The ![Android](/assets/android.svg) Android app allows the user to create widget
 
 Widgets can also be added from the Manage Widgets settings page, as long as the device supports it.
 
-:::info <span class='beta'>BETA</span>
+:::tip <span class='beta'>BETA</span>
 You can also create a widget directly from an entity by opening the entity's **more info** (accessible by tapping on the entity or via the overflow menu). In **more info**, select **Add to** and choose to add a widget. Note that this feature is only supported for [compatible entity types](#available-widgets), and you must perform this action on the device where you want the widget to appear.
 <img alt="Home Assistant more-info dialog Add to" src="/assets/add_to_widget.png" width='450' />
 :::

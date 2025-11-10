@@ -35,7 +35,7 @@ The amount of entities shown will depend on the imposed limit set by the vehicle
 
 If you want quick access to specific entities, you can select them to appear in the app. When parked, go to [Settings](https://my.home-assistant.io/redirect/config/) > **Companion app** > **Android Auto favorites** (or **Driving favorites**) and choose the entities you want to view.
 
-:::info <span class='beta'>BETA</span>
+:::tip <span class='beta'>BETA</span>
 You can also set an entity as a favorite by opening the entity's **more info** (accessible by tapping on the entity or via the overflow menu). In **more info**, select **Add to** and choose to add an automotive favorite. You must perform this action on the device where you want the favorite to appear.
 
 <img alt="Home Assistant more-info dialog Add to menu" src="/assets/android/add_to_android_auto_favorite.png" width='450' />
