@@ -33,7 +33,15 @@ The amount of entities shown will depend on the imposed limit set by the vehicle
 
 ### Favorites
 
-If you would like to gain quick access to certain entities you can select some entities to be shown in the app. When you are parked simply go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Android Auto favorites (or Driving favorites) and select the entities you wish to view. Once you have added favorites the next time you start the Home Assistant app in the vehicle you will be shown your favorite entities. From there you can toggle entities, navigate to an entity, view all entities and also change your server.
+If you want quick access to specific entities, you can select them to appear in the app. When parked, go to [Settings](https://my.home-assistant.io/redirect/config/) > **Companion app** > **Android Auto favorites** (or **Driving favorites**) and choose the entities you want to view.
+
+:::tip
+When using Home Assistant 2025.12 or newer, you can also set set an entity as a favorite by opening the entity's **more info** (accessible by tapping on the entity or via the overflow menu). In **more info**, select **Add to** and choose to add an automotive favorite. You must perform this action on the device where you want the favorite to appear.
+
+<img alt="Home Assistant more-info dialog Add to menu" src="/assets/android/add_to_android_auto_favorite.png" width='450' />
+:::
+
+After you add favorites, the next time you start the Home Assistant app in your vehicle, your favorite entities will be displayed. From there, you can toggle entities, navigate to an entity, view all entities and also change your server.
 
 In addition to adding the above supported domains you can also add `binary_sensor` and `sensor` entities to favorites in order to view their state in the driving interface.
 
