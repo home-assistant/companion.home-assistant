@@ -198,7 +198,7 @@ Several different sensors around the Android OS build. These sensors make use of
 | Sensor                      | Description                                                                                |
 |-----------------------------|--------------------------------------------------------------------------------------------|
 | `android_os_version`        | Android OS release (e.g. 13).                                                              |
-| `android_os_security_patch` | Android OS security patch (e.g. 2023-03-05). Only available as of Android 6 (Marshmallow). |
+| `android_os_security_patch` | Android OS security patch (e.g. 2023-03-05). |
 
 ## App Data Sensors
 ![Android](/assets/android.svg)
@@ -439,12 +439,12 @@ This sensors state will be a hexadecimal color value for the accent color used i
 
 ## Do Not Disturb Sensor
 ![Android](/assets/android.svg) 6+ only<br />
-This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes. This sensor uses the [NotificationManager API](https://developer.android.com/reference/android/app/NotificationManager#getCurrentInterruptionFilter()) which is only available on Android 6+ devices.
+This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes. This sensor uses the [NotificationManager API](https://developer.android.com/reference/android/app/NotificationManager#getCurrentInterruptionFilter()).
 
 
 ## Doze Sensor
 ![Android](/assets/android.svg)<br />
-This sensor is only available on devices running Android 6.0+. The state will reflect whether or not the device is in doze mode. The state will update immediately upon a state change and data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html). There is one attribute `ignoring_battery_optimizations` which will show `true` or `false` if the Companion app is ignoring battery optimizations. If you are curious about how the state actually changes you may test it by following these [outlined steps](https://developer.android.com/training/monitoring-device-state/doze-standby#testing_doze).
+The state will reflect whether or not the device is in doze mode. The state will update immediately upon a state change and data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html). There is one attribute `ignoring_battery_optimizations` which will show `true` or `false` if the Companion app is ignoring battery optimizations. If you are curious about how the state actually changes you may test it by following these [outlined steps](https://developer.android.com/training/monitoring-device-state/doze-standby#testing_doze).
 
 
 ## Frontmost App Sensor
