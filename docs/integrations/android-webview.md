@@ -31,10 +31,10 @@ The ![Android](/assets/android.svg) Android app has the ability to intercept cer
 
 Examples using Lovelace entity card [weblink](https://www.home-assistant.io/dashboards/entities/#weblink):
 
-This example will launch Twitter if it is installed on the device, otherwise it will open the Google Play store app or website.
+This example will launch X if it is installed on the device, otherwise it will open the Google Play store app or website.
 ```yaml
 - type: weblink
-  name: Twitter
+  name: X
   url: "app://com.twitter.android"
 ```
 

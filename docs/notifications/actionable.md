@@ -115,7 +115,7 @@ If you want to open an application you need to set the action to `URI`. The form
 
 ```yaml
 - action: "URI"
-  title: "Open Twitter"
+  title: "Open X"
   # Name of package for application you would like to open
   uri: "app://com.twitter.android"
 ```

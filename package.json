@@ -13,13 +13,13 @@
   },
   "dependencies": {
     "@docusaurus/core": "^3.7.0",
-    "@docusaurus/preset-classic": "^3.8.1",
+    "@docusaurus/preset-classic": "^3.9.2",
     "@mdx-js/react": "^3.1.1",
     "@easyops-cn/docusaurus-search-local": "^0.52.1",
     "by-node-env": "^2.0.1",
     "clsx": "^2.1.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "resolutions": {},
   "browserslist": {

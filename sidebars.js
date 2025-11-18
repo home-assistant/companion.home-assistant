@@ -8,7 +8,9 @@
 module.exports = {
   docs: {
     'Getting Started': [
-      'getting_started/getting-started'],
+      'getting_started/getting-started',
+      'getting_started/connection-security-level',
+],
     'Core Features': [
       'core/core',
       'core/actions',
