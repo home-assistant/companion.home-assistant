@@ -490,7 +490,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ## Health Connect Sensors
 
-![Android](/assets/android.svg) 9+, only when installed from the Play Store
+![Android](/assets/android.svg) 9+ with Play Store version • (Android 14+ with all versions <span class='beta'>BETA</span>)
 
 :::note
 On Android 13 or older, you need to install and set up the [Health Connect app](https://play.google.com/store/apps/details?id=com.google.android.apps.healthdata) to use these sensors.
