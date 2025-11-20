@@ -270,7 +270,7 @@ automation:
 
 ## Bluetooth
 
-![Android](/assets/android.svg) &nbsp;Android 12 or older
+![Android](/assets/android.svg) &nbsp;Android 12 or below
 
 Users can turn Bluetooth on or off using `message: command_bluetooth` with the `command` being either `turn_off` or `turn_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
 
