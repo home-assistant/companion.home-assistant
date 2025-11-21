@@ -3,6 +3,10 @@ title: Getting Started
 id: getting-started
 ---
 
+:::note New onboarding experience
+Starting with ![iOS](/assets/iOS.svg) app version 2025.11.0, there's a new streamlined onboarding process. [Learn more about the new onboarding](/docs/getting_started/#new-onboarding-ios-2025110).
+:::
+
 ## Installation
 
 This sections provides the minimal system requirements and installation instructions.
@@ -81,3 +85,39 @@ If your Home Assistant requires TLS Client Authentication (because it is behind 
 Please refer to your device and Android version documentation to install the certificate. Make sure to install the certificate as a "VPN & app user certificate". An example for Pixel phones is available here: [Add & remove certificates](https://support.google.com/pixelphone/answer/2844832?hl=en).
 
 Wear OS does not support authentication with installed certificates. The app cannot transfer the certificate to the Wear OS app automatically, therefore you are asked to provide a certificate during the Wear OS app onboarding. The certificate and key need to be provided as a single file in PKCS12 format. If that does not work, refer to the [troubleshooting steps](../troubleshooting/networking.md#tls-client-authentication).
+
+
+## New onboarding (![iOS](/assets/iOS.svg) 2025.11.0)
+
+Starting with app version 2025.11.0, the onboarding process has been redesigned to provide a more streamlined setup experience. The new flow includes enhanced security options and clearer permission explanations.
+
+### Step-by-step onboarding process
+
+1. **Welcome screen**: When you first open the app, you'll see the Home Assistant Companion app welcome screen with options to **Connect to my Home Assistant** or **Learn more**.
+
+2. **Network discovery**: The app will search for Home Assistant instances on your network.
+   - If found, the app will try to automatically connect your Home Assistant server
+   - In case multiple servers were found, you will see a list to choose from
+   - If not found or connecting remotely, tap **Enter address manually** and provide your Home Assistant URL
+
+3. **Login**: Enter your Home Assistant credentials to authenticate.
+
+4. **Device naming**: Choose a name for your device as it will appear in Home Assistant.
+   - This name is used to identify your phone in Home Assistant
+
+5. **Location permission**: The app will ask for location access to enable powerful automations and secure connections.
+   - Location sharing enables automations such as turning off heating when you leave home
+   - This data stays in your home and is never sent to third parties
+   - It also helps strengthen the security of your connection to Home Assistant
+   - You can choose to **Share my location** or **Do not share my location**
+
+6. **System location permission**: Your device will show the standard location permission dialog.
+   - Select **Allow Once**, **Allow While Using the App**, or **Don't Allow**
+   - For full functionality, including background automations, choose **Allow While Using the App**, then in the next prompt **Allow always**
+
+7. **Connection security level**: If you plan to use a non-encrypted URL (such as your local IP address), you'll need to choose a security level:
+   - **Most secure**: Only allows non-encrypted connections when you're on your home network (requires location permission)
+   - **Less secure**: Allows non-encrypted connections from any network (not recommended for public networks)
+   - You can read more about ["Connection security level" here](/docs/getting_started/connection-security-level).
+
+8. **Setup completion**: The app will finalize the connection and take you to your Home Assistant dashboard.
