@@ -2,9 +2,7 @@
 title: "Connection security level"
 id: "connection-security-level"
 ---
-![iOS](/assets/iOS.svg) <span class='beta'>BETA 2025.11.0</span>
-
-Starting with Companion App version 2025.11, you will have to choose between two security options in the app if you want to use a unencrypted URL to connect to Home Assistant (such as your local IP address for local connection).
+Starting with ![iOS](/assets/iOS.svg) Companion App version 2025.11, you will have to choose between two security options in the app if you want to use a unencrypted URL to connect to Home Assistant (such as your local IP address for local connection).
 
 ## Option 1: Most secure (recommended)
 
