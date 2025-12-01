@@ -32,3 +32,27 @@ When you connect to Home Assistant using an unencrypted URL (such as `http://hom
 The **Most secure** option prevents these risks by ensuring unencrypted connections only work when you're on your home network. The **Less secure** option removes this protection, and is not recommended for most users.
 
 For maximum security, we recommend using HTTPS connections with valid SSL certificates always, especially when accessing Home Assistant remotely.
+
+# FAQ
+
+## If my internal and external URLs are already HTTPS, which option should I choose?
+
+In that case you don't even need 2 URLs in the App, you can use just one (set to external URL).
+
+## Does this feature work when I'm on my home network through a VPN?
+
+No. On iOS, if you access your Home Assistant remotely via VPN, you need to:
+
+1. Set your local IP as the **external URL**
+2. Make sure VPN is connected when you want to execute actions (e.g., running a script from a widget)
+
+## Should I enable this feature if I use a VPN?
+
+On **iOS** If you've set your local IP as the external URL, it doesn't matter whether you enable this feature or not, what is set as external will be used regardless.
+
+**Important security consideration:** This setup is not advisable because if you're not connected to your VPN and happen to connect to a public WiFi, it could expose your credentials.
+
+## Will the app send credentials if there's no connectivity to my instance?
+
+Only use your local IP or any other non-https URL as internal URL, and configure your home network so the App knows when it's the right time to connect locally, if your local IP is set as the external URL it's considered a secure connection (since you shouldn't have non-HTTPS remote access). The app will behave as normal, for example, if you try to run a script from a widget, it will use your credentials to execute that script. 
+
