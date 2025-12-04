@@ -90,7 +90,7 @@ If your external URL is HTTP (not recommended for remote access), credentials wo
 
 ## I chose "Less secure" but now want to change it. How?
 
-Go to **Settings** > **Companion App** > **[your server]** > **Connection Security Level** to change your preference at any time. And go to **Settings** > **Companion App** > **[your server]** > **Internal URL** to define your home network.
+Go to **Settings** > **Companion App** > **[your server]** > **Connection Security Level** to change your preference at any time. To define your home network, go to **Settings** > **Companion App** > **[your server]** > **Internal URL**.
 
 ## What happens if I don't grant location permission?
 
