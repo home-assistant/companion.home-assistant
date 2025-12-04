@@ -35,8 +35,6 @@ For maximum security, we recommend using HTTPS connections with valid SSL certif
 
 # FAQ
 
-# Connection Security Level - FAQ
-
 ## Why am I seeing the connection security prompt?
 
 Starting with version 2025.11, the companion app will ask you to choose a security level if your setup includes an unencrypted URL (HTTP instead of HTTPS). This prompt helps protect your Home Assistant credentials from being exposed on public networks.
