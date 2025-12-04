@@ -54,7 +54,7 @@ Choosing "Less secure" may expose your Home Assistant credentials if you connect
 
 1. Grant location permission when prompted (required for the "Most secure" option).
 2. Connect to your home Wi-Fi network.
-3. Go to **Settings** > **Companion App** > **[your server]** > **Internal URL**.
+3. Go to **Settings** > **Companion app** > **[your server]** > **Internal URL**.
 4. Add your home Wi-Fi SSID to the list.
 
 You can add multiple SSIDs if you have more than one home network.
