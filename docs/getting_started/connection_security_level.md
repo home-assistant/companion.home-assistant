@@ -78,7 +78,7 @@ If you set your local (HTTP) address as the external URL and forget to connect y
 
 ## I use VPN for all remote access. Should I enable this feature?
 
-If you've set your local address as the external URL, the connection security level setting won't affect how the app connects—it will always use that external URL.
+If you've set your local address as the external URL, the connection security level setting won't affect how the app connects: it will always use that external URL.
 
 However, for advanced use cases, you may still want different internal and external URLs. In that case, enable the "Most secure" option to ensure your internal (possibly HTTP) URL is only used when you're actually at home.
 
