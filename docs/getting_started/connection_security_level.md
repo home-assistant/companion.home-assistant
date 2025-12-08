@@ -44,7 +44,7 @@ If you have HTTPS for all your URLs and still saw this prompt, please update to 
 ## What do "Most secure" and "Less secure" mean?
 
 - **Most secure:** The app will only use unencrypted connections when you're on your specified home network. This requires location permission so the app can check your current Wi-Fi SSID.
-- **Less secure:** The app will use unencrypted connections regardless of which network you're on. This is not recommended if you ever connect from public Wi-Fi networks.
+- **Less secure:** The app will use unencrypted connections regardless of which network you're on. This is not recommended if you ever connect to public Wi-Fi networks.
 
 :::warning
 Choosing "Less secure" may expose your Home Assistant credentials if you connect from untrusted networks.
