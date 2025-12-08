@@ -73,7 +73,7 @@ If you rely on VPN for remote access, you'll need to configure your setup differ
 2. Ensure your VPN is connected whenever you want to interact with Home Assistant remotely.
 
 :::warning
-If you set your local (HTTP) address as the external URL and forget to connect your VPN on a public network, your credentials could be transmitted unencrypted.
+If you set your local (HTTP) address as the external URL and forget to connect your VPN on a public network, this may expose your Home Assistant credentials.
 :::
 
 ## I use VPN for all remote access. Should I enable this feature?
