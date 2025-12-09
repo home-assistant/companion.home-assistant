@@ -47,7 +47,7 @@ If you have HTTPS for all your URLs and still saw this prompt, please update to 
 - **Less secure:** The app will use unencrypted connections regardless of which network you're on. This is not recommended if you ever connect to public Wi-Fi networks.
 
 :::warning
-Choosing "Less secure" may expose your Home Assistant credentials if you connect from untrusted networks.
+Choosing "Less secure" may expose your Home Assistant credentials if you connect from a public network. Make sure you trust all networks you connect to when using this option.
 :::
 
 ## How do I set up my home network?
