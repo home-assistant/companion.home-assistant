@@ -84,7 +84,7 @@ However, for advanced use cases, you may still want different internal and exter
 
 ## Will the app send my credentials if Home Assistant is unreachable?
 
-The app will attempt to connect using your configured URLs. If the external URL is an HTTPS address, your credentials are encrypted during transmission regardless of whether the connection succeeds.
+Yes, the app will attempt to connect using your configured URLs, for example, when retrieving the state of an entity to display in your widget or when executing a shortcut in Shortcuts app.
 
 If your external URL is HTTP (not recommended for remote access), credentials would be sent unencrypted when the app attempts to connect.
 
