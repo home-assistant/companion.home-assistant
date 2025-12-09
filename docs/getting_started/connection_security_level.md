@@ -32,3 +32,68 @@ When you connect to Home Assistant using an unencrypted URL (such as `http://hom
 The **Most secure** option prevents these risks by ensuring unencrypted connections only work when you're on your home network. The **Less secure** option removes this protection, and is not recommended for most users.
 
 For maximum security, we recommend using HTTPS connections with valid SSL certificates always, especially when accessing Home Assistant remotely.
+
+# FAQ
+
+## Why am I seeing the connection security prompt?
+
+Starting with version 2025.11, the companion app will ask you to choose a security level if your setup includes an unencrypted URL (HTTP instead of HTTPS). This prompt helps protect your Home Assistant credentials from being exposed on public networks.
+
+If you have HTTPS for all your URLs and still saw this prompt, please update to the latest app version.
+
+## What do "Most secure" and "Less secure" mean?
+
+- **Most secure:** The app will only use unencrypted connections when you're on your specified home network. This requires location permission so the app can check your current Wi-Fi SSID.
+- **Less secure:** The app will use unencrypted connections regardless of which network you're on. This is not recommended if you ever connect to public Wi-Fi networks.
+
+:::warning
+Choosing "Less secure" may expose your Home Assistant credentials if you connect from a public network. Make sure you trust all networks you connect to when using this option.
+:::
+
+## How do I set up my home network?
+
+1. Grant location permission when prompted (required for the "Most secure" option).
+2. Connect to your home Wi-Fi network.
+3. Go to **Settings** > **Companion app** > **[your server]** > **Internal URL**.
+4. Add your home Wi-Fi SSID to the list.
+
+You can add multiple SSIDs if you have more than one home network.
+
+## Can I specify the Hardware Address (Ethernet) instead of just the SSID?
+
+On macOS, yes. On iOS, this is not currently available due to platform limitations.
+
+## Does this feature work when I'm connected through a VPN?
+
+No. The connection security level feature uses your Wi-Fi SSID to determine if you're at home. When connected via VPN, the app cannot detect your physical location through Wi-Fi.
+
+If you rely on VPN for remote access, you'll need to configure your setup differently:
+
+1. Set your local Home Assistant address as the **external URL** (since you access it the same way whether home or away).
+2. Ensure your VPN is connected whenever you want to interact with Home Assistant remotely.
+
+:::warning
+If you set your local (HTTP) address as the external URL and forget to connect your VPN on a public network, this may expose your Home Assistant credentials.
+:::
+
+## I use VPN for all remote access. Should I enable this feature?
+
+If you've set your local address as the external URL, the connection security level setting won't affect how the app connects: it will always use that external URL.
+
+However, for advanced use cases, you may still want different internal and external URLs. In that case, enable the "Most secure" option to ensure your internal (possibly HTTP) URL is only used when you're actually at home.
+
+## Will the app send my credentials if Home Assistant is unreachable?
+
+Yes, the app will attempt to connect using your configured URLs, for example, when retrieving the state of an entity to display in your widget or when executing a shortcut in Shortcuts app.
+
+If your external URL is HTTP (not recommended for remote access), credentials would be sent unencrypted when the app attempts to connect.
+
+## I chose "Less secure" but now want to change it. How?
+
+Go to **Settings** > **Companion app** > **[your server]** > **Connection security level** to change your preference at any time. To define your home network, go to **Settings** > **Companion app** > **[your server]** > **Internal URL**.
+
+## What happens if I don't grant location permission?
+
+Without location permission, the app cannot determine which network you're currently connected to. If you choose "Most secure" without granting location access, the app will only be able to use your external (HTTPS) URL.
+
+If you need to use an unencrypted internal URL and don't want to grant location permission, you'll need to select "Less secure"—but [be aware of the security implications](#option-2-less-secure).
