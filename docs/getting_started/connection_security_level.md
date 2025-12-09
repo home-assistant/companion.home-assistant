@@ -96,4 +96,4 @@ Go to **Settings** > **Companion app** > **[your server]** > **Connection securi
 
 Without location permission, the app cannot determine which network you're currently connected to. If you choose "Most secure" without granting location access, the app will only be able to use your external (HTTPS) URL.
 
-If you need to use an unencrypted internal URL and don't want to grant location permission, you'll need to select "Less secure"—but be aware of the security implications.
+If you need to use an unencrypted internal URL and don't want to grant location permission, you'll need to select "Less secure"—but [be aware of the security implications](#option-2-less-secure).
