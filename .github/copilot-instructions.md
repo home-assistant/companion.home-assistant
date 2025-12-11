@@ -83,22 +83,22 @@ This section defines who we write for and how to write for them. These principle
 
 ### Core principles
 
-1. **Never assume expert-level knowledge.** Write for someone who just installed Home Assistant for the first time. If a concept requires prior knowledge, link to an explanation or provide a brief inline definition.
+1. Never assume expert-level knowledge. Write for someone who just installed Home Assistant for the first time. If a concept requires prior knowledge, link to an explanation or provide a brief inline definition.
 
-2. **Always cover both platforms.** Every feature must document both iOS and Android. When a feature is platform-specific, explicitly state which platform supports it and which does not.
+2. Always cover both platforms. Every feature must document both iOS and Android. When a feature is platform-specific, explicitly state which platform supports it and which does not.
 
-3. **Avoid jargon.** Use plain language. When technical terms are unavoidable, explain them. Prefer visual aids (screenshots, diagrams, videos) over lengthy text explanations.
+3. Avoid jargon. Use plain language. When technical terms are unavoidable, explain them. Prefer visual aids (screenshots, diagrams, videos) over lengthy text explanations.
 
-4. **Don't assume Home Assistant knowledge.** Readers may not know what entities, automations, services, or YAML configurations are. Provide context or link to Home Assistant documentation.
+4. Don't assume Home Assistant knowledge. Readers may not know what entities, automations, services, or YAML configurations are. Provide context or link to Home Assistant documentation.
 
 ### Writing for beginners
 
 Always write as if the reader:
 
-- Has never used Home Assistant before
-- Is not familiar with technical terminology
-- Needs step-by-step guidance with visual confirmation at each step
-- May be using either iOS or Android (cover both)
+- Has never used Home Assistant before.
+- Is not familiar with technical terminology.
+- Needs step-by-step guidance with visual confirmation at each step.
+- May be using either iOS or Android (cover both).
 
 **Good example:**
 
@@ -110,31 +110,27 @@ similar to text message alerts.
 
 ### Steps
 
-1. In Home Assistant, go to **Developer Tools** > **Services**.
+1. In Home Assistant, go to [**Developer tools** > **Actions**.](https://my.home-assistant.io/redirect/developer_services/)
 
    <!-- TODO: Add screenshot of Developer Tools location in sidebar -->
 
-2. In the **Service** dropdown, search for and select `notify.mobile_app_<your_phone_name>`.
+2. In the **Action** drop-down,, search for and select `notify.mobile_app_<your_phone_name>`.
 
    :::info
-   Your phone name was set when you first connected the app to Home Assistant.
-   You can find it in the Companion App under **Settings** > **Companion App** > **Device Name**.
+   Your phone name was set when you first connected the app to Home Assistant and per server.
+   You can find it in the Companion app under **Settings** > **Companion app** > **Server & devices**.
+   <!-- TODO: Add screenshot showing the name of the device under the server -->
    :::
 
-   ![iOS](/assets/iOS.svg) On iOS, the service might be called `notify.mobile_app_iphone`.
+   ![iOS](/assets/iOS.svg) On iOS, the action might be called `notify.mobile_app_iphone`.
 
    ![Android](/assets/android.svg) On Android, it might be called `notify.mobile_app_pixel_7`.
 
-   <!-- TODO: Add screenshot showing the service dropdown with mobile_app services -->
+   <!-- TODO: Add screenshot showing the action drop-down, with mobile_app actions -->
 
-3. In the **Service Data** section, enter the following:
+3. In the **Action message** section, enter a message, such as `Hello from Home Assistant!`.
 
-   '''yaml
-   message: "Hello from Home Assistant!"
-   title: "Test Notification"
-   '''
-
-4. Select **Call Service**.
+4. Select **Perform action**.
 
 5. Check your phone. You should see a notification appear.
 
@@ -153,119 +149,15 @@ If the notification does not appear:
 ```markdown
 ## Notifications
 
-Call the `notify.mobile_app_*` service with a message payload to send notifications.
-See the HA docs for more info on service calls.
+Perform the `notify.mobile_app_*` action with a message payload to send notifications.
+See the HA docs for more info on action calls.
 ```
 
-### Platform coverage
-
-Every feature documentation must address both platforms. Use this pattern:
-
-```markdown
-## Feature name
-
-![iOS](/assets/iOS.svg) ![Android](/assets/android.svg)
-
-Brief description of what the feature does and why it's useful.
-
-### How it works on iOS
-
-<!-- iOS-specific instructions with screenshots -->
-
-### How it works on Android
-
-<!-- Android-specific instructions with screenshots -->
-```
-
-When a feature is **not available** on one platform, state it explicitly:
-
-```markdown
-## Critical notifications
-
-![iOS](/assets/iOS.svg)
-
-Critical notifications bypass Do Not Disturb and silent mode to alert you of urgent events.
-
-:::warning
-This feature is only available on iOS. Android does not support critical notifications due to
-platform limitations. For urgent alerts on Android, consider using [notification channels with
-high importance](./notification-details.md#android-notification-channels).
-:::
-```
-
-### Visual aids
-
-Prefer screenshots and videos over text. When writing documentation:
-
-- Add screenshots for every significant UI interaction
-- Use placeholder comments when screenshots are not yet available:
-
-  ```markdown
-  <!-- TODO: Add screenshot of the Settings > Companion App screen -->
-  ```
-
-- For complex flows, consider adding a video or animated GIF:
-
-  ```markdown
-  <!-- TODO: Add video walkthrough of the onboarding process -->
-  ```
-
-- Always show both iOS and Android screenshots side by side when possible:
-
-  ```markdown
-  | iOS | Android |
-  |-----|---------|
-  | ![iOS settings screen](/assets/ios-settings.png) | ![Android settings screen](/assets/android-settings.png) |
-  ```
-
-### Explaining Home Assistant concepts
-
-When referencing Home Assistant concepts, provide brief explanations or link to documentation:
-
-```markdown
-<!-- Good: Explains the concept inline -->
-The app creates **entities** in Home Assistant. Entities are the basic building blocks that
-represent devices and data points in your smart home (like sensors, switches, and lights).
-
-<!-- Good: Links to more information -->
-The app uses [automations](https://www.home-assistant.io/docs/automation/) to trigger actions
-based on your phone's location.
-
-<!-- Bad: Assumes knowledge -->
-Configure the entity's device_class in your automation trigger.
-```
-
-### Audience types
-
-While we write for beginners by default, our documentation serves several audiences:
-
-1. **New users**: Just installed Home Assistant and/or the companion app. Need clear installation guides and basic feature explanations.
-
-2. **End users**: Use the app daily but are not technical. Need guidance on features without requiring code or advanced configuration.
-
-3. **Enthusiasts**: Comfortable with Home Assistant, looking for advanced tips and automation ideas. May understand YAML but appreciate clear examples.
-
-4. **Developers**: Contributing to the apps or building custom integrations. Need technical details but still benefit from clear documentation.
-
-For all audiences, start with the simple explanation, then progressively add more detail for advanced users.
 
 ### Documenting requirements
 
-When documenting a feature, always specify its requirements. If exact versions are unknown, add a placeholder:
-
-```markdown
-:::note
-Requires:
-- Home Assistant 2023.1 or newer
-- iOS app version 2023.1 or newer <!-- TODO: Confirm minimum iOS version -->
-- Android app version 2023.1 or newer <!-- TODO: Confirm minimum Android version -->
-:::
-```
-
 Requirements to consider:
 
-- Minimum Home Assistant version
-- Minimum companion app version (iOS and Android separately)
 - Supported devices or operating systems
 - Whether the feature is in beta or stable release
 - Any required Home Assistant integrations or configuration
@@ -284,7 +176,7 @@ Use this flag when:
 
 - The feature is only available in beta versions of the iOS or Android app
 - The feature is experimental and may change
-- The documentation is prepared ahead of a stable release
+- The documentation is prepared ahead of a prod release
 
 ## Development
 
@@ -350,16 +242,6 @@ Important warnings the user should be aware of.
 
 :::danger
 Critical information about potential data loss or security issues.
-:::
-```
-
-### Version requirements
-
-When documenting features that require specific versions:
-
-```markdown
-:::note
-Requires Home Assistant 2021.10 or newer.
 :::
 ```
 
