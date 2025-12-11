@@ -14,7 +14,7 @@ This sections provides the minimal system requirements and installation instruct
 | Platform | Minimum Version | Notes |
 |----------|-----------------|-------|
 | ![iOS](/assets/iOS.svg) iOS | iOS 15+ | iPhone 6s or newer |
-| ![Android](/assets/android.svg) Android | Android 6+ | Available in `full` and `minimal` [flavors](../core/android-flavors.md) |
+| ![Android](/assets/android.svg) Android | Android 6+ | Available in `full` and `minimal` [flavors](/docs/core/android-flavors.md) |
 
 The `full` flavor (Play Store) requires Google Play Services. The `minimal` flavor does not.
 
@@ -101,7 +101,7 @@ Always log in using your Home Assistant credentials. If you have [Trusted Networ
 
 6. **Location permission**: The app asks for location access to enable automations and secure connections.
 
-   - Location sharing enables [automations](core/location) such as turning off heating when you leave home
+   - Location sharing enables [automations](/docs/core/location) such as turning off heating when you leave home
    - Your location data stays in your home and is never sent to third parties
    - Location also helps strengthen the security of your connection to Home Assistant
    - Choose **Share my location** or **Do not share my location**
@@ -137,7 +137,7 @@ Always log in using your Home Assistant credentials. If you have [Trusted Networ
 7. **Connection security level**: If using a non-encrypted URL (such as a local IP address), choose a security level:
    - **Most secure**: Only allows non-encrypted connections when you're on your home network (requires location permission)
    - **Less secure**: Allows non-encrypted connections from any network (not recommended for public networks)
-   - Learn more about [connection security levels](./connection-security-level.md)
+   - Learn more about [connection security levels](/docs/getting_started/connection-security-level)
 
 8. **Set up your home network** (Most secure only): If you selected **Most secure** in the previous step, you will be asked to confirm your home network.
 
@@ -148,7 +148,7 @@ Always log in using your Home Assistant credentials. If you have [Trusted Networ
 9. **Setup complete**: The app finalizes the connection and takes you to your Home Assistant dashboard.
 
 :::note
-If you have difficulties setting up the app, refer to the [troubleshooting guide](../troubleshooting/setup.md).
+If you have difficulties setting up the app, refer to the [troubleshooting guide](/docs/troubleshooting/setup.md).
 :::
 
 ### Notifications
@@ -158,7 +158,7 @@ After setup, you will be asked to enable notifications. This allows Home Assista
 - **Standard notifications**: Regular alerts for automations, reminders, and updates
 - ![iOS](/assets/iOS.svg) **Critical notifications**: High-priority alerts that play a sound even when your device is in silent mode or Do Not Disturb is enabled
 
-Learn more about how to [send notifications](../notifications/basic.md) from Home Assistant.
+Learn more about how to [send notifications](/docs/notifications/basic.md) from Home Assistant.
 
 ## Adding Additional Servers
 
@@ -184,5 +184,5 @@ If your Home Assistant requires TLS Client Authentication (because it is behind 
 Please refer to your device and Android version documentation to install the certificate. Make sure to install the certificate as a "VPN & app user certificate". An example for Pixel phones is available here: [Add & remove certificates](https://support.google.com/pixelphone/answer/2844832?hl=en).
 
 :::info
-Wear OS does not support authentication with installed certificates. The app cannot transfer the certificate to the Wear OS app automatically, therefore you are asked to provide a certificate during the Wear OS app onboarding. The certificate and key need to be provided as a single file in PKCS12 format. If that does not work, refer to the [troubleshooting steps](../troubleshooting/networking.md#tls-client-authentication).
+Wear OS does not support authentication with installed certificates. The app cannot transfer the certificate to the Wear OS app automatically, therefore you are asked to provide a certificate during the Wear OS app onboarding. The certificate and key need to be provided as a single file in PKCS12 format. If that does not work, refer to the [troubleshooting steps](/docs/troubleshooting/networking.md#tls-client-authentication).
 :::
