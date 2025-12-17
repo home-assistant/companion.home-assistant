@@ -7,61 +7,35 @@ id: getting-started
 
 This sections provides the minimal system requirements and installation instructions.
 
-### System Requirements
+### System requirements
 
-#### Mobile Device
+#### Mobile device
 
 | Platform | Minimum Version | Notes |
 |----------|-----------------|-------|
 | ![iOS](/assets/iOS.svg) iOS | iOS 15+ | iPhone 6s or newer |
 | ![Android](/assets/android.svg) Android | Android 6+ | Available in `full` and `minimal` [flavors](/docs/core/android-flavors.md) |
 
-The `full` flavor (Play Store) requires Google Play Services. The `minimal` flavor does not.
-
 #### Home Assistant
 
-- **Version:** [Home Assistant](https://www.home-assistant.io/installation/) 0.104.0 or newer
+Requires [Home Assistant](https://www.home-assistant.io/installation/) 0.104.0 or newer. Learn more about [Home Assistant Cloud](https://support.nabucasa.com/hc/en-us/categories/24734619902749) and [remote access](https://support.nabucasa.com/hc/en-us/sections/26496346499997).
 
-- **Configuration:** Add the following to your [`configuration.yaml`](https://www.home-assistant.io/docs/configuration/):
+## Setting up
 
-```yaml
-# Recommended: includes mobile_app and most common integrations
-default_config:
-
-# If you've disabled default_config, you need at least:
-# mobile_app:
-
-# Optional integrations for additional features:
-
-# Secure remote access via Home Assistant Cloud subscription
-# cloud:
-
-# Advanced iOS notifications (actionable notifications, categories)
-# ios:
-```
-
-Learn more about [Home Assistant Cloud](https://support.nabucasa.com/hc/en-us/categories/24734619902749) and [remote access](https://support.nabucasa.com/hc/en-us/sections/26496346499997).
-
-## Setting Up
-
-You can set up the Companion App from any location if your Home Assistant instance is configured for [remote access](https://www.home-assistant.io/docs/configuration/remote/). If you're on the same network as your Home Assistant, the app will automatically detect it.
-
-:::info
-Always log in using your Home Assistant credentials. If you have [Trusted Networks](https://www.home-assistant.io/docs/authentication/providers/#trusted-networks) enabled, avoid using it for the app, otherwise the app will only work on the trusted network.
-:::
+If you're on the same network as your Home Assistant instance, the app will automatically detect it. Or, you can set up the app from any location if your Home Assistant instance is configured for [remote access](https://www.home-assistant.io/docs/configuration/remote/).
 
 ### Step-by-step setup
 
-1. **Download the app**: Get the [Home Assistant Companion App](/download).
+1. **Download the app**: Get the [Home Assistant Companion app](/download).
 
-2. **Welcome screen**: Open the app and select **Connect to my Home Assistant** to begin setup.
+2. **Welcome screen**: Open the app and select **Connect to my Home Assistant server** to begin setup.
 
-3. **Network discovery**: The app searches for Home Assistant instances on your network.
+3. **Network discovery**: The app searches for Home Assistant servers on your network.
 
    <details>
    <summary>**Server found automatically**</summary>
 
-   If a single Home Assistant instance is found, the app will automatically offer you to connect to it.
+   If a single Home Assistant server is found, the app will automatically offer you to connect to it.
 
    <img alt="Home Assistant companion app showing a single discovered server ready to connect" src="/assets/OneServerFound.png" width="400"/>
 
@@ -70,7 +44,7 @@ Always log in using your Home Assistant credentials. If you have [Trusted Networ
    <details>
    <summary>**Multiple servers found**</summary>
 
-   If multiple Home Assistant instances are found, you will see a list to choose from. Tap the server you want to connect to.
+   If multiple Home Assistant servers are found, you will see a list to choose from. Tap the server you want to connect to.
 
    <img alt="Home Assistant companion app showing a list of multiple discovered servers to choose from" src="/assets/MultipleServerFound.png" width="400"/>
 
@@ -81,23 +55,27 @@ Always log in using your Home Assistant credentials. If you have [Trusted Networ
 
    If no server is found, or you're connecting from outside your home network:
 
+   1. Tap **Enter address manually**
+   2. Enter your Home Assistant URL
+
    <div style={{display: 'flex', gap: '1rem', alignItems: 'flex-start'}}>
      <img alt="Home Assistant companion  app showing no servers found with Enter address manually button" src="/assets/NoServerFound.png" style={{height: '400px', width: 'auto'}}/>
      <img alt="Home Assistant companion app manual server entry screen with URL input field" src="/assets/ManualServer.png" style={{height: '400px', width: 'auto'}}/>
    </div>
 
-   1. Tap **Enter address manually**
-   2. Enter your Home Assistant URL
-
    :::tip
-   Using [Home Assistant Cloud](https://www.nabucasa.com/config/remote/) Remote UI is recommended for secure remote access.
+   Using [Home Assistant Cloud](https://www.nabucasa.com/config/remote/) Remote access is recommended for secure remote access.
    :::
 
    </details>
 
 4. **Login**: Enter your Home Assistant credentials to authenticate.
 
-5. **Device naming**: Choose a name for your device as it will appear in Home Assistant. This name identifies your phone in automations and services.
+   :::info
+   Always log in using your Home Assistant credentials. If you have [Trusted Networks](https://www.home-assistant.io/docs/authentication/providers/#trusted-networks) enabled, avoid using it for the app, otherwise the app will only work on the trusted network.
+   :::
+
+5. **Device naming**: Choose a name for your device as it will appear in Home Assistant. This name identifies your device entities and in automations and actions.
 
 6. **Location permission**: The app asks for location access to enable automations and secure connections.
 
@@ -109,7 +87,7 @@ Always log in using your Home Assistant credentials. If you have [Trusted Networ
    <details>
    <summary>**Android**</summary>
 
-   We need **Allow all the time** and **Nearby devices** for background location updates to work properly.
+   The app needs **Location: Allow all the time** and **Nearby devices** for background location updates to work properly.
 
    <div style={{display: 'flex', gap: '0.5rem', alignItems: 'flex-start', flexWrap: 'wrap', justifyContent: 'center'}}>
       <img alt="Home Assistant app location sharing prompt" src="/assets/android/enable_location_tracking.png" style={{height: '280px', width: 'auto'}}/>
@@ -124,7 +102,7 @@ Always log in using your Home Assistant credentials. If you have [Trusted Networ
 
    Your device will show the standard location permission dialog.
    - Select **Allow Once**, **Allow While Using the App**, or **Don't Allow**
-   - For full functionality, including background automations, choose **Allow While Using the App**, then in the next prompt **Allow always**   
+   - For full functionality, including background automations, choose **Allow While Using the App**, then in the next prompt **Allow always**
    </details>
 
    :::warning
@@ -134,45 +112,45 @@ Always log in using your Home Assistant credentials. If you have [Trusted Networ
 7. **Connection security level**: If using a non-encrypted URL (such as a local IP address), choose a security level:
    - **Most secure**: Only allows non-encrypted connections when you're on your home network (requires location permission)
    - **Less secure**: Allows non-encrypted connections from any network (not recommended for public networks)
-   - Learn more about [connection security levels](/docs/getting_started/connection-security-level)
+   - Learn more about [connection security level](/docs/getting_started/connection-security-level)
 
 8. **Set up your home network** (Most secure only): If you selected **Most secure** in the previous step, you will be asked to confirm your home network.
 
-    - The app detects your current Wi-Fi network name (SSID) and pre-fills it
+    - The app detects your current Wi-Fi network (SSID) and pre-fills it as your home network
+    - ![Android](/assets/android.svg) On Android, you can also use VPN or Ethernet as trusted networks
     - This allows the app to know when you're home and can safely use non-encrypted connections
-    - You can add additional trusted networks later from the settings.
+    - You can add additional trusted networks later in [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion App** > **[your server]**
 
 9. **Setup complete**: The app finalizes the connection and takes you to your Home Assistant dashboard.
 
-:::note
+:::tip
 If you have difficulties setting up the app, refer to the [troubleshooting guide](/docs/troubleshooting/setup.md).
 :::
 
 ### Notifications
 
-After setup, you will be asked to enable notifications. This allows Home Assistant to send alerts to your device.
+After setup, you will be asked to enable notifications. This allows Home Assistant to send you alerts for automations, reminders, and updates.
 
-- **Standard notifications**: Regular alerts for automations, reminders, and updates
-- ![iOS](/assets/iOS.svg) **Critical notifications**: High-priority alerts that play a sound even when your device is in silent mode or Do Not Disturb is enabled
+:::info
+On iOS, you will also be asked to allow **critical notifications**. These are high-priority alerts that play a sound even when your device is in silent mode or Do Not Disturb is enabled.
+:::
 
 Learn more about how to [send notifications](/docs/notifications/basic.md) from Home Assistant.
 
-## Adding Additional Servers
-
-![iOS](/assets/iOS.svg) ![Android](/assets/android.svg)
+## Adding additional servers
 
 :::note
 Requires Home Assistant 2021.10 or newer.
 :::
 
-Once you have set up your first server, you can add additional Home Assistant instances:
+Once you have set up your first server, you can add additional Home Assistant servers:
 
-1. In the Companion app, go to [Settings](https://my.home-assistant.io/redirect/config/) > **Companion App**.
+1. In the Companion app, go to [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion app**.
 2. Select **Add Server**.
    - Servers on the same local network will be discovered automatically.
 3. If the server is not listed, tap **Enter address manually** and provide the URL.
 
-## TLS Client Authentication
+## TLS client authentication
 
 ![Android](/assets/android.svg)
 
