@@ -19,7 +19,7 @@
     "by-node-env": "^2.0.1",
     "clsx": "^2.1.1",
     "react": "^19.2.3",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.2.3"
   },
   "resolutions": {},
   "browserslist": {
