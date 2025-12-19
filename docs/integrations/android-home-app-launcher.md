@@ -24,7 +24,7 @@ A home app (also called a "launcher") is the app that appears when you press the
 When Home Assistant is your default home app:
 
 - No app drawer: You won't see the usual list of installed apps when pressing the home button.
-- No direct app launching: You can't start other apps the traditional way. Follow the steps on [opening other apps when using Home Assistant as home app](#opening-other-apps-when-using-home-assistant-as-home-app)
+- No direct app launching: You can't start other apps the traditional way. Follow the steps on [opening other apps when using Home Assistant as the home app](#opening-other-apps-when-using-home-assistant-as-the-home-app)
 - Home button: Returns to Home Assistant (or refreshes if already open).
 - Back button: When the navigation stack is empty, pressing back will refresh the app instead of doing nothing.
 - Boot: The device opens Home Assistant automatically after restarting.
@@ -81,7 +81,7 @@ Create a streamlined experience by setting up a dedicated dashboard:
 Create a dedicated Home Assistant user for each kiosk device. This allows you to set different default dashboards per device.
 :::
 
-## Opening other apps when using Home Assistant as home app
+## Opening other apps when using Home Assistant as the home app
 
 Since Home Assistant doesn't have an app drawer, here are two ways to launch other apps:
 
