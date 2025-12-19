@@ -29,7 +29,7 @@ When Home Assistant is your default home app:
 - Back button: When the navigation stack is empty, pressing back will refresh the app instead of doing nothing.
 - Boot: The device opens Home Assistant automatically after restarting.
 
-## Enabling Home Assistant as home app
+## Enabling Home Assistant as the home app
 
 1. Open the Home Assistant app.
 2. Go to [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion app**.
@@ -42,7 +42,7 @@ When Home Assistant is your default home app:
 
     <img alt="Screenshot showing choose a home app system screen" src="/assets/android/select_home_app.png" width='400'/>
 
-## Disabling Home Assistant as home app
+## Disabling Home Assistant as the home app
 
 If you want to switch back to your regular home app:
 
