@@ -1,13 +1,13 @@
 ---
-title: "Android Home App Mode"
-id: 'android-launcher'
+title: "Android Home App (launcher)"
+id: 'android-home-app-launcher'
 ---
 
 ![Android](/assets/android.svg)
 
 The Home Assistant Companion app can be set as your device's default home app (launcher). This turns your Android device into a dedicated Home Assistant control panel, perfect for wall-mounted tablets or kiosks.
 
-## What is home app mode?
+## What is home app?
 
 A home app (also called a "launcher") is the app that appears when you press the home button. By setting Home Assistant as your home app, your device boots directly into Home Assistant, making it ideal for dedicated smart home control.
 
@@ -29,7 +29,7 @@ When Home Assistant is your default home app:
 - Back button: When the navigation stack is empty, pressing back will refresh the app instead of doing nothing.
 - Boot: The device opens Home Assistant automatically after restarting.
 
-## Enabling home app mode
+## Enabling home app
 
 1. Open the Home Assistant app.
 2. Go to [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion App**.
@@ -42,7 +42,7 @@ When Home Assistant is your default home app:
 
     <img alt="Screenshot showing choose a home app system screen" src="/assets/android/select_home_app.png" width='400'/>
 
-## Disabling home app mode
+## Disabling home app
 
 If you want to switch back to your regular home app:
 
@@ -53,13 +53,18 @@ If you want to switch back to your regular home app:
 
     <img alt="Screenshot showing choose a home app system screen" src="/assets/android/select_home_app.png" width='400'/>
 
-## Useful features/settings for kiosk setups
+## Creating a kiosk mode setup
 
 For the best kiosk or wall tablet experience, consider these additional settings:
 
 ### Enable local push
 
-Enable [local push](/docs/notifications/notification-local) to always be connected through the websocket and not being limited by the number of notification/commands you can send to the device.
+Enable [local push](/docs/notifications/notification-local) to take advantage of this:
+
+- Unlimited notifications: No daily limits on alerts from your automations
+- Unlimited commands: No daily limits on controlling the device (change volume, open apps)
+- Faster response: Commands run instantly with lower latency
+- Works offline: Keeps working even when your internet is down
 
 ### Keep screen on
 
@@ -80,13 +85,15 @@ Create a dedicated Home Assistant user for each kiosk device. This allows you to
 
 ### I can't access other apps
 
-Since there's no app drawer, you need to access apps through Android settings:
+You want to open another app but there's no app drawer or home screen to launch it from.When Home Assistant is your home app, it replaces the traditional Android home screen and app drawer.
 
-1. To open the notification shade, wwipe down from the top of the screen.
-2. Tap the **settings gear** icon.
-3. Go to **Apps** and select the app you want to open.
-4. To launch it, tap **Open**.
+There are two ways to open other apps:
 
-### I want to launch apps from my dashboard
+1. Through Android settings:
+   - Swipe down from the top of the screen to open the notification shade
+   - Tap the **settings gear** icon
+   - Go to **Apps**, select the app you want, and tap **Open**
 
-You can use [notification commands](/docs/notifications/notification-commands) to launch apps directly from your Home Assistant dashboard. This is useful for creating buttons that open specific apps like a camera viewer or music player.
+2. From your Home Assistant dashboard:
+   - Use [notification commands](/docs/notifications/notification-commands) to launch apps directly from buttons on your dashboard
+   - This is useful for quick access to specific apps like a camera viewer or music player
