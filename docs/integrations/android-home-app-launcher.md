@@ -7,7 +7,7 @@ id: 'android-home-app-launcher'
 
 The Home Assistant Companion app can be set as your device's default home app (launcher). This turns your Android device into a dedicated Home Assistant control panel, perfect for wall-mounted tablets or kiosks.
 
-## What is home app?
+## What is a home app?
 
 A home app (also called a "launcher") is the app that appears when you press the home button. By setting Home Assistant as your home app, your device boots directly into Home Assistant, making it ideal for dedicated smart home control.
 
@@ -24,15 +24,15 @@ A home app (also called a "launcher") is the app that appears when you press the
 When Home Assistant is your default home app:
 
 - No app drawer: You won't see the usual list of installed apps when pressing the home button.
-- No direct app launching: You can't start other apps the traditional way.
+- No direct app launching: You can't start other apps the traditional way. Follow the steps on [opening other apps when using Home Assistant as home app](#opening-other-apps-when-using-home-assistant-as-home-app)
 - Home button: Returns to Home Assistant (or refreshes if already open).
 - Back button: When the navigation stack is empty, pressing back will refresh the app instead of doing nothing.
 - Boot: The device opens Home Assistant automatically after restarting.
 
-## Enabling home app
+## Enabling Home Assistant as home app
 
 1. Open the Home Assistant app.
-2. Go to [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion App**.
+2. Go to [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion app**.
 3. Scroll down to **Device home screen**.
 4. Enable **Use as Home app (launcher)**.
 
@@ -42,12 +42,12 @@ When Home Assistant is your default home app:
 
     <img alt="Screenshot showing choose a home app system screen" src="/assets/android/select_home_app.png" width='400'/>
 
-## Disabling home app
+## Disabling Home Assistant as home app
 
 If you want to switch back to your regular home app:
 
 1. Open the Home Assistant app.
-2. Go to [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion App**.
+2. Go to [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion app**.
 3. Scroll down to **Device home screen**.
 4. To open the system screen that allows you to pick a home app other than Home Assistant, select **Change home app**.
 
@@ -68,7 +68,7 @@ Enable [local push](/docs/notifications/notification-local) to take advantage of
 
 ### Keep screen on
 
-To prevent the screen from turning off, go to [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion App** > **Other Settings** and enable **Keep screen on**.
+To prevent the screen from turning off, go to [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion app**  and scroll down to **Other settings** and enable **Keep screen on**.
 
 ### Kiosk mode dashboard
 
