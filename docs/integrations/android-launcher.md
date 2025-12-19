@@ -33,7 +33,7 @@ When Home Assistant is your default home app:
 
 1. Open the Home Assistant app
 2. Go to [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion App**
-3. Scroll down to **Other Settings**
+3. Scroll down to **Device home screen**
 4. Enable **Use as Home app (launcher)**
 
     <img alt="Screenshot showing allow as home app" src="/assets/android/allow_as_home_app.png" width='400'/>
@@ -48,7 +48,7 @@ If you want to switch back to your regular home app:
 
 1. Open the Home Assistant app
 2. Go to [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion App**
-3. Scroll down to **Other Settings**
+3. Scroll down to **Device home screen**
 4. Click on **Change home app**, it is going to open the system screen that allow you to pick another home app than Home Assistant
 
     <img alt="Screenshot showing choose a home app system screen" src="/assets/android/select_home_app.png" width='400'/>
