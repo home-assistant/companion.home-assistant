@@ -10,7 +10,7 @@ With iOS 13 or later and the Home Assistant Companion App, you can take advantag
 
 As an example, if you wanted to create a shortcut to turn on a light (`light.porch` in this example):
 
-1. Open the Shortcuts app (included by default with iOS, can be re-installed from the [App Store](https://apps.apple.com/us/app/shortcuts/id915249334) if you deleted it)
+1. Open the Shortcuts app (included by default with iOS, can be re-installed from the [App Store](https://apps.apple.com/app/id915249334) if you deleted it)
 2. Tap the Plus icon at the top right to create a new shortcut.
 3. Tap Add Action and add a "Dictionary" item.
 4. In the Dictionary item, tap "Add new item", tap "Text" then add `entity_id` as the key and `light.porch` as the text.
@@ -123,6 +123,6 @@ With Shortcuts Personal Automation, you can get the best of both worlds - by usi
 * You can ensure that any Home Assistant automations using the iOS app's "Battery State" sensor run immediately by creating a Shortcuts personal automation with the "Charger" trigger (iOS 17) along with the "Send Location" Home Assistant app action. An example use of this is triggering your bedtime routine automation immediately after your phone is plugged in at night time, rather than waiting for the next sensors background update.
 * Place an NFC sticker on the lid of your pills bottle. Each time you take your medicine, scan the NFC sticker with your iPhone. Home Assistant can keep a log of the exact times you take your medicine, increment a [counter](https://www.home-assistant.io/integrations/counter/) which will help you know when to refill your prescription, and more.
 
-To create a Personal Automation in the Shortcuts app, go to the "Automations" tab, press the "+" button in the top right corner, and then tap the "Create Personal Automation" button. If you don't have any existing Automations in the shortcut app, just tap the "Create Personal Automation" button. There are 21 triggers available on iOS 17. See Apple's [Shortcuts user guide](https://support.apple.com/guide/shortcuts/create-a-new-personal-automation-apdfbdbd7123/3.5/ios/13.5) for more information on creating Personal Automations.
+To create a Personal Automation in the Shortcuts app, go to the "Automations" tab, press the "+" button in the top right corner, and then tap the "Create Personal Automation" button. If you don't have any existing Automations in the shortcut app, just tap the "Create Personal Automation" button. There are 21 triggers available on iOS 17. See Apple's [Shortcuts user guide](https://support.apple.com/guide/shortcuts/apdfbdbd7123/) for more information on creating Personal Automations.
 
 In iOS 17 all personal automation trigger types can run automatically without any interaction, except for the "Before I Commute" trigger.
