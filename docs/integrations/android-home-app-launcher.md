@@ -81,19 +81,16 @@ Create a streamlined experience by setting up a dedicated dashboard:
 Create a dedicated Home Assistant user for each kiosk device. This allows you to set different default dashboards per device.
 :::
 
-## Troubleshooting
+## Opening other apps when using Home Assistant as home app
 
-### I can't access other apps
+Since Home Assistant doesn't have an app drawer, here are two ways to launch other apps:
 
-You want to open another app but there's no app drawer or home screen to launch it from.When Home Assistant is your home app, it replaces the traditional Android home screen and app drawer.
+### Through Android settings
 
-There are two ways to open other apps:
+1. Swipe down from the top of the screen to open the notification shade.
+2. Tap the **settings gear** icon.
+3. Go to **Apps**, select the app you want, and tap **Open**.
 
-1. Through Android settings:
-   - Swipe down from the top of the screen to open the notification shade
-   - Tap the **settings gear** icon
-   - Go to **Apps**, select the app you want, and tap **Open**
+### From your dashboard
 
-2. From your Home Assistant dashboard:
-   - Use [notification commands](/docs/notifications/notification-commands) to launch apps directly from buttons on your dashboard
-   - This is useful for quick access to specific apps like a camera viewer or music player
+Use [notification commands](/docs/notifications/notification-commands) to create buttons that launch apps directly. This is useful for quick access to apps like a camera viewer or music player.
