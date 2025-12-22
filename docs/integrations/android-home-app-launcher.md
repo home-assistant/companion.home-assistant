@@ -74,8 +74,8 @@ To prevent the screen from turning off, go to [**Settings**](https://my.home-ass
 
 Create a streamlined experience by setting up a dedicated dashboard:
 
-1. **Create a dashboard** in Home Assistant with only the controls needed for that device.
-2. **Set it as default** for the device user in [**Settings**](https://my.home-assistant.io/redirect/config/) > **Dashboards** > select your dashboard > **Set as default on this device**.
+1. Create a dashboard in Home Assistant with only the controls needed for that device.
+2. Set it as default for the device user in [**Settings**](https://my.home-assistant.io/redirect/config/) > **Dashboards** > select your dashboard > **Set as default on this device**.
 
 :::tip
 Create a dedicated Home Assistant user for each kiosk device. This allows you to set different default dashboards per device.
