@@ -76,3 +76,212 @@ You should follow the general guidelines about writing a documentation from Micr
    - Use a serial comma (also known as the Oxford comma) before the conjunction in a list of three or more items. For example, "Through the use of additional adapters, Home Assistant allows the use of Zigbee, Z-Wave, and other protocols".
    - Don't use "e.g.". Instead, use _for example_, _such as_, or _like_.
    - All examples containing Jinja2 templates should be wrapped _outside_ of the code markdown with the `{% raw %}` tag.
+
+## Target audience
+
+This section defines who we write for and how to write for them. These principles are critical for maintaining accessible, helpful documentation.
+
+### Core principles
+
+1. Never assume expert-level knowledge. Write for someone who just installed Home Assistant for the first time. If a concept requires prior knowledge, link to an explanation or provide a brief inline definition.
+
+2. Always cover both platforms. Every feature must document both iOS and Android. When a feature is platform-specific, explicitly state which platform supports it and which does not.
+
+3. Avoid jargon. Use plain language. When technical terms are unavoidable, explain them. Prefer visual aids (screenshots, diagrams, videos) over lengthy text explanations.
+
+4. Don't assume Home Assistant knowledge. Readers may not know what entities, automations, services, or YAML configurations are. Provide context or link to Home Assistant documentation.
+
+### Writing for beginners
+
+Always write as if the reader:
+
+- Has never used Home Assistant before.
+- Is not familiar with technical terminology.
+- Needs step-by-step guidance with visual confirmation at each step.
+- May be using either iOS or Android (cover both).
+
+**Good example:**
+
+```markdown
+## Sending a notification to your phone
+
+A notification is a message that appears on your phone's lock screen or notification center,
+similar to text message alerts.
+
+### Steps
+
+1. In Home Assistant, go to [**Developer tools** > **Actions**.](https://my.home-assistant.io/redirect/developer_services/)
+
+   <!-- TODO: Add screenshot of Developer Tools location in sidebar -->
+
+2. In the **Action** drop-down,, search for and select `notify.mobile_app_<your_phone_name>`.
+
+   :::info
+   Your phone name was set when you first connected the app to Home Assistant and per server.
+   You can find it in the Companion app under **Settings** > **Companion app** > **Server & devices**.
+   <!-- TODO: Add screenshot showing the name of the device under the server -->
+   :::
+
+   ![iOS](/assets/iOS.svg) On iOS, the action might be called `notify.mobile_app_iphone`.
+
+   ![Android](/assets/android.svg) On Android, it might be called `notify.mobile_app_pixel_7`.
+
+   <!-- TODO: Add screenshot showing the action drop-down, with mobile_app actions -->
+
+3. In the **Action message** section, enter a message, such as `Hello from Home Assistant!`.
+
+4. Select **Perform action**.
+
+5. Check your phone. You should see a notification appear.
+
+   <!-- TODO: Add side-by-side screenshots of iOS and Android notifications -->
+
+### Troubleshooting
+
+If the notification does not appear:
+
+- ![iOS](/assets/iOS.svg) Make sure notifications are enabled in iOS **Settings** > **Home Assistant** > **Notifications**.
+- ![Android](/assets/android.svg) Check that the app has notification permissions in Android **Settings** > **Apps** > **Home Assistant** > **Notifications**.
+```
+
+**Bad example:**
+
+```markdown
+## Notifications
+
+Perform the `notify.mobile_app_*` action with a message payload to send notifications.
+See the HA docs for more info on action calls.
+```
+
+
+### Documenting requirements
+
+Requirements to consider:
+
+- Supported devices or operating systems
+- Whether the feature is in beta or stable release
+- Any required Home Assistant integrations or configuration
+
+### Beta features
+
+If a feature is not yet available in the stable release, use the `<span class='beta'>BETA</span>` flag to indicate it:
+
+```markdown
+## New feature name <span class="beta">BETA</span>
+
+This feature is currently in beta and available only in the beta version of the app.
+```
+
+Use this flag when:
+
+- The feature is only available in beta versions of the iOS or Android app
+- The feature is experimental and may change
+- The documentation is prepared ahead of a prod release
+
+## Development
+
+### Commands
+
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start local dev server (auto-detects environment) |
+| `npm run build` | Build static site for production |
+| `npm run serve` | Serve the built site locally |
+
+### Repository structure
+
+```text
+docs/
+├── getting_started/    # Installation and setup guides
+├── core/               # Core features (actions, location, sensors)
+├── notifications/      # Push notification documentation
+├── integrations/       # Platform integrations (widgets, shortcuts, etc.)
+├── apple-watch/        # Apple Watch specific docs
+├── wear-os/            # Wear OS specific docs
+├── android-auto/       # Android Auto/Automotive docs
+├── carplay/            # CarPlay docs
+├── meta-quest/         # Meta Quest VR docs
+├── troubleshooting/    # FAQs, errors, networking issues
+└── gallery/            # Screenshots and examples
+static/
+├── assets/             # Images, icons, screenshots
+└── img/                # Brand assets and logos
+sidebars.js             # Navigation structure
+docusaurus.config.js    # Site configuration
+```
+
+## Platform indicators
+
+Use platform icons to indicate iOS-only or Android-only features:
+
+```markdown
+![iOS](/assets/iOS.svg)        <!-- iOS only -->
+![Android](/assets/android.svg) <!-- Android only -->
+```
+
+When a feature applies to both platforms, no icon is needed. Place icons inline with text or in table cells.
+
+## Docusaurus syntax
+
+### Admonitions
+
+Use admonitions to highlight important information:
+
+```markdown
+:::note
+General information or tips.
+:::
+
+:::info
+Helpful context or background information.
+:::
+
+:::warning
+Important warnings the user should be aware of.
+:::
+
+:::danger
+Critical information about potential data loss or security issues.
+:::
+```
+
+## Images
+
+- Store images in `static/assets/`
+- Reference images with absolute paths: `/assets/image-name.png`
+- Use the `width` attribute to control size in HTML img tags:
+
+  ```html
+  <img alt="Description" src="/assets/image.png" width="400" />
+  ```
+
+- Always include descriptive `alt` text for accessibility
+
+## Links
+
+### Internal links
+
+Use relative paths with `.md` extension for links between documentation pages:
+
+```markdown
+[Android flavors](../core/android-flavors.md)
+[Getting started](./index.mdx)
+```
+
+### External links
+
+Use descriptive link text, never raw URLs:
+
+```markdown
+<!-- Good -->
+[Home Assistant installation](https://www.home-assistant.io/installation/)
+
+<!-- Avoid -->
+https://www.home-assistant.io/installation/
+```
+
+### Special links
+
+- Home Assistant documentation: `https://www.home-assistant.io/docs/...`
+- Home Assistant Cloud (Nabu Casa): `https://support.nabucasa.com/...`
+- GitHub issues: `https://github.com/home-assistant/iOS/issues/...` or `https://github.com/home-assistant/android/issues/...`
