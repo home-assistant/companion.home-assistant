@@ -39,6 +39,7 @@ module.exports = {
     'Integrations': [
       'integrations/integrations',
       'integrations/android-device-controls',
+      'integrations/android-home-app-launcher',
       'integrations/android-quick-settings',
       'integrations/android-shortcuts',
       'integrations/android-webview',
