@@ -59,12 +59,12 @@ For the best kiosk or wall tablet experience, consider these additional settings
 
 ### Enable local push
 
-Enable [local push](/docs/notifications/notification-local) to take advantage of this:
+Enable [local push](/docs/notifications/notification-local) to take advantage of:
 
 - Unlimited notifications: No daily limits on alerts from your automations
 - Unlimited commands: No daily limits on controlling the device (change volume, open apps)
-- Faster response: Commands run instantly with lower latency
-- Works offline: Keeps working even when your internet is down
+- Faster response: Notifications and commands arrive and run with lower latency
+- Works without internet: Keeps working as long as you have a network connection, even when your internet is down
 
 ### Keep screen on
 
