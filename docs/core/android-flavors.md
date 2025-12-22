@@ -10,10 +10,11 @@ The `minimal` flavor of the app does not require Google Play Services and is ava
 In addition to these 2 flavors users can also find `debug` APKs on the [actions](https://github.com/home-assistant/android/actions) section for each pull request submitted to GitHub. The `debug` version of the app can be installed side by side the production or beta version of the app. This allows users to help test upcoming features and fixes. Both the `minimal` and `full` flavors offer a `debug` version.
 
 <details>
-  <summary> Certificates fingerprint </summary>
+<summary>Certificate fingerprints</summary>
+  
 Below are the SHA-256 fingerprints for the signing certificate.
 
-Playstore/Github releases:
+Play Store/GitHub releases:
 `11:19:4B:A8:09:B4:2D:DF:0E:1A:7D:EC:68:42:A5:9C:7F:F1:11:9C:54:82:E9:5F:EB:FF:D5:C6:01:4D:AA:5A`
 
 F-Droid releases:
