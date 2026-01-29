@@ -3,7 +3,7 @@ title: "Gestures"
 id: 'gestures'
 ---
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span>, ![iOS](/assets/iOS.svg)<br />
+![Android](/assets/android.svg), ![iOS](/assets/iOS.svg)<br />
 You can set up gestures for quick actions whenever you are using the main Home Assistant UI.
 
 To view and change your gestures, go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Gestures. For each gesture, you can select from multiple actions or disable the gesture (by setting the action to "None").
@@ -18,6 +18,7 @@ For Android devices: if your device has gestures that work in any app, such as f
 
 ### Home Assistant
 
+ - <span class='beta'>BETA</span> **Quick search**: Search for anything using the [Quick bar](https://www.home-assistant.io/docs/tools/quick-bar/).
  - **Search entities**: Search for entities using the [Quick bar](https://www.home-assistant.io/docs/tools/quick-bar/) with an entities filter.
  - **Search devices**: Search for devices using the [Quick bar](https://www.home-assistant.io/docs/tools/quick-bar/) with a device filter.
  - **Search commands**: Search for commands using the [Quick bar](https://www.home-assistant.io/docs/tools/quick-bar/) command palette.
