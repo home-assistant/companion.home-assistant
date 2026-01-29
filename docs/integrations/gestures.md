@@ -3,7 +3,7 @@ title: "Gestures"
 id: 'gestures'
 ---
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span>, ![iOS](/assets/iOS.svg)<br />
+![Android](/assets/android.svg), ![iOS](/assets/iOS.svg)<br />
 You can set up gestures for quick actions whenever you are using the main Home Assistant UI.
 
 To view and change your gestures, go to [Settings](https://my.home-assistant.io/redirect/config/) > Companion app > Gestures. For each gesture, you can select from multiple actions or disable the gesture (by setting the action to "None").
