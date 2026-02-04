@@ -19,9 +19,9 @@ For Android devices: if your device has gestures that work in any app, such as f
 ### Home Assistant
 
  - **Quick search**: Search for anything using the [Quick search dialog](https://www.home-assistant.io/docs/tools/quick-search/).
- - **Search entities**: Search for entities using the [Quick bar](https://www.home-assistant.io/docs/tools/quick-bar/) with an entities filter.
- - **Search devices**: Search for devices using the [Quick bar](https://www.home-assistant.io/docs/tools/quick-bar/) with a device filter.
- - **Search commands**: Search for commands using the [Quick bar](https://www.home-assistant.io/docs/tools/quick-bar/) command palette.
+ - **Search entities**: Search for entities using the [Quick bar](https://www.home-assistant.io/docs/tools/quick-search/) with an entities filter.
+ - **Search devices**: Search for devices using the [Quick bar](https://www.home-assistant.io/docs/tools/quick-search/) with a device filter.
+ - **Search commands**: Search for commands using the [Quick bar](https://www.home-assistant.io/docs/tools/quick-search/) command palette.
  - **Show sidebar**: Open the sidebar from any screen.
  - **Open Assist**: Open the [Assist](https://www.home-assistant.io/voice_control/) dialog.
 
