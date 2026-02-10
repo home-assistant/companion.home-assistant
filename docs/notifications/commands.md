@@ -42,7 +42,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_persistent_connection` | Toggle persistent connection mode, [see below](#persistent) for the available modes. |
 | `command_update_sensors` | Updates all enabled sensors, if the state changed since the last update. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
-| <span class="beta">BETA</span> `command_wake_word_detection` | Turn wake word detection on or off. |
+| `command_wake_word_detection` | Turn wake word detection for Assist on or off. <span class="beta">BETA</span> |
 | `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. |
 | `remove_channel`* | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
@@ -769,11 +769,15 @@ automation:
             command: 20
 ```
 
-## Wake word detection <span class="beta">BETA</span>
+## Wake word detection
 
-![Android](/assets/android.svg)
+![Android](/assets/android.svg) <span class="beta">BETA</span>
 
-This command allows you to toggle wake word detection on or off directly from a notification, enabling control of the device's wake word detection feature without opening the app. Wake word detection can be battery-intensive, so you can use this command to enable it only when needed through automation. To use it, send `message: command_wake_word_detection` with the `command` parameter set to either `turn_on` or `turn_off` to control the wake word detection state.
+When Home Assistant is set as the default digital assistant app on your device, you can enable using a wake word to open Assist. This command allows you to enable or disable wake word detection using a notification instead of opening the app. To use it, send `message: command_wake_word_detection` with the `command` parameter set to either `turn_on` or `turn_off` to control the wake word detection state.
+
+:::warning
+Wake word detection can be battery-intensive, use this command to enable it only when needed through automation. 
+:::
 
 Example:
 
