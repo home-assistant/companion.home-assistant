@@ -617,6 +617,30 @@ automation:
             progress_max: 32
 ```
 
+### Live Update Notifications
+
+On Android 16.0+ you can create "Live Update" notifications. These notifications are pinned to the top of the notification shade and appear on the lockscreen and Always-On Display. They will also display as a chip in the status bar with an optional short text.
+
+For the notification to display as a Live Update notification, `title` must be provided.
+
+- live_update - set to `true` to display as a Live Update
+- critical_text - set an optional short text to display in the status bar chip (`live_update` must be set to `true` as well)
+
+```yaml
+automation:
+  - alias: Notify a live update
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "Live Update"
+          message: "This will show on the Always-On Display"
+          data:
+            live_update: true
+            critical_text: "42%"
+```
+
 ### Alert Once
 
 On Android you have the option for making a notification only alert once on the device. This means it will only make a sound, vibrate and/or flash the LED once. Although it is not an Android requirement this feature will not appear to function if you do not have a [`tag`](#replacing) set. This setting is set to `false` by default as each and every notification will alert the user. This feature makes use of the [Alert Once API](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setOnlyAlertOnce(boolean))
