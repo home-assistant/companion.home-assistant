@@ -641,6 +641,11 @@ automation:
             critical_text: "42%"
 ```
 
+These screenshots show how the notifications will display in the statusbar (with or without critical text) and the Always-On Display.
+![Status bar chip](/assets/android/live_updates_without_critical_text.png)
+![Status bar chip when using critical text](/assets/android/live_updates_with_critical_text.png)
+![Notification appearance on Always-On Display](/assets/android/live_updates_always_on_display.png)
+
 ### Alert Once
 
 On Android you have the option for making a notification only alert once on the device. This means it will only make a sound, vibrate and/or flash the LED once. Although it is not an Android requirement this feature will not appear to function if you do not have a [`tag`](#replacing) set. This setting is set to `false` by default as each and every notification will alert the user. This feature makes use of the [Alert Once API](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setOnlyAlertOnce(boolean))
