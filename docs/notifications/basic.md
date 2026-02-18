@@ -617,7 +617,7 @@ automation:
             progress_max: 32
 ```
 
-### Live Updates (BETA)
+### Live Updates <span class='beta'>BETA</span>
 
 On Android 16.0+ you can create "Live Updates" notifications. These notifications are pinned to the top of the notification shade and appear on the lockscreen and Always-On Display. They will also display as a chip in the status bar with an optional short text. This might vary by manufacturer.
 
@@ -629,7 +629,7 @@ For the notification to display as a "Live Updates" notification, `title` must b
 These screenshots show how the notifications will display in the statusbar (with or without critical text) and the Always-On Display.
 ![Status bar chip](/assets/android/live_updates_without_critical_text.png)
 ![Status bar chip when using critical text](/assets/android/live_updates_with_critical_text.png)
-![Notification appearance on Always-On Display](/assets/android/live_updates_always_on_display.png)
+![Example notification showing progress on Always-On Display](/assets/android/live_updates_always_on_display.png)
 
 #### Minimal configuration
 
