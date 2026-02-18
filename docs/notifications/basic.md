@@ -617,6 +617,60 @@ automation:
             progress_max: 32
 ```
 
+### Live Updates <span class='beta'>BETA</span>
+
+On Android 16.0+ you can create "Live Updates" notifications. These notifications are pinned to the top of the notification shade and appear on the lockscreen and Always-On Display. They will also display as a chip in the status bar with an optional short text. This might vary by manufacturer.
+
+For the notification to display as a "Live Updates" notification, `title` must be provided.
+
+- live_update - set to `true` to display as a "Live Updates"
+- critical_text - set an optional short text to display in the status bar chip (`live_update` must be set to `true` as well). If there is not enough space in the status bar to show the text, only the icon will be displayed.
+
+These screenshots show how the notifications will display in the statusbar (with or without critical text) and the Always-On Display.
+![Status bar chip](/assets/android/live_updates_without_critical_text.png)
+![Status bar chip when using critical text](/assets/android/live_updates_with_critical_text.png)
+![Example notification showing progress on Always-On Display](/assets/android/live_updates_always_on_display.png)
+
+#### Minimal configuration
+
+```yaml
+automation:
+  - alias: Notify a live update
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "Live Update"
+          message: "This will show on the Always-On Display"
+          data:
+            live_update: true
+            critical_text: "42%"
+```
+
+#### Configuration combined with progress, chronometer, tag and icon
+
+```yaml
+automation:
+  - alias: Notify a live update
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          title: Example notification showing progress
+          message: Current progress is 42%
+          data:
+            live_update: true
+            chronometer: true
+            when: 315
+            when_relative: true
+            progress: 42
+            progress_max: 100
+            tag: live_progress_notification
+            notification_icon: mdi:progress-helper
+```
+
 ### Alert Once
 
 On Android you have the option for making a notification only alert once on the device. This means it will only make a sound, vibrate and/or flash the LED once. Although it is not an Android requirement this feature will not appear to function if you do not have a [`tag`](#replacing) set. This setting is set to `false` by default as each and every notification will alert the user. This feature makes use of the [Alert Once API](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setOnlyAlertOnce(boolean))
