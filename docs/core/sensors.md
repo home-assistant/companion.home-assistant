@@ -257,6 +257,7 @@ These sensors use the [AudioManager API](https://developer.android.com/reference
 | [`volume_level_*`](#volume-levels) | [See below](#volume-levels) | The current device volume level for the given volume streams. |
 
 ### Volume levels
+
 The current device volume level for the given volume streams (`volume_level_*`). These sensors will update during the normal interval, or as soon as a change is detected.
 
 Possible volume streams are:
