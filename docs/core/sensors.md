@@ -274,8 +274,8 @@ Possible volume streams are:
 
 | Attribute | Description |
 | --------- | --------- |
-| `Min` | Provides the minimal value of the volume level can have. Usually this is `0` but can also different based on the used Android Version and distribution. |
-| `Max` | Provides the maximal value of the volume level. This value differs between Android Versions and distributions. |
+| `min` | Provides the minimum value of the volume level. Usually this is `0`, but it can also be different based on the Android version and device manufacturer. |
+| `max` | Provides the maximum value of the volume level. This value differs between Android versions and device manufacturers. |
 
 ## Battery Sensors
 ![iOS](/assets/iOS.svg) <br />
