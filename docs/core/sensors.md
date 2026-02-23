@@ -270,6 +270,8 @@ Possible volume streams are:
 * `ring`
 * `system`
 
+<span class='beta'>BETA</span> Attributes indicate the minimum and maximum value.
+
 | Attribute | Description |
 | --------- | --------- |
 | `Min` | Provides the minimal value of the volume level can have. Usually this is `0` but can also different based on the used Android Version and distribution. |
