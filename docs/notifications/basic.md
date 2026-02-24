@@ -623,11 +623,11 @@ On Android 16.0+ you can create "Live updates" notifications. These notification
 
 For the notification to display as a "Live updates" notification, `title` must be provided.
 
-- live_update - set to `true` to display as a "Live updates" notification
-- critical_text - set an optional short text to display in the status bar chip
+- `live_update` - set to `true` to display as a "Live updates" notification
+- `critical_text` - set an optional short text to display in the status bar chip
   - `live_update` must be set to `true` as well
   - If there is not enough space in the status bar to show the text, only the icon will be displayed
-  - If the `chronometer` parameter is used it will replace the critical_text
+  - If the `chronometer` parameter is used it will replace the `critical_text` value
 
 #### Basic configuration
 
