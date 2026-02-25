@@ -16,6 +16,8 @@ Using your iPhone, open the Companion app settings and under the **Apple Watch**
 The Apple Watch integration requires watchOS 8. In order to install watchOS 8 you must have an Apple Watch Series 3 or newer. You can identify your Apple Watch model [here](https://support.apple.com/HT204507).
 :::
 
+Since iOS App version 2026.3 release, you can organize `Scripts`, `Scenes` and `iOS Actions` into folders.
+
 ## Complication types
 
 The Apple Watch has a variety of Faces and Complications. It's useful to consult the [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/complications) for an example of the different Families and how the particular Complications will display. There are 4 main types of information you can put into Complications:
