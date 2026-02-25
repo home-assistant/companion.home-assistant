@@ -10,7 +10,7 @@ Home Assistant has deep integration with the Apple Watch. You can display Home A
 Since iOS App version 2024.9 release, you can now customize your Home Assistant watch experience using `Scripts`, `Scenes`, and `iOS Actions`.
 Using your iPhone, open the Companion app settings and under the **Apple Watch** section, look for **Configuration**. If you already had **iOS Actions** created, they will be migrated into the configuration screen. Select **Save** and reload on your watch.
 
-<img src='/assets/ios/watch-config.png' alt="Watch cofniguration screen" />
+<img src='/assets/ios/watch-config.png' alt="Watch configuration screen" />
 
 :::info requirements
 The Apple Watch integration requires watchOS 8. In order to install watchOS 8 you must have an Apple Watch Series 3 or newer. You can identify your Apple Watch model [here](https://support.apple.com/HT204507).
