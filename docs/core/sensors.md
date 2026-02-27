@@ -246,16 +246,36 @@ Possible states for `app_standby_bucket` sensor (please refer to the API linked 
 ![Android](/assets/android.svg) <br />
 These sensors use the [AudioManager API](https://developer.android.com/reference/kotlin/android/media/AudioManager?hl=en) to retrieve their state. Look at the table below to find out more about each sensor including how often they update.
 
-| Sensor | Description |
-| --------- | --------- |
-| `audio_mode` | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `call_redirect`, `communication_redirect`, `in_call`, `in_communication` or `unknown`. This sensor will update during the normal interval. |
-| `is_headphones` | Boolean value if headsets or headphones are plugged in, will update as soon as the device detects the change. |
-| `is_mic_muted` | Boolean value if the microphone is currently muted, Android 10+ will update as this value changes. |
-| `is_music_active` | Boolean value if the device is actively playing music, this sensor will update during the normal interval. |
-| `is_speakerphone_on` | Boolean value if the device speakerphone is enabled, Android 10+ will update as this value changes. |
-| `ringer_mode` | The ringer mode on the device, possible values are `normal`, `vibriate` or `silent`. This sensor will update as soon as the ringer mode changes.<br />On Android 9 and newer, the ringer mode will always be `silent` when do not disturb is turned on. |
-| `volume_level_*` | The current device volume level for the given volume attributes: `accessibility`, `alarm`, `call`, `dtmf`, `music`, `notification`, `ring`, `system`. These sensors will update during the normal interval, or as soon as a change is detected. |
+| Sensor | Attributes | Description |
+| --------- | --------- | --------- |
+| `audio_mode` | None | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `call_redirect`, `communication_redirect`, `in_call`, `in_communication` or `unknown`. This sensor will update during the normal interval. |
+| `is_headphones` | None | Boolean value if headsets or headphones are plugged in, will update as soon as the device detects the change. |
+| `is_mic_muted` | None | Boolean value if the microphone is currently muted, Android 10+ will update as this value changes. |
+| `is_music_active` | None | Boolean value if the device is actively playing music, this sensor will update during the normal interval. |
+| `is_speakerphone_on` | None | Boolean value if the device speakerphone is enabled, Android 10+ will update as this value changes. |
+| `ringer_mode` | None | The ringer mode on the device, possible values are `normal`, `vibrate` or `silent`. This sensor will update as soon as the ringer mode changes.<br />On Android 9 and newer, the ringer mode will always be `silent` when do not disturb is turned on. |
+| [`volume_level_*`](#volume-levels) | [See below](#volume-levels) | The current device volume level for the given volume streams. |
 
+### Volume levels
+
+The current device volume level for the given volume streams (`volume_level_*`). These sensors will update during the normal interval, or as soon as a change is detected.
+
+Possible volume streams are:
+* `accessibility`
+* `alarm`
+* `call`
+* `dtmf`
+* `music`
+* `notification`
+* `ring`
+* `system`
+
+<span class='beta'>BETA</span> Attributes indicate the minimum and maximum value.
+
+| Attribute | Description |
+| --------- | --------- |
+| `min` | Provides the minimum value of the volume level. Usually this is `0`, but it can also be different based on the Android version and device manufacturer. |
+| `max` | Provides the maximum value of the volume level. This value differs between Android versions and device manufacturers. |
 
 ## Battery sensors
 ![iOS](/assets/iOS.svg) <br />
