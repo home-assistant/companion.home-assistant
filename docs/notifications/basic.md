@@ -617,6 +617,51 @@ automation:
             progress_max: 32
 ```
 
+#### Styling the progress bar <span class='beta'>BETA</span> {#styling-the-progress-bar}
+
+On Android 16.0+ it is also possible to customize the progress bar with segments, points and icons.
+
+When using any of these options together with a video attachment, the video attachment will not be shown. The `progress_indeterminate` parameter will also be ignored.
+
+The following parameters are supported, they can be mixed and matched together:
+
+- progress_segments - a list of items containing a `length` property and an optional `color` property
+  - When using segments, `progress_max` will be ignored and will instead be the sum of the length of the segments
+- progress_points - a list of items containing a `position` property and an optional `color` property
+- progress_(start|end|tracker)_icon - an icon formatted as in Home Assistant for example: `mdi:cellphone`
+  - `start` will be shown in front of the progress bar
+  - `end` will be shown at the end of the progress bar
+  - `tracker` will be shown in a circle at the current progress
+- progress_(start|end|tracker)_color - the color of the corresponding icon
+
+```yaml
+automation:
+  - alias: Notify of car charging progress
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "Live update"
+          message: "This will show on the always-on display"
+          data:
+            progress: 50
+            progress_segments:
+            - length: 80
+            - length: 20
+              color: "#ff0000"
+            progress_points:
+            - position: 80
+            progress_start_icon: mdi:battery-10
+            progress_end_icon: mdi:battery
+            progress_tracker_icon: mdi:lightning-bolt
+            progress_tracker_color: "#ffde03"
+            tag: progress_style_notification
+```
+
+This example will result in a notification like this:
+![Customized progress bar notification](/assets/android/progress_bar_customized.png)
+
 ### Live Updates <span class='beta'>BETA</span> {#live-updates}
 
 On Android 16.0+ you can create "Live updates" notifications. These notifications are pinned to the top of the notification shade and appear on the lockscreen and always-on display. They will also display as a chip in the status bar with an optional short text. This might vary by manufacturer.
