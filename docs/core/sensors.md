@@ -270,7 +270,7 @@ Possible volume streams are:
 * `ring`
 * `system`
 
-<span class='beta'>BETA</span> Attributes indicate the minimum and maximum value.
+Attributes indicate the minimum and maximum value.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -511,7 +511,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ## Health Connect sensors
 
-![Android](/assets/android.svg) 9+ with Play Store version • (Android 14+ with all versions <span class='beta'>BETA</span>)
+![Android](/assets/android.svg) 9+ with Play Store version • Android 14+ with all versions
 
 :::note
 On Android 13 or older, you need to install and set up the [Health Connect app](https://play.google.com/store/apps/details?id=com.google.android.apps.healthdata) to use these sensors.
