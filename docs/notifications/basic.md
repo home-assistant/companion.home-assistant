@@ -621,31 +621,31 @@ automation:
 
 On Android 16.0+, you can customize the progress bar with segments, points, and icons.
 
+:::note
 When using any of these options together with a video attachment, the video attachment will not be shown. The `progress_indeterminate` parameter will also be ignored.
+:::
 
-The following parameters are supported, they can be mixed and matched together:
-
+The following parameters can be mixed and matched together to style the progress bar:
 
 ##### Progress segments
 
-- `progress_segments`. A list of segments that make up the progress bar, each with its own length and optional color. For example: `[{length: 80}, {length: 20, color: "#ff0000"}]`.
-  - **Required properties**: `length`. The length/size of the segment.
+- `progress_segments`. A list of segments that make up the progress bar, each with its own length and optional color.
+  - **Required properties**: `length`. The length/size of the segment, any number larger than 0.
   - **Optional properties**: `color`. Hex color code for the segment (for example, `"#ff0000"` or `"#00ff00"`).
   - **Note**: When using segments, `progress_max` is automatically calculated as the sum of all segment lengths and should not be specified separately.
-  - When using segments, `progress_max` will be ignored and will instead be the sum of the length of the segments
 
 ##### Progress points
 
-- `progress_points`: Markers displayed as points along the progress bar to highlight specific milestones or thresholds. For example: `[{position: 80, color: "#ffffff"}]`.
+- `progress_points`: Markers displayed as points along the progress bar to highlight specific milestones or thresholds.
   - **Required properties**: `position`. The position on the progress bar where the point should appear (must be between 0 and `progress_max`).
   - **Optional properties**: `color`. Hex color code for the point (for example, `"#ffde03"`).
 
 ##### Progress icons
 
-- `progress_start_icon`: Icon displayed at the beginning (left side) of the progress bar. For example: `"mdi:battery-10"`.
+- `progress_start_icon`: Icon displayed at the start of the progress bar. For example: `"mdi:battery-10"`.
   - **Format**: Material Design Icons only, use format `mdi:icon-name` (for example, `mdi:home` or `mdi:download`).
 
-- `progress_end_icon`: Icon displayed at the end (right side) of the progress bar. For example: `"mdi:battery"`
+- `progress_end_icon`: Icon displayed at the end of the progress bar. For example: `"mdi:battery"`
   - **Format**: Material Design Icons only, use format `mdi:icon-name` (for example, `mdi:flag-checkered` or `mdi:check-circle`).
 
 - `progress_tracker_icon`. Icon displayed in a circular badge that tracks the current progress position. For example: `"mdi:lightning-bolt"`.
@@ -664,7 +664,6 @@ The following parameters are supported, they can be mixed and matched together:
   - **Default**: System primary color.
 
   - `tracker` will be shown in a circle at the current progress
-- progress_(start|end|tracker)_color - the color of the corresponding icon
 
 ```yaml
 automation:
