@@ -688,7 +688,7 @@ automation:
 This example will create a notification like the one shown here:
 ![Customized progress bar notification](/assets/android/progress_bar_customized.png)
 
-### Live Updates <span class='beta'>BETA</span> {#live-updates}
+### Live Updates
 
 On Android 16.0+ you can create "Live updates" notifications. These notifications are pinned to the top of the notification shade and appear on the lockscreen and always-on display. They will also display as a chip in the status bar with an optional short text. This might vary by manufacturer.
 
