@@ -685,7 +685,7 @@ automation:
             tag: progress_style_notification
 ```
 
-This example will result in a notification like this:
+This example will create a notification like the one shown here:
 ![Customized progress bar notification](/assets/android/progress_bar_customized.png)
 
 ### Live Updates <span class='beta'>BETA</span> {#live-updates}
