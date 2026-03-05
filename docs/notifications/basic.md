@@ -644,10 +644,8 @@ The following parameters can be mixed and matched together to style the progress
 
 - `progress_start_icon`: Icon displayed at the start of the progress bar. For example: `"mdi:battery-10"`.
   - **Format**: Material Design Icons only, use format `mdi:icon-name` (for example, `mdi:home` or `mdi:download`).
-
 - `progress_end_icon`: Icon displayed at the end of the progress bar. For example: `"mdi:battery"`
   - **Format**: Material Design Icons only, use format `mdi:icon-name` (for example, `mdi:flag-checkered` or `mdi:check-circle`).
-
 - `progress_tracker_icon`. Icon displayed in a circular badge that tracks the current progress position. For example: `"mdi:lightning-bolt"`.
   - **Format**: Material Design Icons only, use format `mdi:icon-name` (for example, `mdi:car` or `mdi:walk`).
   - **Note**: The tracker icon has a colored circular background for emphasis.
@@ -656,13 +654,10 @@ The following parameters can be mixed and matched together to style the progress
 
 - `progress_start_color`. Color for the start icon. For example: `"#ff0000"`.
   - **Default**: System accent color.
-
 - `progress_end_color`: Color for the end icon. For example: `"#00ff00"`.
   - **Default**: System accent color.
-
 - `progress_tracker_color`. Color for the tracker icon. For example: `"#ffde03"`.
   - **Default**: System primary color.
-
   - `tracker` will be shown in a circle at the current progress
 
 ```yaml
