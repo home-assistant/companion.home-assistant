@@ -52,13 +52,13 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | `sensor.average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
-| `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
+| `sensor.floors_descended` | None | The approximate number of floors descended by walking. |
 | `sensor.location_permission` | None | The current location permission that was selected by the user. The permission can be set via the location permission popup or modified in the iOS settings. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.steps` | None | The number of steps taken by the user. |
 | `sensor.watch_battery_level` | None | The battery level of 1 paired Apple Watch. Requires any Home Assistant complication installed on your watch face. |
-| `sensor.watch_battery_state` | None | The current charging state (either Charging, Not Charging, or Full) of 1 paired Apple Watch. Requires any Home Assistant complication installed on your watch face. |
+| `sensor.watch_battery_state` | None | The current charging state (Charging, Not Charging, or Full) of 1 paired Apple Watch. Requires any Home Assistant complication installed on your watch face. |
 
 ![macOS](/assets/macOS.svg)specific sensors
 
@@ -84,7 +84,9 @@ Attributes such as `Cellular Technology` can be accessed with a template such as
 
 ## Android sensors
 
-Each ![Android](/assets/android.svg) sensor below can be enabled by navigating to [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors. By default, most are disabled with the exception of the `battery_level`, `battery_state`, `charger_type` and any that were given permission during onboarding. Once enabled the sensor will begin to send data to your Home Assistant server, if you chose to disable it later on the sensor will stop updating. Upon enabling a sensor the app will request for permissions, if required. If you do not see a sensor listed below then your device does not support it. Some of the sensors below offer custom settings for each of their own needs, read about each one to see what it offers. These settings can be found in the same location where you enable the sensor.
+Each ![Android](/assets/android.svg) sensor below can be enabled by navigating to [Settings](https://my.home-assistant.io/redirect/config/) > Companion App > Manage Sensors. By default, most are disabled with the exception of the `battery_level`, `battery_state`, `charger_type` and any that were given permission during onboarding. Once enabled the sensor will begin to send data to your Home Assistant server, if you chose to disable it later on the sensor will stop updating.
+
+Upon enabling a sensor the app will request for permissions, if required. If you do not see a sensor listed below then your device does not support it. Some of the sensors below offer custom settings for each of their own needs, read about each one to see what it offers. These settings can be found in the same location where you enable the sensor.
 
 ### How sensors update
 
@@ -126,7 +128,7 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | `sensor.last_used_app` | None | The last used application on the device. |
 | `sensor.light` | None | The current level of illuminance the device detects. |
 | [Mobile Data Sensors](#mobile-data-sensors) | None | Several different sensors around the state of mobile data. |
-| `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date of the next scheduled alarm. |
+| `sensor.next_alarm` | [See Below](#next-alarm-sensor) | Date and time of the next scheduled alarm. |
 | [Notification Sensors](#notification-sensors) | See Below | Details about the notifications on the device. |
 | [Phone Sensors](#phone-sensors) | None | Sensors that represent different states of the phone modem. |
 | `sensor.pressure` | None | The pressure reading from the device. |
@@ -507,7 +509,7 @@ Geocoding is handled directly by iOS's [MapKit](https://developer.apple.com/docu
 
 ![Android](/assets/android.svg) Android users will have a sensor setting for the minimum required accuracy, that defaults to 200m. Users may adjust this to fit their own needs if they find inaccurate reports or not enough reports. This sensor requires either [Background Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_BACKGROUND_LOCATION) or [Fine Location](https://developer.android.com/reference/android/Manifest.permission#ACCESS_FINE_LOCATION) permissions, depending on what version of Android you run. All attributes will be lowercase and all spaces are replaced with an underscore. The sensor will only send an update if it is accurate and recent. In the `full` flavor, the sensor also updates with location changes if location tracking is enabled. A setting is available to keep the sensor synchronized with location updates. By default, this setting is turned off.
 
-![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone if present instead of the geocoded state, defaulting to not using it.
+![iOS](/assets/iOS.svg) and ![macOS](/assets/macOS.svg) users will have a sensor setting for whether to use the name of an active Zone, if present, instead of the geocoded state. By default, this is not turned off.
 
 ## Health Connect sensors
 
@@ -611,7 +613,7 @@ Several different sensors around the state of mobile data. These sensors make us
 
 ## Next alarm sensor
 ![Android](/assets/android.svg)<br />
-This sensors state will be the date and time of the next alarm in UTC format. The sensor will update as soon as the next alarm is scheduled. The state will be `unavailable` when there is no next alarm. This sensor makes use of [AlarmManager](https://developer.android.com/reference/android/app/AlarmManager?hl=en) to get the next scheduled alarm which can be set by any app at any time. This sensor has settings that will let you create an allow list by selecting the packages you want to get alarm events from, just keep in mind the API is only able to get the next scheduled alarm. This setting is turned off by default.
+This sensors state will be the date and time of the next alarm in UTC format. The sensor will update as soon as the next alarm is scheduled. The state will be `unavailable` when there is no next alarm. This sensor makes use of [AlarmManager](https://developer.android.com/reference/android/app/AlarmManager?hl=en) to get the next scheduled alarm which can be set by any app at any time. This sensor has settings that will let you create an allow list by selecting the packages you want to get alarm events from. Keep in mind that the API is only able to get the next scheduled alarm. This setting is turned off by default.
 
 | Attribute | Description |
 | --------- | --------- |
@@ -632,7 +634,11 @@ Note: Sensors with allow lists will not appear as new entities in Home Assistant
 
 ### Last notification
 
-This sensor will reflect the last notification posted on the device. This sensor requires a special permission that the app will take the user to so they can grant access to notifications. This sensors state will default to the text of the notification or if not available the posting package name. This sensor offers a setting for an Allow List to let the user select which packages they wish to get notification data from, notifications sent by Home Assistant are always ignored. You need to either create an allow list or enable the setting to "Disable Allow List Requirement". Keep in mind without an allow list this sensor has the potential to drain a lot of battery. We highly recommend creating an allow list over disabling this requirement. This can be very useful to integrate any app that sends a notification but does not offer direct integration (ex: food delivery apps or 2FA SMS codes). There are several attributes a user can expect to see, although not all attributes will contain data. This sensor makes use of the [NotificationListenerService API](https://developer.android.com/reference/android/service/notification/NotificationListenerService#onNotificationRemoved(android.service.notification.StatusBarNotification)).  More details on each attribute can be found in the [Notification Extras](https://developer.android.com/reference/android/app/Notification).
+This sensor reflects the last notification posted on the device. It requires a special permission that the app will take the user to, so they can grant access. The sensor's state defaults to the text of the notification. If no text is available, the posting package name is given.
+
+The sensor offers a setting for an Allow List to let the user select which packages they wish to get notification data from. Notifications sent by Home Assistant are always ignored. You need to either create an allow list or enable the setting to "Disable Allow List Requirement". Keep in mind that, without an allow list, the sensor has the potential to drain a lot of battery. We highly recommend creating an allow list over disabling this requirement. This can be very useful to integrate any app that sends a notification but does not offer direct integration (eg: food delivery apps, 2FA SMS codes).
+
+There are several attributes a user can expect to see, although not all attributes will contain data. This sensor makes use of the [NotificationListenerService API](https://developer.android.com/reference/android/service/notification/NotificationListenerService#onNotificationRemoved(android.service.notification.StatusBarNotification)).  More details on each attribute can be found in the [Notification Extras](https://developer.android.com/reference/android/app/Notification).
 
 ### Last removed notification
 
@@ -744,7 +750,7 @@ This sensor displays information on the device storage. The file sizes reported 
 | `Total` | The total storage capacity of your device. |
 
 ![Android](/assets/android.svg)<br />
-For Android the behavior is slightly different due to the differences in the 2 operating systems. The state will be the same as iOS where we show the percentage of free space, the attributes will not be identical. These sensors will update during the normal sensor update interval, calculations are done with the help of [StatFs](https://developer.android.com/reference/android/os/StatFs?hl=en).
+For Android the behavior is slightly different due to differences between the two operating systems. The state will be the same as iOS: the percentage of free space is given. The attributes however are different. The sensor is updated with the usual sensor update interval. Calculations are done with the help of [StatFs](https://developer.android.com/reference/android/os/StatFs?hl=en).
 
 `sensor.internal_storage`
 
@@ -761,7 +767,7 @@ For Android the behavior is slightly different due to the differences in the 2 o
 | `Total external storage` | The total external storage of your SD card, for devices without a SD card it will reflect `No SD Card`. |
 
 
-## Traffic stats sensors
+## Traffic stats sensor
 ![Android](/assets/android.svg)<br />
 These sensors will show the total data transmitted and received by the device. There are both total and mobile sensors to use and the statistics reset on device reboot. These sensors use the [Traffic Stats API](https://developer.android.com/reference/android/net/TrafficStats).
 
