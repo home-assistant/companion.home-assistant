@@ -629,6 +629,10 @@ For the notification to display as a "Live updates" notification, `title` must b
   - If there is not enough space in the status bar to show the text, only the icon will be displayed
   - If the `chronometer` parameter is used it will replace the `critical_text` value
 
+:::note
+On Samsung devices you may have to enable "Live notifications for all apps" in developer options to make notifications show a chip in the status bar.
+:::
+
 #### Basic configuration
 
 ```yaml
