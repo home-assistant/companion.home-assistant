@@ -656,6 +656,8 @@ These screenshots show how the notifications will display in the statusbar (with
 
 #### Configuration combined with progress, chronometer, tag and icon
 
+Adding `live_activity: true` to the same payload also starts a [Live Activity](live-activities.md) on iOS 16.2+ — both platforms update from the same automation.
+
 ```yaml
 automation:
   - alias: Notify a live update
@@ -667,7 +669,8 @@ automation:
           title: Example notification showing progress
           message: Current progress is 42%
           data:
-            live_update: true
+            live_update: true        # Android 16+
+            live_activity: true      # iOS 16.2+ — starts a Live Activity
             chronometer: true
             when: 315
             when_relative: true
@@ -679,6 +682,10 @@ automation:
 
 This screenshot shows how the above configuration will appear on the always-on display
 ![Example notification showing progress and the chronometer on always-on display](/assets/android/live_updates_always_on_display.png)
+
+:::tip iOS Live Activities
+On iOS 16.2+, a similar feature called **Live Activities** displays real-time state on the Lock Screen and Dynamic Island. The field names (`tag`, `progress`, `progress_max`, `chronometer`, `when`, `when_relative`, `notification_icon`, `notification_icon_color`) are intentionally shared between platforms — a single automation can target both. See [Live Activities](live-activities.md) for full details.
+:::
 
 ### Alert Once
 
@@ -734,6 +741,34 @@ By default Home Assistant notifications do not show up in the Android Auto inter
 ```
 
 ## iOS/macOS Specific
+
+### Live Activities
+
+[Live Activities](live-activities.md) display real-time state from Home Assistant on the iOS Lock Screen — without the user needing to unlock their phone. Add `live_activity: true` to any notification payload to start one. The field names are shared with Android's [Live Updates](#live-updates), so a single automation can target both platforms.
+
+```yaml
+automation:
+  - alias: "Washing machine started"
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "Washing Machine"
+          message: "Cycle in progress"
+          data:
+            tag: washer_cycle
+            live_activity: true
+            progress: 0
+            progress_max: 3600
+            chronometer: true
+            when: 3600
+            when_relative: true
+            notification_icon: mdi:washing-machine
+            notification_icon_color: "#2196F3"
+```
+
+See the full [Live Activities](live-activities.md) documentation for payload fields, update and dismissal options, and examples.
 
 ### Sounds
 By default the default notification sound (Tri-tone on iOS) will be played upon receiving a notification. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be disabled by setting `sound` to `none` in the data payload:
