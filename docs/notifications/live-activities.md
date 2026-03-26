@@ -17,7 +17,7 @@ Live Activities display real-time state from Home Assistant on the iOS Lock Scre
 
 ## Starting a Live Activity
 
-Add `live_activity: true` to any notification's `data` block. The companion app intercepts the payload and starts a Live Activity instead of (or in addition to) a standard notification banner.
+Add `live_update: true` to any notification's `data` block. The companion app intercepts the payload and starts a Live Activity instead of (or in addition to) a standard notification banner. This is the same field Android uses for [Live Updates](notifications-basic#live-updates), so a single automation targets both platforms.
 
 ```yaml
 automation:
@@ -31,7 +31,7 @@ automation:
           message: "Rinsing · 1 of 2"
           data:
             tag: washer_cycle
-            live_activity: true
+            live_update: true
             progress: 900
             progress_max: 3600
             chronometer: true
@@ -59,7 +59,7 @@ action:
       message: "Cycle complete"
       data:
         tag: washer_cycle
-        live_activity: true
+        live_update: true
         progress: 3600
         progress_max: 3600
         notification_icon: mdi:washing-machine
@@ -123,7 +123,7 @@ All fields go inside the `data:` block of the notification payload.
 | Field | Type | Description |
 |---|---|---|
 | `tag` | string | **Required.** Unique identifier for the activity. Alphanumeric, hyphens, and underscores only; max 64 characters. |
-| `live_activity` | boolean | Set to `true` to start or update a Live Activity. |
+| `live_update` | boolean | Set to `true` to start or update a Live Activity. Also enables Android [Live Updates](notifications-basic#live-updates) on the same payload. |
 | `title` | string | Static header text. Set at creation; cannot be changed by updates. |
 | `message` | string | Main body text shown on the Lock Screen. |
 | `critical_text` | string | Short supplementary text shown alongside the title. |
@@ -139,7 +139,7 @@ All fields go inside the `data:` block of the notification payload.
 
 ## Cross-platform automation (iOS + Android)
 
-The field names are intentionally shared with Android's [Live Updates](notifications-basic#live-updates) (Android 16+). A single YAML block targets both platforms — iOS ignores Android-only fields (`alert_once`, `sticky`, `visibility`) and Android ignores `live_activity: true`.
+Both iOS and Android use `live_update: true` as the trigger — a single YAML automation targets both platforms without any platform-specific keys. iOS ignores Android-only fields (`alert_once`, `sticky`, `visibility`) and Android ignores iOS-only fields.
 
 ```yaml
 action:
@@ -149,8 +149,7 @@ action:
       message: "45 minutes remaining"
       data:
         tag: washer_cycle
-        live_update: true           # Android 16+
-        live_activity: true         # iOS 16.2+
+        live_update: true           # iOS 16.2+ and Android 16+
         progress: 2700
         progress_max: 3600
         chronometer: true
@@ -178,7 +177,7 @@ Go to **Settings → Live Activities** in the companion app to see whether Live 
 ```yaml
 data:
   tag: status-update
-  live_activity: true
+  live_update: true
   title: "Home Assistant"
   message: "Everything looks good at home."
 ```
@@ -196,7 +195,7 @@ Multiple Live Activities stack on the Lock Screen under the app group header.
 ```yaml
 data:
   tag: security-alert
-  live_activity: true
+  live_update: true
   title: "Security Alert"
   message: "Person detected · Camera 1"
   notification_icon: mdi:motion-sensor

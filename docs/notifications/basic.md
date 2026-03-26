@@ -656,7 +656,7 @@ These screenshots show how the notifications will display in the statusbar (with
 
 #### Configuration combined with progress, chronometer, tag and icon
 
-Adding `live_activity: true` to the same payload also starts a [Live Activity](live-activities.md) on iOS 16.2+ — both platforms update from the same automation.
+Adding `live_update: true` to the same payload also starts a [Live Activity](live-activities.md) on iOS 16.2+ — a single automation targets both platforms.
 
 ```yaml
 automation:
@@ -669,8 +669,7 @@ automation:
           title: Example notification showing progress
           message: Current progress is 42%
           data:
-            live_update: true        # Android 16+
-            live_activity: true      # iOS 16.2+ — starts a Live Activity
+            live_update: true        # Android 16+ and iOS 16.2+
             chronometer: true
             when: 315
             when_relative: true
@@ -684,7 +683,7 @@ This screenshot shows how the above configuration will appear on the always-on d
 ![Example notification showing progress and the chronometer on always-on display](/assets/android/live_updates_always_on_display.png)
 
 :::tip iOS Live Activities
-On iOS 16.2+, a similar feature called **Live Activities** displays real-time state on the Lock Screen and Dynamic Island. The field names (`tag`, `progress`, `progress_max`, `chronometer`, `when`, `when_relative`, `notification_icon`, `notification_icon_color`) are intentionally shared between platforms — a single automation can target both. See [Live Activities](live-activities.md) for full details.
+On iOS 16.2+, `live_update: true` also starts a **Live Activity** on the Lock Screen and Dynamic Island — no additional field needed. The same payload targets both platforms. See [Live Activities](live-activities.md) for full details.
 :::
 
 ### Alert Once
@@ -744,7 +743,7 @@ By default Home Assistant notifications do not show up in the Android Auto inter
 
 ### Live Activities
 
-[Live Activities](live-activities.md) display real-time state from Home Assistant on the iOS Lock Screen — without the user needing to unlock their phone. Add `live_activity: true` to any notification payload to start one. The field names are shared with Android's [Live Updates](#live-updates), so a single automation can target both platforms.
+[Live Activities](live-activities.md) display real-time state from Home Assistant on the iOS Lock Screen — without the user needing to unlock their phone. Add `live_update: true` to any notification payload to start one — the same field Android uses for [Live Updates](#live-updates), so a single automation targets both platforms.
 
 ```yaml
 automation:
@@ -758,7 +757,7 @@ automation:
           message: "Cycle in progress"
           data:
             tag: washer_cycle
-            live_activity: true
+            live_update: true
             progress: 0
             progress_max: 3600
             chronometer: true
