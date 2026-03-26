@@ -656,7 +656,7 @@ These screenshots show how the notifications will display in the statusbar (with
 
 #### Configuration combined with progress, chronometer, tag and icon
 
-Adding `live_update: true` to the same payload also starts a [Live Activity](live-activities.md) on iOS 16.2+ — a single automation targets both platforms.
+Adding `live_update: true` to the same payload also starts a [Live Activity](live-activities.md) on iOS 17.2+ — a single automation targets both platforms.
 
 ```yaml
 automation:
@@ -669,7 +669,7 @@ automation:
           title: Example notification showing progress
           message: Current progress is 42%
           data:
-            live_update: true        # Android 16+ and iOS 16.2+
+            live_update: true        # Android 16+ and iOS 17.2+
             chronometer: true
             when: 315
             when_relative: true
@@ -683,7 +683,7 @@ This screenshot shows how the above configuration will appear on the always-on d
 ![Example notification showing progress and the chronometer on always-on display](/assets/android/live_updates_always_on_display.png)
 
 :::tip iOS Live Activities
-On iOS 16.2+, `live_update: true` also starts a **Live Activity** on the Lock Screen and Dynamic Island — no additional field needed. The same payload targets both platforms. See [Live Activities](live-activities.md) for full details.
+On iOS 17.2+, `live_update: true` also starts a **Live Activity** on the Lock Screen and Dynamic Island — no additional field needed. The same payload targets both platforms. See [Live Activities](live-activities.md) for full details.
 :::
 
 ### Alert Once

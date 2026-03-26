@@ -6,7 +6,7 @@ id: "live-activities"
 ![iOS](/assets/iOS.svg)
 
 :::info
-Live Activities require iOS 16.2 or later. They are not available on iPad (Apple system restriction) or macOS.
+Live Activities require iOS 17.2 or later. They are not available on iPad (Apple system restriction) or macOS.
 :::
 
 Live Activities display real-time state from Home Assistant on the iOS Lock Screen — without the user needing to unlock their phone. Use them for anything time-sensitive: appliance countdowns, EV charging progress, delivery tracking, alarm states, or media playback.
@@ -149,7 +149,7 @@ action:
       message: "45 minutes remaining"
       data:
         tag: washer_cycle
-        live_update: true           # iOS 16.2+ and Android 16+
+        live_update: true           # iOS 17.2+ and Android 16+
         progress: 2700
         progress_max: 3600
         chronometer: true
