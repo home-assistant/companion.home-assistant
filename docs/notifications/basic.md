@@ -619,72 +619,11 @@ automation:
 
 ### Live Updates
 
-On Android 16.0+ you can create "Live updates" notifications. These notifications are pinned to the top of the notification shade and appear on the lockscreen and always-on display. They will also display as a chip in the status bar with an optional short text. This might vary by manufacturer.
+On Android 16+, `live_update: true` displays a persistent notification pinned to the top of the notification shade, the Lock Screen, and the always-on display, with a status bar chip.
 
-For the notification to display as a "Live updates" notification, `title` must be provided.
+The same field also starts a **Live Activity** on iOS 17.2+ — a single automation targets both platforms.
 
-- `live_update` - set to `true` to display as a "Live updates" notification
-- `critical_text` - set an optional short text to display in the status bar chip
-  - `live_update` must be set to `true` as well
-  - If there is not enough space in the status bar to show the text, only the icon will be displayed
-  - If the `chronometer` parameter is used it will replace the `critical_text` value
-
-:::note
-On Samsung devices you may have to enable "Live notifications for all apps" in developer options to make notifications show a chip in the status bar.
-:::
-
-#### Basic configuration
-
-```yaml
-automation:
-  - alias: Notify a live update
-    trigger:
-      ...
-    action:
-      - action: notify.mobile_app_<your_device_id_here>
-        data:
-          title: "Live update"
-          message: "This will show on the always-on display"
-          data:
-            live_update: true
-            critical_text: "42%"
-```
-
-These screenshots show how the notifications will display in the statusbar (with or without critical text)
-![Status bar chip](/assets/android/live_updates_without_critical_text.png)
-![Status bar chip when using critical text](/assets/android/live_updates_with_critical_text.png)
-
-#### Configuration combined with progress, chronometer, tag and icon
-
-Adding `live_update: true` to the same payload also starts a [Live Activity](live-activities.md) on iOS 17.2+ — a single automation targets both platforms.
-
-```yaml
-automation:
-  - alias: Notify a live update
-    trigger:
-      ...
-    action:
-      - action: notify.mobile_app_<your_device_id_here>
-        data:
-          title: Example notification showing progress
-          message: Current progress is 42%
-          data:
-            live_update: true        # Android 16+ and iOS 17.2+
-            chronometer: true
-            when: 315
-            when_relative: true
-            progress: 42
-            progress_max: 100
-            tag: live_progress_notification
-            notification_icon: mdi:progress-helper
-```
-
-This screenshot shows how the above configuration will appear on the always-on display
-![Example notification showing progress and the chronometer on always-on display](/assets/android/live_updates_always_on_display.png)
-
-:::tip iOS Live Activities
-On iOS 17.2+, `live_update: true` also starts a **Live Activity** on the Lock Screen and Dynamic Island — no additional field needed. The same payload targets both platforms. See [Live Activities](live-activities.md) for full details.
-:::
+See [Live Activities and Live Updates](live-activities.md) for the full payload reference, examples, and platform-specific behavior.
 
 ### Alert Once
 
@@ -743,31 +682,9 @@ By default Home Assistant notifications do not show up in the Android Auto inter
 
 ### Live Activities
 
-[Live Activities](live-activities.md) display real-time state from Home Assistant on the iOS Lock Screen — without the user needing to unlock their phone. Add `live_update: true` to any notification payload to start one — the same field Android uses for [Live Updates](#live-updates), so a single automation targets both platforms.
+On iOS 17.2+, `live_update: true` starts a **Live Activity** on the Lock Screen and Dynamic Island — the same field Android uses for [Live Updates](#live-updates), so a single automation targets both platforms.
 
-```yaml
-automation:
-  - alias: "Washing machine started"
-    trigger:
-      ...
-    action:
-      - action: notify.mobile_app_<your_device_id_here>
-        data:
-          title: "Washing Machine"
-          message: "Cycle in progress"
-          data:
-            tag: washer_cycle
-            live_update: true
-            progress: 0
-            progress_max: 3600
-            chronometer: true
-            when: 3600
-            when_relative: true
-            notification_icon: mdi:washing-machine
-            notification_icon_color: "#2196F3"
-```
-
-See the full [Live Activities](live-activities.md) documentation for payload fields, update and dismissal options, and examples.
+See [Live Activities and Live Updates](live-activities.md) for the full payload reference, examples, and platform-specific behavior.
 
 ### Sounds
 By default the default notification sound (Tri-tone on iOS) will be played upon receiving a notification. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be disabled by setting `sound` to `none` in the data payload:
