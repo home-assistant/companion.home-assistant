@@ -111,29 +111,29 @@ data:
   message: "end_live_activity"
   data:
     tag: washer_cycle
-    dismissal_policy: "after:1735000000"
+    dismissal_policy: "after:<unix_timestamp>"
 ```
 
 ---
 
 ## Payload fields
 
-All fields go inside the `data:` block of the notification payload.
+Unless noted otherwise, Live Activity options go inside the nested `data:` block (`data.data`) of the notification payload. Standard notification fields like `title` and `message` stay at the top level (`data.title`, `data.message`), just like other mobile app notifications.
 
 | Field | Type | Description |
 |---|---|---|
 | `tag` | string | **Required.** Unique identifier for the activity. Alphanumeric, hyphens, and underscores only; max 64 characters. |
 | `live_update` | boolean | Set to `true` to start or update a Live Activity. Also enables Android [Live Updates](notifications-basic#live-updates) on the same payload. |
-| `title` | string | Static header text. Set at creation; cannot be changed by updates. |
-| `message` | string | Main body text shown on the Lock Screen. |
+| `title` | string | Top-level notification field (`data.title`). Static header text for the notification; set at creation and cannot be changed by updates. |
+| `message` | string | Top-level notification field (`data.message`). Main body text shown in the notification and on the Lock Screen. |
 | `critical_text` | string | Short supplementary text shown alongside the title. |
-| `progress` | integer | Current progress value (e.g. seconds elapsed). |
+| `progress` | integer | Current progress value (such as seconds elapsed). |
 | `progress_max` | integer | Maximum progress value. Shows a progress bar when both are set. |
-| `chronometer` | boolean | Show a live countdown/count-up timer. Requires `when`. |
+| `chronometer` | boolean | Show a live countdown or count-up timer. Requires `when`. |
 | `when` | number | Timer reference point. Unix timestamp (absolute) or seconds (relative when `when_relative: true`). |
 | `when_relative` | boolean | If `true`, treat `when` as seconds from now rather than a Unix timestamp. |
-| `notification_icon` | string | [Material Design Icon](https://pictogrammers.com/library/mdi/) slug, e.g. `mdi:washing-machine`. |
-| `notification_icon_color` | string | Hex color for the icon, e.g. `#2196F3`. |
+| `notification_icon` | string | [Material Design Icon](https://pictogrammers.com/library/mdi/) slug, such as `mdi:washing-machine`. |
+| `notification_icon_color` | string | Hex color for the icon, such as `#2196F3`. |
 
 ---
 

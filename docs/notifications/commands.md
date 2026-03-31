@@ -12,7 +12,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 | `clear_badge` | Silently removes the badge from the App icon without displaying a notification. |
 | `clear_notification` | Removes a notification, [more details](basic.md#clearing). When a `tag` is present, also ends the matching Live Activity. |
-| `end_live_activity` | Ends a Live Activity by its `tag`. [More details](live-activities.md#ending-a-live-activity). Requires iOS 16.2+. |
+| `end_live_activity` | Ends a Live Activity by its `tag`. [More details](live-activities.md#ending-a-live-activity). Requires iOS 17.2+; see [Live Activities requirements](live-activities.md#requirements). |
 | `update_complications` | Updates the complications on a paired Apple Watch. [More details](/apple-watch/complications.md). |
 | `update_widgets`* | Updates 'Gauge' and 'Details' widgets introduced on App v2024.7 (iOS will decide if the update is allowed or not, so don't worry if it doesn't work all the time). |
 
