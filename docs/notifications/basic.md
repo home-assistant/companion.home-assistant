@@ -621,7 +621,7 @@ automation:
 
 On Android 16+, `live_update: true` displays a persistent notification pinned to the top of the notification shade, the Lock Screen, and the always-on display, with a status bar chip.
 
-The same field also starts a **Live Activity** on iOS 17.2+ — a single automation targets both platforms.
+The same field also starts a **Live Activity** <span class="beta">BETA</span> on iOS 17.2+ — a single automation targets both platforms.
 
 See [Live Activities and Live Updates](live-activities.md) for the full payload reference, examples, and platform-specific behavior.
 

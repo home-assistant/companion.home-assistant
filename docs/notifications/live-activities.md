@@ -3,8 +3,6 @@ title: "Live Activities and Live Updates"
 id: "live-activities"
 ---
 
-![iOS](/assets/iOS.svg) ![Android](/assets/android.svg)
-
 **Live Activities** (iOS) and **Live Updates** (Android) keep real-time Home Assistant state visible on the Lock Screen, Dynamic Island, status bar, and always-on display — without the user needing to unlock their device.
 
 Both platforms use the same `live_update: true` field, so a single YAML automation targets iOS and Android simultaneously. Each platform silently ignores fields it does not support.
@@ -112,7 +110,7 @@ An optional `dismissal_policy` controls how long the ended activity stays visibl
 | `dismissal_policy` | Behavior |
 |---|---|
 | _(omitted)_ | Removed immediately |
-| `default` | iOS decides how long to show it (typically a few seconds) |
+| `default` | Stays visible on the Lock Screen for up to [4 hours after ending](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities#Understand-constraints), or until the user removes it |
 | `after:<unix_timestamp>` | Removed at a specific time (capped at 24 hours from now) |
 
 ```yaml
@@ -193,15 +191,17 @@ data:
 
 **Dynamic Island:** On iPhone Pro models, the Live Activity also appears as a compact island pill at the top of the screen.
 
-**iPad:** Live Activities are not available on iPad — Apple system restriction, not a companion app limitation. The Settings screen shows "Not available on iPad" and Home Assistant receives `supports_live_activities: false` in the device registration.
+:::warning iPad not supported
+Live Activities are not available on iPad — this is an Apple system restriction, not a companion app limitation. The Settings screen shows "Not available on iPad" and Home Assistant receives `supports_live_activities: false` in the device registration.
+:::
 
 **Settings:** Go to **Settings → Live Activities** in the companion app to see whether Live Activities are enabled and to view or end any currently active activities.
 
-**Rate limiting:** Apple throttles Live Activity updates to approximately 15 seconds between rendered updates. Structure automations to fire on state-change events rather than polling timers.
-
-**Stale activities:** If the app is force-quit and relaunched, it automatically reattaches to any Live Activities that iOS kept alive. Activities expire after 8 hours of no updates (Apple system limit).
-
-**Privacy:** The first time a Live Activity is started, the companion app displays a one-time disclosure noting that Lock Screen content is visible without unlocking the device.
+:::note iOS limitations
+- **Rate limiting:** Apple throttles Live Activity updates to approximately 15 seconds between rendered updates. Structure automations to fire on state-change events rather than polling timers.
+- **Expiry:** Activities expire after [up to 8 hours](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities#Understand-constraints) (Apple system limit). After ending, the activity remains on the Lock Screen for up to 4 additional hours before the system removes it. If the app is force-quit and relaunched, it automatically reattaches to any Live Activities iOS kept alive.
+- **Privacy:** The first time a Live Activity is started, the companion app displays a one-time disclosure noting that Lock Screen content is visible without unlocking the device.
+:::
 
 ### Android
 
