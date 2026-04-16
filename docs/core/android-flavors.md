@@ -1,4 +1,4 @@
----
+---update android flavors documentation
 title: "Android Flavors"
 id: 'android-flavors'
 ---
