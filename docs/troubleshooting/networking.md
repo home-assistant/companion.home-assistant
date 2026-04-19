@@ -88,3 +88,39 @@ Wear OS does not support authentication with installed certificates. The app can
 
 Beginning February 2024 [Let's Encrypt has begun its migration over to providing keys that are not cross-signed by IdenTrust's root CA certificate](https://letsencrypt.org/2023/07/10/cross-sign-expiration.html), instead using their own now widely trusted root CA certificate. Older clients that have not received an updated list of trusted certificate authorities will consider newer Let's Encrypt SSL keys as being invalid, which include versions of Android older than 7.1.1. This will cause Chrome or the Companion App to display an SSL error. An easy workaround is to use Firefox to access Home Assistant, as it's distributed with its own updated trusted list of certificate authorities. Another workaround is to manually install Let’s Encrypt's Active ISRG Root X1 Self-signed PEM (not DST Root X3) into the Android Credential Storage.
 
+## Addendum: External authentication providers
+
+![Android](/assets/android.svg)
+
+Some users place an external authentication provider in front of Home Assistant as an extra layer of defense for internet-exposed installations. Examples include [Cloudflare Access](https://developers.cloudflare.com/cloudflare-one/policies/access/), [Authelia](https://www.authelia.com/), [Authentik](https://docs.goauthentik.io/), and other OAuth 2.0 or OpenID Connect (OIDC) compliant reverse proxies. When a request reaches the proxy, the proxy challenges the user to sign in — often with multi-factor methods such as a one-time passcode, hardware security key, or email link — before the request is forwarded to Home Assistant.
+
+The Android companion app supports this pattern. When the proxy redirects the app to its sign-in page, the sign-in completes inside the app. After the proxy accepts the sign-in, the app continues to Home Assistant as normal. Session renewals when the proxy's token expires are handled the same way.
+
+### Setups that work
+
+- Cloudflare Access with an email one-time passcode, a time-based one-time passcode (TOTP), a WebAuthn security key, or the _One-time PIN_ option.
+- Authelia with password, TOTP, WebAuthn, Duo Push, or email link factors.
+- Authentik with password, TOTP, WebAuthn, SMS, email, or Duo factors.
+- Any other OIDC or OAuth 2.0 compliant reverse proxy whose sign-in page can be completed inside a standard web view (for example, oauth2-proxy or Vouch Proxy with their built-in methods).
+
+### Setups that do not work
+
+Some identity providers deliberately refuse to render their sign-in page inside an embedded web view in any third-party app. Affected providers include:
+
+- **Sign in with Google** and **Google Workspace**. You see an error like `Error 403: disallowed_useragent` with the message _"This browser or app may not be secure."_
+- **Sign in with Microsoft** and **Microsoft Entra ID**. A similar policy applies.
+- Some enterprise single sign-on portals that inherit the same posture.
+
+This is a published security policy from those providers, not a limitation of the companion app, and it applies to every third-party app that embeds a web view — the same restriction blocks Slack, Spotify, and many others from rendering Google or Microsoft sign-in directly.
+
+:::info Workarounds if your proxy uses Google or Microsoft sign-in
+- Add a non-federated sign-in option to your proxy, such as an email one-time passcode, a TOTP authenticator, or a WebAuthn key. Cloudflare Access, Authelia, and Authentik all support this. The app uses the non-federated path; browsers on your desktop can continue to use the federated path.
+- Switch to a self-hosted identity provider such as Authelia or Authentik that does not federate to Google or Microsoft.
+:::
+
+### Requirements
+
+- Your Home Assistant address in the app must be the same address that the authentication proxy protects. For example, if Cloudflare Access is configured for `https://home.example.com`, enter that address in the app — not a direct address that bypasses the proxy.
+- Your proxy must redirect back to the same Home Assistant address after a successful sign-in. This is the default for Cloudflare Access, Authelia, and Authentik.
+- An app version that includes this support. Earlier versions of the app forwarded the proxy's sign-in page to your system browser, which broke the sign-in flow.
+
