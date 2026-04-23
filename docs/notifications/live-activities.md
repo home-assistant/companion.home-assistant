@@ -79,9 +79,7 @@ action:
 
 ## Ending
 
-### Option 1 — `clear_notification` (recommended)
-
-`clear_notification` with a `tag` **ends the Live Activity / Live Update** and dismisses any delivered notification with the same identifier — in one action, on both iOS and Android.
+Send `clear_notification` with the same `tag` to end the Live Activity / Live Update and dismiss any delivered notification with that identifier — on both iOS and Android.
 
 ```yaml
 action:
@@ -92,34 +90,27 @@ action:
         tag: washer_cycle
 ```
 
-### Option 2 — `end_live_activity` command ![iOS](/assets/iOS.svg)
+### Dismissal policy ![iOS](/assets/iOS.svg)
 
-Use this when you want to end the Live Activity without affecting other notifications. Requires iOS 17.2+.
-
-```yaml
-action:
-  - action: notify.mobile_app_<your_device_id_here>
-    data:
-      message: "end_live_activity"
-      data:
-        tag: washer_cycle
-```
-
-An optional `dismissal_policy` controls how long the ended activity stays visible on screen:
+On iOS, if you want to control how long the ended activity stays visible on the Lock Screen rather than removing it immediately, use the `end_live_activity` command with an optional `dismissal_policy`:
 
 | `dismissal_policy` | Behavior |
 |---|---|
 | _(omitted)_ | Removed immediately |
 | `default` | Stays visible on the Lock Screen for up to [4 hours after ending](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities#Understand-constraints), or until the user removes it |
-| `after:<unix_timestamp>` | Removed at a specific time (capped at 24 hours from now) |
+| `after:<unix_timestamp>` | Removed at a specific time (capped at 24 hours from now). Unix timestamp = seconds since January 1, 1970. |
 
+Use a Home Assistant template to generate the timestamp. For example, to keep the activity visible for 5 minutes after ending:
+
+{% raw %}
 ```yaml
 data:
   message: "end_live_activity"
   data:
     tag: washer_cycle
-    dismissal_policy: "after:<unix_timestamp>"
+    dismissal_policy: "after:{{ (now().timestamp() + 300) | int }}"
 ```
+{% endraw %}
 
 ---
 
@@ -209,7 +200,9 @@ Live Activities are not available on iPad — this is an Apple system restrictio
 
 **Status bar chip:** The notification shows as a chip in the status bar. Use `critical_text` to display a short label in the chip. If `chronometer: true` is set, the timer replaces `critical_text` in the chip. If there is not enough space in the status bar, only the icon is shown.
 
-**Samsung devices:** You may need to enable **Live notifications for all apps** in developer options for the status bar chip to appear.
+:::note Samsung devices
+On Samsung, you may need to enable **Live notifications for all apps** in developer options for the status bar chip to appear.
+:::
 
 ![Status bar chip without critical text](/assets/android/live_updates_without_critical_text.png)
 ![Status bar chip with critical text](/assets/android/live_updates_with_critical_text.png)
