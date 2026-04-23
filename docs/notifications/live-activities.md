@@ -48,6 +48,8 @@ The `tag` uniquely identifies the activity. Subsequent pushes with the same `tag
 
 ![Android](/assets/android.svg) The notification is pinned to the top of the notification shade, the Lock Screen, and the always-on display. It also shows as a chip in the status bar. `title` must be provided.
 
+![Android Live Update showing "Washing Machine / Rinsing · 1 of 2" on the Lock Screen](/assets/android/live_updates_washing_lockscreen.png)
+
 :::note Samsung devices
 On Samsung, you may need to enable **Live notifications for all apps** in developer options for the status bar chip to appear.
 :::
@@ -74,6 +76,8 @@ action:
 ```
 
 ![Washing Machine Live Activity showing "Cycle complete" with a full green progress bar](/assets/ios/live-activity-complete-solo.png)
+
+![Android Live Update showing "Washing Machine / Cycle complete" on the Lock Screen](/assets/android/live_updates_complete_lockscreen.png)
 
 ---
 
@@ -102,7 +106,6 @@ On iOS, if you want to control how long the ended activity stays visible on the 
 
 Use a Home Assistant template to generate the timestamp. For example, to keep the activity visible for 5 minutes after ending:
 
-{% raw %}
 ```yaml
 data:
   message: "end_live_activity"
@@ -110,7 +113,6 @@ data:
     tag: washer_cycle
     dismissal_policy: "after:{{ (now().timestamp() + 300) | int }}"
 ```
-{% endraw %}
 
 ---
 
@@ -168,11 +170,17 @@ data:
 
 ![Security Alert Live Activity card with a red motion sensor icon](/assets/ios/live-activity-security-solo.png)
 
+![Android Live Update showing "Security Alert / Person detected · Camera 1" on the Lock Screen](/assets/android/live_updates_security_lockscreen.png)
+
 ### Multiple concurrent activities
 
 ![iOS](/assets/iOS.svg) Multiple Live Activities stack on the Lock Screen under the app group header.
 
 ![Four Live Activities grouped on the iOS Lock Screen: Home Assistant, Script Running, Security Alarm, All Fields](/assets/ios/live-activity-multi-crop.png)
+
+![Android](/assets/android.svg) On Android, multiple Live Updates appear as separate pinned notifications in the notification shade.
+
+![Android notification shade showing multiple Live Updates including Washing Machine and Home Assistant](/assets/android/live_updates_notification_shade.png)
 
 ---
 
