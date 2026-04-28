@@ -188,7 +188,7 @@ data:
 
 ### iOS
 
-**Dynamic Island:** On iPhone Pro models, the Live Activity also appears as a compact island pill at the top of the screen. iPad does not have a Dynamic Island — the activity appears on the Lock Screen only.
+**Dynamic Island:** On iPhone 14 Pro/Pro Max and all iPhone 15 and later models, the Live Activity also appears as a compact island pill at the top of the screen. On older iPhones without a Dynamic Island (notch or Home button), and on iPad, the activity appears on the Lock Screen only.
 
 **Settings:** Go to **Settings → Live Activities** in the companion app to see whether Live Activities are enabled and to view or end any currently active activities.
 
