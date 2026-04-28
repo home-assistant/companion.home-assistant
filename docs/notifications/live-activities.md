@@ -8,7 +8,7 @@ id: "live-activities"
 Both platforms use the same `live_update: true` field, so a single YAML automation targets iOS and Android simultaneously. Each platform silently ignores fields it does not support.
 
 :::info Requirements
-- ![iOS](/assets/iOS.svg) **iOS:** iOS 17.2 or later. Not available on iPad or macOS.
+- ![iOS](/assets/iOS.svg) **iOS:** iOS 17.2 or later on iPhone and iPad. Not available on macOS.
 - ![Android](/assets/android.svg) **Android:** Android 16 or later. Status bar chip appearance may vary by manufacturer.
 :::
 
@@ -188,11 +188,7 @@ data:
 
 ### iOS
 
-**Dynamic Island:** On iPhone Pro models, the Live Activity also appears as a compact island pill at the top of the screen.
-
-:::warning iPad not supported
-Live Activities are not available on iPad — this is an Apple system restriction, not a companion app limitation. The Settings screen shows "Not available on iPad" and Home Assistant receives `supports_live_activities: false` in the device registration.
-:::
+**Dynamic Island:** On iPhone Pro models, the Live Activity also appears as a compact island pill at the top of the screen. iPad does not have a Dynamic Island — the activity appears on the Lock Screen only.
 
 **Settings:** Go to **Settings → Live Activities** in the companion app to see whether Live Activities are enabled and to view or end any currently active activities.
 
