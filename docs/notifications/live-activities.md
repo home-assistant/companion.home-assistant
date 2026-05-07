@@ -5,8 +5,6 @@ id: "live-activities"
 
 **Live Activities** (iOS) and **Live Updates** (Android) keep real-time Home Assistant state visible on the Lock Screen, Dynamic Island, status bar, and always-on display — without the user needing to unlock their device.
 
-Both platforms use the same `live_update: true` field, so a single YAML automation targets iOS and Android simultaneously. Each platform silently ignores fields it does not support.
-
 :::info Requirements
 - ![iOS](/assets/iOS.svg) **iOS:** iOS 17.2 or later on iPhone and iPad. Not available on macOS.
 - ![Android](/assets/android.svg) **Android:** Android 16 or later. Status bar chip appearance may vary by manufacturer.
