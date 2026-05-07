@@ -94,26 +94,6 @@ action:
         tag: washer_cycle
 ```
 
-### Dismissal policy ![iOS](/assets/iOS.svg)
-
-On iOS, if you want to control how long the ended activity stays visible on the Lock Screen rather than removing it immediately, use the `end_live_activity` command with an optional `dismissal_policy`:
-
-| `dismissal_policy` | Behavior |
-|---|---|
-| _(omitted)_ | Removed immediately |
-| `default` | Stays visible on the Lock Screen for up to [4 hours after ending](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities#Understand-constraints), or until the user removes it |
-| `after:<unix_timestamp>` | Removed at a specific time (capped at 24 hours from now). Unix timestamp = seconds since January 1, 1970. |
-
-Use a Home Assistant template to generate the timestamp. For example, to keep the activity visible for 5 minutes after ending:
-
-```yaml
-data:
-  message: "end_live_activity"
-  data:
-    tag: washer_cycle
-    dismissal_policy: "after:{{ (now().timestamp() + 300) | int }}"
-```
-
 ---
 
 ## Payload fields
@@ -136,7 +116,6 @@ data:
 | `notification_icon_color` | ![iOS](/assets/iOS.svg) | string | Hex color for the icon, such as `#2196F3`. |
 | `alert_once` | ![Android](/assets/android.svg) | boolean | If `true`, the notification only alerts (sound/vibration) once. |
 | `sticky` | ![Android](/assets/android.svg) | boolean | If `true`, the notification is not dismissed when the user taps it. |
-| `dismissal_policy` | ![iOS](/assets/iOS.svg) | string | Used with `end_live_activity`. Controls how long the ended activity stays visible. See [Ending](#option-2--end_live_activity-command-). |
 
 ---
 
@@ -194,7 +173,7 @@ data:
 
 :::note iOS limitations
 - **Rate limiting:** Apple throttles Live Activity updates to approximately 15 seconds between rendered updates. Structure automations to fire on state-change events rather than polling timers.
-- **Expiry:** Activities expire after [up to 8 hours](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities#Understand-constraints) (Apple system limit). After ending, the activity remains on the Lock Screen for up to 4 additional hours before the system removes it. If the app is force-quit and relaunched, it automatically reattaches to any Live Activities iOS kept alive.
+- **Expiry:** Activities expire after [up to 8 hours](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities#Understand-constraints) (Apple system limit). If the app is force-quit and relaunched, it automatically reattaches to any Live Activities iOS kept alive.
 - **Privacy:** The first time a Live Activity is started, the companion app displays a one-time disclosure noting that Lock Screen content is visible without unlocking the device.
 :::
 
