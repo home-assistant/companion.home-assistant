@@ -19,7 +19,6 @@ module.exports = {
       'core/sensors'],
     'Notifications': [
       'notifications/notifications-basic',
-      'notifications/notify',
       'notifications/actionable-notifications',
       {
         'type': 'category',
