@@ -719,8 +719,12 @@ This sensor will show the state of power save mode on the device. Depending on t
 
 
 ## Pressure sensor
-![Android](/assets/android.svg)<br />
-This sensor will show the current pressure reading from the device. This sensor will update during the normal sensor update interval and makes use of [Environment Sensors](https://developer.android.com/guide/topics/sensors/sensors_environment).
+![Android](/assets/android.svg) ![iOS](/assets/iOS.svg)<br />
+This sensor will show the current barometric pressure reading from the device.
+
+![Android](/assets/android.svg) On Android, this sensor will update during the normal sensor update interval and makes use of [Environment Sensors](https://developer.android.com/guide/topics/sensors/sensors_environment).
+
+![iOS](/assets/iOS.svg) On iOS, this sensor reads barometric pressure from the device's built-in barometer using [CMAltimeter](https://developer.apple.com/documentation/coremotion/cmaltimeter). The value is reported in hectopascals (hPa). This sensor requires motion permissions to be enabled.
 
 
 ## Proximity sensor
