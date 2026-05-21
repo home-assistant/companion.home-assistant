@@ -527,6 +527,7 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_diastolic_blood_pressure` | millimeters of Mercury | The last recorded diastolic blood pressure. |
 | `health_connect_distance` | meters | Total distance traveled since midnight. |
 | `health_connect_elevation_gained` | meters | Total elevation gained since midnight. |
+| `health_connect_exercise_session` | none | The most recently recorded exercise session. State is the exercise type (e.g. `running`, `cycling`); attributes include `start_time`, `end_time`, `duration_minutes`, `notes`, `total_distance_meters`, `total_active_calories`, `average_heart_rate_bpm`, `average_speed_mps`, `average_power_watts`, and `average_cadence_rpm` when those samples are present in the session. |
 | `health_connect_floors_climbed` | floors | Total floors climbed since midnight. |
 | `health_connect_heart_rate` | beats per minute | The last recorded heart rate. |
 | `health_connect_heart_rate_variability` | milliseconds | The last recorded heart rate variability. |

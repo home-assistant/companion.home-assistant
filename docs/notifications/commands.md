@@ -31,6 +31,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
 | `command_flashlight` | Turn the flashlight LED on or off. |
+| `command_health_connect_write` | Write a record to Health Connect, [see below](#health-connect-write) for supported data types and how it works. |
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. |
 | `command_launch_app` | Launch an application, [see below](#launch-app) for how it works and whats required. |
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
@@ -768,6 +769,70 @@ automation:
             media_stream: "music_stream"
             command: 20
 ```
+
+## Health Connect write
+
+![Android](/assets/android.svg)
+
+On Android you can send `message: command_health_connect_write` to write a record into Health Connect. The user must grant the companion app write permission for each data type from the Health Connect settings screen in the app. Without permission the write is rejected and the command logs a warning.
+
+The `data_type` parameter selects the record type to write. The remaining fields depend on the data type — most types take a `value` (and optionally a `unit` to pick the input unit), a `time` (instant types) or `start_time` and `end_time` (interval types), and an optional `client_record_id` to make the write idempotent.
+
+Supported data types:
+
+`steps`, `distance`, `active_calories_burned`, `total_calories_burned`, `heart_rate`, `blood_pressure`, `blood_glucose`, `body_temperature`, `body_fat`, `weight`, `height`, `oxygen_saturation`, `respiratory_rate`, `resting_heart_rate`, `vo2_max`, `hydration`, `nutrition`, `sleep_session`, `exercise_session`, `power`, `speed`, `cycling_pedaling_cadence`, `floors_climbed`, `elevation_gained`, `wheelchair_pushes`, `lean_body_mass`, `bone_mass`, `body_water_mass`, `basal_metabolic_rate`.
+
+If `unit` is omitted, the Health Connect default unit is used (meters for distance, kilocalories for calories, kilograms for mass, etc.). When provided, the value is converted before being written.
+
+Example — write a steps record:
+
+```yaml
+automation:
+  - alias: Log steps to Health Connect
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_health_connect_write"
+          data:
+            data_type: "steps"
+            value: 1500
+            start_time: "2025-01-01T08:00:00Z"
+            end_time: "2025-01-01T08:30:00Z"
+```
+
+Example — write a body weight record:
+
+```yaml
+action:
+  - action: notify.mobile_app_<your_device_id_here>
+    data:
+      message: "command_health_connect_write"
+      data:
+        data_type: "weight"
+        value: 72.5
+        unit: "kg"
+        time: "2025-01-01T08:00:00Z"
+```
+
+Example — write an exercise session with associated samples:
+
+```yaml
+action:
+  - action: notify.mobile_app_<your_device_id_here>
+    data:
+      message: "command_health_connect_write"
+      data:
+        data_type: "exercise_session"
+        exercise_type: "running"
+        start_time: "2025-01-01T08:00:00Z"
+        end_time: "2025-01-01T08:30:00Z"
+        notes: "morning run"
+        client_record_id: "morning-run-2025-01-01"
+```
+
+When the command finishes, the `health_connect_exercise_session` sensor (if enabled) updates with the most recent session metadata.
 
 ## Wake word detection
 
