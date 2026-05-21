@@ -169,7 +169,7 @@ When combined with High Accuracy mode [zone with trigger range constraints](/doc
 Be aware that when this option is enabled, your battery will drain faster than normal because of the permanent usage of GPS.
 :::
 
-The background location sensor has also the option to run in high accuracy mode. With the option `High accuracy mode (May drain battery fast)` enabled, the location updates every X seconds (defined with option `High accuracy interval`. Default 5 seconds, Minimal 5 seconds) via GPS.
+The background location sensor also has the option to run in high accuracy mode. When the option `High accuracy mode (May drain battery fast)` is enabled, the location updates every X seconds via GPS. The value of X is specified in `High accuracy interval`. The default value is 5 seconds. The minimum value allowed is 5 seconds.
 
 You can define a Bluetooth and/or a zone constraint to restrict the use of the high accuracy mode.
 
@@ -181,19 +181,17 @@ You can enable the combination of both constraints by enabling the according opt
 
 #### Bluetooth constraint
 
-You can also enable the high accuracy mode only when connected to specific Bluetooth devices with the option `High accuracy mode only when connected to BT devices`. Be sure that the option `High accuracy mode (May drain battery fast)` is also enabled.
+You can also the high accuracy mode only when connected to specific Bluetooth devices with the option `High accuracy mode only when connected to BT devices`. Be sure that the option `High accuracy mode (May drain battery fast)` is also enabled.
 
 #### Zones constraint
 
-Additionally, you can enable the high accuracy mode when entering a specific zone with the option `High accuracy mode only when entering zone`. If you want to enable the high accuracy mode before entering the zone, you can use the option `High accuracy mode trigger range for zone (meters)`. With this option enabled, a expanded zone (only app internal) around the original zone will be created. If you reach that expanded zone the high accuracy mode will be enabled and then disabled when you reach the original zone. Please have a look at the zone examples.
+You can enable the high accuracy mode when entering a specific zone via the option `High accuracy mode only when entering zone`. This requires the `Location Zone` sensor to be enabled to work.
 
-Both options require you to enable the `Location Zone` sensor.
-
-##### Zones example
+If you want to enable the high accuracy mode _before_ entering the zone, you can use the option `High accuracy mode trigger range for zone (meters)`. This as well requires the `Location Zone` sensor to be on. When a non-zero value is specified, an expanded zone is created (inside the app only) around the original zone. When you enter the expanded zone, high accuracy mode is enabled until you reach inside the original zone. The following example elaborates:
 
 ![Zones](/assets/Zone.png)
 
-###### Zone when using the `High accuracy mode trigger range for zone (meters)` option (Value greater than 0)
+##### `High accuracy mode trigger range for zone (meters)` enabled (value > 0)
 
 In this case, the zone is defined by an expanded zone (zone.home_expanded) minus the original zone (zone.home). Shown in blue in the image.
 
@@ -207,7 +205,7 @@ Leaving home zone:
 - Exiting `zone.home`, therefore entering `zone.home_expanded` -> High accuracy mode **enabled**
 - Exiting `zone.home_expanded` -> High accuracy mode **disabled**
 
-###### Zone when NOT using the `High accuracy mode trigger range for zone (meters)` option (Value equals 0)
+##### `High accuracy mode trigger range for zone (meters)` disabled (value = 0)
 
 In this case, only the original zone (zone.home) is used. Shown in orange in the image.
 
@@ -219,13 +217,15 @@ Leaving home zone:
 
 - Exiting `zone.home` -> High accuracy mode **disabled**
 
-###### Combination of Zones constraint and Bluetooth constraint
+#### Combination of Zones constraint and Bluetooth constraint
 
-It is possible to combine in two ways. First and default option is a simple or combination which is used, when the according switch is turned off. As mentioned in the info box above, only one constraint must apply to enable high accuracy mode.
+It is possible to combine constraints in one of two ways.
 
-If the combination switch is turned on however, both constraints must apply to enable high accuracy mode.
+The default is a simple or combination which is used, when the according switch is turned off. As mentioned in the info box above, only one constraint must apply to enable high accuracy mode.
 
-As an example for enabled state would be: You are connected to your car via bluetooth AND when your device recognizes you enter a specific zone or its radius around, the high accuracy mode is turned on. If you are leaving this zone but stay connected with your car (e.g. driving further away), the high accuracy mode will be disabled. Same applies if you are walking around your home but you are not connected to your car, the high accuracy mode will stay disabled.
+The other way is when the combination switch is turned on. In this case both constraints must apply to enable high accuracy mode.
+
+An example for enabled state would be: You are connected to your car via bluetooth AND when your device recognizes you enter a specific zone or its radius around, the high accuracy mode is turned on. If you are leaving this zone but stay connected with your car (e.g. driving further away), the high accuracy mode will be disabled. Same applies if you are walking around your home but you are not connected to your car, the high accuracy mode will stay disabled.
 
 #### Notification
 
