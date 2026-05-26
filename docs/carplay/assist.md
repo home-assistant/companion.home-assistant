@@ -13,13 +13,10 @@ Assist is the voice assistant built into Home Assistant. It lets you control you
 
 - iOS 26.4 or later
   - If your iPhone is running an older iOS version, Assist options may appear as **Assist (iOS 26.4+)** and cannot be added to CarPlay.
-
-
 - Have an [Assist pipeline configured in Home Assistant](https://www.home-assistant.io/voice_control/voice_remote_cloud_assistant/). 
 - If you want spoken responses in CarPlay, the selected pipeline must also have text-to-speech configured. 
 
-
-To add Assist:
+### To add Assist to CarPlay
 
 1. On your iPhone, open **Companion App Settings** > **CarPlay**.
 2. Open your **Quick Access** configuration.
@@ -34,16 +31,15 @@ To add Assist:
 2. Tap Assist to start listening, then finish recording when you are done speaking. 
 3. The response will be processed and played as audio.
 
-
 ### Adding Assist prompts
 
 Assist prompts are predefined Assist requests that you can add as buttons in the **Quick Access** tab. Use them for requests you repeat often while driving, such as checking whether a door is open or announcing that you are arriving home soon.
+
 ### Prerequisites
 
 - iOS 26.4 or later
 - Have Assist added to CarPlay
 - Make sure the selected pipeline has text-to-speech configured.
-
 
 ### To add an Assist prompt to CarPlay
 
