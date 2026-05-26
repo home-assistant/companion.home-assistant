@@ -52,7 +52,7 @@ Each action may consist of the following keys:
 | `title` | **Required**. The title of the button shown in the notification | |
 | `uri` | **Optional**. The URL to open when tapped | ![Android](/assets/android.svg) Android requires setting the `action` to `URI` to use this key. See [notes below](#uri-values). |
 | `behavior` | **Optional**. Set to `textInput` to prompt for text to return with the event. This also occurs when setting the action to `REPLY`. | Using this key allows you to use the `action` key to differentiate actions. |
-| `authenticationRequired` | **Optional**. `true` to require entering a passcode or use fingerprint to trigger the action. | `<span class='beta'>BETA</span>` on Android  |
+| `authenticationRequired` | **Optional**. `true` to require entering a passcode or use fingerprint to trigger the action. | <span class='beta'>BETA</span> on Android  |
 
 ### ![Android](/assets/android.svg) Android specific options
 
