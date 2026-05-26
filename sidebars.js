@@ -68,7 +68,8 @@ module.exports = {
       'android-auto/android-auto'
     ],
     'CarPlay': [
-      'carplay/carplay'
+      'carplay/carplay',
+      'carplay/assist'
     ],
     'Meta Quest': [
       'meta-quest/meta-quest'
