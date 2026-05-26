@@ -25,13 +25,13 @@ Assist is the voice assistant built into Home Assistant. It lets you control you
 5. Save the item.
     Result: The Assist item will appear in the **Quick Access** tab in CarPlay. 
 
-### Using Assist from Quick Access
+## Using Assist from Quick Access
 
 1. Open Quick Access.
 2. Tap Assist to start listening, then finish recording when you are done speaking. 
 3. The response will be processed and played as audio.
 
-### Adding Assist prompts
+## Adding Assist prompts
 
 Assist prompts are predefined Assist requests that you can add as buttons in the **Quick Access** tab. Use them for requests you repeat often while driving, such as checking whether a door is open or announcing that you are arriving home soon.
 
@@ -51,13 +51,13 @@ Assist prompts are predefined Assist requests that you can add as buttons in the
 6. Select the Assist pipeline that should handle the prompt.
 7. Save the item.
 
-### Using an Assist prompt in CarPlay
+## Using an Assist prompt in CarPlay
 
 1. Tap your prompt.
     - When you tap an Assist prompt in CarPlay, the prompt is sent to the selected pipeline, and the response is played as audio.
 2. While an Assist prompt is open in CarPlay, you can replay the saved prompt or use the microphone button to start a new spoken Assist request.
 
-### Troubleshooting the audio playback
+## Troubleshooting the audio playback
 
 Some vehicles may not play spoken Assist responses when CarPlay is using the default streaming playback mode. If Assist works but you do not hear the response in your vehicle, change the TTS playback mode:
 
