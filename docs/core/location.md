@@ -47,18 +47,18 @@ automation:
 
 The newly created `device_tracker` entity may provide some of the following attributes depending on your operating system.
 
-| Name                | Unit                           |
-| ------------------- | ------------------------------ |
-| `source`            | _None_                         |
-| `battery_level`     | percentage                     |
-| `latitude`          | degrees                        |
-| `longitude`         | degrees                        |
-| `gps_accuracy`      | meters                         |
-| `altitude`          | meters                         |
-| `course`            | degrees                        |
-| `speed`             | meters per second              |
-| `vertical_accuracy` | meters                         |
-| `floor`             | floors ![iOS](/assets/iOS.svg) |
+| Name                | Unit                               |
+| ------------------- | ---------------------------------- |
+| `source`            | _None_                             |
+| `battery_level`     | percentage ![iOS](/assets/iOS.svg) |
+| `latitude`          | degrees                            |
+| `longitude`         | degrees                            |
+| `gps_accuracy`      | meters                             |
+| `altitude`          | meters                             |
+| `course`            | degrees                            |
+| `speed`             | meters per second                  |
+| `vertical_accuracy` | meters                             |
+| `floor`             | floors ![iOS](/assets/iOS.svg)     |
 
 If you want to know more about the specifics of these attributes, please refer to the relevant documentation of your operating system:
 
@@ -76,6 +76,8 @@ Options available:
 
 - **Exact** sends the GPS coordinates of your device.
 - **Zone Name Only** sends just the zone name (or `not_home`), which can be useful for presence detection without exposing location. Only zones for the server in question are considered.
+
+  <span class="beta">BETA</span> Starting with app version 2026.6.0 on iOS and Android, all matching zones are reported (not just one) when your Home Assistant Core version is 2026.6.0 or later. This includes [passive zones](https://www.home-assistant.io/integrations/zone/#passive), which were previously excluded. On older Core versions, a single non-passive zone name continues to be sent for backward compatibility.
 - **![iOS](/assets/iOS.svg) Never** or **![Android](/assets/android.svg) Disabled** will not send GPS coordinates nor zone information.
 
 ## Location tracking when outside a Home Assistant zone
