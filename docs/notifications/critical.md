@@ -139,7 +139,7 @@ automations:
 ```
 
 ### ![Android](/assets/android.svg) Text To Speech Alarm Stream Max Volume
-Alternatively using Text To Speech you can also make the notification speak as loud as it can, and then revert back to the original volume level (by changing `media_stream: alarm_stream` to `media_stream: alarm_stream_max`):
+Alternatively using Text To Speech you can also make the notification speak as loud as it can, and then revert back to the original volume level, by using `media_stream: alarm_stream_max`:
 
 ```yaml
 automations:
