@@ -47,10 +47,6 @@ Must be valid JSON.
 
 Get a single still frame from a camera entity and place it on the clipboard or use in subsequent actions.
 
-### Perform Action
-
-Perform an [action](core/actions.md).
-
 ### Render Template
 
 Render a [template](https://www.home-assistant.io/docs/configuration/templating/) which can then be used in subsequent actions.

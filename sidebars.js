@@ -13,7 +13,6 @@ module.exports = {
 ],
     'Core Features': [
       'core/core',
-      'core/actions',
       'core/android-flavors',
       'core/location',
       'core/sensors'],
@@ -57,7 +56,6 @@ module.exports = {
       'integrations/x-callback-url'],
     'Apple Watch': [
       'apple-watch/apple-watch',
-      'apple-watch/watch-actions',
       'apple-watch/complications'
     ],
     'Wear OS': [

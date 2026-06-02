@@ -3,7 +3,7 @@ title: Feature overview
 id: 'core'
 ---
 
-The Home Assistant Companion App provides a convenient way to view and control your Home Assistant instance however it also extends the power of your instance by allowing your device to act as a data source. The Home Assistant Companion App adds numerous [sensors](sensors.md) (such as battery and network status among others), creates a `device_tracker` entity to allow [location](location.md) updates to be sent from the device and also provides [action shortcuts](actions.md) to trigger scripts or automations.
+The Home Assistant Companion App provides a convenient way to view and control your Home Assistant instance however it also extends the power of your instance by allowing your device to act as a data source. The Home Assistant Companion App adds numerous [sensors](sensors.md) (such as battery and network status among others) and creates a `device_tracker` entity to allow [location](location.md) updates to be sent from the device.
 
 Not all features are supported by Android at the moment but eventually most features will be supported.  Look for the ![Android](/assets/android.svg) Android logo to see what is currently supported.
 
@@ -20,13 +20,6 @@ Not all features are supported by Android at the moment but eventually most feat
       </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><a href="/docs/core/actions">Actions</a></td>
-      <td></td>
-      <td></td>
-      <td>✅</td>
-      <td>✅</td>
-    </tr>
     <tr>
       <td><a href="/docs/integrations/android-device-controls">Android Device Controls</a></td>
       <td>✅</td>
