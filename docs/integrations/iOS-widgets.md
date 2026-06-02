@@ -134,7 +134,6 @@ For gauge type "Capacity":
 - **Value template:** The current value which will be used to display the gauge chart.
 - **Value label template:** The text/emoji that will be displayed on the center of the widget
 
-There is also an option to run an iOS Legacy Action, this will soon be converted  into "Run script".
 <table>
   <tr>
     <td><img src='/assets/ios/gauge-widget.jpeg' alt="Gauge Widget" height="300"/></td>
