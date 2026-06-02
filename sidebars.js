@@ -56,7 +56,6 @@ module.exports = {
       'integrations/x-callback-url'],
     'Apple Watch': [
       'apple-watch/apple-watch',
-      'apple-watch/watch-actions',
       'apple-watch/complications'
     ],
     'Wear OS': [
