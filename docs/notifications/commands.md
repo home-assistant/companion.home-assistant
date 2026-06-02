@@ -12,8 +12,10 @@ The Companion apps offer a lot of different notification options. In place of po
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 | `clear_badge` | Silently removes the badge from the App icon without displaying a notification. |
 | `clear_notification` | Removes a notification, [more details](basic.md#clearing). |
+| `hide_camera` | Hides the full-screen camera view, [more details](#camera-view). |
 | `update_complications` | Updates the complications on a paired Apple Watch. [More details](/apple-watch/complications.md). |
 | `update_widgets`* | Updates 'Gauge' and 'Details' widgets introduced on App v2024.7 (iOS will decide if the update is allowed or not, so don't worry if it doesn't work all the time). |
+| `show_camera` | Shows a camera in the full-screen camera view, [more details](#camera-view). |
 
 \* On iOS, manual widget reloads are limited to around 40-70 per 24 hour, depending on how often you look at the widget. This will not always reset at exactly midnight.
 
@@ -48,6 +50,48 @@ The Companion apps offer a lot of different notification options. In place of po
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
 \*  These commands will always work, even when other commands are disabled.
+
+## Camera View
+
+![iOS](/assets/iOS.svg)
+
+On iOS 16 and newer, you can show or hide the full-screen camera view using notification commands. This can be useful for wall tablets or dashboards where the app is already open.
+
+To show a camera, send `message: show_camera` with the `entity_id` parameter set to a camera entity. If the app is open and in the foreground, the camera view opens immediately. If the app is not in the foreground, the device receives a normal notification with the text `Tap to open camera`; tapping it opens the camera view.
+
+| Parameter | Type | Description |
+|---------|---------|--------|
+| `entity_id` | string | Camera entity ID to show, for example `camera.front_door`. |
+
+Example:
+
+```yaml
+automation:
+  - alias: Show front door camera
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "show_camera"
+          data:
+            entity_id: "camera.front_door"
+```
+
+To hide the currently displayed camera view, send `message: hide_camera`. No additional parameters are required.
+
+Example:
+
+```yaml
+automation:
+  - alias: Hide camera
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "hide_camera"
+```
 
 ## Activity
 
