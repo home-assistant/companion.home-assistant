@@ -49,7 +49,7 @@ Get a single still frame from a camera entity and place it on the clipboard or u
 
 ### Perform Action
 
-Perform an [action](core/actions.md).
+Perform an action.
 
 ### Render Template
 

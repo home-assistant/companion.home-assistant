@@ -13,7 +13,6 @@ module.exports = {
 ],
     'Core Features': [
       'core/core',
-      'core/actions',
       'core/android-flavors',
       'core/location',
       'core/sensors'],
