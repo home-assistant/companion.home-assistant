@@ -29,7 +29,7 @@
 /core/actions /docs/core/actions
 /docs/integrations/watch/watch /docs/apple-watch/
 /next/integrations/apple-watch /docs/apple-watch/
-/docs/integrations/watch/watch-actions/ /docs/apple-watch/watch-actions
+/docs/integrations/watch/watch-actions/ /docs/apple-watch/
 /docs/integrations/watch/complications/ /docs/apple-watch/complications
 /docs /docs/getting_started
 /docs/notifications/location-notification /docs/notifications/notification-commands
