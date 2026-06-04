@@ -58,6 +58,10 @@ On Samsung, you may need to enable **Live notifications for all apps** in develo
 
 Send the same payload again with the same `tag`. The display updates silently — no banner, no sound.
 
+:::note ![iOS](/assets/iOS.svg)
+Live activities utilize the highest push notification delivery priority (10). Avoid creating automations that update it every second or based on an entity state that frequently updates. If iOS deems the updates frequency excessive, it may throttle its push deliveries. This rule doesn’t apply when using local push notifications.  
+:::
+
 ```yaml
 action:
   - action: notify.mobile_app_<your_device_id_here>
