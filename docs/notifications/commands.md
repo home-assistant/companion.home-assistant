@@ -51,48 +51,6 @@ The Companion apps offer a lot of different notification options. In place of po
 
 \*  These commands will always work, even when other commands are disabled.
 
-## Camera View
-
-![iOS](/assets/iOS.svg)
-
-On iOS 16 and newer, you can show or hide the full-screen camera view using notification commands. This can be useful for wall tablets or dashboards where the app is already open.
-
-To show a camera, send `message: show_camera` with the `entity_id` parameter set to a camera entity. If the app is open and in the foreground, the camera view opens immediately. If the app is not in the foreground, the device receives a normal notification with the text `Tap to open camera`; tapping it opens the camera view.
-
-| Parameter | Type | Description |
-|---------|---------|--------|
-| `entity_id` | string | Camera entity ID to show, for example `camera.front_door`. |
-
-Example:
-
-```yaml
-automation:
-  - alias: Show front door camera
-    trigger:
-      ...
-    action:
-      - action: notify.mobile_app_<your_device_id_here>
-        data:
-          message: "show_camera"
-          data:
-            entity_id: "camera.front_door"
-```
-
-To hide the currently displayed camera view, send `message: hide_camera`. No additional parameters are required.
-
-Example:
-
-```yaml
-automation:
-  - alias: Hide camera
-    trigger:
-      ...
-    action:
-      - action: notify.mobile_app_<your_device_id_here>
-        data:
-          message: "hide_camera"
-```
-
 ## Activity
 
 ![Android](/assets/android.svg)
@@ -464,6 +422,48 @@ Currently supported types are:
 |[String Array (urlencoded)](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String[]))|`EXTRA:colon%3A;semicolon%3B;comma%2C:String[].urlencoded`|
 |[ArrayList\<String\>](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:a;b;c:ArrayList<String>`|
 |[ArrayList\<String\> (urlencoded)](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:colon%3A;semicolon%3B;comma%2C:ArrayList<String>.urlencoded`|
+
+## Camera View
+
+![iOS](/assets/iOS.svg)
+
+On iOS 16 and newer, you can show or hide the full-screen camera view using notification commands. This can be useful for wall tablets or dashboards where the app is already open.
+
+To show a camera, send `message: show_camera` with the `entity_id` parameter set to a camera entity. If the app is open and in the foreground, the camera view opens immediately. If the app is not in the foreground, the device receives a normal notification with the text `Tap to open camera`; tapping it opens the camera view.
+
+| Parameter | Type | Description |
+|---------|---------|--------|
+| `entity_id` | string | Camera entity ID to show, for example `camera.front_door`. |
+
+Example:
+
+```yaml
+automation:
+  - alias: Show front door camera
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "show_camera"
+          data:
+            entity_id: "camera.front_door"
+```
+
+To hide the currently displayed camera view, send `message: hide_camera`. No additional parameters are required.
+
+Example:
+
+```yaml
+automation:
+  - alias: Hide camera
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "hide_camera"
+```
 
 ## Do Not Disturb
 
