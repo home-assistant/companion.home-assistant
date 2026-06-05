@@ -36,6 +36,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_screen_brightness_level` | Control the screen brightness level on the device. |
+| `command_screen_off` | Lock the device screen, [see below](#screen-off) for how it works and whats required. |
 | `command_screen_off_timeout` | Control the screen off timeout on the device. |
 | `command_screen_on` | Turn on the device screen. |
 | `command_stop_tts`* | Stops Text To Speech if it's currently in use. |
@@ -645,9 +646,51 @@ automation:
             command: 50
 ```
 
+## Screen off
+
+![Android](/assets/android.svg)
+
+On Android, you can remotely lock the device screen (similar to pressing the power button) by sending `message: command_screen_off`. Locking the screen means the device will require you to unlock it again before you can use it, just like when you press the power button.
+
+This command requires **Device Administrator** permission. This is a special Android permission that allows apps to perform certain security-related actions like locking the screen.
+
+### First time use
+
+The first time you send this command:
+
+1. The app will display a dialog explaining why the permission is needed.
+2. Select **Activate** to go to Android settings.
+3. On the Device Administrator screen, enable **Home Assistant**.
+4. Return to the app and send the command again.
+
+Once the permission is granted, the device screen will lock immediately whenever this command is received.
+
+:::info Security note
+Device Administrator is a powerful permission that allows the app to lock your screen remotely. Only grant this permission if you trust your Home Assistant setup and want this functionality.
+:::
+
+Example:
+
+```yaml
+automation:
+  - alias: Lock device screen
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_screen_off"
+```
+
+This command can be useful for security scenarios, such as:
+- Locking your device when you leave home
+- Emergency situations where you need to secure your device remotely
+- Parental controls
+- Automated security responses based on other Home Assistant events
+
 ## Screen Off Timeout
 
-![Android](/assets/android.svg) 
+![Android](/assets/android.svg)
 
 You can control the screen off timeout on the device by sending `message: command_screen_off_timeout` with `command` being the timeout value in milliseconds. If you do not send a number or send a blank value then the notificaton will post as normal. The values will respect the minimum and maximum defined by the android system, for example on a Pixel device anything below `10000` will be treated as a 10 second timeout.
 
