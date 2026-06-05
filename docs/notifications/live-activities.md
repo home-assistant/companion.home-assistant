@@ -116,6 +116,7 @@ action:
 | `when_relative` | Both | boolean | If `true`, treat `when` as seconds from now rather than a Unix timestamp. |
 | `notification_icon` | Both | string | [Material Design Icon](https://pictogrammers.com/library/mdi/) slug, such as `mdi:washing-machine`. |
 | `notification_icon_color` | ![iOS](/assets/iOS.svg) | string | Hex color for the icon, such as `#2196F3`. |
+| `silent` | ![iOS](/assets/iOS.svg) | boolean | If `true`, the update will not ring notification chime. It does not apply for starting the activity. |
 | `alert_once` | ![Android](/assets/android.svg) | boolean | If `true`, the notification only alerts (sound/vibration) once. |
 | `sticky` | ![Android](/assets/android.svg) | boolean | If `true`, the notification is not dismissed when the user taps it. |
 
