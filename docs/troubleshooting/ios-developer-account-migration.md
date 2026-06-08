@@ -13,6 +13,14 @@ This can happen because iOS stores app credentials in Apple's keychain, and keyc
 
 In practice, this means you may be asked to enter your Home Assistant username and password again, server by server.
 
+## TestFlight users
+
+During the account migration, the current TestFlight channel will be closed.
+
+After the migration is complete, a new TestFlight invite link will be published.
+
+We will announce the new link on our social channels and in the documentation.
+
 ## How to prepare before migration
 
 To make the migration smoother, prepare your credentials now.
