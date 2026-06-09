@@ -12,14 +12,11 @@ As an example, if you wanted to create a shortcut to turn on a light (`light.por
 
 1. Open the Shortcuts app (included by default with iOS, can be re-installed from the [App Store](https://apps.apple.com/app/id915249334) if you deleted it)
 2. Tap the Plus icon at the top right to create a new shortcut.
-3. Tap Add Action and add a "Dictionary" item.
-4. In the Dictionary item, tap "Add new item", tap "Text" then add `entity_id` as the key and `light.porch` as the text.
-5. Tap the large plus to add another action, search for "Home Assistant" and select "Call Service".
-6. Tap "Service" which is highlighted in "Call Service with data".
-7. Scroll through the list of available services and find `light.turn_on`.
-8. Tap the arrow next at the end of the "Call Service with data" line and in the "Server" field select the Home Assistant server you wish to perform the action on.
-9. As long as the Dictionary action is above the Home Assistant action there is no need to enter anymore details. If you prefer not to use the Dictionary action, you can select "Show More" and enter the action data in JSON format in the "Service Data" field.
-10. Tap next and enter or record a name/phrase to use with "Hey, Siri" to trigger the shortcut.
+3. Tap Add Action, search for "Home Assistant" and select "Perform action".
+4. Tap "Server" and select the Home Assistant server you wish to perform the action on.
+5. Tap "Action" and scroll through (or search) the list of available actions to find `light.turn_on`.
+6. Tap "Action data" and enter the data in JSON format, for example `{"entity_id": "light.porch"}`.
+7. Tap next and enter or record a name/phrase to use with "Hey, Siri" to trigger the shortcut.
 
 The final shortcut should look similar to this:
 
@@ -27,37 +24,45 @@ The final shortcut should look similar to this:
 
 ## Shortcut Flow
 
-In the previous example we will used the Dictionary action to define our action data, this is an example of one action provide data to a subsequent action in the Shortcut flow. These data can come from other apps or other actions provided by Home Assistant, such as Render Text to get the state of an entity in Home Assistant. By default empty fields will try to use data on your device's clipboard if no other flow or payload data is provided.
+Actions can pass data to subsequent actions in the Shortcut flow. This data can come from other apps, or from other actions provided by Home Assistant, such as "Render template" to get the state of an entity in Home Assistant. For example, instead of typing the action data manually in the example above, you could build it with a "Dictionary" action placed before the Home Assistant action. By default, empty fields will try to use data on your device's clipboard if no other flow or payload data is provided.
 
 ## Actions
 
-### Call Service
+<span class='beta'>BETA</span>
 
-You can call any action set up in Home Assistant (see the [Actions Page in Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/)). As used in the [example above](#getting-started---example-shortcut).
+The actions below are built with Apple's App Intents framework. Some actions require iOS 16.4 or later, and "Perform action" and "Get camera snapshot" require iOS 17 or later.
 
-### Fire Event
-
-Fires an event on to the [Home Assistant Event Bus](https://www.home-assistant.io/docs/configuration/events/)
-
-:::tip
-Must be valid JSON.
+:::note
+These actions replace the legacy SiriKit actions (such as "Call Service" and "Fire Event"). The legacy actions have been deprecated and still appear in the Shortcuts app prefixed with "(Deprecated)" — please migrate your shortcuts to the actions described below.
 :::
 
-### Get Camera Image
+### Perform action
 
-Get a single still frame from a camera entity and place it on the clipboard or use in subsequent actions.
+Perform any action set up in Home Assistant (see the [Actions Page in Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/)) on the selected server. Choose the action and, optionally, provide the action data as JSON. As used in the [example above](#getting-started---example-shortcut).
 
-### Render Template
+:::tip
+The action data must be valid JSON.
+:::
 
-Render a [template](https://www.home-assistant.io/docs/configuration/templating/) which can then be used in subsequent actions.
+### Get camera snapshot
 
-### Send Location
+Get a single still frame from a camera entity. The snapshot is returned as a PNG file that you can save or use in subsequent actions.
 
-Send a location to Home Assistant. Will attempt to use clipboard contents as location, otherwise will use current location.
+### Render template
 
-### Update Sensors
+Render a [template](https://www.home-assistant.io/docs/configuration/templating/) which can then be used in subsequent actions. Only users with the admin role can perform this action.
 
-Update all sensors.
+### Update location
+
+Send a location update to Home Assistant. Will attempt to use the provided location, otherwise will use the current location.
+
+### Update sensors
+
+Send a sensor update to Home Assistant for all sensors.
+
+### Assist prompt
+
+Send a text prompt to [Assist](https://www.home-assistant.io/voice_control/) and get the response back to use in subsequent actions. You can choose which Assist pipeline to use.
 
 ## Launching Shortcuts
 
@@ -116,7 +121,7 @@ With Shortcuts Personal Automation, you can get the best of both worlds - by usi
 * Trigger your Home Assistant "morning routine" automation after stopping or snoozing the Wake-Up alarm on your iPhone.
 * When starting a workout on your Apple Watch, use Home Assistant to play your workout playlist. When finishing a workout on your Apple Watch, use Home Assistant to turn on your fan to cool down.
 * Get perfect car presence in Home Assistant by toggling an `input_boolean` in Home Assistant when you connect or disconnect from CarPlay, or connect to your cars Bluetooth system.
-* You can ensure that any Home Assistant automations using the iOS app's "Battery State" sensor run immediately by creating a Shortcuts personal automation with the "Charger" trigger (iOS 17) along with the "Send Location" Home Assistant app action. An example use of this is triggering your bedtime routine automation immediately after your phone is plugged in at night time, rather than waiting for the next sensors background update.
+* You can ensure that any Home Assistant automations using the iOS app's "Battery State" sensor run immediately by creating a Shortcuts personal automation with the "Charger" trigger (iOS 17) along with the "Update location" Home Assistant app action. An example use of this is triggering your bedtime routine automation immediately after your phone is plugged in at night time, rather than waiting for the next sensors background update.
 * Place an NFC sticker on the lid of your pills bottle. Each time you take your medicine, scan the NFC sticker with your iPhone. Home Assistant can keep a log of the exact times you take your medicine, increment a [counter](https://www.home-assistant.io/integrations/counter/) which will help you know when to refill your prescription, and more.
 
 To create a Personal Automation in the Shortcuts app, go to the "Automations" tab, press the "+" button in the top right corner, and then tap the "Create Personal Automation" button. If you don't have any existing Automations in the shortcut app, just tap the "Create Personal Automation" button. There are 21 triggers available on iOS 17. See Apple's [Shortcuts user guide](https://support.apple.com/guide/shortcuts/apdfbdbd7123/) for more information on creating Personal Automations.
