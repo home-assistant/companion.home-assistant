@@ -1,10 +1,14 @@
 ---
-title: "Siri Shortcuts"
+title: "Apple App Intents"
 id: siri-shortcuts
 ---
 
 ![iOS](/assets/iOS.svg)<br />
-With iOS 13 or later and the Home Assistant Companion App, you can take advantage of the power of Siri Shortcuts to carry out Home Assistant tasks with a tap or by using voice commands.
+With the Home Assistant Companion App, you can take advantage of Apple's App Intents and the Shortcuts app to carry out Home Assistant tasks with a tap or by using voice commands with Siri.
+
+:::note
+This page was previously titled "Siri Shortcuts".
+:::
 
 ## Getting Started - Example Shortcut
 
