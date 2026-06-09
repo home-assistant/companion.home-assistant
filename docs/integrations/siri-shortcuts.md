@@ -44,6 +44,8 @@ Action availability depends on your iOS version. Most actions require iOS 16.4 o
 
 Perform any action set up in Home Assistant (see the [Actions Page in Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/)) on the selected server. Choose the action and, optionally, provide the action data as JSON. As used in the [example above](#getting-started---example-shortcut).
 
+For actions that return a response (such as `weather.get_forecasts`, `calendar.get_events` or `todo.get_items`), the response is returned as JSON so you can use it in subsequent steps of your Shortcut.
+
 :::tip
 The action data must be valid JSON.
 :::
