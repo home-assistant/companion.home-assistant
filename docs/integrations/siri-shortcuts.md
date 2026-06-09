@@ -30,13 +30,17 @@ Actions can pass data to subsequent actions in the Shortcut flow. This data can 
 
 <span class='beta'>BETA</span>
 
-The actions below are built with Apple's App Intents framework. Some actions require iOS 16.4 or later, and "Perform action" and "Get camera snapshot" require iOS 17 or later.
+The Home Assistant Companion App provides the actions below, built with Apple's App Intents framework. They appear when you search for "Home Assistant" while adding an action in the Shortcuts app.
 
 :::note
-These actions replace the legacy SiriKit actions (such as "Call Service" and "Fire Event"). The legacy actions have been deprecated and still appear in the Shortcuts app prefixed with "(Deprecated)" — please migrate your shortcuts to the actions described below.
+These actions replace the legacy SiriKit actions (such as "Call Service" and "Fire Event"). The legacy actions are deprecated and still appear in the Shortcuts app prefixed with "(Deprecated)" — please migrate your shortcuts to the actions described below. "Fire Event" has no direct replacement; use "Perform action" or a Home Assistant automation instead.
 :::
 
-### Perform action
+Action availability depends on your iOS version. Most actions require iOS 16.4 or later; "Perform action", "Get camera snapshot" and "Open Entity" require iOS 17 or later; and "Control light", "Control switch", "Control fan", "Control cover", "Press button", "Assist in app", "Open Page" and "Open Camera List" require iOS 18 or later.
+
+### Calling actions and controlling entities
+
+#### Perform action
 
 Perform any action set up in Home Assistant (see the [Actions Page in Developer Tools](https://www.home-assistant.io/docs/tools/dev-tools/)) on the selected server. Choose the action and, optionally, provide the action data as JSON. As used in the [example above](#getting-started---example-shortcut).
 
@@ -44,25 +48,85 @@ Perform any action set up in Home Assistant (see the [Actions Page in Developer 
 The action data must be valid JSON.
 :::
 
-### Get camera snapshot
+#### Activate scene
 
-Get a single still frame from a camera entity. The snapshot is returned as a PNG file that you can save or use in subsequent actions.
+Activate a Home Assistant scene. You can optionally show a notification and/or trigger haptic feedback when it runs.
 
-### Render template
+#### Run Script
+
+Run a Home Assistant script. You can optionally show a notification and/or trigger haptic feedback when it runs.
+
+#### Trigger automation
+
+Trigger a Home Assistant automation. You can optionally show a notification and/or trigger haptic feedback when it runs.
+
+#### Press button
+
+Press a `button` entity in Home Assistant.
+
+#### Control light
+
+Turn a light on or off, or toggle its current state.
+
+#### Control switch
+
+Turn a switch (or `input_boolean`) on or off, or toggle its current state.
+
+#### Control fan
+
+Turn a fan on or off, or toggle its current state.
+
+#### Control cover
+
+Open or close a cover, or toggle its current state.
+
+### Assist
+
+#### Assist prompt
+
+Send a text prompt to [Assist](https://www.home-assistant.io/voice_control/) and get the response back to use in subsequent actions. You can choose which Assist pipeline to use.
+
+#### Assist in app
+
+Open the app and start [Assist](https://www.home-assistant.io/voice_control/) with the chosen pipeline. You can optionally start voice input immediately.
+
+### Templates and cameras
+
+#### Render template
 
 Render a [template](https://www.home-assistant.io/docs/configuration/templating/) which can then be used in subsequent actions. Only users with the admin role can perform this action.
 
-### Update location
+#### Get camera snapshot
 
-Send a location update to Home Assistant. Will attempt to use the provided location, otherwise will use the current location.
+Get a single still frame from a camera entity. The snapshot is returned as a PNG file that you can save or use in subsequent actions.
 
-### Update sensors
+### Opening the app
 
-Send a sensor update to Home Assistant for all sensors.
+#### Open Page
 
-### Assist prompt
+Open the app and navigate to a specific dashboard page.
 
-Send a text prompt to [Assist](https://www.home-assistant.io/voice_control/) and get the response back to use in subsequent actions. You can choose which Assist pipeline to use.
+#### Open Entity
+
+Open the app and show the selected entity (or the live view for camera entities).
+
+#### Open Camera List
+
+Open the app and navigate to the camera list, optionally on a specific server.
+
+### Device and app
+
+#### Update location
+
+Send a location update to Home Assistant. Will attempt to use the provided location, otherwise will use the current location. This is sent to all configured servers.
+
+#### Update sensors
+
+Send a sensor update to Home Assistant for all sensors, on all configured servers.
+
+#### Reload widgets
+
+Reload all Home Assistant widget timelines to refresh their data.
 
 ## Launching Shortcuts
 
