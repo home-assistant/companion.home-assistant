@@ -6,10 +6,6 @@ id: siri-shortcuts
 ![iOS](/assets/iOS.svg)<br />
 With the Home Assistant Companion App, you can take advantage of Apple's App Intents and the Shortcuts app to carry out Home Assistant tasks with a tap or by using voice commands with Siri.
 
-:::note
-This page was previously titled "Siri Shortcuts".
-:::
-
 ## Getting Started - Example Shortcut
 
 As an example, if you wanted to create a shortcut to turn on a light (`light.porch` in this example):
