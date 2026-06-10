@@ -7,7 +7,7 @@ The Home Assistant ![iOS](/assets/iOS.svg)app will move from the Nabu Casa Apple
 
 ## What this means for you
 
-After the migration is complete, you may need to sign in again in the iOS app for each Home Assistant server you have configured.
+After the Home Assistant app has migrated from the Nabu Casa Apple Developer account to the Open Home Foundation Apple Developer account, you may need to sign in again in the iOS app for each Home Assistant server you have configured.
 
 This can happen because iOS stores app credentials in Apple's keychain, and keychain data is tied to the app's Apple Developer account. When an app moves to a different developer account, previously stored credentials are not available to the new app identity.
 
