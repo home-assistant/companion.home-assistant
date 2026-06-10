@@ -5,7 +5,7 @@ id: 'ios-developer-account-migration'
 
 The Home Assistant ![iOS](/assets/iOS.svg)app will move from the Nabu Casa Apple Developer account to the Open Home Foundation Apple Developer account.
 
-## What this means for you
+## What app developer account migration means for you
 
 After the Home Assistant app has migrated from the Nabu Casa Apple Developer account to the Open Home Foundation Apple Developer account, you may need to sign in again in the iOS app for each Home Assistant server you have configured.
 
