@@ -5,14 +5,14 @@ id: 'privacy'
 
 The companion app is built around a simple idea: your data belongs to you, and it stays with the Home Assistant instance you choose to connect to. The app talks directly to your own Home Assistant instances, and the information it collects about your device is sent to those instances and nowhere else. A few features rely on outside services to work properly: push notifications, optional crash reporting, and a small number of sensors. Each of those is described below, so you can see exactly what leaves your device.
 
-This page explains what that means in practice, what information can leave your device and how to turn it off, and how the per-server **Remotely control app & device** setting decides how much control each of your Home Assistant instances has over the app and your device.
+This page explains what that means in practice, what information can leave your device and how to turn it off, and how the per-server ![Android](/assets/android.svg) **Remotely control app & device** setting decides how much control each of your Home Assistant instances has over the app and your device.
 
 ## You are in control of your data
 
 The sensor values, location, and other information the app collects are sent to _your_ Home Assistant instance, the same instance you log in to. If you connect the app to more than one instance, you decide on a per-instance basis what each one receives:
 
 - Location: you can send your exact location, only the name of the zone you are in, or nothing at all. See [Location](../core/location.md) for the per-instance options on both.
-- Sensors: you choose which sensors are enabled and, per instance, whether sensor data is sent at all. See [Sensors](../core/sensors.md).
+- Sensors: how much control you have depends on the platform. ![Android](/assets/android.svg) On Android you can enable or disable each sensor individually, and choose which sensors a given instance receives. ![iOS](/assets/iOS.svg) On iOS you choose whether an instance receives all enabled sensors or none. See [Sensors](../core/sensors.md).
 
 Because every connected instance is configured separately, turning something off for one instance never changes what another instance receives.
 
@@ -26,8 +26,8 @@ On Apple platforms, the companion app respects the choice done by you when confi
 
 When you connect the app to a new Home Assistant instance, it starts with sensible defaults that you can change afterward:
 
-- **Remotely control app & device** is enabled, so the instance can manage sensors and send app and device commands from the start. See [Letting an instance control your app and device](#letting-an-instance-control-your-app-and-device) below to change this.
-- ![Android](/assets/android.svg) Only a small set of sensors is enabled to begin with: battery information (battery level, battery state, and charger type), together with any sensors you granted permission to during onboarding. Most other sensors start disabled until you turn them on. See [Sensors](../core/sensors.md) for the full list and how to manage them.
+- ![Android](/assets/android.svg) **Remotely control app & device** is enabled, so the instance can manage sensors and send app and device commands from the start. See [Letting an instance control your app and device](#letting-an-instance-control-your-app-and-device) below to change this.
+- A small set of sensors is enabled to begin with, such as battery information, together with any sensors you granted permission to during onboarding. Most other sensors start disabled until you turn them on. See [Sensors](../core/sensors.md) for the full list and how to manage them.
 
 ## Encryption in transit
 
@@ -46,7 +46,7 @@ If you reach your instance remotely through Home Assistant Cloud, your connectio
 
 ## Crash reporting and diagnostics
 
-Two separate things can produce a crash report: the app itself and the store you installed it from. They are independent, and you control each one separately.
+How crash data is reported depends on the platform. ![Android](/assets/android.svg) On Android, two independent systems can report a crash, and you control each one separately: the app's own crash reporting, and the crash and usage data collected by the app store you installed from. ![iOS](/assets/iOS.svg) On iOS, only the second applies. Both are described below.
 
 ### Crash reports sent by the app ![Android](/assets/android.svg) {#crash-reporting}
 
