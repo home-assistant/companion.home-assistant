@@ -220,7 +220,7 @@ Use platform icons to indicate iOS-only or Android-only features:
 ```
 
 When a feature applies to both platforms, no icon is needed. Place icons inline with text or in table cells.
-When you use inline platform markers (such as `![iOS](/assets/iOS.svg)`), do not add a space between the icon and the following text.
+When you use inline iOS-only platform markers (e.g. `![iOS](/assets/iOS.svg)`), do not add a space between the icon and the following text.
 
 ## Docusaurus syntax
 
