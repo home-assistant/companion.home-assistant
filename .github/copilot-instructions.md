@@ -141,7 +141,7 @@ similar to text message alerts.
 If the notification does not appear:
 
 - ![iOS](/assets/iOS.svg)Make sure notifications are enabled in iOS **Settings** > **Home Assistant** > **Notifications**.
-- ![Android](/assets/android.svg)Check that the app has notification permissions in Android **Settings** > **Apps** > **Home Assistant** > **Notifications**.
+- ![Android](/assets/android.svg) Check that the app has notification permissions in Android **Settings** > **Apps** > **Home Assistant** > **Notifications**.
 ```
 
 **Bad example:**
