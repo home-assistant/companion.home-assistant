@@ -21,7 +21,7 @@ After the migration is complete, a new TestFlight invite link will be published.
 
 We will announce the new link on our social channels and in the documentation.
 
-## How to prepare before migration
+## Preparing for the migration
 
 To make the migration smoother, prepare your credentials now.
 
