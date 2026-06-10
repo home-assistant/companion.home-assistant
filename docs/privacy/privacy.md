@@ -22,7 +22,7 @@ The app does not show advertising, does not track what you do for marketing, and
 
 On Apple platforms, the companion app respects the choice done by you when configured your device to share or not debug diagnostics information with developers.
 
-### Defaults when you connect an instance
+### Default settings for a new instance
 
 When you connect the app to a new Home Assistant instance, it starts with sensible defaults that you can change afterward:
 
