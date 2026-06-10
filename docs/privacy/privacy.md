@@ -3,7 +3,7 @@ title: "Privacy and data control"
 id: 'privacy'
 ---
 
-The companion app is built around a simple idea: your data belongs to you, and it stays with the Home Assistant instance you choose to connect to. The app talks directly to your own Home Assistant instances, and the information it collects about your home is sent to those instances and nowhere else. A few features rely on outside services to work at all: push notifications, optional crash reporting, and a small number of sensors. Each of those is described below, so you can see exactly what leaves your device.
+The companion app is built around a simple idea: your data belongs to you, and it stays with the Home Assistant instance you choose to connect to. The app talks directly to your own Home Assistant instances, and the information it collects about your device is sent to those instances and nowhere else. A few features rely on outside services to work properly: push notifications, optional crash reporting, and a small number of sensors. Each of those is described below, so you can see exactly what leaves your device.
 
 This page explains what that means in practice, what information can leave your device and how to turn it off, and how the per-server **Remotely control app & device** setting decides how much control each of your Home Assistant instances has over the app and your device.
 
@@ -20,6 +20,8 @@ Because every connected instance is configured separately, turning something off
 
 The app does not show advertising, does not track what you do for marketing, and does not include third-party usage analytics. The only optional report it can send is the [crash report](#crash-reporting) described below, and only in the `full` flavor of the Android app. The `minimal` flavor sends no reports of any kind.
 
+On Apple platforms, the companion app respects the choice done by you when configured your device to share or not debug diagnostics information with developers.
+
 ### Defaults when you connect an instance
 
 When you connect the app to a new Home Assistant instance, it starts with sensible defaults that you can change afterward:
@@ -33,7 +35,7 @@ The data the app sends to your instance is protected by the connection it uses. 
 
 Over an unencrypted HTTP connection, the two platforms differ in how they protect the data the app sends, such as sensor and location updates:
 
-- ![iOS](/assets/iOS.svg) The iOS app also encrypts these payloads on its own, using a secret it shares with your instance when the app is first registered. The data therefore stays encrypted even when the underlying connection is plain HTTP.
+- ![iOS](/assets/iOS.svg)The iOS app also encrypts these payloads on its own, using a secret it shares with your instance when the app is first registered. The data therefore stays encrypted even when the underlying connection is plain HTTP.
 - ![Android](/assets/android.svg) The Android app does not encrypt these payloads on its own and relies on the connection. Over a plain HTTP connection, the sensor and location data it sends is transmitted in clear text and could be read by anyone able to observe the network.
 
 This payload encryption is not a replacement for HTTPS: your login and other traffic are only protected when the connection itself is encrypted. On either platform, use an HTTPS address whenever you can, and if you must use an HTTP address, restrict it to your home network with the **Most secure** connection security level.
@@ -79,7 +81,7 @@ This is separate from the **Show and share logs** option used for troubleshootin
 Separately from the app, the store you installed it from can collect its own crash and basic usage information. This is controlled by an operating-system setting rather than by the app, it is handled by Google or Apple under their own privacy policies, and it applies to apps in general, not only to Home Assistant.
 
 - ![Android](/assets/android.svg) If you installed from the Google Play Store and have turned on the device setting to share usage and diagnostics data, Google Play receives crash and _application not responding_ reports along with basic stability and usage statistics. Developers see only aggregated reports in the Play Console. You can change this in your device settings under **Google** > **Usage & diagnostics** (the exact location varies by device). The `minimal` flavor installed from F-Droid or GitHub is not distributed through Google Play and is not covered by this collection.
-- ![iOS](/assets/iOS.svg) If you have turned on **Share With App Developers** under **Settings** > **Privacy & Security** > **Analytics & Improvements**, Apple shares aggregated crash and app-usage analytics with the developers through App Store Connect. Only data from users who opted in is included, and it is aggregated to avoid identifying individuals.
+- ![iOS](/assets/iOS.svg)If you have turned on **Share With App Developers** under **Settings** > **Privacy & Security** > **Analytics & Improvements**, Apple shares aggregated crash and app-usage analytics with the developers through App Store Connect. Only data from users who opted in is included, and it is aggregated to avoid identifying individuals.
 
 ## Notifications
 
@@ -87,7 +89,7 @@ Push notifications are the one feature that routes message content outside your 
 
 How you can avoid sending this data to Google depends on your platform:
 
-- ![iOS](/assets/iOS.svg) You can opt out of Firebase in the app's privacy settings. Notifications will then stop working.
+- ![iOS](/assets/iOS.svg)You can opt out of Firebase in the app's privacy settings. Notifications will then stop working.
 - ![Android](/assets/android.svg) The `full` flavor has no in-app Firebase opt-out. However, if you enable [Local Push](../notifications/local.md), notifications are delivered directly from your instance over a WebSocket connection, and Firebase is used only as a fallback when that connection is unavailable. To avoid Google entirely, use the `minimal` flavor (from F-Droid or GitHub), which always uses Local Push instead of Firebase.
 
 For the full explanation and the rate limits, see [Privacy, rate limiting and security](../notifications/details.md).
@@ -97,7 +99,7 @@ For the full explanation and the rate limits, see [Privacy, rate limiting and se
 Most sensors read information from your own device and send it only to your instance. A few need an outside service to do their job, and they only run if you choose to enable them:
 
 - ![Android](/assets/android.svg) The public IP sensor (`sensor.public_ip`) asks a third-party service (ipify) to report your device's public IP address.
-- The geocoded location sensor turns your coordinates into a readable address. On ![Android](/assets/android.svg) Android this uses the device's built-in geocoder, and on ![iOS](/assets/iOS.svg) iOS it uses Apple's Maps services.
+- The geocoded location sensor turns your coordinates into a readable address. On ![Android](/assets/android.svg) Android this uses the device's built-in geocoder, and on ![iOS](/assets/iOS.svg)it uses Apple's Core Location services.
 
 See [Sensors](../core/sensors.md) for the full list and the details of each one.
 
