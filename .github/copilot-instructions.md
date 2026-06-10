@@ -30,7 +30,7 @@ You should follow the general guidelines about writing a documentation from Micr
 ## Formatting guidelines
 
 1. **Headings**:
-   - Use sentence-style capitalization, also in headings (for example, "How to configure a device").
+   - Use sentence-style capitalization, also in headings (for example, "Configuring a device").
    - Organize content with appropriate heading levels (`#`, `##`, `###`).
 
 2. **Lists**:
