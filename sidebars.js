@@ -75,6 +75,7 @@ module.exports = {
     'Troubleshooting': [
       'troubleshooting/faqs',
       'troubleshooting/errors',
+      'troubleshooting/ios-developer-account-migration',
       'troubleshooting/networking',
       'troubleshooting/resetting',
       'troubleshooting/troubleshooting-integrations',
