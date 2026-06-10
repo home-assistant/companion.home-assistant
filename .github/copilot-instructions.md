@@ -124,7 +124,7 @@ similar to text message alerts.
 
    ![iOS](/assets/iOS.svg)On iOS, the action might be called `notify.mobile_app_iphone`.
 
-   ![Android](/assets/android.svg)On Android, it might be called `notify.mobile_app_pixel_7`.
+   ![Android](/assets/android.svg) On Android, it might be called `notify.mobile_app_pixel_7`.
 
    <!-- TODO: Add screenshot showing the action drop-down, with mobile_app actions -->
 
