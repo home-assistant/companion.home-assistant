@@ -1,6 +1,6 @@
 ---
-title: "Privacy and data control"
-id: 'privacy'
+title: "How the app handles your data"
+id: 'data-handling'
 ---
 
 The companion app is built around a simple idea: your data belongs to you, and it stays with the Home Assistant instance you choose to connect to. The app talks directly to your own Home Assistant instances, and the information it collects about your device is sent to those instances and nowhere else. A few features rely on outside services to work properly: push notifications, optional crash reporting, and a small number of sensors. Each of those is described below, so you can see exactly what leaves your device.
