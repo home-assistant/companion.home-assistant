@@ -16,6 +16,8 @@ module.exports = {
       'core/android-flavors',
       'core/location',
       'core/sensors'],
+    'Data handling': [
+      'data-handling/data-handling'],
     'Notifications': [
       'notifications/notifications-basic',
       'notifications/actionable-notifications',
