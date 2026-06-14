@@ -115,6 +115,7 @@ The **Gauge** widget lets you create a gauge representation using Home Assistant
 
 <table>
   <tr>
+    <td>System small</td>
     <td>Accessory circular</td>
   </tr>
 </table>
