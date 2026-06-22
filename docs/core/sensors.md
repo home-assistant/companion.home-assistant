@@ -248,7 +248,7 @@ These sensors use the [AudioManager API](https://developer.android.com/reference
 
 | Sensor | Attributes | Description |
 | --------- | --------- | --------- |
-| `audio_mode` | None | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `call_redirect`, `communication_redirect`, `in_call`, `in_communication` or `unknown`. This sensor will update during the normal interval. |
+| `audio_mode` | None | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `call_redirect`, `communication_redirect`, `in_call`, `in_communication`, <span class="beta">BETA</span> `assistant_conversation` or `unknown`. This sensor will update during the normal interval. |
 | `is_headphones` | None | Boolean value if headsets or headphones are plugged in, will update as soon as the device detects the change. |
 | `is_mic_muted` | None | Boolean value if the microphone is currently muted, Android 10+ will update as this value changes. |
 | `is_music_active` | None | Boolean value if the device is actively playing music, this sensor will update during the normal interval. |
@@ -263,6 +263,7 @@ The current device volume level for the given volume streams (`volume_level_*`).
 Possible volume streams are:
 * `accessibility`
 * `alarm`
+* <span class="beta">BETA</span> `assistant`
 * `call`
 * `dtmf`
 * `music`
