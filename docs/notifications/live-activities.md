@@ -187,6 +187,37 @@ data:
 
 ### iOS
 
+#### Payload anatomy
+
+Every part of a Live Activity banner is driven by one `notify.mobile_app_*` call. The diagram below maps each element of the Lock Screen banner to the exact payload field that produces it, using the built-in "All Fields" sample.
+
+![Annotated iOS Live Activity banner mapping each Lock Screen element to its notification payload field: title, progress percentage, icon and color, countdown timer, and progress bar](/assets/ios/live-activity-payload-anatomy.svg)
+
+The payload that reproduces this banner:
+
+```yaml
+action:
+  - action: notify.mobile_app_<your_device_id_here>
+    data:
+      message: "All content state fields active"   # hidden here — chronometer replaces it
+      title: "All Fields"                           # header line (top-level field)
+      data:
+        tag: debug-all                              # identity — the same tag updates in place
+        live_update: true                           # routes this notification to a Live Activity
+        critical_text: "5 min"                      # hidden here — progress replaces it on the Lock Screen
+        progress: 42                                # progress percentage and bar fill
+        progress_max: 100                           # denominator (42 / 100 = 42%)
+        chronometer: true                           # show the countdown timer instead of the message
+        when: 300                                   # timer length, in seconds
+        when_relative: true                         # 300 = seconds from now, not a Unix timestamp
+        notification_icon: "mdi:home-assistant"     # the icon glyph (Material Design Icons slug)
+        notification_icon_color: "#03A9F4"          # icon tint and progress-bar color
+```
+
+:::tip
+Two of the fields in this payload are not visible in this screenshot. `chronometer` replaces the `message` line with the live timer, and `progress` replaces `critical_text` in the top-right corner. Remove `chronometer` and the `message` shows; remove `progress` and `progress_max` and `critical_text` ("5 min") shows instead of "42%". On the Dynamic Island compact view, `critical_text` always shows.
+:::
+
 **Dynamic Island:** On iPhone 14 Pro/Pro Max and all iPhone 15 and later models, the Live Activity also appears as a compact island pill at the top of the screen. On older iPhones without a Dynamic Island (notch or Home button), the activity appears on the Lock Screen only. Live Activities are not available on iPad (an Apple limitation).
 
 **Settings:** While the feature is in beta, go to **Settings → Live Activities** in the companion app to see whether Live Activities are enabled and to view or end any currently active activities.

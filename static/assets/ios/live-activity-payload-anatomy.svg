@@ -1,0 +1,97 @@
+<svg viewBox="0 0 1000 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Annotated iOS Live Activity banner mapping each Lock Screen element to its notification payload field">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    text.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  </style>
+  <defs>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#03A9F4" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#03A9F4"/>
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b6f9e"/>
+      <stop offset="1" stop-color="#0a4f73"/>
+    </linearGradient>
+    <marker id="aOrange" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#e8590c"/></marker>
+    <marker id="aPurple" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#7048e8"/></marker>
+    <marker id="aGreen" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#2f9e44"/></marker>
+    <marker id="aBlue" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#1971c2"/></marker>
+    <marker id="aPink" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#d6336c"/></marker>
+  </defs>
+
+  <!-- white backdrop so the figure reads cleanly in light and dark mode -->
+  <rect x="0" y="0" width="1000" height="640" fill="#ffffff"/>
+
+  <!-- ===== Banner replica (stays dark — matches the real Lock Screen) ===== -->
+  <rect x="300" y="236" width="400" height="160" rx="30" fill="#0b0b0e" stroke="#26282f" stroke-width="1"/>
+
+  <!-- icon -->
+  <rect x="324" y="266" width="64" height="64" rx="16" fill="url(#iconGrad)"/>
+  <!-- simplified Home Assistant glyph -->
+  <g transform="translate(356,298)" fill="none" stroke="#7fd6f7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-17,2 L0,-15 L17,2" />
+    <path d="M-12,1 L-12,16 L12,16 L12,1" />
+    <circle cx="0" cy="9" r="2.3" fill="#7fd6f7" stroke="none"/>
+    <path d="M0,9 L0,3 M0,9 L-6,12 M0,9 L6,12"/>
+  </g>
+
+  <!-- title -->
+  <text x="404" y="296" font-size="27" font-weight="600" fill="#ffffff">All Fields</text>
+  <!-- countdown timer (replaces message) -->
+  <text x="404" y="336" class="mono" font-size="29" font-weight="500" fill="#ffffffd0">4:50</text>
+  <!-- percent -->
+  <text x="676" y="296" text-anchor="end" class="mono" font-size="27" font-weight="600" fill="#ffffff">42%</text>
+
+  <!-- progress bar -->
+  <rect x="324" y="356" width="352" height="12" rx="6" fill="#ffffff24"/>
+  <rect x="324" y="356" width="148" height="12" rx="6" fill="url(#barGrad)"/>
+
+  <!-- ===== Callouts + arrows ===== -->
+  <!-- TITLE -->
+  <g>
+    <rect x="288" y="40" width="236" height="84" rx="14" fill="#ffffff" stroke="#7048e8" stroke-width="1.8"/>
+    <text x="306" y="66" font-size="12" font-weight="700" letter-spacing="0.12em" fill="#7048e8">TITLE</text>
+    <text x="306" y="89" class="mono" font-size="15" fill="#16181d">title: "All Fields"</text>
+    <text x="306" y="110" font-size="12" fill="#6a7280">Header line. Top-level field.</text>
+    <path d="M406,124 C406,170 400,200 399,272" fill="none" stroke="#7048e8" stroke-width="2" marker-end="url(#aPurple)"/>
+  </g>
+
+  <!-- PERCENT -->
+  <g>
+    <rect x="556" y="40" width="244" height="84" rx="14" fill="#ffffff" stroke="#1971c2" stroke-width="1.8"/>
+    <text x="574" y="66" font-size="12" font-weight="700" letter-spacing="0.1em" fill="#1971c2">PROGRESS %</text>
+    <text x="574" y="89" class="mono" font-size="14.5" fill="#16181d">progress / progress_max</text>
+    <text x="574" y="110" font-size="12" fill="#6a7280">42 ÷ 100 → shown as “42%”.</text>
+    <path d="M636,124 C636,170 648,210 650,272" fill="none" stroke="#1971c2" stroke-width="2" marker-end="url(#aBlue)"/>
+  </g>
+
+  <!-- ICON -->
+  <g>
+    <rect x="20" y="250" width="244" height="92" rx="14" fill="#ffffff" stroke="#e8590c" stroke-width="1.8"/>
+    <text x="38" y="276" font-size="12" font-weight="700" letter-spacing="0.12em" fill="#e8590c">ICON</text>
+    <text x="38" y="299" class="mono" font-size="14" fill="#16181d">notification_icon</text>
+    <text x="38" y="318" class="mono" font-size="14" fill="#16181d">notification_icon_color</text>
+    <text x="38" y="336" font-size="12" fill="#6a7280">MDI slug + hex (tints bar too).</text>
+    <path d="M264,298 C290,298 300,297 320,297" fill="none" stroke="#e8590c" stroke-width="2" marker-end="url(#aOrange)"/>
+  </g>
+
+  <!-- TIMER -->
+  <g>
+    <rect x="76" y="474" width="262" height="94" rx="14" fill="#ffffff" stroke="#2f9e44" stroke-width="1.8"/>
+    <text x="94" y="500" font-size="12" font-weight="700" letter-spacing="0.1em" fill="#2f9e44">COUNTDOWN TIMER</text>
+    <text x="94" y="523" class="mono" font-size="14" fill="#16181d">chronometer: true</text>
+    <text x="94" y="542" class="mono" font-size="14" fill="#16181d">when: 300 · when_relative</text>
+    <text x="94" y="560" font-size="12" fill="#6a7280">Counts down from 5:00. Hides message.</text>
+    <path d="M300,474 C360,440 390,380 400,344" fill="none" stroke="#2f9e44" stroke-width="2" marker-end="url(#aGreen)"/>
+  </g>
+
+  <!-- PROGRESS BAR -->
+  <g>
+    <rect x="660" y="474" width="262" height="94" rx="14" fill="#ffffff" stroke="#d6336c" stroke-width="1.8"/>
+    <text x="678" y="500" font-size="12" font-weight="700" letter-spacing="0.1em" fill="#d6336c">PROGRESS BAR</text>
+    <text x="678" y="523" class="mono" font-size="14" fill="#16181d">progress / progress_max</text>
+    <text x="678" y="542" font-size="12" fill="#6a7280">Fill width = progress ÷ max,</text>
+    <text x="678" y="560" font-size="12" fill="#6a7280">tinted by notification_icon_color.</text>
+    <path d="M690,474 C640,430 560,400 500,372" fill="none" stroke="#d6336c" stroke-width="2" marker-end="url(#aPink)"/>
+  </g>
+</svg>
