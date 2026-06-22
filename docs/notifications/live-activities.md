@@ -3,11 +3,16 @@ title: "Live Activities and Live Updates"
 id: "live-activities"
 ---
 
-**Live Activities** (iOS) and **Live Updates** (Android) keep real-time Home Assistant state visible on the Lock Screen, Dynamic Island, status bar, and always-on display — without the user needing to unlock their device.
+**Live Activities** (iOS) and **Live Updates** (Android) keep real-time Home Assistant state visible on your phone's Lock Screen, so you can glance at it without unlocking your device. Use them for anything time-sensitive you want to follow at a glance — a washing machine countdown, EV charging progress, a package delivery, or a security alarm state.
+
+- ![iOS](/assets/iOS.svg) On iOS, the activity appears on the Lock Screen and in the Dynamic Island.
+- ![Android](/assets/android.svg) On Android, it stays pinned to the notification shade, the Lock Screen, and the always-on display, and shows as a chip in the status bar.
+
+![iOS](/assets/iOS.svg) iOS Live Activities are currently in beta <span class="beta">BETA</span> and available only in the TestFlight version of the app.
 
 :::info Requirements
-- ![iOS](/assets/iOS.svg) **iOS:** iOS 17.2 or later on iPhone and iPad. Not available on macOS.
-- ![Android](/assets/android.svg) **Android:** Android 16 or later. Status bar chip appearance may vary by manufacturer.
+- ![iOS](/assets/iOS.svg) **iOS:** iOS 17.2 or later on iPhone. Not available on iPad or macOS (an Apple limitation).
+- ![Android](/assets/android.svg) **Android:** Android 16 or later. The status bar chip appearance may vary by manufacturer.
 :::
 
 ![Washing Machine, EV Charging, Now Playing, and Package Delivery Live Activities on the iOS Lock Screen](/assets/ios/live-activity-lockscreen-cards.png)
@@ -16,41 +21,50 @@ id: "live-activities"
 
 ## Starting
 
-Add `live_update: true` and a `tag` to any notification payload. The companion app intercepts the push and displays a Live Activity (iOS) or Live Update (Android) instead of a standard notification banner.
+To start a Live Activity, send a notification with `live_update: true` and a `tag` in its data payload. The companion app intercepts the push and shows a Live Activity (iOS) or Live Update (Android) instead of a standard notification banner.
+
+Replace `notify.mobile_app_<your_device_id_here>` with your device's notify action. The device name was set when you connected the app to Home Assistant, and there is one per server. You can find it in the companion app under **Settings → Companion app → Server & devices**. To try a payload quickly, paste it into [**Developer tools → Actions**](https://my.home-assistant.io/redirect/developer_services/) before building a full automation.
+
+Start with a minimal payload:
 
 ```yaml
-automation:
-  - alias: "Washing machine started"
-    trigger:
-      ...
-    action:
-      - action: notify.mobile_app_<your_device_id_here>
-        data:
-          title: "Washing Machine"
-          message: "Rinsing · 1 of 2"
-          data:
-            tag: washer_cycle
-            live_update: true
-            progress: 900
-            progress_max: 3600
-            chronometer: true
-            when: 2700
-            when_relative: true
-            notification_icon: mdi:washing-machine
-            notification_icon_color: "#2196F3"
+action:
+  - action: notify.mobile_app_<your_device_id_here>
+    data:
+      title: "Washing Machine"
+      message: "Cycle started"
+      data:
+        tag: washer_cycle
+        live_update: true
 ```
 
-The `tag` uniquely identifies the activity. Subsequent pushes with the same `tag` update the existing activity in-place rather than creating a new one.
+The `tag` uniquely identifies the activity. Sending another notification with the same `tag` updates the existing activity in place rather than creating a new one.
 
-![iOS](/assets/iOS.svg) The activity appears on the Lock Screen and Dynamic Island.
+![Android](/assets/android.svg) On Android, `title` must be provided. Without it, the notification posts as a standard banner.
 
-![Android](/assets/android.svg) The notification is pinned to the top of the notification shade, the Lock Screen, and the always-on display. It also shows as a chip in the status bar. `title` must be provided.
+### Add a progress bar and timer
+
+Include `progress` and `progress_max` to show a progress bar, and `chronometer` with `when` to show a live timer:
+
+```yaml
+action:
+  - action: notify.mobile_app_<your_device_id_here>
+    data:
+      title: "Washing Machine"
+      message: "Rinsing · 1 of 2"
+      data:
+        tag: washer_cycle
+        live_update: true
+        progress: 900
+        progress_max: 3600
+        chronometer: true
+        when: 2700
+        when_relative: true
+        notification_icon: mdi:washing-machine
+        notification_icon_color: "#2196F3"
+```
 
 ![Android Live Update showing "Washing Machine / Rinsing · 1 of 2" on the Lock Screen](/assets/android/live_updates_washing_lockscreen.png)
-
-:::note Samsung devices
-On Samsung, you may need to enable **Live notifications for all apps** in developer options for the status bar chip to appear.
-:::
 
 ---
 
@@ -59,7 +73,7 @@ On Samsung, you may need to enable **Live notifications for all apps** in develo
 Send the same payload again with the same `tag`. The display updates silently — no banner, no sound.
 
 :::note ![iOS](/assets/iOS.svg)
-Live activities utilize the highest push notification delivery priority (10). Avoid creating automations that update it every second or based on an entity state that frequently updates. If iOS deems the updates frequency excessive, it may throttle its push deliveries. This rule doesn’t apply when using local push notifications.  
+Live Activities use the highest push notification delivery priority (10). Avoid automations that update every second or react to a frequently changing entity state. If iOS considers the update frequency excessive, it may throttle push delivery. This does not apply to local push notifications.
 :::
 
 ```yaml
@@ -85,7 +99,7 @@ action:
 
 ## Ending
 
-Send `clear_notification` with the same `tag` to end the Live Activity / Live Update and dismiss any delivered notification with that identifier — on both iOS and Android.
+Send the `clear_notification` command with the same `tag` to end the Live Activity / Live Update and dismiss any delivered notification with that identifier — on both iOS and Android. This is the same command used to [clear a notification](basic.md#clearing).
 
 ```yaml
 action:
@@ -100,25 +114,28 @@ action:
 
 ## Payload fields
 
-`title` and `message` are standard notification fields set at the top level (`data.title`, `data.message`). All other Live Activity / Live Update fields go inside the nested `data:` block (`data.data`).
+`title` and `message` are standard notification fields set at the top level of `data` (`data.title` and `data.message`). All other fields go inside the nested `data:` block (`data.data`).
 
-| Field | Platform | Type | Description |
-|---|---|---|---|
-| `tag` | Both | string | **Required.** Unique identifier for the activity. Alphanumeric, hyphens, and underscores only; max 64 characters. |
-| `live_update` | Both | boolean | Set to `true` to start or update a Live Activity / Live Update. |
-| `title` | Both | string | Top-level field (`data.title`). Static header text; set at creation, cannot be changed by updates. |
-| `message` | Both | string | Top-level field (`data.message`). Main body text shown in the notification and on the Lock Screen / always-on display. |
-| `critical_text` | Both | string | Short supplementary text. ![Android](/assets/android.svg) Shown in the status bar chip (replaced by `chronometer` if set). |
-| `progress` | Both | integer | Current progress value (such as seconds elapsed). |
-| `progress_max` | Both | integer | Maximum progress value. Shows a progress bar when both `progress` and `progress_max` are set. |
-| `chronometer` | Both | boolean | Show a live countdown or count-up timer. Requires `when`. ![Android](/assets/android.svg) Replaces `critical_text` in the status bar chip. |
-| `when` | Both | number | Timer reference point. Unix timestamp (absolute) or seconds (relative when `when_relative: true`). |
-| `when_relative` | Both | boolean | If `true`, treat `when` as seconds from now rather than a Unix timestamp. |
-| `notification_icon` | Both | string | [Material Design Icon](https://pictogrammers.com/library/mdi/) slug, such as `mdi:washing-machine`. |
-| `notification_icon_color` | ![iOS](/assets/iOS.svg) | string | Hex color for the icon, such as `#2196F3`. |
-| `silent` | ![iOS](/assets/iOS.svg) | boolean | If `true`, the update will not ring notification chime. It does not apply for starting the activity. |
-| `alert_once` | ![Android](/assets/android.svg) | boolean | If `true`, the notification only alerts (sound/vibration) once. |
-| `sticky` | ![Android](/assets/android.svg) | boolean | If `true`, the notification is not dismissed when the user taps it. |
+These fields work on both platforms:
+
+- **`tag`** (string) — _Required._ Unique identifier for the activity. Use letters, numbers, hyphens, and underscores only, up to 64 characters. Reusing the same `tag` updates the existing activity instead of creating a new one.
+- **`live_update`** (boolean) — Set to `true` to start or update a Live Activity / Live Update.
+- **`title`** (string) — Static header text. Set when the activity starts; updates cannot change it.
+- **`message`** (string) — Main body text shown on the Lock Screen and always-on display.
+- **`critical_text`** (string) — Short supplementary text. ![Android](/assets/android.svg) Shown in the status bar chip, and replaced by the timer when `chronometer` is set.
+- **`progress`** (integer) — Current progress value, such as seconds elapsed.
+- **`progress_max`** (integer) — Maximum progress value. A progress bar appears when both `progress` and `progress_max` are set.
+- **`chronometer`** (boolean) — Show a live count-up or countdown timer. Requires `when`. ![Android](/assets/android.svg) Replaces `critical_text` in the status bar chip.
+- **`when`** (number) — Timer reference point. A Unix timestamp, or seconds from now when `when_relative` is `true`.
+- **`when_relative`** (boolean) — If `true`, treat `when` as seconds from now rather than a Unix timestamp.
+- **`notification_icon`** (string) — A [Material Design Icon](https://pictogrammers.com/library/mdi/) slug, such as `mdi:washing-machine`.
+- **`notification_icon_color`** (string) — Hex color for the icon, such as `#2196F3`.
+
+These fields apply to one platform only:
+
+- ![iOS](/assets/iOS.svg) **`silent`** (boolean) — If `true`, an update arrives without a sound. Has no effect when starting the activity.
+- ![Android](/assets/android.svg) **`alert_once`** (boolean) — If `true`, the notification plays sound or vibration only once.
+- ![Android](/assets/android.svg) **`sticky`** (boolean) — If `true`, the notification stays when the user taps it.
 
 ---
 
@@ -170,14 +187,14 @@ data:
 
 ### iOS
 
-**Dynamic Island:** On iPhone 14 Pro/Pro Max and all iPhone 15 and later models, the Live Activity also appears as a compact island pill at the top of the screen. On older iPhones without a Dynamic Island (notch or Home button), and on iPad, the activity appears on the Lock Screen only.
+**Dynamic Island:** On iPhone 14 Pro/Pro Max and all iPhone 15 and later models, the Live Activity also appears as a compact island pill at the top of the screen. On older iPhones without a Dynamic Island (notch or Home button), the activity appears on the Lock Screen only. Live Activities are not available on iPad (an Apple limitation).
 
-**Settings:** Go to **Settings → Live Activities** in the companion app to see whether Live Activities are enabled and to view or end any currently active activities.
+**Settings:** While the feature is in beta, go to **Settings → Live Activities** in the companion app to see whether Live Activities are enabled and to view or end any currently active activities.
 
 :::note iOS limitations
 - **Rate limiting:** Apple throttles Live Activity updates to approximately 15 seconds between rendered updates. Structure automations to fire on state-change events rather than polling timers.
-- **Expiry:** Activities expire after [up to 8 hours](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities#Understand-constraints) (Apple system limit). If the app is force-quit and relaunched, it automatically reattaches to any Live Activities iOS kept alive.
-- **Privacy:** The first time a Live Activity is started, the companion app displays a one-time disclosure noting that Lock Screen content is visible without unlocking the device.
+- **Expiry:** Activities expire after [up to 8 hours](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities#Understand-constraints) (an Apple system limit). If the app is force-quit and relaunched, it automatically reattaches to any Live Activities that iOS kept alive.
+- **Privacy:** The first time a Live Activity starts, the companion app shows a one-time disclosure noting that Lock Screen content is visible without unlocking the device.
 :::
 
 ### Android
@@ -194,3 +211,16 @@ On Samsung, you may need to enable **Live notifications for all apps** in develo
 ![Status bar chip with critical text](/assets/android/live_updates_with_critical_text.png)
 
 ![Always-on display showing progress and chronometer](/assets/android/live_updates_always_on_display.png)
+
+---
+
+## Troubleshooting
+
+If the Live Activity or Live Update does not appear:
+
+- ![iOS](/assets/iOS.svg) Make sure Live Activities are allowed in iOS **Settings → Home Assistant**, and accept the one-time privacy disclosure shown the first time an activity starts.
+- ![iOS](/assets/iOS.svg) Confirm the device runs iOS 17.2 or later on an iPhone. Live Activities are not available on iPad.
+- ![iOS](/assets/iOS.svg) If updates stop refreshing, check that your automation is not updating more often than about once every 15 seconds, as iOS throttles frequent updates.
+- ![iOS](/assets/iOS.svg) If a Live Activity does not start, send a `clear_notification` command for that `tag` to clear any stale activity, then try again — or start the new activity with a different `tag`.
+- ![Android](/assets/android.svg) Make sure `title` is set in the payload. Without it, the notification posts as a standard banner instead of a Live Update.
+- ![Android](/assets/android.svg) On Samsung devices, enable **Live notifications for all apps** in developer options for the status bar chip to appear.
