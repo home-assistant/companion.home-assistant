@@ -263,7 +263,7 @@ The current device volume level for the given volume streams (`volume_level_*`).
 Possible volume streams are:
 * `accessibility`
 * `alarm`
-* <span class="beta">BETA</span> `assistant`
+* `assistant` <span class="beta">BETA</span> (Android 17+)
 * `call`
 * `dtmf`
 * `music`
