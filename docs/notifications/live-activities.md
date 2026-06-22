@@ -5,17 +5,17 @@ id: "live-activities"
 
 **Live Activities** (iOS) and **Live Updates** (Android) keep real-time Home Assistant state visible on your phone's Lock Screen, so you can glance at it without unlocking your device. Use them for anything time-sensitive you want to follow at a glance — a washing machine countdown, EV charging progress, a package delivery, or a security alarm state.
 
-- ![iOS](/assets/iOS.svg) On iOS, the activity appears on the Lock Screen and in the Dynamic Island.
+- ![iOS](/assets/iOS.svg)On iOS, the activity appears on the Lock Screen and in the Dynamic Island.
 - ![Android](/assets/android.svg) On Android, it stays pinned to the notification shade, the Lock Screen, and the always-on display, and shows as a chip in the status bar.
 
-![iOS](/assets/iOS.svg) iOS Live Activities are currently in beta <span class="beta">BETA</span> and available only in the TestFlight version of the app.
+![iOS](/assets/iOS.svg)iOS Live Activities are currently in beta <span class="beta">BETA</span> and available only in the TestFlight version of the app.
 
 :::info Requirements
-- ![iOS](/assets/iOS.svg) **iOS:** iOS 17.2 or later on iPhone. Not available on iPad or macOS (an Apple limitation).
+- ![iOS](/assets/iOS.svg)**iOS:** iOS 17.2 or later on iPhone and iPad, with macOS mirroring what is in your iPhone.
 - ![Android](/assets/android.svg) **Android:** Android 16 or later. The status bar chip appearance may vary by manufacturer.
 :::
 
-![Washing Machine, EV Charging, Now Playing, and Package Delivery Live Activities on the iOS Lock Screen](/assets/ios/live-activity-lockscreen-cards.png)
+![iPhone Lock Screen showing an EV Charging Live Activity reading "Charging · Est. 30 min remaining" at 60% with a green progress bar](/assets/ios/live-activity-lockscreen-hero.jpeg)
 
 ---
 
@@ -91,9 +91,19 @@ action:
         notification_icon_color: "#4CAF50"
 ```
 
+<details>
+<summary>iOS</summary>
+
 ![Washing Machine Live Activity showing "Cycle complete" with a full green progress bar](/assets/ios/live-activity-complete-solo.png)
 
+</details>
+
+<details>
+<summary>Android</summary>
+
 ![Android Live Update showing "Washing Machine / Cycle complete" on the Lock Screen](/assets/android/live_updates_complete_lockscreen.png)
+
+</details>
 
 ---
 
@@ -133,7 +143,7 @@ These fields work on both platforms:
 
 These fields apply to one platform only:
 
-- ![iOS](/assets/iOS.svg) **`silent`** (boolean) — If `true`, an update arrives without a sound. Has no effect when starting the activity.
+- ![iOS](/assets/iOS.svg)**`silent`** (boolean) — If `true`, an update arrives without a sound. Has no effect when starting the activity.
 - ![Android](/assets/android.svg) **`alert_once`** (boolean) — If `true`, the notification plays sound or vibration only once.
 - ![Android](/assets/android.svg) **`sticky`** (boolean) — If `true`, the notification stays when the user taps it.
 
@@ -152,7 +162,7 @@ data:
     live_update: true
 ```
 
-![Plain "Home Assistant / Everything looks good at home." Live Activity banner on the iOS Lock Screen](/assets/ios/live-activity-plain-crop.png)
+![Plain "Home Assistant / Everything looks good at home." Live Activity card on the iOS Lock Screen](/assets/ios/live-activity-plain-solo.png)
 
 ### Security alert with icon and color
 
@@ -167,19 +177,19 @@ data:
     notification_icon_color: "#F44336"
 ```
 
-![Security Alert Live Activity card with a red motion sensor icon](/assets/ios/live-activity-security-solo.png)
+<details>
+<summary>iOS</summary>
+
+![Security Alert Live Activity card with a red camera icon reading "Person detected · Camera 1"](/assets/ios/live-activity-security-solo.png)
+
+</details>
+
+<details>
+<summary>Android</summary>
 
 ![Android Live Update showing "Security Alert / Person detected · Camera 1" on the Lock Screen](/assets/android/live_updates_security_lockscreen.png)
 
-### Multiple concurrent activities
-
-![iOS](/assets/iOS.svg) Multiple Live Activities stack on the Lock Screen under the app group header.
-
-![Four Live Activities grouped on the iOS Lock Screen: Home Assistant, Script Running, Security Alarm, All Fields](/assets/ios/live-activity-multi-crop.png)
-
-![Android](/assets/android.svg) On Android, multiple Live Updates appear as separate pinned notifications in the notification shade.
-
-![Android notification shade showing multiple Live Updates including Washing Machine and Home Assistant](/assets/android/live_updates_notification_shade.png)
+</details>
 
 ---
 
@@ -249,9 +259,9 @@ On Samsung, you may need to enable **Live notifications for all apps** in develo
 
 If the Live Activity or Live Update does not appear:
 
-- ![iOS](/assets/iOS.svg) Make sure Live Activities are allowed in iOS **Settings → Home Assistant**, and accept the one-time privacy disclosure shown the first time an activity starts.
-- ![iOS](/assets/iOS.svg) Confirm the device runs iOS 17.2 or later on an iPhone. Live Activities are not available on iPad.
-- ![iOS](/assets/iOS.svg) If updates stop refreshing, check that your automation is not updating more often than about once every 15 seconds, as iOS throttles frequent updates.
-- ![iOS](/assets/iOS.svg) If a Live Activity does not start, send a `clear_notification` command for that `tag` to clear any stale activity, then try again — or start the new activity with a different `tag`.
+- ![iOS](/assets/iOS.svg)Make sure Live Activities are allowed in iOS **Settings → Home Assistant**, and accept the one-time privacy disclosure shown the first time an activity starts.
+- ![iOS](/assets/iOS.svg)Confirm the device runs iOS 17.2 or later on an iPhone. Live Activities are not available on iPad.
+- ![iOS](/assets/iOS.svg)If updates stop refreshing, check that your automation is not updating more often than about once every 15 seconds, as iOS throttles frequent updates.
+- ![iOS](/assets/iOS.svg)If a Live Activity does not start, send a `clear_notification` command for that `tag` to clear any stale activity, then try again — or start the new activity with a different `tag`.
 - ![Android](/assets/android.svg) Make sure `title` is set in the payload. Without it, the notification posts as a standard banner instead of a Live Update.
 - ![Android](/assets/android.svg) On Samsung devices, enable **Live notifications for all apps** in developer options for the status bar chip to appear.
