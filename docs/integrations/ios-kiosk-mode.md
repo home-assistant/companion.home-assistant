@@ -21,7 +21,7 @@ Kiosk mode is iOS-only. Android users can achieve a similar setup with the [Home
 
 ## Requirements
 
-- An iPhone or iPad running a recent version of iOS or iPadOS.
+- An iPhone or iPad running 2026.7.0+ version of iOS or iPadOS.
 - The Home Assistant Companion app with the Kiosk mode Labs feature.
 - To hide the sidebar and top bar controls, a version of Home Assistant whose frontend supports kiosk mode.
 - Face ID, Touch ID, or a device passcode set up on the device, if you want to require authentication to open the kiosk settings.
@@ -50,7 +50,7 @@ Turn on **Authentication** to require Face ID, Touch ID, or your device passcode
 The **Customization** section controls how the kiosk behaves while it is running.
 
 - **Keep screen on**: Prevents the device from auto-locking, so the screen stays on. When off, the device follows its normal Auto-Lock setting from iOS **Settings** > **Display & Brightness** > **Auto-Lock**.
-- **Hide sidebar and top bar controls**: Hides the Home Assistant sidebar and the dashboard's edit, add, and search controls for a cleaner, read-only display. This relies on the Home Assistant frontend, so it requires a recent enough version of Home Assistant.
+- **Hide sidebar and top bar controls**: Hides the Home Assistant sidebar and the dashboard's edit, add, and search controls for a cleaner, read-only display. This relies on the Home Assistant frontend, so it requires 2025.2.0+ version of Home Assistant.
 - **Hide status bar**: Hides the iOS status bar (time, battery, Wi-Fi indicator) at the top of the screen.
 - **Auto reload**: Reloads the dashboard automatically on a schedule. Choose **Never** or an interval from 1 minute to 1 hour.
 - **Screensaver**: Opens the screensaver settings (see [Screensaver](#screensaver) below).
@@ -101,7 +101,7 @@ Use the **Preview** button to see the screensaver full-screen with your current 
 
 ### The sidebar or dashboard controls aren't hiding
 
-- **Hide sidebar and top bar controls** depends on the Home Assistant frontend. Make sure your Home Assistant is recent enough to support kiosk mode.
+- **Hide sidebar and top bar controls** depends on the Home Assistant frontend. Make sure your Home Assistant is 2025.2.0+ to support kiosk mode.
 
 ### The status bar isn't hiding
 
