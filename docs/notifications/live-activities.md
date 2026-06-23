@@ -154,18 +154,23 @@ These fields apply to one platform only:
 
 ## Example scenarios
 
-### Plain notification with a message
+### EV charging
 
 ```yaml
 data:
-  title: "Home Assistant"
-  message: "Everything looks good at home."
+  title: "EV Charging"
+  message: "Charging · Est. 45 min remaining"
   data:
-    tag: status-update
+    tag: ev-charging
     live_update: true
+    critical_text: "45%"
+    progress: 45
+    progress_max: 100
+    notification_icon: mdi:ev-station
+    notification_icon_color: "#4CAF50"
 ```
 
-![Plain "Home Assistant / Everything looks good at home." Live Activity card on the iOS Lock Screen](/assets/ios/live-activity-plain-solo.png)
+![iPhone Lock Screen showing an EV Charging Live Activity reading "Charging · Est. 45 min remaining" at 45% with a green progress bar](/assets/ios/live-activity-ev-solo.png)
 
 ### Security alert with icon and color
 
