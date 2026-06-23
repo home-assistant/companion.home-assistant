@@ -145,6 +145,8 @@ These fields apply to one platform only:
 
 - ![iOS](/assets/iOS.svg)**`silent`** (boolean) — If `true`, an update arrives without a sound. Has no effect when starting the activity.
 - ![iOS](/assets/iOS.svg)**`url`** (string) — Where to go when the activity is tapped. A relative Home Assistant path such as `/lovelace/0` opens that view in the app; a full `https://` URL opens in the browser. The tap always opens the server that started the activity. `url` applies to the update it is sent with, so include it on each update where you want a specific destination. See [Opening a page on tap](#opening-a-page-on-tap).
+- ![iOS](/assets/iOS.svg)**`background_color`** (string) — Lock Screen background color, such as `#101820`. Defaults to black. See [Custom colors](#custom-colors).
+- ![iOS](/assets/iOS.svg)**`text_color`** (string) — Lock Screen text color. Defaults to a color that contrasts the background. See [Custom colors](#custom-colors).
 - ![Android](/assets/android.svg) **`alert_once`** (boolean) — If `true`, the notification plays sound or vibration only once.
 - ![Android](/assets/android.svg) **`sticky`** (boolean) — If `true`, the notification stays when the user taps it.
 
@@ -249,6 +251,25 @@ action:
 - A full `https://` URL opens in the browser.
 
 `url` travels with the update it is sent on, so include it on each update where you want a specific destination. An update sent without a `url` falls back to opening the server's default view.
+
+#### Custom colors
+
+By default a Live Activity is a black card with light text. Set `background_color` and `text_color` to recolor the Lock Screen card — both accept a hex value (`#101820`) or a CSS color name, the same format as `notification_icon_color`:
+
+```yaml
+action:
+  - action: notify.mobile_app_<your_device_id_here>
+    data:
+      title: "Washing Machine"
+      message: "Cycle complete"
+      data:
+        tag: washer_cycle
+        live_update: true
+        background_color: "#101820"
+        text_color: "#FFFFFF"
+```
+
+`background_color` defaults to black. If you omit `text_color`, it is chosen automatically to contrast with the background so the text stays legible. These colors apply to the Lock Screen card; the Dynamic Island keeps its system-provided dark style.
 
 **Dynamic Island:** On iPhone 14 Pro/Pro Max and all iPhone 15 and later models, the Live Activity also appears as a compact island pill at the top of the screen. On older iPhones without a Dynamic Island (notch or Home button), the activity appears on the Lock Screen only. Live Activities are not available on iPad (an Apple limitation).
 
