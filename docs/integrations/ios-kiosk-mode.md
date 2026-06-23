@@ -80,7 +80,7 @@ In the **Screensaver** screen:
   - **Clock**: A full-screen clock.
   - **Dim**: Keeps the dashboard visible but dimmed.
   - **Blank**: A black screen. The most power-efficient option, and the best choice for OLED displays.
-- **Time to start**: How long the device must be untouched before the screensaver activates, from 30 seconds to 1 hour.
+- **Time to start**: How long the device must be untouched before the screensaver activates, from 30 seconds to 1 hour. Choose **Push notification controlled** to disable the inactivity timer entirely and only show or hide the screensaver through [remote commands](#remote-commands).
 - **Dim level**: When **Mode** is set to **Dim**, controls how bright the screen stays.
 
 When **Mode** is set to **Clock**, you can also adjust:
@@ -90,6 +90,38 @@ When **Mode** is set to **Clock**, you can also adjust:
 - **Show seconds**: Show seconds on the clock.
 
 Use the **Preview** button to see the screensaver full-screen with your current settings. Tap anywhere to return to the settings.
+
+## Remote commands
+
+While kiosk mode is running, you can control it from Home Assistant by sending a notification whose `message` is a kiosk command. This is useful for automations — for example, showing the screensaver at night, or bringing a camera up on a wall panel when motion is detected.
+
+:::important
+Kiosk commands are only handled while the Companion app is open and in the foreground — the normal state for a wall-mounted kiosk. They are ignored while the app is in the background or closed.
+:::
+
+The available commands are:
+
+| `message` | Action |
+| --------- | ------ |
+| `kiosk_show_screensaver` | Show the screensaver immediately. |
+| `kiosk_hide_screensaver` | Hide the screensaver and reset the inactivity timer. |
+| `kiosk_show_camera` | Show a full-screen camera stream. Requires an `entity_id` pointing to a `camera.` entity. |
+| `kiosk_hide_camera` | Hide the camera stream. |
+
+```yaml
+automation:
+  - alias: Show the front door camera on the kiosk
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "kiosk_show_camera"
+          data:
+            entity_id: "camera.front_door"
+```
+
+These commands are only acted on when **Accept kiosk remote commands** is enabled in the kiosk settings (on by default). Turn it off on any device that should ignore remote kiosk commands. See [Notification Commands](../notifications/commands.md) for the full list of supported commands.
 
 ## Disabling kiosk mode
 
