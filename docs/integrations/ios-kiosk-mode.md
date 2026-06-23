@@ -17,7 +17,9 @@ When kiosk mode is on, the app opens a chosen server and dashboard, can hide the
 Kiosk mode is iOS-only. Android users can achieve a similar setup with the [Home App (launcher)](android-home-app-launcher.md) feature.
 :::
 
-<!-- TODO: add updated screenshots of the new Kiosk mode settings UI. -->
+<p>
+  <img alt="Kiosk mode settings showing the Enabled and Authentication toggles and the Display section" src="/assets/ios/kiosk-mode-settings.png" width="500" />
+</p>
 
 ## Requirements
 
