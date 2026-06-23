@@ -14,6 +14,10 @@ The Companion apps offer a lot of different notification options. In place of po
 | `clear_notification` | Removes a notification, [more details](basic.md#clearing). |
 | `update_complications` | Updates the complications on a paired Apple Watch. [More details](/apple-watch/complications.md). |
 | `update_widgets`* | Updates 'Gauge' and 'Details' widgets introduced on App v2024.7 (iOS will decide if the update is allowed or not, so don't worry if it doesn't work all the time). |
+| `kiosk_show_screensaver` | Shows the kiosk screensaver. Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_hide_screensaver` | Hides the kiosk screensaver. Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_show_camera` | Shows a full-screen camera (requires `entity_id`). Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_hide_camera` | Hides the full-screen camera. Only works while the app is open, [see below](#kiosk-mode-commands). |
 
 \* On iOS, manual widget reloads are limited to around 40-70 per 24 hour, depending on how often you look at the widget. This will not always reset at exactly midnight.
 
@@ -516,6 +520,47 @@ automation:
           data:
             high_accuracy_update_interval: 60
             command: "high_accuracy_set_update_interval"
+```
+
+## Kiosk mode commands
+
+![iOS](/assets/iOS.svg)
+
+[Kiosk mode](../integrations/ios-kiosk-mode.md) can be controlled remotely by sending one of the kiosk commands as the `message`. For example, you can show the screensaver at night, or bring a camera up on a wall-mounted panel when motion is detected.
+
+:::important
+Kiosk commands are only handled while the Companion app is open and in the foreground — the normal state for a wall-mounted kiosk. They are ignored while the app is in the background or closed, and only acted on when **Accept kiosk remote commands** is enabled in the kiosk settings (on by default).
+:::
+
+| `message` | Action |
+| --------- | ------ |
+| `kiosk_show_screensaver` | Show the screensaver immediately. |
+| `kiosk_hide_screensaver` | Hide the screensaver and reset the inactivity timer. |
+| `kiosk_show_camera` | Show a full-screen camera stream. Requires an `entity_id` pointing to a `camera.` entity. |
+| `kiosk_hide_camera` | Hide the camera stream. |
+
+```yaml
+automation:
+  - alias: Show the screensaver on the kiosk at night
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "kiosk_show_screensaver"
+```
+
+```yaml
+automation:
+  - alias: Show the front door camera on the kiosk
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "kiosk_show_camera"
+          data:
+            entity_id: "camera.front_door"
 ```
 
 ## Launch App
