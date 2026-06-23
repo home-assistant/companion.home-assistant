@@ -172,32 +172,23 @@ data:
 
 ![iPhone Lock Screen showing an EV Charging Live Activity reading "Charging · Est. 45 min remaining" at 45% with a green progress bar](/assets/ios/live-activity-ev-solo.png)
 
-### Security alert with icon and color
+### Dishwasher progress
 
 ```yaml
 data:
-  title: "Security Alert"
-  message: "Person detected · Camera 1"
+  title: "Dishwasher"
+  message: "Pre-wash in progress"
   data:
-    tag: security-alert
+    tag: dishwasher
     live_update: true
-    notification_icon: mdi:motion-sensor
-    notification_icon_color: "#F44336"
+    critical_text: "Pre-wash"
+    progress: 20
+    progress_max: 100
+    notification_icon: mdi:dishwasher
+    notification_icon_color: "#26C6DA"
 ```
 
-<details>
-<summary>iOS</summary>
-
-![Security Alert Live Activity card with a red camera icon reading "Person detected · Camera 1"](/assets/ios/live-activity-security-solo.png)
-
-</details>
-
-<details>
-<summary>Android</summary>
-
-![Android Live Update showing "Security Alert / Person detected · Camera 1" on the Lock Screen](/assets/android/live_updates_security_lockscreen.png)
-
-</details>
+![iPhone Lock Screen showing a Dishwasher Live Activity reading "Pre-wash in progress" at 20% with a cyan progress bar](/assets/ios/live-activity-dishwasher-solo.png)
 
 ---
 
