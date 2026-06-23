@@ -638,7 +638,7 @@ The following parameters can be mixed and matched together to style the progress
 
 - `progress_points`: A list of markers displayed as points along the progress bar to highlight specific milestones or thresholds.
   - **Required property**: `position`. The position on the progress bar where the point should appear (must be between 0 and `progress_max`).
-  - **Optional property**: `color`. Hex color code for the point (for example, `"#ffde03"`).
+  - **Optional property**: `color`. Hex color code (including '#') for the point (for example, `"#ffde03"`).
 
 ##### Progress icons
 
