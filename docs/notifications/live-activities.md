@@ -144,6 +144,7 @@ These fields work on both platforms:
 These fields apply to one platform only:
 
 - ![iOS](/assets/iOS.svg)**`silent`** (boolean) — If `true`, an update arrives without a sound. Has no effect when starting the activity.
+- ![iOS](/assets/iOS.svg)**`url`** (string) — Where to go when the activity is tapped. A relative Home Assistant path such as `/lovelace/0` opens that view in the app; a full `https://` URL opens in the browser. The tap always opens the server that started the activity. `url` applies to the update it is sent with, so include it on each update where you want a specific destination. See [Opening a page on tap](#opening-a-page-on-tap).
 - ![Android](/assets/android.svg) **`alert_once`** (boolean) — If `true`, the notification plays sound or vibration only once.
 - ![Android](/assets/android.svg) **`sticky`** (boolean) — If `true`, the notification stays when the user taps it.
 
@@ -227,6 +228,27 @@ action:
 :::tip
 Two of the fields in this payload are not visible in this screenshot. `chronometer` replaces the `message` line with the live timer, and `progress` replaces `critical_text` in the top-right corner. Remove `chronometer` and the `message` shows; remove `progress` and `progress_max` and `critical_text` ("5 min") shows instead of "42%". On the Dynamic Island compact view, `critical_text` always shows.
 :::
+
+#### Opening a page on tap
+
+Tapping a Live Activity opens the companion app on the Home Assistant server that started it — handy when you have more than one server configured. To send the tap to a specific page, add a `url`:
+
+```yaml
+action:
+  - action: notify.mobile_app_<your_device_id_here>
+    data:
+      title: "Washing Machine"
+      message: "Cycle complete"
+      data:
+        tag: washer_cycle
+        live_update: true
+        url: /lovelace/laundry
+```
+
+- A relative Home Assistant path such as `/lovelace/laundry` opens that view in the app's frontend.
+- A full `https://` URL opens in the browser.
+
+`url` travels with the update it is sent on, so include it on each update where you want a specific destination. An update sent without a `url` falls back to opening the server's default view.
 
 **Dynamic Island:** On iPhone 14 Pro/Pro Max and all iPhone 15 and later models, the Live Activity also appears as a compact island pill at the top of the screen. On older iPhones without a Dynamic Island (notch or Home button), the activity appears on the Lock Screen only. Live Activities are not available on iPad (an Apple limitation).
 
