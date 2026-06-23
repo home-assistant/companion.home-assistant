@@ -630,15 +630,15 @@ The following parameters can be mixed and matched together to style the progress
 ##### Progress segments
 
 - `progress_segments`. A list of segments that make up the progress bar, each with its own length and optional color.
-  - **Required properties**: `length`. The length/size of the segment, any number larger than 0.
-  - **Optional properties**: `color`. Hex color code for the segment (for example, `"#ff0000"` or `"#00ff00"`).
-  - **Note**: When using segments, `progress_max` is automatically calculated as the sum of all segment lengths and should not be specified separately.
+  - **Required property**: `length`. The length/size of the segment, any number larger than 0.
+  - **Optional property**: `color`. Hex color code (including '#') for the segment (for example, `"#ff0000"` or `"#00ff00"`).
+  - **Note**: When using segments, `progress_max` is automatically calculated as the sum of all segment lengths.
 
 ##### Progress points
 
-- `progress_points`: Markers displayed as points along the progress bar to highlight specific milestones or thresholds.
-  - **Required properties**: `position`. The position on the progress bar where the point should appear (must be between 0 and `progress_max`).
-  - **Optional properties**: `color`. Hex color code for the point (for example, `"#ffde03"`).
+- `progress_points`: A list of markers displayed as points along the progress bar to highlight specific milestones or thresholds.
+  - **Required property**: `position`. The position on the progress bar where the point should appear (must be between 0 and `progress_max`).
+  - **Optional property**: `color`. Hex color code for the point (for example, `"#ffde03"`).
 
 ##### Progress icons
 
@@ -648,7 +648,6 @@ The following parameters can be mixed and matched together to style the progress
   - **Format**: Material Design Icons only, use format `mdi:icon-name` (for example, `mdi:flag-checkered` or `mdi:check-circle`).
 - `progress_tracker_icon`. Icon displayed in a circular badge that tracks the current progress position. For example: `"mdi:lightning-bolt"`.
   - **Format**: Material Design Icons only, use format `mdi:icon-name` (for example, `mdi:car` or `mdi:walk`).
-  - **Note**: The tracker icon has a colored circular background for emphasis.
 
 **Icon colors**
 
@@ -668,8 +667,8 @@ automation:
     action:
       - action: notify.mobile_app_<your_device_id_here>
         data:
-          title: "Live update"
-          message: "This will show on the always-on display"
+          title: "Car is currently charged to 50%"
+          message: "Limit is set to 80%"
           data:
             progress: 50
             progress_segments:
