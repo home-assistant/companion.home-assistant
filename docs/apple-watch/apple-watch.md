@@ -29,7 +29,3 @@ The Apple Watch has a variety of Faces and Complications. It's useful to consult
 :::info Supported Complication types
 As of watchOS 9, several (legacy) Complication types are no longer supported by Apple. The following Complication types can be used for watchOS 9 and higher: Graphic Circular, Graphic Corner, Graphic Rectangular & Modular Large. Further details on the different types can be found in the [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/complications).
 :::
-
-:::note app version 
-Ring and Gauge features do not work in app releases prior to 2020.7.
-:::
