@@ -270,7 +270,13 @@ action:
 
 To recolor the progress bar on its own, set `progress_bar_color` (same format); when omitted it uses `notification_icon_color`.
 
-**Dynamic Island:** On iPhone 14 Pro/Pro Max and all iPhone 15 and later models, the Live Activity also appears as a compact island pill at the top of the screen. On older iPhones without a Dynamic Island (notch or Home button), the activity appears on the Lock Screen only. Live Activities are not available on iPad (an Apple limitation).
+#### Dynamic Island
+
+On iPhone models with a Dynamic Island, the Live Activity also appears there in three presentations: **compact** (the everyday pill), **minimal** (when another activity shares the island), and **expanded** (on long-press). The diagram maps each region to the field that fills it.
+
+![Anatomy of the Dynamic Island presentations — compact, minimal, and expanded — mapping each region to its notification payload field](/assets/ios/live-activity-dynamic-island-anatomy.svg)
+
+On iPhone 14 Pro/Pro Max and all iPhone 15 and later models, the Live Activity also appears as a compact island pill at the top of the screen. On older iPhones without a Dynamic Island (notch or Home button), the activity appears on the Lock Screen only. Live Activities are not available on iPad (an Apple limitation).
 
 **Settings:** While the feature is in beta, go to **Settings → Live Activities** in the companion app to see whether Live Activities are enabled and to view or end any currently active activities.
 

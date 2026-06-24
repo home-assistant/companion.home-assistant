@@ -1,0 +1,82 @@
+<svg viewBox="0 0 470 504" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Anatomy of the Dynamic Island presentations for a Home Assistant Live Activity: compact, minimal, and expanded">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    text.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    text.head{font-weight:700;letter-spacing:0.1em;fill:#6a7280}
+    text.cap{fill:#9aa1ab}
+    text.lbl{font-weight:600}
+  </style>
+  <defs>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#03A9F4" stop-opacity="0.9"/><stop offset="1" stop-color="#03A9F4"/>
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b6f9e"/><stop offset="1" stop-color="#0a4f73"/>
+    </linearGradient>
+    <marker id="aOrange" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#e8590c"/></marker>
+    <marker id="aBlue" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#1971c2"/></marker>
+    <marker id="aPurple" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#7048e8"/></marker>
+    <marker id="aTeal" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#099268"/></marker>
+    <marker id="aPink" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#d6336c"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="470" height="504" fill="#ffffff"/>
+
+  <!-- ===================== COMPACT ===================== -->
+  <text x="30" y="40" class="head" font-size="13">COMPACT</text>
+  <text x="30" y="58" class="cap" font-size="12">Idle island, one activity</text>
+  <!-- pill -->
+  <rect x="158" y="72" width="154" height="44" rx="22" fill="#0b0b0e"/>
+  <g transform="translate(184,94) scale(0.7)" fill="none" stroke="#7fd6f7" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-17,2 L0,-15 L17,2"/><path d="M-12,1 L-12,16 L12,16 L12,1"/>
+    <circle cx="0" cy="9" r="2.3" fill="#7fd6f7" stroke="none"/><path d="M0,9 L0,3 M0,9 L-6,12 M0,9 L6,12"/>
+  </g>
+  <text x="296" y="100" text-anchor="end" class="mono" font-size="18" fill="#ffffff">4:50</text>
+  <!-- labels -->
+  <text x="64" y="98" class="lbl" font-size="12.5" fill="#e8590c">icon</text>
+  <path d="M92,94 L170,93" fill="none" stroke="#e8590c" stroke-width="1.6" marker-end="url(#aOrange)"/>
+  <text x="332" y="98" class="lbl" font-size="12" fill="#1971c2">timer · text · %</text>
+  <path d="M330,94 L300,95" fill="none" stroke="#1971c2" stroke-width="1.6" marker-end="url(#aBlue)"/>
+
+  <!-- ===================== MINIMAL ===================== -->
+  <text x="30" y="166" class="head" font-size="13">MINIMAL</text>
+  <text x="30" y="184" class="cap" font-size="12">When another activity shares the island</text>
+  <rect x="206" y="196" width="42" height="42" rx="21" fill="#0b0b0e"/>
+  <g transform="translate(227,217) scale(0.62)" fill="none" stroke="#7fd6f7" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-17,2 L0,-15 L17,2"/><path d="M-12,1 L-12,16 L12,16 L12,1"/>
+    <circle cx="0" cy="9" r="2.3" fill="#7fd6f7" stroke="none"/><path d="M0,9 L0,3 M0,9 L-6,12 M0,9 L6,12"/>
+  </g>
+  <text x="290" y="221" class="lbl" font-size="12.5" fill="#e8590c">icon only</text>
+  <path d="M288,217 L252,217" fill="none" stroke="#e8590c" stroke-width="1.6" marker-end="url(#aOrange)"/>
+
+  <!-- ===================== EXPANDED ===================== -->
+  <text x="30" y="280" class="head" font-size="13">EXPANDED</text>
+  <text x="30" y="298" class="cap" font-size="12">On long-press</text>
+  <rect x="85" y="316" width="300" height="124" rx="28" fill="#0b0b0e"/>
+  <rect x="103" y="336" width="44" height="44" rx="12" fill="url(#iconGrad)"/>
+  <g transform="translate(125,358) scale(0.82)" fill="none" stroke="#7fd6f7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-17,2 L0,-15 L17,2"/><path d="M-12,1 L-12,16 L12,16 L12,1"/>
+    <circle cx="0" cy="9" r="2.3" fill="#7fd6f7" stroke="none"/><path d="M0,9 L0,3 M0,9 L-6,12 M0,9 L6,12"/>
+  </g>
+  <text x="162" y="352" font-size="14" font-weight="600" fill="#ffffff">Washing Machine</text>
+  <text x="366" y="352" text-anchor="end" class="mono" font-size="15" font-weight="600" fill="#ffffff">42%</text>
+  <text x="103" y="402" font-size="12" fill="#ffffffe0">Rinsing · 1 of 2</text>
+  <rect x="103" y="414" width="262" height="8" rx="4" fill="#ffffff28"/>
+  <rect x="103" y="414" width="150" height="8" rx="4" fill="url(#barGrad)"/>
+
+  <!-- expanded labels -->
+  <text x="34" y="362" class="lbl" font-size="12.5" fill="#e8590c">icon</text>
+  <path d="M62,358 L101,358" fill="none" stroke="#e8590c" stroke-width="1.6" marker-end="url(#aOrange)"/>
+
+  <text x="190" y="304" class="lbl" font-size="12.5" fill="#7048e8">title</text>
+  <path d="M205,308 L210,340" fill="none" stroke="#7048e8" stroke-width="1.6" marker-end="url(#aPurple)"/>
+
+  <text x="392" y="352" class="lbl" font-size="12" fill="#1971c2">% / text</text>
+  <path d="M390,348 L372,349" fill="none" stroke="#1971c2" stroke-width="1.6" marker-end="url(#aBlue)"/>
+
+  <text x="34" y="486" class="lbl" font-size="12.5" fill="#099268">message · timer</text>
+  <path d="M120,478 L150,408" fill="none" stroke="#099268" stroke-width="1.6" marker-end="url(#aTeal)"/>
+
+  <text x="296" y="486" class="lbl" font-size="12.5" fill="#d6336c">progress bar</text>
+  <path d="M318,478 L300,426" fill="none" stroke="#d6336c" stroke-width="1.6" marker-end="url(#aPink)"/>
+</svg>
