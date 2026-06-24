@@ -88,7 +88,7 @@
     <circle cx="28" cy="498" r="10" fill="#d6336c"/><text x="28" y="502.5" class="num" font-size="12">5</text>
     <text x="48" y="496" font-size="13" font-weight="700" letter-spacing="0.06em" fill="#d6336c">PROGRESS BAR</text>
     <text x="48" y="514" class="mono" fill="#16181d">progress / progress_max</text>
-    <text x="288" y="514" fill="#6a7280">— fill = progress ÷ max.</text>
+    <text x="288" y="514" fill="#6a7280">— tint: progress_bar_color.</text>
     <!-- row 6 -->
     <circle cx="28" cy="546" r="10" fill="#099268"/><text x="28" y="550.5" class="num" font-size="12">6</text>
     <text x="48" y="544" font-size="13" font-weight="700" letter-spacing="0.06em" fill="#099268">BACKGROUND COLOR</text>
