@@ -52,7 +52,7 @@
   <text x="366" y="330" text-anchor="end" class="mono" font-size="15" font-weight="600" fill="#ffffff">42%</text>
   <text x="104" y="380" font-size="12" fill="#ffffffe0">Rinsing · 1 of 2</text>
   <rect x="104" y="392" width="262" height="8" rx="4" fill="#ffffff28"/>
-  <rect x="104" y="392" width="150" height="8" rx="4" fill="url(#barGrad)"/>
+  <rect x="104" y="392" width="110" height="8" rx="4" fill="url(#barGrad)"/>
   <circle cx="85" cy="336" r="11" fill="#e8590c"/><text x="85" y="340.5" class="num" font-size="13">1</text>
   <circle cx="232" cy="296" r="11" fill="#7048e8"/><text x="232" y="300.5" class="num" font-size="13">3</text>
   <circle cx="385" cy="324" r="11" fill="#1971c2"/><text x="385" y="328.5" class="num" font-size="13">2</text>
