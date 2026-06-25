@@ -11,7 +11,6 @@ id: "live-activities"
 :::info Requirements
 - ![iOS](/assets/iOS.svg)Live Activities are currently in <span class="beta">Labs</span> and available only in the TestFlight version of the app.
 - ![iOS](/assets/iOS.svg)**iOS:** iOS 17.2 or later on iPhone and iPad, with macOS mirroring what is in your iPhone.
-- ![Android](/assets/android.svg) **Android:** Android 16 or later. The status bar chip appearance may vary by manufacturer.
 :::
 
 ![iPhone Lock Screen showing an EV Charging Live Activity reading "Charging · Est. 30 min remaining" at 60% with a green progress bar](/assets/ios/live-activity-lockscreen-hero.jpeg)
