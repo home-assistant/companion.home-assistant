@@ -59,7 +59,8 @@ action:
         when: 2700
         when_relative: true
         notification_icon: mdi:washing-machine
-        notification_icon_color: "#2196F3"
+        notification_icon_color: "#2196F3",
+        color: "#2196F3",
 ```
 
 ![Android Live Update showing "Washing Machine / Rinsing · 1 of 2" on the Lock Screen](/assets/android/live_updates_washing_lockscreen.png)
@@ -87,6 +88,7 @@ action:
         progress_max: 3600
         notification_icon: mdi:washing-machine
         notification_icon_color: "#4CAF50"
+        color: "#4CAF50"
 ```
 
 <details>
@@ -137,7 +139,8 @@ These fields work on both platforms:
 - **`when`** (number) — Timer reference point. A Unix timestamp, or seconds from now when `when_relative` is `true`.
 - **`when_relative`** (boolean) — If `true`, treat `when` as seconds from now rather than a Unix timestamp.
 - **`notification_icon`** (string) — A [Material Design Icon](https://pictogrammers.com/library/mdi/) slug, such as `mdi:washing-machine`.
-- **`notification_icon_color`** (string) — Hex color for the icon, such as `#2196F3`.
+- ![iOS](/assets/iOS.svg)**`notification_icon_color`** (string) — Hex color for the icon, such as `#2196F3`.
+- ![Android](/assets/android.svg)**`color`** (string) — Hex color for the icon, such as `#2196F3`.
 
 These fields apply to one platform only:
 
@@ -266,7 +269,7 @@ action:
 
 `background_color` defaults to black. If you omit `text_color`, it is chosen automatically to contrast with the background so the text stays legible. These colors apply to the Lock Screen card; the Dynamic Island keeps its system-provided dark style.
 
-To recolor the progress bar on its own, set `progress_bar_color` (same format); when omitted it uses `notification_icon_color`.
+To recolor the progress bar on its own, set `progress_bar_color` (same format), when omitted it uses `notification_icon_color`.
 
 #### Dynamic Island
 
