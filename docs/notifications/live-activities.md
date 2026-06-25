@@ -283,6 +283,7 @@ On iPhone 14 Pro/Pro Max and all iPhone 15 and later models, the Live Activity a
 
 :::note iOS limitations
 - **Rate limiting:** Apple throttles Live Activity updates to approximately 15 seconds between rendered updates. Structure automations to fire on state-change events rather than polling timers.
+- **Push-to-start budget:** Separately from update rate limiting, iOS limits how often a *new* activity can be launched via push. Repeatedly starting and ending activities while testing drains this budget quickly, after which new activities silently fail to start, the automation succeeds, Home Assistant logs nothing, and the device stays silent, which looks exactly like a broken setup but is not. The budget replenishes on its own over time (typically minutes to hours); you cannot force it, and rebooting the device does not help.
 - **Expiry:** Activities expire after [up to 8 hours](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities#Understand-constraints) (an Apple system limit). If the app is force-quit and relaunched, it automatically reattaches to any Live Activities that iOS kept alive.
 - **Privacy:** The first time a Live Activity starts, the companion app shows a one-time disclosure noting that Lock Screen content is visible without unlocking the device.
 :::
