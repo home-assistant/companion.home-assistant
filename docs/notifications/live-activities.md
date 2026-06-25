@@ -8,9 +8,8 @@ id: "live-activities"
 - ![iOS](/assets/iOS.svg)On iOS, the activity appears on the Lock Screen and in the Dynamic Island.
 - ![Android](/assets/android.svg) On Android, it stays pinned to the notification shade, the Lock Screen, and the always-on display, and shows as a chip in the status bar.
 
-![iOS](/assets/iOS.svg)Live Activities are currently in beta <span class="beta">BETA</span> and available only in the TestFlight version of the app.
-
 :::info Requirements
+- ![iOS](/assets/iOS.svg)Live Activities are currently in <span class="beta">Labs</span> and available only in the TestFlight version of the app.
 - ![iOS](/assets/iOS.svg)**iOS:** iOS 17.2 or later on iPhone and iPad, with macOS mirroring what is in your iPhone.
 - ![Android](/assets/android.svg) **Android:** Android 16 or later. The status bar chip appearance may vary by manufacturer.
 :::
