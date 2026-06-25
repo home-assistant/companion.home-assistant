@@ -287,6 +287,10 @@ On iPhone 14 Pro/Pro Max and all iPhone 15 and later models, the Live Activity a
 
 ### Android
 
+:::info
+These options require Android 16 or later. The status bar chip appearance may vary by manufacturer.
+:::
+
 **Always-on display:** The Live Update appears pinned at the top of the notification shade, on the Lock Screen, and on the always-on display.
 
 **Status bar chip:** The notification shows as a chip in the status bar. Use `critical_text` to display a short label in the chip. If `chronometer: true` is set, the timer replaces `critical_text` in the chip. If there is not enough space in the status bar, only the icon is shown.
