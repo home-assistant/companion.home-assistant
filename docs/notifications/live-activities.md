@@ -11,6 +11,7 @@ id: "live-activities"
 :::info Requirements
 - ![iOS](/assets/iOS.svg)Live Activities are currently in <span class="beta">Labs</span> and available only in the TestFlight version of the app.
 - ![iOS](/assets/iOS.svg)**iOS:** iOS 17.2 or later on iPhone and iPad, with macOS mirroring what is in your iPhone.
+- ![iOS](/assets/iOS.svg)**iOS:** Live Activity requires a hand shake between app and Home Assistant itself to sync tokens, if your phone connectivity is unstable or you are not at home and don't have a remote connection configured, this token had shake will not occur and the live activity itself will not be received/updated.
 :::
 
 ![iPhone Lock Screen showing an EV Charging Live Activity reading "Charging · Est. 30 min remaining" at 60% with a green progress bar](/assets/ios/live-activity-lockscreen-hero.jpeg)
@@ -315,6 +316,7 @@ If the Live Activity or Live Update does not appear:
 
 - ![iOS](/assets/iOS.svg)Make sure Live Activities are allowed in iOS **Settings → Home Assistant**, and accept the one-time privacy disclosure shown the first time an activity starts.
 - ![iOS](/assets/iOS.svg)Confirm the device runs iOS 17.2 or later on an iPhone. Live Activities are not available on iPad.
+- ![iOS](/assets/iOS.svg)Make sure your phone's connectivity is stable and Home Assistant can be reached from where you are (home or away), otherwise token exchange will fail and live activity will not start/update.
 - ![iOS](/assets/iOS.svg)If updates stop refreshing, check that your automation is not updating more often than about once every 15 seconds, as iOS throttles frequent updates.
 - ![iOS](/assets/iOS.svg)If a Live Activity does not start, send a `clear_notification` command for that `tag` to clear any stale activity, then try again — or start the new activity with a different `tag`.
 - ![Android](/assets/android.svg) Make sure `title` is set in the payload. Without it, the notification posts as a standard banner instead of a Live Update.
