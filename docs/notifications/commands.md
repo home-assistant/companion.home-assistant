@@ -20,6 +20,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `kiosk_hide_camera` | Hides the full-screen camera. Only works while the app is open, [see below](#kiosk-mode-commands). |
 | `kiosk_set_brightness` | Sets the screen brightness (requires `level`). Only works while the app is open, [see below](#kiosk-mode-commands). |
 | `kiosk_set_volume` | Sets the system volume (requires `volume`). Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_reload` | Reloads the dashboard. Only works while the app is open, [see below](#kiosk-mode-commands). |
 
 \* On iOS, manual widget reloads are limited to around 40-70 per 24 hour, depending on how often you look at the widget. This will not always reset at exactly midnight.
 
@@ -542,6 +543,7 @@ Kiosk commands are only handled while the Companion app is open and in the foreg
 | `kiosk_hide_camera` | Hide the camera stream. |
 | `kiosk_set_brightness` | Set the screen brightness. Requires `level`. |
 | `kiosk_set_volume` | Set the system volume. Requires `volume`. |
+| `kiosk_reload` | Reload the dashboard. |
 
 `level` and `volume` are a percentage from `0` to `100`. A value of `1` or less is treated as a fraction, so `0.5` is the same as `50`.
 

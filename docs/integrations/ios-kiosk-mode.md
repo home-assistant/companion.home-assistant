@@ -109,6 +109,7 @@ The available commands are:
 | `kiosk_hide_camera` | Hide the camera stream. |
 | `kiosk_set_brightness` | Set the screen brightness. Requires `level`, a percentage from `0` to `100`. |
 | `kiosk_set_volume` | Set the system volume. Requires `volume`, a percentage from `0` to `100`. |
+| `kiosk_reload` | Reload the dashboard. |
 
 ```yaml
 automation:
