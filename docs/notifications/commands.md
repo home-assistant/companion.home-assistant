@@ -21,6 +21,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `kiosk_set_brightness` | Sets the screen brightness (requires `level`). Only works while the app is open, [see below](#kiosk-mode-commands). |
 | `kiosk_set_volume` | Sets the system volume (requires `volume`). Only works while the app is open, [see below](#kiosk-mode-commands). |
 | `kiosk_reload` | Reloads the dashboard. Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_default` | Returns to the configured kiosk server and dashboard. Only works while the app is open, [see below](#kiosk-mode-commands). |
 
 \* On iOS, manual widget reloads are limited to around 40-70 per 24 hour, depending on how often you look at the widget. This will not always reset at exactly midnight.
 
@@ -544,6 +545,7 @@ Kiosk commands are only handled while the Companion app is open and in the foreg
 | `kiosk_set_brightness` | Set the screen brightness. Requires `level`. |
 | `kiosk_set_volume` | Set the system volume. Requires `volume`. |
 | `kiosk_reload` | Reload the dashboard. |
+| `kiosk_default` | Return to the configured kiosk server and dashboard (or the server default when no dashboard is set). Useful to make sure the kiosk is back on its main dashboard after someone has navigated away. |
 
 `level` and `volume` are a percentage from `0` to `100`. A value of `1` or less is treated as a fraction, so `0.5` is the same as `50`.
 

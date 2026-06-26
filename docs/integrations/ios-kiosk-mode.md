@@ -110,6 +110,7 @@ The available commands are:
 | `kiosk_set_brightness` | Set the screen brightness. Requires `level`, a percentage from `0` to `100`. |
 | `kiosk_set_volume` | Set the system volume. Requires `volume`, a percentage from `0` to `100`. |
 | `kiosk_reload` | Reload the dashboard. |
+| `kiosk_default` | Return to the configured kiosk server and dashboard (or the server default when no dashboard is set). Useful to make sure the kiosk is back on its main dashboard after someone has navigated away. |
 
 ```yaml
 automation:
