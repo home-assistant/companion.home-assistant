@@ -103,7 +103,7 @@ The available commands are:
 
 | `message` | Action |
 | --------- | ------ |
-| `kiosk_show_screensaver` | Show the screensaver immediately. |
+| `kiosk_show_screensaver` | Show the screensaver immediately. Requires screensaver enabled in kiosk settings. |
 | `kiosk_hide_screensaver` | Hide the screensaver and reset the inactivity timer. |
 | `kiosk_show_camera` | Show a full-screen camera stream. Requires an `entity_id` pointing to a `camera.` entity. |
 | `kiosk_hide_camera` | Hide the camera stream. |
