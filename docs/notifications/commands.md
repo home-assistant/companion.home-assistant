@@ -679,19 +679,17 @@ While it is possible to create an automation in Home Assistant to call this acti
 On Android you can control the device\'s ringer mode by sending `message: command_ringer_mode` with an appropriate `command` as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. If the device has Do Not Disturb enabled then setting to `normal` or `vibrate` will turn it off. If the device does not have Do Not Disturb enabled then `silent` will turn it on.<br />
 
 :::caution
-### Android 17 and Background Audio Hardening
-
 Starting with Android 17, Android may block notification commands that change the ringer mode when they are executed in the background. This is caused by Android's **Background Audio Hardening**, which restricts background audio interactions, including volume and ringer mode changes, unless they are started from a visible app or an eligible foreground service.
 
 See the official Android documentation: https://developer.android.com/about/versions/17/changes/bg-audio
 
 If ringer mode commands no longer work on Android 17, you can temporarily disable this system hardening with ADB:
 
-```bash adb shell cmd audio set-hardening 0 ```
+```bash adb shell cmd audio set-hardening 0```
 
 To re-enable it:
 
-```bash adb shell cmd audio set-hardening 1 ```
+```bash adb shell cmd audio set-hardening 1```
 
 Disabling this protection is a system-wide developer workaround and is not recommended for normal use. It may allow apps to change audio behavior from the background without clear user interaction, which can lead to unexpected ringer, volume, or audio playback changes.
 :::
