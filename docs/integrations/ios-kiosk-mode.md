@@ -91,7 +91,7 @@ When **Mode** is set to **Clock**, you can also adjust:
 
 Use the **Preview** button to see the screensaver full-screen with your current settings. Tap anywhere to return to the settings.
 
-## Remote commands
+## Remote commands (Currently available only in TestFlight)
 
 While kiosk mode is running, you can control it from Home Assistant by sending a notification whose `message` is a kiosk command. This is useful for automations — for example, showing the screensaver at night, or bringing a camera up on a wall panel when motion is detected.
 
