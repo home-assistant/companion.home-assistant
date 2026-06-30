@@ -623,7 +623,7 @@ On Android 16+, `live_update: true` displays a persistent notification pinned to
 
 The same field also starts a **Live Activity** <span class="beta">Labs</span> on iOS 17.2+, so a single automation targets both platforms.
 
-See [Live Activities and Live Updates](live-activities.md) for the full payload reference, examples, and platform-specific behavior.
+See [Live Activity and Live Updates](live-activities.md) for the full payload reference, examples, and platform-specific behavior.
 
 ### Alert Once
 
@@ -680,11 +680,11 @@ By default Home Assistant notifications do not show up in the Android Auto inter
 
 ## iOS/macOS Specific
 
-### Live Activities
+### Live Activity
 
 On iOS 17.2+, `live_update: true` starts a **Live Activity** on the Lock Screen and Dynamic Island. This is the same field Android uses for [Live Updates](#live-updates), so a single automation targets both platforms.
 
-See [Live Activities and Live Updates](live-activities.md) for the full payload reference, examples, and platform-specific behavior.
+See [Live Activity and Live Updates](live-activities.md) for the full payload reference, examples, and platform-specific behavior.
 
 ### Sounds
 By default the default notification sound (Tri-tone on iOS) will be played upon receiving a notification. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be disabled by setting `sound` to `none` in the data payload:
