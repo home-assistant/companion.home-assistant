@@ -73,7 +73,7 @@ action:
 Send the same payload again with the same `tag`. The display updates silently — no banner, no sound.
 
 :::note ![iOS](/assets/iOS.svg)
-Live Activities use the highest push notification delivery priority (10). Avoid automations that update every second or react to a frequently changing entity state. If iOS considers the update frequency excessive, it may throttle push delivery. This does not apply to local push notifications.
+Live Activities use the highest push notification delivery priority (10), except updates sent with `silent: true`, which use a lower priority (5) that iOS may delay or batch to save power. Avoid automations that update every second or react to a frequently changing entity state. If iOS considers the update frequency excessive, it may throttle push delivery. This does not apply to local push notifications.
 :::
 
 ```yaml
@@ -145,7 +145,7 @@ These fields work on both platforms:
 
 These fields apply to one platform only:
 
-- ![iOS](/assets/iOS.svg)**`silent`** (boolean) — If `true`, an update arrives without a sound. Has no effect when starting the activity.
+- ![iOS](/assets/iOS.svg)**`silent`** (boolean) — If `true`, an update arrives without a sound and at a lower, power-conserving priority that iOS may delay or batch, so use it for non-urgent updates. Has no effect when starting the activity.
 - ![iOS](/assets/iOS.svg)**`url`** (string) — Where to go when the activity is tapped. A relative Home Assistant path such as `/lovelace/0` opens that view in the app; a full `https://` URL opens in the browser. The tap always opens the server that started the activity. `url` applies to the update it is sent with, so include it on each update where you want a specific destination. See [Opening a page on tap](#opening-a-page-on-tap).
 - ![iOS](/assets/iOS.svg)**`background_color`** (string) — Lock Screen background color, such as `#101820`. Defaults to black. See [Custom colors](#custom-colors).
 - ![iOS](/assets/iOS.svg)**`text_color`** (string) — Lock Screen text color. Defaults to a color that contrasts the background. See [Custom colors](#custom-colors).
