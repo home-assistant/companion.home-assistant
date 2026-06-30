@@ -208,9 +208,14 @@ automation:
 
 ## Android Specific
 
-### Notification Color
+### Notification Icon Color
 
-In Android you can set the `color` of the notification, you can use either the color name or the hex code.
+In Android you can set the background color of the notification icon with `notification_icon_color`, you can use either the color name or the hex code.
+
+:::info
+This parameter was previously named `color`.
+`color` is still accepted but `notification_icon_color` is preferred going onwards.
+:::
 
 ```yaml
 automation:
@@ -223,7 +228,7 @@ automation:
           title: "Motion Detected in Backyard"
           message: "Someone might be in the backyard."
           data:
-            color: "#2DF56D" # or "red"
+            notification_icon_color: "#2DF56D" # or "red"
 ```
 
 ### Sticky Notification
