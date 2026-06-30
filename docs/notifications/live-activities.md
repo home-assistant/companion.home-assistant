@@ -315,7 +315,7 @@ On Samsung, you may need to enable **Live notifications for all apps** in develo
 If the Live Activity or Live Update does not appear:
 
 - ![iOS](/assets/iOS.svg)Make sure Live Activities are allowed in iOS **Settings → Home Assistant**, and accept the one-time privacy disclosure shown the first time an activity starts.
-- ![iOS](/assets/iOS.svg)Confirm the device runs iOS 17.2 or later on an iPhone. Live Activities are not available on iPad.
+- ![iOS](/assets/iOS.svg)Confirm the device runs iOS 17.2 or later on an iPhone or iPad.
 - ![iOS](/assets/iOS.svg)Make sure your phone's connectivity is stable and Home Assistant can be reached from where you are (home or away), otherwise token exchange will fail and live activity will not start/update.
 - ![iOS](/assets/iOS.svg)If updates stop refreshing, check that your automation is not updating more often than about once every 15 seconds, as iOS throttles frequent updates.
 - ![iOS](/assets/iOS.svg)If a Live Activity does not start, send a `clear_notification` command for that `tag` to clear any stale activity, then try again — or start the new activity with a different `tag`.
