@@ -682,7 +682,7 @@ By default Home Assistant notifications do not show up in the Android Auto inter
 
 ### Live Activities
 
-On iOS 17.2+, `live_update: true` starts a **Live Activity** on the Lock Screen and Dynamic Island — the same field Android uses for [Live Updates](#live-updates), so a single automation targets both platforms.
+On iOS 17.2+, `live_update: true` starts a **Live Activity** on the Lock Screen and Dynamic Island. This is the same field Android uses for [Live Updates](#live-updates), so a single automation targets both platforms.
 
 See [Live Activities and Live Updates](live-activities.md) for the full payload reference, examples, and platform-specific behavior.
 
