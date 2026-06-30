@@ -825,6 +825,7 @@ On Android you can control the device\'s volume level by sending `message: comma
 | `notification_stream` | Set the volume level for the notification stream. |
 | `ring_stream` | Set the volume level for the ring stream. |
 | `system_stream` | Set the volume level for the system stream. |
+| `assistant_stream` | <span class="beta">BETA</span> Set the volume level for the assistant stream. Only available on Android 17+ and requires the app to be set as the default assistant. |
 | Anything else | The notification will post as a normal notification and the command will not process. |
 <br />
 
