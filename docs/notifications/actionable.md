@@ -52,6 +52,7 @@ Each action may consist of the following keys:
 | `title` | **Required**. The title of the button shown in the notification | |
 | `uri` | **Optional**. The URL to open when tapped | ![Android](/assets/android.svg) Android requires setting the `action` to `URI` to use this key. See [notes below](#uri-values). |
 | `behavior` | **Optional**. Set to `textInput` to prompt for text to return with the event. This also occurs when setting the action to `REPLY`. | Using this key allows you to use the `action` key to differentiate actions. |
+| `authenticationRequired` | **Optional**. If `true`, the device needs to be unlocked to use the action. | ![Android](/assets/android.svg) requires Android 12+, ![iOS](/assets/iOS.svg) supported on all versions.  |
 
 ### ![Android](/assets/android.svg) Android specific options
 
@@ -68,7 +69,6 @@ All of the following keys are optional.
 | Key | Meaning | Notes |
 | --- | --- | --- |
 | `activationMode` | Set to `foreground` to launch the app when tapped. Defaults to `background` which just fires the event. | This is automatically set to `foreground` when providing a `uri`. |
-| `authenticationRequired` | `true` to require entering a passcode to use the action. | |
 | `destructive` | `true` to color the action's title red, indicating a destructive action. | |
 | `textInputButtonTitle` | Title to use for text input for actions that prompt. | |
 | `textInputPlaceholder` | Placeholder to use for text input for actions that prompt. | |
@@ -368,12 +368,4 @@ The above is the minimum necessary to migrate. You can also rewrite your automat
 
 ![iOS](/assets/iOS.svg)Specific
 
-### iOS 13 and later
-
-* All devices support notification expanding by performing a right to left swipe and pressing 'View' in the lock screen or pressing and holding, but on 3D Touch-enabled devices you may still need to apply some force to do it. If you're not in the lock screen, you can also pull the notification down to expand it.
-
-### Prior to iOS 13
-
-*   For devices that support 3D Touch - a firm press on the notification will expand it, showing the action buttons underneath. Supported devices include the iPhone 6S, iPhone 6S Plus, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPhone XS and iPhone XS Max. If not in lock screen, you can also pull the notification down to expand it.
-
-*   For devices that do not support "3D Touch" (such as the iPhone 6 and below, iPhone SE, iPhone XR and iPads), you perform a left to right swipe on the notification, then tap on the 'View' button. This will expand the notification and show the relevant action buttons underneath. If not in lock screen, you need to pull the notification down to expand it.
+All devices support notification expanding by performing a right to left swipe and pressing 'View' in the lock screen or pressing and holding. If you're not in the lock screen, you can also pull the notification down to expand it.

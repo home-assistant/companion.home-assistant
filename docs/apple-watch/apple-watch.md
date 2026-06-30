@@ -10,11 +10,13 @@ Home Assistant has deep integration with the Apple Watch. You can display Home A
 Since iOS App version 2024.9 release, you can now customize your Home Assistant watch experience using `Scripts`, `Scenes`, and `iOS Actions`.
 Using your iPhone, open the Companion app settings and under the **Apple Watch** section, look for **Configuration**. If you already had **iOS Actions** created, they will be migrated into the configuration screen. Select **Save** and reload on your watch.
 
-<img src='/assets/ios/watch-config.png' alt="Watch cofniguration screen" />
+<img src='/assets/ios/watch-config.png' alt="Watch configuration screen" />
 
 :::info requirements
 The Apple Watch integration requires watchOS 8. In order to install watchOS 8 you must have an Apple Watch Series 3 or newer. You can identify your Apple Watch model [here](https://support.apple.com/HT204507).
 :::
+
+Since iOS App version 2026.3 release, you can organize `Scripts`, `Scenes` and `iOS Actions` into folders.
 
 ## Complication types
 
@@ -26,8 +28,4 @@ The Apple Watch has a variety of Faces and Complications. It's useful to consult
 
 :::info Supported Complication types
 As of watchOS 9, several (legacy) Complication types are no longer supported by Apple. The following Complication types can be used for watchOS 9 and higher: Graphic Circular, Graphic Corner, Graphic Rectangular & Modular Large. Further details on the different types can be found in the [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/complications).
-:::
-
-:::note app version 
-Ring and Gauge features do not work in app releases prior to 2020.7.
 :::

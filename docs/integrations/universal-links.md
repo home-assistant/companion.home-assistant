@@ -2,15 +2,6 @@
 title: "Universal Links, NFC & QR Tags"
 id: 'universal-links'
 ---
-
-Support for these features is active under development and may not be fully released yet.
-
-| Feature   | ![iOS](/assets/iOS.svg) | ![Android](/assets/android.svg) Android |
-| --------- | ----------------------------- | --------------------------------------- |
-| NFC Tags  | 2020.5                        | 2.2.0                                   |
-| QR Tags   | 2020.5                        | 2.2.0                                   |
-| Old-Style | 2019.1                        | Not Supported                           |
-
 ## NFC Tags & QR Codes
 
 Home Assistant supports scanning tags as a trigger for your automations. Scanned tags are collected on the [Tag Panel in Settings](https://my.home-assistant.io/redirect/tags/). This allows you to easily manage your used tags and give them friendly names. 

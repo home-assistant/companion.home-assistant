@@ -13,7 +13,6 @@ module.exports = {
 ],
     'Core Features': [
       'core/core',
-      'core/actions',
       'core/android-flavors',
       'core/location',
       'core/sensors'],
@@ -49,6 +48,7 @@ module.exports = {
       'integrations/gestures',
       'integrations/haptics',
       'integrations/sharing',
+      'integrations/ios-kiosk-mode',
       'integrations/ios-widgets',
       'integrations/siri-shortcuts',
       'integrations/theming',
@@ -57,7 +57,6 @@ module.exports = {
       'integrations/x-callback-url'],
     'Apple Watch': [
       'apple-watch/apple-watch',
-      'apple-watch/watch-actions',
       'apple-watch/complications'
     ],
     'Wear OS': [
@@ -68,7 +67,8 @@ module.exports = {
       'android-auto/android-auto'
     ],
     'CarPlay': [
-      'carplay/carplay'
+      'carplay/carplay',
+      'carplay/assist'
     ],
     'Meta Quest': [
       'meta-quest/meta-quest'
@@ -76,6 +76,7 @@ module.exports = {
     'Troubleshooting': [
       'troubleshooting/faqs',
       'troubleshooting/errors',
+      'troubleshooting/ios-developer-account-migration',
       'troubleshooting/networking',
       'troubleshooting/resetting',
       'troubleshooting/troubleshooting-integrations',
