@@ -11,6 +11,7 @@ id: "live-activities"
 :::info Requirements
 - ![iOS](/assets/iOS.svg)Live Activities are currently in <span class="beta">Labs</span> and available only in the TestFlight version of the app.
 - ![iOS](/assets/iOS.svg)17.2 or later on iPhone and iPad, with macOS mirroring what is in your iPhone.
+- ![iOS](/assets/iOS.svg)Home Assistant Core 2026.7.0 or later.
 - ![iOS](/assets/iOS.svg)Live Activity requires a hand shake between app and Home Assistant itself to sync tokens, if your phone connectivity is unstable or you are not at home and don't have a remote connection configured, this token had shake will not occur and the live activity itself will not be received/updated.
 :::
 
