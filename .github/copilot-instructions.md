@@ -122,7 +122,7 @@ similar to text message alerts.
    <!-- TODO: Add screenshot showing the name of the device under the server -->
    :::
 
-   ![iOS](/assets/iOS.svg) On iOS, the action might be called `notify.mobile_app_iphone`.
+   ![iOS](/assets/iOS.svg)On iOS, the action might be called `notify.mobile_app_iphone`.
 
    ![Android](/assets/android.svg) On Android, it might be called `notify.mobile_app_pixel_7`.
 
@@ -140,7 +140,7 @@ similar to text message alerts.
 
 If the notification does not appear:
 
-- ![iOS](/assets/iOS.svg) Make sure notifications are enabled in iOS **Settings** > **Home Assistant** > **Notifications**.
+- ![iOS](/assets/iOS.svg)Make sure notifications are enabled in iOS **Settings** > **Home Assistant** > **Notifications**.
 - ![Android](/assets/android.svg) Check that the app has notification permissions in Android **Settings** > **Apps** > **Home Assistant** > **Notifications**.
 ```
 
@@ -220,6 +220,7 @@ Use platform icons to indicate iOS-only or Android-only features:
 ```
 
 When a feature applies to both platforms, no icon is needed. Place icons inline with text or in table cells.
+When you use inline iOS-only platform markers (e.g. `![iOS](/assets/iOS.svg)`), do not add a space between the icon and the following text.
 
 ## Docusaurus syntax
 
