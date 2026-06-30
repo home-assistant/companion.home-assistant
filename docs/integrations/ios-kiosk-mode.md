@@ -6,145 +6,152 @@ id: 'ios-kiosk-mode'
 ![iOS](/assets/iOS.svg)
 
 :::info
-Kiosk mode is a <span class="beta">LABS</span> feature in the iOS Companion app, available starting with version 2026.4.0. Behavior and settings may change as the feature evolves.
+Kiosk mode is a <span class="beta">LABS</span> feature in the iOS Companion app. Behavior and settings may still change as the feature evolves. Push notification commands are currently available in TestFlight only.
 :::
 
-Kiosk mode turns an iPhone or iPad into a dedicated Home Assistant display. It is designed for wall-mounted tablets, kitchen displays, bedside panels, and any setup where the device is meant to stay on and display a Home Assistant dashboard.
+Kiosk mode turns an iPhone or iPad into a dedicated Home Assistant display. It is designed for wall-mounted tablets, kitchen displays, bedside panels, and any setup where the device should stay on and show a single dashboard.
 
-When kiosk mode is on, the app hides system UI for a more immersive look, prevents the screen from auto-locking, lets the kiosk control display brightness, and shows a screensaver after a period of inactivity. Kiosk settings can be opened from **Companion app settings** > **Kiosk Mode** or with a configurable secret exit gesture, and Face ID, Touch ID, or your device passcode can be required for extra protection.
+When kiosk mode is on, the app opens a chosen server and dashboard, can hide the Home Assistant sidebar and dashboard controls as well as the iOS status bar, keeps the screen awake, can reload the dashboard on a schedule, and shows a screensaver after a period of inactivity. A small, configurable button provides discreet access back to the kiosk settings, optionally protected by Face ID, Touch ID, or your device passcode.
 
 :::info
 Kiosk mode is iOS-only. Android users can achieve a similar setup with the [Home App (launcher)](android-home-app-launcher.md) feature.
 :::
 
+<p>
+  <img alt="Kiosk mode settings showing the Enabled and Authentication toggles and the Display section" src="/assets/ios/kiosk-mode-settings.png" width="500" />
+</p>
+
 ## Requirements
 
-- An iPhone or iPad running iOS or iPadOS 17.0 or later.
-- The Home Assistant Companion app, version 2026.4.0 or later, from the App Store.
-- Face ID, Touch ID, or a device passcode set up on the device, if you want to require authentication to change kiosk settings.
-
-<p>
-  <img alt="Kiosk Mode settings — top" src="/assets/ios/kiosk-settings-1.png" width="320" />
-  <img alt="Kiosk Mode settings — Brightness and Screensaver" src="/assets/ios/kiosk-settings-2.png" width="320" />
-  <img alt="Kiosk Mode settings — Screensaver and Clock Display" src="/assets/ios/kiosk-settings-3.png" width="320" />
-</p>
+- An iPhone or iPad running 2026.7.0+ version of iOS or iPadOS.
+- The Home Assistant Companion app with the Kiosk mode Labs feature.
+- To hide the sidebar and top bar controls, a version of Home Assistant whose frontend supports kiosk mode.
+- Face ID, Touch ID, or a device passcode set up on the device, if you want to require authentication to open the kiosk settings.
 
 ## Enabling kiosk mode
 
 1. Open the Home Assistant app.
-2. Go to **Companion app settings** > **Kiosk Mode**.
-3. Turn on **Enable Kiosk Mode**.
+2. Go to **Settings** > **Kiosk mode**.
+3. Turn on **Enabled**.
 
-For best results, navigate to the dashboard you want the device to display before enabling kiosk mode. That dashboard remains visible when the screen wakes from the screensaver.
+## Display
 
-## What happens when kiosk mode is on
+The **Display** section controls what is shown when the app opens in kiosk mode.
 
-- The iOS status bar (clock, battery, signal) is hidden by default for a cleaner look.
-- The device does not auto-lock, so the screen stays on.
-- The kiosk can control display brightness.
-- After a period of inactivity, the screensaver activates. Touching the screen wakes it.
-- A secret exit gesture appears on the screen as a hidden corner tap target, providing a quick way to open kiosk settings without going through the Companion app settings. If device authentication is enabled, Face ID, Touch ID, or your device passcode is required to open the settings.
+- **Server**: The Home Assistant server to display.
+- **Dashboard**: The dashboard to open. Choose **Default** to open the server's default dashboard (the one Home Assistant would normally open for you).
 
-## Security and exit options
+The chosen server and dashboard are the ones shown whenever the app opens in kiosk mode.
 
-The **Security & Display** section controls how kiosk settings are protected and how you get back to them.
+## Authentication
 
-### Device authentication
+Turn on **Authentication** to require Face ID, Touch ID, or your device passcode before the kiosk settings can be opened. With this on, the settings are covered by a lock screen until you authenticate, so others cannot change the configuration or leave kiosk mode.
 
-Turn on **Device Authentication** to require Face ID, Touch ID, or your device passcode before kiosk settings can be changed. With this setting on, even if someone discovers the secret exit gesture, they cannot exit kiosk mode or alter any settings without your biometrics or passcode.
+## Customization
 
-### Secret exit gesture
+The **Customization** section controls how the kiosk behaves while it is running.
 
-The secret exit gesture is a quick way to open kiosk settings without using the Companion app settings. By default, you tap the bottom-right corner three times in a row to bring up the settings.
-
-You can configure:
-
-- **Secret Exit Gesture**: Turn the gesture on or off.
-- **Exit Gesture Corner**: Choose which screen corner to tap. Options are **Top Left**, **Top Right**, **Bottom Left**, and **Bottom Right**.
-- **Taps Required**: Set how many taps in a row are needed to trigger the gesture.
-
-A higher tap count makes accidental triggers less likely but takes a little longer to perform.
-
-You can still reach kiosk settings through **Companion app settings** > **Kiosk Mode** even when the secret gesture is off. The gesture is mostly useful when the device is mounted out of easy reach and you want a single-tap way back to the settings.
-
-### Hide status bar
-
-Turn off **Hide Status Bar** if you would rather see the iOS status bar (time, battery, Wi-Fi indicator) at the top of the screen during kiosk mode. It is hidden by default.
+- **Keep screen on**: Prevents the device from auto-locking, so the screen stays on. When off, the device follows its normal Auto-Lock setting from iOS **Settings** > **Display & Brightness** > **Auto-Lock**.
+- **Hide sidebar and top bar controls**: Hides the Home Assistant sidebar and the dashboard's edit, add, and search controls for a cleaner, read-only display. This relies on the Home Assistant frontend, so it requires 2025.2.0+ version of Home Assistant.
+- **Hide status bar**: Hides the iOS status bar (time, battery, Wi-Fi indicator) at the top of the screen.
+- **Auto reload**: Reloads the dashboard automatically on a schedule. Choose **Never** or an interval from 1 minute to 1 hour.
+- **Screensaver**: Opens the screensaver settings (see [Screensaver](#screensaver) below).
 
 :::note
 On iPad, when the app is running in Split View or Slide Over, iOS does not allow apps to hide the status bar. Run Home Assistant full-screen for the most immersive kiosk experience.
 :::
 
-### Prevent auto-lock
+## Configuration access
 
-**Prevent Auto-Lock** stops iOS from turning the screen off after the system idle timeout. This is on by default and is what keeps the screen on all the time.
+Because kiosk mode hides the usual navigation, a small button is shown on top of the dashboard to get back to the kiosk settings.
 
-If you turn this off, your device will follow its normal Auto-Lock setting from iOS **Settings** > **Display & Brightness** > **Auto-Lock**.
+- **Kiosk settings entry position**: Choose which corner the button appears in — **Top leading**, **Top trailing**, **Bottom leading**, or **Bottom trailing**.
 
-## Brightness
-
-The **Brightness** section lets the kiosk control how bright the display is.
-
-- **Brightness Control**: Turn on to let kiosk mode set the brightness. Turn off to leave brightness control to iOS.
-- **Manual Brightness**: When brightness control is on, choose the brightness level from 0 to 100 percent.
-
-This is useful for wall tablets in a dark room, where the default iOS auto-brightness can make the display too bright at night.
+Tapping the button opens the kiosk settings directly. If **Authentication** is on, you must authenticate with Face ID, Touch ID, or your device passcode first. You can also always reach the settings from **Settings** > **Kiosk mode**.
 
 ## Screensaver
 
 After a period of inactivity, the screensaver replaces the dashboard with a lower-power display. Touching the screen wakes it back up to the dashboard.
 
-### Modes
+In the **Screensaver** screen:
 
-In the **Screensaver** section, choose a **Mode**:
+- **Enabled**: Turn the screensaver on or off.
+- **Mode**: Choose what the screensaver shows:
+  - **Clock**: A full-screen clock.
+  - **Dim**: Keeps the dashboard visible but dimmed.
+  - **Blank**: A black screen. The most power-efficient option, and the best choice for OLED displays.
+- **Time to start**: How long the device must be untouched before the screensaver activates, from 30 seconds to 1 hour. Choose **Push notification controlled** to disable the inactivity timer entirely and only show or hide the screensaver through [remote commands](#remote-commands).
+- **Dim level**: When **Mode** is set to **Dim**, controls how bright the screen stays.
 
-- **Clock**: Shows a full-screen clock. The look of the clock can be customized in the **Clock Display** section.
-- **Dim**: Keeps the dashboard visible at a low brightness. Useful when you want to glance at the dashboard without fully waking the screen.
-- **Blank**: Shows a black screen. The most power-efficient option, and the best choice for OLED displays.
+When **Mode** is set to **Clock**, you can also adjust:
 
-### Timeout
+- **Clock style**: **Large**, **Medium**, or **Small**.
+- **Show date**: Show the current date below the time.
+- **Show seconds**: Show seconds on the clock.
 
-**Timeout** sets how long the device must be untouched before the screensaver activates. The available values range from 30 seconds to 30 minutes.
+Use the **Preview** button to see the screensaver full-screen with your current settings. Tap anywhere to return to the settings.
 
-### Dim level
+## Remote commands (Currently available only in TestFlight)
 
-When **Mode** is set to **Dim**, **Dim Level** controls how bright the display stays. Lower values save more power and are easier on the eyes at night.
+While kiosk mode is running, you can control it from Home Assistant by sending a notification whose `message` is a kiosk command. This is useful for automations — for example, showing the screensaver at night, or bringing a camera up on a wall panel when motion is detected.
 
-### Pixel shift (OLED)
+:::important
+Kiosk commands are only handled while the Companion app is open and in the foreground — the normal state for a wall-mounted kiosk. They are ignored while the app is in the background or closed.
+:::
 
-**Pixel Shift (OLED)** slightly moves the screensaver content over time to help prevent burn-in on OLED displays. Leave this on for OLED iPhones and iPads. There is no harm in leaving it on for LCD devices.
+The available commands are:
 
-### Clock display options
+| `message` | Action |
+| --------- | ------ |
+| `kiosk_show_screensaver` | Show the screensaver immediately. Requires screensaver enabled in kiosk settings. |
+| `kiosk_hide_screensaver` | Hide the screensaver and reset the inactivity timer. |
+| `kiosk_show_camera` | Show a full-screen camera stream. Requires an `entity_id` pointing to a `camera.` entity. |
+| `kiosk_hide_camera` | Hide the camera stream. |
+| `kiosk_set_brightness` | Set the screen brightness. Requires `level`, a percentage from `0` to `100`. |
+| `kiosk_set_volume` | Set the system volume. Requires `volume`, a percentage from `0` to `100`. |
+| `kiosk_reload` | Reload the dashboard. |
+| `kiosk_default` | Return to the configured kiosk server and dashboard (or the server default when no dashboard is set). Useful to make sure the kiosk is back on its main dashboard after someone has navigated away. |
 
-When **Mode** is set to **Clock**, the **Clock Display** section lets you adjust the clock:
+```yaml
+automation:
+  - alias: Show the front door camera on the kiosk
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "kiosk_show_camera"
+          data:
+            entity_id: "camera.front_door"
+```
 
-- **Clock Style**: Choose **Digital**, **Analog**, **Large**, or **Minimal**.
-- **Show Seconds**: Display seconds on the digital clock styles.
-- **Show Date**: Show the current date below the time.
-- **24-Hour Format**: Switch between 12-hour and 24-hour time.
+These commands are only acted on when **Accept kiosk remote commands** is enabled in the kiosk settings (on by default). Turn it off on any device that should ignore remote kiosk commands. See [Notification Commands](../notifications/commands.md) for the full list of supported commands.
 
 ## Disabling kiosk mode
 
-1. Open kiosk settings using either method:
-   - **Companion app settings** > **Kiosk Mode**.
-   - The secret exit gesture, if enabled. By default, tap the bottom-right corner three times.
-2. If device authentication is on, authenticate with Face ID, Touch ID, or your device passcode.
-3. Turn off **Enable Kiosk Mode**.
+1. Open the kiosk settings using either method:
+   - Tap the configuration-access button in the corner you chose.
+   - Go to **Settings** > **Kiosk mode**.
+2. If **Authentication** is on, authenticate with Face ID, Touch ID, or your device passcode.
+3. Turn off **Enabled**.
 
 ## Troubleshooting
 
-### I can't get back to kiosk settings
+### The sidebar or dashboard controls aren't hiding
 
-- Open **Companion app settings** > **Kiosk Mode**. This works whether or not the secret gesture is enabled.
-- If you are using the secret gesture, tap the correct corner the required number of times in quick succession. By default, this is three taps in the bottom-right corner. The corner and tap count are configurable in kiosk settings.
-- If device authentication is on, you must authenticate after opening kiosk settings. If Face ID or Touch ID isn't working, you can fall back to your device passcode.
+- **Hide sidebar and top bar controls** depends on the Home Assistant frontend. Make sure your Home Assistant is 2025.2.0+ to support kiosk mode.
 
 ### The status bar isn't hiding
 
 - iOS does not allow apps to hide the status bar when running in Split View or Slide Over. Make sure Home Assistant is running full-screen.
-- Make sure **Hide Status Bar** is on in the **Security & Display** section.
+- Make sure **Hide status bar** is on in the **Customization** section.
 
 ### The screen still turns off
 
-- Make sure **Prevent Auto-Lock** is on. With this setting on, kiosk mode overrides the system Auto-Lock setting while kiosk mode is active.
+- Make sure **Keep screen on** is on. While it is on, kiosk mode overrides the system Auto-Lock setting.
 - If the device is plugged in but still sleeping, check for any device management profiles or Screen Time limits that might be forcing the screen off.
+
+### I can't find the way back to the settings
+
+- The configuration-access button is shown in the corner selected by **Kiosk settings entry position**. If the screensaver is showing, tap once to wake the screen first, then tap the button.
+- You can always open the settings from **Settings** > **Kiosk mode**.
