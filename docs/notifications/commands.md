@@ -690,6 +690,8 @@ To re-enable it:
 ```adb shell cmd audio set-hardening 1```
 
 Disabling this protection is a system-wide developer workaround and is not recommended for normal use. It may allow apps to change audio behavior from the background without clear user interaction, which can lead to unexpected ringer, volume, or audio playback changes.
+
+Note that this ADB command does not persist across device restarts. You must run it again after each reboot.
 :::
 
 | `command` | Description |
