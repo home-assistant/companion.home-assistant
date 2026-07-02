@@ -92,7 +92,9 @@ A YAML example of the `notify.send_message` action in an automation using a grou
               - notify_device_3
           data:
             message: "Something happened at home!"
-To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/integrations/group#notify-groups):
+You can also send notifications to multiple devices by following the next steps. 
+
+1. Create a [notification group](https://www.home-assistant.io/integrations/group#notify-groups):
 ```yaml
 notify:
   - name: ALL_DEVICES
