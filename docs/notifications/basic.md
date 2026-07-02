@@ -59,6 +59,20 @@ The mobile_app platform provides many enhancements to the simple notification ge
 The Wear OS app has support for some notification features. Please check the [docs](../wear-os/wear-os.md#notifications) to see what is currently supported.
 :::
 
+If you want to send a notification message with an optional title and no additional features to one or more mobile phones or other devices, you can simply use the action `notify.send_message` (**Send a notification message** in the UI). The block `target` and the data attribute `message` are required. The data atribute `title` is optional.
+
+A YAML example of this action in an automation:
+```yaml
+automation:
+  - alias: "Send Notification"
+    trigger:
+      ...
+    action:
+      - action: notify.send_message
+        target:
+          entity_id: notify.my_device
+        data:
+          message: "Notification text"
 ## Sending notifications to multiple devices
 
 To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/integrations/group#notify-groups):
