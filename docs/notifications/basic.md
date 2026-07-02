@@ -105,7 +105,7 @@ notify:
       - action: mobile_app_ipad_one
       - action: mobile_app_pixel_4_xl
 ```
-Now, you can send notifications to everyone in the group using:
+2. Send notifications to everyone in the group using:
 ```yaml
   automation:
     - alias: "Notify Mobile app group"
