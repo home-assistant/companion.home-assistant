@@ -695,7 +695,7 @@ The pedometer sensors provide step-counting data from the device\'s built-in mot
 
 ## Apple Health sensors
 ![iOS](/assets/iOS.svg)<br />
-<span class='beta'>BETA</span> Apple Health sensors read health and fitness data from HealthKit. They are opt-in and require Apple Health read permission. To enable them, go to **Companion App Settings** > **Sensors**, enable **Apple Health Sensors**, and allow the requested Health permissions.
+<span class='beta'>BETA</span> Apple Health sensors read health and fitness data from HealthKit. They are opt-in and require Apple Health read permission. To use them, go to **Companion App Settings** > **Sensors**, request Apple Health access, allow the requested Health permissions, and enable the individual Apple Health sensors you want to share.
 
 Apple Health sensors update with the normal iOS sensor update cycle. They do not enable HealthKit background delivery.
 
