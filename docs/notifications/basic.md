@@ -75,6 +75,23 @@ automation:
           message: "Notification text"
 ## Sending notifications to multiple devices
 
+A simple way to send a notification message to multiple devices is to use the action `notify.send_message`. The device or devices you want to send the message to must be added in the `target` block. Alternatively, you can also assign an area or label to them and then add the label or area as the target. 
+
+A YAML example of the `notify.send_message` action in an automation using a group of devices as the `target` is:
+```yaml
+  automation:
+    - alias: "Notify Mobile app group"
+      trigger:
+        ...
+      action:
+        - action: notify.send_message
+          target:
+            entity_id:
+              - notify.device_1
+              - notify.device_2
+              - notify_device_3
+          data:
+            message: "Something happened at home!"
 To send notifications to multiple devices, create a [notification group](https://www.home-assistant.io/integrations/group#notify-groups):
 ```yaml
 notify:
