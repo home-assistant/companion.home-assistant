@@ -53,6 +53,8 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
 | `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
+| `sensor.health_resting_heart_rate` | None | The latest resting heart rate value available from Apple Health. Units: beats per minute, bpm |
+| `sensor.health_steps` | None | The number of steps recorded in Apple Health since midnight local time. |
 | `sensor.location_permission` | None | The current location permission that was selected by the user. The permission can be set via the location permission popup or modified in the iOS settings. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
@@ -689,6 +691,18 @@ The pedometer sensors provide step-counting data from the device\'s built-in mot
 | `sensor.floors_descended` | The approximate number of floors descended by walking. |
 
 ![Android](/assets/android.svg) Android users will only have a `sensor.steps` entity which will represent the total number of steps taken since the last device reboot. A recommended approach to getting your daily step count is to use the [Utility Meter integration](https://www.home-assistant.io/integrations/utility_meter) with `cycle: daily`. This sensor will update during the normal sensor update interval and makes use of the [Motion Sensor](https://developer.android.com/guide/topics/sensors/sensors_motion?hl=en). This sensor requires the [Activity Recognition permission](https://developer.android.com/reference/android/Manifest.permission#ACTIVITY_RECOGNITION).
+
+
+## Apple Health sensors
+![iOS](/assets/iOS.svg)<br />
+<span class='beta'>BETA</span> Apple Health sensors read health and fitness data from HealthKit. They are opt-in and require Apple Health read permission. To enable them, go to **Companion App Settings** > **Sensors**, enable **Apple Health Sensors**, and allow the requested Health permissions.
+
+Apple Health sensors update with the normal iOS sensor update cycle. They do not enable HealthKit background delivery.
+
+| Sensor | Description |
+| --------- | --------- |
+| `sensor.health_steps` | The number of steps recorded in Apple Health since midnight local time. |
+| `sensor.health_resting_heart_rate` | The latest resting heart rate value available from the last 7 days. |
 
 
 ## Phone sensors
