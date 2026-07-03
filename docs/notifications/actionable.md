@@ -107,6 +107,9 @@ You can manage these under **Settings** > **Companion app** > **Notifications** 
 
 When a snoozed notification comes back, its title is prefixed with "↺" so you can tell it was snoozed.
 
+:::tip
+Android 8.0+ natively supports snoozing notifications from any app, including Home Assistant. You may need to enable notification snoozing in the system settings for notifications.
+:::
 ### `uri` values
 
 To navigate to a frontend page, use the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/dashboards/views/#path) in the defined view. If you plan to use a dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/dashboards/dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/dashboards/views/#path) within that dashboard. For example:
