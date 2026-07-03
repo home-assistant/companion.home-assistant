@@ -61,8 +61,8 @@ action:
         when: 2700
         when_relative: true
         notification_icon: mdi:washing-machine
-        notification_icon_color: "#2196F3",
-        color: "#2196F3",
+        notification_icon_color: "#2196F3"
+        color: "#2196F3"
 ```
 
 ![Android Live Update showing "Washing Machine / Rinsing · 1 of 2" on the Lock Screen](/assets/android/live_updates_washing_lockscreen.png)
