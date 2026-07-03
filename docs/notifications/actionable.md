@@ -103,7 +103,7 @@ action:
 
 On iOS and macOS the app adds snooze actions to notifications automatically, so you do not need to configure them. Snoozing hides the notification and shows it again after the amount of time you pick.
 
-You can manage these under Settings, Notifications, Snooze Actions. Some durations are enabled by default, and you can add your own durations or turn off the ones you do not want.
+You can manage these under **Settings** > **Companion app** > **Notifications** >  **Snooze Actions**. Some durations are enabled by default, and you can add your own durations or turn off the ones you do not want.
 
 When a snoozed notification comes back, its title is prefixed with "↺" so you can tell it was snoozed.
 
