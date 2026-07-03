@@ -99,6 +99,14 @@ action:
             icon: "sfsymbols:bell.slash"
 ```
 
+### ![iOS](/assets/iOS.svg) Snooze actions
+
+On iOS and macOS the app adds snooze actions to notifications automatically, so you do not need to configure them. Snoozing hides the notification and shows it again after the amount of time you pick.
+
+You can manage these under Settings, Notifications, Snooze Actions. Some durations are enabled by default, and you can add your own durations or turn off the ones you do not want.
+
+When a snoozed notification comes back, its title is prefixed with "↺" so you can tell it was snoozed.
+
 ### `uri` values
 
 To navigate to a frontend page, use the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/dashboards/views/#path) in the defined view. If you plan to use a dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/dashboards/dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/dashboards/views/#path) within that dashboard. For example:
