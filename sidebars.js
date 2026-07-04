@@ -31,6 +31,7 @@ module.exports = {
       'notifications/notification-details',
       'notifications/notification-cleared',
       'notifications/notification-commands',
+      'notifications/live-activities',
       'notifications/notification-sounds',
       'notifications/notification-local',
       'notifications/notification-received',

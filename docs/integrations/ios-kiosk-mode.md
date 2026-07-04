@@ -6,7 +6,7 @@ id: 'ios-kiosk-mode'
 ![iOS](/assets/iOS.svg)
 
 :::info
-Kiosk mode is a <span class="beta">LABS</span> feature in the iOS Companion app. Behavior and settings may still change as the feature evolves.
+Kiosk mode is a <span class="beta">LABS</span> feature in the iOS Companion app. Behavior and settings may still change as the feature evolves. Push notification commands are currently available in TestFlight only.
 :::
 
 Kiosk mode turns an iPhone or iPad into a dedicated Home Assistant display. It is designed for wall-mounted tablets, kitchen displays, bedside panels, and any setup where the device should stay on and show a single dashboard.
@@ -91,7 +91,7 @@ When **Mode** is set to **Clock**, you can also adjust:
 
 Use the **Preview** button to see the screensaver full-screen with your current settings. Tap anywhere to return to the settings.
 
-## Remote commands
+## Remote commands (Currently available only in TestFlight)
 
 While kiosk mode is running, you can control it from Home Assistant by sending a notification whose `message` is a kiosk command. This is useful for automations — for example, showing the screensaver at night, or bringing a camera up on a wall panel when motion is detected.
 
@@ -103,10 +103,14 @@ The available commands are:
 
 | `message` | Action |
 | --------- | ------ |
-| `kiosk_show_screensaver` | Show the screensaver immediately. |
+| `kiosk_show_screensaver` | Show the screensaver immediately. Requires screensaver enabled in kiosk settings. |
 | `kiosk_hide_screensaver` | Hide the screensaver and reset the inactivity timer. |
 | `kiosk_show_camera` | Show a full-screen camera stream. Requires an `entity_id` pointing to a `camera.` entity. |
 | `kiosk_hide_camera` | Hide the camera stream. |
+| `kiosk_set_brightness` | Set the screen brightness. Requires `level`, a percentage from `0` to `100`. |
+| `kiosk_set_volume` | Set the system volume. Requires `volume`, a percentage from `0` to `100`. |
+| `kiosk_reload` | Reload the dashboard. |
+| `kiosk_default` | Return to the configured kiosk server and dashboard (or the server default when no dashboard is set). Useful to make sure the kiosk is back on its main dashboard after someone has navigated away. |
 
 ```yaml
 automation:

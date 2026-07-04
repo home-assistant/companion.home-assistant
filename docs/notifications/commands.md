@@ -11,13 +11,17 @@ The Companion apps offer a lot of different notification options. In place of po
 | ------- | ----------- |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 | `clear_badge` | Silently removes the badge from the App icon without displaying a notification. |
-| `clear_notification` | Removes a notification, [more details](basic.md#clearing). |
+| `clear_notification` | Removes a notification or a live activity, [more details](basic.md#clearing). |
 | `update_complications` | Updates the complications on a paired Apple Watch. [More details](/apple-watch/complications.md). |
 | `update_widgets`* | Updates 'Gauge' and 'Details' widgets introduced on App v2024.7 (iOS will decide if the update is allowed or not, so don't worry if it doesn't work all the time). |
-| `kiosk_show_screensaver` | Shows the kiosk screensaver. Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_show_screensaver` | Shows the kiosk screensaver. Only works while the app is open, [see below](#kiosk-mode-commands). Requires screensaver enabled in kiosk settings. |
 | `kiosk_hide_screensaver` | Hides the kiosk screensaver. Only works while the app is open, [see below](#kiosk-mode-commands). |
 | `kiosk_show_camera` | Shows a full-screen camera (requires `entity_id`). Only works while the app is open, [see below](#kiosk-mode-commands). |
 | `kiosk_hide_camera` | Hides the full-screen camera. Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_set_brightness` | Sets the screen brightness (requires `level`). Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_set_volume` | Sets the system volume (requires `volume`). Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_reload` | Reloads the dashboard. Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_default` | Returns to the configured kiosk server and dashboard. Only works while the app is open, [see below](#kiosk-mode-commands). |
 
 \* On iOS, manual widget reloads are limited to around 40-70 per 24 hour, depending on how often you look at the widget. This will not always reset at exactly midnight.
 
@@ -538,6 +542,12 @@ Kiosk commands are only handled while the Companion app is open and in the foreg
 | `kiosk_hide_screensaver` | Hide the screensaver and reset the inactivity timer. |
 | `kiosk_show_camera` | Show a full-screen camera stream. Requires an `entity_id` pointing to a `camera.` entity. |
 | `kiosk_hide_camera` | Hide the camera stream. |
+| `kiosk_set_brightness` | Set the screen brightness. Requires `level`. |
+| `kiosk_set_volume` | Set the system volume. Requires `volume`. |
+| `kiosk_reload` | Reload the dashboard. |
+| `kiosk_default` | Return to the configured kiosk server and dashboard (or the server default when no dashboard is set). Useful to make sure the kiosk is back on its main dashboard after someone has navigated away. |
+
+`level` and `volume` are a percentage from `0` to `100`. A value of `1` or less is treated as a fraction, so `0.5` is the same as `50`.
 
 ```yaml
 automation:
@@ -561,6 +571,24 @@ automation:
           message: "kiosk_show_camera"
           data:
             entity_id: "camera.front_door"
+```
+
+```yaml
+automation:
+  - alias: Dim the kiosk and lower its volume at night
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "kiosk_set_brightness"
+          data:
+            level: 20
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "kiosk_set_volume"
+          data:
+            volume: 30
 ```
 
 ## Launch App
@@ -797,6 +825,7 @@ On Android you can control the device\'s volume level by sending `message: comma
 | `notification_stream` | Set the volume level for the notification stream. |
 | `ring_stream` | Set the volume level for the ring stream. |
 | `system_stream` | Set the volume level for the system stream. |
+| `assistant_stream` | <span class="beta">BETA</span> Set the volume level for the assistant stream. Only available on Android 17+ and requires the app to be set as the default assistant. |
 | Anything else | The notification will post as a normal notification and the command will not process. |
 <br />
 
