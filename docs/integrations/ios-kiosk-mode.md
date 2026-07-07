@@ -5,10 +5,6 @@ id: 'ios-kiosk-mode'
 
 ![iOS](/assets/iOS.svg)
 
-:::info
-Kiosk mode is a <span class="beta">LABS</span> feature in the iOS Companion app. Behavior and settings may still change as the feature evolves.
-:::
-
 Kiosk mode turns an iPhone or iPad into a dedicated Home Assistant display. It is designed for wall-mounted tablets, kitchen displays, bedside panels, and any setup where the device should stay on and show a single dashboard.
 
 When kiosk mode is on, the app opens a chosen server and dashboard, can hide the Home Assistant sidebar and dashboard controls as well as the iOS status bar, keeps the screen awake, can reload the dashboard on a schedule, and shows a screensaver after a period of inactivity. A small, configurable button provides discreet access back to the kiosk settings, optionally protected by Face ID, Touch ID, or your device passcode.
