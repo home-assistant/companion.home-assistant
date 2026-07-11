@@ -51,7 +51,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_update_sensors` | Updates all enabled sensors, if the state changed since the last update. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
 | `command_wake_word_detection` | Turn wake word detection for Assist on or off. |
-| `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. |
+| `command_webview` | Open the app to any dashboard, view or entity, or reload it, [see below](#webview) for how. |
 | `remove_channel`* | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
