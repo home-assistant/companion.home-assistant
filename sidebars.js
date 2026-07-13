@@ -72,6 +72,9 @@ module.exports = {
       'carplay/carplay',
       'carplay/assist'
     ],
+    'macOS': [
+      'macos/toolbar'
+    ],
     'Meta Quest': [
       'meta-quest/meta-quest'
     ],
