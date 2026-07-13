@@ -53,6 +53,7 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
 | `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
+| [Kiosk Sensors](#kiosk-sensors) | None | Sensors exposed by [Kiosk mode](../integrations/ios-kiosk-mode.md), reflecting the state of the kiosk device. |
 | `sensor.location_permission` | None | The current location permission that was selected by the user. The permission can be set via the location permission popup or modified in the iOS settings. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
@@ -556,6 +557,17 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 ![Android](/assets/android.svg)
 
 These sensors will reflect various states from the [Keyguard Manager](https://developer.android.com/reference/android/app/KeyguardManager). You will be able to determine if the device is actively locked, has a password setup or even if the device requires a password to unlock. These sensors will update with the periodic sensor interval.
+
+## Kiosk sensors
+![iOS](/assets/iOS.svg)<br />
+[Kiosk mode](../integrations/ios-kiosk-mode.md) adds sensors so automations can react to the state of the kiosk device. The **Kiosk Brightness**, **Kiosk Volume**, and **Kiosk Screensaver** sensors are only active while kiosk mode is enabled and turn on and off automatically as you enable or disable it. The **Kiosk Mode** sensor is always available so you can tell whether a device is currently acting as a kiosk. See [Kiosk mode](../integrations/ios-kiosk-mode.md#sensors) for the full description.
+
+| Sensor | Type | Description |
+| ------ | ---- | ----------- |
+| **Kiosk Mode** | `binary_sensor` | `on` while the app is running in kiosk mode, `off` otherwise. |
+| **Kiosk Brightness** | `sensor` (%) | The current screen brightness, as a percentage. |
+| **Kiosk Volume** | `sensor` (%) | The current device output volume, as a percentage. |
+| **Kiosk Screensaver** | `binary_sensor` | `on` while the screensaver is visible on screen, `off` when it is not. |
 
 ## Last reboot sensor
 ![Android](/assets/android.svg)<br />
