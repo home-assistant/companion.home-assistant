@@ -1,6 +1,6 @@
 ---
 title: "Toolbar"
-id: "macos-toolbar"
+id: "toolbar"
 ---
 
 ![macOS](/assets/macOS.svg)
