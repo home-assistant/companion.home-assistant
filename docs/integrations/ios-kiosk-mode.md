@@ -101,6 +101,8 @@ The available commands are:
 | --------- | ------ |
 | `kiosk_show_screensaver` | Show the screensaver immediately. Requires screensaver enabled in kiosk settings. |
 | `kiosk_hide_screensaver` | Hide the screensaver and reset the inactivity timer. |
+| `kiosk_set_screensaver_mode` | Set the screensaver mode. Requires `mode`, one of `clock`, `dim`, or `blank`. |
+| `kiosk_set_screensaver_brightness` | Set the screensaver dim level (how bright the screen stays in `dim` mode). Requires `level`, a percentage from `0` to `100`. |
 | `kiosk_show_camera` | Show a full-screen camera stream. Requires an `entity_id` pointing to a `camera.` entity. |
 | `kiosk_hide_camera` | Hide the camera stream. |
 | `kiosk_set_brightness` | Set the screen brightness. Requires `level`, a percentage from `0` to `100`. |
