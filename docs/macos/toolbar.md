@@ -43,7 +43,3 @@ The entity appears as a toolbar button using its icon. Clicking the button opens
 ### Managing added entities
 
 To review the entities you have added, go to **Settings** > **Companion app** > **Toolbar**. This screen lists your added entities and lets you remove them.
-
-:::note
-Entities can only be added from the more info dialog's **Add to** button described above. The settings screen is only for reviewing and removing them.
-:::
