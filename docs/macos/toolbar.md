@@ -7,6 +7,8 @@ id: "toolbar"
 
 On macOS, the Home Assistant app shows a toolbar above the main Home Assistant user interface. It gives you quick access to navigation and common actions, and you can customize it, including adding buttons for your own entities.
 
+![macOS toolbar](/assets/macos/toolbar.png)
+
 ### Default buttons
 
 Out of the box the toolbar includes:
