@@ -21,7 +21,7 @@ Out of the box the toolbar includes:
 
 Right-click the toolbar and choose **Customize Toolbar…**.
 
-From the customization panel you can drag buttons to add, remove, or reorder them, and drag in spacers to arrange the layout. Your changes are saved automatically and persist across launches.
+From the customization panel you can drag buttons to add, remove, or reorder them, and drag in spacers to arrange the layout. Your changes are saved automatically.
 
 In addition to the default buttons, the customization panel offers:
 
@@ -40,6 +40,8 @@ The entity appears as a toolbar button using its icon. Clicking the button opens
 
 ### Managing added entities
 
-To review the entities you have added, go to **Companion App Settings → Toolbar**. This screen lists your added entities and lets you remove them.
+To review the entities you have added, go to **Settings** > **Companion app** > **Toolbar**. This screen lists your added entities and lets you remove them.
 
-Note that entities can only be added from the more info dialog's **Add to** button described above, the settings screen is only for reviewing and removing them.
+:::note
+Entities can only be added from the more info dialog's **Add to** button described above. The settings screen is only for reviewing and removing them.
+:::
