@@ -560,14 +560,14 @@ These sensors will reflect various states from the [Keyguard Manager](https://de
 
 ## Kiosk sensors
 ![iOS](/assets/iOS.svg)<br />
-[Kiosk mode](../integrations/ios-kiosk-mode.md) adds sensors so automations can react to the state of the kiosk device. The **Kiosk Brightness**, **Kiosk Volume**, and **Kiosk Screensaver** sensors are only active while kiosk mode is enabled and turn on and off automatically as you enable or disable it. The **Kiosk Mode** sensor is always available so you can tell whether a device is currently acting as a kiosk. See [Kiosk mode](../integrations/ios-kiosk-mode.md#sensors) for the full description.
+[Kiosk mode](../integrations/ios-kiosk-mode.md) adds sensors so automations can react to the state of the kiosk device. The `sensor.kiosk_brightness`, `sensor.kiosk_volume`, and `binary_sensor.kiosk_screensaver` sensors are only active while kiosk mode is enabled and turn on and off automatically as you enable or disable it. The `binary_sensor.kiosk_mode` sensor is always available so you can tell whether a device is currently acting as a kiosk. See [Kiosk mode](../integrations/ios-kiosk-mode.md#sensors) for the full description.
 
-| Sensor | Type | Description |
-| ------ | ---- | ----------- |
-| **Kiosk Mode** | `binary_sensor` | `on` while the app is running in kiosk mode, `off` otherwise. |
-| **Kiosk Brightness** | `sensor` (%) | The current screen brightness, as a percentage. |
-| **Kiosk Volume** | `sensor` (%) | The current device output volume, as a percentage. |
-| **Kiosk Screensaver** | `binary_sensor` | `on` while the screensaver is visible on screen, `off` when it is not. |
+| Sensor | Description |
+| ------ | ----------- |
+| `binary_sensor.kiosk_mode` | `on` while the app is running in kiosk mode, `off` otherwise. |
+| `sensor.kiosk_brightness` | The current screen brightness, as a percentage. |
+| `sensor.kiosk_volume` | The current device output volume, as a percentage. |
+| `binary_sensor.kiosk_screensaver` | `on` while the screensaver is visible on screen, `off` when it is not. |
 
 ## Last reboot sensor
 ![Android](/assets/android.svg)<br />
