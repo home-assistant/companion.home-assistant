@@ -27,7 +27,7 @@ From the customization panel you can drag buttons to add, remove, or reorder the
 
 In addition to the default buttons, the customization panel offers:
 
-- **iOS Gesture actions as buttons:** The same actions you can assign to [gestures](../integrations/gestures.md), for example Show sidebar, Quick search, Search entities, Search devices, Search commands, Assist, Show servers list, Next/Previous server, Show settings, and Open debug.
+- iOS Gesture actions as buttons: The same actions you can assign to [gestures](../integrations/gestures.md), for example, **Show sidebar**, **Quick search**, **Search entities**, **Search devices**, **Search commands**, **Assist**, **Show servers list**, **Next/Previous server**, **Show settings**, and **Open debug**.
 - **Your added entities:** Any entities you have added to the toolbar (see below).
 
 ### Adding entities
