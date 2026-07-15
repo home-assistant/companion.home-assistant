@@ -13,11 +13,11 @@ On macOS, the Home Assistant app shows a toolbar above the main Home Assistant u
 
 Out of the box the toolbar includes:
 
-- **Back** and **Forward:** Navigate through your frontend history.
-- **Reload:** Reload the current page.
-- **Copy** and **Paste:** Copy the current selection, or paste into the frontend.
-- **Open in browser:** Open the current server in your default browser.
-- **Server picker:** Switch between servers. This button only appears when you have more than one server configured.
+1. **Back** and **Forward:** Navigate through your frontend history.
+2. **Reload:** Reload the current page.
+3. **Copy** and **Paste:** Copy the current selection, or paste into the frontend.
+4. **Open in browser:** Open the current server in your default browser.
+5. **Server picker:** Switch between servers. This button only appears when you have more than one server configured.
 
 ### Customizing the toolbar
 
