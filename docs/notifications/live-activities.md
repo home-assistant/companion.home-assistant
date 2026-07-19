@@ -400,7 +400,9 @@ To recolor the progress bar on its own, set `progress_bar_color` (same format), 
 
 #### Progress bar direction
 
-By default, the progress bar fills up as `progress` approaches `progress_max`. Set `progress_bar_direction: decreasing` to flip this: the bar shows the remaining portion and drains as progress advances, which suits values that are being used up, such as remaining time or a discharging battery. The percent label next to the bar keeps showing the actual `progress` value; only the bar's fill flips.
+By default, a progress bar built from `progress` and `progress_max` fills up as progress advances, and a countdown timer's bar drains toward empty. Set `progress_bar_direction` to override either default: `decreasing` makes the bar drain, and `increasing` makes it fill. Only the bar's fill direction flips; any progress value shown next to the bar stays unchanged.
+
+For example, a countdown timer's bar normally drains as time runs out. Add `progress_bar_direction: increasing` to make it fill up instead, so the bar reads as how much of the cycle is done rather than how much time is left:
 
 ```yaml
 action:
@@ -411,15 +413,16 @@ action:
       data:
         tag: washer_cycle
         live_update: true
-        progress: 900
-        progress_max: 3600
-        progress_bar_direction: decreasing
+        chronometer: true
+        when: 2700
+        when_relative: true
+        progress_bar_direction: increasing
         notification_icon: mdi:washing-machine
 ```
 
-With `progress: 900` of `progress_max: 3600`, the bar starts three-quarters full and drains toward empty as the cycle advances, while the label still reads 25%.
+The bar starts empty and fills on its own as the 45-minute countdown runs, reaching full when the timer ends.
 
-The field also applies to timer-driven bars: a countdown timer's bar drains by default, and setting `increasing` makes it fill up instead. If you send a value other than `increasing` or `decreasing`, the app ignores it and uses the default direction.
+If you send a value other than `increasing` or `decreasing`, the app ignores it and uses the default direction.
 
 #### Dynamic Island
 
