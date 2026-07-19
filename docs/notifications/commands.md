@@ -727,7 +727,7 @@ automation:
 
 This command requires activating Home Assistant as a device admin, which the app is unable to prompt or auto-accept. When you send the command while the app is open, the app opens the system screen to activate it; when the app is in the background, a missing-permission notification is shown instead. Send the command again after activating. The device admin holds only the policy needed to turn the screen off.
 
-If the device has a secure lock screen (PIN, pattern or password) the command is refused and the notification will post as normal, since turning the screen off would lock the device behind credentials. Deactivating the device admin while the screen is off turns it back on.
+If the device has a secure lock screen (PIN, pattern or password) the command is refused — and the device admin activation is never requested — since turning the screen off would lock the device behind credentials.
 
 :::tip
 To keep receiving commands over local push while the screen is off, set the [persistent connection](#persistent) to `always`.
