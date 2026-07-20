@@ -212,6 +212,8 @@ automation:
 
 In Android you can set the `color` of the notification, you can use either the color name or the hex code.
 
+![iOS](/assets/iOS.svg)On iOS, `color` instead sets the background color of a notification icon. See [Notification Icon and Color](#notification-icon-and-color).
+
 ```yaml
 automation:
   - alias: "Notify of Motion color"
@@ -447,6 +449,8 @@ Not all devices support HTML formatting in notifications, and some formatting ma
 
 You can set the icon for a notification by providing the `icon_url`. The URL provided must be either publicly accessible or can be a relative path (i.e. `/local/icon/icon.png`), more details can be found in [attachments](attachments.md). It is important to note that if you set the `image` then Android will not show the icon for the notification, the `image` will be shown in its place. So the `message` will be shown with the `image` and with the image as the icon.
 
+![iOS](/assets/iOS.svg)On iOS, `icon_url` is used as the sender icon of a communication notification. See [Notification Icon and Color](#notification-icon-and-color).
+
 ```yaml
 automation:
   - alias: "Notify of Motion icon"
@@ -648,6 +652,8 @@ On Android you have the option for making a notification only alert once on the 
 
 On Android you also have the option of changing the notification status bar icon to any icon on [Material Design](https://materialdesignicons.com/). By default the Home Assistant icon will appear. The expected format is the same in Home Assistant `mdi:cellphone`. If you provide an invalid icon name then no icon will be shown.
 
+![iOS](/assets/iOS.svg)On iOS, `notification_icon` instead sets the icon of a communication notification. See [Notification Icon and Color](#notification-icon-and-color).
+
 ```yaml
   - alias: Check your phone
     trigger:
@@ -685,6 +691,38 @@ By default Home Assistant notifications do not show up in the Android Auto inter
 On iOS 17.2+, `live_update: true` starts a **Live Activity** on the Lock Screen and Dynamic Island. This is the same field Android uses for [Live Updates](#live-updates), so a single automation targets both platforms.
 
 See [Live Activity and Live Updates](live-activities.md) for the full payload reference, examples, and platform-specific behavior.
+
+### Notification Icon and Color
+
+On iOS, you can give a notification a custom sender icon. When you do, the notification is shown as a communication notification, the same rounded-avatar style used by messaging apps. This requires the notification to have a `title`, which is used as the sender name.
+
+Provide the icon in one of two ways:
+
+- `icon_url`: a URL to an image to use as the icon. It must be publicly accessible or a relative path (such as `/local/icon/icon.png`), following the same rules as [attachments](attachments.md).
+- `notification_icon`: a [Material Design Icon](https://pictogrammers.com/library/mdi/) slug, such as `mdi:cellphone`.
+
+If both are set, `icon_url` takes precedence.
+
+When you use a `notification_icon`, you can also set its colors. These have no effect on an `icon_url` image. Both accept a hex value, such as `#03A9F4`.
+
+- `notification_icon_color`: the color of the icon glyph. Defaults to white.
+- `color`: the background color behind the icon. Defaults to the Home Assistant theme color.
+
+```yaml
+automation:
+  - alias: "Notify with a custom icon"
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "Washing machine"
+          message: "The cycle has finished"
+          data:
+            notification_icon: "mdi:washing-machine"
+            notification_icon_color: "#FFFFFF"
+            color: "#03A9F4"
+```
 
 ### Sounds
 By default the default notification sound (Tri-tone on iOS) will be played upon receiving a notification. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be disabled by setting `sound` to `none` in the data payload:
