@@ -30,6 +30,10 @@ Kiosk mode is iOS-only. Android users can achieve a similar setup with the [Home
 2. Go to **Settings** > **Kiosk mode**.
 3. Turn on **Enabled**.
 
+:::tip
+Kiosk mode configures what happens inside the Home Assistant app, but it can't prevent someone from leaving the app or turning the device off. For a truly dedicated display, also turn on [Guided Access](https://support.apple.com/en-us/111795) on the device: it locks the device to a single app until you enter a passcode. Triple-click the side or Home button to start Guided Access while the Home Assistant app is open.
+:::
+
 ## Display
 
 The **Display** section controls what is shown when the app opens in kiosk mode.
@@ -78,6 +82,7 @@ In the **Screensaver** screen:
   - **Blank**: A black screen. The most power-efficient option, and the best choice for OLED displays.
 - **Time to start**: How long the device must be untouched before the screensaver activates, from 30 seconds to 1 hour. Choose **Push notification controlled** to disable the inactivity timer entirely and only show or hide the screensaver through [remote commands](#remote-commands).
 - **Dim level**: When **Mode** is set to **Dim**, controls how bright the screen stays.
+- **Wake on camera motion**: Use the front camera to detect motion and treat it as activity, like touching the screen. See [Wake on camera motion](#wake-on-camera-motion) below. Only shown on devices with a front camera.
 
 When **Mode** is set to **Clock**, you can also adjust:
 
@@ -86,6 +91,20 @@ When **Mode** is set to **Clock**, you can also adjust:
 - **Show seconds**: Show seconds on the clock.
 
 Use the **Preview** button to see the screensaver full-screen with your current settings. Tap anywhere to return to the settings.
+
+### Wake on camera motion
+
+When **Wake on camera motion** is on, the app uses the front camera to detect motion and treats it as activity, like touching the screen:
+
+- The screensaver doesn't start while motion is detected.
+- When the screensaver is showing, motion dismisses it immediately and brings the dashboard back.
+- The inactivity timer only restarts once motion has stopped, so the screensaver starts after the [Camera motion sensor](../core/sensors.md#camera-motion-sensor)'s **Clear delay** plus the screensaver's **Time to start**.
+
+Motion detection sensitivity and frame rate are configured in the [Camera motion sensor](../core/sensors.md#camera-motion-sensor) settings, under **Settings** > **Companion app** > **Sensors**. You don't need to enable the sensor itself for this option to work.
+
+:::note
+With this option on, the camera stays active the whole time kiosk mode runs, and iOS shows the camera indicator (a green dot) in the status bar. The first time the camera is used, iOS asks for camera permission. Like all camera use, this only works while the app is open and in the foreground.
+:::
 
 ## Remote commands
 
