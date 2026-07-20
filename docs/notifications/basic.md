@@ -388,6 +388,11 @@ automation:
 
 :::info
 Starting in [Android 14](https://developer.android.com/about/versions/14/behavior-changes-all#non-dismissable-notifications) persistent notifications will be dismissable except when the device is locked or the "Clear All" button was selected.
+To restore the pre-Android 14 behavior where persistent notifications are not dismissible, the following ADB command can be used:
+```
+adb shell appops set --uid io.homeassistant.companion.android SYSTEM_EXEMPT_FROM_DISMISSIBLE_NOTIFICATIONS allow
+```
+This command exempts the app from the system restriction introduced in Android 14.
 :::
 
 To remove the persistent notification we send `clear_notification` to the `tag` that we defined.
