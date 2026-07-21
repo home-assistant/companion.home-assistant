@@ -107,6 +107,7 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | [App Importance Sensor](#app-importance-sensor) | None | The current importance of the app to determine if its in the foreground or cached. |
 | `sensor.app_memory` | [See Below](#app-memory-sensor) | Information about the memory that is available for the app. |
 | [App Usage Sensors](#app-usage-sensors) | None | Sensors that represent how the app is treated based on its usage. |
+| `sensor.assist_sensor` | `options` | Current state of the Voice Assistant (`idle`, `listening`, `thinking`, `speaking`, `not_supported`). |
 | [Audio Sensors](#audio-sensors) | None | Several different sensors around different types of audio detection from the device. |
 | [Battery Sensors](#battery-sensors) | None | Several different sensors around the state of the device\'s battery. |
 | [Bluetooth Sensors](#bluetooth-sensors) | [See Below](#bluetooth-sensors) | Several different sensors about the state of bluetooth on the device. Sensors are also available for beacon transmitting and monitoring. |
