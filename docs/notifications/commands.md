@@ -44,6 +44,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
 | `command_ringer_mode` | Control the ringer mode on the device, [see below](#ringer-mode) for how it works and whats required. |
 | `command_screen_brightness_level` | Control the screen brightness level on the device. |
+| `command_screen_off` | <span class='beta'>BETA</span> Turn off the device screen, [see below](#screen-off) for how it works and whats required. |
 | `command_screen_off_timeout` | Control the screen off timeout on the device. |
 | `command_screen_on` | Turn on the device screen. |
 | `command_stop_tts`* | Stops Text To Speech if it's currently in use. |
@@ -716,6 +717,31 @@ automation:
           message: "command_screen_brightness_level"
           data:
             command: 50
+```
+
+## Screen Off
+
+![Android](/assets/android.svg)
+
+<span class='beta'>BETA</span> On Android you can turn off the display by sending `message: command_screen_off`. This is aimed at wall mounted dashboards where the server decides when the panel should be dark, for example based on presence or a night mode. Only the display is affected: whether the device keeps receiving commands while the screen is off depends on your connection settings, and with a [persistent connection](#persistent) `command_screen_on` turns the screen back on at any time. Sending the command again while the screen is already off turns the display off again in case it was woken manually.
+
+This command requires activating Home Assistant as a device admin, which the app is unable to prompt or auto-accept. When you send the command while the app is open, the app opens the system screen to activate it; when the app is in the background, a missing-permission notification is shown instead. Send the command again after activating. The device admin holds only the policy needed to turn the screen off.
+
+If the device has a secure lock screen (PIN, pattern or password) the command is refused — and the device admin activation is never requested — since turning the screen off would lock the device behind credentials.
+
+:::tip
+To keep receiving commands over local push while the screen is off, set the [persistent connection](#persistent) to `always`.
+:::
+
+```yaml
+automation:
+  - alias: Screen off
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_screen_off"
 ```
 
 ## Screen Off Timeout
