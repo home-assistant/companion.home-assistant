@@ -50,7 +50,7 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
 | `sensor.app_version` | None | The current **Home Assistant companion App for iOS** app version. |
 | `sensor.average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
-| `binary_sensor.camera_motion` | [See Below](#camera-motion-sensor) | Motion detected by the device's front camera. Disabled by default. |
+| `binary_sensor.camera_motion` | [See Below](#camera-motion-sensor) | Motion detected by the device's front camera.  |
 | `sensor.camera_stream` | [See Below](#camera-stream-sensor) | Status of the camera stream, which serves the front camera as an MJPEG camera on your local network. Disabled by default. |
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
