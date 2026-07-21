@@ -50,6 +50,8 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
 | `sensor.app_version` | None | The current **Home Assistant companion App for iOS** app version. |
 | `sensor.average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
+| `binary_sensor.camera_motion` | [See Below](#camera-motion-sensor) | Motion detected by the device's front camera.  |
+| `sensor.camera_stream` | [See Below](#camera-stream-sensor) | Status of the camera stream, which serves the front camera as an MJPEG camera on your local network.  |
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
 | `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
@@ -342,6 +344,46 @@ Settings are available to change scan period and interval which can be useful to
 A Monitor setting toggle will start or stop the scans - this setting can also be adjusted via the [notification command](../notifications/commands.md#beacon-monitor).
 
 When the app is actively scanning for beacons a notification will be shown to make background scanning more reliable. If you are on Android 8.0+ you are free to minimize and/or turn off the notification channel for the `Beacon Monitor Scanning`.
+
+## Camera motion sensor
+
+![iOS](/assets/iOS.svg)`binary_sensor.camera_motion` reports motion detected by the device's front camera, using a lightweight comparison between consecutive camera images. It is designed for wall-mounted tablets, for example to trigger automations when someone walks up to the device, and works together with the [kiosk mode screensaver](../integrations/ios-kiosk-mode.md#wake-on-camera-motion).
+
+This sensor is disabled by default so the camera never turns on without your explicit choice. When you enable it, iOS asks for camera permission and shows the camera indicator (a green dot) in the status bar while the camera runs. Like all camera use, the sensor only works while the app is open and in the foreground.
+
+You can adjust the detection in the sensor's settings, under **Settings** > **Companion app** > **Sensors** > **Camera Motion**:
+
+- **Frame rate**: How many images per second are analyzed, from 1 to 30 (default 8). Higher frame rates may impact performance and make the device run hotter.
+- **Changed area threshold**: How much of the image must change for it to count as motion, from 1% to 100% (default 40%). Lower values make the sensor more sensitive, but also more likely to react to lighting changes, like a TV or a light turning on.
+- **Clear delay**: How long without motion before the sensor turns off again, from 2 seconds to 5 minutes (default 15 seconds).
+
+| Attribute | Description |
+| --------- | ----------- |
+| `Frame Rate` | The configured detection frame rate. |
+| `Area Threshold (%)` | The configured changed area threshold. |
+| `Clear Delay (s)` | The configured clear delay. |
+| `Last Changed Ratio (%)` | How much of the image changed in the last analyzed frame. Useful to tune the threshold. |
+| `Last Motion` | When motion was last detected. |
+
+## Camera stream sensor
+
+![iOS](/assets/iOS.svg)`sensor.camera_stream` reports the status of the camera stream: `streaming` while at least one client is watching, `idle` otherwise. The sensor is only available while the camera stream is enabled.
+
+The camera stream turns the device's front camera into a camera you can view in Home Assistant: while it is enabled, the app runs a small MJPEG server on the device. To enable it, turn on the **Camera Stream** sensor in the app, under **Settings** > **Companion app** > **Sensors**. It is disabled by default, so the camera never turns on without your explicit choice. While the stream is enabled, the camera runs continuously (foreground only) and iOS shows the camera indicator (a green dot) in the status bar.
+
+To view the camera in Home Assistant, add the [MJPEG camera integration](https://www.home-assistant.io/integrations/mjpeg/) and use the address from the sensor's `Stream URL` attribute, for example `http://192.168.1.20:8090/camera`. The device and your Home Assistant server must be on the same network, and giving the device a fixed IP address (a DHCP reservation) is recommended.
+
+You can adjust the stream in the sensor's settings, under **Settings** > **Companion app** > **Sensors** > **Camera Stream**:
+
+- **Frame rate**: The stream frame rate, from 1 to 30 (default 15). Higher frame rates may impact performance and make the device run hotter.
+- **Stream port**: The port the server listens on (default 8090).
+- **Username** and **Password**: Optional credentials. When set, clients must authenticate to view the stream; enter the same credentials in the MJPEG camera integration. When left empty, anyone on your network can view the stream.
+
+| Attribute | Description |
+| --------- | ----------- |
+| `Stream URL` | The address to use in the MJPEG camera integration. |
+| `Port` | The configured port. |
+| `Clients` | The number of clients currently watching the stream. |
 
 ## Car sensors
 ![Android](/assets/android.svg)
