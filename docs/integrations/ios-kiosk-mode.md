@@ -91,14 +91,7 @@ Use the **Preview** button to see the screensaver full-screen with your current 
 
 Kiosk mode adds sensors so automations can react to the state of the kiosk device. They appear in the app's sensor settings and in the **Sensors** screen inside the kiosk settings. All are iOS-only.
 
-| Sensor | Description |
-| ------ | ----------- |
-| `binary_sensor.kiosk_mode` | `on` while the app is running in kiosk mode, `off` otherwise. |
-| `sensor.kiosk_brightness` | The current screen brightness, as a percentage. |
-| `sensor.kiosk_volume` | The current device output volume, as a percentage. |
-| `binary_sensor.kiosk_screensaver` | `on` while the screensaver is visible on screen, `off` when it is not. |
-
-The `sensor.kiosk_brightness`, `sensor.kiosk_volume`, and `binary_sensor.kiosk_screensaver` sensors are only active while kiosk mode is enabled — they are turned on and off automatically as you enable or disable kiosk mode. The `binary_sensor.kiosk_mode` sensor is always available so you can tell whether a device is currently acting as a kiosk.
+For the full list of these sensors and what each one reports, see [Kiosk sensors](../core/sensors.md#kiosk-sensors) on the sensors page.
 
 ## Remote commands
 
