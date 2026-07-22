@@ -87,6 +87,12 @@ When **Mode** is set to **Clock**, you can also adjust:
 
 Use the **Preview** button to see the screensaver full-screen with your current settings. Tap anywhere to return to the settings.
 
+## Sensors
+
+Kiosk mode adds sensors so automations can react to the state of the kiosk device. They appear in the app's sensor settings and in the **Sensors** screen inside the kiosk settings. All are iOS-only.
+
+For the full list of these sensors and what each one reports, see [Kiosk sensors](../core/sensors.md#kiosk-sensors) on the sensors page.
+
 ## Remote commands
 
 While kiosk mode is running, you can control it from Home Assistant by sending a notification whose `message` is a kiosk command. This is useful for automations — for example, showing the screensaver at night, or bringing a camera up on a wall panel when motion is detected.
