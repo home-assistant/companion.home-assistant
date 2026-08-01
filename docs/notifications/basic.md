@@ -64,6 +64,7 @@ When tapping on a notification, you can choose to open a URL, which can fall int
 - For a particular action in Actionable Notifications, see [its documentation](/docs/notifications/actionable-notifications).
 - ![Android](/assets/android.svg) An application using `app://<package name>` where `<package name>` is replaced with the actual package you wish to open.
 - ![Android](/assets/android.svg) The More Info panel of an entity using `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`.
+- ![iOS](/assets/iOS.svg) The More Info panel of an entity using `entity_id: <entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entity_id: sun.sun`. This only applies when tapping the notification itself and no `url` is set.
 - ![Android](/assets/android.svg) You can also open the notification history by using `settings://notification_history`
 - ![Android](/assets/android.svg) You can also use an [intent scheme URI](https://developer.chrome.com/docs/multidevice/android/intents/#syntax) to start an action in an installed application.
 - ![Android](/assets/android.svg) You can send a specific [deep link](https://developer.android.com/training/app-links#deep-links) to an app by using `deep-link://<deep_link>` where `<deep_link>` is the actual deep link you wish to send.
