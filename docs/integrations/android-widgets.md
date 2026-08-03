@@ -7,6 +7,24 @@ The ![Android](/assets/android.svg) Android app allows the user to create widget
 
 Widgets can also be added from the Manage Widgets settings page, as long as the device supports it.
 
+:::tip
+When using Home Assistant 2025.12 or newer, you can also create a widget directly from an entity by opening the entity's **more info** (accessible by tapping on the entity or via the overflow menu). In **more info**, select **Add to** and choose to add a widget. Note that this feature is only supported for [compatible entity types](#available-widgets), and you must perform this action on the device where you want the widget to appear.
+<img alt="Home Assistant more-info dialog Add to" src="/assets/add_to_widget.png" width='450' />
+:::
+
+:::note
+By default, widgets update every 30 minutes while the screen is on. In recent Android versions, widgets cannot update more frequently unless you grant additional permissions to the app.
+
+To ensure your widget stays up to date, follow these steps:
+
+1. Open **Android settings**.
+2. Navigate to **Notifications** > **(Privacy section) Notification read, reply & control**.
+3. Find the **Home Assistant** app.
+4. Enable **Allow notification access**. You can keep only the first item checked (`Real-time`).
+
+This allows the app to update widgets in real time. Keep in mind that frequent updates may impact battery life, especially if the entity used in the widget changes often.
+:::
+
 ## Available widgets
 
 ### Action button
@@ -64,7 +82,7 @@ This widget shows the latest snapshot of a camera or an image entity, and update
 
 ### Template
 
-This widget will display any text that you wish to show in a widget using [Home Assistants templating feature](https://www.home-assistant.io/docs/configuration/templating/). This is an advanced feature but allows the user to display a wide variety of data. The template will be updated instantly on relevant states changes. When editing the widget, the template will be shown below the text field so you can preview what it would look like.
+This widget will display any text that you wish to show in a widget using [Home Assistants templating feature](https://www.home-assistant.io/docs/configuration/templating/). Templating takes some familiarity to set up, but it lets you display a wide variety of data. The template will be updated instantly on relevant states changes. When editing the widget, the template will be shown below the text field so you can preview what it would look like.
 
 You may also use HTML to format the text displayed such as adding a new line (`<br>`), making something bold (`<b>`) or large (`<big>`), changing the color (`<font color='#03a9f4'>`) or aligning it to the start or end of a line (`<p style="text-align: end">`).
 
@@ -75,6 +93,17 @@ If the template in the widget isn't updating instantly, you're most likely hitti
 3.  Drag the Template widget to an open space on the home screen
 4.  Fill in the template data and observe the rendering below
 5.  Save the widget
+
+### To-do list
+
+This widget will display items from a configured to-do list. You can open the list inside the app by clicking on the header or add button. The widget also allows you to mark items as completed when the checkbox is clicked. The widget will be refreshed each time the list changes or when the refresh button is clicked.
+
+1.  Long press on any open space in the home screen
+2.  Scroll down to Home Assistant in the widget list
+3.  Drag the To-do widget to an open space on the home screen
+4.  Select to-do list to display
+5.  If needed select widget theme
+6.  Save the widget
 
 ## Theming
 

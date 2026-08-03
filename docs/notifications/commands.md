@@ -11,9 +11,17 @@ The Companion apps offer a lot of different notification options. In place of po
 | ------- | ----------- |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 | `clear_badge` | Silently removes the badge from the App icon without displaying a notification. |
-| `clear_notification` | Removes a notification, [more details](basic.md#clearing). |
+| `clear_notification` | Removes a notification or a live activity, [more details](basic.md#clearing). |
 | `update_complications` | Updates the complications on a paired Apple Watch. [More details](/apple-watch/complications.md). |
 | `update_widgets`* | Updates 'Gauge' and 'Details' widgets introduced on App v2024.7 (iOS will decide if the update is allowed or not, so don't worry if it doesn't work all the time). |
+| `kiosk_show_screensaver` | Shows the kiosk screensaver. Only works while the app is open, [see below](#kiosk-mode-commands). Requires screensaver enabled in kiosk settings. |
+| `kiosk_hide_screensaver` | Hides the kiosk screensaver. Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_show_camera` | Shows a full-screen camera (requires `entity_id`). Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_hide_camera` | Hides the full-screen camera. Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_set_brightness` | Sets the screen brightness (requires `level`). Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_set_volume` | Sets the system volume (requires `volume`). Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_reload` | Reloads the dashboard. Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_default` | Returns to the configured kiosk server and dashboard. Only works while the app is open, [see below](#kiosk-mode-commands). |
 
 \* On iOS, manual widget reloads are limited to around 40-70 per 24 hour, depending on how often you look at the widget. This will not always reset at exactly midnight.
 
@@ -30,7 +38,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_beacon_monitor` | Turn Beacon Monitoring on or off. |
 | `command_broadcast_intent` | Send a broadcast intent to another app, [see below](#broadcast-intent) for how it works and whats required. |
 | `command_dnd` | Control Do Not Disturb mode on the device, [see below](#do-not-disturb) for how it works and whats required. |
-| `command_flashlight` | Turn the flashlight LED on or off. <span class='beta'>BETA</span> |
+| `command_flashlight` | Turn the flashlight LED on or off. |
 | `command_high_accuracy_mode` | Control the high accuracy mode of the background location sensor, [see below](#high-accuracy-mode) for how it works and whats required. |
 | `command_launch_app` | Launch an application, [see below](#launch-app) for how it works and whats required. |
 | `command_media` | Control media playing on the device, [see below](#media) for how it works and whats required. |
@@ -42,6 +50,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_persistent_connection` | Toggle persistent connection mode, [see below](#persistent) for the available modes. |
 | `command_update_sensors` | Updates all enabled sensors, if the state changed since the last update. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
+| `command_wake_word_detection` | Turn wake word detection for Assist on or off. |
 | `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. |
 | `remove_channel`* | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
@@ -231,8 +240,6 @@ automation:
             ble_uuid: "b4306bba-0e3a-44df-9518-dc74284e8214"
 ```
 
-<span class='beta'>BETA</span>
-
 Users can also change the measured power at 1 meter to help improve detection for their devices. This number must be a negative number. The default value `-59` will be set in some cases like junk characters, if data is missing or the number is positive the notification will post as normal on the device.
 
 ```yaml
@@ -400,7 +407,7 @@ Currently supported types are:
 |----|-------|
 |[Integer](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20int))|`EXTRA:101:int`|
 |[Integer Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20int[]))|`EXTRA:101;102;103:int[]`|
-|[ArrayList<Integer\>](https://developer.android.com/reference/android/content/Intent#putIntegerArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.Integer%3E))|`EXTRA:1;2;3:ArrayList<Integer>`|
+|[ArrayList\<Integer\>](https://developer.android.com/reference/android/content/Intent#putIntegerArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.Integer%3E))|`EXTRA:1;2;3:ArrayList<Integer>`|
 |[Double](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20double))|`EXTRA:10.1:double`|
 |[Double Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20double[]))|`EXTRA:10.1;10.2;10.3:double[]`|
 |[Float](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20float))|`EXTRA:10.1:float`|
@@ -419,16 +426,23 @@ Currently supported types are:
 |[String (urlencoded)](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String))|`EXTRA:%2C%3A%3B:String.urlencoded` or `EXTRA:%2C%3A%3B:urlencoded`|
 |[String Array](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String[]))|`EXTRA:a;b;c:String[]`|
 |[String Array (urlencoded)](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String[]))|`EXTRA:colon%3A;semicolon%3B;comma%2C:String[].urlencoded`|
-|[ArrayList<String\>](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:a;b;c:ArrayList<String>`|
-|[ArrayList<String\> (urlencoded)](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:colon%3A;semicolon%3B;comma%2C:ArrayList<String>.urlencoded`|
+|[ArrayList\<String\>](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:a;b;c:ArrayList<String>`|
+|[ArrayList\<String\> (urlencoded)](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:colon%3A;semicolon%3B;comma%2C:ArrayList<String>.urlencoded`|
 
 ## Do Not Disturb
 
-![Android](/assets/android.svg) &nbsp;Android 6+ only
+![Android](/assets/android.svg)
 
-On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the device\'s Notification Policy. This is required in order for the app to gain control of this setting.
+On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing you to enable Home Assistant access to the device\'s Notification Policy. This is required in order for the app to gain control of this setting.
 
-In addition to sending the `message` you must also provide the state of Do Not Disturb that you wish to set as the `command`, see the table below for what is accepted. If the `command` does not match one of the listed commands then the notification will post as normal and the command will not process. This command is only available for users on Android 6+, users on lower versions will see the notification just like any other.
+In addition to sending the `message` you must also provide the state of Do Not Disturb that you wish to set as the `command`, see the table below for what is accepted. If the `command` does not match one of the listed commands then the notification will post as normal and the command will not process.
+
+:::info
+On Android 15 and newer, Android will keep track of which apps are enabling/disabling Do Not Disturb, and only allow apps to adjust settings previously set _by the app_. This means:
+
+ - If multiple apps enable Do Not Disturb, Android will use the most restrictive Do Not Disturb filter. For example, if you send a notification command with alarms only and another app sets Do Not Disturb to no interruptions, the no interruptions filter will 'win'.
+ - The app can only disable Do Not Disturb (`off`) if it was previously enabled using a notification command from Home Assistant.
+:::
 <br />
 
 
@@ -456,11 +470,9 @@ automation:
 
 ## Flashlight
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span> &nbsp;Android 6+ only
+![Android](/assets/android.svg)
 
 This command allows you to toggle the flashlight on or off directly from a notification, enabling control of the device's flashlight without opening the app. To use it, send `message: command_flashlight` with the `command` parameter set to either `turn_on` or `turn_off` to control the flashlight state.
-
-This command is only available for users on Android 6+, users on lower versions will see the notification just like any other.
 
 Example:
 
@@ -512,6 +524,71 @@ automation:
           data:
             high_accuracy_update_interval: 60
             command: "high_accuracy_set_update_interval"
+```
+
+## Kiosk mode commands
+
+![iOS](/assets/iOS.svg)
+
+[Kiosk mode](../integrations/ios-kiosk-mode.md) can be controlled remotely by sending one of the kiosk commands as the `message`. For example, you can show the screensaver at night, or bring a camera up on a wall-mounted panel when motion is detected.
+
+:::important
+Kiosk commands are only handled while the Companion app is open and in the foreground — the normal state for a wall-mounted kiosk. They are ignored while the app is in the background or closed, and only acted on when **Accept kiosk remote commands** is enabled in the kiosk settings (on by default).
+:::
+
+| `message` | Action |
+| --------- | ------ |
+| `kiosk_show_screensaver` | Show the screensaver immediately. |
+| `kiosk_hide_screensaver` | Hide the screensaver and reset the inactivity timer. |
+| `kiosk_show_camera` | Show a full-screen camera stream. Requires an `entity_id` pointing to a `camera.` entity. |
+| `kiosk_hide_camera` | Hide the camera stream. |
+| `kiosk_set_brightness` | Set the screen brightness. Requires `level`. |
+| `kiosk_set_volume` | Set the system volume. Requires `volume`. |
+| `kiosk_reload` | Reload the dashboard. |
+| `kiosk_default` | Return to the configured kiosk server and dashboard (or the server default when no dashboard is set). Useful to make sure the kiosk is back on its main dashboard after someone has navigated away. |
+
+`level` and `volume` are a percentage from `0` to `100`. A value of `1` or less is treated as a fraction, so `0.5` is the same as `50`.
+
+```yaml
+automation:
+  - alias: Show the screensaver on the kiosk at night
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "kiosk_show_screensaver"
+```
+
+```yaml
+automation:
+  - alias: Show the front door camera on the kiosk
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "kiosk_show_camera"
+          data:
+            entity_id: "camera.front_door"
+```
+
+```yaml
+automation:
+  - alias: Dim the kiosk and lower its volume at night
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "kiosk_set_brightness"
+          data:
+            level: 20
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "kiosk_set_volume"
+          data:
+            volume: 30
 ```
 
 ## Launch App
@@ -748,6 +825,7 @@ On Android you can control the device\'s volume level by sending `message: comma
 | `notification_stream` | Set the volume level for the notification stream. |
 | `ring_stream` | Set the volume level for the ring stream. |
 | `system_stream` | Set the volume level for the system stream. |
+| `assistant_stream` | <span class="beta">BETA</span> Set the volume level for the assistant stream. Only available on Android 17+ and requires the app to be set as the default assistant. |
 | Anything else | The notification will post as a normal notification and the command will not process. |
 <br />
 
@@ -763,6 +841,31 @@ automation:
           data:
             media_stream: "music_stream"
             command: 20
+```
+
+## Wake word detection
+
+![Android](/assets/android.svg)
+
+When Home Assistant is set as the default digital assistant app on your device, you can enable using a wake word to open Assist. This command allows you to enable or disable wake word detection using a notification instead of opening the app. To use it, send `message: command_wake_word_detection` with the `command` parameter set to either `turn_on` or `turn_off` to control the wake word detection state.
+
+:::warning
+Wake word detection can be battery-intensive, use this command to enable it only when needed through automation. 
+:::
+
+Example:
+
+```yaml
+automation:
+  - alias: Turn on wake word detection
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_wake_word_detection"
+          data:
+            command: "turn_on"
 ```
 
 ## Webview

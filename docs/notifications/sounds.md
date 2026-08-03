@@ -76,9 +76,10 @@ Apart from the tri-tone—the default text tone, which can be accessed with `sou
 5.  Restart your device.
 6.  iOS sounds can now be used.
 
-<details><summary>For a full list of sounds imported from iOS, click here.</summary>
+<details>
+<summary>For a full list of sounds imported from iOS, click here.</summary>
+
 This list is representative for iOS 12, the actual list of imported sounds may vary depending on the configuration of your device and iOS version.
-<p>
 
 ```text
 3rdParty_DirectionDown_Haptic.caf
@@ -345,13 +346,12 @@ WorkoutSaved_Haptic.caf
 WorkoutSelect_Haptic.caf
 WorkoutStartAutoDetect.caf
 ```
-</p>
 </details>
 
 ## Pre-installed notification sounds
 
-<details><summary>For a full list of sounds installed with the app, click here.</summary>
-<p>
+<details>
+<summary>For a full list of sounds installed with the app, click here.</summary>
 
 ```text
 US-EN-Alexa-Back-Door-Opened.wav
@@ -482,5 +482,4 @@ US-EN-Morgan-Freeman-Water-Detected-In-Kitchen.wav
 US-EN-Morgan-Freeman-Welcome-Home.wav
 US-EN-Morgan-Freeman-Wife-Is-Arriving.wav
 ```
-</p>
 </details>

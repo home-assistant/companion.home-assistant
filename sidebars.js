@@ -8,13 +8,16 @@
 module.exports = {
   docs: {
     'Getting Started': [
-      'getting_started/getting-started'],
+      'getting_started/getting-started',
+      'getting_started/connection-security-level',
+],
     'Core Features': [
       'core/core',
-      'core/actions',
       'core/android-flavors',
       'core/location',
       'core/sensors'],
+    'Data handling': [
+      'data-handling/data-handling'],
     'Notifications': [
       'notifications/notifications-basic',
       'notifications/actionable-notifications',
@@ -30,6 +33,7 @@ module.exports = {
       'notifications/notification-details',
       'notifications/notification-cleared',
       'notifications/notification-commands',
+      'notifications/live-activities',
       'notifications/notification-sounds',
       'notifications/notification-local',
       'notifications/notification-received',
@@ -37,13 +41,17 @@ module.exports = {
     'Integrations': [
       'integrations/integrations',
       'integrations/android-device-controls',
+      'integrations/android-home-app-launcher',
       'integrations/android-quick-settings',
       'integrations/android-shortcuts',
       'integrations/android-webview',
       'integrations/android-widgets',
       'integrations/app-events',
+      'integrations/gestures',
       'integrations/haptics',
       'integrations/sharing',
+      'integrations/ios-kiosk-mode',
+      'integrations/ios-widgets',
       'integrations/siri-shortcuts',
       'integrations/theming',
       'integrations/universal-links',
@@ -51,7 +59,6 @@ module.exports = {
       'integrations/x-callback-url'],
     'Apple Watch': [
       'apple-watch/apple-watch',
-      'apple-watch/watch-actions',
       'apple-watch/complications'
     ],
     'Wear OS': [
@@ -62,7 +69,11 @@ module.exports = {
       'android-auto/android-auto'
     ],
     'CarPlay': [
-      'carplay/carplay'
+      'carplay/carplay',
+      'carplay/assist'
+    ],
+    'macOS': [
+      'macos/toolbar'
     ],
     'Meta Quest': [
       'meta-quest/meta-quest'
@@ -70,6 +81,7 @@ module.exports = {
     'Troubleshooting': [
       'troubleshooting/faqs',
       'troubleshooting/errors',
+      'troubleshooting/ios-developer-account-migration',
       'troubleshooting/networking',
       'troubleshooting/resetting',
       'troubleshooting/troubleshooting-integrations',

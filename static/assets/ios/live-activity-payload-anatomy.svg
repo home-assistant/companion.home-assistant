@@ -1,0 +1,103 @@
+<svg viewBox="0 0 470 624" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="iOS Live Activity banner with numbered markers mapping each Lock Screen element to its notification payload field">
+  <style>
+    text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+    text.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    text.num{font-weight:700;fill:#ffffff;text-anchor:middle}
+  </style>
+  <defs>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#03A9F4" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#03A9F4"/>
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b6f9e"/>
+      <stop offset="1" stop-color="#0a4f73"/>
+    </linearGradient>
+    <marker id="aPurple" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#7048e8"/></marker>
+    <marker id="aBlue" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#1971c2"/></marker>
+    <marker id="aOrange" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#e8590c"/></marker>
+    <marker id="aGreen" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#2f9e44"/></marker>
+    <marker id="aPink" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#d6336c"/></marker>
+    <marker id="aTeal" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#099268"/></marker>
+    <marker id="aGrape" markerWidth="8" markerHeight="8" refX="6.5" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z" fill="#9c36b5"/></marker>
+  </defs>
+
+  <rect x="0" y="0" width="470" height="624" fill="#ffffff"/>
+
+  <!-- ===== Banner replica ===== -->
+  <rect x="35" y="44" width="400" height="160" rx="30" fill="#0b0b0e" stroke="#26282f" stroke-width="1"/>
+  <rect x="59" y="74" width="64" height="64" rx="16" fill="url(#iconGrad)"/>
+  <g transform="translate(91,106)" fill="none" stroke="#7fd6f7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-17,2 L0,-15 L17,2" />
+    <path d="M-12,1 L-12,16 L12,16 L12,1" />
+    <circle cx="0" cy="9" r="2.3" fill="#7fd6f7" stroke="none"/>
+    <path d="M0,9 L0,3 M0,9 L-6,12 M0,9 L6,12"/>
+  </g>
+  <text x="139" y="104" font-size="27" font-weight="600" fill="#ffffff">All Fields</text>
+  <text x="139" y="144" class="mono" font-size="29" font-weight="500" fill="#ffffffd0">4:50</text>
+  <text x="411" y="104" text-anchor="end" class="mono" font-size="27" font-weight="600" fill="#ffffff">42%</text>
+  <rect x="59" y="164" width="352" height="12" rx="6" fill="#ffffff24"/>
+  <rect x="59" y="164" width="148" height="12" rx="6" fill="url(#barGrad)"/>
+
+  <!-- ===== Markers + short arrows ===== -->
+  <!-- 1 TITLE (top) -->
+  <path d="M150,33 L150,86" fill="none" stroke="#7048e8" stroke-width="1.8" marker-end="url(#aPurple)"/>
+  <circle cx="150" cy="22" r="11" fill="#7048e8"/><text x="150" y="26.5" class="num" font-size="13">1</text>
+  <!-- 7 TEXT COLOR (top) -->
+  <path d="M250,33 L218,86" fill="none" stroke="#9c36b5" stroke-width="1.8" marker-end="url(#aGrape)"/>
+  <circle cx="250" cy="22" r="11" fill="#9c36b5"/><text x="250" y="26.5" class="num" font-size="13">7</text>
+  <!-- 2 PROGRESS % (top) -->
+  <path d="M398,33 L401,86" fill="none" stroke="#1971c2" stroke-width="1.8" marker-end="url(#aBlue)"/>
+  <circle cx="398" cy="22" r="11" fill="#1971c2"/><text x="398" y="26.5" class="num" font-size="13">2</text>
+  <!-- 3 ICON (left) -->
+  <path d="M31,106 L55,106" fill="none" stroke="#e8590c" stroke-width="1.8" marker-end="url(#aOrange)"/>
+  <circle cx="20" cy="106" r="11" fill="#e8590c"/><text x="20" y="110.5" class="num" font-size="13">3</text>
+  <!-- 6 BACKGROUND (right) -->
+  <path d="M439,150 L419,150" fill="none" stroke="#099268" stroke-width="1.8" marker-end="url(#aTeal)"/>
+  <circle cx="450" cy="150" r="11" fill="#099268"/><text x="450" y="154.5" class="num" font-size="13">6</text>
+  <!-- 4 TIMER (bottom) -->
+  <path d="M165,215 L165,152" fill="none" stroke="#2f9e44" stroke-width="1.8" marker-end="url(#aGreen)"/>
+  <circle cx="165" cy="226" r="11" fill="#2f9e44"/><text x="165" y="230.5" class="num" font-size="13">4</text>
+  <!-- 5 PROGRESS BAR (bottom) -->
+  <path d="M300,215 L300,179" fill="none" stroke="#d6336c" stroke-width="1.8" marker-end="url(#aPink)"/>
+  <circle cx="300" cy="226" r="11" fill="#d6336c"/><text x="300" y="230.5" class="num" font-size="13">5</text>
+
+  <!-- ===== Numbered legend ===== -->
+  <g font-size="12.5">
+    <!-- row 1 -->
+    <circle cx="28" cy="282" r="10" fill="#7048e8"/><text x="28" y="286.5" class="num" font-size="12">1</text>
+    <text x="48" y="280" font-size="13" font-weight="700" letter-spacing="0.06em" fill="#7048e8">TITLE</text>
+    <text x="48" y="298" class="mono" fill="#16181d">title</text>
+    <text x="170" y="298" fill="#6a7280">— header line; top-level.</text>
+    <!-- row 2 -->
+    <circle cx="28" cy="330" r="10" fill="#1971c2"/><text x="28" y="334.5" class="num" font-size="12">2</text>
+    <text x="48" y="328" font-size="13" font-weight="700" letter-spacing="0.06em" fill="#1971c2">PROGRESS %</text>
+    <text x="48" y="346" class="mono" fill="#16181d">progress / progress_max</text>
+    <text x="288" y="346" fill="#6a7280">— “42%”.</text>
+    <!-- row 3 -->
+    <circle cx="28" cy="378" r="10" fill="#e8590c"/><text x="28" y="382.5" class="num" font-size="12">3</text>
+    <text x="48" y="376" font-size="13" font-weight="700" letter-spacing="0.06em" fill="#e8590c">ICON</text>
+    <text x="48" y="394" class="mono" fill="#16181d">notification_icon · notification_icon_color</text>
+    <text x="48" y="410" fill="#6a7280">MDI slug + hex (tints the bar too).</text>
+    <!-- row 4 -->
+    <circle cx="28" cy="438" r="10" fill="#2f9e44"/><text x="28" y="442.5" class="num" font-size="12">4</text>
+    <text x="48" y="436" font-size="13" font-weight="700" letter-spacing="0.06em" fill="#2f9e44">COUNTDOWN TIMER</text>
+    <text x="48" y="454" class="mono" fill="#16181d">chronometer · when · when_relative</text>
+    <text x="48" y="470" fill="#6a7280">Counts down; hides the message.</text>
+    <!-- row 5 -->
+    <circle cx="28" cy="498" r="10" fill="#d6336c"/><text x="28" y="502.5" class="num" font-size="12">5</text>
+    <text x="48" y="496" font-size="13" font-weight="700" letter-spacing="0.06em" fill="#d6336c">PROGRESS BAR</text>
+    <text x="48" y="514" class="mono" fill="#16181d">progress / progress_max</text>
+    <text x="288" y="514" fill="#6a7280">— tint: progress_bar_color.</text>
+    <!-- row 6 -->
+    <circle cx="28" cy="546" r="10" fill="#099268"/><text x="28" y="550.5" class="num" font-size="12">6</text>
+    <text x="48" y="544" font-size="13" font-weight="700" letter-spacing="0.06em" fill="#099268">BACKGROUND COLOR</text>
+    <text x="48" y="562" class="mono" fill="#16181d">background_color</text>
+    <text x="220" y="562" fill="#6a7280">— defaults to black.</text>
+    <!-- row 7 -->
+    <circle cx="28" cy="594" r="10" fill="#9c36b5"/><text x="28" y="598.5" class="num" font-size="12">7</text>
+    <text x="48" y="592" font-size="13" font-weight="700" letter-spacing="0.06em" fill="#9c36b5">TEXT COLOR</text>
+    <text x="48" y="610" class="mono" fill="#16181d">text_color</text>
+    <text x="185" y="610" fill="#6a7280">— auto-contrasts if omitted.</text>
+  </g>
+</svg>

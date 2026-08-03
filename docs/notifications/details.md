@@ -24,4 +24,4 @@ If an error occurs while sending a notification, it does not count towards your 
 
 ## Security
 
-All traffic between your Home Assistant instance, the push infrastructure, and Apple, is encrypted with SSL.
+All traffic between your Home Assistant instance, the push infrastructure and your device's operating system is encrypted with SSL. The contents of the notifications are not encrypted on the Firebase cloud messaging service, thus could be processed by Google.

@@ -64,6 +64,7 @@ When tapping on a notification, you can choose to open a URL, which can fall int
 - For a particular action in Actionable Notifications, see [its documentation](/docs/notifications/actionable-notifications).
 - ![Android](/assets/android.svg) An application using `app://<package name>` where `<package name>` is replaced with the actual package you wish to open.
 - ![Android](/assets/android.svg) The More Info panel of an entity using `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`.
+- ![iOS](/assets/iOS.svg) The More Info panel of an entity using `entity_id: <entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entity_id: sun.sun`. This only applies when tapping the notification itself and no `url` is set.
 - ![Android](/assets/android.svg) You can also open the notification history by using `settings://notification_history`
 - ![Android](/assets/android.svg) You can also use an [intent scheme URI](https://developer.chrome.com/docs/multidevice/android/intents/#syntax) to start an action in an installed application.
 - ![Android](/assets/android.svg) You can send a specific [deep link](https://developer.android.com/training/app-links#deep-links) to an app by using `deep-link://<deep_link>` where `<deep_link>` is the actual deep link you wish to send.
@@ -303,7 +304,7 @@ If your device is on Android 8.0+ the following properties will become the defau
 
 These options will be ignored once they are set for a particular channel, only lowering of the `importance` will work (if the user has not already modified this).
 
-Devices running Android 5.0-7.1.2 do not have channels and do not need to worry about this note.
+Devices running Android 6-7.1.2 do not have channels and do not need to worry about this note.
 :::
 
 ### Notification Channel Importance
@@ -457,7 +458,7 @@ automation:
         data:
           message: "Motion Detected"
           data:
-            icon_url: "https://github.com/home-assistant/assets/blob/master/logo/logo-small.png?raw=true"
+            icon_url: "https://github.com/home-assistant/brands/blob/master/core_integrations/_homeassistant/icon.png?raw=true"
 ```
 
 ### Notification Sensitivity / Lock Screen Visibility
@@ -593,8 +594,6 @@ automation:
 
 ### Progress Notifications
 
-<span class='beta'>BETA</span>
-
 You can create notifications with a progress bar by passing the `progress` option.
 
 The notification requires constant updates to track the progress. Make sure to use `tag` to [replace](#replacing) the existing notification. Once the process has completed you can remove the progress bar by sending a progress value of `-1`.
@@ -619,6 +618,14 @@ automation:
             progress_max: 32
 ```
 
+### Live Updates
+
+On Android 16+, `live_update: true` displays a persistent notification pinned to the top of the notification shade, the Lock Screen, and the always-on display, with a status bar chip.
+
+The same field also starts a **Live Activity** <span class="beta">Labs</span> on iOS 17.2+, so a single automation targets both platforms.
+
+See [Live Activity and Live Updates](live-activities.md) for the full payload reference, examples, and platform-specific behavior.
+
 ### Alert Once
 
 On Android you have the option for making a notification only alert once on the device. This means it will only make a sound, vibrate and/or flash the LED once. Although it is not an Android requirement this feature will not appear to function if you do not have a [`tag`](#replacing) set. This setting is set to `false` by default as each and every notification will alert the user. This feature makes use of the [Alert Once API](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder#setOnlyAlertOnce(boolean))
@@ -640,7 +647,7 @@ On Android you have the option for making a notification only alert once on the 
 ### Notification Status Bar Icon
 ![Android](/assets/android.svg)<br />
 
-On Android you also have the option of changing the notification status bar icon to any icon on [Material Design](https://materialdesignicons.com/). By default the Home Assistant icon will appear. The expected format is the same in Home Assistant `mdi:cellphone`. If you provide an invalid icon name then no icon will be shown. Requires Android 6+.
+On Android you also have the option of changing the notification status bar icon to any icon on [Material Design](https://materialdesignicons.com/). By default the Home Assistant icon will appear. The expected format is the same in Home Assistant `mdi:cellphone`. If you provide an invalid icon name then no icon will be shown.
 
 ```yaml
   - alias: Check your phone
@@ -673,6 +680,12 @@ By default Home Assistant notifications do not show up in the Android Auto inter
 ```
 
 ## iOS/macOS Specific
+
+### Live Activity
+
+On iOS 17.2+, `live_update: true` starts a **Live Activity** on the Lock Screen and Dynamic Island. This is the same field Android uses for [Live Updates](#live-updates), so a single automation targets both platforms.
+
+See [Live Activity and Live Updates](live-activities.md) for the full payload reference, examples, and platform-specific behavior.
 
 ### Sounds
 By default the default notification sound (Tri-tone on iOS) will be played upon receiving a notification. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be disabled by setting `sound` to `none` in the data payload:

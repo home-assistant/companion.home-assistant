@@ -49,7 +49,7 @@ module.exports = {
             },
             {
               label: 'Discord',
-              href: 'https://discordapp.com/channels/330944238910963714/551871772484698112',
+              href: 'https://discord.com/channels/330944238910963714/1284965926336335993',
             },
             {
               label: 'GitHub',
@@ -61,12 +61,40 @@ module.exports = {
           title: 'Social',
           items: [
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/home_assistant',
+              label: 'YouTube',
+              href: 'https://youtube.com/@home_assistant',
+            },
+            {
+              label: 'Reddit',
+              href: 'https://reddit.com/r/homeassistant',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/home-assistant',
+            },
+            {
+              label: 'Mastodon',
+              href: 'https://fosstodon.org/@homeassistant',
+            },
+            {
+              label: 'Bluesky',
+              href: 'https://bsky.app/profile/home-assistant.io',
+            },
+            {
+              label: 'X (Twitter)',
+              href: 'https://x.com/home_assistant',
             },
             {
               label: 'Facebook',
               href: 'https://www.facebook.com/homeassistantio/',
+            },
+            {
+              label: 'Instagram',
+              href: 'https://www.instagram.com/homeassistant/',
+            },
+            {
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/company/home-assistant',
             },
           ],
         },

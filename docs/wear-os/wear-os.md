@@ -5,9 +5,13 @@ id: "wear-os"
 
 ![Android](/assets/android.svg) 8+ only
 
-You can access Home Assistant directly from your Wear OS watch, even when not connected to your phone using a WiFi or cellular connection on the watch or when using an iPhone. 
+You can access Home Assistant directly from your Wear OS watch, even when not connected to your phone using a WiFi or cellular connection on the watch.
 
 The app does not support all Home Assistant features. Keep an eye out on this page as the app is enhanced with new features! Take a look at the [Sensors!](sensors.md)
+
+## Prerequisites
+
+To set up Home Assistant on a watch, you need a paired Android phone with the Home Assistant app installed to login. After logging in, the phone app is no longer used.
 
 ## Home Screen
 
@@ -53,12 +57,13 @@ The settings screen can be found at the bottom of the home screen. This is where
 * The Template tile shows a rendered template. The template can only be set from the Android companion app. Note: it is not possible to scroll in a tile, the template should fit on the watch screen.
 * The Camera tile shows a snapshot of the selected camera.
 * The Assist tile allows you to quickly [open Assist on your watch](https://www.home-assistant.io/voice_control/android/#assist-on-wear-os).
-
+* The Thermostat tile allows you to see and control the target temperature of a climate entity.
+ 
 :::note About tile refreshes
-Wear OS limits how frequently apps can update tiles and how interactive they can be. For the camera and template tiles you can choose a refresh interval which indicates to the system how often the tile should be refreshed.
+Wear OS limits how frequently apps can update tiles and how interactive they can be. For the camera, template and thermostat tiles you can choose a refresh interval which indicates to the system how often the tile should be refreshed.
 
  - Manual (only updates when you tap the refresh button)
- - In view (only updates when you scroll a tile into view)
+ - In view (only updates when you scroll a tile into view, not supported on Wear OS 6 or newer)
  - Every x minutes/hours (updates the tile in the background, even when not viewed)
 
 For intervals other than 'Manual', the system does not guarantee updates: if the tiles are not placed at the start or end of the tiles list, they will most likely update less frequently. You may see an old version of a tile for 1-2 seconds while it updates.
@@ -75,6 +80,9 @@ You may use HTML to format the text displayed. The following tags are currently 
 * Changing the text size: `<big>large</big>` or `<small>tiny</small>`
 * Changing the color: `<font color='#03a9f4'>colored text</font>`
 * Using headers: `<h1>title</h1>`, `<h2>subtitle</h2>`, etc.
+
+### Thermostat tile
+The thermostat tile can be used to change the target temperature of a climate entity up or down by the step size. Since tile refreshing is limited it can happen that the target temperature shown is no longer accurate. Therefor, if a user changes the temperature through the tile the current target temperature is always first refreshed. If a user changes the temperature multiple times quickly, each click changes the temperature relative to the result previous click instead of getting the target temperature from the server. This is done to counteract the delay in changing target temperature by some thermostats.
 
 ## Complications
 
