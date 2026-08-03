@@ -187,4 +187,12 @@ If you want to ensure that the sensors are updated when your device starts charg
 4.  If the Bluetooth Transmitter sensor is enabled check that the transmitter is not left on all the time, only enable it when you wish to use it.
 5.  Check that Sensor Update Frequency is set to "Normal".
 6.  Check that none of the Notification Sensors have the allow list disabled in their respective settings. You always want to define an allow list to prevent heavy battery usage.
-7.  If your default dashboard includes a livestream of any sort, try removing or replacing the default dashboard to one without a livestream. 
+7.  If your default dashboard includes a livestream of any sort, try removing or replacing the default dashboard to one without a livestream.
+
+## Notifications appear on the phone but not in Android Auto
+![Android](/assets/android.svg) Checklist:
+
+1.  Verify car_ui: true
+2.  Verify notification channel importance
+3.  Verify Android Auto notification permissions
+4.  Verify Home Assistant is still enabled in the Android Auto app launcher
