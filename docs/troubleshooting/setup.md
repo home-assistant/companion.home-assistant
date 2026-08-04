@@ -192,7 +192,7 @@ If you want to ensure that the sensors are updated when your device starts charg
 ## Notifications appear on the phone but not in Android Auto
 ![Android](/assets/android.svg) Checklist:
 
-1.  Verify car_ui: true
-2.  Verify notification channel importance
-3.  Verify Android Auto notification permissions
-4.  Verify Home Assistant is still enabled in the Android Auto app launcher
+1.  Check that [`car_ui: true`] in the Home Assistant automation
+2.  Check notification channel importance, allow notifications, show as pop-up in Home Assistant, Settings, Companion app, Notifications, Notification Channels
+3.  Check Android Auto notification permissions
+4.  Check Home Assistant is still enabled in the Android Auto app launcher
