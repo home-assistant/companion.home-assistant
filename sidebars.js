@@ -54,6 +54,7 @@ module.exports = {
       'integrations/ios-widgets',
       'integrations/siri-shortcuts',
       'integrations/theming',
+      'integrations/thread',
       'integrations/universal-links',
       'integrations/url-handler',
       'integrations/x-callback-url'],
