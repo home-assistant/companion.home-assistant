@@ -275,6 +275,7 @@ A platform badge (![iOS](/assets/iOS.svg) / ![Android](/assets/android.svg)) mar
 | ![iOS](/assets/iOS.svg) `background_color` | string | Lock Screen background color, such as `#101820`. Defaults to black. See [Custom colors](#custom-colors). |
 | ![iOS](/assets/iOS.svg) `text_color` | string | Lock Screen text color. Defaults to a color that contrasts the background. See [Custom colors](#custom-colors). |
 | ![iOS](/assets/iOS.svg) `progress_bar_color` | string | Progress bar color, same format as `notification_icon_color`. Falls back to `notification_icon_color` when omitted. |
+| ![iOS](/assets/iOS.svg) `progress_bar_direction` | string | How the progress bar fills: `increasing` fills up as progress advances, `decreasing` drains instead. When omitted, a progress bar fills up and a countdown timer drains. See [Progress bar direction](#progress-bar-direction). |
 | ![Android](/assets/android.svg) `alert_once` | boolean | If `true`, the notification plays sound or vibration only once. |
 | ![Android](/assets/android.svg) `sticky` | boolean | If `true`, the notification stays when the user taps it. |
 
@@ -396,6 +397,32 @@ action:
 `background_color` defaults to black. If you omit `text_color`, it is chosen automatically to contrast with the background so the text stays legible. These colors apply to the Lock Screen card; the Dynamic Island keeps its system-provided dark style.
 
 To recolor the progress bar on its own, set `progress_bar_color` (same format), when omitted it uses `notification_icon_color`.
+
+#### Progress bar direction
+
+By default, a progress bar built from `progress` and `progress_max` fills up as progress advances, and a countdown timer's bar drains toward empty. Set `progress_bar_direction` to override either default: `decreasing` makes the bar drain, and `increasing` makes it fill. Only the bar's fill direction flips; any progress value shown next to the bar stays unchanged.
+
+For example, a countdown timer's bar normally drains as time runs out. Add `progress_bar_direction: increasing` to make it fill up instead, so the bar reads as how much of the cycle is done rather than how much time is left:
+
+```yaml
+action:
+  - action: notify.mobile_app_<your_device_id_here>
+    data:
+      title: "Washing Machine"
+      message: "Rinsing · 1 of 2"
+      data:
+        tag: washer_cycle
+        live_update: true
+        chronometer: true
+        when: 2700
+        when_relative: true
+        progress_bar_direction: increasing
+        notification_icon: mdi:washing-machine
+```
+
+The bar starts empty and fills on its own as the 45-minute countdown runs, reaching full when the timer ends.
+
+If you send a value other than `increasing` or `decreasing`, the app ignores it and uses the default direction.
 
 #### Dynamic Island
 
