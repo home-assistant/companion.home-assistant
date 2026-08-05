@@ -51,7 +51,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `command_update_sensors` | Updates all enabled sensors, if the state changed since the last update. |
 | `command_volume_level` | Control the volume for all available audio streams, [see below](#volume-level) for how it works and whats required. |
 | `command_wake_word_detection` | Turn wake word detection for Assist on or off. |
-| `command_webview` | Open the app to the homepage or any dashboard or view, [see below](#webview) for how. |
+| `command_webview` | Open the app to any dashboard, view or entity, or reload it, [see below](#webview) for how. |
 | `remove_channel`* | Remove a notification channel from the device settings, [more details](basic.md#removing-a-channel). |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
 
@@ -874,6 +874,8 @@ automation:
 
 If you want to just open the Companion app to any page or even the homepage you will want to send `message: command_webview`. If you wish to navigate to a specific [view](https://www.home-assistant.io/lovelace/views/) or [dashboard](https://www.home-assistant.io/lovelace/dashboards/) you will want to use `command` to specify the [`path`](https://www.home-assistant.io/lovelace/views/#path) (example: `/lovelace/settings`). You can also open the More Info panel for any entity by using the following format for `command`: `entityId:sun.sun` just replace `sun.sun` with the entity you wish to open. If `command` is not provided the user will be directed to the homepage. The first time you send this command you will be taken to a permission screen to grant the app access to display over other apps policy. This permission is necessary for the feature to work in the background and we cannot prompt the user to grant it.
 
+<span class='beta'>BETA</span> When the app is already open and showing the targeted server, the command acts on the open page in place instead of relaunching the app, so the state of the page is kept; navigating in place requires Home Assistant 2025.6 or later. You can also send `command: reload` on any server version to reload the page without cached data, which releases the resources the page holds, like camera streams; when the app is not open, `reload` opens it to the homepage instead.
+
 Example:
 
 ```yaml
@@ -887,4 +889,19 @@ automation:
           message: "command_webview"
           data:
             command: "/lovelace/settings"
+```
+
+Example to reload the current page:
+
+```yaml
+automation:
+  - alias: Reload android webview
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_webview"
+          data:
+            command: "reload"
 ```
