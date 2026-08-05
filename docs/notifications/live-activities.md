@@ -62,7 +62,6 @@ action:
         when_relative: true
         notification_icon: mdi:washing-machine
         notification_icon_color: "#2196F3"
-        color: "#2196F3"
 ```
 
 ![Android Live Update showing "Washing Machine / Rinsing · 1 of 2" on the Lock Screen](/assets/android/live_updates_washing_lockscreen.png)
@@ -90,7 +89,6 @@ action:
         progress_max: 3600
         notification_icon: mdi:washing-machine
         notification_icon_color: "#4CAF50"
-        color: "#4CAF50"
 ```
 
 <details>
@@ -268,8 +266,7 @@ A platform badge (![iOS](/assets/iOS.svg) / ![Android](/assets/android.svg)) mar
 | `when` | number | Timer reference point. A Unix timestamp, or seconds from now when `when_relative` is `true`. |
 | `when_relative` | boolean | If `true`, treat `when` as seconds from now rather than a Unix timestamp. |
 | `notification_icon` | string | A [Material Design Icon](https://pictogrammers.com/library/mdi/) slug, such as `mdi:washing-machine`. |
-| ![iOS](/assets/iOS.svg) `notification_icon_color` | string | Hex color for the icon, such as `#2196F3`. |
-| ![Android](/assets/android.svg) `color` | string | Hex color for the icon, such as `#2196F3`. |
+| `notification_icon_color` | string | Hex color for the icon, such as `#2196F3`. |
 | ![iOS](/assets/iOS.svg) `silent` | boolean | If `true`, an update arrives without a sound and at a lower, power-conserving priority that iOS may delay or batch, so use it for non-urgent updates. Has no effect when starting the activity. |
 | ![iOS](/assets/iOS.svg) `url` | string | Where to go when the activity is tapped. A relative Home Assistant path such as `/lovelace/0` opens that view in the app; a full `https://` URL opens in the browser. The tap always opens the server that started the activity. `url` applies to the update it is sent with, so include it on each update where you want a specific destination. See [Opening a page on tap](#opening-a-page-on-tap). |
 | ![iOS](/assets/iOS.svg) `background_color` | string | Lock Screen background color, such as `#101820`. Defaults to black. See [Custom colors](#custom-colors). |
