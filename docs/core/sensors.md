@@ -459,10 +459,31 @@ This sensor will represent the state of Do Not Disturb (DND) on the device. The 
 
 
 ## Dynamic color sensor
+
+### Accent color sensor
+
 ![Android](/assets/android.svg) Only available on devices with support for Material 3 Dynamic color.
 
-This sensors state will be a hexadecimal color value for the accent color used in the current device theme. [Dynamic color](https://m3.material.io/styles/color/dynamic-color/overview) can either be derived from the wallpaper or chosen by the user. An attribute also exists for `rgb_color` in case you wanted to use this color in an automation for the [`light.turn_on`](https://www.home-assistant.io/integrations/light/#service-lightturn_on) service call. This sensor uses the [Dynamic Colors API](https://developer.android.com/reference/com/google/android/material/color/DynamicColors).
+This sensor's state will be a hexadecimal color value for the accent color used in the current device theme. [Dynamic color](https://m3.material.io/styles/color/dynamic-color/overview) can either be derived from the wallpaper or chosen by the user. Attributes also exist for:
 
+- `rgb_color` in case you wanted to use this color in an automation for the [`light.turn_on`](https://www.home-assistant.io/integrations/light/#service-lightturn_on) service call. 
+- `variant` (<span class='beta'>BETA</span>) to indicate which [theme style](https://source.android.com/docs/core/display/dynamic-color#dynamic-13) (such as `TONAL_SPOT` or `VIBRANT`) is in use for the dynamic color palette.
+
+This sensor uses the [Dynamic Colors API](https://developer.android.com/reference/com/google/android/material/color/DynamicColors).
+
+### Tonal palette sensor
+
+![Android](/assets/android.svg) Only available on devices with support for Material 3 Dynamic color. [Dynamic color](https://m3.material.io/styles/color/dynamic-color/overview) can either be derived from the wallpaper or chosen by the user.
+
+This sensor's state will be the name of the tonal palette used for generating the current device theme. Expected values are:
+
+- `TONAL_SPOT`
+- `VIBRANT`
+- `EXPRESSIVE`
+- `SPRITZ`
+- `MONOCHROMATIC`
+- `FRUIT_SALAD`
+- `RAINBOW`
 
 ## Doze sensor
 ![Android](/assets/android.svg)<br />
