@@ -71,6 +71,10 @@ Notifications in AA, share settings with your phone and do not support all notif
             importance: high
 ```
 
+:::note
+The Home Assistant app must remain enabled/visible in the Android Auto app launcher. Removing it from Android Auto may prevent `car_ui: true` notifications from appearing on the car display, even though notifications continue to arrive on the phone.
+:::
+
 ### Sensors
 
 The sensors available for AA and AAOS are described on the main [sensors](../core/sensors.md#android-sensors) page. The below list of sensors are unique to AA and AAOS:
