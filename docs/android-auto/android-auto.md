@@ -53,8 +53,6 @@ If you installed the app from the Google Play Store on your AAOS vehicle then cu
 
 By default Home Assistant notifications do not show up in the AA interface. To show Home Assistant notifications in AA, add [`car_ui: true` to the notification data](../notifications/basic.md#android-auto-visibility). Notifications will now show up on your phone _and_ in AA. Opening the notification from AA will open the driving interface for Home Assistant.
 
-:::note: The Home Assistant app must remain enabled/visible in the Android Auto app launcher. Removing it from Android Auto may prevent [`car_ui: true`] notifications from appearing on the car display, even though notifications continue to arrive on the phone.
-
 Notifications in AA, share settings with your phone and do not support all notification features. For example, in order to have a notification show on top of the current screen in AA, the notification channel will also need to be set to pop up on your phone. For the best experience, it is recommended to use a specific [channel](../notifications/basic.md#notification-channels) for notifications that should be visible in AA. Example:
 
 ```yaml
@@ -73,6 +71,9 @@ Notifications in AA, share settings with your phone and do not support all notif
             importance: high
 ```
 
+:::note
+The Home Assistant app must remain enabled/visible in the Android Auto app launcher. Removing it from Android Auto may prevent `car_ui: true` notifications from appearing on the car display, even though notifications continue to arrive on the phone.
+:::
 ### Sensors
 
 The sensors available for AA and AAOS are described on the main [sensors](../core/sensors.md#android-sensors) page. The below list of sensors are unique to AA and AAOS:
