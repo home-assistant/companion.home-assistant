@@ -535,6 +535,10 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_daily_floors` | floors | Total floors climbed since midnight. |
 | `health_connect_daily_hydration` | milliliters | Total hydration since midnight. |
 | `health_connect_daily_steps` | steps | Total steps taken since midnight. |
+| `health_connect_nutrition_calories` | kilocalories | Total calories eaten since midnight. |
+| `health_connect_nutrition_carbohydrates` | grams | Total carbohydrates eaten since midnight. |
+| `health_connect_nutrition_fat` | grams | Total fat eaten since midnight. |
+| `health_connect_nutrition_protein` | grams | Total protein eaten since midnight. |
 | `health_connect_diastolic_blood_pressure` | millimeters of Mercury | The last recorded diastolic blood pressure. |
 | `health_connect_heart_rate` | beats per minute | The last recorded heart rate. |
 | `health_connect_heart_rate_variability` | milliseconds | The last recorded heart rate variability. |
