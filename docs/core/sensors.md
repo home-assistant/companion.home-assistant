@@ -540,6 +540,10 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_heart_rate_variability` | milliseconds | The last recorded heart rate variability. |
 | `health_connect_height` | meters | The last recorded height. |
 | `health_connect_lean_body_mass` | grams | The last recorded lean body mass. |
+| `health_connect_nutrition_calories` | kilocalories | <span class="beta">BETA</span> Total calories eaten since midnight. |
+| `health_connect_nutrition_carbohydrates` | grams | <span class="beta">BETA</span> Total carbohydrates eaten since midnight. |
+| `health_connect_nutrition_fat` | grams | <span class="beta">BETA</span> Total fat eaten since midnight. |
+| `health_connect_nutrition_protein` | grams | <span class="beta">BETA</span> Total protein eaten since midnight. |
 | `health_connect_oxygen_saturation` | percent | The last recorded oxygen saturation percentage. |
 | `health_connect_respiratory_rate` | breaths per minute | The last recorded respiratory rate. |
 | `health_connect_resting_heart_rate` | beats per minute | The last recorded resting heart rate. |
@@ -548,17 +552,6 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
 | `health_connect_vo2_max` | milliliters per minute per kilogram | The last recorded VO2 max score. |
 | `health_connect_weight` | grams | The last recorded weight. |
-
-### <span class='beta'>BETA</span> Nutrition sensors
-
-These sensors provide daily nutrition totals from Nutrition records stored in Health Connect. They require the Android app's Nutrition support to be available.
-
-| Sensor | Unit | Description |
-| --------- | ---- | --------- |
-| `health_connect_nutrition_calories` | kilocalories | Total calories eaten since midnight. |
-| `health_connect_nutrition_carbohydrates` | grams | Total carbohydrates eaten since midnight. |
-| `health_connect_nutrition_fat` | grams | Total fat eaten since midnight. |
-| `health_connect_nutrition_protein` | grams | Total protein eaten since midnight. |
 
 ## High accuracy mode
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
