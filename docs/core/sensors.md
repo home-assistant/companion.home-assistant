@@ -535,10 +535,6 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_daily_floors` | floors | Total floors climbed since midnight. |
 | `health_connect_daily_hydration` | milliliters | Total hydration since midnight. |
 | `health_connect_daily_steps` | steps | Total steps taken since midnight. |
-| `health_connect_nutrition_calories` | kilocalories | Total calories eaten since midnight. |
-| `health_connect_nutrition_carbohydrates` | grams | Total carbohydrates eaten since midnight. |
-| `health_connect_nutrition_fat` | grams | Total fat eaten since midnight. |
-| `health_connect_nutrition_protein` | grams | Total protein eaten since midnight. |
 | `health_connect_diastolic_blood_pressure` | millimeters of Mercury | The last recorded diastolic blood pressure. |
 | `health_connect_heart_rate` | beats per minute | The last recorded heart rate. |
 | `health_connect_heart_rate_variability` | milliseconds | The last recorded heart rate variability. |
@@ -552,6 +548,17 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
 | `health_connect_vo2_max` | milliliters per minute per kilogram | The last recorded VO2 max score. |
 | `health_connect_weight` | grams | The last recorded weight. |
+
+### <span class='beta'>BETA</span> Nutrition sensors
+
+These sensors provide daily nutrition totals from Nutrition records stored in Health Connect. They require the Android app's Nutrition support to be available.
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `health_connect_nutrition_calories` | kilocalories | Total calories eaten since midnight. |
+| `health_connect_nutrition_carbohydrates` | grams | Total carbohydrates eaten since midnight. |
+| `health_connect_nutrition_fat` | grams | Total fat eaten since midnight. |
+| `health_connect_nutrition_protein` | grams | Total protein eaten since midnight. |
 
 ## High accuracy mode
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
