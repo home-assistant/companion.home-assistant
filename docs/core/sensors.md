@@ -49,6 +49,7 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | --------- | --------- | ----------- |
 | `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
 | `sensor.app_version` | None | The current **Home Assistant companion App for iOS** app version. |
+| [Apple Health Sensors](#apple-health-sensors) | None | Health and fitness data stored in Apple Health, such as steps, heart rate, and weight. |
 | `sensor.average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
@@ -241,6 +242,123 @@ Possible states for `app_standby_bucket` sensor (please refer to the API linked 
 *   `working_set`
 *   `never`
 
+
+## Apple Health sensors <span class="beta">LABS</span> {#apple-health-sensors}
+
+![iOS](/assets/iOS.svg) Requires app version 2026.8.0 or later on iPhone or iPad. These sensors are not available on ![macOS](/assets/macOS.svg) macOS.
+
+:::info
+Apple Health sensors are a Labs feature. They work, but their behavior, sensor list, and settings may change in future app versions.
+:::
+
+Apple Health is the app on your iPhone that stores health and fitness data, such as the steps you walk, your heart rate, or your weight. Data can come from your iPhone itself, a paired Apple Watch, or other apps and devices that write to Apple Health. When you turn on Apple Health sensors, the companion app reads the data you select and sends it to Home Assistant as sensors.
+
+:::warning
+Health data is personal. Only the sensors you turn on are read, and their values are sent to the Home Assistant server the same way as all other sensor data. Turn on only the sensors you want in Home Assistant. The app only reads from Apple Health, it never writes data to it.
+:::
+
+### Turning on Apple Health sensors
+
+Every Apple Health sensor is turned off until you turn it on, including after an app update. Turn the sensors on first, then request access: the Apple Health permission screen only asks for the sensors you selected.
+
+1. In the companion app, go to **Settings** > **Sensors**.
+2. Select **Apple Health Sensors**. The number next to it shows how many sensors are currently turned on.
+3. Turn on the sensors you want. You have three options:
+   - Turn on individual sensors with their switches.
+   - Select **Enable all** next to a category heading, such as **Heart**, to turn on every sensor in that category.
+   - Turn on **Enable all Apple Health sensors** to turn on every sensor at once, then confirm.
+4. Select **Request Apple Health Access**.
+5. In the Apple Health screen that appears, allow access to the data types you want to share, then select **Allow**.
+
+If you turn on more sensors later, select **Request Apple Health Access** again so Apple Health can ask you about the new data types.
+
+:::note
+Apple never tells apps whether you allowed or denied access to health data. If you deny access to a data type, its sensor stays `unavailable` in Home Assistant instead of showing an error.
+:::
+
+To review or change what you shared, open the iOS **Settings** app, then go to **Privacy & Security** > **Health** > **Home Assistant**.
+
+### When Apple Health sensors update
+
+Apple Health sensors are read during the regular sensor updates described in [When sensors update](#when-sensors-update).
+
+In addition, iOS wakes the app when Apple Health records new data for a sensor you turned on, even when the app is not running. To avoid a flood of updates, for example during a workout where many data types are recorded at once, new data is grouped for a few seconds, and updates are sent at most once every 30 seconds.
+
+Values are calculated in one of two ways, depending on the sensor:
+
+- **Totals since midnight**: the sum of everything recorded since the start of the current day in your device's local time zone, such as your steps or the energy you burned. These reset each day.
+- **Most recent reading**: the newest recorded value within a lookback window, such as your weight or your last heart rate reading. The window is noted for each sensor in the lists below.
+
+A sensor reports `unavailable` when Apple Health has no data for it within its window, or when you turn the sensor off. When the app cannot read Apple Health at all, which happens when your device is locked, the sensor keeps its previous value instead of becoming unavailable.
+
+:::note
+Values are sent in metric units, such as kilograms, kilometers, and degrees Celsius. Home Assistant converts them for display based on your unit system where the sensor supports it.
+:::
+
+### Activity sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `health_steps` | steps | Total steps taken since midnight. |
+| `health_distance_walking_running` | kilometers | Total walking and running distance since midnight. |
+| `health_active_energy_burned` | kilocalories | Total active energy burned since midnight, excluding resting energy. |
+| `health_basal_energy_burned` | kilocalories | Total resting energy burned since midnight, which is the energy your body uses at rest. |
+| `health_flights_climbed` | floors | Total flights of stairs climbed since midnight. |
+| `health_apple_exercise_time` | minutes | Total exercise minutes since midnight, as calculated by Apple Health. |
+| `health_vo2_max` | milliliters per kilogram per minute | The last recorded VO2 max, which estimates your cardio fitness. Uses the last 365 days. |
+
+### Body measurement sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `health_body_mass` | kilograms | The last recorded weight. Uses the last 365 days. |
+| `health_body_fat_percentage` | percent | The last recorded body fat percentage. Uses the last 365 days. |
+| `health_lean_body_mass` | kilograms | The last recorded lean body mass, which is your weight without body fat. Uses the last 365 days. |
+| `health_height` | centimeters | The last recorded height. Uses the last 10 years. |
+
+### Heart sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `health_heart_rate` | beats per minute | The last recorded heart rate. Uses the last 24 hours. |
+| `health_resting_heart_rate` | beats per minute | The last recorded resting heart rate. Uses the last 7 days. |
+| `health_walking_heart_rate_average` | beats per minute | The last recorded average heart rate while walking. Uses the last 7 days. |
+| `health_heart_rate_variability` | milliseconds | The last recorded heart rate variability. Uses the last 7 days. |
+| `health_blood_pressure_systolic` | millimeters of mercury | The last recorded systolic blood pressure, which is the higher of the two numbers. Uses the last 30 days. |
+| `health_blood_pressure_diastolic` | millimeters of mercury | The last recorded diastolic blood pressure, which is the lower of the two numbers. Uses the last 30 days. |
+
+### Nutrition sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `health_dietary_water` | milliliters | Total water intake since midnight. |
+
+### Respiratory sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `health_respiratory_rate` | breaths per minute | The last recorded respiratory rate. Uses the last 7 days. |
+| `health_oxygen_saturation` | percent | The last recorded blood oxygen level. Uses the last 7 days. |
+
+### Vitals sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `health_body_temperature` | degrees Celsius | The last recorded body temperature. Uses the last 7 days. |
+| `health_basal_body_temperature` | degrees Celsius | The last recorded basal body temperature, which is your temperature at rest. Uses the last 7 days. |
+| `health_blood_glucose` | milligrams per deciliter | The last recorded blood glucose reading. Uses the last 24 hours. |
+
+### Troubleshooting Apple Health sensors
+
+If a sensor is `unavailable` or missing in Home Assistant:
+
+- Make sure the sensor is turned on in **Settings** > **Sensors** > **Apple Health Sensors**.
+- Select **Request Apple Health Access** again, and check that access is allowed for that data type in the iOS **Settings** app under **Privacy & Security** > **Health** > **Home Assistant**.
+- Check that Apple Health has recent data for the sensor. Open the **Health** app and look for the data type. Sensors that use a lookback window report `unavailable` when there is no reading in that window.
+- Unlock your device. iOS blocks health data reads while the device is locked, so updates that happen then are skipped.
+- Select the reload icon at the top of the **Apple Health Sensors** screen to read the sensors and send an update to Home Assistant right away.
+
+If the **Apple Health Sensors** entry is missing from the sensor list, your device does not provide health data. This is the case on macOS and on some iPad models.
 
 ## Audio sensors
 ![Android](/assets/android.svg) <br />
