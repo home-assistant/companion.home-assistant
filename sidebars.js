@@ -48,6 +48,7 @@ module.exports = {
       'integrations/haptics',
       'integrations/sharing',
       'integrations/ios-kiosk-mode',
+      'integrations/ios-reminders-sync',
       'integrations/ios-widgets',
       'integrations/siri-shortcuts',
       'integrations/theming',
