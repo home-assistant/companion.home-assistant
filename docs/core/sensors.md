@@ -251,10 +251,10 @@ Possible states for `app_standby_bucket` sensor (please refer to the API linked 
 Apple Health sensors are a Labs feature. They work, but their behavior, sensor list, and settings may change in future app versions.
 :::
 
-Apple Health is the app on your iPhone that stores health and fitness data, such as the steps you walk, your heart rate, or your weight. Data can come from your iPhone itself, a paired Apple Watch, or other apps and devices that write to Apple Health. When you turn on Apple Health sensors, the companion app reads the data you select and sends it to Home Assistant as sensors.
+Apple Health is the app on your iPhone or iPad that stores health and fitness data, such as the steps you walk, your heart rate, or your weight. Data can come from the device itself, a paired Apple Watch, or other apps and devices that write to Apple Health. When you turn on Apple Health sensors, the companion app reads the data you select and sends it to Home Assistant as sensors.
 
 :::warning
-Health data is personal. Only the sensors you turn on are read, and their values are sent to the Home Assistant server the same way as all other sensor data. Turn on only the sensors you want in Home Assistant. The app only reads from Apple Health, it never writes data to it.
+Health data is personal. Only the sensors you turn on are read, and their values are sent to the Home Assistant server the same way as all other sensor data. Turn on only the sensors you want in Home Assistant. The app only reads from Apple Health. It never writes data to it.
 :::
 
 ### Turning on Apple Health sensors
