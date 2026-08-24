@@ -35,7 +35,7 @@ iOS, iPadOS, and macOS offer different widget sizes:
   - Medium
   - Large
   - Extra large **(iPadOS and macOS)**
-- Accessory (iOS and iPadOS Lock Screen, and Apple Watch)
+- Accessory (iOS and iPadOS Lock Screen)
   - Circular
   - Inline
   - Rectangular
@@ -373,7 +373,7 @@ The **Scripts** widget runs the scripts you select.
 
 **Configuration options:**
 
-- **Scripts**: The scripts to display. The small size holds up to 3, medium up to 6, large up to 12, and extra large up to 20. The Lock Screen sizes hold one script, except the rectangular size, which holds two.
+- **Scripts**: The scripts to display. The small size holds up to 3, medium up to 6, large up to 12, and extra large up to 20. The circular size holds one script.
 - **Notify when run**: Shows a notification once the script has run.
 
 **Available in:**
