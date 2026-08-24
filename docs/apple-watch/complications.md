@@ -8,7 +8,7 @@ id: "complications"
 A complication is a small piece of information on your watch face, next to the time. Home Assistant complications can show an entity's state, a gauge, an icon, or the result of a template — so you can see your indoor temperature, your solar production, or whether the garage is open without opening any app.
 
 :::info
-Complications were rebuilt in iOS app version 2026.8 <span class="beta">BETA</span>. The editor, the available styles, and the way complications update all changed. If you are on an earlier version, see [Legacy complications](#legacy-complications).
+Complications were rebuilt in iOS app version 2026.8 <span class="beta">BETA</span>. The editor, the available styles, and the way complications update all changed. If you are on an earlier version, this page does not match what you see in the app. Complications you created back then are kept after you update — see [Legacy complications](#legacy-complications).
 :::
 
 ## Requirements
@@ -118,7 +118,7 @@ Custom content is a row of pieces you can add, edit, remove, and reorder. Select
 - **Attributes**: any attribute of the entity, by name.
 - **Template**: the rendered result of your template. Only available for template complications.
 
-Pieces are joined in order. For example, `Battery` + **Value** produces `Battery 87%`.
+Pieces are joined exactly as they are, with no separator added between them. To get `Battery 87%`, the text piece has to end with a space: `Battery ` followed by **Value**.
 
 To reorder pieces, drag one onto another. If you use VoiceOver, each piece offers **Move left** and **Move right** actions instead.
 

@@ -45,7 +45,7 @@ For each server you can set **Always use**:
 
 When your Apple Watch has no Wi-Fi or cellular connection of its own, it borrows your iPhone's internet connection. In that situation the watch cannot see which Wi-Fi network you are on, so it cannot tell whether you are somewhere you trust.
 
-To protect you on public networks, the watch does not use your internal URL by default in that case. If your server has only an internal URL, this means its data does not sync and its complications do not update.
+To protect you on public networks, the watch does not use your internal URL by default in that case. Your configuration and entity list still arrive from your iPhone, so your items keep appearing. What stops working is anything that needs the server directly: the watch cannot read live states, cannot run actions on that server, and its complications keep showing their last known value.
 
 If you want to allow it anyway:
 

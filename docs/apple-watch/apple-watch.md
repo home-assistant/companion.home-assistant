@@ -19,7 +19,7 @@ Before you start, make sure you have:
 
 - An iPhone running iOS 16.4 or later with the Home Assistant Companion app installed and connected to at least one Home Assistant server.
 - An Apple Watch paired to that iPhone, running watchOS 9 or later. That means an Apple Watch Series 4 or newer, any Apple Watch SE, or any Apple Watch Ultra. You can identify your model on the [Apple Watch model support page](https://support.apple.com/HT204507).
-- watchOS 10 or later if you want to use [complications](./complications.md) on your watch face. Complications are built with WidgetKit, which older versions of watchOS do not support.
+- watchOS 10 or later if you want to use [complications](./complications.md) on your watch face. The app's complications are not available on watchOS 9.
 
 :::note
 An Apple Watch is not required to use Home Assistant, and nothing on this page affects the iPhone app.
@@ -71,7 +71,7 @@ Understanding this helps a lot when something looks out of date.
 Because of this, the watch needs a URL it can reach for almost everything except syncing: your Home Assistant Cloud URL, another remote URL, or an internal URL on the same Wi-Fi network.
 
 :::info
-If your Home Assistant server is only reachable through an internal URL, the watch asks for permission before using it while connected through your iPhone. Until you allow it, that server's data does not sync and its complications do not update. See [Server URLs on the watch](./settings.md#server-urls).
+If your Home Assistant server is only reachable through an internal URL, the watch asks for permission before using it while connected through your iPhone. Until you allow it, the watch still receives your configuration and entity list from your iPhone, but it cannot read live states from that server, and its complications keep showing their last known value. See [Server URLs on the watch](./settings.md#server-urls).
 :::
 
 ## Migrating from earlier versions

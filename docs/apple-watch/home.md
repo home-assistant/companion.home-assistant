@@ -139,7 +139,7 @@ In the area lists, these entities use a split row: tapping the left part runs th
 Sensors and binary sensors are read-only. Tapping one opens a details screen with its state, when it last changed and last updated, and its attributes.
 
 :::note
-Entity types that are not in the lists above cannot be controlled from the watch. If you tap one, the app tells you so.
+The list above is only about control screens. Everything else the watch supports — switches, valves, scripts, scenes, automations, buttons, and input helpers — still runs on a single tap, it just has no extra screen. Entity types the watch does not support at all cannot be added, and if you reach one the app tells you so.
 :::
 
 ## Choosing a layout
