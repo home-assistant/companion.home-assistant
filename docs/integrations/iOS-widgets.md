@@ -285,6 +285,7 @@ For gauge type **Capacity**:
 
 <table>
   <tr>
+    <td><img src='/assets/ios/gauge-widget-home-screen.jpeg' alt="Gauge Widget on the Home Screen" height="300"/></td>
     <td><img src='/assets/ios/gauge-widget.jpeg' alt="Gauge Widget" height="300"/></td>
     <td><img src='/assets/ios/gauge-widget-config.jpeg' alt="Gauge Widget Configuration" height="300"/></td>
   </tr>
