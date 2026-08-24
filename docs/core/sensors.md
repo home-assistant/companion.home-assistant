@@ -248,7 +248,7 @@ These sensors use the [AudioManager API](https://developer.android.com/reference
 
 | Sensor | Attributes | Description |
 | --------- | --------- | --------- |
-| `audio_mode` | None | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `call_redirect`, `communication_redirect`, `in_call`, `in_communication` or `unknown`. This sensor will update during the normal interval. |
+| `audio_mode` | None | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `call_redirect`, `communication_redirect`, `in_call`, `in_communication`, `assistant_conversation` (<span class="beta">BETA</span>), or `unknown`. This sensor will update during the normal interval. |
 | `is_headphones` | None | Boolean value if headsets or headphones are plugged in, will update as soon as the device detects the change. |
 | `is_mic_muted` | None | Boolean value if the microphone is currently muted, Android 10+ will update as this value changes. |
 | `is_music_active` | None | Boolean value if the device is actively playing music, this sensor will update during the normal interval. |
@@ -263,6 +263,7 @@ The current device volume level for the given volume streams (`volume_level_*`).
 Possible volume streams are:
 * `accessibility`
 * `alarm`
+* `assistant` <span class="beta">BETA</span> (Android 17+)
 * `call`
 * `dtmf`
 * `music`
@@ -522,19 +523,27 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
 | `health_connect_active_calories_burned` | kilocalories | The last estimate for number of active calories burned, excluding basal metabolic rate (BMR). |
+| `health_connect_basal_body_temperature` | celsus | The last recorded basal body temperature. |
+| `health_connect_basal_metabolic_rate` | kilocalories per day | The last recorded basal metabolic rate. |
 | `health_connect_blood_glucose` | milligrams per deciliter | The last recorded blood glucose reading. |
 | `health_connect_body_fat` | percent | The last recorded body fat percentage. |
+| `health_connect_body_temperature` | celsius | The last recorded body temperature. |
+| `health_connect_body_water_mass` | grams | The last recorded body water mass. |
+| `health_connect_bone_mass` | grams | The last recorded bone mass. |
+| `health_connect_daily_distance` | meters | Total distance traveled since midnight. |
+| `health_connect_daily_elevation_gained` | meters | Total elevation gained since midnight. |
+| `health_connect_daily_floors` | floors | Total floors climbed since midnight. |
+| `health_connect_daily_hydration` | milliliters | Total hydration since midnight. |
+| `health_connect_daily_steps` | steps | Total steps taken since midnight. |
 | `health_connect_diastolic_blood_pressure` | millimeters of Mercury | The last recorded diastolic blood pressure. |
-| `health_connect_distance` | meters | Total distance traveled since midnight. |
-| `health_connect_elevation_gained` | meters | Total elevation gained since midnight. |
-| `health_connect_floors_climbed` | floors | Total floors climbed since midnight. |
 | `health_connect_heart_rate` | beats per minute | The last recorded heart rate. |
 | `health_connect_heart_rate_variability` | milliseconds | The last recorded heart rate variability. |
+| `health_connect_height` | meters | The last recorded height. |
+| `health_connect_lean_body_mass` | grams | The last recorded lean body mass. |
 | `health_connect_oxygen_saturation` | percent | The last recorded oxygen saturation percentage. |
 | `health_connect_respiratory_rate` | breaths per minute | The last recorded respiratory rate. |
 | `health_connect_resting_heart_rate` | beats per minute | The last recorded resting heart rate. |
 | `health_connect_sleep_duration` | minutes | The last recorded sleep duration. |
-| `health_connect_steps` | steps | Total steps taken since midnight. |
 | `health_connect_systolic_blood_pressure` | millimeters of Mercury | The last recorded systolic blood pressure. |
 | `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
 | `health_connect_vo2_max` | milliliters per minute per kilogram | The last recorded VO2 max score. |
