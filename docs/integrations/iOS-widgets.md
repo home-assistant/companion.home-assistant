@@ -107,9 +107,13 @@ The **Open page** widget allows you to open any Home Assistant sidebar page.
   </tr>
 </table>
 
-### Gauge Widget (requires templating)
+### Gauge Widget
 
-The **Gauge** widget lets you create a gauge representation using Home Assistant templating **(user needs to be Administrator to be able to use this feature)**, decide the minimum, maximum, and current value, along with the display text (or emoji 🥳) in the center and bottom of the widget.
+The **Gauge** widget shows a value as a gauge. Since app version 2026.8 <span class="beta">BETA</span>, its **Source** option decides where that value comes from:
+
+- **Entity**: pick an entity (and optionally one of its attributes) and the gauge is built for you. Available to every user.
+- **Complication**: mirror one of your circular Apple Watch complications, so the same gauge appears on your lock screen. See [Complications](../apple-watch/complications.md).
+- **Template**: build the gauge from Home Assistant templates. **This source requires an Administrator account.**
 
 ***Available in***
 
@@ -119,6 +123,8 @@ The **Gauge** widget lets you create a gauge representation using Home Assistant
     <td>Accessory circular</td>
   </tr>
 </table>
+
+The template source lets you decide the minimum, maximum, and current value, along with the display text (or emoji 🥳) in the center and bottom of the widget.
 
 For gauge type "Normal":
 - **Value template:** The current value which will be used to display the gauge chart.
@@ -144,16 +150,20 @@ For gauge type "Capacity":
 </table>
 
 
-### Details (requires templating)
+### Details
 
-The **Details** widget lets you display up to 3 lines of information using Home Assistant templating **(user needs to be Administrator to be able to use this feature)**.
+The **Details** widget shows information as text. Since app version 2026.8 <span class="beta">BETA</span>, its **Source** option decides where that text comes from:
+
+- **Entity**: pick an entity (and optionally one of its attributes) and its state is shown. Available to every user.
+- **Complication**: mirror one of your rectangular Apple Watch complications. See [Complications](../apple-watch/complications.md).
+- **Template**: display up to 3 lines of information using Home Assistant templates. **This source requires an Administrator account.**
 
 ***Available in***
 
 <table>
   <tr>
-    <td>Accessory Inline</td>
-    <td>Accessory Circular</td>
+    <td>Accessory inline</td>
+    <td>Accessory rectangular</td>
   </tr>
 </table>
 
