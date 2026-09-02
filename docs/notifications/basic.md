@@ -304,7 +304,7 @@ If your device is on Android 8.0+ the following properties will become the defau
 
 These options will be ignored once they are set for a particular channel, only lowering of the `importance` will work (if the user has not already modified this).
 
-Devices running Android 6-7.1.2 do not have channels and do not need to worry about this note.
+Devices running Android 7 do not have channels and do not need to worry about this note.
 :::
 
 ### Notification Channel Importance
@@ -565,7 +565,7 @@ automation:
 
 ### Chronometer Notifications
 
-You can create notifications with a count up/down timer (chronometer) by passing the `chronometer` and `when` options. This feature requires at least Android 7.0.
+You can create notifications with a count up/down timer (chronometer) by passing the `chronometer` and `when` options.
 
 Do note that the notification will not disappear when the timer reaches 0. Instead, it will continue decrementing into negative values.
 You may want to utilize [notification timeouts](#notification-timeout) or [replace the notification](#replacing) when the timer hits zero.
