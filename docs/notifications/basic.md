@@ -213,7 +213,7 @@ automation:
 In Android you can set the `color` of the notification, you can use either the color name or the hex code.
 
 :::note ![iOS](/assets/iOS.svg)
-On iOS, `color` instead sets the background color of a notification icon. See [Notification Icon and Color](#notification-icon-and-color).
+On iOS, `color` instead sets the background color of a notification icon. See [Notification icon and color](#notification-icon-and-color).
 :::
 
 ```yaml
