@@ -657,7 +657,7 @@ On Android you have the option for making a notification only alert once on the 
 On Android you also have the option of changing the notification status bar icon to any icon on [Material Design](https://materialdesignicons.com/). By default the Home Assistant icon will appear. The expected format is the same in Home Assistant `mdi:cellphone`. If you provide an invalid icon name then no icon will be shown.
 
 :::info ![iOS](/assets/iOS.svg)
-On iOS, `notification_icon` instead sets the icon of a communication notification. See [Notification Icon and Color](#notification-icon-and-color).
+On iOS, `notification_icon` instead sets the icon of a communication notification. See [Notification icon and color](#notification-icon-and-color).
 :::
 
 ```yaml
