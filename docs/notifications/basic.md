@@ -703,7 +703,7 @@ Provide the icon in one of two ways:
 
 If both are set, `icon_url` takes precedence.
 
-When you use a `notification_icon`, you can also set its colors. These have no effect on an `icon_url` image. Both accept a hex value, such as `#03A9F4`.
+When you use a `notification_icon`, you can also set its colors using hex color values, such as `#03A9F4`. These have no effect on an `icon_url` image.
 
 - `notification_icon_color`: the color of the icon glyph. Defaults to white.
 - `color`: the background color behind the icon. Defaults to the Home Assistant theme color.
