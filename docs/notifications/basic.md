@@ -698,7 +698,7 @@ On iOS 17.2+, `live_update: true` starts a **Live Activity** on the Lock Screen 
 
 See [Live Activity and Live Updates](live-activities.md) for the full payload reference, examples, and platform-specific behavior.
 
-### Notification Icon and Color
+### Notification icon and color
 
 On iOS, you can give a notification a custom sender icon. When you do, the notification is shown as a communication notification, the same rounded-avatar style used by messaging apps. This requires the notification to have a `title`, which is used as the sender name.
 
