@@ -501,10 +501,26 @@ This sensor will represent the state of Do Not Disturb (DND) on the device. The 
 
 
 ## Dynamic color sensor
+
 ![Android](/assets/android.svg) Only available on devices with support for Material 3 Dynamic color.
 
-This sensors state will be a hexadecimal color value for the accent color used in the current device theme. [Dynamic color](https://m3.material.io/styles/color/dynamic-color/overview) can either be derived from the wallpaper or chosen by the user. An attribute also exists for `rgb_color` in case you wanted to use this color in an automation for the [`light.turn_on`](https://www.home-assistant.io/integrations/light/#service-lightturn_on) service call. This sensor uses the [Dynamic Colors API](https://developer.android.com/reference/com/google/android/material/color/DynamicColors).
+This sensor uses the [Dynamic Colors API](https://developer.android.com/reference/com/google/android/material/color/DynamicColors).
 
+### Accent color sensor
+
+This sensor's state will be a hexadecimal color value for the accent color used in the current device theme. An attribute also exists for `rgb_color` in case you wanted to use this color in an automation for the [`light.turn_on`](https://www.home-assistant.io/integrations/light/#service-lightturn_on) service call.
+
+### Tonal palette sensor (<span class='beta'>BETA</span>)
+
+This sensor's state will be the name of the tonal palette used for generating the current device theme. Expected values are:
+
+- `TONAL_SPOT`
+- `VIBRANT`
+- `EXPRESSIVE`
+- `SPRITZ`
+- `MONOCHROMATIC`
+- `FRUIT_SALAD`
+- `RAINBOW`
 
 ## Doze sensor
 ![Android](/assets/android.svg)<br />
