@@ -586,6 +586,16 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_respiratory_rate` | breaths per minute | The last recorded respiratory rate. |
 | `health_connect_resting_heart_rate` | beats per minute | The last recorded resting heart rate. |
 | `health_connect_sleep_duration` | minutes | The last recorded sleep duration. |
+| `health_connect_sleep_start` | timestamp | The start time of the last recorded sleep session. |
+| `health_connect_sleep_end` | timestamp | The end time of the last recorded sleep session. |
+| `health_connect_sleep_light_duration` | minutes | The amount of light sleep in the last recorded sleep session. |
+| `health_connect_sleep_deep_duration` | minutes | The amount of deep sleep in the last recorded sleep session. |
+| `health_connect_sleep_rem_duration` | minutes | The amount of REM sleep in the last recorded sleep session. |
+| `health_connect_sleep_awake_duration` | minutes | The amount of awake time in the last recorded sleep session. |
+| `health_connect_sleep_awake_in_bed_duration` | minutes | The amount of awake-in-bed time in the last recorded sleep session. |
+| `health_connect_sleep_out_of_bed_duration` | minutes | The amount of out-of-bed time in the last recorded sleep session. |
+| `health_connect_sleep_sleeping_duration` | minutes | The amount of sleeping time without a more specific sleep stage in the last recorded sleep session. |
+| `health_connect_sleep_unknown_duration` | minutes | The amount of time with an unknown sleep stage in the last recorded sleep session. |
 | `health_connect_systolic_blood_pressure` | millimeters of Mercury | The last recorded systolic blood pressure. |
 | `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
 | `health_connect_vo2_max` | milliliters per minute per kilogram | The last recorded VO2 max score. |
