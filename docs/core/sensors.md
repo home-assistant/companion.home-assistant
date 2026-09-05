@@ -582,6 +582,11 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_heart_rate_variability` | milliseconds | The last recorded heart rate variability. |
 | `health_connect_height` | meters | The last recorded height. |
 | `health_connect_lean_body_mass` | grams | The last recorded lean body mass. |
+| `health_connect_nutrition_calories` | kilocalories | <span class="beta">BETA</span> Total calories eaten since midnight. |
+| `health_connect_nutrition_carbohydrates` | grams | <span class="beta">BETA</span> Total carbohydrates eaten since midnight. |
+| `health_connect_nutrition_fat` | grams | <span class="beta">BETA</span> Total fat eaten since midnight. |
+| `health_connect_nutrition_protein` | grams | <span class="beta">BETA</span> Total protein eaten since midnight. |
+| `health_connect_nutrition_sugar` | grams | <span class="beta">BETA</span> Total sugar eaten since midnight. |
 | `health_connect_oxygen_saturation` | percent | The last recorded oxygen saturation percentage. |
 | `health_connect_respiratory_rate` | breaths per minute | The last recorded respiratory rate. |
 | `health_connect_resting_heart_rate` | beats per minute | The last recorded resting heart rate. |
