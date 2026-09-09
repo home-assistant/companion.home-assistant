@@ -30,7 +30,11 @@ You should follow the general guidelines about writing a documentation from Micr
 ## Formatting guidelines
 
 1. **Headings**:
-   - Use sentence-style capitalization, also in headings (for example, "Configuring a device").
+   - Always use sentence-style capitalization in headings: capitalize only the first word and proper nouns (brand names, product names, and platform names). Never use title case.
+     - Good: `### Notification icon and color`, `## Sending a notification to your phone`, `## Setting up Android Auto`
+     - Bad: `### Notification Icon and Color`, `## Sending a Notification to Your Phone`, `## Setting Up Android Auto`
+   - This rule applies to every heading you add or change, even when other headings on the same page still use title case. You do not need to rewrite unrelated existing headings, but do not copy their capitalization.
+   - When you change a heading, also update any link text that refers to it. For example, `See [Notification icon and color](#notification-icon-and-color)`.
    - Organize content with appropriate heading levels (`#`, `##`, `###`).
 
 2. **Lists**:
@@ -286,6 +290,16 @@ https://www.home-assistant.io/installation/
 - Home Assistant documentation: `https://www.home-assistant.io/docs/...`
 - Home Assistant Cloud (Nabu Casa): `https://support.nabucasa.com/...`
 - GitHub issues: `https://github.com/home-assistant/iOS/issues/...` or `https://github.com/home-assistant/android/issues/...`
+
+## Code review
+
+When reviewing pull requests, check every changed line against the guidelines in this file and request changes when they are not followed. Pay special attention to the following, because they are frequently missed:
+
+- **Heading capitalization**: Every added or modified heading must use sentence-style capitalization. Flag any heading in title case, such as `### Notification Icon and Color`, and suggest the sentence-case version, such as `### Notification icon and color`. Apply this even if other headings in the same file use title case.
+- **Link text to headings**: Link text that refers to a heading must use the same sentence-style capitalization as the heading.
+- **UI strings**: UI strings must be in **bold** and match the capitalization used in the app or in Home Assistant.
+- **Both platforms**: Every feature must document both iOS and Android, or explicitly state which platform it applies to using the platform indicators.
+- **Style**: Use American English spelling, a serial comma, and _for example_ instead of "e.g.".
 
 ## AI policy
 
