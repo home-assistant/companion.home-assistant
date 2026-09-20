@@ -21,7 +21,11 @@
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
-  "resolutions": {},
+  "resolutions": {
+    "qs": "^6.16.0",
+    "serialize-javascript": "^7.0.5",
+    "**/sockjs/uuid": "^11.1.1"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
