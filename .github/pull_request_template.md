@@ -33,6 +33,13 @@
 
 - [ ] I have read and followed the [documentation guidelines](https://developers.home-assistant.io/docs/documenting/general-style-guide).
 - [ ] I have verified that my changes render correctly in the documentation.
+- [ ] I have read the [Open Home Foundation AI Policy](https://developers.home-assistant.io/docs/ai_policy).
+
+Select exactly one option that describes AI usage in this contribution:
+
+- [ ] I have not used AI for this contribution.
+- [ ] AI assistance was used for this contribution.
+- [ ] AI fully generated the content for this contribution, but I've reviewed and understood it before submitting and will respond without AI during review.
 
 ## Additional information
 <!--
