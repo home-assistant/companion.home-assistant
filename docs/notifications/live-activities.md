@@ -70,10 +70,12 @@ action:
 
 ## Updating
 
-Send the same payload again with the same `tag`. The display updates silently, with no banner and no sound.
+Send the same payload again with the same `tag`. This updates the existing activity in place rather than creating a new one.
+
+To update quietly, set ![iOS](/assets/iOS.svg)[`silent: true`](#payload-fields) or ![Android](/assets/android.svg) [`alert_once: true`](#payload-fields). These settings do not silence the initial alert for a new activity.
 
 :::note ![iOS](/assets/iOS.svg)
-Live Activities use the highest push notification delivery priority (10), except updates sent with `silent: true`, which use a lower priority (5) that iOS may delay or batch to save power. Avoid automations that update every second or react to a frequently changing entity state. If iOS considers the update frequency excessive, it may throttle push delivery. This does not apply to local push notifications.
+Quiet updates use a lower push notification delivery priority (5), so iOS may delay or batch them to save power. Other Live Activity notifications use the highest priority (10). Avoid automations that update every second or react to a frequently changing entity state. If iOS considers the update frequency excessive, it may throttle push delivery. This does not apply to local push notifications.
 :::
 
 ```yaml
