@@ -268,6 +268,7 @@ A platform badge (![iOS](/assets/iOS.svg) / ![Android](/assets/android.svg)) mar
 | `chronometer` | boolean | Show a live count-up or countdown timer. Requires `when`. ![Android](/assets/android.svg) Replaces `critical_text` in the status bar chip. |
 | `when` | number | Timer reference point. A Unix timestamp, or seconds from now when `when_relative` is `true`. |
 | `when_relative` | boolean | If `true`, treat `when` as seconds from now rather than a Unix timestamp. |
+| `when_start` | number | <span class='beta'>BETA</span> Unix timestamp (in seconds) of the moment the timer actually started. Always absolute: `when_relative` applies to `when` only, so re-sending the same start changes nothing. ![iOS](/assets/iOS.svg) Anchors a countdown's progress bar to start → end so updates don't reset it, and anchors a bounded count-up instead of the moment the push arrived. ![Android](/assets/android.svg) Anchors a count-up sent as a negative relative `when`; no effect on countdowns, which have no timer-driven bar. Ignored unless it is before the end. See [Keeping a timer anchored across updates](#keeping-a-timer-anchored-across-updates). |
 | `notification_icon` | string | A [Material Design Icon](https://pictogrammers.com/library/mdi/) slug, such as `mdi:washing-machine`. |
 | ![iOS](/assets/iOS.svg) `notification_icon_color` | string | Hex color for the icon, such as `#2196F3`. |
 | ![Android](/assets/android.svg) `color` | string | Hex color for the icon, such as `#2196F3`. |
@@ -424,6 +425,50 @@ action:
 The bar starts empty and fills on its own as the 45-minute countdown runs, reaching full when the timer ends.
 
 If you send a value other than `increasing` or `decreasing`, the app ignores it and uses the default direction.
+
+#### Keeping a timer anchored across updates
+
+A timer is anchored on the moment its push arrives. For a countdown that means the progress bar spans from the update to `when`, so if the machine re-estimates with 45 minutes left, the bar restarts as if the whole cycle were 45 minutes long. For a count-up it means the elapsed time snaps back to zero on every update.
+
+Send `when_start` to say when the timer really began. It is always a Unix timestamp, so the same value can be sent on every update:
+
+```yaml
+action:
+  - action: notify.mobile_app_<your_device_id_here>
+    data:
+      title: "Washing Machine"
+      message: "Rinsing · 1 of 2"
+      data:
+        tag: washer_cycle
+        live_update: true
+        chronometer: true
+        when: 2700
+        when_relative: true
+        when_start: "{{ as_timestamp(states('input_datetime.washer_cycle_start')) | int }}"
+        notification_icon: mdi:washing-machine
+```
+
+The cycle ends in 45 minutes and began whenever the helper says, so the bar shows the remaining 45 minutes as part of the full cycle no matter how often you update the end time. Only the bar is affected; the timer text still counts down to `when`. A `when_start` that is not before the end is ignored, and the bar falls back to spanning now → `when`.
+
+`when_start` anchors a count-up the same way. A negative relative `when` counts up toward that many seconds and freezes there, starting from the moment the push arrived unless you say otherwise:
+
+```yaml
+action:
+  - action: notify.mobile_app_<your_device_id_here>
+    data:
+      title: "Workout"
+      message: "Session in progress"
+      data:
+        tag: workout
+        live_update: true
+        chronometer: true
+        when: -1800
+        when_relative: true
+        when_start: "{{ as_timestamp(states('input_datetime.workout_started')) | int }}"
+        notification_icon: mdi:run
+```
+
+Started 10 minutes ago, this shows 10:00 immediately and keeps counting toward 30:00, and it stays continuous however many updates you send.
 
 #### Dynamic Island
 
