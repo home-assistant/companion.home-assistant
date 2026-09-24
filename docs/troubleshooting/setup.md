@@ -155,6 +155,18 @@ If you still do not receive location updates after following the above steps and
 2.  Check that background data for the Home Assistant app is enabled.
 3.  Remove and recreate the widget.
 
+## Android widgets, Quick Settings tiles, or actions work briefly then fail after the app is closed
+![Android](/assets/android.svg) If widgets, Quick Settings tiles, notification action buttons, or shortcuts work for a moment right after you leave the app but then reliably stop working a short time later (their requests fail with a timeout after about 10 seconds), the device is most likely restricting the app's network while it is in the background. This has been seen on some devices and Android versions, for example Android 13 on some Samsung phones, and does not happen on near-stock devices such as Pixel. On affected devices the background network calls never succeed unless the app is allowed to keep a service running.
+
+To resolve it, keep the app active in the background and exempt it from power restrictions:
+
+1.  Enable notification access for Home Assistant (Settings > Notifications > *Notification read, reply & control* > Home Assistant > Allow notification access). This keeps a service running so the app is not put to sleep.
+2.  Turn off battery optimization for the app, and disable any manufacturer power-saving mode.
+3.  On Samsung, remove Home Assistant from Settings > Battery > Background usage limits > Sleeping apps and Deep sleeping apps, and add it to Never sleeping apps.
+4.  Disable Data Saver, or set the app to unrestricted data, and make sure background data is allowed.
+
+See [dontkillmyapp.com](https://dontkillmyapp.com/) for manufacturer-specific steps.
+
 ## Notify action is too similar or not showing up in Android
 If you have more than 1 device of the same model and you did not rename your device in Companion App Configuration after logging in then you may have a conflict.
 
