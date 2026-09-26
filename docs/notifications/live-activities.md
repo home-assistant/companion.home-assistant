@@ -248,6 +248,37 @@ action:
         tag: washer_cycle
 ```
 
+### ![iOS](/assets/iOS.svg) When the user dismisses a Live Activity
+
+When a Live Activity is swiped away on the device, the app reports it to Home Assistant. Home Assistant discards that activity's update token, so the next `live_update` notification with the same `tag` starts a new Live Activity, and fires a `mobile_app_live_activity_dismissed` event:
+
+```json
+{
+    "event_type": "mobile_app_live_activity_dismissed",
+    "data": {
+        "tag": "washer_cycle",
+        "device_id": "DEVICE_ID",
+        "device_name": "iPhone"
+    }
+}
+```
+
+Use this event to stop sending updates for the rest of the task, so a dismissed activity stays dismissed:
+
+```yaml
+triggers:
+  - trigger: event
+    event_type: mobile_app_live_activity_dismissed
+    event_data:
+      tag: washer_cycle
+actions:
+  - action: automation.turn_off
+    target:
+      entity_id: automation.washer_live_activity_update
+```
+
+Turn the automation back on when the task ends, for example in the automation that sends `clear_notification`.
+
 ---
 
 ## Payload fields
