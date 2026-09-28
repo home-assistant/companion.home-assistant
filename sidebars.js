@@ -45,6 +45,7 @@ module.exports = {
       'integrations/android-quick-settings',
       'integrations/android-shortcuts',
       'integrations/android-webview',
+      'integrations/native-calls',
       'integrations/android-widgets',
       'integrations/app-events',
       'integrations/gestures',
