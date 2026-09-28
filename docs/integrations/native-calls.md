@@ -17,7 +17,7 @@ The integration controls which phone receives the call. Installing Companion doe
 4. Grant microphone permission when answering your first call. Without microphone permission the app cannot establish the native audio session.
 5. Call that registered phone from the provider and check audio in both directions.
 
-Android 8 or newer and a device with Android Telecom support are required. The capability is not advertised on Automotive or Meta Quest. The provider integration can discover support from the app registration; its own instructions explain how to route calls to the phone.
+Android 8 or newer and a device with a microphone and Android Telecom support are required. The capability is not advertised on Automotive or Meta Quest. The provider integration can discover support from the app registration; its own instructions explain how to route calls to the phone.
 
 ## During a call
 
