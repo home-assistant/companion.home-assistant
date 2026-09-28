@@ -49,7 +49,6 @@ module.exports = {
       'integrations/app-events',
       'integrations/gestures',
       'integrations/haptics',
-      'integrations/matter',
       'integrations/sharing',
       'integrations/ios-kiosk-mode',
       'integrations/ios-widgets',
