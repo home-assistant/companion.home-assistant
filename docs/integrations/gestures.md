@@ -34,6 +34,7 @@ For Android devices: if your device has gestures that work in any app, such as f
    - Android only.
  - **Reload page**: Force the current page to reload.
    - Android only. On iOS, keep scrolling down when at the top of the page to force the current page to reload.
+ - **Open page in browser**: Open the current page in your device's browser app. (Requires <span class='beta'>BETA</span>)
 
 ### Servers
 
