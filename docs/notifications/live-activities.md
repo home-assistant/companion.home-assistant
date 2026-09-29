@@ -257,8 +257,7 @@ When a Live Activity is swiped away on the device, the app reports it to Home As
     "event_type": "mobile_app_live_activity_dismissed",
     "data": {
         "tag": "washer_cycle",
-        "device_id": "DEVICE_ID",
-        "device_name": "iPhone"
+        "device_id": "DEVICE_ID"
     }
 }
 ```
