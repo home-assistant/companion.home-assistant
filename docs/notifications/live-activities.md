@@ -9,7 +9,6 @@ id: "live-activities"
 - ![Android](/assets/android.svg) On Android, it stays pinned to the notification shade, the Lock Screen, and the always-on display, and shows as a chip in the status bar.
 
 :::info Requirements
-- ![iOS](/assets/iOS.svg)Live Activities are currently in <span class="beta">Labs</span> and available only in the TestFlight version of the app.
 - ![iOS](/assets/iOS.svg)17.2 or later on iPhone and iPad, with macOS mirroring what is in your iPhone.
 - ![iOS](/assets/iOS.svg)Home Assistant Core 2026.7.0 or later.
 - ![iOS](/assets/iOS.svg)Live Activity requires a hand shake between app and Home Assistant itself to sync tokens, if your phone connectivity is unstable or you are not at home and don't have a remote connection configured, this token hand shake will not occur and the live activity itself will not be received/updated.
@@ -71,10 +70,12 @@ action:
 
 ## Updating
 
-Send the same payload again with the same `tag`. The display updates silently, with no banner and no sound.
+Send the same payload again with the same `tag`. This updates the existing activity in place rather than creating a new one.
+
+To update quietly, set ![iOS](/assets/iOS.svg)[`silent: true`](#payload-fields) or ![Android](/assets/android.svg) [`alert_once: true`](#payload-fields). These settings do not silence the initial alert for a new activity.
 
 :::note ![iOS](/assets/iOS.svg)
-Live Activities use the highest push notification delivery priority (10), except updates sent with `silent: true`, which use a lower priority (5) that iOS may delay or batch to save power. Avoid automations that update every second or react to a frequently changing entity state. If iOS considers the update frequency excessive, it may throttle push delivery. This does not apply to local push notifications.
+Quiet updates use a lower push notification delivery priority (5), so iOS may delay or batch them to save power. Other Live Activity notifications use the highest priority (10). Avoid automations that update every second or react to a frequently changing entity state. If iOS considers the update frequency excessive, it may throttle push delivery. This does not apply to local push notifications.
 :::
 
 ```yaml
@@ -275,6 +276,7 @@ A platform badge (![iOS](/assets/iOS.svg) / ![Android](/assets/android.svg)) mar
 | ![iOS](/assets/iOS.svg) `background_color` | string | Lock Screen background color, such as `#101820`. Defaults to black. See [Custom colors](#custom-colors). |
 | ![iOS](/assets/iOS.svg) `text_color` | string | Lock Screen text color. Defaults to a color that contrasts the background. See [Custom colors](#custom-colors). |
 | ![iOS](/assets/iOS.svg) `progress_bar_color` | string | Progress bar color, same format as `notification_icon_color`. Falls back to `notification_icon_color` when omitted. |
+| ![iOS](/assets/iOS.svg) `progress_bar_direction` | string | How the progress bar fills: `increasing` fills up as progress advances, `decreasing` drains instead. When omitted, a progress bar fills up and a countdown timer drains. See [Progress bar direction](#progress-bar-direction). |
 | ![Android](/assets/android.svg) `alert_once` | boolean | If `true`, the notification plays sound or vibration only once. |
 | ![Android](/assets/android.svg) `sticky` | boolean | If `true`, the notification stays when the user taps it. |
 
@@ -396,6 +398,32 @@ action:
 `background_color` defaults to black. If you omit `text_color`, it is chosen automatically to contrast with the background so the text stays legible. These colors apply to the Lock Screen card; the Dynamic Island keeps its system-provided dark style.
 
 To recolor the progress bar on its own, set `progress_bar_color` (same format), when omitted it uses `notification_icon_color`.
+
+#### Progress bar direction
+
+By default, a progress bar built from `progress` and `progress_max` fills up as progress advances, and a countdown timer's bar drains toward empty. Set `progress_bar_direction` to override either default: `decreasing` makes the bar drain, and `increasing` makes it fill. Only the bar's fill direction flips; any progress value shown next to the bar stays unchanged.
+
+For example, a countdown timer's bar normally drains as time runs out. Add `progress_bar_direction: increasing` to make it fill up instead, so the bar reads as how much of the cycle is done rather than how much time is left:
+
+```yaml
+action:
+  - action: notify.mobile_app_<your_device_id_here>
+    data:
+      title: "Washing Machine"
+      message: "Rinsing · 1 of 2"
+      data:
+        tag: washer_cycle
+        live_update: true
+        chronometer: true
+        when: 2700
+        when_relative: true
+        progress_bar_direction: increasing
+        notification_icon: mdi:washing-machine
+```
+
+The bar starts empty and fills on its own as the 45-minute countdown runs, reaching full when the timer ends.
+
+If you send a value other than `increasing` or `decreasing`, the app ignores it and uses the default direction.
 
 #### Dynamic Island
 
