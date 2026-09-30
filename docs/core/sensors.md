@@ -496,7 +496,7 @@ This sensor reports the degrees of rotation relative to the device's "natural" o
 
 
 ## Do Not Disturb sensor
-![Android](/assets/android.svg) 6+ only<br />
+![Android](/assets/android.svg)<br />
 This sensor will represent the state of Do Not Disturb (DND) on the device. The functionality of DND depends on the version of Android. Possible state values are `off`, `priority_only`, `total_silence`, `alarms_only`, `unavailable` or `unknown`. Not all states will show up on all versions of Android, for example a Pixel 4 XL will only show `off` or `priority_only`. If you never used DND you may see `unavailable` until you change the setting on your device. This sensor will update as soon as the state of DND changes. This sensor uses the [NotificationManager API](https://developer.android.com/reference/android/app/NotificationManager#getCurrentInterruptionFilter()).
 
 
@@ -643,7 +643,7 @@ This sensor displays exactly what caused the last update of location and sensor 
 | Signaled | Triggered when the app detects a change, such as battery state changes, while running. |
 
 ## Last used app sensor
-![Android](/assets/android.svg) 6+<br />
+![Android](/assets/android.svg)<br />
 
 The state of the sensor will always be the package name of the last used application to ensure it is always a unique value. The label of the application will be an attribute of the sensor, if it is known. This sensor updates during the normal sensor update interval and makes use of [UsageStatsManager API](https://developer.android.com/reference/android/app/usage/UsageStatsManager).
 
