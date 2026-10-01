@@ -581,6 +581,7 @@ You may want to utilize [notification timeouts](#notification-timeout) or [repla
 - chronometer - true to enable chronometer mode
 - when - the timestamp to count up or down to (seconds since 01/01/1970)
 - when_relative - true makes the value of "when" relative in seconds like "timeout"
+- when_start <span class='beta'>BETA</span> - Unix timestamp of the moment the timer started. When "when" is relative and negative, the count-up is anchored here instead of the moment the notification arrived, so updating the notification does not reset the elapsed time.
 
 ```yaml
 automation:
