@@ -107,7 +107,7 @@ The **Open page** widget allows you to open any Home Assistant sidebar page.
   </tr>
 </table>
 
-### Gauge Widget (Advanced)
+### Gauge Widget (requires templating)
 
 The **Gauge** widget lets you create a gauge representation using Home Assistant templating **(user needs to be Administrator to be able to use this feature)**, decide the minimum, maximum, and current value, along with the display text (or emoji 🥳) in the center and bottom of the widget.
 
@@ -115,6 +115,7 @@ The **Gauge** widget lets you create a gauge representation using Home Assistant
 
 <table>
   <tr>
+    <td>System small</td>
     <td>Accessory circular</td>
   </tr>
 </table>
@@ -134,16 +135,16 @@ For gauge type "Capacity":
 - **Value template:** The current value which will be used to display the gauge chart.
 - **Value label template:** The text/emoji that will be displayed on the center of the widget
 
-There is also an option to run an iOS Legacy Action, this will soon be converted  into "Run script".
 <table>
   <tr>
+    <td><img src='/assets/ios/gauge-widget-home-screen.jpeg' alt="Gauge Widget on the Home Screen" height="300"/></td>
     <td><img src='/assets/ios/gauge-widget.jpeg' alt="Gauge Widget" height="300"/></td>
     <td><img src='/assets/ios/gauge-widget-config.jpeg' alt="Gauge Widget Configuration" height="300"/></td>
   </tr>
 </table>
 
 
-### Details (Advanced)
+### Details (requires templating)
 
 The **Details** widget lets you display up to 3 lines of information using Home Assistant templating **(user needs to be Administrator to be able to use this feature)**.
 

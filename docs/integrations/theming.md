@@ -11,19 +11,13 @@ Colors should be specified in hex format (e.g. `#0099ff`) and defining element c
 - `app-header-background-color` for the status bar background color ![Android](/assets/android.svg)
 
 ![iOS](/assets/iOS.svg)<br /><br />
-As of version 2020.3, the iOS app will accept colors specified in hex, rgb, hsl, rgba, hsla formats or using a valid [HTML color name](https://www.w3schools.com/colors/colors_names.asp); although formats with alpha values are recognized, using alpha values less than 100 % (or 1) will currently lead to a color mismatch. 2020.2 and earlier versions of the app require colors to be specified in hex.
+The iOS app accepts colors specified in hex, rgb, hsl, rgba, hsla formats or using a valid [HTML color name](https://www.w3schools.com/colors/colors_names.asp); although formats with alpha values are recognized, using alpha values less than 100 % (or 1) will currently lead to a color mismatch.
 - `primary-background-color` for the background color of the web view ![iOS](/assets/iOS.svg)
 - `app-header-background-color` for the status bar background color ![iOS](/assets/iOS.svg)
 - `primary-color` for the pull-to-refresh control/spinner ![iOS](/assets/iOS.svg)
 
 ## Setting the app theme
 
-The process needed to get the app to match the Home Assistant theme is different depending on the app version used.
+![iOS](/assets/iOS.svg) The app automatically matches the selected theme in Home Assistant and updates in real time when the theme is changed.
 
-### iOS apps after version 2020.2
-
-The app will automatically match the selected theme in Home Assistant and will update in real time when the theme is changed.
-
-### iOS app version 2020.1 or older and Android app
-
-To change the theme of the app you must use a [service call](https://www.home-assistant.io/docs/scripts/service-calls/) to `frontend.set_theme` in Home Assistant to change them. This will fire an event which the app can detect.
+![Android](/assets/android.svg) To change the theme of the app you must use a [service call](https://www.home-assistant.io/docs/scripts/service-calls/) to `frontend.set_theme` in Home Assistant. This will fire an event which the app can detect.

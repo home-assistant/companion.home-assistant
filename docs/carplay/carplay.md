@@ -17,13 +17,15 @@ By default you won't see any relevant information in CarPlay, you need to open *
 
 CarPlay has 4 tabs:
 
-- **Quick Access:** In your CarPlay configuration, you can decide what entities to display on the **Quick access** tab.
+- **Quick Access:** In your CarPlay configuration, you can decide what entities, Assist pipelines, and Assist prompts to display on the **Quick access** tab.
 
 - **Areas:** Brings easy access to your entities from the area in your home.
 - **Control:** Lets you access entities grouped by their domain.
 - **Servers:** Allows you to switch between servers.
 
 ![CarPlay](/assets/ios/CarPlay.png)
+
+See [Assist](assist.md) to configure Assist and Assist prompts in CarPlay.
 
 ### Supported Actionable Domains
 

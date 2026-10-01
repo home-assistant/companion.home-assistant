@@ -70,8 +70,6 @@ Complications can also be updated using a [Notification Command](/notifications/
 
 It may take a few seconds or a few minutes for the update to fully apply.
 
-![iOS](/assets/iOS.svg) 2021.6 is required for manual updates.
-
 ```yaml
 - action: notify.mobile_app_<your_device_id_here>
   data:

@@ -47,18 +47,18 @@ automation:
 
 The newly created `device_tracker` entity may provide some of the following attributes depending on your operating system.
 
-| Name                | Unit                           |
-| ------------------- | ------------------------------ |
-| `source`            | _None_                         |
-| `battery_level`     | percentage                     |
-| `latitude`          | degrees                        |
-| `longitude`         | degrees                        |
-| `gps_accuracy`      | meters                         |
-| `altitude`          | meters                         |
-| `course`            | degrees                        |
-| `speed`             | meters per second              |
-| `vertical_accuracy` | meters                         |
-| `floor`             | floors ![iOS](/assets/iOS.svg) |
+| Name                | Unit                               |
+| ------------------- | ---------------------------------- |
+| `source`            | _None_                             |
+| `battery_level`     | percentage ![iOS](/assets/iOS.svg) |
+| `latitude`          | degrees                            |
+| `longitude`         | degrees                            |
+| `gps_accuracy`      | meters                             |
+| `altitude`          | meters                             |
+| `course`            | degrees                            |
+| `speed`             | meters per second                  |
+| `vertical_accuracy` | meters                             |
+| `floor`             | floors ![iOS](/assets/iOS.svg)     |
 
 If you want to know more about the specifics of these attributes, please refer to the relevant documentation of your operating system:
 
@@ -76,6 +76,8 @@ Options available:
 
 - **Exact** sends the GPS coordinates of your device.
 - **Zone Name Only** sends just the zone name (or `not_home`), which can be useful for presence detection without exposing location. Only zones for the server in question are considered.
+
+  <span class="beta">BETA</span> Starting with app version 2026.6.0 on iOS and Android, all matching zones are reported (not just one) when your Home Assistant Core version is 2026.6.0 or later. This includes [passive zones](https://www.home-assistant.io/integrations/zone/#passive), which were previously excluded. On older Core versions, a single non-passive zone name continues to be sent for backward compatibility.
 - **![iOS](/assets/iOS.svg) Never** or **![Android](/assets/android.svg) Disabled** will not send GPS coordinates nor zone information.
 
 ## Location tracking when outside a Home Assistant zone
@@ -128,7 +130,7 @@ Restart Home Assistant and then the iOS app. It will then begin using iBeacons _
 
 ## Sending an intent
 
-![Android](/assets/android.svg) Sending an intent is an advanced feature intended for users who are familiar with Android automation apps. Users can request a location update by sending an intent using an app such as Tasker or any other automation app that allows the user to send an intent. You will need to make sure that the app is running in the [background](/docs/troubleshooting/faqs#device-tracker-is-not-updating-in-android-app) and that the Single Accurate Location sensor is enabled for the updates to trigger properly.
+![Android](/assets/android.svg) Sending an intent is intended for users who are familiar with Android automation apps. Users can request a location update by sending an intent using an app such as Tasker or any other automation app that allows the user to send an intent. You will need to make sure that the app is running in the [background](/docs/troubleshooting/faqs#device-tracker-is-not-updating-in-android-app) and that the Single Accurate Location sensor is enabled for the updates to trigger properly.
 
 The following steps are an example of how to send an intent using Tasker:
 
