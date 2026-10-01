@@ -5,34 +5,42 @@ id: 'android-media-controls'
 
 ![Android](/assets/android.svg) <span class='beta'>BETA</span>
 
-The Android app can show your Home Assistant `media_player` entities as native media controls in the notification shade — the same interface used by apps like Spotify or YouTube Music. This lets you control playback (play, pause, skip track, seek) directly from the notification shade without opening the app.
+The Android app can show your Home Assistant `media_player` entities as native media controls in the notification shade, the same controls used by apps like Spotify or YouTube Music. You can control playback without opening the app.
 
-## Supported actions
-
-The media control supports the following actions, depending on what the `media_player` entity supports:
-
-- **Play/pause** — start or pause playback
-- **Next/previous track** — skip to the next or previous track
-- **Seek** — scrub to a specific position in the current track
-- **Progress bar** — shows playback progress, even for entities that don't support seeking
-- **Album art** — displays the current media's artwork
+<img src='/assets/android/media_controls.jpg' alt='Media control of a Home Assistant media player in the Android notification shade' width='400' />
 
 ## Setup
 
 1. In the Home Assistant app, go to **Settings** > **Companion App** > **Media controls**.
-2. If you have multiple servers, select a server.
-3. Select a `media_player` entity from the list.
-4. Tap **Save**.
-5. Start playing media on the selected entity. A media control will appear in the notification shade.
+2. If you have multiple servers, select the server of the media player.
+3. Tap **Add media player** and select a `media_player` entity.
+4. Repeat step 3 for each media player you want to control.
 
-## Removing the media control
+Changes are saved immediately. Each media player gets its own media control in the notification shade.
 
-To remove the media control, go to **Settings** > **Companion App** > **Media controls** and tap **Clear**. This stops the background service and removes the notification.
+To remove a media player, tap the remove button next to it in the list. When no media player is left, the app stops showing media controls.
+
+## Controls
+
+The media control shows the title, artist and artwork of the current media, and the playback progress. It offers the following controls, depending on what the media player supports:
+
+- **Play and pause**
+- **Previous and next track**
+- **Seek**: drag the progress bar to a position in the current media
+- **Shuffle**: turn shuffle on or off
+- **Repeat**: cycle between repeat off, repeat all and repeat one
+- **Volume**: change the volume of the media player with Android's volume controls
+- **Mute**: mute or unmute the media player
+
+Controls the media player does not support are not shown. Tapping the media control opens the media player's more-info dialog in the app.
+
+## When the media control is shown
+
+The media control is shown while the media player is playing, paused, buffering or idle. It is hidden while the media player is off, and comes back when it turns on again.
+
+The media control is also shown on the lock screen.
 
 ## Notes and limitations
 
-- Only one `media_player` entity can be configured at a time.
-- The media control appears in the notification shade only when the entity has an active playback state (playing, paused, or buffering).
-- After a device reboot, the media control restarts when the app is next opened.
-- This feature is available on both `full` and `minimal` [app flavors](../core/android-flavors.md).
-- Media session notifications do not require notification permissions on Android 13 and later.
+- The media control reflects what Home Assistant reports. If the progress bar or the shuffle and repeat state look wrong, compare with the media player's more-info dialog in Home Assistant before opening an issue.
+- The output indicator in the top right corner of the media control shows **This phone**, even though the media plays on the media player.
