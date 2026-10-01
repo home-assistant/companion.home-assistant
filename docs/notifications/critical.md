@@ -66,7 +66,9 @@ The below options will only impact when [local push notifications](local.md) are
 
 For Android, notifications will appear immediately in most cases. However, in some cases (such as phone being stationary or when screen has been turned off for prolonged period of time), default notifications will not ring the phone until screen is turned on.
 
-To override that behavior, set `priority: high` and `ttl: 0`.
+To override that behavior, set `priority: high` and `ttl: 0`. The `ttl` (time to live) value is used only for Android notifications delivered through Firebase Cloud Messaging (FCM). It is specified in milliseconds, so `ttl: 3600000` allows FCM to retain the message for up to one hour. If `ttl` is omitted, FCM's default retention period applies, which can be up to four weeks. A value of `ttl: 0` tells FCM to deliver the message immediately or discard it if immediate delivery is not possible.
+
+This `ttl` setting does not apply to Local Push or iOS notifications. It is also different from `timeout`, which controls when an Android notification is dismissed after it has been shown and is specified in seconds. See [Notification Timeout](basic.md#notification-timeout) for details.
 
 By default they also do not override Do Not Disturb settings, if you would like to override this you will need to use [notification channels](basic.md#notification-channels). 
 
