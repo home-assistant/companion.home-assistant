@@ -277,6 +277,7 @@ A platform badge (![iOS](/assets/iOS.svg) / ![Android](/assets/android.svg)) mar
 | ![iOS](/assets/iOS.svg) `text_color` | string | Lock Screen text color. Defaults to a color that contrasts the background. See [Custom colors](#custom-colors). |
 | ![iOS](/assets/iOS.svg) `progress_bar_color` | string | Progress bar color, same format as `notification_icon_color`. Falls back to `notification_icon_color` when omitted. |
 | ![iOS](/assets/iOS.svg) `progress_bar_direction` | string | How the progress bar fills: `increasing` fills up as progress advances, `decreasing` drains instead. When omitted, a progress bar fills up and a countdown timer drains. See [Progress bar direction](#progress-bar-direction). |
+| ![iOS](/assets/iOS.svg) `relevance_score` | number | <span class='beta'>BETA</span> Priority from `0.0` to `1.0` used to order several Live Activities. The highest score takes the Dynamic Island and the top of the Lock Screen; ties go to the activity that started first. Values outside the range are clamped. New activities start at `0.5` when omitted. See [Ordering multiple activities](#ordering-multiple-activities). |
 | ![Android](/assets/android.svg) `alert_once` | boolean | If `true`, the notification plays sound or vibration only once. |
 | ![Android](/assets/android.svg) `sticky` | boolean | If `true`, the notification stays when the user taps it. |
 
@@ -424,6 +425,29 @@ action:
 The bar starts empty and fills on its own as the 45-minute countdown runs, reaching full when the timer ends.
 
 If you send a value other than `increasing` or `decreasing`, the app ignores it and uses the default direction.
+
+#### Ordering multiple activities
+
+<span class='beta'>BETA</span>
+
+When several Live Activities run at once, iOS shows the one with the highest `relevance_score` in the Dynamic Island and lists the rest on the Lock Screen from highest to lowest score. Every activity starts at `0.5` unless you say otherwise, so by default ties are broken by start time and the oldest activity keeps the Dynamic Island, even when something more urgent starts later. Set `relevance_score` (from `0.0` to `1.0`) to put the activity that matters right now in front:
+
+```yaml
+action:
+  - action: notify.mobile_app_<your_device_id_here>
+    data:
+      title: "Kitchen Timer"
+      message: "Pasta"
+      data:
+        tag: kitchen_timer
+        live_update: true
+        chronometer: true
+        when: 120
+        when_relative: true
+        relevance_score: 1.0
+```
+
+Because the score is just another field on the update, you can change it while the activity runs: raise it as a timer enters its last minute, or keep a long-running status such as an open gate at `0.2` so it stays on the Lock Screen and leaves the Dynamic Island to any higher-scored activity. This avoids ending and restarting activities to reorder them, which would spend the [push-to-start budget](#dynamic-island). An update sent without `relevance_score` is not guaranteed to keep the previous score, so include it on every update of an activity you have scored; sending the same value again is harmless. Values above `1.0` or below `0.0` are clamped.
 
 #### Dynamic Island
 
