@@ -14,6 +14,7 @@ module.exports = {
     'Core Features': [
       'core/core',
       'core/android-flavors',
+      'core/settings-backup',
       'core/location',
       'core/sensors'],
     'Data handling': [
