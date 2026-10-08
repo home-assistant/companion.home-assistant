@@ -23,6 +23,8 @@ Backups do not include login credentials, server addresses, device registrations
 
 The backup is an unencrypted JSON file. It can contain personal information, such as server names, entity IDs, app selections, Bluetooth addresses, and location preferences. Store it somewhere you trust.
 
+In the backup file, the `androidAutoFavorites` field stores your Android Auto favorites and their order.
+
 ### Export settings
 
 1. Open **Settings** > **Companion app** > **Settings backup**.
