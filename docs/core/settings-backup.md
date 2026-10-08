@@ -57,6 +57,7 @@ In the backup file, the `androidAutoFavorites` field stores your Android Auto fa
 - Categories you do not select and individual settings absent from the backup keep their current values.
 - Restoring **Android Auto favorites** replaces favorites for the destination servers you select. An empty favorites list clears favorites for those servers. Favorites for other servers are retained.
 - Restoring **Sensors on or off** sends the saved choices to each selected server during the next successful sensor synchronization, replacing conflicting on/off choices on that server.
+- For numeric sensor settings, an empty field or a value that cannot be read as a number is saved as the default used by the source app. Restoring applies that saved value, even if the destination has a different default.
 - Skipped servers keep their server-specific settings. **Sensor settings** and **Sensor update frequency** still apply to all connected servers when selected.
 - Favorite and zone entity IDs are kept as saved. Choose the same Home Assistant servers used when creating the backup; the app does not check whether those entities still exist.
 - A zone selection is skipped if any of its servers has no destination.
