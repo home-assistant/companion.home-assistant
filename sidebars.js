@@ -52,6 +52,7 @@ module.exports = {
       'integrations/sharing',
       'integrations/ios-kiosk-mode',
       'integrations/ios-widgets',
+      'integrations/ios-ios-control-center',
       'integrations/siri-shortcuts',
       'integrations/theming',
       'integrations/universal-links',
