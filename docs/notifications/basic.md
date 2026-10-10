@@ -62,7 +62,7 @@ When tapping on a notification, you can choose to open a URL, which can fall int
     - If you have multiple servers connected to the app, relative URLs will be opened on the server that sent the notification.
     - You can open a dashboard [view](https://www.home-assistant.io/dashboards/views/) using the [path of the view](https://www.home-assistant.io/dashboards/views/#url-of-a-view), for example: `/dashboard/living_room`.
 - An full URL like `https://example.com`.
-- The More Info panel of an entity using `/?more-info-entity-id=<entity_ID>`, where `<entity_ID>` should be the ID of the entity ID you wish to view. For example: `/?more-info-entity-id=sun.sun`.
+- The More Info panel of an entity, which shows its current state and available controls, using `/?more-info-entity-id=<entity_ID>`. Replace `<entity_ID>` with the ID of the entity you want to view, for example: `/?more-info-entity-id=sun.sun`.
 - For a particular action in Actionable Notifications, see [its documentation](/docs/notifications/actionable-notifications).
 - ![Android](/assets/android.svg) An application using `app://<package name>` where `<package name>` is replaced with the actual package you wish to open.
 - ![Android](/assets/android.svg) You can also open the notification history by using `settings://notification_history`
