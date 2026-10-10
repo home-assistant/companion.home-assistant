@@ -59,20 +59,16 @@ You can attach media and other content to notifications. See [Attachments](/docs
 When tapping on a notification, you can choose to open a URL, which can fall into one of the following buckets:
 
 - A relative URL to your Home Assistant instance, like `/lovelace/test`.
-    - ![iOS](/assets/iOS.svg) If you have multiple servers connected to an iOS or mac app, relative URLs will be treated with respect to the server that sent the notification. 
-- An full URL like `https://example.com`
+    - If you have multiple servers connected to the app, relative URLs will be opened on the server that sent the notification.
+    - You can open a dashboard [view](https://www.home-assistant.io/dashboards/views/) using the [path of the view](https://www.home-assistant.io/dashboards/views/#url-of-a-view), for example: `/dashboard/living_room`.
+- An full URL like `https://example.com`.
+- The More Info panel of an entity, which shows its current state and available controls, using `/?more-info-entity-id=<entity_ID>`. Replace `<entity_ID>` with the ID of the entity you want to view, for example: `/?more-info-entity-id=sun.sun`.
 - For a particular action in Actionable Notifications, see [its documentation](/docs/notifications/actionable-notifications).
 - ![Android](/assets/android.svg) An application using `app://<package name>` where `<package name>` is replaced with the actual package you wish to open.
-- ![Android](/assets/android.svg) The More Info panel of an entity using `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`.
-- ![iOS](/assets/iOS.svg) The More Info panel of an entity using `entity_id: <entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entity_id: sun.sun`. This only applies when tapping the notification itself and no `url` is set.
 - ![Android](/assets/android.svg) You can also open the notification history by using `settings://notification_history`
 - ![Android](/assets/android.svg) You can also use an [intent scheme URI](https://developer.chrome.com/docs/multidevice/android/intents/#syntax) to start an action in an installed application.
 - ![Android](/assets/android.svg) You can send a specific [deep link](https://developer.android.com/training/app-links#deep-links) to an app by using `deep-link://<deep_link>` where `<deep_link>` is the actual deep link you wish to send.
 - ![Android](/assets/android.svg) If you prefer to not open the app by default and instead do nothing you can use `noAction`.
-
-For relative URLs, you can open a lovelace view in the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/dashboards/views#path) in the defined view or a lovelace dashboard in the format `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/dashboards/dashboards/) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/dashboards/views#path) within that dashboard.
-
-
 
 ```yaml
 automation:
