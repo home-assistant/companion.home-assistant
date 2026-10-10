@@ -64,6 +64,7 @@ When tapping on a notification, you can choose to open a URL, which can fall int
 - For a particular action in Actionable Notifications, see [its documentation](/docs/notifications/actionable-notifications).
 - ![Android](/assets/android.svg) An application using `app://<package name>` where `<package name>` is replaced with the actual package you wish to open.
 - ![Android](/assets/android.svg) The More Info panel of an entity using `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`.
+- ![iOS](/assets/iOS.svg)The More Info panel of an entity using `/?more-info-entity-id=<entity_ID>`. Replace `<entity_ID>` with the entity ID you wish to view, for example, `/?more-info-entity-id=sun.sun`.
 - ![iOS](/assets/iOS.svg) The More Info panel of an entity using `entity_id: <entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entity_id: sun.sun`. This only applies when tapping the notification itself and no `url` is set.
 - ![Android](/assets/android.svg) You can also open the notification history by using `settings://notification_history`
 - ![Android](/assets/android.svg) You can also use an [intent scheme URI](https://developer.chrome.com/docs/multidevice/android/intents/#syntax) to start an action in an installed application.
@@ -106,6 +107,19 @@ automation:
             url: "/lovelace/cameras"
             # Android URL
             clickAction: "/lovelace/cameras"
+```
+
+To open an entity's More Info panel, which shows its current state and available controls, use the following notification data:
+
+```yaml
+action: notify.mobile_app_<your_device_id_here>
+data:
+  message: "View the sun's current state"
+  data:
+    # iOS URL
+    url: "/?more-info-entity-id=sun.sun"
+    # Android URL
+    clickAction: "entityId:sun.sun"
 ```
 
 :::info
