@@ -96,7 +96,7 @@ If the template in the widget isn't updating instantly, you're most likely hitti
 
 <span class="beta">BETA</span>
 
-You may also provide an Action URL. When tapping the widget, it will perform that action, for example navigating to a dashboard or an entity. The possible URL types is the same as for [notifications](https://companion.home-assistant.io/docs/notifications/actionable-notifications/#uri-values). If you don't specify an Action URL, tapping the widget will trigger a refresh.
+You can also enter a **Link to open on tap**. When you tap the widget, the app opens that link, for example a dashboard view or an entity's more-info dialog. The link accepts the same values as the [`uri` of an actionable notification](/docs/notifications/actionable-notifications#uri-values). If you leave it empty, tapping the widget refreshes it.
 
 ### To-do list
 
