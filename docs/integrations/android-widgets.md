@@ -94,6 +94,10 @@ If the template in the widget isn't updating instantly, you're most likely hitti
 4.  Fill in the template data and observe the rendering below
 5.  Save the widget
 
+<span class="beta">BETA</span>
+
+You may also provide an Action URL. When tapping the widget, it will perform that action, for example navigating to a dashboard or an entity. The possible URL types is the same as for [notifications](https://companion.home-assistant.io/docs/notifications/actionable-notifications/#uri-values). If you don't specify an Action URL, tapping the widget will trigger a refresh.
+
 ### To-do list
 
 This widget will display items from a configured to-do list. You can open the list inside the app by clicking on the header or add button. The widget also allows you to mark items as completed when the checkbox is clicked. The widget will be refreshed each time the list changes or when the refresh button is clicked.
