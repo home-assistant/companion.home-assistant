@@ -17,7 +17,7 @@ The Home Assistant app comes with several built-in widgets. You can also build y
 ## Adding a widget
 
 1. On your Home Screen, touch and hold an empty area until the apps start to jiggle.
-2. Select the **Edit** button in the upper corner, then select **Add widget**.
+2. On iOS 18 and iPadOS 18 or later, select the **Edit** button in the upper corner, then select **Add widget**. On iOS 17 and iPadOS 17, select the **+** button in the upper corner.
 3. Search for **Home Assistant** and select it.
 4. Swipe through the available widgets, choose a size, and select **Add widget**.
 5. To change a widget's settings, touch and hold the widget and select **Edit widget**.
@@ -48,7 +48,7 @@ Because of this, widgets are not suitable for information that must be up to the
 
 Many widgets show the time of their last update, together with a refresh icon. Select it to reload the widget right away.
 
-To refresh your widgets more often, [send a silent push notification with the `update_widgets` command](/docs/notifications/notification-commands). You can create an automation that sends this notification whenever an entity you care about changes state.
+To refresh your widgets more often, [send a silent push notification with the `update_widgets` command](/docs/notifications/notification-commands). You can create an automation that sends this notification whenever an entity you care about changes state. This command reloads the **Common Controls**, **Entities**, **Areas**, **Custom**, **To-do List**, **Gauge**, **Details**, and **Sensors** widgets. The other widgets refresh on their own schedule or when you select their refresh button.
 
 If your widgets are stuck on a blank state or stop updating, open the app and go to **Settings** > **Companion app** > **Widgets**, then select **Reload all widgets**.
 
@@ -65,7 +65,7 @@ For entities without a main action, such as sensors, the whole tile opens the mo
 
 The **Common Controls** widget shows the entities you use most, chosen by Home Assistant based on your usage history. You don't select the entities yourself: the list updates as your habits change.
 
-<img src="/assets/ios/widgets/common-controls.png" alt="Common Controls widget in the medium size, showing six tiles such as a scene, a light, a lock, and a vacuum, each with its current state" width="370" />
+<img src="/assets/ios/widgets/common-controls.png" alt="Common Controls widget in the medium size, showing four tiles: a light that is on, a switch that is off, an open cover, and a fan that is off" width="350" />
 
 **Requirements:**
 
@@ -95,7 +95,7 @@ The **Entities** widget shows the entities you choose, with their current state.
 
 Unlike the **Custom widget**, you set up this widget directly from your Home Screen, without creating anything in the app first. In exchange, you can't change the icons, colors, names, or tap actions.
 
-<img src="/assets/ios/widgets/entities.png" alt="Entities widget in the medium size, showing a light that is on, a switch that is off, an open cover, and a fan that is off" width="350" />
+<img src="/assets/ios/widgets/entities.png" alt="Entities widget in the medium size, showing six entities with their states, such as a kitchen light that is on, a temperature of 21.5 °C, and a locked front door" width="350" />
 
 **Configuration options:**
 
@@ -116,7 +116,7 @@ The **Areas** widget shows the [areas](https://www.home-assistant.io/docs/organi
 
 <img src="/assets/ios/widgets/areas.png" alt="Areas widget in the medium size, showing four areas of the ground floor, with arrows to move between pages" width="370" />
 
-- Select an area to open its page in the Home Assistant dashboard.
+- Select an area to open its page in the Home Assistant dashboard. In the small size, selecting the widget opens the areas dashboard instead.
 - When your home has more areas than fit in the widget, use the arrows at the bottom to move between pages.
 
 **Configuration options:**
@@ -248,7 +248,7 @@ The **Calendar** widget shows your upcoming events for the next 14 days. You can
 
 <img src="/assets/ios/widgets/calendar.png" alt="Calendar widget in the medium size, showing three events from two calendars for Monday the 18th" width="370" />
 
-- Select an event to open its calendar in the app.
+- Select an event to open its calendar in the app. In the small size, selecting the widget opens the calendar page instead.
 - Select the time at the bottom of the widget to reload the events.
 
 **Configuration options:**
@@ -256,7 +256,7 @@ The **Calendar** widget shows your upcoming events for the next 14 days. You can
 - **Calendars**: The calendars to show events from. Select as many as you like. If you don't select any, the widget shows events from all your calendars.
 - **Show calendar name**: Displays the name of the calendar next to each event. This is useful when you merge several calendars.
 
-The small size shows up to 2 events, medium up to 3, and large and extra large up to 6. The large and extra large sizes group the events by day.
+The small size shows up to 2 events, medium up to 3, large and extra large up to 6, and the portrait version of extra large up to 12. The large and extra large sizes group the events by day.
 
 **Available in:**
 
