@@ -344,9 +344,9 @@ Values are sent in metric units, such as kilograms, kilometers, and degrees Cels
 | `health_sleep_deep` | minutes | Time in deep sleep last night. |
 | `health_sleep_rem` | minutes | Time in REM sleep last night. |
 
-**Awake**, **Core Sleep**, **Deep Sleep**, and **REM Sleep** need a source that records sleep stages, such as an Apple Watch. If your sleep data comes from a source that does not record stages, these sensors report `unavailable`, while **Sleep Duration** still reports the total time asleep.
+`health_sleep_awake`, `health_sleep_core`, `health_sleep_deep`, and `health_sleep_rem` need a source that records sleep stages, such as an Apple Watch. If your sleep data comes from a source that does not record stages, these sensors report `unavailable`, while `health_sleep_duration` still reports the total time asleep.
 
-Apple Watch records sleep stages but not time in bed, so **In Bed** reports `unavailable` until a source records it. To record it, open the **Health** app, go to **Sleep** > **Options**, and turn on **Track Time in Bed with iPhone**. You can also use a sleep tracking app that records time in bed.
+Apple Watch records sleep stages but not time in bed, so `health_sleep_in_bed` reports `unavailable` until a source records it. To record it, open the **Health** app, go to **Sleep** > **Options**, and turn on **Track Time in Bed with iPhone**. You can also use a sleep tracking app that records time in bed.
 
 ### Vitals sensor list
 
