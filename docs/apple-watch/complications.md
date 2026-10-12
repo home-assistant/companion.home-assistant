@@ -7,10 +7,6 @@ id: "complications"
 
 A complication is a small piece of information on your watch face, next to the time. Home Assistant complications can show an entity's state, a gauge, an icon, or the result of a template — so you can see your indoor temperature, your solar production, or whether the garage is open without opening any app.
 
-:::info
-Complications were rebuilt in iOS app version 2026.8. The editor, the available styles, and the way complications update all changed. If you are on an earlier version, this page does not match what you see in the app. Complications you created back then are kept after you update — see [Legacy complications](#legacy-complications).
-:::
-
 ## Requirements
 
 - An iPhone with the Home Assistant Companion app, connected to your Home Assistant server.
