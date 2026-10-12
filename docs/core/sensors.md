@@ -635,7 +635,7 @@ While kiosk mode is on, additional sensors provide details about the device in k
 | Sensor | Description |
 | ------ | ----------- |
 | `sensor.kiosk_brightness` | The current screen brightness, as a percentage. |
-| `binary_sensor.kiosk_screensaver` | `on` while the screensaver is visible on screen, `off` when it is not. |
+| `binary_sensor.kiosk_screensaver` | Requires app version 2026.8.0 or later. `on` while the screensaver is visible on screen, `off` when it is not. |
 | `sensor.kiosk_volume` | The current device output volume, as a percentage. |
 
 ## Last reboot sensor
