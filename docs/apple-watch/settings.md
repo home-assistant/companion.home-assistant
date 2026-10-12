@@ -143,14 +143,6 @@ Two options on the main settings screen let you start over without touching your
 - **Restart App** closes the Home Assistant app immediately. You need to open it again yourself. This is enough for most temporary glitches.
 - **Delete Local Data** removes the offline database and cached files stored on the watch. Your iPhone and your Home Assistant servers are not affected. After deleting, select the reload button on the home screen to sync again.
 
-## Developer options
-
-**Troubleshooting** > **Developer** holds options meant for debugging. The app warns you when you open the screen. Only use them when a developer asks you to, or when you are gathering information for a bug report.
-
-- **Verbose item execution**: shows a live log of every step while an item runs — the resolved action, the URL used, the token stage, the request itself, and whether it was sent by the watch or through your iPhone. This is the fastest way to find out why an action fails.
-- **Complication reload alerts**: posts a notification when complications start and finish reloading, saying whether each one succeeded or why it failed.
-- **Show iPhone unreachable icon**: shows an iPhone icon with a slash in the home header while your paired iPhone is unreachable. Actions still run when your iPhone is unreachable, because the watch then sends them itself, so this only helps when debugging the iPhone link.
-
 ## Common problems
 
 **The home screen says "Waiting for iPhone…" and never finishes.**
@@ -160,7 +152,7 @@ Your iPhone is out of range, locked in a way that blocks the connection, or the 
 The watch cannot reach your Home Assistant server. Check **Settings** > **Servers** for a server marked **Needs attention**, and see [Server URLs](#server-urls).
 
 **An action fails with "The action couldn't be run".**
-Neither the watch nor your iPhone could reach your Home Assistant server. When your iPhone is nearby, the watch sends the action through it; otherwise, the watch needs a URL it can reach on its own. Check **Settings** > **Servers** and see [Server URLs](#server-urls). Turning on **Verbose item execution** under [Developer options](#developer-options) shows exactly which step failed.
+Neither the watch nor your iPhone could reach your Home Assistant server. When your iPhone is nearby, the watch sends the action through it; otherwise, the watch needs a URL it can reach on its own. Check **Settings** > **Servers** and see [Server URLs](#server-urls).
 
 **Complications never update.**
 See [How complications update](./complications.md#how-complications-update) and check the diagnostics under **Troubleshooting** > **Complications**.
