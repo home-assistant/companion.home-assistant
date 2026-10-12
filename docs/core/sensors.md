@@ -292,57 +292,57 @@ Values are sent in metric units, such as kilograms, kilometers, and degrees Cels
 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
-| Health Steps | steps | Total steps taken since midnight. |
-| Walking + Running Distance | kilometers | Total walking and running distance since midnight. |
-| Active Energy | kilocalories | Total active energy burned since midnight, excluding resting energy. |
-| Resting Energy | kilocalories | Total resting energy burned since midnight, which is the energy your body uses at rest. |
-| Flights Climbed | floors | Total flights of stairs climbed since midnight. |
-| Exercise Time | minutes | Total exercise minutes since midnight, as calculated by Apple Health. |
-| VO2 Max | milliliters per kilogram per minute | The last recorded VO2 max, which estimates your cardio fitness. Uses the last 365 days. |
+| Health Steps (`health_steps`) | steps | Total steps taken since midnight. |
+| Walking + Running Distance (`health_distance_walking_running`) | kilometers | Total walking and running distance since midnight. |
+| Active Energy (`health_active_energy_burned`) | kilocalories | Total active energy burned since midnight, excluding resting energy. |
+| Resting Energy (`health_basal_energy_burned`) | kilocalories | Total resting energy burned since midnight, which is the energy your body uses at rest. |
+| Flights Climbed (`health_flights_climbed`) | floors | Total flights of stairs climbed since midnight. |
+| Exercise Time (`health_apple_exercise_time`) | minutes | Total exercise minutes since midnight, as calculated by Apple Health. |
+| VO2 Max (`health_vo2_max`) | milliliters per kilogram per minute | The last recorded VO2 max, which estimates your cardio fitness. Uses the last 365 days. |
 
 ### Body measurement sensor list
 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
-| Weight | kilograms | The last recorded weight. Uses the last 365 days. |
-| Body Fat Percentage | percent | The last recorded body fat percentage. Uses the last 365 days. |
-| Lean Body Mass | kilograms | The last recorded lean body mass, which is your weight without body fat. Uses the last 365 days. |
-| Height | centimeters | The last recorded height. Uses the last 10 years. |
+| Weight (`health_body_mass`) | kilograms | The last recorded weight. Uses the last 365 days. |
+| Body Fat Percentage (`health_body_fat_percentage`) | percent | The last recorded body fat percentage. Uses the last 365 days. |
+| Lean Body Mass (`health_lean_body_mass`) | kilograms | The last recorded lean body mass, which is your weight without body fat. Uses the last 365 days. |
+| Height (`health_height`) | centimeters | The last recorded height. Uses the last 10 years. |
 
 ### Heart sensor list
 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
-| Heart Rate | beats per minute | The last recorded heart rate. Uses the last 24 hours. |
-| Resting Heart Rate | beats per minute | The last recorded resting heart rate. Uses the last 7 days. |
-| Walking Heart Rate Average | beats per minute | The last recorded average heart rate while walking. Uses the last 7 days. |
-| Heart Rate Variability | milliseconds | The last recorded heart rate variability. Uses the last 7 days. |
-| Blood Pressure Systolic | millimeters of mercury | The last recorded systolic blood pressure, which is the higher of the two numbers. Uses the last 30 days. |
-| Blood Pressure Diastolic | millimeters of mercury | The last recorded diastolic blood pressure, which is the lower of the two numbers. Uses the last 30 days. |
+| Heart Rate (`health_heart_rate`) | beats per minute | The last recorded heart rate. Uses the last 24 hours. |
+| Resting Heart Rate (`health_resting_heart_rate`) | beats per minute | The last recorded resting heart rate. Uses the last 7 days. |
+| Walking Heart Rate Average (`health_walking_heart_rate_average`) | beats per minute | The last recorded average heart rate while walking. Uses the last 7 days. |
+| Heart Rate Variability (`health_heart_rate_variability`) | milliseconds | The last recorded heart rate variability. Uses the last 7 days. |
+| Blood Pressure Systolic (`health_blood_pressure_systolic`) | millimeters of mercury | The last recorded systolic blood pressure, which is the higher of the two numbers. Uses the last 30 days. |
+| Blood Pressure Diastolic (`health_blood_pressure_diastolic`) | millimeters of mercury | The last recorded diastolic blood pressure, which is the lower of the two numbers. Uses the last 30 days. |
 
 ### Nutrition sensor list
 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
-| Water | milliliters | Total water intake since midnight. |
+| Water (`health_dietary_water`) | milliliters | Total water intake since midnight. |
 
 ### Respiratory sensor list
 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
-| Respiratory Rate | breaths per minute | The last recorded respiratory rate. Uses the last 7 days. |
-| Blood Oxygen | percent | The last recorded blood oxygen level. Uses the last 7 days. |
+| Respiratory Rate (`health_respiratory_rate`) | breaths per minute | The last recorded respiratory rate. Uses the last 7 days. |
+| Blood Oxygen (`health_oxygen_saturation`) | percent | The last recorded blood oxygen level. Uses the last 7 days. |
 
 ### Sleep sensor list
 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
-| Sleep Duration | minutes | Total time asleep last night, across all sleep stages. |
-| In Bed | minutes | Total time in bed last night. |
-| Awake | minutes | Time awake during last night's sleep. |
-| Core Sleep | minutes | Time in core sleep last night. |
-| Deep Sleep | minutes | Time in deep sleep last night. |
-| REM Sleep | minutes | Time in REM sleep last night. |
+| Sleep Duration (`health_sleep_duration`) | minutes | Total time asleep last night, across all sleep stages. |
+| In Bed (`health_sleep_in_bed`) | minutes | Total time in bed last night. |
+| Awake (`health_sleep_awake`) | minutes | Time awake during last night's sleep. |
+| Core Sleep (`health_sleep_core`) | minutes | Time in core sleep last night. |
+| Deep Sleep (`health_sleep_deep`) | minutes | Time in deep sleep last night. |
+| REM Sleep (`health_sleep_rem`) | minutes | Time in REM sleep last night. |
 
 **Awake**, **Core Sleep**, **Deep Sleep**, and **REM Sleep** need a source that records sleep stages, such as an Apple Watch. If your sleep data comes from a source that does not record stages, these sensors report `unavailable`, while **Sleep Duration** still reports the total time asleep.
 
@@ -352,9 +352,9 @@ Apple Watch records sleep stages but not time in bed, so **In Bed** reports `una
 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
-| Body Temperature | degrees Celsius | The last recorded body temperature. Uses the last 7 days. |
-| Basal Body Temperature | degrees Celsius | The last recorded basal body temperature, which is your temperature at rest. Uses the last 7 days. |
-| Blood Glucose | milligrams per deciliter | The last recorded blood glucose reading. Uses the last 24 hours. |
+| Body Temperature (`health_body_temperature`) | degrees Celsius | The last recorded body temperature. Uses the last 7 days. |
+| Basal Body Temperature (`health_basal_body_temperature`) | degrees Celsius | The last recorded basal body temperature, which is your temperature at rest. Uses the last 7 days. |
+| Blood Glucose (`health_blood_glucose`) | milligrams per deciliter | The last recorded blood glucose reading. Uses the last 24 hours. |
 
 ### Troubleshooting Apple Health sensors
 
