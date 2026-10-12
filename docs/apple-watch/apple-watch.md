@@ -5,7 +5,7 @@ id: "apple-watch"
 
 ![iOS](/assets/iOS.svg)
 
-The Home Assistant Apple Watch app lets you control your home from your wrist. You can turn lights on and off, adjust a thermostat, run scripts and scenes, browse the rooms in your home, talk to Assist, and show live sensor values on your watch face.
+The Home Assistant Apple Watch app lets you control your home from your wrist. You can turn lights on and off, adjust a thermostat, run scripts and scenes, browse the rooms in your home, talk to Assist, and show sensor values on your watch face.
 
 The Apple Watch app is part of the iOS Companion app. There is no separate download and no separate login: your servers, entities, and settings come from the Home Assistant app on your paired iPhone.
 
@@ -58,7 +58,7 @@ You can also add, remove, reorder, and edit items directly on the watch. See [Ed
 Understanding this helps a lot when something looks out of date.
 
 - **Your configuration and your entity list** are sent from your iPhone to the watch over the Apple Watch connection. This happens when you save changes, and when you open the watch app. Your iPhone needs to be nearby for a sync.
-- **Live values** — the current state of a light, the reading of a sensor, the value in a complication — are requested by the watch from your Home Assistant server.
+- **Entity states** — whether a light is on, the reading of a sensor, the value in a complication — are requested by the watch from your Home Assistant server. Unlike the iPhone app, the watch cannot keep a live connection to your server, because watchOS restricts the kind of connection (a WebSocket) that Home Assistant uses to push changes as they happen. Instead, the watch asks for the current states every few seconds while a screen is open, and stops when you leave it. A change can therefore take a few seconds to appear on the watch.
 - **Actions you run** are also requested by the watch.
 - **Assist conversations** always go through your iPhone, so your iPhone needs to be reachable to use Assist on the watch.
 
@@ -67,5 +67,5 @@ When your iPhone is nearby and reachable, the watch hands its requests to your i
 Because of this, the watch needs a URL it can reach for everything it does on its own: your Home Assistant Cloud URL, another remote URL, or an internal URL on the same Wi-Fi network.
 
 :::info
-If your Home Assistant server is only reachable through an internal URL, the watch asks for permission before using it while connected through your iPhone. Until you allow it, the watch still receives your configuration and entity list from your iPhone, but it cannot read live states from that server, and its complications keep showing their last known value. See [Server URLs on the watch](./settings.md#server-urls).
+If your Home Assistant server is only reachable through an internal URL, the watch asks for permission before using it while connected through your iPhone. Until you allow it, the watch still receives your configuration and entity list from your iPhone, but it cannot read entity states from that server, and its complications keep showing their last known value. See [Server URLs on the watch](./settings.md#server-urls).
 :::

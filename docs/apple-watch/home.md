@@ -7,10 +7,6 @@ id: "home"
 
 The home screen is what you see when you open the Home Assistant app on your Apple Watch. It shows the items you chose, the areas of your home, and a button to start Assist.
 
-:::info
-This page describes the rebuilt Apple Watch app introduced in iOS app version 2026.8.
-:::
-
 ## What the home screen shows
 
 From top to bottom:
@@ -197,6 +193,6 @@ The control uses the pipeline configured for the watch header button. If you hav
 ## When something does not appear
 
 - **A change you made on your iPhone is missing.** Select the reload button in the watch header with your iPhone nearby.
-- **An item shows no state.** The watch needs to reach your Home Assistant server for live values. See [Server URLs on the watch](./settings.md#server-urls).
+- **An item shows no state.** The watch needs to reach your Home Assistant server to read entity states. See [Server URLs on the watch](./settings.md#server-urls).
 - **Assist shows an iPhone icon with a slash.** Assist needs your iPhone. Bring it nearby and make sure the Home Assistant app is installed on it.
 - **An action fails.** The watch tells you why, and offers an execution log when verbose logging is on. See [Watch settings and troubleshooting](./settings.md).

@@ -15,7 +15,7 @@ Complications were rebuilt in iOS app version 2026.8. The editor, the available 
 
 - An iPhone with the Home Assistant Companion app, connected to your Home Assistant server.
 - An Apple Watch running **watchOS 10 or later**. Earlier versions of watchOS cannot show these complications.
-- A URL the watch can reach to fetch live values. This can be your Home Assistant Cloud URL, another remote URL, or an internal URL you allowed the watch to use. See [Server URLs on the watch](./settings.md#server-urls).
+- A URL the watch can reach to fetch current values. This can be your Home Assistant Cloud URL, another remote URL, or an internal URL you allowed the watch to use. See [Server URLs on the watch](./settings.md#server-urls).
 
 You do **not** need to be a Home Assistant administrator to create a complication from an entity. You only need administrator rights to use [templates](#template-complications).
 

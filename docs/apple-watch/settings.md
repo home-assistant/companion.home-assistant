@@ -7,10 +7,6 @@ id: "settings"
 
 The Home Assistant app on your Apple Watch has its own settings screen. It shows which servers the watch knows about, lets you change the Assist pipeline and the home screen layout, lets you choose what the watch reports to Home Assistant, and gives you the diagnostics you need when something is not updating.
 
-:::info
-This page describes the rebuilt Apple Watch app introduced in iOS app version 2026.8.
-:::
-
 ## Opening the settings
 
 1. On your Apple Watch, open the Home Assistant app.
@@ -34,7 +30,7 @@ The settings screen also shows the Wi-Fi network your watch is currently on, whe
 
 ### Server URLs
 
-The watch requests live entity states and complication values from your Home Assistant server, and sends the actions you run there too.
+The watch requests entity states and complication values from your Home Assistant server, and sends the actions you run there too.
 
 - **When your iPhone is nearby and reachable**, the watch hands these requests to your iPhone. Your iPhone sends them using the URL it is using itself, so at home they go to your internal URL even when the watch picked your remote URL.
 - **When your iPhone is not reachable**, the watch sends the requests itself, using the URL it picked. This is when the watch needs a URL it can reach on its own.
@@ -50,7 +46,7 @@ When your Apple Watch has no Wi-Fi or cellular connection of its own, it borrows
 
 To protect you on public networks, the watch does not use your internal URL by default in that case. If your server also has a remote URL or Home Assistant Cloud, this does not affect you: the watch uses that URL instead.
 
-If your server _only_ has an internal URL, the watch has no URL it may use, and the server is marked **Needs attention**. Your configuration and entity list still arrive from your iPhone, so your items keep appearing. What stops working is anything that needs the server: the watch cannot read live states, cannot run actions on that server, and its complications keep showing their last known value.
+If your server _only_ has an internal URL, the watch has no URL it may use, and the server is marked **Needs attention**. Your configuration and entity list still arrive from your iPhone, so your items keep appearing. What stops working is anything that needs the server: the watch cannot read entity states, cannot run actions on that server, and its complications keep showing their last known value.
 
 If you want to allow it anyway:
 
