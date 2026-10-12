@@ -143,10 +143,6 @@ Two options on the main settings screen let you start over without touching your
 - **Restart App** closes the Home Assistant app immediately. You need to open it again yourself. This is enough for most temporary glitches.
 - **Delete Local Data** removes the offline database and cached files stored on the watch. Your iPhone and your Home Assistant servers are not affected. After deleting, select the reload button on the home screen to sync again.
 
-:::warning
-**Delete Local Data** cannot be undone. Everything the watch had stored offline is removed until the next sync with your iPhone.
-:::
-
 ## Developer options
 
 **Troubleshooting** > **Developer** holds options meant for debugging. The app warns you when you open the screen. Only use them when a developer asks you to, or when you are gathering information for a bug report.
