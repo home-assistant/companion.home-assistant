@@ -59,20 +59,16 @@ You can attach media and other content to notifications. See [Attachments](/docs
 When tapping on a notification, you can choose to open a URL, which can fall into one of the following buckets:
 
 - A relative URL to your Home Assistant instance, like `/lovelace/test`.
-    - ![iOS](/assets/iOS.svg) If you have multiple servers connected to an iOS or mac app, relative URLs will be treated with respect to the server that sent the notification. 
-- An full URL like `https://example.com`
+    - If you have multiple servers connected to the app, relative URLs will be opened on the server that sent the notification.
+    - You can open a dashboard [view](https://www.home-assistant.io/dashboards/views/) using the [path of the view](https://www.home-assistant.io/dashboards/views/#url-of-a-view), for example: `/dashboard/living_room`.
+- An full URL like `https://example.com`.
+- The More Info panel of an entity, which shows its current state and available controls, using `/?more-info-entity-id=<entity_ID>`. Replace `<entity_ID>` with the ID of the entity you want to view, for example: `/?more-info-entity-id=sun.sun`.
 - For a particular action in Actionable Notifications, see [its documentation](/docs/notifications/actionable-notifications).
 - ![Android](/assets/android.svg) An application using `app://<package name>` where `<package name>` is replaced with the actual package you wish to open.
-- ![Android](/assets/android.svg) The More Info panel of an entity using `entityId:<entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entityId:sun.sun`.
-- ![iOS](/assets/iOS.svg) The More Info panel of an entity using `entity_id: <entity_ID>` where `<entity_id>` is replaced with the entity ID you wish to view. Ex: `entity_id: sun.sun`. This only applies when tapping the notification itself and no `url` is set.
 - ![Android](/assets/android.svg) You can also open the notification history by using `settings://notification_history`
 - ![Android](/assets/android.svg) You can also use an [intent scheme URI](https://developer.chrome.com/docs/multidevice/android/intents/#syntax) to start an action in an installed application.
 - ![Android](/assets/android.svg) You can send a specific [deep link](https://developer.android.com/training/app-links#deep-links) to an app by using `deep-link://<deep_link>` where `<deep_link>` is the actual deep link you wish to send.
 - ![Android](/assets/android.svg) If you prefer to not open the app by default and instead do nothing you can use `noAction`.
-
-For relative URLs, you can open a lovelace view in the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/dashboards/views#path) in the defined view or a lovelace dashboard in the format `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/dashboards/dashboards/) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/dashboards/views#path) within that dashboard.
-
-
 
 ```yaml
 automation:
@@ -212,6 +208,10 @@ automation:
 ### Notification Color
 
 In Android you can set the `color` of the notification, you can use either the color name or the hex code.
+
+:::note ![iOS](/assets/iOS.svg)
+On iOS, `color` instead sets the background color of a notification icon. See [Notification icon and color](#notification-icon-and-color).
+:::
 
 ```yaml
 automation:
@@ -448,6 +448,10 @@ Not all devices support HTML formatting in notifications, and some formatting ma
 
 You can set the icon for a notification by providing the `icon_url`. The URL provided must be either publicly accessible or can be a relative path (i.e. `/local/icon/icon.png`), more details can be found in [attachments](attachments.md). It is important to note that if you set the `image` then Android will not show the icon for the notification, the `image` will be shown in its place. So the `message` will be shown with the `image` and with the image as the icon.
 
+:::note ![iOS](/assets/iOS.svg)
+On iOS, `icon_url` is used as the sender icon of a communication notification. See [Notification icon and color](#notification-icon-and-color).
+:::
+
 ```yaml
 automation:
   - alias: "Notify of Motion icon"
@@ -649,6 +653,10 @@ On Android you have the option for making a notification only alert once on the 
 
 On Android you also have the option of changing the notification status bar icon to any icon on [Material Design](https://materialdesignicons.com/). By default the Home Assistant icon will appear. The expected format is the same in Home Assistant `mdi:cellphone`. If you provide an invalid icon name then no icon will be shown.
 
+:::info ![iOS](/assets/iOS.svg)
+On iOS, `notification_icon` instead sets the icon of a communication notification. See [Notification icon and color](#notification-icon-and-color).
+:::
+
 ```yaml
   - alias: Check your phone
     trigger:
@@ -686,6 +694,38 @@ By default Home Assistant notifications do not show up in the Android Auto inter
 On iOS 17.2+, `live_update: true` starts a **Live Activity** on the Lock Screen and Dynamic Island. This is the same field Android uses for [Live Updates](#live-updates), so a single automation targets both platforms.
 
 See [Live Activity and Live Updates](live-activities.md) for the full payload reference, examples, and platform-specific behavior.
+
+### Notification icon and color
+
+On iOS, you can give a notification a custom sender icon. When you do, the notification is shown as a communication notification, the same rounded-avatar style used by messaging apps. This requires the notification to have a `title`, which is used as the sender name.
+
+Provide the icon in one of two ways:
+
+- `icon_url`: a URL to an image to use as the icon. It must be publicly accessible or a relative path (such as `/local/icon/icon.png`), following the same rules as [attachments](attachments.md).
+- `notification_icon`: a [Material Design Icon](https://pictogrammers.com/library/mdi/) slug, such as `mdi:cellphone`.
+
+If both are set, `icon_url` takes precedence.
+
+When you use a `notification_icon`, you can also set its colors using hex color values, such as `#03A9F4`. These have no effect on an `icon_url` image.
+
+- `notification_icon_color`: the color of the icon glyph. Defaults to white.
+- `color`: the background color behind the icon. Defaults to the Home Assistant theme color.
+
+```yaml
+automation:
+  - alias: "Notify with a custom icon"
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          title: "Washing machine"
+          message: "The cycle has finished"
+          data:
+            notification_icon: "mdi:washing-machine"
+            notification_icon_color: "#FFFFFF"
+            color: "#03A9F4"
+```
 
 ### Sounds
 By default the default notification sound (Tri-tone on iOS) will be played upon receiving a notification. See the [Sounds documentation](sounds.md) for details of the available sounds and how to add custom sounds. The default notification sounds (Tri-tone) can be disabled by setting `sound` to `none` in the data payload:
