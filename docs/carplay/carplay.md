@@ -33,12 +33,12 @@ CarPlay does not have its own connection to Home Assistant. Your iPhone does the
 
 2. On the CarPlay home screen, select the **Home Assistant** icon.
 
-3. The first time you open it, the **Quick access** tab is empty, because you decide what goes there.
+3. The first time you open it, the **Quick access** tab has only an **Add item** button, because you decide what goes there.
 
    To fill it, either add items directly from the car display, or set it up on your iPhone. See [Configuration](configuration.md).
 
 :::note
-If the app cannot find a server, CarPlay shows an alert instead of your entities. Open the Home Assistant app on your iPhone, make sure you are signed in to a server, and try again. See [Troubleshooting](troubleshooting.md).
+CarPlay shows the entities of the servers your iPhone is signed in to. If you have not added a server to the Home Assistant app yet, the tabs stay empty. Open the app on your iPhone, sign in to your server, and try again. See [Troubleshooting](troubleshooting.md).
 :::
 
 ## The CarPlay tabs
@@ -46,13 +46,15 @@ If the app cannot find a server, CarPlay shows an alert instead of your entities
 CarPlay shows Home Assistant as a set of tabs along the top or side of the car display, depending on your vehicle. You choose which tabs appear and in which order.
 
 - **Quick access**: your own shortcut list. You decide which entities, [Assist](assist.md) pipelines, and Assist prompts appear here, so the things you use while driving are one tap away. This is the tab most people rely on.
-- **Areas**: your home grouped by area, such as **Garage** or **Kitchen**. Select an area to see the entities in it. Areas without any compatible entities are not shown.
+- **Areas**: your home grouped by area, such as **Garage** or **Kitchen**. Select an area to see the entities in it. Areas without any entities are not shown.
 - **Control**: your home grouped by the type of device, such as **Cover**, **Light**, or **Lock**. Covers are listed first, so garage doors are quick to reach.
 - **Settings**: change your CarPlay setup from the car, pick which server to show, and open the troubleshooting options. See [Configuration](configuration.md).
 
-To begin with, **Quick access**, **Areas**, and **Settings** are shown. **Control** is available but turned off, so add it if you want it. See [Configuration](configuration.md).
+The very first time you open Home Assistant in CarPlay, only **Quick access** and **Settings** are shown. As soon as you save your first change, such as adding an item, **Areas** is added as well. **Control** is available but turned off, so add it if you want it. See [Configuration](configuration.md).
 
-### Custom tabs <span class="beta">BETA</span>
+On iOS 26 and later, the **Areas** and **Control** tabs show their contents as a grid of tiles.
+
+### Custom tabs
 
 Besides the built-in tabs, you can create your own tabs and fill them with the entities you choose. A custom tab is useful when **Quick access** gets long. For example, you could have a **Garage** tab and a **Lights** tab. See [Folders and custom tabs](configuration.md#folders-and-custom-tabs).
 
@@ -62,7 +64,7 @@ CarPlay limits how many tabs a vehicle displays, and the limit depends on the ve
 
 ## What you can control
 
-Home Assistant only shows entities in CarPlay that make sense to use while driving. Entities marked as hidden in Home Assistant, and entities categorized as configuration or diagnostic, are never shown.
+The app only shows entities in CarPlay that make sense to use while driving. Entities marked as hidden in Home Assistant, and entities categorized as configuration or diagnostic, are not shown in the **Areas** and **Control** tabs, or when you add an item from the car display.
 
 :::info
 An _entity_ is a single thing Home Assistant knows about, such as one light, one lock, or one garage door. A _domain_ is the type of that thing, such as `light` or `lock`. To learn more, see [entities](https://www.home-assistant.io/docs/configuration/entities_domains/) in the Home Assistant documentation.
@@ -86,10 +88,14 @@ These domains are available in CarPlay:
 
 The following domains are also available, and open their own control screen instead of running an action when you select them:
 
-- `climate` <span class="beta">BETA</span>
-- `vacuum` <span class="beta">BETA</span>
+- `climate`
+- `vacuum`
 
 For what happens when you select an entity, and for the climate and vacuum control screens, see [Controlling your home](controls.md).
+
+:::note
+When you add an entity to **Quick access** from your iPhone, the entity picker lists all of your entities, including types that CarPlay does not support. Pick one from the list above to make sure it works in the car.
+:::
 
 ## Next steps
 
