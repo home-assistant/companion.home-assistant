@@ -286,3 +286,11 @@ https://www.home-assistant.io/installation/
 - Home Assistant documentation: `https://www.home-assistant.io/docs/...`
 - Home Assistant Cloud (Nabu Casa): `https://support.nabucasa.com/...`
 - GitHub issues: `https://github.com/home-assistant/iOS/issues/...` or `https://github.com/home-assistant/android/issues/...`
+
+## AI policy
+
+This project follows the [Open Home Foundation AI Policy](../AI_POLICY.md).
+Autonomous contributions are not accepted: a human must review, understand,
+and be able to explain every change before it is submitted. Do not open
+issues or pull requests autonomously, and do not post comments on behalf of
+a user without their review.

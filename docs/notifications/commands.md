@@ -16,6 +16,8 @@ The Companion apps offer a lot of different notification options. In place of po
 | `update_widgets`* | Updates 'Gauge' and 'Details' widgets introduced on App v2024.7 (iOS will decide if the update is allowed or not, so don't worry if it doesn't work all the time). |
 | `kiosk_show_screensaver` | Shows the kiosk screensaver. Only works while the app is open, [see below](#kiosk-mode-commands). Requires screensaver enabled in kiosk settings. |
 | `kiosk_hide_screensaver` | Hides the kiosk screensaver. Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_set_screensaver_mode` | Sets the screensaver mode (requires `mode`). Only works while the app is open, [see below](#kiosk-mode-commands). |
+| `kiosk_set_screensaver_brightness` | Sets the screensaver dim level (requires `level`). Only works while the app is open, [see below](#kiosk-mode-commands). |
 | `kiosk_show_camera` | Shows a full-screen camera (requires `entity_id`). Only works while the app is open, [see below](#kiosk-mode-commands). |
 | `kiosk_hide_camera` | Hides the full-screen camera. Only works while the app is open, [see below](#kiosk-mode-commands). |
 | `kiosk_set_brightness` | Sets the screen brightness (requires `level`). Only works while the app is open, [see below](#kiosk-mode-commands). |
@@ -540,6 +542,8 @@ Kiosk commands are only handled while the Companion app is open and in the foreg
 | --------- | ------ |
 | `kiosk_show_screensaver` | Show the screensaver immediately. |
 | `kiosk_hide_screensaver` | Hide the screensaver and reset the inactivity timer. |
+| `kiosk_set_screensaver_mode` | Set the screensaver mode. Requires `mode`, one of `clock`, `dim`, or `blank`. |
+| `kiosk_set_screensaver_brightness` | Set the screensaver dim level (how bright the screen stays in `dim` mode). Requires `level`. |
 | `kiosk_show_camera` | Show a full-screen camera stream. Requires an `entity_id` pointing to a `camera.` entity. |
 | `kiosk_hide_camera` | Hide the camera stream. |
 | `kiosk_set_brightness` | Set the screen brightness. Requires `level`. |
@@ -547,7 +551,7 @@ Kiosk commands are only handled while the Companion app is open and in the foreg
 | `kiosk_reload` | Reload the dashboard. |
 | `kiosk_default` | Return to the configured kiosk server and dashboard (or the server default when no dashboard is set). Useful to make sure the kiosk is back on its main dashboard after someone has navigated away. |
 
-`level` and `volume` are a percentage from `0` to `100`. A value of `1` or less is treated as a fraction, so `0.5` is the same as `50`.
+`level` and `volume` are a percentage from `0` to `100`. A value of `1` or less is treated as a fraction, so `0.5` is the same as `50`. `mode` is one of `clock`, `dim`, or `blank`.
 
 ```yaml
 automation:
@@ -589,6 +593,24 @@ automation:
           message: "kiosk_set_volume"
           data:
             volume: 30
+```
+
+```yaml
+automation:
+  - alias: Switch the kiosk screensaver to a dim display at night
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "kiosk_set_screensaver_mode"
+          data:
+            mode: "dim"
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "kiosk_set_screensaver_brightness"
+          data:
+            level: 20
 ```
 
 ## Launch App
