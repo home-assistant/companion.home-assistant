@@ -9,10 +9,6 @@ The Home Assistant Apple Watch app lets you control your home from your wrist. Y
 
 The Apple Watch app is part of the iOS Companion app. There is no separate download and no separate login: your servers, entities, and settings come from the Home Assistant app on your paired iPhone.
 
-:::info
-This page describes the rebuilt Apple Watch app introduced in iOS app version 2026.8. If you are on an earlier version, some screens and options described here look different or are missing. Update the Home Assistant app on your iPhone to get the latest version on your watch.
-:::
-
 ## Requirements
 
 Before you start, make sure you have:
