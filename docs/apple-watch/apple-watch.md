@@ -13,7 +13,7 @@ Using your iPhone, open the Companion app settings and under the **Apple Watch**
 <img src='/assets/ios/watch-config.png' alt="Watch configuration screen" />
 
 :::info requirements
-The Apple Watch integration requires watchOS 8. In order to install watchOS 8 you must have an Apple Watch Series 3 or newer. You can identify your Apple Watch model [here](https://support.apple.com/HT204507).
+The Apple Watch integration requires watchOS 9 or later. To install watchOS 9, you need an Apple Watch Series 4 or newer. You can identify your Apple Watch model [here](https://support.apple.com/HT204507).
 :::
 
 Since iOS App version 2026.3 release, you can organize `Scripts`, `Scenes` and `iOS Actions` into folders.
