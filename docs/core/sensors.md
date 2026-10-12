@@ -630,7 +630,7 @@ These sensors will reflect various states from the [Keyguard Manager](https://de
 
 The `binary_sensor.kiosk_mode` sensor is always available so you can tell whether a device is currently acting as a kiosk (`on`) or running the app normally (`off`).
 
-While kiosk mode is on, additional sensors provide details about the device in kiosk mode:
+While kiosk mode is on, additional sensors provide details about the device in kiosk mode. The app enables these sensors when you turn on kiosk mode and disables them when you turn it off, because they don't provide reliable data outside kiosk mode:
 
 | Sensor | Description |
 | ------ | ----------- |
