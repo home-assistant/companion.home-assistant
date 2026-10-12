@@ -31,7 +31,7 @@ If you are new to Home Assistant, two terms are useful before you start:
 - Full access to Reminders, granted to the Companion app. The app asks for this the first time you open the Reminders Sync settings.
 
 :::note
-The app needs *full* access to Reminders, not write-only access. Reading your reminders is what lets the app tell which side of a pairing changed.
+The app needs *full* access to Reminders. Reading your reminders is what lets the app tell which side of a pairing changed.
 :::
 
 ## Setting up a pairing
@@ -41,7 +41,10 @@ The app needs *full* access to Reminders, not write-only access. Reading your re
 
    You find it under the **Share from this device** section.
 
-3. If the app asks for access to your reminders, select **Allow Full Access**.
+3. If the app asks for access to your reminders, allow it:
+
+   - On iOS and iPadOS 17 or later, select **Allow Full Access**.
+   - On iOS and iPadOS 16, select **OK**.
 
    If you selected **Don't Allow** by mistake, the screen shows **Reminders access needed**. Select **Open Settings** and turn on **Reminders** for Home Assistant.
 
@@ -52,7 +55,9 @@ The app needs *full* access to Reminders, not write-only access. Reading your re
    - **Server**: the Home Assistant server to sync with. This only appears if you have more than one server set up in the app.
    - **Apple Reminders list**: the list from your Reminders app, such as `Groceries`.
    - **Home Assistant to-do list**: the to-do list in Home Assistant, such as `Shopping list`.
-   - **Sync direction**: see [Sync directions](#sync-directions).
+   - **Sync direction**: **Two-way** by default. See [Sync directions](#sync-directions).
+
+   If your to-do list is missing, or the screen shows **No to-do lists**, select the circular arrow button at the top of the screen. This updates the server information, so a list you just created in Home Assistant appears.
 
 6. Select **Save**.
 
@@ -66,7 +71,11 @@ Each pairing connects exactly one Reminders list to one Home Assistant to-do lis
 
 On the first sync, the app links items that already exist in both lists under the same title, so you do not end up with duplicates. Everything else is copied to the other side according to the sync direction.
 
+If two matched items have different notes or due dates, one version is kept: the Home Assistant version for **Two-way** and **Home Assistant → Reminders** pairings, and the Reminders version for **Reminders → Home Assistant** pairings. The **Conflicts** setting is not used here.
+
 Completed items that are not linked are left alone. They are treated as history, not as work to copy. Completing an item still syncs normally once the item is linked.
+
+The same matching also runs on later syncs. If you add an item with the same title in both apps before they sync, the app links the two instead of creating duplicates.
 
 ## What gets synced
 
@@ -77,10 +86,12 @@ For every linked item, the app keeps these four things in agreement:
 - The due date, with or without a time of day.
 - Whether the item is completed.
 
-Anything else is not synced. Reminders features such as priority, tags, subtasks, URLs, images, location alerts, and repeating reminders have no equivalent in a Home Assistant to-do list, so the app leaves them untouched on the Reminders side.
+Anything else is not synced. Reminders features such as priority, tags, subtasks, URLs, images, and repeating reminders have no equivalent in a Home Assistant to-do list, so the app leaves them untouched on the Reminders side.
+
+Alerts and start dates are not synced either, but starting with version 2026.9.3 they follow the due date. When the app changes a reminder's due date, it moves the reminder's alerts and start date by the same amount. If the due date is removed in Home Assistant, the app also removes the reminder's start date and all of its alerts, including location-based alerts.
 
 :::info
-Not every Home Assistant to-do list supports every field. For example, some integrations cannot store a description or a due time. When the paired to-do list does not support a field, that field stops syncing and keeps whatever value it has in Reminders, instead of being erased. If a list supports dates but not times, a reminder due at `18:00` syncs as due that day, with no time.
+Not every Home Assistant to-do list supports every field. For example, some integrations cannot store a description or a due time. When the paired to-do list does not support a field, that field stops syncing and keeps whatever value it has in Reminders, instead of being erased. If a list supports dates but not times, a reminder due at `18:00` syncs as due that day, with no time. If you then change the date in Home Assistant, the reminder moves to the new date and keeps its `18:00` time.
 :::
 
 ## Sync directions
@@ -108,7 +119,8 @@ Home Assistant is the source of truth. Its items and changes overwrite the Apple
 
 - Items added in Home Assistant are created in Reminders.
 - Items that exist only in Reminders are left alone, and are never copied to Home Assistant.
-- If you edit or delete a linked reminder, the app restores it from Home Assistant on the next sync, unless the Home Assistant item is already completed. Completed items are treated as history and are not brought back.
+- If you edit a linked reminder, the change is undone on the next sync, because Home Assistant wins.
+- If you delete a linked reminder, the app recreates it from Home Assistant, unless the Home Assistant item is already completed. Completed items are treated as history and are not brought back.
 
 ## Conflicts
 
@@ -154,17 +166,19 @@ Under **While the app is closed**, set **Ask iOS to sync every** to how often th
 
 :::warning
 This is a request, not a guarantee. iOS decides if and when a background refresh actually runs, based on battery level, Low Power Mode, and how often you use the app. A short interval does not force iOS to run more often.
+
+Background syncs only run when **Background App Refresh** is turned on for Home Assistant in iOS **Settings** > **General** > **Background App Refresh**.
 :::
 
 ## Sync history
 
 To see what the app changed, go to **Companion app settings** > **Reminders Sync** and select **Sync history**.
 
-Each entry shows the pairing, when the sync ran, whether it succeeded, and one line per change, such as `Created reminder "Buy milk"` or `Updated Home Assistant item "Buy milk"`. Syncs that changed nothing are not recorded, so the history stays a log of real changes.
+Each entry shows the pairing, when the sync ran, whether it succeeded, any error, and one line per change, such as `Created reminder "Buy milk"` or `Updated Home Assistant item "Buy milk"`. Syncs that changed nothing are not recorded unless they failed, so the history stays a log of real changes and errors.
 
 The app keeps the 200 most recent entries and discards older ones.
 
-Select **Clear** to delete the history. This does not affect your lists or your pairings.
+To delete the history, select **Clear**, then confirm with **Clear History**. This does not affect your lists or your pairings.
 
 :::note
 History entries stay after you remove a pairing, and keep showing the list names they had at the time of the sync.
@@ -186,8 +200,10 @@ If you add the same pairing again later, the next sync links items with matching
 
 If a pairing shows **Not synced yet**, or the last sync time stops updating:
 
-- Make sure Reminders access is still granted. Go to iOS **Settings** > **Apps** > **Home Assistant** > **Reminders** and check that **Full Access** is selected.
-- Open the app and select **Sync now**, then check **Sync history** for an error.
+- Make sure Reminders access is still granted. In the iOS **Settings** app, find **Home Assistant** (under **Apps** on iOS 18 and later), then:
+  - On iOS and iPadOS 17 or later, select **Reminders** and check that **Full Access** is selected.
+  - On iOS and iPadOS 16, check that the **Reminders** toggle is on.
+- Open the app and select **Sync now**, then check **Sync history** for an error. A deleted Reminders list, or a server that was removed from the app, stops syncing without recording an error, so also check the items below.
 - Confirm the Reminders list still exists. If you deleted it in the Reminders app, syncing stops for that pairing. Remove the pairing and add it again with a list that exists.
 - Confirm the Home Assistant to-do list still exists, and that the app can reach that server. Syncing uses the same connection as the rest of the app, so see [Companion app networking](../troubleshooting/networking.md) if the app cannot connect.
 
@@ -197,13 +213,13 @@ Renaming a list does not break syncing. The pairing keeps working, but it still 
 
 If items appear twice in a list:
 
-- Check whether the titles match exactly. The first sync only links items whose titles are identical, and the comparison is case-sensitive, so `Buy milk` and `buy milk` are treated as different items. Spaces before and after the title are ignored, so those alone do not cause duplicates. Delete the extra copy in either app, and it is removed from both on the next sync of a two-way pairing.
+- Check whether the titles match exactly. The app only links items whose titles are identical, and the comparison is case-sensitive, so `Buy milk` and `buy milk` are treated as different items. Spaces before and after the title are ignored, so those alone do not cause duplicates. Delete the extra copy in either app, and it is removed from both on the next sync of a two-way pairing.
 
 If a change you made keeps getting undone:
 
-- Check the sync direction. With a one-way pairing, editing the target side is always overwritten by the source side. Change the pairing to **Two-way** if you want to edit both sides.
+- Check the sync direction. With a one-way pairing, editing the target side is always overwritten by the source side. You cannot change the direction of an existing pairing, so to edit both sides, remove the pairing and add it again with **Two-way**.
 - For two-way pairings, check the **Conflicts** setting. If you edit the same item in both apps, the side you did not pick loses its change.
 
-If nothing syncs while your phone is locked or the app is closed, this is expected. See [When syncing happens](#when-syncing-happens).
+If nothing syncs while your phone is locked or the app is closed, this is expected. To let iOS sync in the background, set **Ask iOS to sync every** and make sure **Background App Refresh** is turned on. See [While the app is closed](#while-the-app-is-closed).
 
 For more help, see [Getting more help](../troubleshooting/more-help.md).
