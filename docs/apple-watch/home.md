@@ -8,7 +8,7 @@ id: "home"
 The home screen is what you see when you open the Home Assistant app on your Apple Watch. It shows the items you chose, the areas of your home, and a button to start Assist.
 
 :::info
-This page describes the rebuilt Apple Watch app <span class="beta">BETA</span> introduced in iOS app version 2026.8.
+This page describes the rebuilt Apple Watch app introduced in iOS app version 2026.8.
 :::
 
 ## What the home screen shows
@@ -63,25 +63,18 @@ If you edit your configuration on both devices while they are apart, the watch a
 
 ## Customizing an item
 
-Select an existing item to change how it looks and what it does.
+On your iPhone, select an existing item under **Settings** > **Apple Watch & CarPlay** > **Configuration** to change how it looks.
 
-- **Name**: the text shown under or next to the icon.
+- **Display text**: the name shown under or next to the icon.
 - **Icon**: any icon from the [Material Design Icons](https://pictogrammers.com/library/mdi/) set. Leave it unset to use the entity's own icon.
-- **Icon color**, and optionally a custom **background color** and **text color**.
-- **Ask before running**: shows a confirmation before the action runs. Useful for anything you do not want to trigger by accident.
-- **On tap**: what happens when you tap the item.
+- **Icon color**: choose **Default** to color the icon the same way the Home Assistant web interface does, so it changes with the entity's state. For example, a light's icon is lit when the light is on. Choose **Custom** to pick a fixed color that stays the same whatever the state.
+- **Use custom colors**: turn this on to also pick a **Background color** and a **Text color** for the item.
+- **Require confirmation**: shows a confirmation before the action runs. Useful for anything you do not want to trigger by accident.
 
-The **On tap** options are:
-
-- **Default**: runs the entity's usual action. A light toggles, a script runs, a scene activates.
-- **More info dialog**: opens the entity's details, showing its state, when it last changed, and its attributes.
-- **Navigate**: opens a path in the Home Assistant app on your iPhone.
-- **Run script**: runs a script you choose instead of the entity's own action.
-- **Assist**: starts an Assist conversation, optionally listening right away.
-- **Nothing**: does nothing when tapped. Useful for items you only want to read.
+What happens when you tap an item depends on the type of entity. See [Controlling entities](#controlling-entities).
 
 :::note
-Locks always ask for confirmation before opening, so **Ask before running** has no additional effect on them.
+Items that run nothing, such as sensors, binary sensors, areas, and Assist items, do not offer **Require confirmation**. Opening a lock always asks for confirmation on the watch.
 :::
 
 ## Editing on the watch
@@ -119,27 +112,36 @@ Selecting an area shows its entities in two groups:
 
 Entities are also grouped by device, so a device with several entities gets its own section. Select a device's section header to see all of that device's entities.
 
+Some devices are part of another device, such as one outlet of a power strip. Their section is listed under the parent device and shows which device it is part of. Opening the parent device also lists the entities of its parts.
+
 Areas with nothing the watch can show are left out, and entities hidden in Home Assistant do not appear.
 
 To hide the area rows, go to **Settings** > **Apple Watch & CarPlay** > **Configuration** on your iPhone and turn on **Hide areas in home**.
 
 ## Controlling entities
 
-Most items run their action as soon as you tap them. Some entities open a control screen instead, with the same options the Home Assistant web interface offers.
+Most items run their action as soon as you tap them. Some entities have a control screen instead, with the same options the Home Assistant web interface offers.
 
 - **Lights**: power, brightness, color, and color temperature.
 - **Covers**: open, stop, close, and position.
 - **Fans**: power and speed.
 - **Locks**: lock, unlock, and open. Locks never toggle on a single tap, and opening always asks for confirmation.
 - **Climate**: target temperature, target humidity, and the HVAC, fan, swing, and preset modes.
-- **Vacuums**: start, pause, stop, return to dock, fan speed, and cleaning a specific area.
+- **Vacuums**: start, pause, stop, return to dock, fan speed, and cleaning specific areas. To clean specific areas, select them and then select the start button at the top of the list.
 
-In the area lists, these entities use a split row: tapping the left part runs the entity's main action, and tapping the right part opens the control screen.
+How you reach the control screen depends on the entity:
+
+- **Locks, climate entities, and vacuums**: tapping anywhere on the row opens the control screen. The row shows an arrow to indicate this.
+- **Lights, covers, and fans**: in the list layout, the row is split in two. Tapping the icon turns the entity on or off, and tapping the rest of the row opens the control screen. Entities that can only turn on and off, such as a light without brightness, just toggle. In the grid layout, tapping the icon toggles the entity.
+
+This works the same on the home screen, inside folders, and in the area and device lists.
 
 Sensors and binary sensors are read-only. Tapping one opens a details screen with its state, when it last changed and last updated, and its attributes.
 
+Scripts and automations do not have a meaningful state of their own, so their rows show their area instead of a state.
+
 :::note
-The list above is only about control screens. Everything else the watch supports — switches, valves, scripts, scenes, automations, buttons, and input helpers — still runs on a single tap, it just has no extra screen. Entity types the watch does not support at all cannot be added, and if you reach one the app tells you so.
+The lists above are only about control screens. Everything else the watch supports — switches, valves, scripts, scenes, automations, buttons, and input helpers — still runs on a single tap, it just has no extra screen. Entity types the watch does not support at all cannot be added, and if you reach one the app tells you so.
 :::
 
 ## Choosing a layout
@@ -165,8 +167,36 @@ To run a different pipeline, or to send a fixed sentence, add an **Assist** or *
 
 You can also change the pipeline the header button uses directly on the watch, under **Settings** > **Assist**. If no pipelines are listed yet, keep your iPhone nearby and select **Reload**.
 
+### Talking to Assist
+
+1. Open Assist from the header button, an **Assist** item, or the **Assist** complication.
+
+2. Talk to Assist in one of these ways:
+
+   - **Tap** the screen to start recording, then tap again to send your request.
+   - **Press and hold** the screen while you speak, then release to send.
+   - On watchOS 11 or later, use the **Double Tap** hand gesture to start recording and again to send.
+
+   Recording also stops on its own when Assist hears that you stopped speaking.
+
+3. Assist shows what it understood and its answer. To ask a follow-up question, tap or hold the screen again.
+
+Assist on the watch goes through your iPhone, so your iPhone needs to be reachable. If it is not, the watch shows an iPhone icon with a slash instead of the microphone.
+
+The watch follows the Assist settings of the Home Assistant app on your iPhone: when you turn on on-device speech-to-text, on-device text-to-speech, or mute voice responses there, Assist on the watch does the same.
+
+### Assist from the Action button or Control Center
+
+On watchOS 26 or later, you can start Assist without opening the app first:
+
+- **Apple Watch Ultra Action button**: on your Apple Watch, open the **Settings** app, go to **Action Button** > **Controls**, and choose the Home Assistant **Assist** control.
+- **Control Center**: open Control Center on your watch, select **Edit**, and add the Home Assistant **Assist** control.
+
+The control uses the pipeline configured for the watch header button. If you have not set one, it uses the preferred pipeline of your first server.
+
 ## When something does not appear
 
 - **A change you made on your iPhone is missing.** Select the reload button in the watch header with your iPhone nearby.
 - **An item shows no state.** The watch needs to reach your Home Assistant server for live values. See [Server URLs on the watch](./settings.md#server-urls).
+- **Assist shows an iPhone icon with a slash.** Assist needs your iPhone. Bring it nearby and make sure the Home Assistant app is installed on it.
 - **An action fails.** The watch tells you why, and offers an execution log when verbose logging is on. See [Watch settings and troubleshooting](./settings.md).

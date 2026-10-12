@@ -59,8 +59,8 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.steps` | None | The number of steps taken by the user. |
-| `sensor.watch_battery_level` | None | The battery level of 1 paired Apple Watch. Requires any Home Assistant complication installed on your watch face. |
-| `sensor.watch_battery_state` | None | The current charging state (either Charging, Not Charging, or Full) of 1 paired Apple Watch. Requires any Home Assistant complication installed on your watch face. |
+| `sensor.watch_battery_level` | None | No longer updated since app version 2026.9.1. The Apple Watch now reports its battery level on its own device. See [Apple Watch sensors](../apple-watch/settings.md#sensors). |
+| `sensor.watch_battery_state` | None | No longer updated since app version 2026.9.1. The Apple Watch now reports its battery state on its own device. See [Apple Watch sensors](../apple-watch/settings.md#sensors). |
 
 ![macOS](/assets/macOS.svg)specific sensors
 

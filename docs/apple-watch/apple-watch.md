@@ -10,7 +10,7 @@ The Home Assistant Apple Watch app lets you control your home from your wrist. Y
 The Apple Watch app is part of the iOS Companion app. There is no separate download and no separate login: your servers, entities, and settings come from the Home Assistant app on your paired iPhone.
 
 :::info
-This page describes the rebuilt Apple Watch app <span class="beta">BETA</span> introduced in iOS app version 2026.8. If you are on an earlier version, some screens and options described here look different or are missing.
+This page describes the rebuilt Apple Watch app introduced in iOS app version 2026.8. If you are on an earlier version, some screens and options described here look different or are missing. Update the Home Assistant app on your iPhone to get the latest version on your watch.
 :::
 
 ## Requirements
@@ -31,9 +31,10 @@ From the Home Assistant app on your Apple Watch, you can:
 
 - **Run and control your entities.** Tap a light, switch, lock, cover, fan, valve, script, scene, or automation to run it. Lights, covers, fans, locks, climate entities, and vacuums also have their own control screen with sliders, buttons, and mode pickers. See [Home screen](./home.md).
 - **Browse your home by area.** Open a room and see the entities in it, without adding each one by hand. See [Browsing areas](./home.md#browsing-areas).
-- **Talk to Assist.** Start a voice or text conversation with your Home Assistant voice assistant. See [Using Assist](./home.md#using-assist).
+- **Talk to Assist.** Start a voice or text conversation with your Home Assistant voice assistant, from the app, a complication, Control Center, or the Action button on Apple Watch Ultra. See [Using Assist](./home.md#using-assist).
 - **Show information on your watch face.** Put an entity's state, a gauge, or a rendered template on your watch face as a complication. See [Complications](./complications.md).
-- **Work without your iPhone nearby.** The watch keeps a local copy of your entities and talks to your Home Assistant server directly over Wi-Fi or a cellular connection. See [Watch settings and troubleshooting](./settings.md).
+- **Report your watch to Home Assistant.** The watch can appear in Home Assistant as its own device, with its battery level, battery state, and location. See [Sensors](./settings.md#sensors) and [Location](./settings.md#location).
+- **Work without your iPhone nearby.** The watch keeps a local copy of your entities and can talk to your Home Assistant server directly over Wi-Fi or a cellular connection. See [Watch settings and troubleshooting](./settings.md).
 
 ## Installing the watch app
 
@@ -56,7 +57,7 @@ Some settings live on your iPhone and some live on the watch itself.
 - **Configuration**: what appears on the watch home screen — items, folders, layout, areas, and the Assist button. See [Home screen](./home.md).
 - **Complications**: the complications you can add to your watch face. See [Complications](./complications.md).
 
-**On your Apple Watch**, scroll to the bottom of the home screen and select the gear icon. From there you can review your servers, change the Assist pipeline and layout, check why a complication is not updating, and clear locally stored data. See [Watch settings and troubleshooting](./settings.md).
+**On your Apple Watch**, scroll to the bottom of the home screen and select the gear icon. From there you can review your servers, change the Assist pipeline and layout, choose which sensors and location the watch reports, check why a complication is not updating, and clear locally stored data. See [Watch settings and troubleshooting](./settings.md).
 
 You can also add, remove, reorder, and edit items directly on the watch. See [Editing on the watch](./home.md#editing-on-the-watch).
 
@@ -65,10 +66,13 @@ You can also add, remove, reorder, and edit items directly on the watch. See [Ed
 Understanding this helps a lot when something looks out of date.
 
 - **Your configuration and your entity list** are sent from your iPhone to the watch over the Apple Watch connection. This happens when you save changes, and when you open the watch app. Your iPhone needs to be nearby for a sync.
-- **Live values** — the current state of a light, the reading of a sensor, the value in a complication — are fetched by the watch itself, directly from your Home Assistant server.
-- **Actions you run** are also sent by the watch itself, directly to your Home Assistant server. They do not travel through your iPhone.
+- **Live values** — the current state of a light, the reading of a sensor, the value in a complication — are requested by the watch from your Home Assistant server.
+- **Actions you run** are also requested by the watch.
+- **Assist conversations** always go through your iPhone, so your iPhone needs to be reachable to use Assist on the watch.
 
-Because of this, the watch needs a URL it can reach for almost everything except syncing: your Home Assistant Cloud URL, another remote URL, or an internal URL on the same Wi-Fi network.
+When your iPhone is nearby and reachable, the watch hands its requests to your iPhone, which sends them to your server using the same URL the iPhone itself is using. At home, that is usually your internal URL. When your iPhone is not reachable, the watch sends the requests itself over Wi-Fi or a cellular connection.
+
+Because of this, the watch needs a URL it can reach for everything it does on its own: your Home Assistant Cloud URL, another remote URL, or an internal URL on the same Wi-Fi network.
 
 :::info
 If your Home Assistant server is only reachable through an internal URL, the watch asks for permission before using it while connected through your iPhone. Until you allow it, the watch still receives your configuration and entity list from your iPhone, but it cannot read live states from that server, and its complications keep showing their last known value. See [Server URLs on the watch](./settings.md#server-urls).
@@ -80,4 +84,5 @@ If you used the Apple Watch app before version 2026.8, note the following:
 
 - Your existing home screen items, folders, and layout are kept.
 - **iOS Actions are no longer available on the Apple Watch.** Actions were replaced by items you build from entities, scripts, and scenes. If you previously used iOS Actions on your watch, add the underlying script or scene as an item instead. See [Adding items](./home.md#adding-items).
-- Complications you created with the older watchOS templates keep working and are shown under **Legacy complications**. They are drawn with the modern styles, so they may look different from before. See [Legacy complications](./complications.md#legacy-complications).
+- Complications you created with the older watchOS templates keep working and are shown under **Legacy complications**. They are drawn by the new complication system, laid out to match the original templates as closely as possible. See [Legacy complications](./complications.md#legacy-complications).
+- **The watch battery sensors moved to the watch.** The `Watch Battery Level` and `Watch Battery State` sensors on your iPhone's device stopped updating, and the app disables them. The Apple Watch now reports its own battery as a separate device in Home Assistant. Turn the sensors on from the watch to keep tracking it. See [Sensors](./settings.md#sensors).

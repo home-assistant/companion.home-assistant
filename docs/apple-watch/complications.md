@@ -8,7 +8,7 @@ id: "complications"
 A complication is a small piece of information on your watch face, next to the time. Home Assistant complications can show an entity's state, a gauge, an icon, or the result of a template — so you can see your indoor temperature, your solar production, or whether the garage is open without opening any app.
 
 :::info
-Complications were rebuilt in iOS app version 2026.8 <span class="beta">BETA</span>. The editor, the available styles, and the way complications update all changed. If you are on an earlier version, this page does not match what you see in the app. Complications you created back then are kept after you update — see [Legacy complications](#legacy-complications).
+Complications were rebuilt in iOS app version 2026.8. The editor, the available styles, and the way complications update all changed. If you are on an earlier version, this page does not match what you see in the app. Complications you created back then are kept after you update — see [Legacy complications](#legacy-complications).
 :::
 
 ## Requirements
@@ -101,6 +101,8 @@ The **Value** element also carries the gauge and color options:
 - **Gauge color** (or **Progress bar color**) and **Text color**.
 
 The **Icon** element carries the icon itself and its color. Pick any icon from the [Material Design Icons](https://pictogrammers.com/library/mdi/) set, or leave it as the entity's own icon.
+
+If you pick an **Icon color**, the icon is drawn in that color on the watch face. If you leave it unset, the icon follows the watch face's own color, like Apple's built-in complications do. On a tinted watch face, watchOS recolors every complication to match the tint, including icons with a color you picked.
 
 :::info
 For entity complications, the gauge uses real values — set **Minimum** and **Maximum** to the range you care about. There is no need to normalize anything to a number between 0 and 1 as older app versions required.
@@ -255,7 +257,7 @@ Complications you created before iOS app version 2026.8 used older watchOS templ
 Your old complications are kept and still work:
 
 - Find them under **Settings** > **Apple Watch & CarPlay** > **Complications** > **Legacy complications**. The entry only appears if you have any.
-- They are drawn with the modern styles, so their text areas are mapped onto the closest matching layout. They may look different from how they looked before.
+- They are drawn by the new complication system, which lays them out to match their original template as closely as possible, including text-only templates and the curved or flat text of corner complications. Small differences from how they looked before are possible.
 - You can delete them individually, or select **Delete All Legacy Complications** to remove them all at once.
 
 We recommend rebuilding the complications you still use with the new editor. Entity complications in particular no longer need an administrator account or any templating.

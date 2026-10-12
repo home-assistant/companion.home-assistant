@@ -5,10 +5,10 @@ id: "settings"
 
 ![iOS](/assets/iOS.svg)
 
-The Home Assistant app on your Apple Watch has its own settings screen. It shows which servers the watch knows about, lets you change the Assist pipeline and the home screen layout, and gives you the diagnostics you need when something is not updating.
+The Home Assistant app on your Apple Watch has its own settings screen. It shows which servers the watch knows about, lets you change the Assist pipeline and the home screen layout, lets you choose what the watch reports to Home Assistant, and gives you the diagnostics you need when something is not updating.
 
 :::info
-This page describes the rebuilt Apple Watch app <span class="beta">BETA</span> introduced in iOS app version 2026.8.
+This page describes the rebuilt Apple Watch app introduced in iOS app version 2026.8.
 :::
 
 ## Opening the settings
@@ -34,7 +34,10 @@ The settings screen also shows the Wi-Fi network your watch is currently on, whe
 
 ### Server URLs
 
-The watch fetches live entity states and complication values directly from your Home Assistant server, and sends the actions you run there too. It never routes them through your iPhone, so it needs a URL it can reach.
+The watch requests live entity states and complication values from your Home Assistant server, and sends the actions you run there too.
+
+- **When your iPhone is nearby and reachable**, the watch hands these requests to your iPhone. Your iPhone sends them using the URL it is using itself, so at home they go to your internal URL even when the watch picked your remote URL.
+- **When your iPhone is not reachable**, the watch sends the requests itself, using the URL it picked. This is when the watch needs a URL it can reach on its own.
 
 For each server you can set **Always use**:
 
@@ -45,7 +48,9 @@ For each server you can set **Always use**:
 
 When your Apple Watch has no Wi-Fi or cellular connection of its own, it borrows your iPhone's internet connection. In that situation the watch cannot see which Wi-Fi network you are on, so it cannot tell whether you are somewhere you trust.
 
-To protect you on public networks, the watch does not use your internal URL by default in that case. Your configuration and entity list still arrive from your iPhone, so your items keep appearing. What stops working is anything that needs the server directly: the watch cannot read live states, cannot run actions on that server, and its complications keep showing their last known value.
+To protect you on public networks, the watch does not use your internal URL by default in that case. If your server also has a remote URL or Home Assistant Cloud, this does not affect you: the watch uses that URL instead.
+
+If your server _only_ has an internal URL, the watch has no URL it may use, and the server is marked **Needs attention**. Your configuration and entity list still arrive from your iPhone, so your items keep appearing. What stops working is anything that needs the server: the watch cannot read live states, cannot run actions on that server, and its complications keep showing their last known value.
 
 If you want to allow it anyway:
 
@@ -66,6 +71,43 @@ Select **Assist** to change which Assist pipeline the header button uses, withou
 - If no pipelines are listed, keep your iPhone nearby and select **Reload**.
 
 See [Using Assist](./home.md#using-assist) for more.
+
+## Sensors
+
+Your Apple Watch can report its own sensors to Home Assistant. When you turn one on, the watch registers with the [Mobile App integration](https://www.home-assistant.io/integrations/mobile_app/) as its own device, separate from your iPhone. The device is named after your iPhone, for example `My iPhone Apple Watch`, and you find it in Home Assistant under **Settings** > **Devices & services** > **Mobile App**.
+
+The watch can report:
+
+- **Battery Level**: the battery charge of the watch, in percent.
+- **Battery State**: whether the watch is `Charging`, `Not Charging`, or `Full`.
+
+To turn them on:
+
+1. On your Apple Watch, go to **Settings** > **Sensors**.
+2. If you have more than one server, select the server that should receive the sensors. Each server has its own choices.
+3. Turn on the sensors you want to report.
+
+Nothing is sent until you turn a sensor on. The watch sends the values on its own schedule, in the background. The **Status** section shows when the watch last sent its sensors, and the last error, if there was one.
+
+:::note
+Before iOS app version 2026.9.1, the watch battery was reported as `Watch Battery Level` and `Watch Battery State` sensors on your _iPhone's_ device. Those sensors no longer update, and the app disables them. Use the sensors on the watch's own device instead, and update any automations or dashboards that used the old ones.
+:::
+
+## Location
+
+Your Apple Watch can also report its location to Home Assistant, as the device tracker of its own device. This is separate from the location your iPhone reports.
+
+1. On your Apple Watch, go to **Settings** > **Location**.
+2. If you have more than one server, select the server. Each server receives the location you choose for it.
+3. Choose what to send:
+   - **Exact**: the watch's precise location.
+   - **Zone only**: only the name of the [zone](https://www.home-assistant.io/integrations/zone/) the watch is in, such as `home`.
+   - **Never**: nothing is sent. This is the default.
+4. When the watch asks for permission to use your location, allow it.
+
+The watch reports its location when you open the app, and in the background from time to time when watchOS lets the app refresh.
+
+If the watch shows that Home Assistant cannot access its location, open the **Settings** app on your Apple Watch, go to **Privacy & Security** > **Location Services**, and allow location access for Home Assistant.
 
 ## Layout
 
@@ -93,7 +135,7 @@ Select **Refresh All** to refresh everything now, or select a single complicatio
 You can:
 
 - Select **Share** to share the log from the watch.
-- Select **Send to iPhone** to copy it to your iPhone. Then, on your iPhone, go to **Settings** > **Debugging** > **Export Log Files** to share it — for example when attaching it to a GitHub issue.
+- Select **Send to iPhone** to copy it to your iPhone. Then, on your iPhone, go to **Settings** > **Debugging** > **Export log files** to share it — for example when attaching it to a GitHub issue.
 - Select **Clear** to empty the list.
 
 ### Connection issues
@@ -117,9 +159,9 @@ Two options on the main settings screen let you start over without touching your
 
 **Troubleshooting** > **Developer** holds options meant for debugging. The app warns you when you open the screen. Only use them when a developer asks you to, or when you are gathering information for a bug report.
 
-- **Verbose item execution**: shows a live log of every step while an item runs — the resolved action, the URL used, the token stage, and the request itself. This is the fastest way to find out why an action fails.
+- **Verbose item execution**: shows a live log of every step while an item runs — the resolved action, the URL used, the token stage, the request itself, and whether it was sent by the watch or through your iPhone. This is the fastest way to find out why an action fails.
 - **Complication reload alerts**: posts a notification when complications start and finish reloading, saying whether each one succeeded or why it failed.
-- **Show iPhone unreachable icon**: shows an iPhone icon with a slash in the home header while your paired iPhone is unreachable. Actions run from the watch itself, so this only helps when debugging the iPhone link.
+- **Show iPhone unreachable icon**: shows an iPhone icon with a slash in the home header while your paired iPhone is unreachable. Actions still run when your iPhone is unreachable, because the watch then sends them itself, so this only helps when debugging the iPhone link.
 
 ## Common problems
 
@@ -130,7 +172,7 @@ Your iPhone is out of range, locked in a way that blocks the connection, or the 
 The watch cannot reach your Home Assistant server. Check **Settings** > **Servers** for a server marked **Needs attention**, and see [Server URLs](#server-urls).
 
 **An action fails with "The action couldn't be run".**
-The watch could not reach your Home Assistant server. Actions always go straight from the watch to your server, so having your iPhone nearby does not help here. Check **Settings** > **Servers** and see [Server URLs](#server-urls). Turning on **Verbose item execution** under [Developer options](#developer-options) shows exactly which step failed.
+Neither the watch nor your iPhone could reach your Home Assistant server. When your iPhone is nearby, the watch sends the action through it; otherwise, the watch needs a URL it can reach on its own. Check **Settings** > **Servers** and see [Server URLs](#server-urls). Turning on **Verbose item execution** under [Developer options](#developer-options) shows exactly which step failed.
 
 **Complications never update.**
 See [How complications update](./complications.md#how-complications-update) and check the diagnostics under **Troubleshooting** > **Complications**.

@@ -109,7 +109,7 @@ The **Open page** widget allows you to open any Home Assistant sidebar page.
 
 ### Gauge Widget
 
-The **Gauge** widget shows a value as a gauge. Since app version 2026.8 <span class="beta">BETA</span>, its **Source** option decides where that value comes from:
+The **Gauge** widget shows a value as a gauge. Since app version 2026.8, its **Source** option decides where that value comes from:
 
 - **Entity**: pick an entity (and optionally one of its attributes) and the gauge is built for you. Available to every user.
 - **Complication**: mirror one of your circular Apple Watch complications, so the same gauge appears on your lock screen. See [Complications](../apple-watch/complications.md).
@@ -152,7 +152,7 @@ For gauge type "Capacity":
 
 ### Details
 
-The **Details** widget shows information as text. Since app version 2026.8 <span class="beta">BETA</span>, its **Source** option decides where that text comes from:
+The **Details** widget shows information as text. Since app version 2026.8, its **Source** option decides where that text comes from:
 
 - **Entity**: pick an entity (and optionally one of its attributes) and its state is shown. Available to every user.
 - **Complication**: mirror one of your rectangular Apple Watch complications. See [Complications](../apple-watch/complications.md).
