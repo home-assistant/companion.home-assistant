@@ -33,7 +33,7 @@ What happens depends on the type of entity:
 - **Locks** are unlocked if they are locked, and locked if they are unlocked. A lock that is jammed, open, or unavailable is left as it is.
 - **Climate and vacuum entities** open their own control screen instead of running anything. They show an arrow next to their name. See [Climate entities](#climate-entities) and [Vacuum entities](#vacuum-entities).
 
-While the request is being sent, the row shows **Executing...**, then goes back to showing the entity's state. Selecting the row again while it shows **Executing...** does nothing, so a double tap does not run the action twice.
+While the request is being sent, the row shows **Executing...**, then goes back to showing the entity's state. Selecting the row again while the request is still in progress does nothing, so a double tap does not run the action twice.
 
 ### If an action fails
 

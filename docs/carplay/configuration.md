@@ -19,7 +19,7 @@ Select the **Settings** tab on the car display.
 The **Settings** tab contains:
 
 - **Main server**: pick which Home Assistant server CarPlay shows. Only relevant if you have more than one server.
-- **Layout**: choose how the **Quick access** tab is drawn, either **List** or **Grid**. **Grid** requires iOS 26 or later. On older versions, **Quick access** is drawn as a list even if **Grid** is selected.
+- **Layout**: choose how the **Quick access** tab, your folders, and your custom tabs are drawn, either **List** or **Grid**. **Grid** requires iOS 26 or later. On older versions, they are drawn as a list even if **Grid** is selected.
 - **Tabs**: choose which tabs appear on the car display.
 - **Show Add and Edit buttons**: show or hide the **Add item** and **Edit** buttons in **Quick access** and in your folders. Turn this off for a cleaner list once you are happy with your setup.
 - **Assist Settings**: on-device speech options for [Assist](assist.md).
@@ -109,7 +109,7 @@ CarPlay limits how many tabs are displayed in the car, and the limit depends on 
 
 The **Quick access** section is where you build your shortcut list.
 
-- **Layout**: choose **List** or **Grid**. **Grid** fits more items on screen at once, and requires iOS 26 or later. On older versions the option is shown as unavailable. Until you choose, **Grid** is used while the list is empty, and **List** once it has items.
+- **Layout**: choose **List** or **Grid**. The choice also applies to your folders and custom tabs. **Grid** fits more items on screen at once, and requires iOS 26 or later. On older versions the option is shown as unavailable. Until you choose, **Grid** is used while the list is empty, and **List** once it has items.
 - Select **Add item** to add something to the list. You can add:
   - **Entity**: a light, lock, cover, script, scene, or any other supported entity. See [What you can control](carplay.md#what-you-can-control). You can select several entities at once. They are all added with the default settings, and you can customize them afterwards.
   - **Assist**: starts a voice request with a chosen Assist pipeline. Requires iOS 26.4 or later. See [Assist](assist.md).
