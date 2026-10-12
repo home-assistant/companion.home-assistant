@@ -54,10 +54,6 @@ If you want to allow it anyway:
 2. Read the explanation under **Internal URL & Security**.
 3. Select **Use** followed by your URL to allow it, or **Not Now** to leave it off.
 
-:::warning
-Allowing your internal URL over your iPhone's connection means the watch may try to reach that address on any network your iPhone is connected to, including public wireless networks. Consider setting up [Home Assistant Cloud](https://support.nabucasa.com/) or another remote URL instead.
-:::
-
 ## Assist
 
 Select **Assist** to change which Assist pipeline the header button uses, without reaching for your iPhone.
