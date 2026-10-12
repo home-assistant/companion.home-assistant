@@ -17,10 +17,6 @@ Before you start, make sure you have:
 - An Apple Watch paired to that iPhone, running watchOS 9 or later. That means an Apple Watch Series 4 or newer, any Apple Watch SE, or any Apple Watch Ultra. You can identify your model on the [Apple Watch model support page](https://support.apple.com/HT204507).
 - watchOS 10 or later if you want to use [complications](./complications.md) on your watch face. The app's complications are not available on watchOS 9.
 
-:::note
-An Apple Watch is not required to use Home Assistant, and nothing on this page affects the iPhone app.
-:::
-
 ## What you can do
 
 From the Home Assistant app on your Apple Watch, you can:
