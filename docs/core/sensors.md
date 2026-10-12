@@ -276,11 +276,12 @@ Apple Health sensors are read during the regular sensor updates described in [Wh
 
 In addition, iOS wakes the app when Apple Health records new data for a sensor you turned on, even when the app is not running. To avoid a flood of updates, for example during a workout where many data types are recorded at once, new data is grouped for a few seconds, and updates are sent at most once every 30 seconds.
 
-Values are calculated in one of three ways, depending on the sensor:
+Values are calculated in one of four ways, depending on the sensor:
 
 - **Totals since midnight**: the sum of everything recorded since the start of the current day in your device's local time zone, such as your steps or the energy you burned. These reset each day.
 - **Most recent reading**: the newest recorded value within a lookback window, such as your weight or your last heart rate reading. The window is noted for each sensor in the lists below.
 - **Last night**: the time spent asleep, in bed, or in a sleep stage during your most recent night with sleep data in the last 7 days. A night runs from 6:00 PM to 6:00 PM the next day in your local time zone, so a nap during the day counts toward the night before it. The value stays the same all day and only changes when a new night is recorded.
+- **Activity rings**: the daily goals of the Fitness app's Move, Exercise, and Stand rings, and the hours counted toward the Stand ring, read from the activity summary Apple Health keeps for each day. Stand hours are today's and reset each day. Goals carry over from the most recent summary in the last 7 days, so they do not drop out overnight before the day's first data arrives. The Exercise and Stand rings need an Apple Watch; without one, their sensors are `unavailable`. The Move goal is reported in kilocalories, so it is `unavailable` while the Move ring is set to move time instead of active energy.
 
 A sensor reports `unavailable` when Apple Health has no data for it within its window, or when you turn the sensor off. When the app cannot read Apple Health at all, which happens when your device is locked, the sensor keeps its previous value instead of becoming unavailable.
 
@@ -299,6 +300,10 @@ Values are sent in metric units, such as kilograms, kilometers, and degrees Cels
 | `health_flights_climbed` | floors | Total flights of stairs climbed since midnight. |
 | `health_apple_exercise_time` | minutes | Total exercise minutes since midnight, as calculated by Apple Health. |
 | `health_vo2_max` | milliliters per kilogram per minute | The last recorded VO2 max, which estimates your cardio fitness. Uses the last 365 days. |
+| `health_active_energy_burned_goal` | kilocalories | The daily Move goal of the Fitness app's Move ring. Requires app version 2026.11.0 or later. |
+| `health_apple_exercise_time_goal` | minutes | The daily Exercise goal of the Fitness app's Exercise ring. Requires an Apple Watch and app version 2026.11.0 or later. |
+| `health_apple_stand_hours` | hours | Hours since midnight with at least one minute of standing, as counted by the Fitness app's Stand ring. Requires an Apple Watch and app version 2026.11.0 or later. |
+| `health_apple_stand_hours_goal` | hours | The daily Stand goal of the Fitness app's Stand ring. Requires an Apple Watch and app version 2026.11.0 or later. |
 
 ### Body measurement sensor list
 
