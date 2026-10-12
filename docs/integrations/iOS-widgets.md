@@ -107,7 +107,7 @@ The **Open page** widget allows you to open any Home Assistant sidebar page.
   </tr>
 </table>
 
-### Gauge Widget
+### Gauge widget
 
 The **Gauge** widget shows a value as a gauge. Since app version 2026.8, its **Source** option decides where that value comes from:
 

@@ -149,13 +149,12 @@ To turn a real measurement into a gauge fill, scale it into that range:
 
 The `adjusted` variable keeps the result inside the range even when the sensor reads outside it.
 
-You can also make the range follow something else, such as today's forecast:
+You can also make the range follow other entities instead of fixed numbers. For example, with two [Number helpers](https://www.home-assistant.io/integrations/input_number/) that hold the lowest and highest temperature you care about, you can change the range from Home Assistant without editing the complication:
 
 ```jinja2
-{% set forecast = state_attr("weather.openweathermap", "forecast") | first %}
-{% set original = state_attr("weather.openweathermap", "temperature") %}
-{% set minimum = forecast["templow"] %}
-{% set maximum = forecast["temperature"] %}
+{% set original = states("sensor.living_room_temperature") | float %}
+{% set minimum = states("input_number.temperature_minimum") | float %}
+{% set maximum = states("input_number.temperature_maximum") | float %}
 {% set adjusted = min(maximum, max(minimum, original)) %}
 {{ (adjusted - minimum) / (maximum - minimum) }}
 ```
@@ -210,7 +209,7 @@ Complications fetch their own values directly from your Home Assistant server.
 - **When you save a change** and select **Reload Complications** on your iPhone.
 - **On demand from the watch**: **Settings** > **Troubleshooting** > **Complications** > **Refresh All**, or open a single complication and select **Retry**.
 
-You can also trigger an update from an automation, using the [`update_complications` notification command](/notifications/commands.md):
+You can also trigger an update from an automation, using the [`update_complications` notification command](../notifications/commands.md):
 
 ```yaml
 - action: notify.mobile_app_<your_device_id_here>
