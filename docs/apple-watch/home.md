@@ -194,5 +194,4 @@ The control uses the pipeline configured for the watch header button. If you hav
 
 - **A change you made on your iPhone is missing.** Select the reload button in the watch header with your iPhone nearby.
 - **An item shows no state.** The watch needs to reach your Home Assistant server to read entity states. See [Server URLs on the watch](./settings.md#server-urls).
-- **Assist shows an iPhone icon with a slash.** Assist needs your iPhone. Bring it nearby and make sure the Home Assistant app is installed on it.
 - **An action fails.** The watch tells you why, and offers an execution log when verbose logging is on. See [Watch settings and troubleshooting](./settings.md).
