@@ -77,12 +77,3 @@ Because of this, the watch needs a URL it can reach for everything it does on it
 :::info
 If your Home Assistant server is only reachable through an internal URL, the watch asks for permission before using it while connected through your iPhone. Until you allow it, the watch still receives your configuration and entity list from your iPhone, but it cannot read live states from that server, and its complications keep showing their last known value. See [Server URLs on the watch](./settings.md#server-urls).
 :::
-
-## Migrating from earlier versions
-
-If you used the Apple Watch app before version 2026.8, note the following:
-
-- Your existing home screen items, folders, and layout are kept.
-- **iOS Actions are no longer available on the Apple Watch.** Actions were replaced by items you build from entities, scripts, and scenes. If you previously used iOS Actions on your watch, add the underlying script or scene as an item instead. See [Adding items](./home.md#adding-items).
-- Complications you created with the older watchOS templates keep working and are shown under **Legacy complications**. They are drawn by the new complication system, laid out to match the original templates as closely as possible. See [Legacy complications](./complications.md#legacy-complications).
-- **The watch battery sensors moved to the watch.** The `Watch Battery Level` and `Watch Battery State` sensors on your iPhone's device stopped updating, and the app disables them. The Apple Watch now reports its own battery as a separate device in Home Assistant. Turn the sensors on from the watch to keep tracking it. See [Sensors](./settings.md#sensors).
