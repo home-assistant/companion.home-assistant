@@ -14,8 +14,6 @@ With Home Assistant in CarPlay you can:
 - Talk to [Assist](assist.md), the Home Assistant voice assistant, and hear the answer through your car speakers.
 - Change what the CarPlay screens show, directly from the car display.
 
-![CarPlay](/assets/ios/CarPlay.png)
-
 ## Requirements
 
 - An iPhone running iOS 16.4 or later, with the Home Assistant app installed and connected to at least one Home Assistant server.
