@@ -63,7 +63,7 @@ The settings screen can be found at the bottom of the home screen. This is where
 Wear OS limits how frequently apps can update tiles and how interactive they can be. For the camera, template and thermostat tiles you can choose a refresh interval which indicates to the system how often the tile should be refreshed.
 
  - Manual (only updates when you tap the refresh button)
- - In view (only updates when you scroll a tile into view)
+ - In view (only updates when you scroll a tile into view, not supported on Wear OS 6 or newer)
  - Every x minutes/hours (updates the tile in the background, even when not viewed)
 
 For intervals other than 'Manual', the system does not guarantee updates: if the tiles are not placed at the start or end of the tiles list, they will most likely update less frequently. You may see an old version of a tile for 1-2 seconds while it updates.
