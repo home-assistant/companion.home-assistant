@@ -293,13 +293,10 @@ https://www.home-assistant.io/installation/
 
 ## Code review
 
-When reviewing pull requests, check every changed line against the guidelines in this file and request changes when they are not followed. Pay special attention to the following, because they are frequently missed:
+When reviewing pull requests, check every changed line against the guidelines in this file and the [Home Assistant documentation style guide](https://developers.home-assistant.io/docs/documenting/general-style-guide), and request changes when they are not followed. Pay special attention to the following, because they are frequently missed in this repository:
 
-- **Heading capitalization**: Every added or modified heading must use sentence-style capitalization. Flag any heading in title case, such as `### Notification Icon and Color`, and suggest the sentence-case version, such as `### Notification icon and color`. Apply this even if other headings in the same file use title case.
-- **Link text to headings**: Link text that refers to a heading must use the same sentence-style capitalization as the heading.
-- **UI strings**: UI strings must be in **bold** and match the capitalization used in the app or in Home Assistant.
-- **Both platforms**: Every feature must document both iOS and Android, or explicitly state which platform it applies to using the platform indicators.
-- **Style**: Use American English spelling, a serial comma, and _for example_ instead of "e.g.".
+- **Heading capitalization**: Flag any added or modified heading in title case, such as `### Notification Icon and Color`, and suggest the sentence-case version, such as `### Notification icon and color`. Apply this even if other headings in the same file use title case, and check that link text referring to the heading matches. For details, see [Formatting guidelines](#formatting-guidelines).
+- **Both platforms**: Every feature must cover both iOS and Android, or state which platform it applies to with the [platform indicators](#platform-indicators). For details, see [Core principles](#core-principles).
 
 ## AI policy
 
