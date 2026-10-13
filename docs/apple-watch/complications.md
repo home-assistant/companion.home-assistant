@@ -156,8 +156,10 @@ You can also make the range follow other entities instead of fixed numbers. For 
 {% set minimum = states("input_number.temperature_minimum") | float %}
 {% set maximum = states("input_number.temperature_maximum") | float %}
 {% set adjusted = min(maximum, max(minimum, original)) %}
-{{ (adjusted - minimum) / (maximum - minimum) }}
+{{ (adjusted - minimum) / (maximum - minimum) if maximum > minimum else 0 }}
 ```
+
+The last line checks that the maximum is higher than the minimum before dividing. If the helpers are set to the same value, or the wrong way around, the gauge shows as empty instead of the template failing.
 
 ### Colors from a template
 
