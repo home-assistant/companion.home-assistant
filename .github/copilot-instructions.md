@@ -77,6 +77,79 @@ You should follow the general guidelines about writing a documentation from Micr
    - Don't use "e.g.". Instead, use _for example_, _such as_, or _like_.
    - All examples containing Jinja2 templates should be wrapped _outside_ of the code markdown with the `{% raw %}` tag.
 
+## Common review feedback
+
+These rules come from feedback that reviewers repeatedly give on pull requests in this repository. Follow them when writing documentation, and check for them when reviewing.
+
+### Versions and releases
+
+- Documentation describes the current release of the apps. Don't write "Starting with version 2026.8.0", "Requires app version …", "prior to", or similar once a feature is in a stable release.
+- If a feature is not in a stable release yet, mark it as described in [Beta features](#beta-features), or state in the pull request description which app release it depends on so it can wait for that release.
+- When you do mention a version, say whether it is the app version or the Home Assistant Core version.
+
+### Settings paths and UI text
+
+- Write companion app settings paths as **Settings** > **Companion app** > …, for example **Settings** > **Companion app** > **Notifications**. Don't write "Companion app settings", leave out **Companion app**, or use arrows (`→`) or commas as separators.
+- Put UI elements the user selects in **bold**, matching the capitalization in the app. Put messages the app shows, such as errors, in quotes instead. For example: the app shows "These lists are already being synced" and **Save** stays disabled.
+- Use the term the app uses for a concept, and use it everywhere on the page. Don't introduce a second name, such as "pairing" when the app says "list sync".
+- When a feature name is shown in the app in title case, such as **Reminders Sync**, use that exact name consistently, including in the page title.
+- The apps don't always use the same labels. For example, Android calls the external URL **Home Assistant URL**. Mention both labels when it could cause confusion.
+
+### Headings and anchors
+
+- Don't use `#` headings in the page body. Docusaurus renders them like `##` and the page title is already the top-level heading. Use `##` and `###`.
+- Don't add custom heading IDs, such as `{#apple-health-sensors}`, when they match the ID Docusaurus generates.
+- Don't put a platform icon in a heading if the topic could apply to the other platform later. Label the paragraph instead, so the other platform can be added under the same heading.
+
+### Platform coverage
+
+- For every change, check what happens on the other platform. If it has an equivalent, add it. For example, a `:::tip` that Android supports snoozing notifications natively, next to the iOS snooze actions.
+- Inside a section that applies to both platforms, put platform-specific notes in an admonition with the platform icon:
+
+  ```markdown
+  :::note ![iOS](/assets/iOS.svg)
+  On iOS, `color` sets the background color of a notification icon instead.
+  :::
+  ```
+
+- On a page that covers only one platform, state the platform once at the top. Don't repeat "On iOS" in every sentence.
+- The pull request title and description must match the platform scope of the change. Don't say "iOS and Android" when only one platform changed.
+
+### Where content lives
+
+- Don't duplicate content across pages. Keep it in one place and link to it. Duplicated text becomes inconsistent over time.
+- List all sensors on the main sensors page (`docs/core/sensors.md`), so it remains the complete overview and is easy to search. Feature pages link to the relevant section instead of repeating it.
+- Keep alphabetical lists and tables in alphabetical order, such as notification commands and sensors.
+- Don't document standard Home Assistant behavior that isn't specific to the companion apps, such as changing the unit of a sensor.
+
+### Wording
+
+- Refer to "the app" and "Home Assistant". Don't switch to "we" or "us".
+- Remove sentences that state the obvious, restate the inverse of the previous paragraph, or repeat a requirement already listed. For example, "Changes are saved automatically" is enough without adding "and persist across launches".
+- Describe behavior. Don't add justifications for design decisions, such as "…so the history stays a log of real changes".
+- Don't use em dashes for a dramatic pause. Use a colon, or split the sentence. Break up long sentences.
+- Be precise. Say what "this feature" or "this" refers to, and don't make claims you can't back up. For example, Android detects whether the connection uses _a_ VPN, not _your_ VPN, and a network you trust is not the same as your home network.
+- Apps are updated, not patched. Telling the user to update to the latest version is enough.
+- Spell out numbers from zero to nine in body text, such as "two options". Write "Wi-Fi" and "unencrypted" (not "WiFi" or "non-encrypted").
+
+### Lists, admonitions, and FAQs
+
+- End list items with a period when they are complete sentences.
+- Start list items at the beginning of the line, without a space before the `-`.
+- When a list contains several options, make clear whether the user needs to do all of them or only one.
+- Use a `:::note` admonition instead of starting a paragraph with "Note that". Use `:::warning` for security risks, and use the same wording in warnings that describe the same risk.
+- In an FAQ, answer the question directly in the first sentence, and order questions so they build on each other.
+
+### Screenshots
+
+- Add a screenshot when documenting new app UI.
+- Crop screenshots to the relevant part of the UI, so buttons and labels are large enough to read. Avoid large empty areas and busy backgrounds.
+
+### Scope
+
+- Keep pull requests focused on one change. Fix unrelated problems, such as existing title-case headings on the same page, in a separate pull request.
+- When reviewing, leave comments and suggestions on the pull request. Don't push unrelated changes or open additional pull requests as part of a review.
+
 ## Target audience
 
 This section defines who we write for and how to write for them. These principles are critical for maintaining accessible, helpful documentation.
