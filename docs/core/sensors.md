@@ -365,7 +365,7 @@ If a sensor is `unavailable` or missing in Home Assistant:
 - Unlock your device. iOS blocks health data reads while the device is locked, so updates that happen then are skipped.
 - Select the reload icon at the top of the **Apple Health Sensors** screen to read the sensors and send an update to Home Assistant right away.
 
-If the **Apple Health Sensors** entry is missing from the sensor list, your device does not provide health data. This is the case on macOS and on some iPad models.
+If the **Apple Health Sensors** entry is missing from the sensor list, your device does not provide health data. This is the case on macOS and on iPads running iPadOS 16. Apple added the Health app to iPad in iPadOS 17.
 
 ## Audio sensors
 ![Android](/assets/android.svg) <br />
