@@ -22,18 +22,18 @@ You can build your home screen from your iPhone or from the watch itself. The iP
 
 ### From your iPhone
 
-1. On your iPhone, open the Home Assistant app and go to **Settings** > **Apple Watch & CarPlay** > **Configuration**.
+1. On your iPhone, open the Home Assistant app and go to **Settings** > **Companion app** > **Configuration**. You find **Configuration** in the **Apple Watch & CarPlay** section.
 
 2. Under **Items**, select **Add item**.
 
 3. Choose what to add:
 
-   - **Entity**: any light, switch, lock, cover, fan, valve, humidifier, climate entity, vacuum, sensor, binary sensor, script, scene, automation, button, or input helper.
+   - **Entity**: any automation, binary sensor, button, climate entity, cover, fan, humidifier, input helper, light, lock, scene, script, sensor, switch, vacuum, or valve.
    - **Area**: an entry that opens one room's entities.
-   - **Folder**: a group you can put other items into.
    - **Assist**: starts a conversation with a specific Assist pipeline.
    - **Assist prompt**: sends a fixed sentence to Assist, such as `Good night`.
-   - **Complication**: shows one of your rectangular complications inline in the list. See [Complications](./complications.md).
+   - **Complication**: shows one of your rectangular complications inline in the list. See [Using a complication elsewhere](./complications.md#using-a-complication-elsewhere).
+   - **Folder**: a group you can put other items into.
 
 4. Select **Save**.
 
@@ -59,7 +59,7 @@ If you edit your configuration on both devices while they are apart, the watch a
 
 ## Customizing an item
 
-On your iPhone, select an existing item under **Settings** > **Apple Watch & CarPlay** > **Configuration** to change how it looks.
+On your iPhone, select an existing item under **Settings** > **Companion app** > **Configuration** to change how it looks.
 
 - **Display text**: the name shown under or next to the icon.
 - **Icon**: any icon from the [Material Design Icons](https://pictogrammers.com/library/mdi/) set. Leave it unset to use the entity's own icon.
@@ -91,7 +91,7 @@ Reordering is saved when you select **Done**. The area rows and the **Add** row 
 
 Folders group items together, so a long list becomes a few tidy rows.
 
-- Create a folder from your iPhone under **Settings** > **Apple Watch & CarPlay** > **Configuration** > **Add item** > **Folder**, or on the watch through **Add** > **Folder**. On the watch, folders can only be created at the top level.
+- Create a folder from your iPhone under **Settings** > **Companion app** > **Configuration** > **Add item** > **Folder**, or on the watch through **Add** > **Folder**. On the watch, folders can only be created at the top level.
 - Give the folder a name, an icon, and a color.
 - Add items into it the same way you add them to the home screen.
 
@@ -112,23 +112,23 @@ Some devices are part of another device, such as one outlet of a power strip. Th
 
 Areas with nothing the watch can show are left out, and entities hidden in Home Assistant do not appear.
 
-To hide the area rows, go to **Settings** > **Apple Watch & CarPlay** > **Configuration** on your iPhone and turn on **Hide areas in home**.
+To hide the area rows, go to **Settings** > **Companion app** > **Configuration** on your iPhone and turn on **Hide areas in home**.
 
 ## Controlling entities
 
 Most items run their action as soon as you tap them. Some entities have a control screen instead, with the same options the Home Assistant web interface offers.
 
-- **Lights**: power, brightness, color, and color temperature.
+- **Climate**: target temperature, target humidity, and the HVAC, fan, swing, and preset modes.
 - **Covers**: open, stop, close, and position.
 - **Fans**: power and speed.
+- **Lights**: power, brightness, color, and color temperature.
 - **Locks**: lock, unlock, and open. Locks never toggle on a single tap, and opening always asks for confirmation.
-- **Climate**: target temperature, target humidity, and the HVAC, fan, swing, and preset modes.
 - **Vacuums**: start, pause, stop, return to dock, fan speed, and cleaning specific areas. To clean specific areas, select them and then select the start button at the top of the list.
 
 How you reach the control screen depends on the entity:
 
-- **Locks, climate entities, and vacuums**: tapping anywhere on the row opens the control screen. The row shows an arrow to indicate this.
-- **Lights, covers, and fans**: in the list layout, the row is split in two. Tapping the icon turns the entity on or off, and tapping the rest of the row opens the control screen. Entities that can only turn on and off, such as a light without brightness, just toggle. In the grid layout, tapping the icon toggles the entity.
+- **Climate entities, locks, and vacuums**: tapping anywhere on the row opens the control screen. The row shows an arrow to indicate this.
+- **Covers, fans, and lights**: in the list layout, the row is split in two. Tapping the icon turns the entity on or off, and tapping the rest of the row opens the control screen. Entities that can only turn on and off, such as a light without brightness, just toggle. In the grid layout, tapping the icon toggles the entity.
 
 This works the same on the home screen, inside folders, and in the area and device lists.
 
@@ -137,17 +137,17 @@ Sensors and binary sensors are read-only. Tapping one opens a details screen wit
 Scripts and automations do not have a meaningful state of their own, so their rows show their area instead of a state.
 
 :::note
-The lists above are only about control screens. Everything else the watch supports — switches, valves, scripts, scenes, automations, buttons, and input helpers — still runs on a single tap, it just has no extra screen. Entity types the watch does not support at all cannot be added, and if you reach one the app tells you so.
+The lists above are only about control screens. Everything else the watch supports — automations, buttons, input helpers, scenes, scripts, switches, and valves — still runs on a single tap, it just has no extra screen. Entity types the watch does not support at all cannot be added, and if you reach one the app tells you so.
 :::
 
 ## Choosing a layout
 
 The home screen can show your items as a list or as a grid.
 
-1. On your iPhone, go to **Settings** > **Apple Watch & CarPlay** > **Configuration**.
+1. On your iPhone, go to **Settings** > **Companion app** > **Configuration**.
 2. Under **Layout**, choose **List** or **Grid**.
 
-The grid layout only shows icons, so give your items recognizable icons if you use it. You can also change the layout from the watch's own settings screen.
+The grid layout only shows icons, so give your items recognizable icons if you use it. You can also change the layout on the watch, under **Settings** > **Layout**.
 
 ## Using Assist
 
@@ -155,13 +155,13 @@ The grid layout only shows icons, so give your items recognizable icons if you u
 
 To show the Assist button in the header:
 
-1. On your iPhone, go to **Settings** > **Apple Watch & CarPlay** > **Configuration**.
+1. On your iPhone, go to **Settings** > **Companion app** > **Configuration**.
 2. Turn on **Show Assist**.
 3. Choose the server and the pipeline the button should use.
 
 To run a different pipeline, or to send a fixed sentence, add an **Assist** or **Assist prompt** item to your home screen instead of using the header button.
 
-You can also change the pipeline the header button uses directly on the watch, under **Settings** > **Assist**. If no pipelines are listed yet, keep your iPhone nearby and select **Reload**.
+You can also change the pipeline directly on the watch. See [Assist settings on the watch](./settings.md#assist).
 
 ### Talking to Assist
 
@@ -194,4 +194,4 @@ The control uses the pipeline configured for the watch header button. If you hav
 
 - **A change you made on your iPhone is missing.** Select the reload button in the watch header with your iPhone nearby.
 - **An item shows no state.** The watch needs to reach your Home Assistant server to read entity states. See [Server URLs on the watch](./settings.md#server-urls).
-- **An action fails.** The watch tells you why. See [Watch settings and troubleshooting](./settings.md).
+- **An action fails.** The watch tells you why. See [Common problems](./settings.md#common-problems).

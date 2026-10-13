@@ -3,7 +3,7 @@ title: "Overview"
 id: "apple-watch"
 ---
 
-![iOS](/assets/iOS.svg)
+![iOS](/assets/iOS.svg)The Apple Watch app works only with the Home Assistant app on an iPhone. It is not available with the ![Android](/assets/android.svg) Android app or the ![macOS](/assets/macOS.svg) macOS app. For watches paired with an Android phone, see [Wear OS](../wear-os/wear-os.md).
 
 The Home Assistant Apple Watch app lets you control your home from your wrist. You can turn lights on and off, adjust a thermostat, run scripts and scenes, browse the rooms in your home, talk to Assist, and show sensor values on your watch face.
 
@@ -21,7 +21,7 @@ Before you start, make sure you have:
 
 From the Home Assistant app on your Apple Watch, you can:
 
-- **Run and control your entities.** Tap a light, switch, lock, cover, fan, valve, script, scene, or automation to run it. Lights, covers, fans, locks, climate entities, and vacuums also have their own control screen with sliders, buttons, and mode pickers. See [Home screen](./home.md).
+- **Run and control your entities.** Tap an automation, cover, fan, light, lock, scene, script, switch, or valve to run it. Climate entities, covers, fans, lights, locks, and vacuums also have their own control screen with sliders, buttons, and mode pickers. See [Home screen](./home.md).
 - **Browse your home by area.** Open a room and see the entities in it, without adding each one by hand. See [Browsing areas](./home.md#browsing-areas).
 - **Talk to Assist.** Start a voice or text conversation with your Home Assistant voice assistant, from the app, a complication, Control Center, or the Action button on Apple Watch Ultra. See [Using Assist](./home.md#using-assist).
 - **Show information on your watch face.** Put an entity's state, a gauge, or a rendered template on your watch face as a complication. See [Complications](./complications.md).
@@ -44,10 +44,12 @@ The watch app installs together with the iPhone app.
 
 Some settings live on your iPhone and some live on the watch itself.
 
-**On your iPhone**, go to **Settings** > **Apple Watch & CarPlay**. You will find two entries:
+**On your iPhone**, open the Home Assistant app and go to **Settings** > **Companion app**. In the **Apple Watch & CarPlay** section, you will find two entries:
 
 - **Configuration**: what appears on the watch home screen — items, folders, layout, areas, and the Assist button. See [Home screen](./home.md).
 - **Complications**: the complications you can add to your watch face. See [Complications](./complications.md).
+
+These two entries only appear when an Apple Watch is paired with your iPhone.
 
 **On your Apple Watch**, scroll to the bottom of the home screen and select the gear icon. From there you can review your servers, change the Assist pipeline and layout, choose which sensors and location the watch reports, check why a complication is not updating, and clear locally stored data. See [Watch settings and troubleshooting](./settings.md).
 
@@ -66,6 +68,4 @@ When your iPhone is nearby and reachable, the watch hands its requests to your i
 
 Because of this, the watch needs a URL it can reach for everything it does on its own: your Home Assistant Cloud URL, another remote URL, or an internal URL on the same Wi-Fi network.
 
-:::info
-If your Home Assistant server is only reachable through an internal URL, the watch asks for permission before using it while connected through your iPhone. Until you allow it, the watch still receives your configuration and entity list from your iPhone, but it cannot read entity states from that server, and its complications keep showing their last known value. See [Server URLs on the watch](./settings.md#server-urls).
-:::
+If your Home Assistant server only has an internal URL, see [Internal URLs](./settings.md#internal-urls).

@@ -32,7 +32,7 @@ You configure one complication once, and then tune each size separately if you w
 
 ## Creating a complication
 
-1. On your iPhone, open the Home Assistant app and go to **Settings** > **Apple Watch & CarPlay** > **Complications**.
+1. On your iPhone, open the Home Assistant app and go to **Settings** > **Companion app** > **Complications**. You find **Complications** in the **Apple Watch & CarPlay** section. It only appears when an Apple Watch is paired with your iPhone.
 
 2. Select **Create**.
 
@@ -105,7 +105,7 @@ The **Icon** element carries the icon itself and its color. Pick any icon from t
 If you pick an **Icon color**, the icon is drawn in that color on the watch face. If you leave it unset, the icon follows the watch face's own color, like Apple's built-in complications do. On a tinted watch face, watchOS recolors every complication to match the tint, including icons with a color you picked.
 
 :::info
-For entity complications, the gauge uses real values — set **Minimum** and **Maximum** to the range you care about. There is no need to normalize anything to a number between 0 and 1 as older app versions required.
+For entity complications, the gauge uses real values — set **Minimum** and **Maximum** to the range you care about. There is no need to convert the value to a number between 0 and 1.
 :::
 
 ## Building custom content
@@ -175,7 +175,7 @@ If a template does not produce a valid hex color, the static color you picked is
 
 Creating a complication in the app does not put it on your face. You choose it on the watch, the same way you choose any other complication.
 
-1. Make sure your complications reached the watch. On your iPhone, go to **Settings** > **Apple Watch & CarPlay** > **Complications** and select **Reload Complications**.
+1. Make sure your complications reached the watch. On your iPhone, go to **Settings** > **Companion app** > **Complications** and select **Reload Complications**.
 
 2. On your Apple Watch, press and hold the watch face, then select **Edit**.
 
@@ -204,10 +204,11 @@ Two complications exist without any configuration:
 
 Complications fetch their own values directly from your Home Assistant server.
 
-- **Automatically**, roughly every 15 minutes. watchOS decides the exact timing and budget, so the interval varies.
-- **Whenever you look at the face**, subject to a short cool-down so several complications on one face do not all hit your server at once.
+- **Automatically**, every 15 minutes. watchOS decides the exact timing and budget, so the interval can be longer.
 - **When you save a change** and select **Reload Complications** on your iPhone.
 - **On demand from the watch**: **Settings** > **Troubleshooting** > **Complications** > **Refresh All**, or open a single complication and select **Retry**.
+
+To avoid repeated requests to your server, each complication fetches its value at most once per minute. If the same complication is on your face more than once, all copies share one request.
 
 You can also trigger an update from an automation, using the [`update_complications` notification command](../notifications/commands.md):
 
@@ -217,7 +218,7 @@ You can also trigger an update from an automation, using the [`update_complicati
     message: update_complications
 ```
 
-This wakes the watch app in the background, even when the watch is not reachable, and rebuilds every complication. watchOS budgets these background wakes to roughly 50 per day and shares that budget with **Reload Complications**, so use them for changes you actually want to see right away rather than for every state change. It can take a few seconds or a few minutes for the update to appear.
+Your iPhone queues the request for the watch, and watchOS delivers it in the background, even when the Home Assistant app on the watch is not open. The watch then rebuilds every complication. watchOS budgets these background wakes to roughly 50 per day and shares that budget with **Reload Complications**, so use them for changes you actually want to see right away rather than for every state change. It can take a few seconds or a few minutes for the update to appear.
 
 :::note
 Complications refresh their own values on a schedule, so you rarely need this. Reach for it when a value must appear on the face at a specific moment, such as right after an automation finishes.
@@ -225,10 +226,6 @@ Complications refresh their own values on a schedule, so you rarely need this. R
 
 :::warning
 If you use [local push](../notifications/local.md), this command only runs while the Home Assistant app is open on your iPhone, or when you tap the notification. Local push notifications are delivered by a separate part of the app that cannot run commands in the background.
-:::
-
-:::info
-Complications need a reachable server URL. If your watch cannot reach your Home Assistant server — for example because the server only has an internal URL and you have not allowed the watch to use it — complications keep showing their last known value. See [Server URLs on the watch](./settings.md#server-urls).
 :::
 
 ### Checking why a complication is stale
@@ -245,17 +242,17 @@ The watch can tell you exactly what happened on the last refresh.
 A complication you built can also be used outside your watch face:
 
 - **On your watch home screen.** Add a **Complication** item to show a rectangular complication inline in your item list. See [Adding items](./home.md#adding-items).
-- **On your iPhone lock screen.** The **Details** widget can mirror a rectangular complication, and the **Gauge** widget can mirror a circular one. Choose **Complication** as the widget's source. See [iOS Widgets](../integrations/iOS-widgets.md).
+- **On your iPhone lock screen.** The **Details** widget can mirror a rectangular complication, and the **Gauge** widget can mirror a circular one. Choose **Complication** as the widget's source. See [Gauge widget](../integrations/iOS-widgets.md#gauge-widget) and [Details](../integrations/iOS-widgets.md#details).
 
 This means you can build a gauge once and reuse it on your watch face, in your watch app, and on your iPhone lock screen.
 
 ## Legacy complications
 
-Complications you created before iOS app version 2026.8 used older watchOS templates, with a separate complication for each position and template on each watch face. That system no longer exists in watchOS.
+Legacy complications are complications created with the older watchOS templates, with a separate complication for each position and template on each watch face. That system no longer exists in watchOS.
 
 Your old complications are kept and still work:
 
-- Find them under **Settings** > **Apple Watch & CarPlay** > **Complications** > **Legacy complications**. The entry only appears if you have any.
+- Find them under **Settings** > **Companion app** > **Complications** > **Legacy complications**. The entry only appears if you have any.
 - They are drawn by the new complication system, which lays them out to match their original template as closely as possible, including text-only templates and the curved or flat text of corner complications. Small differences from how they looked before are possible.
 - You can delete them individually, or select **Delete All Legacy Complications** to remove them all at once.
 
@@ -276,6 +273,6 @@ For entity complications, check that **Minimum** and **Maximum** bracket the val
 Template rendering happens on your Home Assistant server and requires an administrator account. In the editor, the template row shows the rendered result — if it is empty, the server returned nothing and the template likely has an error.
 
 **Nothing I create reaches the watch.**
-Open **Settings** > **Apple Watch & CarPlay** > **Complications** on your iPhone and select **Reload Complications** with your watch nearby. If it reports that the watch is unavailable, check that the watch is paired and the Home Assistant watch app is installed.
+Open **Settings** > **Companion app** > **Complications** on your iPhone and select **Reload Complications** with your watch nearby. If it reports that the watch is unavailable, check that the watch is paired and the Home Assistant watch app is installed.
 
 For more help, see [Watch settings and troubleshooting](./settings.md).
