@@ -55,7 +55,7 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
 | `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
-| [Kiosk Sensors](#kiosk-sensors) | None | Sensors exposed by [Kiosk mode](../integrations/ios-kiosk-mode.md), reflecting the state of the kiosk device. |
+| [Kiosk sensors](#kiosk-sensors) | None | Sensors added by [Kiosk mode](../integrations/ios-kiosk-mode.md) that report the state of the kiosk device. |
 | `sensor.location_permission` | None | The current location permission that was selected by the user. The permission can be set via the location permission popup or modified in the iOS settings. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
@@ -626,16 +626,16 @@ These sensors will reflect various states from the [Keyguard Manager](https://de
 
 ## Kiosk sensors
 ![iOS](/assets/iOS.svg)<br />
-[Kiosk mode](../integrations/ios-kiosk-mode.md) adds sensors so automations can react to the state of the kiosk device.
+[Kiosk mode](../integrations/ios-kiosk-mode.md) adds sensors so automations can react to the state of the kiosk device. Kiosk mode is iOS-only, so these sensors are not available on Android.
 
-The `binary_sensor.kiosk_mode` sensor is always available so you can tell whether a device is currently acting as a kiosk (`on`) or running the app normally (`off`).
+The `binary_sensor.kiosk_mode` sensor reports whether the device is currently acting as a kiosk (`on`) or running the app normally (`off`). Turning kiosk mode on or off doesn't enable or disable this sensor.
 
-While kiosk mode is on, additional sensors provide details about the device in kiosk mode. The app enables these sensors when you turn on kiosk mode and disables them when you turn it off, because they don't provide reliable data outside kiosk mode:
+The other kiosk sensors provide details about the device while it is in kiosk mode. When you turn on kiosk mode, the app enables them. When you turn off kiosk mode, the app disables them, because they don't provide reliable data outside kiosk mode. Their entities are then disabled in Home Assistant, instead of showing `unavailable`.
 
 | Sensor | Description |
 | ------ | ----------- |
 | `sensor.kiosk_brightness` | The current screen brightness, as a percentage. |
-| `binary_sensor.kiosk_screensaver` | Requires app version 2026.8.0 or later. `on` while the screensaver is visible on screen, `off` when it is not. |
+| `binary_sensor.kiosk_screensaver` | `on` while the screensaver is visible on screen, `off` when it is not. |
 | `sensor.kiosk_volume` | The current device output volume, as a percentage. |
 
 ## Last reboot sensor

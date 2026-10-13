@@ -108,9 +108,9 @@ With this option on, the camera stays active the whole time kiosk mode runs, and
 
 ## Sensors
 
-Kiosk mode adds sensors so automations can react to the state of the kiosk device. They appear in the app's sensor settings and in the **Sensors** screen inside the kiosk settings. All are iOS-only.
+Kiosk mode adds sensors so automations can react to the state of the kiosk device. You can enable or disable them in **Settings** > **Companion app** > **Kiosk mode** > **Sensors**, or with the rest of the app's sensors in **Settings** > **Companion app** > **Sensors**.
 
-For the full list of these sensors and what each one reports, see [Kiosk sensors](../core/sensors.md#kiosk-sensors) on the sensors page.
+For the list of kiosk sensors and what each one reports, see [Kiosk sensors](../core/sensors.md#kiosk-sensors).
 
 ## Remote commands
 
