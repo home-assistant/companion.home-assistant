@@ -64,7 +64,7 @@ The app needs *full* access to Reminders. Reading your reminders is what lets th
 The pairing appears under **Synced lists**, and the first sync starts shortly after.
 
 :::note
-Each pairing connects exactly one Reminders list to one Home Assistant to-do list. To sync several lists, add a pairing for each one. If you pick a combination that already exists, the app shows **These lists are already being synced** and **Save** stays disabled.
+Each pairing connects exactly one Reminders list to one Home Assistant to-do list. To sync several lists, add a pairing for each one. If you pick a combination that already exists, the app shows "These lists are already being synced" and **Save** stays disabled.
 :::
 
 ### The first sync
@@ -82,7 +82,7 @@ The same matching also runs on later syncs. If you add an item with the same tit
 For every linked item, the app keeps these four things in agreement:
 
 - The title, such as `Buy milk`.
-- The notes, which Home Assistant calls the description.
+- The reminder's notes (Apple Reminders) / description (Home Assistant).
 - The due date, with or without a time of day.
 - Whether the item is completed.
 
@@ -126,13 +126,9 @@ Home Assistant is the source of truth. Its items and changes overwrite the Apple
 
 A conflict happens only with two-way pairings, when the same linked item changed in both apps since the last sync. Because both changes cannot be kept, one side has to win.
 
-To choose the winner, go to **Companion app settings** > **Reminders Sync** and, under **Conflicts**, set **Keep changes from** to either **Home Assistant** or **Apple Reminders**. The setting applies to all of your two-way pairings.
+To choose which change is kept, go to **Settings** > **Companion app** > **Reminders Sync** and, under **Conflicts**, set **Keep changes from** to either **Home Assistant** or **Apple Reminders**. The setting applies to all of your two-way pairings.
 
 The default is **Home Assistant**, since a Home Assistant list is usually shared with the rest of your household, while the reminder is on one phone.
-
-:::note
-When only one side changed, no conflict exists and this setting is not used. The change is simply applied to the other side.
-:::
 
 ## When syncing happens
 
@@ -142,7 +138,7 @@ The app syncs by itself in these situations:
 - When something changes in the Reminders app while the Home Assistant app is running. Reminders tells the app about its own changes, so these sync within a few seconds.
 - On the schedules described below.
 
-You can also sync at any time: go to **Companion app settings** > **Reminders Sync** and select **Sync now**.
+You can also sync at any time: go to **Settings** > **Companion app** > **Reminders Sync** and select **Sync now**.
 
 :::warning
 Nothing syncs while the app is closed or in the background, unless a background refresh runs. Changes made in Apple Reminders or Home Assistant wait until the app runs again.
@@ -172,7 +168,7 @@ Background syncs only run when **Background App Refresh** is turned on for Home 
 
 ## Sync history
 
-To see what the app changed, go to **Companion app settings** > **Reminders Sync** and select **Sync history**.
+To see what the app changed, go to **Settings** > **Companion app** > **Reminders Sync** and select **Sync history**.
 
 Each entry shows the pairing, when the sync ran, whether it succeeded, any error, and one line per change, such as `Created reminder "Buy milk"` or `Updated Home Assistant item "Buy milk"`. Syncs that changed nothing are not recorded unless they failed, so the history stays a log of real changes and errors.
 
@@ -186,7 +182,7 @@ History entries stay after you remove a pairing, and keep showing the list names
 
 ## Removing a pairing
 
-1. Go to **Companion app settings** > **Reminders Sync**.
+1. Go to **Settings** > **Companion app** > **Reminders Sync**.
 2. Under **Synced lists**, swipe left on the pairing.
 3. Select **Delete**.
 
