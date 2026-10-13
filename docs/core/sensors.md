@@ -284,10 +284,6 @@ Values are calculated in one of three ways, depending on the sensor:
 
 A sensor reports `unavailable` when Apple Health has no data for it within its window, or when you turn the sensor off. When the app cannot read Apple Health at all, which happens when your device is locked, the sensor keeps its previous value instead of becoming unavailable.
 
-:::note
-Values are sent in metric units, such as kilograms, kilometers, and degrees Celsius. Home Assistant converts them for display based on your unit system where the sensor supports it.
-:::
-
 ### Activity sensor list
 
 | Sensor | Unit | Description |
