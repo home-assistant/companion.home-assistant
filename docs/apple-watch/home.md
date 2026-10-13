@@ -18,7 +18,7 @@ From top to bottom:
 
 ## Adding items
 
-You can build your home screen from your iPhone or from the watch itself. The iPhone offers every item type; the watch offers the most common ones.
+You can build your home screen from your iPhone or from the watch itself. Both offer the same item types.
 
 ### From your iPhone
 
@@ -43,7 +43,7 @@ You can build your home screen from your iPhone or from the watch itself. The iP
 
 1. On your Apple Watch, select **Add**. You will find it as a row at the bottom of your item list, or as the button in the top-right corner of the header when the Assist button is hidden.
 
-2. Choose **Entity**, **Area**, **Complication**, or **Folder**.
+2. Choose **Entity**, **Area**, **Assist**, **Assist prompt**, **Complication**, or **Folder**. **Complication** only appears when you have created complications, and **Folder** only appears at the top level, not inside a folder.
 
 3. If you have more than one server, choose the server.
 
@@ -91,7 +91,7 @@ Reordering is saved when you select **Done**. The area rows and the **Add** row 
 
 Folders group items together, so a long list becomes a few tidy rows.
 
-- Create a folder from your iPhone under **Settings** > **Companion app** > **Configuration** > **Add item** > **Folder**, or on the watch through **Add** > **Folder**. On the watch, folders can only be created at the top level.
+- Create a folder from your iPhone under **Settings** > **Companion app** > **Configuration** > **Add item** > **Add Folder**, or on the watch through **Add** > **Folder**. On the watch, folders can only be created at the top level.
 - Give the folder a name, an icon, and a color.
 - Add items into it the same way you add them to the home screen.
 
