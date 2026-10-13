@@ -552,12 +552,15 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_sleep_awake_duration` | minutes | The amount of awake time in the last recorded sleep session. |
 | `health_connect_sleep_awake_in_bed_duration` | minutes | The amount of awake-in-bed time in the last recorded sleep session. |
 | `health_connect_sleep_out_of_bed_duration` | minutes | The amount of out-of-bed time in the last recorded sleep session. |
-| `health_connect_sleep_sleeping_duration` | minutes | The amount of sleeping time without a more specific sleep stage in the last recorded sleep session. |
+| `health_connect_sleep_unspecified_duration` | minutes | The amount of sleeping time without a more specific sleep stage in the last recorded sleep session. |
 | `health_connect_sleep_unknown_duration` | minutes | The amount of time with an unknown sleep stage in the last recorded sleep session. |
 | `health_connect_systolic_blood_pressure` | millimeters of Mercury | The last recorded systolic blood pressure. |
 | `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
 | `health_connect_vo2_max` | milliliters per minute per kilogram | The last recorded VO2 max score. |
 | `health_connect_weight` | grams | The last recorded weight. |
+
+
+The `health_connect_sleep_duration` sensor also provides a sleep-stage timeline through the `stageTypes`, `stageStartTimes`, and `stageEndTimes` attributes. These are parallel lists: entries at the same index identify a sleep stage and its corresponding start and end timestamps in ISO 8601 format. The timeline can be used to visualize sleep stages or analyze transitions between stages in Home Assistant.
 
 ## High accuracy mode
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
