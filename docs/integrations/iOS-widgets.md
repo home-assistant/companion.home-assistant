@@ -1,11 +1,13 @@
 ---
-title: "iOS Widgets"
+title: "iOS widgets"
 id: ios-widgets
 ---
 
-# iOS Widgets
+# iOS widgets
 
-Widgets are small panels you can place on your Home Screen, Lock Screen, or (on a Mac) in Notification Center. They show information from Home Assistant at a glance and can run things for you when you tap them.
+![iOS](/assets/iOS.svg)This page covers the widgets of the iOS, iPadOS, and macOS app. For Android, see [Android widgets](android-widgets.md).
+
+Widgets are small panels you can place on your Home Screen, Lock Screen, or (on a Mac) on the desktop and in Notification Center. They show information from Home Assistant at a glance and can run things for you when you tap them.
 
 The Home Assistant app comes with several built-in widgets. You can also build your own with the **Custom widget**, where you pick the entities and how they look.
 
@@ -35,7 +37,7 @@ iOS, iPadOS, and macOS offer different widget sizes:
   - Medium
   - Large
   - Extra large **(iPadOS and macOS)**. On iPadOS 27 and later, a portrait version of the extra large size is also available.
-- Accessory (iOS and iPadOS Lock Screen)
+- Accessory (iOS and iPadOS Lock Screen). These sizes are not available on ![macOS](/assets/macOS.svg) macOS.
   - Circular
   - Inline
   - Rectangular
@@ -48,9 +50,9 @@ Because of this, widgets are not suitable for information that must be up to the
 
 Many widgets show the time of their last update, together with a refresh icon. Select it to reload the widget right away.
 
-To refresh your widgets more often, [send a silent push notification with the `update_widgets` command](/docs/notifications/notification-commands). You can create an automation that sends this notification whenever an entity you care about changes state. This command reloads the **Common Controls**, **Entities**, **Areas**, **Custom**, **To-do List**, **Gauge**, **Details**, and **Sensors** widgets. The other widgets refresh on their own schedule or when you select their refresh button.
+To refresh your widgets more often, [send a silent push notification with the `update_widgets` command](../notifications/commands.md). You can create an automation that sends this notification whenever an entity you care about changes state. This command reloads the **Common Controls**, **Entities**, **Areas**, **Custom**, **To-do List**, **Gauge**, **Details**, and **Sensors** widgets. The other widgets refresh on their own schedule or when you select their refresh button.
 
-If your widgets are stuck on a blank state or stop updating, open the app and go to **Settings** > **Companion app** > **Widgets**, then select **Reload all widgets**.
+If your widgets are stuck on a blank state or stop updating, open the companion app and go to **Settings** > **Companion app** > **Widgets**, then select **Reload all widgets**.
 
 ## How tapping an entity works
 
@@ -60,6 +62,71 @@ The **Common Controls**, **Entities**, and **Custom** widgets show each entity a
 - **The rest of the tile** opens the entity's more info dialog in the app.
 
 For entities without a main action, such as sensors, the whole tile opens the more info dialog. In the **Custom widget**, you can change what each area does.
+
+## Areas
+
+The **Areas** widget shows the [areas](https://www.home-assistant.io/docs/organizing/areas/) of your home, grouped by floor. Areas that are not assigned to a floor are listed under **Other areas**.
+
+<img src="/assets/ios/widgets/areas.png" alt="Areas widget in the medium size, showing four areas of the ground floor, with arrows to move between pages" width="370" />
+
+- Select an area to open its page in the Home Assistant dashboard. In the small size, selecting the widget opens the areas dashboard instead.
+- When your home has more areas than fit in the widget, use the arrows at the bottom to move between pages.
+
+**Configuration options:**
+
+- **Server**: The Home Assistant server the areas come from.
+
+**Available in:**
+
+- System small
+- System medium
+- System large
+- System extra large (iPadOS and macOS)
+
+## Assist
+
+The **Assist** widget opens [Assist](https://www.home-assistant.io/voice_control/) inside the app, using the pipeline of your choice.
+
+<table>
+  <tr>
+    <td><img src="/assets/ios/widgets/assist-small.png" alt="Assist widget in the small size" width="190" /></td>
+    <td><img src="/assets/ios/widgets/assist-medium.png" alt="Assist widget in the medium size, showing three Assist pipelines" width="370" /></td>
+  </tr>
+</table>
+
+**Configuration options:**
+
+- **Pipelines**: The Assist pipelines to show. The small and circular sizes show one pipeline, the medium size shows up to six. If a pipeline is missing from the list, open Assist in the app once to refresh the list.
+- **With voice**: When enabled, Assist starts listening as soon as the widget opens. Enabled by default.
+
+**Available in:**
+
+- System small
+- System medium
+- Accessory circular
+
+## Calendar
+
+The **Calendar** widget shows your upcoming events for the next 14 days. You can select several calendars, even from different servers, and the widget merges them into a single list.
+
+<img src="/assets/ios/widgets/calendar.png" alt="Calendar widget in the medium size, showing three events from two calendars for Monday the 18th" width="370" />
+
+- Select an event to open its calendar in the app. In the small size, selecting the widget opens the calendar page instead.
+- Select the time at the bottom of the widget to reload the events.
+
+**Configuration options:**
+
+- **Calendars**: The calendars to show events from. Select as many as you like. If you don't select any, the widget shows events from all your calendars.
+- **Show calendar name**: Displays the name of the calendar next to each event. This is useful when you merge several calendars.
+
+The small size shows up to 2 events, medium up to 3, large and extra large up to 6, and the portrait version of extra large up to 12. The large and extra large sizes group the events by day.
+
+**Available in:**
+
+- System small
+- System medium
+- System large
+- System extra large (iPadOS and macOS)
 
 ## Common Controls
 
@@ -89,47 +156,6 @@ The small size shows up to 2 entities, medium up to 4, large up to 10, and extra
 - System large
 - System extra large (iPadOS and macOS)
 
-## Entities
-
-The **Entities** widget shows the entities you choose, with their current state. Selecting a tile works as described in [How tapping an entity works](#how-tapping-an-entity-works).
-
-Unlike the **Custom widget**, you set up this widget directly from your Home Screen, without creating anything in the app first. In exchange, you can't change the icons, colors, names, or tap actions.
-
-<img src="/assets/ios/widgets/entities.png" alt="Entities widget in the medium size, showing six entities with their states, such as a kitchen light that is on, a temperature of 21.5 °C, and a locked front door" width="350" />
-
-**Configuration options:**
-
-- **Server**: The Home Assistant server the entities come from.
-- **Entities**: The entities to display, in the order you pick them. Entities from any domain can be selected. The small size shows up to 3, medium up to 6, large up to 12, and extra large up to 20.
-- **Show last update time**: Displays at the bottom of the widget when it last refreshed. Enabled by default.
-
-**Available in:**
-
-- System small
-- System medium
-- System large
-- System extra large (iPadOS and macOS)
-
-## Areas
-
-The **Areas** widget shows the [areas](https://www.home-assistant.io/docs/organizing/areas/) of your home, grouped by floor. Areas that are not assigned to a floor are listed under **Other areas**.
-
-<img src="/assets/ios/widgets/areas.png" alt="Areas widget in the medium size, showing four areas of the ground floor, with arrows to move between pages" width="370" />
-
-- Select an area to open its page in the Home Assistant dashboard. In the small size, selecting the widget opens the areas dashboard instead.
-- When your home has more areas than fit in the widget, use the arrows at the bottom to move between pages.
-
-**Configuration options:**
-
-- **Server**: The Home Assistant server the areas come from.
-
-**Available in:**
-
-- System small
-- System medium
-- System large
-- System extra large (iPadOS and macOS)
-
 ## Custom widget
 
 The most customizable widget available. You create the widget inside the app, and then add it to your Home Screen.
@@ -138,7 +164,7 @@ The most customizable widget available. You create the widget inside the app, an
 
 ### Creating a custom widget
 
-1. In the app, go to **Settings** > **Companion app** > **Widgets** and select **Create widget**.
+1. In the companion app, go to **Settings** > **Companion app** > **Widgets** and select **Create widget**.
 2. Enter a **Name** for the widget.
 3. Select **Add item** and choose the entities you want to display.
 4. To customize an item, select it in the **Items** list. You can change:
@@ -193,77 +219,48 @@ When **Show states** is enabled and **Require confirmation** is also enabled for
 
 If you run into problems, turn **Show states** off, or turn **Require confirmation** off and save the widget again.
 
-## Assist
+## Details
 
-The **Assist** widget opens [Assist](https://www.home-assistant.io/voice_control/) inside the app, using the pipeline of your choice.
+The **Details** widget shows up to three lines of text on your Lock Screen.
 
-<table>
-  <tr>
-    <td><img src="/assets/ios/widgets/assist-small.png" alt="Assist widget in the small size" width="190" /></td>
-    <td><img src="/assets/ios/widgets/assist-medium.png" alt="Assist widget in the medium size, showing three Assist pipelines" width="370" /></td>
-  </tr>
-</table>
+<img src="/assets/ios/widgets/details.png" alt="Details widget on the Lock Screen in the rectangular size, showing Living room, 21.4 °C, and Humidity 48%" width="204" />
 
 **Configuration options:**
 
-- **Pipelines**: The Assist pipelines to show. The small and circular sizes show one pipeline, the medium size shows up to six. If a pipeline is missing from the list, open Assist in the app once to refresh the list.
-- **With voice**: When enabled, Assist starts listening as soon as the widget opens. Enabled by default.
+- **Source**: Where the text comes from. See the sources below.
+- **Run Script**: When enabled, selecting the widget runs the script you choose instead of opening the app. **Notify when run** shows a notification once the script has run. This option only applies to the rectangular size.
 
 **Available in:**
 
-- System small
-- System medium
-- Accessory circular
+- Accessory inline
+- Accessory rectangular
 
-## To-do List
+### Details sources
 
-The **To-do List** widget shows the open items of one to-do list from Home Assistant.
+**Entity**
 
-<img src="/assets/ios/widgets/todo-list.png" alt="To-do List widget in the medium size, showing a Groceries list with two items, a refresh button, and a plus button" width="370" />
+Select an entity and, optionally, one of its attributes. The first line shows the entity's name, the second its state, and the third its area.
 
-From the widget you can:
+- **Entity**: The entity to display.
+- **Attribute**: An attribute to read instead of the entity's state. Leave empty to use the state.
 
-- Select the circle next to an item to mark it as completed.
-- Select the plus button to add a new item.
-- Select an item or the list name to open the list in the app.
-- Select the refresh button to reload the list.
+**Complication**
 
-**Configuration options:**
+Mirrors one of the rectangular Apple Watch complications you already built. See [Apple Watch complications](../apple-watch/complications.md).
 
-- **Server**: The Home Assistant server the list comes from.
-- **List**: The to-do list to display. Select a server first.
+- **Complication**: The rectangular complication to mirror.
 
-The small size shows up to 2 items, medium up to 3, large up to 6, and extra large up to 12.
+**Template**
 
-**Available in:**
+Build each line with Home Assistant templates.
 
-- System small
-- System medium
-- System large
-- System extra large (iPadOS and macOS)
+:::warning
+Templates are rendered by your Home Assistant server, and only administrator accounts can render them. If your account is not an administrator, use the **Entity** or **Complication** source instead.
+:::
 
-## Calendar
-
-The **Calendar** widget shows your upcoming events for the next 14 days. You can select several calendars, even from different servers, and the widget merges them into a single list.
-
-<img src="/assets/ios/widgets/calendar.png" alt="Calendar widget in the medium size, showing three events from two calendars for Monday the 18th" width="370" />
-
-- Select an event to open its calendar in the app. In the small size, selecting the widget opens the calendar page instead.
-- Select the time at the bottom of the widget to reload the events.
-
-**Configuration options:**
-
-- **Calendars**: The calendars to show events from. Select as many as you like. If you don't select any, the widget shows events from all your calendars.
-- **Show calendar name**: Displays the name of the calendar next to each event. This is useful when you merge several calendars.
-
-The small size shows up to 2 events, medium up to 3, large and extra large up to 6, and the portrait version of extra large up to 12. The large and extra large sizes group the events by day.
-
-**Available in:**
-
-- System small
-- System medium
-- System large
-- System extra large (iPadOS and macOS)
+- **Upper Text Template**: The first line of text.
+- **Lower Text Template**: The second line of text.
+- **Details Text Template**: A third line, shown only in the rectangular size.
 
 ## Energy
 
@@ -296,13 +293,19 @@ The **Energy** widget shows a summary of your energy dashboard: your totals for 
 - Accessory inline
 - Accessory rectangular
 
-## Open Page
+## Entities
 
-The **Open Page** widget opens any Home Assistant sidebar page.
+The **Entities** widget shows the entities you choose, with their current state. Selecting a tile works as described in [How tapping an entity works](#how-tapping-an-entity-works).
+
+Unlike the **Custom widget**, you set up this widget directly from your Home Screen, without creating anything in the app first. In exchange, you can't change the icons, colors, names, or tap actions.
+
+<img src="/assets/ios/widgets/entities.png" alt="Entities widget in the medium size, showing six entities with their states, such as a kitchen light that is on, a temperature of 21.5 °C, and a locked front door" width="350" />
 
 **Configuration options:**
 
-- **Pages**: The pages to display. The small size holds up to 3, medium up to 6, large up to 12, and extra large up to 20. The circular size holds one page. If you don't select any pages, the widget shows the first pages of your sidebar.
+- **Server**: The Home Assistant server the entities come from.
+- **Entities**: The entities to display, in the order you pick them. Entities from any domain can be selected. The small size shows up to 3, medium up to 6, large up to 12, and extra large up to 20.
+- **Show last update time**: Displays at the bottom of the widget when it last refreshed. Enabled by default.
 
 **Available in:**
 
@@ -310,14 +313,6 @@ The **Open Page** widget opens any Home Assistant sidebar page.
 - System medium
 - System large
 - System extra large (iPadOS and macOS)
-- Accessory circular
-
-<table>
-  <tr>
-    <td><img src='/assets/ios/open-page-widget.jpeg' alt="Open Page Widget" height="300"/></td>
-    <td><img src='/assets/ios/open-page-widget-config.jpeg' alt="Open Page Widget Configuration" height="300"/></td>
-  </tr>
-</table>
 
 ## Gauge
 
@@ -384,65 +379,13 @@ For gauge type **Capacity**:
 - **Value Template (0-1)**: The current value used to fill the gauge.
 - **Value Label Template**: The text or emoji shown in the center of the widget.
 
-## Details
+## Open Page
 
-The **Details** widget shows up to three lines of text on your Lock Screen.
-
-<img src="/assets/ios/widgets/details.png" alt="Details widget on the Lock Screen in the rectangular size, showing Living room, 21.4 °C, and Humidity 48%" width="204" />
+The **Open Page** widget opens any Home Assistant sidebar page.
 
 **Configuration options:**
 
-- **Source**: Where the text comes from. See the sources below.
-- **Run Script**: When enabled, selecting the widget runs the script you choose instead of opening the app. **Notify when run** shows a notification once the script has run. This option only applies to the rectangular size.
-
-**Available in:**
-
-- Accessory inline
-- Accessory rectangular
-
-### Details sources
-
-**Entity**
-
-Select an entity and, optionally, one of its attributes. The first line shows the entity's name, the second its state, and the third its area.
-
-- **Entity**: The entity to display.
-- **Attribute**: An attribute to read instead of the entity's state. Leave empty to use the state.
-
-**Complication**
-
-Mirrors one of the rectangular Apple Watch complications you already built. See [Apple Watch complications](../apple-watch/complications.md).
-
-- **Complication**: The rectangular complication to mirror.
-
-**Template**
-
-Build each line with Home Assistant templates.
-
-:::warning
-Templates are rendered by your Home Assistant server, and only administrator accounts can render them. If your account is not an administrator, use the **Entity** or **Complication** source instead.
-:::
-
-- **Upper Text Template**: The first line of text.
-- **Lower Text Template**: The second line of text.
-- **Details Text Template**: A third line, shown only in the rectangular size.
-
-## Sensors
-
-The **Sensors** widget displays the values of the entities you select. Selecting an entity opens its more info dialog in the app.
-
-<img src="/assets/ios/widgets/sensors.png" alt="Sensors widget in the medium size, showing six values: temperature, humidity, power, battery, pressure, and air quality" width="370" />
-
-Entities from these domains can be selected: `sensor`, `binary_sensor`, `input_boolean`, `person`, `lock`, `number`, `input_number`, `input_text`, `input_select`, `select`, `climate`, `weather`, `sun`, `device_tracker`, and `update`.
-
-**Configuration options:**
-
-- **Server**: The Home Assistant server the entities come from.
-- **Choose Sensor**: The entities to display. The small size holds up to 3, medium up to 6, large up to 12, and extra large up to 20.
-
-:::note
-This widget updates at the interval iOS allows, roughly every 15 minutes. Don't use it for values you need in real time. See [How often widgets update](#how-often-widgets-update).
-:::
+- **Pages**: The pages to display. The small size holds up to 3, medium up to 6, large up to 12, and extra large up to 20. The circular size holds one page. If you don't select any pages, the widget shows the first pages of your sidebar.
 
 **Available in:**
 
@@ -450,6 +393,14 @@ This widget updates at the interval iOS allows, roughly every 15 minutes. Don't 
 - System medium
 - System large
 - System extra large (iPadOS and macOS)
+- Accessory circular
+
+<table>
+  <tr>
+    <td><img src='/assets/ios/open-page-widget.jpeg' alt="Open Page Widget" height="300"/></td>
+    <td><img src='/assets/ios/open-page-widget-config.jpeg' alt="Open Page Widget Configuration" height="300"/></td>
+  </tr>
+</table>
 
 ## Scripts
 
@@ -475,6 +426,57 @@ The **Scripts** widget runs the scripts you select. Selecting a script runs it w
   </tr>
 </table>
 
+## Sensors
+
+The **Sensors** widget displays the values of the entities you select. Selecting an entity opens its more info dialog in the app.
+
+<img src="/assets/ios/widgets/sensors.png" alt="Sensors widget in the medium size, showing six values: temperature, humidity, power, battery, pressure, and air quality" width="370" />
+
+Entities from these domains can be selected: `binary_sensor`, `climate`, `device_tracker`, `input_boolean`, `input_number`, `input_select`, `input_text`, `lock`, `number`, `person`, `select`, `sensor`, `sun`, `update`, and `weather`.
+
+**Configuration options:**
+
+- **Server**: The Home Assistant server the entities come from.
+- **Choose Sensor**: The entities to display. The small size holds up to 3, medium up to 6, large up to 12, and extra large up to 20.
+
+:::note
+This widget doesn't show values in real time. See [How often widgets update](#how-often-widgets-update).
+:::
+
+**Available in:**
+
+- System small
+- System medium
+- System large
+- System extra large (iPadOS and macOS)
+
+## To-do List
+
+The **To-do List** widget shows the open items of one to-do list from Home Assistant.
+
+<img src="/assets/ios/widgets/todo-list.png" alt="To-do List widget in the medium size, showing a Groceries list with two items, a refresh button, and a plus button" width="370" />
+
+From the widget you can:
+
+- Select the circle next to an item to mark it as completed.
+- Select the plus button to add a new item.
+- Select an item or the list name to open the list in the app.
+- Select the refresh button to reload the list.
+
+**Configuration options:**
+
+- **Server**: The Home Assistant server the list comes from.
+- **List**: The to-do list to display. Select a server first.
+
+The small size shows up to 2 items, medium up to 3, large up to 6, and extra large up to 12.
+
+**Available in:**
+
+- System small
+- System medium
+- System large
+- System extra large (iPadOS and macOS)
+
 ## Removed widgets
 
-- **Actions**: Removed in app release 2026.7. This widget ran iOS Actions, which are no longer supported. Use the **Scripts** widget, or a **Custom widget** with the **Run Script** action, instead.
+- **Actions**: This widget ran iOS Actions, which are no longer supported. Use the **Scripts** widget, or a **Custom widget** with the **Run Script** action, instead.
