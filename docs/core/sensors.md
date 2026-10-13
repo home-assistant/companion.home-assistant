@@ -243,9 +243,9 @@ Possible states for `app_standby_bucket` sensor (please refer to the API linked 
 *   `never`
 
 
-## Apple Health sensors {#apple-health-sensors}
+## Apple Health sensors
 
-![iOS](/assets/iOS.svg) Requires app version 2026.8.0 or later on iPhone or iPad. Sleep sensors require app version 2026.9.1 or later. These sensors are not available on ![macOS](/assets/macOS.svg) macOS.
+![iOS](/assets/iOS.svg) only. These sensors are not available on ![macOS](/assets/macOS.svg) macOS.
 
 Apple Health is the app on your iPhone or iPad that stores health and fitness data, such as the steps you walk, your heart rate, or your weight. Data can come from the device itself, a paired Apple Watch, or other apps and devices that write to Apple Health. When you turn on Apple Health sensors, the companion app reads the data you select and sends it to Home Assistant as sensors.
 
@@ -253,7 +253,7 @@ Apple Health is the app on your iPhone or iPad that stores health and fitness da
 
 Every Apple Health sensor is turned off until you turn it on, including after an app update. The Apple Health permission screen only asks about the sensors you turned on.
 
-1. In the companion app, go to **Settings** > **Sensors**.
+1. In the companion app, go to **Settings** > **Companion app** > **Sensors**.
 2. If you use more than one server, select the server that should receive the sensors. Each server has its own selection of sensors.
 3. Select **Apple Health Sensors**. The number next to it shows how many sensors are turned on for this server.
 4. Turn on the sensors you want. You have three options:
