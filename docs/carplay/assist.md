@@ -39,7 +39,7 @@ The item is added straight away.
 
 ### From your iPhone
 
-1. On your iPhone, open the Home Assistant app and go to **Settings** > **CarPlay**. You find **CarPlay** under the **Apple Watch & CarPlay** heading.
+1. In the Home Assistant app on your iPhone, go to **Settings** > **CarPlay**.
 2. Select **Add item** > **Assist**.
 3. Select the pipeline you want to use. Pipelines are grouped by server, and each server also offers **Preferred**.
 
@@ -83,7 +83,7 @@ An Assist prompt is a request you write in advance and save as a button. Selecti
 
 Assist prompts have to be typed, so they can only be created on your iPhone. If you select **Assist prompt** in the car, CarPlay tells you to create it on your iPhone instead.
 
-1. On your iPhone, go to **Settings** > **CarPlay**.
+1. In the Home Assistant app on your iPhone, go to **Settings** > **CarPlay**.
 2. Select **Add item** > **Assist prompt**.
 3. Select the **Pipeline** that should handle it. Choose one that has text-to-speech configured, so the answer can be spoken.
 4. Enter the **Title** that should appear in the car, such as `Garage check`.
@@ -116,7 +116,7 @@ The car offers the voices that match your iPhone's language, to keep the list sh
 
 ### Changing them on your iPhone
 
-1. Go to **Settings** > **CarPlay** > **Assist Settings**.
+1. In the Home Assistant app on your iPhone, go to **Settings** > **CarPlay** > **Assist Settings**.
 2. Under **More**, turn on **On-device STT** or **On-device TTS**, then pick a **Language** or **Voice**.
 
 :::info

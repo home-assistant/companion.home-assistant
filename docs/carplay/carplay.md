@@ -3,7 +3,7 @@ title: "Overview"
 id: "carplay"
 ---
 
-![iOS](/assets/iOS.svg)
+![iOS](/assets/iOS.svg)iPhone only. CarPlay is not available on iPad or ![macOS](/assets/macOS.svg) macOS. On ![Android](/assets/android.svg) Android, use [Android Auto](../android-auto/android-auto.md) instead.
 
 Apple CarPlay shows apps from your iPhone on your vehicle's built-in display. The Home Assistant app supports CarPlay, so you can check and control your home from the car screen without picking up your phone.
 
@@ -19,7 +19,10 @@ With Home Assistant in CarPlay you can:
 - An iPhone running iOS 16.4 or later, with the Home Assistant app installed and connected to at least one Home Assistant server.
 - A vehicle or aftermarket head unit that supports CarPlay.
 
-Some features need a newer version of iOS. Those requirements are listed where the feature is described.
+Some features need a newer version of iOS:
+
+- iOS 26 or later: the **Grid** layout, and the tiles in the **Areas** and **Control** tabs.
+- iOS 26.4 or later: [Assist](assist.md#requirements) and Assist prompts.
 
 :::info
 CarPlay does not have its own connection to Home Assistant. Your iPhone does the work and sends the screens to the car, so your phone must be able to reach your server, either on your home network or from outside your home. If you cannot reach your home while away, see [networking](../troubleshooting/networking.md).
@@ -56,13 +59,9 @@ On iOS 26 and later, the **Areas** and **Control** tabs show their contents as a
 
 Besides the built-in tabs, you can create your own tabs and fill them with the entities you choose. A custom tab is useful when **Quick access** gets long. For example, you could have a **Garage** tab and a **Lights** tab. See [Folders and custom tabs](configuration.md#folders-and-custom-tabs).
 
-:::note
-CarPlay limits how many tabs a vehicle displays, and the limit depends on the vehicle. If you add more tabs than your vehicle can show, the extra tabs are not displayed.
-:::
-
 ## What you can control
 
-The app only shows entities in CarPlay that make sense to use while driving. Entities marked as hidden in Home Assistant, and entities categorized as configuration or diagnostic, are not shown in the **Areas** and **Control** tabs, or when you add an item from the car display.
+The app only shows entities in CarPlay that make sense to use while driving. Entities marked as hidden in Home Assistant, and entities categorized as configuration or diagnostic, are not shown in the **Areas** and **Control** tabs, or when you add an item from the car display. Because of this, an area or a device type can appear in the list but have nothing to show when you open it.
 
 :::info
 An _entity_ is a single thing Home Assistant knows about, such as one light, one lock, or one garage door. A _domain_ is the type of that thing, such as `light` or `lock`. To learn more, see [entities](https://www.home-assistant.io/docs/configuration/entities_domains/) in the Home Assistant documentation.

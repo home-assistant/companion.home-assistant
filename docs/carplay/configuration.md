@@ -139,21 +139,25 @@ You can also add an entity to **Quick access** without opening the CarPlay setti
 - In the Home Assistant app, open an entity's dialog and use its **Add to** option, then select **CarPlay**.
 - In the Shortcuts app, use the **Add entity to** action.
 
-### Show Add and Edit buttons
+### Add and edit buttons
 
-Turn this off to hide the **Add item** and **Edit** buttons from the car display. The setting only changes what the car shows; you can still add and edit items on your iPhone.
+Turn off **Show Add and Edit buttons** to hide the **Add item** and **Edit** buttons from the car display. The setting only changes what the car shows; you can still add and edit items on your iPhone.
 
-### Assist Settings
+### Assist settings
 
-Opens the Assist options shared by the app and the car, such as on-device speech recognition. See [Assist](assist.md).
+Select **Assist Settings** to open the Assist options shared by the app and the car, such as on-device speech recognition. See [Assist](assist.md).
 
 ### Troubleshooting
 
-Opens the CarPlay troubleshooting options, including the audio playback setting for spoken Assist responses. See [Troubleshooting](troubleshooting.md).
+Select **Troubleshooting** to open the CarPlay troubleshooting options, including the audio playback setting for spoken Assist responses. See [Troubleshooting](troubleshooting.md).
 
 ### Resetting your configuration
 
-Select **Reset configuration** to delete your CarPlay setup and start over. This cannot be undone, and you are asked to confirm first.
+Select **Reset configuration**, then select **Yes** to delete your CarPlay setup and start over.
+
+:::warning
+This deletes your tabs, your **Quick access** items, your folders, and your layout choices. It cannot be undone. Your Assist settings and the **TTS Playback** setting are kept.
+:::
 
 ## Folders and custom tabs {#folders-and-custom-tabs}
 
@@ -161,7 +165,7 @@ A folder is a group of items. Folders keep long lists manageable, and they are t
 
 ### Creating a folder
 
-1. On your iPhone, go to **Settings** > **CarPlay**.
+1. In the Home Assistant app on your iPhone, go to **Settings** > **CarPlay**.
 2. Select **Add item** > **Add Folder**.
 3. Enter a **Folder Name**, then select **Add Folder**.
 4. Select the new folder to add items to it. To change the folder's icon, select the gear button on the folder screen.
@@ -174,7 +178,7 @@ Folders cannot contain other folders.
 
 ### Creating your own tab
 
-1. On your iPhone, go to **Settings** > **CarPlay**, then select the row under **Tabs**.
+1. In the Home Assistant app on your iPhone, go to **Settings** > **CarPlay**, then select the row under **Tabs**.
 2. Select **Add Tab**.
 3. Enter a **Tab Name**, such as `Garage`, then select **Add Tab**.
 4. Select the new tab in the **Active** list to add items to it.

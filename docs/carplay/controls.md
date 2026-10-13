@@ -95,15 +95,3 @@ The job is sent to the vacuum and CarPlay goes back to the control screen.
 :::note
 If you see **No areas mapped**, your vacuum's segments have not been matched to Home Assistant areas yet. This is set up in Home Assistant, not in the app.
 :::
-
-## When something does not appear
-
-The app deliberately hides some entities from CarPlay:
-
-- Entities marked as hidden in Home Assistant.
-- Entities categorized as configuration or diagnostic.
-- Entities whose domain is not supported. See [What you can control](carplay.md#what-you-can-control).
-
-Because of this, an area or a device type can appear in the list but have nothing to show when you open it.
-
-If an entity you expect is missing for another reason, see [Troubleshooting](troubleshooting.md).

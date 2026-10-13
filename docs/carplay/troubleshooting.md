@@ -22,19 +22,18 @@ CarPlay uses the servers your iPhone is signed in to. If the car shows **No serv
 
 The **Quick access** tab starts out empty on purpose, because you choose what goes in it. Add items from the car display, or from your iPhone. See [Configuration](configuration.md).
 
-If the car shows **No Quick Access items** and there is no **Add item** row, the **Show Add and Edit buttons** setting is turned off. See [The Add item and Edit rows are gone](#the-add-item-and-edit-rows-are-gone).
+If the car shows **No Quick Access items** and there is no **Add item** button, the **Show Add and Edit buttons** setting is turned off. See [The add and edit buttons are missing](#the-add-and-edit-buttons-are-missing).
 
-If you previously had items and they are gone, your iPhone may not have loaded its data. Force close the app and open it again. See [The lists are empty or out of date](#the-lists-are-empty-or-out-of-date).
+If your items are listed in the Home Assistant app under **Settings** > **CarPlay** but the car shows none, force close the app and open it again. See [The lists are empty or out of date](#the-lists-are-empty-or-out-of-date).
 
 ## An entity is missing
 
 Work through these in order:
 
 1. Check that the entity's type is supported. Home Assistant only offers some types in CarPlay. See [What you can control](carplay.md#what-you-can-control).
-2. In Home Assistant, check that the entity is not marked as hidden. Hidden entities are never shown in CarPlay.
-3. In Home Assistant, check that the entity's category is not set to configuration or diagnostic. Those are never shown either.
-4. Check that you are looking at the right server. The **Areas** and **Control** tabs only show the server selected under **Settings** > **Main server** in the car.
-5. If the lists look out of date, force close the app. See [The lists are empty or out of date](#the-lists-are-empty-or-out-of-date).
+2. In Home Assistant, check that the entity is not hidden, and that its category is not set to configuration or diagnostic. See [What you can control](carplay.md#what-you-can-control).
+3. Check that you are looking at the right server. The **Areas** and **Control** tabs only show the server selected under **Settings** > **Main server** in the car.
+4. If the lists look out of date, force close the app. See [The lists are empty or out of date](#the-lists-are-empty-or-out-of-date).
 
 ## The lists are empty or out of date
 
@@ -63,7 +62,7 @@ Some vehicles do not play spoken Assist responses when CarPlay streams the audio
 
 ### From your iPhone
 
-1. On your iPhone, go to **Settings** > **CarPlay**. You find **CarPlay** under the **Apple Watch & CarPlay** heading.
+1. In the Home Assistant app on your iPhone, go to **Settings** > **CarPlay**.
 2. Select **Troubleshooting**.
 3. Change **TTS Playback** from **Stream** to **Download and play**.
 
@@ -81,31 +80,20 @@ If the Assist screen shows **Error**, see [If Assist shows an error](assist.md#i
 
 ## Assist is not offered when adding an item
 
-- Assist and Assist prompts need iOS 26.4 or later. On older versions they do not appear in the car, and on your iPhone they are shown as **Assist (iOS 26.4+)** and **Assist prompt (iOS 26.4+)** and cannot be selected.
-- When you add Assist from the car, only pipelines with both speech-to-text and text-to-speech configured are listed. Your iPhone lists every pipeline.
+- Check that your iPhone and your Assist pipeline meet the [Assist requirements](assist.md#requirements).
 - The car uses the pipelines your iPhone has already downloaded. If a new pipeline is missing, add it from your iPhone instead.
 
 ## Some tabs are missing from the car
 
-CarPlay limits how many tabs a vehicle displays, and the limit depends on the vehicle. Tabs beyond that limit are not shown.
+CarPlay shows only as many tabs as your vehicle supports. Reorder your tabs so the ones you use most come first. See [Tabs](configuration.md#tabs).
 
-Reorder your tabs so the ones you use most come first: on your iPhone, go to **Settings** > **CarPlay**, select the row under **Tabs**, then drag the tabs in the **Active** list.
+## The add and edit buttons are missing
 
-## The Add item and Edit rows are gone
-
-The **Show Add and Edit buttons** setting is turned off. Turn it back on under **Settings** on the car display, or on your iPhone under **Settings** > **CarPlay**.
+The **Show Add and Edit buttons** setting is turned off. To turn it back on, see [Add and edit buttons](configuration.md#add-and-edit-buttons).
 
 ## Starting over
 
-If your setup is in a state you cannot untangle, you can delete it and build it again.
-
-1. On your iPhone, go to **Settings** > **CarPlay**.
-2. Select **Reset configuration**.
-3. Select **Yes** to confirm.
-
-:::warning
-This deletes your tabs, your **Quick access** items, your folders, and your layout choices. It cannot be undone. Your Assist settings and the **TTS Playback** setting are kept.
-:::
+If your setup is in a state you cannot untangle, you can delete it and build it again. See [Resetting your configuration](configuration.md#resetting-your-configuration).
 
 ## Still stuck
 
