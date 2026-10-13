@@ -61,9 +61,6 @@ You should follow the general guidelines about writing a documentation from Micr
 3. **Avoid redundancy**:
    - Eliminate repetitive information unless it adds clarity.
 
-4. **Templates**:
-   - All examples containing Jinja2 templates should be wrapped _outside_ of the code markdown with the `{% raw %}` tag.
-
 ## Target audience
 
 This section defines who we write for and how to write for them. These principles are critical for maintaining accessible, helpful documentation.
