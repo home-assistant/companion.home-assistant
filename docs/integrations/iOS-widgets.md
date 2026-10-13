@@ -18,11 +18,25 @@ The Home Assistant app comes with several built-in widgets. You can also build y
 
 ## Adding a widget
 
+### On iPhone and iPad
+
 1. On your Home Screen, touch and hold an empty area until the apps start to jiggle.
 2. On iOS 18 and iPadOS 18 or later, select the **Edit** button in the upper corner, then select **Add widget**. On iOS 17 and iPadOS 17, select the **+** button in the upper corner.
 3. Search for **Home Assistant** and select it.
 4. Swipe through the available widgets, choose a size, and select **Add widget**.
 5. To change a widget's settings, touch and hold the widget and select **Edit widget**.
+
+### On Mac
+
+1. Open the widget gallery:
+   - To add the widget to the desktop, Control-click the desktop wallpaper and choose **Edit Widgets**.
+   - To add the widget to Notification Center, select the date and time in the menu bar, then select **Edit Widgets** at the bottom of Notification Center.
+2. Search for **Home Assistant** and select it.
+3. Choose a size, then select the widget to add it, or drag it to where you want it.
+4. Select **Done**.
+5. To change a widget's settings, Control-click the widget and choose **Edit** followed by the widget's name.
+
+For more details, see Apple's guide to [adding and customizing widgets on Mac](https://support.apple.com/guide/mac-help/add-and-customize-widgets-mchl52be5da5/mac).
 
 :::note
 Not every widget is available in every size. The sizes each widget supports are listed in its section below.
@@ -87,12 +101,10 @@ The **Areas** widget shows the [areas](https://www.home-assistant.io/docs/organi
 
 The **Assist** widget opens [Assist](https://www.home-assistant.io/voice_control/) inside the app, using the pipeline of your choice.
 
-<table>
-  <tr>
-    <td><img src="/assets/ios/widgets/assist-small.png" alt="Assist widget in the small size" width="190" /></td>
-    <td><img src="/assets/ios/widgets/assist-medium.png" alt="Assist widget in the medium size, showing three Assist pipelines" width="370" /></td>
-  </tr>
-</table>
+<p>
+  <img src="/assets/ios/widgets/assist-small.png" alt="Assist widget in the small size" width="190" />
+  <img src="/assets/ios/widgets/assist-medium.png" alt="Assist widget in the medium size, showing three Assist pipelines" width="370" />
+</p>
 
 **Configuration options:**
 
@@ -266,12 +278,10 @@ Templates are rendered by your Home Assistant server, and only administrator acc
 
 The **Energy** widget shows a summary of your energy dashboard: your totals for the selected period, the cost, and a chart. The small size shows your current power when it's available. Selecting the widget opens the energy dashboard in the app, and selecting the period or the time reloads the data.
 
-<table>
-  <tr>
-    <td><img src="/assets/ios/widgets/energy.png" alt="Energy widget in the medium size, showing grid and solar totals for today, the cost, and an hourly chart" width="370" /></td>
-    <td><img src="/assets/ios/widgets/energy-lock-screen.png" alt="Energy widget on the Lock Screen in the rectangular size, showing grid and solar totals for today" width="204" /></td>
-  </tr>
-</table>
+<p>
+  <img src="/assets/ios/widgets/energy.png" alt="Energy widget in the medium size, showing grid and solar totals for today, the cost, and an hourly chart" width="370" />
+  <img src="/assets/ios/widgets/energy-lock-screen.png" alt="Energy widget on the Lock Screen in the rectangular size, showing grid and solar totals for today" width="204" />
+</p>
 
 **Requirements:**
 
@@ -318,12 +328,10 @@ Unlike the **Custom widget**, you set up this widget directly from your Home Scr
 
 The **Gauge** widget shows a single value as a gauge, with text or an emoji in the middle.
 
-<table>
-  <tr>
-    <td><img src="/assets/ios/widgets/gauge.png" alt="Gauge widget in the small size, showing 67% on a gauge from 0 to 100" width="190" /></td>
-    <td><img src="/assets/ios/widgets/gauge-lock-screen.png" alt="Gauge widget on the Lock Screen in the circular size" width="108" /></td>
-  </tr>
-</table>
+<p>
+  <img src="/assets/ios/widgets/gauge.png" alt="Gauge widget in the small size, showing 67% on a gauge from 0 to 100" width="190" />
+  <img src="/assets/ios/widgets/gauge-lock-screen.png" alt="Gauge widget on the Lock Screen in the circular size" width="108" />
+</p>
 
 **Configuration options:**
 
@@ -395,12 +403,10 @@ The **Open Page** widget opens any Home Assistant sidebar page.
 - System extra large (iPadOS and macOS)
 - Accessory circular
 
-<table>
-  <tr>
-    <td><img src='/assets/ios/open-page-widget.jpeg' alt="Open Page Widget" height="300"/></td>
-    <td><img src='/assets/ios/open-page-widget-config.jpeg' alt="Open Page Widget Configuration" height="300"/></td>
-  </tr>
-</table>
+<p>
+  <img src='/assets/ios/open-page-widget.jpeg' alt="Open Page Widget" height="300"/>
+  <img src='/assets/ios/open-page-widget-config.jpeg' alt="Open Page Widget Configuration" height="300"/>
+</p>
 
 ## Scripts
 
@@ -419,12 +425,10 @@ The **Scripts** widget runs the scripts you select. Selecting a script runs it w
 - System extra large (iPadOS and macOS)
 - Accessory circular
 
-<table>
-  <tr>
-    <td><img src='/assets/ios/scripts-widget.jpeg' alt="Scripts Widget" height="300"/></td>
-    <td><img src='/assets/ios/scripts-widget-config.jpeg' alt="Scripts Widget Configuration" height="300"/></td>
-  </tr>
-</table>
+<p>
+  <img src='/assets/ios/scripts-widget.jpeg' alt="Scripts Widget" height="300"/>
+  <img src='/assets/ios/scripts-widget-config.jpeg' alt="Scripts Widget Configuration" height="300"/>
+</p>
 
 ## Sensors
 
