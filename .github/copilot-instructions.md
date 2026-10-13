@@ -287,6 +287,12 @@ https://www.home-assistant.io/installation/
 - Home Assistant Cloud (Nabu Casa): `https://support.nabucasa.com/...`
 - GitHub issues: `https://github.com/home-assistant/iOS/issues/...` or `https://github.com/home-assistant/android/issues/...`
 
+## Project skills
+
+Detailed guidance lives in project skills under `.agents/skills/` (Claude Code also finds them through the `.claude/skills` symlink). Load the matching skill before working on something it covers:
+
+- `maintaining-notification-command-blueprints`: adding, renaming, changing the parameters of, or removing a notification command anywhere in the documentation. Every documented command needs a matching blueprint and import badge.
+
 ## AI policy
 
 This project follows the [Open Home Foundation AI Policy](../AI_POLICY.md).
