@@ -1,0 +1,138 @@
+blueprint:
+  name: "Companion app: send a kiosk command"
+  description: >
+    Control kiosk mode on one or more iOS or iPadOS devices running the official Home Assistant
+    companion app, using a notification command. For example, you can show the screensaver
+    at night, or bring a camera up on a wall-mounted panel when motion is detected.
+
+
+    Kiosk commands are only handled while the app is open and in the foreground, and only
+    acted on when "Accept kiosk remote commands" is enabled in the kiosk settings.
+    Only the settings matching the selected command are used by the device; the other
+    settings are ignored.
+    For more information about the commands, or how to add them as a step in your existing automation,
+    [review the documentation](https://companion.home-assistant.io/docs/notifications/notification-commands#kiosk-mode-commands).
+  domain: automation
+  source_url: https://github.com/home-assistant/companion.home-assistant/blob/master/static/assets/blueprints/notification_commands/kiosk_commands.yaml
+  author: Home Assistant
+  homeassistant:
+    min_version: 2024.10.0 # For input sections and the current automation syntax
+  input:
+    trigger:
+      name: When
+      description: >
+        A trigger is a specific event happening in or around your home, for example: "When the sun sets".
+        Any trigger added here will send the kiosk command.
+      selector:
+        trigger:
+    condition:
+      name: And if (optional)
+      description: >
+        All conditions added here need to be satisfied for the kiosk command to be sent.
+        A condition can be satisfied or not at any given time, for example: "If [name] is home".
+        You can use building blocks to create more complex conditions.
+      default: []
+      selector:
+        condition:
+    notification_section:
+      name: Then send the kiosk command
+      description: >
+        If the trigger occurred, and all conditions have been met (or there are no conditions),
+        send the selected kiosk command to the selected devices.
+      input:
+        notify_devices:
+          name: Devices
+          description: The iOS or iPadOS devices, with kiosk mode enabled, to send the kiosk command to.
+          selector:
+            device:
+              multiple: true
+              filter:
+                integration: mobile_app
+        kiosk_command:
+          name: Kiosk command
+          description: The kiosk command to send.
+          selector:
+            select:
+              options:
+                - label: Show the screensaver
+                  value: kiosk_show_screensaver
+                - label: Hide the screensaver
+                  value: kiosk_hide_screensaver
+                - label: Set the screensaver mode
+                  value: kiosk_set_screensaver_mode
+                - label: Set the screensaver dim level
+                  value: kiosk_set_screensaver_brightness
+                - label: Show a full-screen camera
+                  value: kiosk_show_camera
+                - label: Hide the full-screen camera
+                  value: kiosk_hide_camera
+                - label: Set the screen brightness
+                  value: kiosk_set_brightness
+                - label: Set the system volume
+                  value: kiosk_set_volume
+                - label: Reload the dashboard
+                  value: kiosk_reload
+                - label: Return to the kiosk server and dashboard
+                  value: kiosk_default
+        mode:
+          name: Screensaver mode
+          description: 'The screensaver mode to set, when using the "Set the screensaver mode" command.'
+          default: clock
+          selector:
+            select:
+              options:
+                - label: Clock
+                  value: clock
+                - label: Dim
+                  value: dim
+                - label: Blank
+                  value: blank
+        level:
+          name: Brightness level
+          description: >
+            The brightness percentage to set, when using the "Set the screen brightness" or
+            "Set the screensaver dim level" command.
+          default: 50
+          selector:
+            number:
+              min: 0
+              max: 100
+              unit_of_measurement: "%"
+        volume:
+          name: Volume
+          description: 'The volume percentage to set, when using the "Set the system volume" command.'
+          default: 50
+          selector:
+            number:
+              min: 0
+              max: 100
+              unit_of_measurement: "%"
+        camera:
+          name: Camera
+          description: 'The camera to show, when using the "Show a full-screen camera" command.'
+          default: ""
+          selector:
+            entity:
+              filter:
+                domain: camera
+
+mode: parallel
+
+triggers: !input trigger
+conditions: !input condition
+
+actions:
+  - variables:
+      notify_devices: !input notify_devices
+  - alias: "Send the kiosk command to every selected device"
+    repeat:
+      for_each: "{{ notify_devices }}"
+      sequence:
+        - action: "notify.mobile_app_{{ device_attr(repeat.item, 'name') | slugify }}"
+          data:
+            message: !input kiosk_command
+            data:
+              mode: !input mode
+              level: !input level
+              volume: !input volume
+              entity_id: !input camera

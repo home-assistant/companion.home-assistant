@@ -1,0 +1,84 @@
+blueprint:
+  name: "Companion app: control Do Not Disturb"
+  description: >
+    Control the Do Not Disturb mode on one or more Android devices running the official
+    Home Assistant companion app, using a notification command.
+
+
+    The first time this command is used, the app will ask you to grant access to the
+    notification policy. On Android 15 and newer, the app can only disable Do Not Disturb
+    if it was previously enabled using a notification command from Home Assistant.
+    For more information about the command, or how to add it as a step in your existing automation,
+    [review the documentation](https://companion.home-assistant.io/docs/notifications/notification-commands#do-not-disturb).
+  domain: automation
+  source_url: https://github.com/home-assistant/companion.home-assistant/blob/master/static/assets/blueprints/notification_commands/command_dnd.yaml
+  author: Home Assistant
+  homeassistant:
+    min_version: 2024.10.0 # For input sections and the current automation syntax
+  input:
+    trigger:
+      name: When
+      description: >
+        A trigger is a specific event happening in or around your home, for example: "When the sun sets".
+        Any trigger added here will set Do Not Disturb.
+      selector:
+        trigger:
+    condition:
+      name: And if (optional)
+      description: >
+        All conditions added here need to be satisfied for Do Not Disturb to be set.
+        A condition can be satisfied or not at any given time, for example: "If [name] is home".
+        You can use building blocks to create more complex conditions.
+      default: []
+      selector:
+        condition:
+    notification_section:
+      name: Then set Do Not Disturb
+      description: >
+        If the trigger occurred, and all conditions have been met (or there are no conditions),
+        set the Do Not Disturb mode on the selected devices.
+      input:
+        notify_devices:
+          name: Devices
+          description: The Android devices to set Do Not Disturb on.
+          selector:
+            device:
+              multiple: true
+              filter:
+                integration: mobile_app
+        command:
+          name: Do Not Disturb mode
+          description: >
+            The interruption filter to set. "Alarms only" suppresses all notifications except alarms,
+            "Priority only" suppresses all notifications except those matching the priority criteria,
+            "Total silence" suppresses all notifications and mutes all audio streams except phone calls,
+            and "Off" turns Do Not Disturb off.
+          selector:
+            select:
+              options:
+                - label: Alarms only
+                  value: alarms_only
+                - label: Priority only
+                  value: priority_only
+                - label: Total silence
+                  value: total_silence
+                - label: "Off"
+                  value: "off"
+
+mode: parallel
+
+triggers: !input trigger
+conditions: !input condition
+
+actions:
+  - variables:
+      notify_devices: !input notify_devices
+  - alias: "Send the Do Not Disturb command to every selected device"
+    repeat:
+      for_each: "{{ notify_devices }}"
+      sequence:
+        - action: "notify.mobile_app_{{ device_attr(repeat.item, 'name') | slugify }}"
+          data:
+            message: command_dnd
+            data:
+              command: !input command

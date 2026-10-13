@@ -70,6 +70,10 @@ Complications can also be updated using a [Notification Command](/notifications/
 
 It may take a few seconds or a few minutes for the update to fully apply.
 
+Import the following blueprint to [create an automation with this command](../notifications/commands.md#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fupdate_complications.yaml)
+
 ```yaml
 - action: notify.mobile_app_<your_device_id_here>
   data:

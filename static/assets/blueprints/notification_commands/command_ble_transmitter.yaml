@@ -1,0 +1,151 @@
+blueprint:
+  name: "Companion app: control the BLE beacon transmitter"
+  description: >
+    Control the Bluetooth Low Energy (BLE) beacon transmitter on one or more Android devices running
+    the official Home Assistant companion app, using a notification command. Besides turning
+    the transmitter on or off, you can also change the transmitter settings.
+
+
+    Only the setting matching the selected command is applied by the device; the other
+    settings are ignored. For more information about the command, or how to add it as a step
+    in your existing automation,
+    [review the documentation](https://companion.home-assistant.io/docs/notifications/notification-commands#ble-beacon-transmitter).
+  domain: automation
+  source_url: https://github.com/home-assistant/companion.home-assistant/blob/master/static/assets/blueprints/notification_commands/command_ble_transmitter.yaml
+  author: Home Assistant
+  homeassistant:
+    min_version: 2024.10.0 # For input sections and the current automation syntax
+  input:
+    trigger:
+      name: When
+      description: >
+        A trigger is a specific event happening in or around your home, for example: "When the sun sets".
+        Any trigger added here will control the BLE beacon transmitter.
+      selector:
+        trigger:
+    condition:
+      name: And if (optional)
+      description: >
+        All conditions added here need to be satisfied for the BLE beacon transmitter to be controlled.
+        A condition can be satisfied or not at any given time, for example: "If [name] is home".
+        You can use building blocks to create more complex conditions.
+      default: []
+      selector:
+        condition:
+    notification_section:
+      name: Then control the BLE beacon transmitter
+      description: >
+        If the trigger occurred, and all conditions have been met (or there are no conditions),
+        send the selected BLE beacon transmitter command to the selected devices.
+      input:
+        notify_devices:
+          name: Devices
+          description: The Android devices to control the BLE beacon transmitter on.
+          selector:
+            device:
+              multiple: true
+              filter:
+                integration: mobile_app
+        command:
+          name: Command
+          description: What to change on the BLE beacon transmitter.
+          selector:
+            select:
+              options:
+                - label: Turn on
+                  value: turn_on
+                - label: Turn off
+                  value: turn_off
+                - label: Set the advertise mode
+                  value: ble_set_advertise_mode
+                - label: Set the transmit power
+                  value: ble_set_transmit_power
+                - label: Set the UUID
+                  value: ble_set_uuid
+                - label: Set the major value
+                  value: ble_set_major
+                - label: Set the minor value
+                  value: ble_set_minor
+                - label: Set the measured power
+                  value: ble_set_measured_power
+        ble_advertise:
+          name: Advertise mode
+          description: 'The advertise mode to set, when using the "Set the advertise mode" command.'
+          default: ble_advertise_balanced
+          selector:
+            select:
+              options:
+                - label: Low latency
+                  value: ble_advertise_low_latency
+                - label: Balanced
+                  value: ble_advertise_balanced
+                - label: Low power
+                  value: ble_advertise_low_power
+        ble_transmit:
+          name: Transmit power
+          description: 'The transmit power to set, when using the "Set the transmit power" command.'
+          default: ble_transmit_medium
+          selector:
+            select:
+              options:
+                - label: High
+                  value: ble_transmit_high
+                - label: Medium
+                  value: ble_transmit_medium
+                - label: Low
+                  value: ble_transmit_low
+                - label: Ultra low
+                  value: ble_transmit_ultra_low
+        ble_uuid:
+          name: UUID
+          description: 'The UUID the beacon reports, when using the "Set the UUID" command.'
+          default: ""
+          selector:
+            text:
+        ble_major:
+          name: Major value
+          description: 'The major value the beacon reports, when using the "Set the major value" command.'
+          default: ""
+          selector:
+            text:
+        ble_minor:
+          name: Minor value
+          description: 'The minor value the beacon reports, when using the "Set the minor value" command.'
+          default: ""
+          selector:
+            text:
+        ble_measured_power:
+          name: Measured power
+          description: >
+            The measured power at 1 meter the beacon reports, when using the "Set the measured power"
+            command. This number must be a negative number.
+          default: -59
+          selector:
+            number:
+              min: -120
+              max: -1
+              mode: box
+
+mode: parallel
+
+triggers: !input trigger
+conditions: !input condition
+
+actions:
+  - variables:
+      notify_devices: !input notify_devices
+  - alias: "Send the BLE beacon transmitter command to every selected device"
+    repeat:
+      for_each: "{{ notify_devices }}"
+      sequence:
+        - action: "notify.mobile_app_{{ device_attr(repeat.item, 'name') | slugify }}"
+          data:
+            message: command_ble_transmitter
+            data:
+              command: !input command
+              ble_advertise: !input ble_advertise
+              ble_transmit: !input ble_transmit
+              ble_uuid: !input ble_uuid
+              ble_major: !input ble_major
+              ble_minor: !input ble_minor
+              ble_measured_power: !input ble_measured_power
