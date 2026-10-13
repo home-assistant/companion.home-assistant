@@ -289,7 +289,7 @@ Values are calculated in one of four ways, depending on the sensor:
 - **Totals since midnight**: the sum of everything recorded since the start of the current day in your device's local time zone, such as your steps or the energy you burned. These reset each day.
 - **Most recent reading**: the newest recorded value within a lookback window, such as your weight or your last heart rate reading. The window is noted for each sensor in the lists below.
 - **Last night**: the time spent asleep, in bed, or in a sleep stage during your most recent night with sleep data in the last 7 days. A night runs from 6:00 PM to 6:00 PM the next day in your local time zone, so a nap during the day counts toward the night before it. The value stays the same all day and only changes when a new night is recorded.
-- **Activity rings**: the daily goals of the Fitness app's Move, Exercise, and Stand rings, and the hours counted toward the Stand ring, read from the activity summary Apple Health keeps for each day. Stand hours are today's and reset each day. Goals carry over from the most recent summary in the last 7 days, so they do not drop out overnight before the day's first data arrives. The Exercise and Stand rings need an Apple Watch; without one, their sensors are `unavailable`. The Move goal is reported in kilocalories, so it is `unavailable` while the Move ring is set to move time instead of active energy.
+- **Activity rings**: the daily goals of the Fitness app's Move, Exercise, and Stand rings, and the hours counted toward the Stand ring, read from the activity summary Apple Health keeps for each day. In wheelchair mode, the Stand ring is the Roll ring, and the same sensors report rolling. Stand hours are today's and reset each day. Goals carry over from the most recent summary in the last 7 days, so they do not drop out overnight before the day's first data arrives. Changing a goal in the Fitness app records no new data, so the goal sensors do not wake the app; a changed goal appears on the next regular sensor update. The Exercise and Stand rings need an Apple Watch; without one, their sensors are `unavailable`. The Move goal is reported in kilocalories, so it is `unavailable` while the Move ring is set to move time instead of active energy.
 
 A sensor reports `unavailable` when Apple Health has no data for it within its window, or when you turn the sensor off. When the app cannot read Apple Health at all, which happens when your device is locked, the sensor keeps its previous value instead of becoming unavailable.
 
@@ -306,8 +306,8 @@ A sensor reports `unavailable` when Apple Health has no data for it within its w
 | `sensor.vo2_max` | milliliters per kilogram per minute | The last recorded VO2 max, which estimates your cardio fitness. Uses the last 365 days. |
 | `sensor.move_goal` | kilocalories | The daily Move goal of the Fitness app's Move ring. Requires app version 2026.11.0 or later. |
 | `sensor.exercise_goal` | minutes | The daily Exercise goal of the Fitness app's Exercise ring. Requires an Apple Watch and app version 2026.11.0 or later. |
-| `sensor.stand_hours` | hours | Hours since midnight with at least one minute of standing, as counted by the Fitness app's Stand ring. Requires an Apple Watch and app version 2026.11.0 or later. |
-| `sensor.stand_goal` | hours | The daily Stand goal of the Fitness app's Stand ring. Requires an Apple Watch and app version 2026.11.0 or later. |
+| `sensor.stand_hours` | hours | Hours since midnight with at least one minute of standing, as counted by the Fitness app's Stand ring, or of rolling for the Roll ring in wheelchair mode. Requires an Apple Watch and app version 2026.11.0 or later. |
+| `sensor.stand_goal` | hours | The daily Stand goal of the Fitness app's Stand ring, or Roll goal in wheelchair mode. Requires an Apple Watch and app version 2026.11.0 or later. |
 
 ### Body measurement sensor list
 
