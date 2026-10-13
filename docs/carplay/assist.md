@@ -17,11 +17,12 @@ Assist runs on your Home Assistant server. Before you can use it in the car, you
 
   On older versions, Assist is not offered in the car, and Assist items you already added are hidden from **Quick access**. On your iPhone, the options appear as **Assist (iOS 26.4+)** and **Assist prompt (iOS 26.4+)** and cannot be selected.
 
-- An Assist pipeline in Home Assistant that has both speech-to-text and text-to-speech configured.
+- An Assist pipeline in Home Assistant. Assist needs speech-to-text to understand you and text-to-speech to answer out loud. Each can come from the pipeline, or from your iPhone through the [on-device settings](#assist-settings).
 
-  When you add Assist from the car, pipelines missing either one are not offered. If you have none, the car shows **No Assist pipelines with both speech-to-text and text-to-speech available**.
+  - If the pipeline has both speech-to-text and text-to-speech, you can add it from the car or from your iPhone.
+  - If the pipeline is missing either one, add it from your iPhone, and turn on **On-device STT** or **On-device TTS** for the missing part. The car does not offer these pipelines. If none of your pipelines have both, the car shows **No Assist pipelines with both speech-to-text and text-to-speech available**.
 
-  Your iPhone lists every pipeline, so you can add one that is missing speech-to-text or text-to-speech. In that case, turn on the matching [on-device setting](#assist-settings) so your iPhone fills the gap. Otherwise, Assist cannot hear you or cannot speak its answer in the car.
+  Without speech-to-text, Assist shows an error instead of listening. Without text-to-speech, the answer is not spoken.
 
 ## Adding Assist to Quick access
 
