@@ -1,0 +1,61 @@
+blueprint:
+  name: "Companion app: stop text to speech"
+  description: >
+    Stop a text to speech notification that is currently playing on one or more Android devices
+    running the official Home Assistant companion app, using a notification command.
+
+
+    For more information about the command, or how to add it as a step in your existing automation,
+    [review the documentation](https://companion.home-assistant.io/docs/notifications/notification-commands#stop-tts).
+  domain: automation
+  source_url: https://github.com/home-assistant/companion.home-assistant/blob/master/static/assets/blueprints/notification_commands/command_stop_tts.yaml
+  author: Home Assistant
+  homeassistant:
+    min_version: 2024.10.0 # For input sections and the current automation syntax
+  input:
+    trigger:
+      name: When
+      description: >
+        A trigger is a specific event happening in or around your home, for example: "When the sun sets".
+        Any trigger added here will stop text to speech.
+      selector:
+        trigger:
+    condition:
+      name: And if (optional)
+      description: >
+        All conditions added here need to be satisfied for text to speech to be stopped.
+        A condition can be satisfied or not at any given time, for example: "If [name] is home".
+        You can use building blocks to create more complex conditions.
+      default: []
+      selector:
+        condition:
+    notification_section:
+      name: Then stop text to speech
+      description: >
+        If the trigger occurred, and all conditions have been met (or there are no conditions),
+        stop text to speech on the selected devices.
+      input:
+        notify_devices:
+          name: Devices
+          description: The Android devices to stop text to speech on.
+          selector:
+            device:
+              multiple: true
+              filter:
+                integration: mobile_app
+
+mode: parallel
+
+triggers: !input trigger
+conditions: !input condition
+
+actions:
+  - variables:
+      notify_devices: !input notify_devices
+  - alias: "Send the stop text to speech command to every selected device"
+    repeat:
+      for_each: "{{ notify_devices }}"
+      sequence:
+        - action: "notify.mobile_app_{{ device_attr(repeat.item, 'name') | slugify }}"
+          data:
+            message: command_stop_tts

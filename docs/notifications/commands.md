@@ -5,15 +5,28 @@ id: "notification-commands"
 
 The Companion apps offer a lot of different notification options. In place of posting an actual notification on the device you can instead send a command as the `message` to trigger certain actions on your phone. Read below to find out what commands are supported on each platform.
 
+## Quick start: create an automation {#blueprints-for-commands}
+
+:::tip
+
+To quickly get started using notification commands, each command has a [blueprint](https://www.home-assistant.io/docs/blueprint/) you can use. Import the blueprint to quickly create an automation. No need to manually copy code and review documentation, just choose your options.
+
+ 1. Find the notification command you want to use on this page.
+ 2. Select the **Import blueprint to My Home Assistant** button.
+ 3. Confirm you want to import the blueprint.
+ 4. Create a new automation, and choose the blueprint from the list.
+
+:::
+
 ![iOS](/assets/iOS.svg)
 
 | Command | Description |
 | ------- | ----------- |
 | `request_location_update` | Request a location update from the device, [see below](#request-location-updates) for implications about this command. |
-| `clear_badge` | Silently removes the badge from the App icon without displaying a notification. |
+| `clear_badge` | Silently removes the badge from the App icon without displaying a notification, [more details](basic.md#badge). |
 | `clear_notification` | Removes a notification or a live activity, [more details](basic.md#clearing). |
 | `update_complications` | Updates the complications on a paired Apple Watch. [More details](/apple-watch/complications.md). |
-| `update_widgets`* | Updates 'Gauge' and 'Details' widgets introduced on App v2024.7 (iOS will decide if the update is allowed or not, so don't worry if it doesn't work all the time). |
+| `update_widgets`* | Updates 'Gauge' and 'Details' widgets introduced on App v2024.7 (iOS will decide if the update is allowed or not, so don't worry if it doesn't work all the time), [more details](../integrations/iOS-widgets.md). |
 | `kiosk_show_screensaver` | Shows the kiosk screensaver. Only works while the app is open, [see below](#kiosk-mode-commands). Requires screensaver enabled in kiosk settings. |
 | `kiosk_hide_screensaver` | Hides the kiosk screensaver. Only works while the app is open, [see below](#kiosk-mode-commands). |
 | `kiosk_set_screensaver_mode` | Sets the screensaver mode (requires `mode`). Only works while the app is open, [see below](#kiosk-mode-commands). |
@@ -65,6 +78,14 @@ The Companion apps offer a lot of different notification options. In place of po
 
 On Android you can send `message: command_activity` to launch any activity. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing the user to enable Home Assistant access to the device\'s Display over other apps Policy. This is required in order for the app to gain control of this setting.
 
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_activity.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
+
 The `intent_action` parameter will need to be set to the Intent Action string, or the notification will post as normal. If the activity requires a URI then you will need set that as the `intent_uri`, otherwise the notification will post as normal. `intent_package_name` can be set to the package of where the activity is to be launched, otherwise Android will make a best effort to pick a default. If the package cannot be found then the notification will post as normal. You must know the intending URI (if required), action and package to start the activity. Typically this will be a documented feature if supported by the app.
 
 [Extras](https://developer.android.com/reference/android/content/Intent#putExtra(java.lang.String,%20java.lang.String)) are also supported under the `intent_extras` parameter. As there can be any number of extras added to the intent we will need to split each extra by a comma `,`. Then each extra name and value needs to be separated by a colon `:`. Please refer to the example in [Broadcast Intent](#broadcast-intent) to see the proper format.
@@ -113,11 +134,23 @@ automation:
 In order to use the Intent Action `android.intent.action.CALL` you will also need to grant the app Phone permissions. If not granted the app will direct you to the app info screen to grant the permissions along with a toast message letting you know the missing permissions.
 
 
+</details>
+
 ## App lock
 
-![Android](/assets/android.svg) 
+![Android](/assets/android.svg)
 
-To take control of an Android companion app's security Users can alter the app lock settings using `message: command_app_lock`. All settings related to the app lock can be configured in a single command. The following settings are accessible through the notify command:
+To take control of an Android companion app's security, you can alter the app lock settings using `message: command_app_lock`. All settings related to the app lock can be configured in a single command.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_app_lock.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
+
+The following settings are available through the notify command:
 
 | Parameter | Type | Description |
 |---------|---------|--------|
@@ -142,12 +175,22 @@ automation:
             home_bypass_enabled: false
 ```
 
+</details>
+
 
 ## Auto Screen Brightness
 
 ![Android](/assets/android.svg)
 
 You can control if automatic brightness is enabled or not on the device by using `message: command_auto_screen_brightness` with the `command` being either `turn_off` or `turn_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_auto_screen_brightness.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 Example:
 
@@ -164,11 +207,21 @@ automation:
             command: "turn_off"
 ```
 
+</details>
+
 ## BLE Beacon Transmitter
 
 ![Android](/assets/android.svg)
 
 Users can turn the iBeacon transmitter on or off using `message: command_ble_transmitter` with the `command` being either `turn_off` or `turn_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_ble_transmitter.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 Example:
 
@@ -258,11 +311,21 @@ automation:
             ble_measured_power: "-75"
 ```
 
+</details>
+
 ## Beacon Monitor
 
 ![Android](/assets/android.svg) <br />
 
 You can turn the Beacon Monitor on or off using `message: command_beacon_monitor` with the `command` being either `turn_off` or `turn_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_beacon_monitor.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 Example:
 
@@ -279,11 +342,21 @@ automation:
             command: "turn_off"
 ```
 
+</details>
+
 ## Bluetooth
 
 ![Android](/assets/android.svg) &nbsp;Android 12 or older
 
 Users can turn Bluetooth on or off using `message: command_bluetooth` with the `command` being either `turn_off` or `turn_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_bluetooth.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 Example:
 
@@ -300,11 +373,21 @@ automation:
             command: "turn_off"
 ```
 
+</details>
+
 ## Broadcast Intent
 
 ![Android](/assets/android.svg)
 
 Using notification commands you are now able to send a broadcast intent to another app in order to control that app based on the intent. Not all apps support intents and if they do they may document it for users to control. You must set `message: command_broadcast_intent` and the `intent_action` must contain the intent action while `intent_package_name` must contain the package the intent is for. The package name and action are provided by the app you wish to send the intent to.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_broadcast_intent.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 Some applications also require the class or component to be provided. For these applications you will need to provide the package as the `intent_package_name` and the full and complete class name under the `intent_class_name` parameter. You will need to know what class name to provide as each application is different.
 
@@ -431,11 +514,21 @@ Currently supported types are:
 |[ArrayList\<String\>](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:a;b;c:ArrayList<String>`|
 |[ArrayList\<String\> (urlencoded)](https://developer.android.com/reference/android/content/Intent#putStringArrayListExtra(java.lang.String,%20java.util.ArrayList%3Cjava.lang.String%3E))|`EXTRA:colon%3A;semicolon%3B;comma%2C:ArrayList<String>.urlencoded`|
 
+</details>
+
 ## Do Not Disturb
 
 ![Android](/assets/android.svg)
 
 On Android you can send `message: command_dnd` that you can use to control the state of Do Not Disturb on the device. This command requires a specific permission that the app is unable to prompt or auto-accept. Instead by sending the command for the first time the app will launch an activity allowing you to enable Home Assistant access to the device\'s Notification Policy. This is required in order for the app to gain control of this setting.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_dnd.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 In addition to sending the `message` you must also provide the state of Do Not Disturb that you wish to set as the `command`, see the table below for what is accepted. If the `command` does not match one of the listed commands then the notification will post as normal and the command will not process.
 
@@ -470,11 +563,21 @@ automation:
             command: "priority_only"
 ```
 
+</details>
+
 ## Flashlight
 
 ![Android](/assets/android.svg)
 
 This command allows you to toggle the flashlight on or off directly from a notification, enabling control of the device's flashlight without opening the app. To use it, send `message: command_flashlight` with the `command` parameter set to either `turn_on` or `turn_off` to control the flashlight state.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_flashlight.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 Example:
 
@@ -491,11 +594,21 @@ automation:
             command: "turn_on"
 ```
 
+</details>
+
 ## High accuracy mode
 
 ![Android](/assets/android.svg)
 
 Users can turn the high accuracy mode of the background location sensor on or off using `message: command_high_accuracy_mode` with the `command` being either `turn_off`, `turn_on`, `force_off` or `force_on`. If `command` is blank, not set or not one of the above expected values then the notification will post as normal. The difference between `turn` and `force` is only relevant if you have zone and/or bluetooth constraints set in the high accuracy mode settings. In this case `force_on` will make high accuracy mode active until either `force_off` is sent, or the constraints go from active to inactive.  Similarly, `force_off` will turn off high accuracy mode until either `force_on` is sent, or the constraints go from inactive to active.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_high_accuracy_mode.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 Example:
 
@@ -528,6 +641,8 @@ automation:
             command: "high_accuracy_set_update_interval"
 ```
 
+</details>
+
 ## Kiosk mode commands
 
 ![iOS](/assets/iOS.svg)
@@ -537,6 +652,14 @@ automation:
 :::important
 Kiosk commands are only handled while the Companion app is open and in the foreground — the normal state for a wall-mounted kiosk. They are ignored while the app is in the background or closed, and only acted on when **Accept kiosk remote commands** is enabled in the kiosk settings (on by default).
 :::
+
+Import the following blueprint to [create an automation with these commands](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fkiosk_commands.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 | `message` | Action |
 | --------- | ------ |
@@ -613,11 +736,21 @@ automation:
             level: 20
 ```
 
+</details>
+
 ## Launch App
 
 ![Android](/assets/android.svg)
 
 If you would like to simply just launch an application you can use `message: command_launch_app` to launch any application installed on your device. You must send the package name you wish to open using the `package_name` parameter, if not set then you will see the notification post as normal. If the application is not installed on the device then the user will be directed to the Google Play Store to install the application. This command requires the Draw Over Other Apps permission, the first time you send this command you will be directed to granting this special permission to the Home Assistant application.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_launch_app.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 ```yaml
 automation:
@@ -632,11 +765,21 @@ automation:
             package_name: "com.twitter.android"
 ```
 
+</details>
+
 ## Media
 
 ![Android](/assets/android.svg)
 
 Users are able to control any active media session on their devices. You must set `message: command_media` and the `media_command` must be one from the list below. The `media_package_name` must be set to the package name you wish to control. The notification will post as normal if one of the required fields is left blank, has incorrect data or a media session is not active.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_media.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 List of accepted `media_command` media commands:
 *  `fast_forward`
@@ -664,6 +807,8 @@ automation:
             media_package_name: "com.spotify.music"
 ```
 
+</details>
+
 ## Request Location Updates
 
 ![Android](/assets/android.svg) ![iOS](/assets/iOS.svg)
@@ -672,6 +817,14 @@ Do not rely on this functionality due to the time limitations mentioned below.
 :::
 
 You can force a device to attempt to report its location by sending a special notification. The notification is not visible to the device owner and only works when the app is running or in the background.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Frequest_location_update.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 ![iOS](/assets/iOS.svg)
 On success the sensor.last_update_trigger will change to "Push Notification".
@@ -689,6 +842,8 @@ automation:
 
 Assuming the device receives the notification, it will attempt to get a location update within 5 seconds and report it to Home Assistant. This is a little bit hit or miss since Apple imposes a maximum time allowed for the app to work with the notification and location updates sometimes take longer than usual due to factors such as waiting for GPS acquisition.
 
+</details>
+
 :::danger
 While it is possible to create an automation in Home Assistant to call this action regularly to update sensors, this is not recommended as doing this too frequently may have a negative impact on your device's battery life and health.
 :::
@@ -699,6 +854,14 @@ While it is possible to create an automation in Home Assistant to call this acti
 ![Android](/assets/android.svg)
 
 On Android you can control the device\'s ringer mode by sending `message: command_ringer_mode` with an appropriate `command` as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. If the device has Do Not Disturb enabled then setting to `normal` or `vibrate` will turn it off. If the device does not have Do Not Disturb enabled then `silent` will turn it on.<br />
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_ringer_mode.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 | `command` | Description |
 | ------- | ----------- |
@@ -721,11 +884,21 @@ automation:
             command: "vibrate"
 ```
 
+</details>
+
 ## Screen Brightness Level
 
 ![Android](/assets/android.svg)
 
 You can control the screen brightness level on the device by sending `message: command_screen_brightness_level` with `command` being the level of brightness the screen should be. Valid values are between `0` and `255`. If you do not send a number or send a blank value then the notificaton will post as normal. If you send a value below `0` or above `255` then the app will default to `0` or `255` respectively.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_screen_brightness_level.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 ```yaml
 automation:
@@ -740,11 +913,21 @@ automation:
             command: 50
 ```
 
+</details>
+
 ## Screen Off Timeout
 
 ![Android](/assets/android.svg) 
 
 You can control the screen off timeout on the device by sending `message: command_screen_off_timeout` with `command` being the timeout value in milliseconds. If you do not send a number or send a blank value then the notificaton will post as normal. The values will respect the minimum and maximum defined by the android system, for example on a Pixel device anything below `10000` will be treated as a 10 second timeout.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_screen_off_timeout.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 ```yaml
 automation:
@@ -759,11 +942,21 @@ automation:
             command: 10000
 ```
 
+</details>
+
 ## Screen On
 
 ![Android](/assets/android.svg)
 
 On Android you can turn on the screen using a notification by simply sending `message: command_screen_on`. This will not remove or disable any lock screens you have setup on the device. The reason behind this is the risk associated with the app being unable to set the device policy back (app crash) or if the device requires the policy to be setup again after being removed. All of which is out of the app's control. You may want to adjust the screen timeout setting on your device to control when the screen will turn back off.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_screen_on.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 Also you can optionally add `command: keep_screen_on` to enable [Keep screen On](https://companion.home-assistant.io/docs/integrations/android-webview#keep-screen-on) feature in the Companion App section within [Configuration](https://my.home-assistant.io/redirect/config/). The screen will remain on only if the webview activity is currently active, otherwise it will turn back off. Notification with `command` having another value will reset this setting to default Disabled state.
 
@@ -780,11 +973,21 @@ automation:
             command: "keep_screen_on"
 ```
 
+</details>
+
 ## Stop TTS
 
 ![Android](/assets/android.svg)
 
 If you wish to stop the device from completing its Text to Speech notification you can stop it by sending the command `message: command_stop_tts`.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_stop_tts.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 ```yaml
 automation:
@@ -797,11 +1000,21 @@ automation:
           message: "command_stop_tts"
 ```
 
+</details>
+
 ## Persistent
 
 ![Android](/assets/android.svg)
 
 On Android you can toggle the persistent connection mode using a notification by sending `message: command_persistent_connection` and passing `data -> persistent: (always, home_wifi, screen_on, never)`
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_persistent_connection.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 ```yaml
 automation:
@@ -816,10 +1029,20 @@ automation:
             persistent: always
 ```
 
+</details>
+
 ## Update Sensors
 ![Android](/assets/android.svg)<br />
 
 The app will check all enabled sensors for an update and if the state has changed since the last update it will send over the update. Check [sensor](/docs/core/sensors) documentation for more details on sensors.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_update_sensors.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 ```yaml
 automation:
@@ -832,11 +1055,21 @@ automation:
           message: "command_update_sensors"
 ```
 
+</details>
+
 ## Volume Level
 
 ![Android](/assets/android.svg)
 
 On Android you can control the device\'s volume level by sending `message: command_volume_level` with an appropriate `command` that must be a number. If `command` is larger than the maximum level then the maximum level will be used or if `command` is less than `0` then we will default to `0`, anything else will result in the notification posting to the device. `media_stream` is also required as outlined in the table below. Certain devices will need to grant a special permission that will appear upon the first command received if the permission was not already granted. This is the same permission as [Do Not Disturb](#do-not-disturb) up above. Changing the volume level will have a direct impact on Do Not Disturb and Ringer Modes, behavior will vary from device to device.<br />
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_volume_level.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 | `media_stream` | Description |
 | ------- | ----------- |
@@ -865,15 +1098,25 @@ automation:
             command: 20
 ```
 
+</details>
+
 ## Wake word detection
 
 ![Android](/assets/android.svg)
 
 When Home Assistant is set as the default digital assistant app on your device, you can enable using a wake word to open Assist. This command allows you to enable or disable wake word detection using a notification instead of opening the app. To use it, send `message: command_wake_word_detection` with the `command` parameter set to either `turn_on` or `turn_off` to control the wake word detection state.
 
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_wake_word_detection.yaml)
+
 :::warning
 Wake word detection can be battery-intensive, use this command to enable it only when needed through automation. 
 :::
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 Example:
 
@@ -890,11 +1133,21 @@ automation:
             command: "turn_on"
 ```
 
+</details>
+
 ## Webview
 
 ![Android](/assets/android.svg)
 
 If you want to just open the Companion app to any page or even the homepage you will want to send `message: command_webview`. If you wish to navigate to a specific [view](https://www.home-assistant.io/lovelace/views/) or [dashboard](https://www.home-assistant.io/lovelace/dashboards/) you will want to use `command` to specify the [`path`](https://www.home-assistant.io/lovelace/views/#path) (example: `/lovelace/settings`). You can also open the More Info panel for any entity by using the following format for `command`: `entityId:sun.sun` just replace `sun.sun` with the entity you wish to open. If `command` is not provided the user will be directed to the homepage. The first time you send this command you will be taken to a permission screen to grant the app access to display over other apps policy. This permission is necessary for the feature to work in the background and we cannot prompt the user to grant it.
+
+Import the following blueprint to [create an automation with this command](#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fcommand_webview.yaml)
+
+<details>
+
+<summary>Command syntax and settings</summary>
 
 Example:
 
@@ -910,3 +1163,5 @@ automation:
           data:
             command: "/lovelace/settings"
 ```
+
+</details>

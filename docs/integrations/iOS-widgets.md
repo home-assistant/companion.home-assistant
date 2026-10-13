@@ -185,6 +185,10 @@ The most customizable widget available, this one you can create it's configurati
 In iOS we have a limited budget of how many times a widget can be updated and even when we ask for this update (in background) it's not guaranteed that it will happens, iOS takes into consideration user usage of the App, if the screen is on/off, is the widget is visible and several other factors.
 To increase the amount of times it is refreshed you can [send a silent push notification with "update_widgets" command on it](/docs/notifications/notification-commands), you can even create an automation to send this push everytime a specific entity state changes.
 
+Import the following blueprint to [create an automation with this command](../notifications/commands.md#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fupdate_widgets.yaml)
+
 ***Available in***
 
 <table>

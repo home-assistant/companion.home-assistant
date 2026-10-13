@@ -1,0 +1,86 @@
+blueprint:
+  name: "Companion app: set app lock settings"
+  description: >
+    Set the app lock settings for one or more Android devices running the official Home Assistant
+    companion app, using a notification command.
+
+
+    For more information about the command, or how to add it as a step in your existing automation,
+    [review the documentation](https://companion.home-assistant.io/docs/notifications/notification-commands#app-lock).
+  domain: automation
+  source_url: https://github.com/home-assistant/companion.home-assistant/blob/master/static/assets/blueprints/notification_commands/command_app_lock.yaml
+  author: Home Assistant
+  homeassistant:
+    min_version: 2024.10.0 # For input sections and the current automation syntax
+  input:
+    trigger:
+      name: When
+      description: >
+        A trigger is a specific event happening in or around your home, for example: "When the sun sets".
+        Any trigger added here will set app lock settings.
+      selector:
+        trigger:
+    condition:
+      name: And if (optional)
+      description: >
+        All conditions added here need to be satisfied for the app lock to be set.
+        A condition can be satisfied or not at any given time, for example: "If [name] is home".
+        You can use building blocks to create more complex conditions.
+      default: []
+      selector:
+        condition:
+    notification_section:
+      name: Then set app lock
+      description: >
+        If the trigger occurred, and all conditions have been met (or there are no conditions),
+        set the app lock for the selected devices and the given settings.
+      input:
+        notify_devices:
+          name: Devices to update
+          description: Devices to set the app lock settings on.
+          selector:
+            device:
+              multiple: true
+              filter:
+                integration: mobile_app
+        app_lock_enabled:
+          name: Enabled
+          description: Whether app lock should be enabled at all.
+          default: true
+          selector:
+            boolean:
+        app_lock_timeout:
+          name: Timeout
+          description: The timeout for the app to be locked after leaving the app.
+          default: 0
+          selector:
+            number:
+              min: 0
+              mode: box
+              unit_of_measurement: seconds
+        app_lock_home_bypass:
+          name: Unlock on home network
+          description: Whether the lock is disabled when connected to the home network.
+          default: false
+          selector:
+            boolean:
+
+mode: parallel
+
+triggers: !input trigger
+conditions: !input condition
+
+actions:
+  - variables:
+      notify_devices: !input notify_devices
+  - alias: "Send app lock command to every selected device"
+    repeat:
+      for_each: "{{ notify_devices }}"
+      sequence:
+        - action: "notify.mobile_app_{{ device_attr(repeat.item, 'name') | slugify }}"
+          data:
+            message: command_app_lock
+            data:
+              app_lock_enabled: !input app_lock_enabled
+              app_lock_timeout: !input app_lock_timeout
+              home_bypass_enabled: !input app_lock_home_bypass

@@ -163,6 +163,10 @@ Platform limitations may require the companion app to have been recently used to
 
 ![iOS](/assets/iOS.svg) will only clear the most recent [critical notification](critical.md) from a given tag.
 
+Import the following blueprint to [create an automation with this command](commands.md#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fclear_notification.yaml)
+
 ```yaml
 automation:
   - alias: "Notify of Motion clear notification"
@@ -278,6 +282,10 @@ Default values for a channel if not provided will be as follows:
 
 If you wish to remove a channel you will need to send `message: remove_channel` with the `channel` you wish to remove. 
 Removing a channel doesn't reset the settings to the default values, it just removes it from the notification channels list. If you send a notification to a removed channel, it will restore it. The only way to really remove a channel is by clearing the app data which will remove everything.
+
+Import the following blueprint to [create an automation with this command](commands.md#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fremove_channel.yaml)
 
 Depending on when you installed the app you may want to send `remove_channel` to `channel: default` to clean up the old default channel:
 
@@ -763,6 +771,10 @@ automation:
 ```
 
 By setting the message to `delete_alert` you can silently update the app badge icon in the background without sending a notification to your phone.
+
+![iOS](/assets/iOS.svg)By setting the message to `clear_badge` you can silently remove the badge from the app icon without sending a notification to your phone. Import the following blueprint to [create an automation with this command](commands.md#blueprints-for-commands):
+
+[![Open your Home Assistant instance and show the blueprint import dialog with a specific blueprint pre-filled.](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https%3A%2F%2Fgithub.com%2Fhome-assistant%2Fcompanion.home-assistant%2Fblob%2Fmaster%2Fstatic%2Fassets%2Fblueprints%2Fnotification_commands%2Fclear_badge.yaml)
 
 ![iOS](/assets/iOS.svg) 2021.7 will automatically reset the badge to 0 when launching the app. You can control this behavior in [Configuration](https://my.home-assistant.io/redirect/config/) > Companion App > Notifications.
 

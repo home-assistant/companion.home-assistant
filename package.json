@@ -9,13 +9,14 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "serve": "docusaurus serve",
-    "deploy": "docusaurus deploy"
+    "deploy": "docusaurus deploy",
+    "validate-blueprints": "node scripts/validate-blueprints.js"
   },
   "dependencies": {
     "@docusaurus/core": "^3.10.2",
     "@docusaurus/preset-classic": "^3.10.2",
-    "@mdx-js/react": "^3.1.1",
     "@easyops-cn/docusaurus-search-local": "^0.55.3",
+    "@mdx-js/react": "^3.1.1",
     "by-node-env": "^2.0.1",
     "clsx": "^2.1.1",
     "react": "^19.3.0",
@@ -37,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "js-yaml": "^5.4.3"
   }
 }
