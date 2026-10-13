@@ -49,7 +49,7 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | --------- | --------- | ----------- |
 | `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
 | `sensor.app_version` | None | The current **Home Assistant companion App for iOS** app version. |
-| [Apple Health Sensors](#apple-health-sensors) | None | Health and fitness data stored in Apple Health, such as steps, heart rate, and weight. |
+| [Apple Health sensors](#apple-health-sensors) | None | Health and fitness data stored in Apple Health, such as steps, heart rate, and weight. |
 | `sensor.average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
 | `binary_sensor.camera_motion` | [See Below](#camera-motion-sensor) | Motion detected by the device's front camera.  |
 | `sensor.camera_stream` | [See Below](#camera-stream-sensor) | Status of the camera stream, which serves the front camera as an MJPEG camera on your local network.  |
@@ -358,7 +358,7 @@ Apple Watch records sleep stages but not time in bed, so `health_sleep_in_bed` r
 
 If a sensor is `unavailable` or missing in Home Assistant:
 
-- Make sure the sensor is turned on in **Settings** > **Sensors** > **Apple Health Sensors**. If you use more than one server, check the sensor list of the server that is missing the sensor.
+- Make sure the sensor is turned on. In the companion app, go to **Settings** > **Companion app** > **Sensors** > **Apple Health Sensors**. If you use more than one server, check the sensor list of the server that is missing the sensor.
 - Check that access is allowed for that data type in the iOS **Settings** app under **Privacy & Security** > **Health** > **Home Assistant**.
 - Check that Apple Health has recent data for the sensor. Open the **Health** app and look for the data type. Sensors that use a lookback window report `unavailable` when there is no reading in that window.
 - For sleep sensors, check that a source records the data the sensor needs. Refer to the [sleep sensor list](#sleep-sensor-list).
