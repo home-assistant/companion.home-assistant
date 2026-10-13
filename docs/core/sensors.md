@@ -9,14 +9,19 @@ The sensors provided by the companion app depend on which app you're using, see 
 
 ## Multi-server support
 
-If multiple servers are connected to the companion app, you can configure whether sensors are sent on a per-server basis. Currently the sensor settings will be common for all connected servers.
+If multiple servers are connected to the companion app, you choose which sensors each server receives. A sensor can report to one server and not to another.
 
-![iOS](/assets/iOS.svg) In [Settings](https://my.home-assistant.io/redirect/config/) > Companion App, open the server's settings and change Sensors Sent setting under Privacy. Options available:
+![iOS](/assets/iOS.svg)Each server has its own list of sensors:
 
-- **All** sends all enabled sensors.
-- **None** does not send any sensors.
+1. In the companion app, go to **Settings** > **Companion app** > **Sensors**.
+2. If you use more than one server, select a server under **Servers**.
+3. Turn on the sensors that server should receive, including any [Apple Health sensors](#apple-health-sensors).
 
-![Android](/assets/android.svg) In [Settings](https://my.home-assistant.io/redirect/config/) > Companion App, go to Manage Sensors and select the sensor you'd like to manage. Tap on the expand/collapse icon at the top of the screen to change settings for a specific server.
+The update interval and the **Permissions** screen stay on the main **Sensors** screen and apply to all servers.
+
+To stop sending all sensors to a server, go to **Settings** > **Companion app** > **Servers** and select the server. Under **Privacy**, set **Sensors Sent** to **None**. With **All**, the server receives every sensor you turned on for it.
+
+![Android](/assets/android.svg) On Android, you choose servers from each sensor's settings instead of from a list per server. In the companion app, go to **Settings** > **Companion app** > **Manage sensors** and select a sensor. If you use more than one server, select the expand icon at the top of the screen to show a switch for each server.
 
 ## iOS & macOS sensors
 
