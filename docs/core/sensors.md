@@ -251,7 +251,7 @@ Apple Health is the app on your iPhone or iPad that stores health and fitness da
 
 ### Turning on Apple Health sensors
 
-Every Apple Health sensor is turned off until you turn it on, including after an app update. The Apple Health permission screen only asks about the sensors you turned on.
+Every Apple Health sensor is turned off until you turn it on. The Apple Health permission screen only asks about the sensors you turned on.
 
 1. In the companion app, go to **Settings** > **Companion app** > **Sensors**.
 2. If you use more than one server, select the server that should receive the sensors. Each server has its own selection of sensors.
