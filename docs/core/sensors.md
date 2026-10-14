@@ -548,7 +548,7 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_sleep_end` | timestamp | The end time of the last recorded sleep session. |
 | `health_connect_sleep_light_duration` | minutes | The amount of light sleep in the last recorded sleep session. |
 | `health_connect_sleep_deep_duration` | minutes | The amount of deep sleep in the last recorded sleep session. |
-| `health_connect_sleep_rem_duration` | minutes | The amount of REM sleep in the last recorded sleep session. |
+| `health_connect_sleep_rem_duration` | minutes | The amount of rapid eye movement (REM) sleep in the last recorded sleep session. |
 | `health_connect_sleep_awake_duration` | minutes | The amount of awake time in the last recorded sleep session. |
 | `health_connect_sleep_awake_in_bed_duration` | minutes | The amount of awake-in-bed time in the last recorded sleep session. |
 | `health_connect_sleep_out_of_bed_duration` | minutes | The amount of out-of-bed time in the last recorded sleep session. |
@@ -560,7 +560,7 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_weight` | grams | The last recorded weight. |
 
 
-The `health_connect_sleep_duration` sensor also provides a sleep-stage timeline through the `stageTypes`, `stageStartTimes`, and `stageEndTimes` attributes. These are parallel lists: entries at the same index identify a sleep stage and its corresponding start and end timestamps in ISO 8601 format. The timeline can be used to visualize sleep stages or analyze transitions between stages in Home Assistant.
+The `health_connect_sleep_duration` sensor also provides a sleep stage timeline through the `stageTypes`, `stageStartTimes`, and `stageEndTimes` attributes. These are parallel lists: entries at the same index identify a sleep stage and its corresponding start and end timestamps in ISO 8601 format. The timeline can be used to visualize sleep stages or analyze transitions between stages.
 
 ## High accuracy mode
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
