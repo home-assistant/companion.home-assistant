@@ -96,7 +96,7 @@ If the template in the widget isn't updating instantly, you're most likely hitti
 
 <span class="beta">BETA</span>
 
-You can also enter a **Link to open on tap**. When you tap the widget, the app opens that link, for example a dashboard view or an entity's more-info dialog. The link accepts the same values as the [`uri` of an actionable notification](/docs/notifications/actionable-notifications#uri-values). If you leave it empty, tapping the widget refreshes it.
+You can also choose a **Tao action** of either Refresh (default) or Open a dashboard. If you choose Refresh, tapping the widget refreshes it. If you choose Open a dashboard, you will see a list of known dashboards on your system. Choose one to navigate to when you tap the widget.
 
 ### To-do list
 
