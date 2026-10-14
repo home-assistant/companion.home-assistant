@@ -44,6 +44,6 @@ You can view the status of Local Push in the Server section Companion App in [Se
 
 * Disabled, when toggled off by the connection setting or not currently on the internal network.
 * Unsupported, when the iOS version does not support Local Push.
-* Unavailable, when the core version does not support Local Push.
+* Unavailable, when the core version does not support Local Push, or when the connection to the server dropped and the app is reconnecting.
 * Establishing, when it is initially connecting to the server.
-* Available, when it is connected and ready for pushes. The number after indicates the number of messages received since the connection began, which can be useful for debugging.
+* Available, when it is connected and ready for pushes. The number after indicates the number of messages received since Local Push started, and keeps counting across reconnects, which can be useful for debugging.
