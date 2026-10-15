@@ -9,22 +9,22 @@ id: 'ios-reminders-sync'
 Reminders Sync is a <span class="beta">LABS</span> feature in the iOS Companion app, available starting with version 2026.8.0. Behavior and settings may change as the feature evolves.
 :::
 
-Reminders Sync keeps a list in Apple's Reminders app and a to-do list in Home Assistant in agreement with each other. Add "Buy milk" to your shopping list in Reminders, and it appears in Home Assistant. Check it off in Home Assistant, and it is checked off in Reminders too.
+Reminders Sync keeps a list in Apple's Reminders app and a to-do list in Home Assistant in agreement with each other. Add `Buy milk` to your shopping list in **Reminders**, and it appears in Home Assistant. Check it off in Home Assistant, and it is checked off in **Reminders** too.
 
 This is useful when you want to use Siri and the Reminders app you already have on your iPhone, while Home Assistant automations can still read and change the same list.
 
 :::info
-Reminders Sync is iOS-only. It is not available in the Mac version of the Companion app, because the Mac app cannot access Reminders.
+Reminders Sync is iOS-only. It is not available in the Mac version of the Companion app, because the Mac app can't access Reminders.
 :::
 
-## Concepts
+## Terminology
 
 If you are new to Home Assistant, two terms are useful before you start:
 
 - A **to-do list** in Home Assistant is a list of tasks, such as a shopping list. Each list is an entity whose name starts with `todo.`, for example `todo.shopping_list`. See [To-do list](https://www.home-assistant.io/integrations/todo/) in the Home Assistant documentation.
-- A **pairing** is one Apple Reminders list connected to one Home Assistant to-do list. You choose which lists to pair, and you can create several pairings.
+- A **pairing** links one list in Apple Reminders with one to-do list in Home Assistant. You choose which lists to pair, and you can create several pairings.
 
-## Requirements
+## Prerequisites
 
 - An iPhone or iPad with the Home Assistant Companion app, version 2026.8.0 or later, from the [App Store](https://apps.apple.com/app/home-assistant/id1099568401).
 - At least one to-do list in Home Assistant. If you do not have one, add the [Local to-do](https://www.home-assistant.io/integrations/local_todo/) integration, or use the [Shopping list](https://www.home-assistant.io/integrations/shopping_list/) integration.
@@ -37,9 +37,9 @@ The app needs *full* access to Reminders. Reading your reminders is what lets th
 ## Setting up a pairing
 
 1. Open the Home Assistant app.
-2. Go to **Companion app settings** > **Reminders Sync**.
+2. Go to **Settings** > **Companion app** > **Reminders Sync**.
 
-   You find it under the **Share from this device** section.
+   In the **Share from this device** section, go to *Settings** > **Companion app** > **Reminders Sync**.
 
 3. If the app asks for access to your reminders, allow it:
 
@@ -64,7 +64,7 @@ The app needs *full* access to Reminders. Reading your reminders is what lets th
 The pairing appears under **Synced lists**, and the first sync starts shortly after.
 
 :::note
-Each pairing connects exactly one Reminders list to one Home Assistant to-do list. To sync several lists, add a pairing for each one. If you pick a combination that already exists, the app shows "These lists are already being synced" and **Save** stays disabled.
+Each pairing connects exactly one Reminders list to one Home Assistant to-do list. To sync several lists, add a pairing for each one. If you pick a combination that already exists, the app shows **These lists are already being synced**, and **Save** stays disabled.
 :::
 
 ### The first sync
@@ -88,7 +88,7 @@ For every linked item, the app keeps these four things in agreement:
 
 Anything else is not synced. Reminders features such as priority, tags, subtasks, URLs, images, and repeating reminders have no equivalent in a Home Assistant to-do list, so the app leaves them untouched on the Reminders side.
 
-Alerts and start dates are not synced either, but starting with version 2026.9.3 they follow the due date. When the app changes a reminder's due date, it moves the reminder's alerts and start date by the same amount. If the due date is removed in Home Assistant, the app also removes the reminder's start date and all of its alerts, including location-based alerts.
+Alerts and start dates are not synced either, but starting with version 2026.9.3, they follow the due date. When the app changes a reminder's due date, it moves the reminder's alerts and start date by the same amount. If you remove the due date in Home Assistant, the app also removes the reminder's start date and all alerts, including location-based alerts.
 
 :::info
 Not every Home Assistant to-do list supports every field. For example, some integrations cannot store a description or a due time. When the paired to-do list does not support a field, that field stops syncing and keeps whatever value it has in Reminders, instead of being erased. If a list supports dates but not times, a reminder due at `18:00` syncs as due that day, with no time. If you then change the date in Home Assistant, the reminder moves to the new date and keeps its `18:00` time.
