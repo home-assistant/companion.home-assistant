@@ -99,6 +99,17 @@ action:
             icon: "sfsymbols:bell.slash"
 ```
 
+### Snooze actions
+
+On iOS and macOS the app adds snooze actions to notifications automatically, so you do not need to configure them. Snoozing hides the notification and shows it again after the amount of time you pick.
+
+You can manage these under **Settings** > **Companion app** > **Notifications** >  **Snooze Actions**. Some durations are enabled by default, and you can add your own durations or turn off the ones you do not want.
+
+When a snoozed notification comes back, its title is prefixed with "↺" so you can tell it was snoozed.
+
+:::tip
+Android 8.0+ natively supports snoozing notifications from any app, including Home Assistant. You may need to enable notification snoozing in the system settings for notifications.
+:::
 ### `uri` values
 
 To navigate to a frontend page, use the format `/lovelace/test` where `test` is replaced by your defined [`path`](https://www.home-assistant.io/dashboards/views/#path) in the defined view. If you plan to use a dashboard the format would be `/lovelace-dashboard/view` where `/lovelace-dashboard/` is replaced by your defined [`dashboard`](https://www.home-assistant.io/dashboards/dashboards) URL and `view` is replaced by the defined [`path`](https://www.home-assistant.io/dashboards/views/#path) within that dashboard. For example:
@@ -368,12 +379,4 @@ The above is the minimum necessary to migrate. You can also rewrite your automat
 
 ![iOS](/assets/iOS.svg)Specific
 
-### iOS 13 and later
-
-* All devices support notification expanding by performing a right to left swipe and pressing 'View' in the lock screen or pressing and holding, but on 3D Touch-enabled devices you may still need to apply some force to do it. If you're not in the lock screen, you can also pull the notification down to expand it.
-
-### Prior to iOS 13
-
-*   For devices that support 3D Touch - a firm press on the notification will expand it, showing the action buttons underneath. Supported devices include the iPhone 6S, iPhone 6S Plus, iPhone 7, iPhone 7 Plus, iPhone 8, iPhone 8 Plus, iPhone X, iPhone XS and iPhone XS Max. If not in lock screen, you can also pull the notification down to expand it.
-
-*   For devices that do not support "3D Touch" (such as the iPhone 6 and below, iPhone SE, iPhone XR and iPads), you perform a left to right swipe on the notification, then tap on the 'View' button. This will expand the notification and show the relevant action buttons underneath. If not in lock screen, you need to pull the notification down to expand it.
+All devices support notification expanding by performing a right to left swipe and pressing 'View' in the lock screen or pressing and holding. If you're not in the lock screen, you can also pull the notification down to expand it.
