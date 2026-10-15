@@ -62,6 +62,6 @@ Assist prompts are predefined Assist requests that you can add as buttons in the
 Some vehicles may not play spoken Assist responses when CarPlay is using the default streaming playback mode. If Assist works but you do not hear the response in your vehicle, change the TTS playback mode:
 
 1. On your iPhone, open **Companion App Settings** > **CarPlay**.
-2. Open **Advanced** > **Assist**.
+2. Open **Troubleshooting** > **Assist**.
 3. Change **TTS Playback** from **Stream** to **Download and play**.
     - Use **Download and play** only if **Stream** does not play audio reliably in your vehicle.
