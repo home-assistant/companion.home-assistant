@@ -626,7 +626,7 @@ These sensors will reflect various states from the [Keyguard Manager](https://de
 
 ## Kiosk sensors
 ![iOS](/assets/iOS.svg)<br />
-[Kiosk mode](../integrations/ios-kiosk-mode.md) adds sensors so automations can react to the state of the kiosk device. Kiosk mode is iOS-only, so these sensors are not available on Android.
+[Kiosk mode](../integrations/ios-kiosk-mode.md) adds sensors so automations can react to the state of the kiosk device.
 
 The `binary_sensor.kiosk_mode` sensor reports whether the device is currently acting as a kiosk (`on`) or running the app normally (`off`). Turning kiosk mode on or off doesn't enable or disable this sensor.
 
