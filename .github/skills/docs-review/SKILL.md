@@ -22,7 +22,7 @@ These rules come from feedback that reviewers repeatedly give on pull requests i
 
 ## Headings and anchors
 
-- Don't use `#` headings in the page body. Docusaurus renders them like `##` and the page title is already the top-level heading. Use `##` and `###`.
+- Don't use `#` headings in the page body. Docusaurus renders them like `##` and the page title is already the top-level heading. Start headings at `##`, for top-level headings in the page body.
 - Don't add custom heading IDs, such as `{#apple-health-sensors}`, when they match the ID Docusaurus generates.
 - Don't put a platform icon in a heading if the topic could apply to the other platform later. Label the paragraph instead, so the other platform can be added under the same heading.
 
