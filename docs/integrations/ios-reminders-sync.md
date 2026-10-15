@@ -1,5 +1,5 @@
 ---
-title: "Apple Reminders Sync"
+title: "iOS Reminders Sync"
 id: 'ios-reminders-sync'
 ---
 
