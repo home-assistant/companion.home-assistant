@@ -15,7 +15,7 @@ These rules come from feedback that reviewers repeatedly give on pull requests i
 
 ## Settings paths and app terms
 
-- Write companion app settings paths as **Settings** > **Companion app** > …, for example **Settings** > **Companion app** > **Notifications**. Don't write "Companion app settings", leave out **Companion app**, or use arrows (`→`) or commas as separators.
+- Write companion app settings paths as [**Settings** > **Companion app**](https://my.home-assistant.io/redirect/companion_app/) > …, for example **Settings** > **Companion app** > **Notifications**. Don't write "Companion app settings", leave out **Companion app**, or use arrows (`→`) or commas as separators.
 - Use the term the app uses for a concept, and use it everywhere on the page. Don't introduce a second name, such as "pairing" when the app says "list sync".
 - When referring to a feature's UI label in body text, preserve the capitalization shown in the app, such as **Reminders Sync**. Keep page titles and headings in sentence case, preserving proper nouns, as required by `.github/copilot-instructions.md`.
 - The apps don't always use the same labels. For example, Android calls the external URL **Home Assistant URL**. Mention both labels when it could cause confusion.
