@@ -628,7 +628,7 @@ These sensors will reflect various states from the [Keyguard Manager](https://de
 ![iOS](/assets/iOS.svg)<br />
 [Kiosk mode](../integrations/ios-kiosk-mode.md) adds sensors so automations can react to the state of the kiosk device.
 
-The `binary_sensor.kiosk_mode` sensor reports whether the device is currently acting as a kiosk (`on`) or running the app normally (`off`). Turning kiosk mode on or off doesn't enable or disable this sensor.
+The `binary_sensor.kiosk_mode` sensor reports whether the device is currently acting as a kiosk (`on`) or running the app normally (`off`).
 
 The other kiosk sensors provide details about the device while it is in kiosk mode. When you turn on kiosk mode, the app enables them. When you turn off kiosk mode, the app disables them, because they don't provide reliable data outside kiosk mode. Their entities are then disabled in Home Assistant, instead of showing `unavailable`.
 
