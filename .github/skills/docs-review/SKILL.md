@@ -17,7 +17,7 @@ These rules come from feedback that reviewers repeatedly give on pull requests i
 
 - Write companion app settings paths as **Settings** > **Companion app** > …, for example **Settings** > **Companion app** > **Notifications**. Don't write "Companion app settings", leave out **Companion app**, or use arrows (`→`) or commas as separators.
 - Use the term the app uses for a concept, and use it everywhere on the page. Don't introduce a second name, such as "pairing" when the app says "list sync".
-- When a feature name is shown in the app in title case, such as **Reminders Sync**, use that exact name consistently, including in the page title.
+- When referring to a feature's UI label in body text, preserve the capitalization shown in the app, such as **Reminders Sync**. Keep page titles and headings in sentence case, preserving proper nouns, as required by `.github/copilot-instructions.md`.
 - The apps don't always use the same labels. For example, Android calls the external URL **Home Assistant URL**. Mention both labels when it could cause confusion.
 
 ## Headings and anchors
@@ -55,7 +55,7 @@ These rules come from feedback that reviewers repeatedly give on pull requests i
 
 ## Markdown and admonitions
 
-- Start list items at the beginning of the line, without a space before the `-`.
+- Start top-level list items at the beginning of the line, without a space before the `-`. Preserve the indentation required for nested lists and lists inside other blocks.
 - Use a `:::note` admonition instead of starting a paragraph with "Note that". Use `:::warning` for security risks, and use the same wording in warnings that describe the same risk.
 
 ## Screenshots
