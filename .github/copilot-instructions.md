@@ -16,12 +16,12 @@ You should follow the general guidelines about writing a documentation from Micr
    - Write in the active voice whenever possible.
 
 3. **Follow the Home Assistant documentation style guide**:
-   - Follow the [Home Assistant documentation style guide](https://developers.home-assistant.io/docs/documenting/general-style-guide) for language, tone, and general formatting. This file does not repeat those rules.
+   - Follow the [Home Assistant documentation style guide](https://contributors.home-assistant.io/writing/reference/style/) for language, tone, and general formatting. This file does not repeat those rules.
    - Where this file gives rules specific to this Docusaurus site, such as for links, images, and admonitions, follow this file instead.
 
 4. **Adopt inclusive language**:
    - Avoid terms that may exclude or offend. For example, use "allowlist" instead of "whitelist."
-   - Follow the inclusive language rules in the [language and tone](https://developers.home-assistant.io/docs/documenting/general-style-guide#language-and-tone) section of the style guide.
+   - Follow the inclusive language rules in the [language and tone](https://contributors.home-assistant.io/writing/reference/style/#language-and-tone) section of the style guide.
 
 5. **Be consistent**:
    - Use consistent terminology, formatting, and structure throughout the documentation.
@@ -46,7 +46,7 @@ You should follow the general guidelines about writing a documentation from Micr
    - Provide context or explanations for code snippets.
 
 4. **UI strings**:
-   - Use **bold** for UI strings, as described in the [UI elements and steps](https://developers.home-assistant.io/docs/documenting/general-style-guide#ui-elements-and-steps) section of the style guide.
+   - Use **bold** for UI strings, as described in the [UI elements and steps](https://contributors.home-assistant.io/writing/reference/style/#ui-elements-and-steps) section of the style guide.
    - Match the capitalization used in the app or in Home Assistant. For example, "Under **Settings** > **Companion app**, select **Server & devices**."
 
 ## Writing style
@@ -273,7 +273,7 @@ https://www.home-assistant.io/installation/
 
 ## Code review
 
-When reviewing pull requests, check every changed line against the guidelines in this file and the [Home Assistant documentation style guide](https://developers.home-assistant.io/docs/documenting/general-style-guide), and request changes when they are not followed. Pay special attention to the following, because they are frequently missed in this repository:
+When reviewing pull requests, check every changed line against the guidelines in this file and the [Home Assistant documentation style guide](https://contributors.home-assistant.io/writing/reference/style/), and request changes when they are not followed. Pay special attention to the following, because they are frequently missed in this repository:
 
 - **Heading capitalization**: Flag any added or modified heading in title case, such as `### Notification Icon and Color`, and suggest the sentence-case version, such as `### Notification icon and color`. Apply this even if other headings in the same file use title case, and check that link text referring to the heading matches. For details, see [Formatting guidelines](#formatting-guidelines).
 - **Both platforms**: Every feature must cover both iOS and Android, or state which platform it applies to with the [platform indicators](#platform-indicators). For details, see [Core principles](#core-principles).
