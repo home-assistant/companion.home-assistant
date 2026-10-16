@@ -55,6 +55,7 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
 | `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
+| [Kiosk sensors](#kiosk-sensors) | None | Sensors added by [Kiosk mode](../integrations/ios-kiosk-mode.md) that report the state of the kiosk device. |
 | `sensor.location_permission` | None | The current location permission that was selected by the user. The permission can be set via the location permission popup or modified in the iOS settings. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
@@ -635,6 +636,20 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 ![Android](/assets/android.svg)
 
 These sensors will reflect various states from the [Keyguard Manager](https://developer.android.com/reference/android/app/KeyguardManager). You will be able to determine if the device is actively locked, has a password setup or even if the device requires a password to unlock. These sensors will update with the periodic sensor interval.
+
+## Kiosk sensors
+![iOS](/assets/iOS.svg)<br />
+[Kiosk mode](../integrations/ios-kiosk-mode.md) adds sensors so automations can react to the state of the kiosk device.
+
+The `binary_sensor.kiosk_mode` sensor reports whether the device is currently acting as a kiosk (`on`) or running the app normally (`off`).
+
+The other kiosk sensors provide details about the device while it is in kiosk mode. When you turn on kiosk mode, the app enables them. When you turn off kiosk mode, the app disables them, because they don't provide reliable data outside kiosk mode. Their entities are then disabled in Home Assistant, instead of showing `unavailable`.
+
+| Sensor | Description |
+| ------ | ----------- |
+| `sensor.kiosk_brightness` | The current screen brightness, as a percentage. |
+| `binary_sensor.kiosk_screensaver` | `on` while the screensaver is visible on screen, `off` when it is not. |
+| `sensor.kiosk_volume` | The current device output volume, as a percentage. |
 
 ## Last reboot sensor
 ![Android](/assets/android.svg)<br />
