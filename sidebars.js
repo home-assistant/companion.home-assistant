@@ -51,6 +51,7 @@ module.exports = {
       'integrations/haptics',
       'integrations/sharing',
       'integrations/ios-kiosk-mode',
+      'integrations/ios-remote-now-playing',
       'integrations/ios-widgets',
       'integrations/siri-shortcuts',
       'integrations/theming',
