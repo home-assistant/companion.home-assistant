@@ -70,7 +70,10 @@ module.exports = {
     ],
     'CarPlay': [
       'carplay/carplay',
-      'carplay/assist'
+      'carplay/configuration',
+      'carplay/controls',
+      'carplay/assist',
+      'carplay/troubleshooting'
     ],
     'macOS': [
       'macos/toolbar'
