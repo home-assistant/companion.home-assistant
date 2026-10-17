@@ -58,6 +58,17 @@ You can also make the minimum and maximum dynamic. For example, basing it on the
 
 These examples both take care to avoid returning values \<0 or >1.0, which is what the 'adjusted' variable is doing.
 
+## Hiding a complication while the display is dimmed
+
+<span class='beta'>BETA</span>
+
+A complication shows its value on the watch face even while the display is dimmed, such as when your wrist is down on an Always On watch. To keep a value private, hide it while the display is dimmed:
+
+1. On your iPhone, go to **Settings** > **Companion app** > **Complications**, open the complication, and select **Customize**.
+2. Turn off **Show when inactive**.
+
+While the display is dimmed, the complication shows the Home Assistant logo instead of its value. Raise your wrist and the value comes back. The setting applies to every size of the complication.
+
 ## Automatic updates
 
 Complications will update roughly at :00, :15, :30, and :45 on the hour; the exact timing is determined by the system. Editing a Complication will immediately sync it to the Watch, but you may need to launch the Watch app for the Complications to update.
