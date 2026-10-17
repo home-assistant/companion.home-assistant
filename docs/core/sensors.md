@@ -60,8 +60,6 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.steps` | None | The number of steps taken by the user. |
-| `sensor.watch_battery_level` | None | The battery level of 1 paired Apple Watch. Requires any Home Assistant complication installed on your watch face. |
-| `sensor.watch_battery_state` | None | The current charging state (either Charging, Not Charging, or Full) of 1 paired Apple Watch. Requires any Home Assistant complication installed on your watch face. |
 
 ![macOS](/assets/macOS.svg)specific sensors
 
@@ -284,6 +282,11 @@ Attributes indicate the minimum and maximum value.
 ## Battery sensors
 ![iOS](/assets/iOS.svg) <br />
 The Battery State sensor (`sensor.battery_state`) provides information on the current status of the device\'s battery. The three possible values are `Charging`, `Not Charging`, or `Full` when the device is 100 % charged. The Battery Level sensor (`sensor.battery_level`) reports the current battery level of the device from 0–100 %. The charge level is reflected in the sensor icon. Additionally there is a "Low Power Mode" attribute that reports `true` or `false` depending on whether your iOS device is in [Low Power Mode](https://support.apple.com/en-us/HT205234) or not.
+
+![iOS](/assets/iOS.svg)Apple Watch <br />
+Your Apple Watch reports its own Battery Level and Battery State sensors, with the same values as the iPhone sensors above. They belong to a separate Apple Watch device in Home Assistant, so their entity IDs start with the watch's device name, for example `sensor.my_iphone_apple_watch_battery_level`. Both sensors are off until you turn them on from the watch. See [Apple Watch sensors](../apple-watch/settings.md#sensors).
+
+The watch battery used to be reported as `sensor.watch_battery_level` and `sensor.watch_battery_state` on your iPhone's device. The app now disables those two entities in Home Assistant, so they no longer update. Use the sensors on the Apple Watch device instead, and update any automations or dashboards that used the old ones.
 
 ![Android](/assets/android.svg)<br />
 The battery sensors listed below describe the state of the battery for a few different data points. The sensor's icon reflects the charging status, and type of charging being used. The `battery_state`, `charger_type` and `is_charging` sensor will be updated when the device has a charger connected or disconnected. The `battery_health`, `battery_level`, `battery_power` and `battery_temperature` sensors will be updated any time any of the other sensors get an update as well as when the device reports low battery or when it has recovered from the low battery alert. All of these sensors make use of [BatteryManager](https://developer.android.com/reference/android/os/BatteryManager).
