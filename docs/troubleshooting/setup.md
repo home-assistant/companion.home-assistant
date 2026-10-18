@@ -93,7 +93,7 @@ The registration this device used until now stays in Home Assistant for any othe
 If another device on the server already uses this device's name, the app adds a number to the new registration's name, such as `iPhone 2`, so notifications for each device stay separate. To use a different name, select the server in **Settings** > **Companion app** > **Servers**, then change **Device Name**.
 
 :::warning
-Do not log out of the server on one device and log back in to fix this. Logging back in replaces the registration both devices share, so the other device loses it.
+Do not log out of the server on either device to fix this. Logging out removes the registration both devices share, so the other device loses it too.
 :::
 
 ## Starting fresh with the Android app
