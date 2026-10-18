@@ -70,6 +70,30 @@ If you are using the `person` entity as opposed to the provided `device_tracker`
 4.  Remove any device that sits at home or is no longer used. Only keep devices that travel with you in this list.
 5.  Save the changes
 
+## My new iPhone shows up in Home Assistant as my old one <span class='beta'>BETA</span>
+
+![iOS](/assets/iOS.svg)These options are only available in the iOS app.
+
+When you set up a new iPhone or iPad from a backup of another device, the backup includes the Home Assistant app's servers and the registration it made with each of them. Home Assistant then sees the new device as the old one. If you keep using both devices, their location, battery level and other sensors overwrite each other, and notifications reach only one of them.
+
+When the app finds registrations from another device, it asks what to do the next time you open it:
+
+- **Register as new device**: Select this if you still use the other device. This device gets its own device in Home Assistant on each of those servers, and the other device keeps the one it had.
+- **This replaces the other device**: Select this if you no longer use the other device. This device keeps its registrations, so your automations, scripts and dashboards keep working with it.
+
+If you close the question without answering, the app asks again the next time you open it.
+
+To give this device its own registration with a server later on:
+
+1. In the app, go to [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion app** > **Servers** and select the server.
+2. Select **Register as new device**, then confirm.
+
+The registration this device used until now stays in Home Assistant for any other device that still uses it. If no device uses it anymore, remove that device from the [**Mobile App** integration](https://my.home-assistant.io/redirect/integration/?domain=mobile_app).
+
+:::warning
+Do not log out of the server on one device and log back in to fix this. Logging back in replaces the registration both devices share, so the other device loses it.
+:::
+
 ## Starting fresh with the Android app
 ![Android](/assets/android.svg) At times you may need to start fresh with the Android app as a new feature may not be working properly or something odd happens. Make sure to follow each step precisely without skipping anything.
 
