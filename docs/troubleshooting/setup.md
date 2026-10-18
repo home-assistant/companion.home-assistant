@@ -90,6 +90,8 @@ To give this device its own registration with a server later on:
 
 The registration this device used until now stays in Home Assistant for any other device that still uses it. If no device uses it anymore, remove that device from the [**Mobile App** integration](https://my.home-assistant.io/redirect/integration/?domain=mobile_app).
 
+If another device on the server already uses this device's name, the app adds a number to the new registration's name, such as `iPhone 2`, so notifications for each device stay separate. To use a different name, select the server in **Settings** > **Companion app** > **Servers**, then change **Device Name**.
+
 :::warning
 Do not log out of the server on one device and log back in to fix this. Logging back in replaces the registration both devices share, so the other device loses it.
 :::
