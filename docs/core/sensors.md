@@ -55,6 +55,7 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
 | `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
+| [Kiosk sensors](#kiosk-sensors) | None | Sensors added by [Kiosk mode](../integrations/ios-kiosk-mode.md) that report the state of the kiosk device. |
 | `sensor.location_permission` | None | The current location permission that was selected by the user. The permission can be set via the location permission popup or modified in the iOS settings. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
@@ -602,10 +603,23 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_respiratory_rate` | breaths per minute | The last recorded respiratory rate. |
 | `health_connect_resting_heart_rate` | beats per minute | The last recorded resting heart rate. |
 | `health_connect_sleep_duration` | minutes | The last recorded sleep duration. |
+| `health_connect_sleep_start` | timestamp | <span class='beta'>BETA</span> The start time of the last recorded sleep session. |
+| `health_connect_sleep_end` | timestamp | <span class='beta'>BETA</span> The end time of the last recorded sleep session. |
+| `health_connect_sleep_light_duration` | minutes | <span class='beta'>BETA</span> The amount of light sleep in the last recorded sleep session. |
+| `health_connect_sleep_deep_duration` | minutes | <span class='beta'>BETA</span> The amount of deep sleep in the last recorded sleep session. |
+| `health_connect_sleep_rem_duration` | minutes | <span class='beta'>BETA</span> The amount of rapid eye movement (REM) sleep in the last recorded sleep session. |
+| `health_connect_sleep_awake_duration` | minutes | <span class='beta'>BETA</span> The amount of awake time in the last recorded sleep session. |
+| `health_connect_sleep_awake_in_bed_duration` | minutes | <span class='beta'>BETA</span> The amount of awake-in-bed time in the last recorded sleep session. |
+| `health_connect_sleep_out_of_bed_duration` | minutes | <span class='beta'>BETA</span> The amount of out-of-bed time in the last recorded sleep session. |
+| `health_connect_sleep_unspecified_duration` | minutes | <span class='beta'>BETA</span> The amount of sleeping time without a more specific sleep stage in the last recorded sleep session. |
+| `health_connect_sleep_unknown_duration` | minutes | <span class='beta'>BETA</span> The amount of time with an unknown sleep stage in the last recorded sleep session. |
 | `health_connect_systolic_blood_pressure` | millimeters of Mercury | The last recorded systolic blood pressure. |
 | `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
 | `health_connect_vo2_max` | milliliters per minute per kilogram | The last recorded VO2 max score. |
 | `health_connect_weight` | grams | The last recorded weight. |
+
+
+The `health_connect_sleep_duration` sensor also provides a sleep stage timeline through the `stageTypes`, `stageStartTimes`, and `stageEndTimes` attributes. These are parallel lists: entries at the same index identify a sleep stage and its corresponding start and end timestamps in ISO 8601 format. The timeline can be used to visualize sleep stages or analyze transitions between stages.
 
 ## High accuracy mode
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
@@ -622,6 +636,20 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 ![Android](/assets/android.svg)
 
 These sensors will reflect various states from the [Keyguard Manager](https://developer.android.com/reference/android/app/KeyguardManager). You will be able to determine if the device is actively locked, has a password setup or even if the device requires a password to unlock. These sensors will update with the periodic sensor interval.
+
+## Kiosk sensors
+![iOS](/assets/iOS.svg)<br />
+[Kiosk mode](../integrations/ios-kiosk-mode.md) adds sensors so automations can react to the state of the kiosk device.
+
+The `binary_sensor.kiosk_mode` sensor reports whether the device is currently acting as a kiosk (`on`) or running the app normally (`off`).
+
+The other kiosk sensors provide details about the device while it is in kiosk mode. When you turn on kiosk mode, the app enables them. When you turn off kiosk mode, the app disables them, because they don't provide reliable data outside kiosk mode. Their entities are then disabled in Home Assistant, instead of showing `unavailable`.
+
+| Sensor | Description |
+| ------ | ----------- |
+| `sensor.kiosk_brightness` | The current screen brightness, as a percentage. |
+| `binary_sensor.kiosk_screensaver` | `on` while the screensaver is visible on screen, `off` when it is not. |
+| `sensor.kiosk_volume` | The current device output volume, as a percentage. |
 
 ## Last reboot sensor
 ![Android](/assets/android.svg)<br />

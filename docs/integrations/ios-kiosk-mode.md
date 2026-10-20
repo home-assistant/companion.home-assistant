@@ -19,15 +19,14 @@ Kiosk mode is iOS-only. Android users can achieve a similar setup with the [Home
 
 ## Requirements
 
-- An iPhone or iPad running 2026.7.0+ version of iOS or iPadOS.
-- The Home Assistant Companion app with the Kiosk mode Labs feature.
+- An iPhone or iPad with the Home Assistant Companion app installed.
 - To hide the sidebar and top bar controls, a version of Home Assistant whose frontend supports kiosk mode.
 - Face ID, Touch ID, or a device passcode set up on the device, if you want to require authentication to open the kiosk settings.
 
 ## Enabling kiosk mode
 
 1. Open the Home Assistant app.
-2. Go to **Settings** > **Kiosk mode**.
+2. Go to **Settings** > **Companion app** > **Kiosk mode**.
 3. Turn on **Enabled**.
 
 :::tip
@@ -67,7 +66,7 @@ Because kiosk mode hides the usual navigation, a small button is shown on top of
 
 - **Kiosk settings entry position**: Choose which corner the button appears in — **Top leading**, **Top trailing**, **Bottom leading**, or **Bottom trailing**.
 
-Tapping the button opens the kiosk settings directly. If **Authentication** is on, you must authenticate with Face ID, Touch ID, or your device passcode first. You can also always reach the settings from **Settings** > **Kiosk mode**.
+Tapping the button opens the kiosk settings directly. If **Authentication** is on, you must authenticate with Face ID, Touch ID, or your device passcode first. You can also always reach the settings from **Settings** > **Companion app** > **Kiosk mode**.
 
 ## Screensaver
 
@@ -105,6 +104,12 @@ Motion detection sensitivity and frame rate are configured in the [Camera motion
 :::note
 With this option on, the camera stays active the whole time kiosk mode runs, and iOS shows the camera indicator (a green dot) in the status bar. The first time the camera is used, iOS asks for camera permission. Like all camera use, this only works while the app is open and in the foreground.
 :::
+
+## Sensors
+
+Kiosk mode adds sensors so automations can react to the state of the kiosk device. You can enable or disable them in **Settings** > **Companion app** > **Kiosk mode** > **Sensors**, or with the rest of the app's sensors in **Settings** > **Companion app** > **Sensors**.
+
+For the list of kiosk sensors and what each one reports, see [Kiosk sensors](../core/sensors.md#kiosk-sensors).
 
 ## Remote commands
 
@@ -148,7 +153,7 @@ These commands are only acted on when **Accept kiosk remote commands** is enable
 
 1. Open the kiosk settings using either method:
    - Tap the configuration-access button in the corner you chose.
-   - Go to **Settings** > **Kiosk mode**.
+   - Go to **Settings** > **Companion app** > **Kiosk mode**.
 2. If **Authentication** is on, authenticate with Face ID, Touch ID, or your device passcode.
 3. Turn off **Enabled**.
 
@@ -171,4 +176,4 @@ These commands are only acted on when **Accept kiosk remote commands** is enable
 ### I can't find the way back to the settings
 
 - The configuration-access button is shown in the corner selected by **Kiosk settings entry position**. If the screensaver is showing, tap once to wake the screen first, then tap the button.
-- You can always open the settings from **Settings** > **Kiosk mode**.
+- You can always open the settings from **Settings** > **Companion app** > **Kiosk mode**.
