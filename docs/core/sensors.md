@@ -9,14 +9,19 @@ The sensors provided by the companion app depend on which app you're using, see 
 
 ## Multi-server support
 
-If multiple servers are connected to the companion app, you can configure whether sensors are sent on a per-server basis. Currently the sensor settings will be common for all connected servers.
+If multiple servers are connected to the companion app, you choose which sensors each server receives. A sensor can report to one server and not to another.
 
-![iOS](/assets/iOS.svg) In [Settings](https://my.home-assistant.io/redirect/config/) > Companion App, open the server's settings and change Sensors Sent setting under Privacy. Options available:
+![iOS](/assets/iOS.svg)Each server has its own list of sensors:
 
-- **All** sends all enabled sensors.
-- **None** does not send any sensors.
+1. In the companion app, go to **Settings** > **Companion app** > **Sensors**.
+2. If you use more than one server, select a server under **Servers**.
+3. Turn on the sensors that server should receive, including any [Apple Health sensors](#apple-health-sensors).
 
-![Android](/assets/android.svg) In [Settings](https://my.home-assistant.io/redirect/config/) > Companion App, go to Manage Sensors and select the sensor you'd like to manage. Tap on the expand/collapse icon at the top of the screen to change settings for a specific server.
+The update interval and the **Permissions** screen stay on the main **Sensors** screen and apply to all servers.
+
+To stop sending all sensors to a server, go to **Settings** > **Companion app** > **Servers** and select the server. Under **Privacy**, set **Sensors Sent** to **None**. With **All**, the server receives every sensor you turned on for it.
+
+![Android](/assets/android.svg) On Android, you choose servers from each sensor's settings instead of from a list per server. In the companion app, go to **Settings** > **Companion app** > **Manage sensors** and select a sensor. If you use more than one server, select the expand icon at the top of the screen to show a switch for each server.
 
 ## iOS & macOS sensors
 
@@ -49,6 +54,7 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | --------- | --------- | ----------- |
 | `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
 | `sensor.app_version` | None | The current **Home Assistant companion App for iOS** app version. |
+| [Apple Health sensors](#apple-health-sensors) | None | Health and fitness data stored in Apple Health, such as steps, heart rate, and weight. |
 | `sensor.average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
 | `binary_sensor.camera_motion` | [See Below](#camera-motion-sensor) | Motion detected by the device's front camera.  |
 | `sensor.camera_stream` | [See Below](#camera-stream-sensor) | Status of the camera stream, which serves the front camera as an MJPEG camera on your local network.  |
@@ -244,6 +250,115 @@ Possible states for `app_standby_bucket` sensor (please refer to the API linked 
 *   `working_set`
 *   `never`
 
+
+## Apple Health sensors
+
+![iOS](/assets/iOS.svg) only. These sensors are not available on ![macOS](/assets/macOS.svg) macOS.
+
+Apple Health is the app on your iPhone or iPad that stores health and fitness data, such as the steps you walk, your heart rate, or your weight. Data can come from the device itself, a paired Apple Watch, or other apps and devices that write to Apple Health. When you turn on Apple Health sensors, the companion app reads the data you select and sends it to Home Assistant as sensors.
+
+### Turning on Apple Health sensors
+
+Every Apple Health sensor is turned off until you turn it on. The Apple Health permission screen only asks about the sensors you turned on.
+
+1. In the companion app, go to **Settings** > **Companion app** > **Sensors**.
+2. If you use more than one server, select the server that should receive the sensors. Each server has its own selection of sensors.
+3. Select **Apple Health Sensors**. The number next to it shows how many sensors are turned on for this server.
+4. Turn on the sensors you want. You have three options:
+   - Turn on individual sensors with their switches.
+   - Select **Enable all** next to a category heading, such as **Heart**, to turn on every sensor in that category.
+   - Turn on **Enable all Apple Health sensors** to turn on every sensor at once, then confirm.
+5. The Apple Health screen opens automatically. Allow access to the data types you want to share, then select **Allow**.
+
+Apple Health only asks once about each data type. If the Apple Health screen does not appear, select **Request Apple Health Access**. If you denied access before, change it in the iOS **Settings** app instead.
+
+:::note
+Apple never tells apps whether you allowed or denied access to health data. If you deny access to a data type, its sensor stays `unavailable` in Home Assistant instead of showing an error.
+:::
+
+To review or change what you shared, open the iOS **Settings** app, then go to **Privacy & Security** > **Health** > **Home Assistant**.
+
+### When Apple Health sensors update
+
+Apple Health sensors are read during the regular sensor updates described in [When sensors update](#when-sensors-update).
+
+In addition, iOS wakes the app when Apple Health records new data for a sensor you turned on, even when the app is not running. To avoid a flood of updates, for example during a workout where many data types are recorded at once, new data is grouped for a few seconds, and updates are sent at most once every 30 seconds.
+
+Values are calculated in one of three ways, depending on the sensor:
+
+- **Totals since midnight**: the sum of everything recorded since the start of the current day in your device's local time zone, such as your steps or the energy you burned. These reset each day.
+- **Most recent reading**: the newest recorded value within a lookback window, such as your weight or your last heart rate reading. The window is noted for each sensor in the lists below.
+- **Last night**: the time spent asleep, in bed, or in a sleep stage during your most recent night with sleep data in the last 7 days. A night runs from 6:00 PM to 6:00 PM the next day in your local time zone, so a nap during the day counts toward the night before it. The value stays the same all day and only changes when a new night is recorded.
+
+A sensor reports `unavailable` when Apple Health has no data for it within its window, or when you turn the sensor off. When the app cannot read Apple Health at all, which happens when your device is locked, the sensor keeps its previous value instead of becoming unavailable.
+
+### Activity sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.health_steps` | steps | Total steps taken since midnight. |
+| `sensor.walking_running_distance` | kilometers | Total walking and running distance since midnight. |
+| `sensor.active_energy` | kilocalories | Total active energy burned since midnight, excluding resting energy. |
+| `sensor.resting_energy` | kilocalories | Total resting energy burned since midnight, which is the energy your body uses at rest. |
+| `sensor.flights_climbed` | floors | Total flights of stairs climbed since midnight. |
+| `sensor.exercise_time` | minutes | Total exercise minutes since midnight, as calculated by Apple Health. |
+| `sensor.vo2_max` | milliliters per kilogram per minute | The last recorded VO2 max, which estimates your cardio fitness. Uses the last 365 days. |
+
+### Body measurement sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.weight` | kilograms | The last recorded weight. Uses the last 365 days. |
+| `sensor.body_fat_percentage` | percent | The last recorded body fat percentage. Uses the last 365 days. |
+| `sensor.lean_body_mass` | kilograms | The last recorded lean body mass, which is your weight without body fat. Uses the last 365 days. |
+| `sensor.height` | centimeters | The last recorded height. Uses the last 10 years. |
+
+### Heart sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.heart_rate` | beats per minute | The last recorded heart rate. Uses the last 24 hours. |
+| `sensor.resting_heart_rate` | beats per minute | The last recorded resting heart rate. Uses the last 7 days. |
+| `sensor.walking_heart_rate_average` | beats per minute | The last recorded average heart rate while walking. Uses the last 7 days. |
+| `sensor.heart_rate_variability` | milliseconds | The last recorded heart rate variability. Uses the last 7 days. |
+| `sensor.blood_pressure_systolic` | millimeters of mercury | The last recorded systolic blood pressure, which is the higher of the two numbers. Uses the last 30 days. |
+| `sensor.blood_pressure_diastolic` | millimeters of mercury | The last recorded diastolic blood pressure, which is the lower of the two numbers. Uses the last 30 days. |
+
+### Nutrition sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.water` | milliliters | Total water intake since midnight. |
+
+### Respiratory sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.respiratory_rate` | breaths per minute | The last recorded respiratory rate. Uses the last 7 days. |
+| `sensor.blood_oxygen` | percent | The last recorded blood oxygen level. Uses the last 7 days. |
+
+### Sleep sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.sleep_duration` | minutes | Total time asleep last night, across all sleep stages. |
+| `sensor.in_bed` | minutes | Total time in bed last night. |
+| `sensor.awake` | minutes | Time awake during last night's sleep. |
+| `sensor.core_sleep` | minutes | Time in core sleep last night. |
+| `sensor.deep_sleep` | minutes | Time in deep sleep last night. |
+| `sensor.rem_sleep` | minutes | Time in REM sleep last night. |
+
+`sensor.awake`, `sensor.core_sleep`, `sensor.deep_sleep`, and `sensor.rem_sleep` need a source that records sleep stages, such as an Apple Watch. If your sleep data comes from a source that does not record stages, these sensors report `unavailable`, while `sensor.sleep_duration` still reports the total time asleep.
+
+Apple Watch records sleep stages but not time in bed, so `sensor.in_bed` reports `unavailable` until a source records it. To record it, open the **Health** app, go to **Sleep** > **Options**, and turn on **Track Time in Bed with iPhone**. You can also use a sleep tracking app that records time in bed.
+
+### Vitals sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.body_temperature` | degrees Celsius | The last recorded body temperature. Uses the last 7 days. |
+| `sensor.basal_body_temperature` | degrees Celsius | The last recorded basal body temperature, which is your temperature at rest. Uses the last 7 days. |
+| `sensor.blood_glucose` | milligrams per deciliter | The last recorded blood glucose reading. Uses the last 24 hours. |
 
 ## Audio sensors
 ![Android](/assets/android.svg) <br />
