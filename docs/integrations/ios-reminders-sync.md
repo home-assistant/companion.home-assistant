@@ -97,20 +97,20 @@ Changes in either list are applied to the other, including deletions. If you del
 
 If the same item changed in both apps since the last sync, the **Conflicts** setting decides which version is kept. See [Conflicts](#conflicts).
 
-### Reminders → Home Assistant
+### Apple Reminders → Home Assistant
 
 Apple Reminders is the source of truth. Its items and changes overwrite the Home Assistant list.
 
-- Items you add in Reminders are created in Home Assistant.
+- Items you add in Apple Reminders are created in Home Assistant.
 - Items that exist only in Home Assistant are left alone, and are never copied to Reminders.
 - If you edit a linked item in Home Assistant, the change is undone on the next sync, because Reminders wins.
 - If you delete a linked item in Home Assistant, the app recreates it from Reminders, unless the reminder is already completed. Completed items are treated as history and are not brought back.
 
-### Home Assistant → Reminders
+### Home Assistant → Apple Reminders
 
 Home Assistant is the source of truth. Its items and changes overwrite the Apple Reminders list.
 
-- Items added in Home Assistant are created in Reminders.
+- Items added in Home Assistant are created in Apple Reminders.
 - Items that exist only in Reminders are left alone, and are never copied to Home Assistant.
 - If you edit a linked reminder, the change is undone on the next sync, because Home Assistant wins.
 - If you delete a linked reminder, the app recreates it from Home Assistant, unless the Home Assistant item is already completed. Completed items are treated as history and are not brought back.
