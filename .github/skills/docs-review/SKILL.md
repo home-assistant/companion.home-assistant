@@ -38,7 +38,7 @@ These rules come from feedback that reviewers repeatedly give on pull requests i
   ```
 
 - On a page that covers only one platform, state the platform once at the top. Don't repeat "On iOS" in every sentence.
-- The pull request title and description must match the platform scope of the change. Don't say "iOS and Android" when only one platform changed.
+- In the pull request title and description, state which platform the change applies to: iOS, Android, or both. This is different from pages, where content that applies to both platforms doesn't need a platform label.
 
 ## Where content lives
 
