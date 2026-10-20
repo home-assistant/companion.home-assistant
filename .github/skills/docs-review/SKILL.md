@@ -5,7 +5,7 @@ description: Rules for writing and reviewing companion app documentation pages i
 
 # Documentation review rules
 
-These rules come from feedback that reviewers repeatedly give on pull requests in this repository. They add to `.github/copilot-instructions.md` and the [Home Assistant documentation style guide](https://developers.home-assistant.io/docs/documenting/general-style-guide), and don't repeat what those already cover. Follow them when writing documentation, and check for them when reviewing.
+These rules come from feedback that reviewers repeatedly give on pull requests in this repository. They add to `.github/copilot-instructions.md` and the [Home Assistant documentation style guide](https://contributors.home-assistant.io/writing/reference/style/), and don't repeat what those already cover. Follow them when writing documentation, and check for them when reviewing.
 
 ## Versions and releases
 
