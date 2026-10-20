@@ -31,9 +31,9 @@
   Ensure your pull request meets the following requirements. This helps speed up the review process.
 -->
 
-- [ ] I have read and followed the [documentation guidelines](https://developers.home-assistant.io/docs/documenting/general-style-guide).
+- [ ] I have read and followed the [documentation guidelines](https://contributors.home-assistant.io/writing/reference/style/).
 - [ ] I have verified that my changes render correctly in the documentation.
-- [ ] I have read the [Open Home Foundation AI Policy](https://developers.home-assistant.io/docs/ai_policy).
+- [ ] I have read the [Open Home Foundation AI Policy](https://contributors.home-assistant.io/start/ai-policy/).
 
 Select exactly one option that describes AI usage in this contribution:
 
