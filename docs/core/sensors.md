@@ -359,19 +359,6 @@ Apple Watch records sleep stages but not time in bed, so `sensor.in_bed` reports
 | `sensor.basal_body_temperature` | degrees Celsius | The last recorded basal body temperature, which is your temperature at rest. Uses the last 7 days. |
 | `sensor.blood_glucose` | milligrams per deciliter | The last recorded blood glucose reading. Uses the last 24 hours. |
 
-### Troubleshooting Apple Health sensors
-
-If a sensor is `unavailable` or missing in Home Assistant:
-
-- Make sure the sensor is turned on. In the companion app, go to **Settings** > **Companion app** > **Sensors** > **Apple Health Sensors**. If you use more than one server, check the sensor list of the server that is missing the sensor.
-- Check that access is allowed for that data type in the iOS **Settings** app under **Privacy & Security** > **Health** > **Home Assistant**.
-- Check that Apple Health has recent data for the sensor. Open the **Health** app and look for the data type. Sensors that use a lookback window report `unavailable` when there is no reading in that window.
-- For sleep sensors, check that a source records the data the sensor needs. Refer to the [sleep sensor list](#sleep-sensor-list).
-- Unlock your device. iOS blocks health data reads while the device is locked, so updates that happen then are skipped.
-- Select the reload icon at the top of the **Apple Health Sensors** screen to read the sensors and send an update to Home Assistant right away.
-
-If the **Apple Health Sensors** entry is missing from the sensor list, your device does not provide health data. This is the case on macOS and on iPads running iPadOS 16. Apple added the Health app to iPad in iPadOS 17.
-
 ## Audio sensors
 ![Android](/assets/android.svg) <br />
 These sensors use the [AudioManager API](https://developer.android.com/reference/kotlin/android/media/AudioManager?hl=en) to retrieve their state. Look at the table below to find out more about each sensor including how often they update.
