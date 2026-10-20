@@ -50,6 +50,7 @@ These rules come from feedback that reviewers repeatedly give on pull requests i
 ## Wording
 
 - Write as though you're speaking to the reader. Use "you" and "your" when describing functionality instead of referring to "the user" or "users".
+- Write as though you're speaking to the reader. Use "you" and "your" when describing functionality instead of referring to "the user" or "users".
 - Refer to "the app" and "Home Assistant". Don't switch to "we" or "us".
 - Remove sentences that state the obvious, restate the inverse of the previous paragraph, or repeat a requirement already listed. For example, "Changes are saved automatically" is enough without adding "and persist across launches".
 - Describe behavior. Don't add justifications for design decisions, such as "…so the history stays a log of real changes".
