@@ -304,10 +304,10 @@ A sensor reports `unavailable` when Apple Health has no data for it within its w
 | `sensor.flights_climbed` | floors | Total flights of stairs climbed since midnight. |
 | `sensor.exercise_time` | minutes | Total exercise minutes since midnight, as calculated by Apple Health. |
 | `sensor.vo2_max` | milliliters per kilogram per minute | The last recorded VO2 max, which estimates your cardio fitness. Uses the last 365 days. |
-| `sensor.move_goal` | kilocalories | The daily Move goal of the Fitness app's Move ring. Requires app version 2026.11.0 or later. |
-| `sensor.exercise_goal` | minutes | The daily Exercise goal of the Fitness app's Exercise ring. Requires an Apple Watch and app version 2026.11.0 or later. |
-| `sensor.stand_hours` | hours | Hours since midnight with at least one minute of standing, as counted by the Fitness app's Stand ring, or of rolling for the Roll ring in wheelchair mode. Requires an Apple Watch and app version 2026.11.0 or later. |
-| `sensor.stand_goal` | hours | The daily Stand goal of the Fitness app's Stand ring, or Roll goal in wheelchair mode. Requires an Apple Watch and app version 2026.11.0 or later. |
+| `sensor.move_goal` | kilocalories | <span class='beta'>BETA</span> The daily Move goal of the Fitness app's Move ring. Requires app version 2026.11.0 or later. |
+| `sensor.exercise_goal` | minutes | <span class='beta'>BETA</span> The daily Exercise goal of the Fitness app's Exercise ring. Requires an Apple Watch and app version 2026.11.0 or later. |
+| `sensor.stand_hours` | hours | <span class='beta'>BETA</span> Hours since midnight with at least one minute of standing, as counted by the Fitness app's Stand ring, or of rolling for the Roll ring in wheelchair mode. Requires an Apple Watch and app version 2026.11.0 or later. |
+| `sensor.stand_goal` | hours | <span class='beta'>BETA</span> The daily Stand goal of the Fitness app's Stand ring, or Roll goal in wheelchair mode. Requires an Apple Watch and app version 2026.11.0 or later. |
 
 ### Body measurement sensor list
 
