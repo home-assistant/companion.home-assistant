@@ -8,7 +8,7 @@ id: "configuration"
 You decide what Home Assistant shows in CarPlay. There are two places to do it:
 
 - **In the car**: use the **Settings** tab on the car display. Most settings can be changed here, so you do not have to reach for your phone.
-- **On your iPhone**: in the Home Assistant app, open **Settings** > **CarPlay**. You find **CarPlay** under the **Apple Watch & CarPlay** heading. This is where the full set of options lives, including renaming items, choosing custom icons, and creating Assist prompts.
+- **On your iPhone**: in the Home Assistant app, open **Settings** > **Companion app** > **CarPlay**. You find **CarPlay** under the **Apple Watch & CarPlay** heading. This is where the full set of options lives, including renaming items, choosing custom icons, and creating Assist prompts.
 
 Both places write to the same configuration. If your phone is connected to the car while you change something on the phone, the car display updates right away.
 
@@ -89,7 +89,7 @@ If you do not see the **Add item** and **Edit** buttons, the **Show Add and Edit
 ## Configuring from your iPhone
 
 1. On your iPhone, open the Home Assistant app.
-2. Go to **Settings** > **CarPlay**.
+2. Go to **Settings** > **Companion app** > **CarPlay**.
 
 Changes on your iPhone are saved as you make them.
 
@@ -165,7 +165,7 @@ A folder is a group of items. Folders keep long lists manageable, and they are t
 
 ### Creating a folder
 
-1. In the Home Assistant app on your iPhone, go to **Settings** > **CarPlay**.
+1. In the Home Assistant app on your iPhone, go to **Settings** > **Companion app** > **CarPlay**.
 2. Select **Add item** > **Add Folder**.
 3. Enter a **Folder Name**, then select **Add Folder**.
 4. Select the new folder to add items to it. To change the folder's icon, select the gear button on the folder screen.
@@ -178,7 +178,7 @@ Folders cannot contain other folders.
 
 ### Creating your own tab
 
-1. In the Home Assistant app on your iPhone, go to **Settings** > **CarPlay**, then select the row under **Tabs**.
+1. In the Home Assistant app on your iPhone, go to **Settings** > **Companion app** > **CarPlay**, then select the row under **Tabs**.
 2. Select **Add Tab**.
 3. Enter a **Tab Name**, such as `Garage`, then select **Add Tab**.
 4. Select the new tab in the **Active** list to add items to it.

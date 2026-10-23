@@ -24,7 +24,7 @@ The **Quick access** tab starts out empty on purpose, because you choose what go
 
 If the car shows **No Quick Access items** and there is no **Add item** button, the **Show Add and Edit buttons** setting is turned off. See [The add and edit buttons are missing](#the-add-and-edit-buttons-are-missing).
 
-If your items are listed in the Home Assistant app under **Settings** > **CarPlay** but the car shows none, force close the app and open it again. See [The lists are empty or out of date](#the-lists-are-empty-or-out-of-date).
+If your items are listed in the Home Assistant app under **Settings** > **Companion app** > **CarPlay** but the car shows none, force close the app and open it again. See [The lists are empty or out of date](#the-lists-are-empty-or-out-of-date).
 
 ## An entity is missing
 
@@ -49,7 +49,7 @@ CarPlay uses data your iPhone has already downloaded from your server. If that d
 
 ## An action fails or nothing happens
 
-If CarPlay shows an alert such as **Not connected to Home Assistant** or **Home Assistant didn't respond in time** after you select an entity, your iPhone could not reach your server, or your server took longer than 10 seconds to answer. Check that your iPhone has a connection and can open Home Assistant, then try again. See [If an action fails](controls.md#if-an-action-fails).
+If CarPlay shows an alert such as **Not connected to Home Assistant** or **Home Assistant didn't respond in time** after you select an entity, your iPhone could not reach your server, or your server took longer than 10 seconds to answer. Check that your iPhone has a connection and can open Home Assistant. The original action may still run once the connection comes back, so check the entity's current state before you try again. See [If an action fails](controls.md#if-an-action-fails).
 
 ## Assist responses are not audible
 
@@ -62,7 +62,7 @@ Some vehicles do not play spoken Assist responses when CarPlay streams the audio
 
 ### From your iPhone
 
-1. In the Home Assistant app on your iPhone, go to **Settings** > **CarPlay**.
+1. In the Home Assistant app on your iPhone, go to **Settings** > **Companion app** > **CarPlay**.
 2. Select **Troubleshooting**.
 3. Change **TTS Playback** from **Stream** to **Download and play**.
 

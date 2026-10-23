@@ -43,6 +43,10 @@ If Home Assistant does not respond within 10 seconds, or the action fails, CarPl
 - **Home Assistant didn't respond in time**: your server is reachable but did not answer within 10 seconds.
 - **Home Assistant couldn't run that action**: your server returned an error, or the entity or server no longer exists.
 
+:::warning
+After **Not connected to Home Assistant** or **Home Assistant didn't respond in time**, the action is not canceled. Your iPhone may still send it once the connection comes back. Before you try again, check the entity's current state. Otherwise, selecting a light or a garage door a second time can undo the first action.
+:::
+
 ## Confirmations
 
 Some things are worth double-checking before they run.
