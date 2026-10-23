@@ -37,6 +37,22 @@ This often happens when you have the [Home Assistant Cloud](https://www.home-ass
 
 If you do not have [Home Assistant Cloud](https://www.home-assistant.io/cloud/) set up at all, the problem is likely that the remote connection is not secured. The Companion App requires an encrypted connection for remote connections. Please see the [Home Assistant docs](https://www.home-assistant.io/docs/configuration/remote/) or [this guide to setting up Let's Encrypt with Duck DNS](https://www.home-assistant.io/docs/ecosystem/certificates/lets_encrypt/) for instructions on setting up a secured connection.
 
+## Two of my servers share the same ID <span class='beta'>BETA</span>
+![iOS](/assets/iOS.svg) Each Home Assistant server reports its own ID. The app uses it to recognize a server you already added, so adding the same server twice updates the existing entry instead of creating a second one.
+
+A server set up from a backup of another server carries the same ID, and the app cannot tell the two apart by ID alone. When you add a server that reports the same ID as one you already have, but at a different address, the app asks **Is this the same server?**:
+
+- **Add as a separate server** keeps both servers.
+- **Replace** replaces the server you already have with the new one. Widgets, shortcuts and Siri configurations that use it keep working.
+- **Cancel** stops adding the server.
+
+While two servers share an ID, the servers list in the app settings shows **Two servers share the same ID**. Tap it to see which servers are affected.
+
+To fix it, give one of the servers a new ID:
+
+- If both servers are on the same network, Home Assistant offers this in **Settings** > **Repairs**.
+- Otherwise, remove the `.storage/core.uuid` file on one server and restart it. Your data and configuration are not affected.
+
 ## Something in Home Assistant doesn't work the same way it does on my desktop
 This is probably not an issue with the Companion App but more likely with Home Assistant or the particular component that isn't behaving as expected. To test the cause please try the following steps.
 
