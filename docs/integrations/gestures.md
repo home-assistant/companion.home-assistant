@@ -24,11 +24,11 @@ By default, the left-edge swipe is set to **Show sidebar**, and the right-edge s
 
 ![Android](/assets/android.svg)You can configure one-finger swipes that start at the left or right edge of the Home Assistant page and move inward. Both gestures are disabled by default, with their actions set to **None**.
 
+These options are shown only when Android does not reserve those edges for system navigation, typically when you use button navigation. They are hidden when Android's system gesture navigation is active.
+
 To enable one, go to [**Settings**](https://my.home-assistant.io/redirect/config/) > **Companion app** > **Gestures**. Under **Swipe right** or **Swipe left**, select **Using one finger from the edge**, then choose one of the [available actions](#available-actions). For example, assign **Show sidebar** under **Swipe right** to open the Home Assistant sidebar with an inward swipe from the left edge. The selected action runs when you release the swipe.
 
 Swipes that start away from the edges and vertical swipes do not trigger these one-finger gestures. Your existing two-finger and three-finger gestures keep working as configured.
-
-Android's system Back gesture takes priority. If Android handles an edge swipe as Back, the app action does not run. These gestures do not override system navigation.
 
 ## Available actions
 
