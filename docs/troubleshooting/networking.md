@@ -46,6 +46,10 @@ If you want to (or have to) use Home Assistant Cloud or a different URL dependin
 ![Android](/assets/android.svg) You can also enter a wifi network BSSID in the app's settings in case you have multiple access points with the same SSID, and only want to use the internal URL when connected to a specific access point. To do so, add a new SSID with the name `BSSID:` followed by the BSSID (for example: `BSSID:1A:2B:3C:4D:5E:6F`).
 :::
 
+:::note Seamless switching
+![Android](/assets/android.svg) <span class='beta'>BETA</span> When the internal URL starts with `http://`, the app keeps the dashboard open when it switches between the internal and the external URL. The dashboard stays on the internal address, and while you are away the app sends its requests to the external URL. Open dialogs and the scroll position are kept; only the connection to Home Assistant reconnects for a moment. To get the old behavior (a full reload on every switch), turn off **Seamless switching** in the server settings, below **Internal connection URL**.
+:::
+
 ## Addendum: CG-NAT
 If your ISP doesn't give you a public IPv4 address you're down to basically only two solutions: You can call your ISP and ask if they can give you a real address or if there is an upgrade for your connection available (oddly enough, asking nicely will work with many ISPs out there) or use Home Assistant Cloud.
 
