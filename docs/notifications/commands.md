@@ -689,6 +689,8 @@ automation:
 
 Assuming the device receives the notification, it will attempt to get a location update within 5 seconds and report it to Home Assistant. This is a little bit hit or miss since Apple imposes a maximum time allowed for the app to work with the notification and location updates sometimes take longer than usual due to factors such as waiting for GPS acquisition.
 
+![Android](/assets/android.svg) <span class='beta'>BETA</span> The app gets a new location and only reports a location obtained after the request. If that takes more than a few seconds, Android shows a **Getting current location** notification until it's done, for 1 minute at most. The command is sent as a high priority message, which Android requires to let the app get a location right away while it is in the background. If you set `priority: normal`, the location update can be delayed by several minutes when the device is idle.
+
 :::danger
 While it is possible to create an automation in Home Assistant to call this action regularly to update sensors, this is not recommended as doing this too frequently may have a negative impact on your device's battery life and health.
 :::
