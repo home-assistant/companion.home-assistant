@@ -50,6 +50,7 @@ module.exports = {
       'integrations/gestures',
       'integrations/haptics',
       'integrations/sharing',
+      'integrations/ios-controls',
       'integrations/ios-kiosk-mode',
       'integrations/ios-reminders-sync',
       'integrations/ios-widgets',
