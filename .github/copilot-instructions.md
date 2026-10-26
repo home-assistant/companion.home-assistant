@@ -15,13 +15,13 @@ You should follow the general guidelines about writing a documentation from Micr
 2. **Use active voice**:
    - Write in the active voice whenever possible.
 
-3. **Follow Home Assistant standards**:
-   - Ensure all documentation is consistent.
-   - Use the correct formatting for code blocks, links, and headings.
+3. **Follow the Home Assistant documentation style guide**:
+   - Follow the [Home Assistant documentation style guide](https://contributors.home-assistant.io/writing/reference/style/) for language, tone, and general formatting. This file does not repeat those rules.
+   - Where this file gives rules specific to this Docusaurus site, such as for links, images, and admonitions, follow this file instead.
 
 4. **Adopt inclusive language**:
    - Avoid terms that may exclude or offend. For example, use "allowlist" instead of "whitelist."
-   - Be objective and not gender favoring, polarizing, race related or religion inconsiderate
+   - Follow the inclusive language rules in the [language and tone](https://contributors.home-assistant.io/writing/reference/style/#language-and-tone) section of the style guide.
 
 5. **Be consistent**:
    - Use consistent terminology, formatting, and structure throughout the documentation.
@@ -30,7 +30,11 @@ You should follow the general guidelines about writing a documentation from Micr
 ## Formatting guidelines
 
 1. **Headings**:
-   - Use sentence-style capitalization, also in headings (for example, "Configuring a device").
+   - Always use sentence-style capitalization in headings: capitalize only the first word and proper nouns (brand names, product names, and platform names). Never use title case.
+     - Good: `### Notification icon and color`, `## Sending a notification to your phone`, `## Setting up Android Auto`
+     - Bad: `### Notification Icon and Color`, `## Sending a Notification to Your Phone`, `## Setting Up Android Auto`
+   - This rule applies to every heading you add or change, even when other headings on the same page still use title case. You do not need to rewrite unrelated existing headings, but do not copy their capitalization.
+   - When you change a heading, also update any link text that refers to it. For example, `See [Notification icon and color](#notification-icon-and-color)`.
    - Organize content with appropriate heading levels (`#`, `##`, `###`).
 
 2. **Lists**:
@@ -41,15 +45,9 @@ You should follow the general guidelines about writing a documentation from Micr
    - Use fenced code blocks (```` ``` ````) with the appropriate language identifier (for example, `yaml`, `python`).
    - Provide context or explanations for code snippets.
 
-4. **Links**:
-   - Use descriptive link text instead of raw URLs. For example, `[Home Assistant Standards](https://developers.home-assistant.io/docs/documenting/standards)`.
-
-5. **Misc**
-   - Don't put two spaces after a period.
-   - There is no limit for the line length. You are allowed to write in a flowing text style.
-   - Do not use ALL CAPITALS for emphasis - use _italics_ instead.
-   - Use **bold** to markup UI strings, for example:
-     - Under **Settings**, select the three dots menu. Then, select **Restart Home Assistant** > **Quick reload**.
+4. **UI strings**:
+   - Use **bold** for UI strings, as described in the [UI elements and steps](https://contributors.home-assistant.io/writing/reference/style/#ui-elements-and-steps) section of the style guide.
+   - Match the capitalization used in the app or in Home Assistant. For example, "Under **Settings** > **Companion app**, select **Server & devices**."
 
 ## Writing style
 
@@ -62,20 +60,6 @@ You should follow the general guidelines about writing a documentation from Micr
 
 3. **Avoid redundancy**:
    - Eliminate repetitive information unless it adds clarity.
-
-4. **Use proper grammar and spelling**:
-   - Proofread content for grammatical errors and typos.
-   - Use American English spelling (for example, "color" instead of "colour").
-   - The case of brand names, services, protocols, integrations, and platforms must match their respective counterparts. For example, "Z-Wave" _not_ "Zwave", "Z-wave", "Z Wave" or "ZWave". Also, "Input Select" _not_ "input select" or "Input select".
-
-5. **Tables**
-   - Avoid the use of tables. They are problematic on mobile. Use lists instead. If you cannot avoid a table, minimize the number of columns and keep the amount of text as short as possible:
-   - When limiting the amount of text is not possible, consider using other data structures for representing the information. For example, lists or `{% configuration_basic %}` can be used.
-
-6. **Misc**
-   - Use a serial comma (also known as the Oxford comma) before the conjunction in a list of three or more items. For example, "Through the use of additional adapters, Home Assistant allows the use of Zigbee, Z-Wave, and other protocols".
-   - Don't use "e.g.". Instead, use _for example_, _such as_, or _like_.
-   - All examples containing Jinja2 templates should be wrapped _outside_ of the code markdown with the `{% raw %}` tag.
 
 ## Target audience
 
@@ -122,7 +106,7 @@ similar to text message alerts.
    <!-- TODO: Add screenshot showing the name of the device under the server -->
    :::
 
-   ![iOS](/assets/iOS.svg) On iOS, the action might be called `notify.mobile_app_iphone`.
+   ![iOS](/assets/iOS.svg)On iOS, the action might be called `notify.mobile_app_iphone`.
 
    ![Android](/assets/android.svg) On Android, it might be called `notify.mobile_app_pixel_7`.
 
@@ -140,7 +124,7 @@ similar to text message alerts.
 
 If the notification does not appear:
 
-- ![iOS](/assets/iOS.svg) Make sure notifications are enabled in iOS **Settings** > **Home Assistant** > **Notifications**.
+- ![iOS](/assets/iOS.svg)Make sure notifications are enabled in iOS **Settings** > **Home Assistant** > **Notifications**.
 - ![Android](/assets/android.svg) Check that the app has notification permissions in Android **Settings** > **Apps** > **Home Assistant** > **Notifications**.
 ```
 
@@ -220,6 +204,7 @@ Use platform icons to indicate iOS-only or Android-only features:
 ```
 
 When a feature applies to both platforms, no icon is needed. Place icons inline with text or in table cells.
+When you use inline iOS-only platform markers (for example, `![iOS](/assets/iOS.svg)`), do not add a space between the icon and the following text.
 
 ## Docusaurus syntax
 
@@ -285,3 +270,18 @@ https://www.home-assistant.io/installation/
 - Home Assistant documentation: `https://www.home-assistant.io/docs/...`
 - Home Assistant Cloud (Nabu Casa): `https://support.nabucasa.com/...`
 - GitHub issues: `https://github.com/home-assistant/iOS/issues/...` or `https://github.com/home-assistant/android/issues/...`
+
+## Code review
+
+When reviewing pull requests, check every changed line against the guidelines in this file and the [Home Assistant documentation style guide](https://contributors.home-assistant.io/writing/reference/style/), and request changes when they are not followed. Pay special attention to the following, because they are frequently missed in this repository:
+
+- **Heading capitalization**: Flag any added or modified heading in title case, such as `### Notification Icon and Color`, and suggest the sentence-case version, such as `### Notification icon and color`. Apply this even if other headings in the same file use title case, and check that link text referring to the heading matches. For details, see [Formatting guidelines](#formatting-guidelines).
+- **Both platforms**: Every feature must cover both iOS and Android, or state which platform it applies to with the [platform indicators](#platform-indicators). For details, see [Core principles](#core-principles).
+
+## AI policy
+
+This project follows the [Open Home Foundation AI Policy](../AI_POLICY.md).
+Autonomous contributions are not accepted: a human must review, understand,
+and be able to explain every change before it is submitted. Do not open
+issues or pull requests autonomously, and do not post comments on behalf of
+a user without their review.

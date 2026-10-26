@@ -16,6 +16,8 @@ module.exports = {
       'core/android-flavors',
       'core/location',
       'core/sensors'],
+    'Data handling': [
+      'data-handling/data-handling'],
     'Notifications': [
       'notifications/notifications-basic',
       'notifications/actionable-notifications',
@@ -31,6 +33,7 @@ module.exports = {
       'notifications/notification-details',
       'notifications/notification-cleared',
       'notifications/notification-commands',
+      'notifications/live-activities',
       'notifications/notification-sounds',
       'notifications/notification-local',
       'notifications/notification-received',
@@ -48,6 +51,7 @@ module.exports = {
       'integrations/haptics',
       'integrations/sharing',
       'integrations/ios-kiosk-mode',
+      'integrations/ios-reminders-sync',
       'integrations/ios-widgets',
       'integrations/siri-shortcuts',
       'integrations/theming',
@@ -68,6 +72,9 @@ module.exports = {
     'CarPlay': [
       'carplay/carplay',
       'carplay/assist'
+    ],
+    'macOS': [
+      'macos/toolbar'
     ],
     'Meta Quest': [
       'meta-quest/meta-quest'

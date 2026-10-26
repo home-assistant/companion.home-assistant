@@ -9,14 +9,19 @@ The sensors provided by the companion app depend on which app you're using, see 
 
 ## Multi-server support
 
-If multiple servers are connected to the companion app, you can configure whether sensors are sent on a per-server basis. Currently the sensor settings will be common for all connected servers.
+If multiple servers are connected to the companion app, you choose which sensors each server receives. A sensor can report to one server and not to another.
 
-![iOS](/assets/iOS.svg) In [Settings](https://my.home-assistant.io/redirect/config/) > Companion App, open the server's settings and change Sensors Sent setting under Privacy. Options available:
+![iOS](/assets/iOS.svg)Each server has its own list of sensors:
 
-- **All** sends all enabled sensors.
-- **None** does not send any sensors.
+1. In the companion app, go to **Settings** > **Companion app** > **Sensors**.
+2. If you use more than one server, select a server under **Servers**.
+3. Turn on the sensors that server should receive, including any [Apple Health sensors](#apple-health-sensors).
 
-![Android](/assets/android.svg) In [Settings](https://my.home-assistant.io/redirect/config/) > Companion App, go to Manage Sensors and select the sensor you'd like to manage. Tap on the expand/collapse icon at the top of the screen to change settings for a specific server.
+The update interval and the **Permissions** screen stay on the main **Sensors** screen and apply to all servers.
+
+To stop sending all sensors to a server, go to **Settings** > **Companion app** > **Servers** and select the server. Under **Privacy**, set **Sensors Sent** to **None**. With **All**, the server receives every sensor you turned on for it.
+
+![Android](/assets/android.svg) On Android, you choose servers from each sensor's settings instead of from a list per server. In the companion app, go to **Settings** > **Companion app** > **Manage sensors** and select a sensor. If you use more than one server, select the expand icon at the top of the screen to show a switch for each server.
 
 ## iOS & macOS sensors
 
@@ -49,12 +54,16 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | --------- | --------- | ----------- |
 | `sensor.activity` | `confidence`, `types` | The current activity type as computed by iOS. Requires motion permissions to be enabled. |
 | `sensor.app_version` | None | The current **Home Assistant companion App for iOS** app version. |
+| [Apple Health sensors](#apple-health-sensors) | None | Health and fitness data stored in Apple Health, such as steps, heart rate, and weight. |
 | `sensor.average_active_pace` | None | The averaged pace calculated by iOS from pedometer data. Units: meters per second, m/s |
+| `binary_sensor.camera_motion` | [See Below](#camera-motion-sensor) | Motion detected by the device's front camera.  |
+| `sensor.camera_stream` | [See Below](#camera-stream-sensor) | Status of the camera stream, which serves the front camera as an MJPEG camera on your local network.  |
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
 | `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
-| `sensor.pose` | None | How a folding iPhone is being held. Only updates while the app is open. [See Below](#pose-sensor) |
+| [Kiosk sensors](#kiosk-sensors) | None | Sensors added by [Kiosk mode](../integrations/ios-kiosk-mode.md) that report the state of the kiosk device. |
 | `sensor.location_permission` | None | The current location permission that was selected by the user. The permission can be set via the location permission popup or modified in the iOS settings. |
+| `sensor.pose` | None | How a folding iPhone is being held. Only updates while the app is open. [See Below](#pose-sensor) |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.steps` | None | The number of steps taken by the user. |
@@ -243,13 +252,127 @@ Possible states for `app_standby_bucket` sensor (please refer to the API linked 
 *   `never`
 
 
+## Apple Health sensors
+
+![iOS](/assets/iOS.svg) only. These sensors are not available on ![macOS](/assets/macOS.svg) macOS.
+
+Apple Health is the app on your iPhone or iPad that stores health and fitness data, such as the steps you walk, your heart rate, or your weight. Data can come from the device itself, a paired Apple Watch, or other apps and devices that write to Apple Health. When you turn on Apple Health sensors, the companion app reads the data you select and sends it to Home Assistant as sensors.
+
+### Turning on Apple Health sensors
+
+Every Apple Health sensor is turned off until you turn it on. The Apple Health permission screen only asks about the sensors you turned on.
+
+1. In the companion app, go to **Settings** > **Companion app** > **Sensors**.
+2. If you use more than one server, select the server that should receive the sensors. Each server has its own selection of sensors.
+3. Select **Apple Health Sensors**. The number next to it shows how many sensors are turned on for this server.
+4. Turn on the sensors you want. You have three options:
+   - Turn on individual sensors with their switches.
+   - Select **Enable all** next to a category heading, such as **Heart**, to turn on every sensor in that category.
+   - Turn on **Enable all Apple Health sensors** to turn on every sensor at once, then confirm.
+5. The Apple Health screen opens automatically. Allow access to the data types you want to share, then select **Allow**.
+
+Apple Health only asks once about each data type. If the Apple Health screen does not appear, select **Request Apple Health Access**. If you denied access before, change it in the iOS **Settings** app instead.
+
+:::note
+Apple never tells apps whether you allowed or denied access to health data. If you deny access to a data type, its sensor stays `unavailable` in Home Assistant instead of showing an error.
+:::
+
+To review or change what you shared, open the iOS **Settings** app, then go to **Privacy & Security** > **Health** > **Home Assistant**.
+
+### When Apple Health sensors update
+
+Apple Health sensors are read during the regular sensor updates described in [When sensors update](#when-sensors-update).
+
+In addition, iOS wakes the app when Apple Health records new data for a sensor you turned on, even when the app is not running. To avoid a flood of updates, for example during a workout where many data types are recorded at once, new data is grouped for a few seconds, and updates are sent at most once every 30 seconds.
+
+Values are calculated in one of four ways, depending on the sensor:
+
+- **Totals since midnight**: the sum of everything recorded since the start of the current day in your device's local time zone, such as your steps or the energy you burned. These reset each day.
+- **Most recent reading**: the newest recorded value within a lookback window, such as your weight or your last heart rate reading. The window is noted for each sensor in the lists below.
+- **Last night**: the time spent asleep, in bed, or in a sleep stage during your most recent night with sleep data in the last 7 days. A night runs from 6:00 PM to 6:00 PM the next day in your local time zone, so a nap during the day counts toward the night before it. The value stays the same all day and only changes when a new night is recorded.
+- **Activity rings**: the daily goals of the Fitness app's Move, Exercise, and Stand rings, and the hours counted toward the Stand ring, read from the activity summary Apple Health keeps for each day. In wheelchair mode, the Stand ring is the Roll ring, and the same sensors report rolling. Stand hours are today's and reset each day. Goals carry over from the most recent summary in the last 7 days, so they do not drop out overnight before the day's first data arrives. Changing a goal in the Fitness app records no new data, so the goal sensors do not wake the app; a changed goal appears on the next regular sensor update. The Exercise and Stand rings need an Apple Watch; without one, their sensors are `unavailable`. The Move goal is reported in kilocalories, so it is `unavailable` while the Move ring is set to move time instead of active energy.
+
+A sensor reports `unavailable` when Apple Health has no data for it within its window, or when you turn the sensor off. When the app cannot read Apple Health at all, which happens when your device is locked, the sensor keeps its previous value instead of becoming unavailable.
+
+### Activity sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.health_steps` | steps | Total steps taken since midnight. |
+| `sensor.walking_running_distance` | kilometers | Total walking and running distance since midnight. |
+| `sensor.active_energy` | kilocalories | Total active energy burned since midnight, excluding resting energy. |
+| `sensor.resting_energy` | kilocalories | Total resting energy burned since midnight, which is the energy your body uses at rest. |
+| `sensor.flights_climbed` | floors | Total flights of stairs climbed since midnight. |
+| `sensor.exercise_time` | minutes | Total exercise minutes since midnight, as calculated by Apple Health. |
+| `sensor.vo2_max` | milliliters per kilogram per minute | The last recorded VO2 max, which estimates your cardio fitness. Uses the last 365 days. |
+| `sensor.move_goal` | kilocalories | <span class='beta'>BETA</span> The daily Move goal of the Fitness app's Move ring. Requires app version 2026.11.0 or later. |
+| `sensor.exercise_goal` | minutes | <span class='beta'>BETA</span> The daily Exercise goal of the Fitness app's Exercise ring. Requires an Apple Watch and app version 2026.11.0 or later. |
+| `sensor.stand_hours` | hours | <span class='beta'>BETA</span> Hours since midnight with at least one minute of standing, as counted by the Fitness app's Stand ring, or of rolling for the Roll ring in wheelchair mode. Requires an Apple Watch and app version 2026.11.0 or later. |
+| `sensor.stand_goal` | hours | <span class='beta'>BETA</span> The daily Stand goal of the Fitness app's Stand ring, or Roll goal in wheelchair mode. Requires an Apple Watch and app version 2026.11.0 or later. |
+
+### Body measurement sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.weight` | kilograms | The last recorded weight. Uses the last 365 days. |
+| `sensor.body_fat_percentage` | percent | The last recorded body fat percentage. Uses the last 365 days. |
+| `sensor.lean_body_mass` | kilograms | The last recorded lean body mass, which is your weight without body fat. Uses the last 365 days. |
+| `sensor.height` | centimeters | The last recorded height. Uses the last 10 years. |
+
+### Heart sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.heart_rate` | beats per minute | The last recorded heart rate. Uses the last 24 hours. |
+| `sensor.resting_heart_rate` | beats per minute | The last recorded resting heart rate. Uses the last 7 days. |
+| `sensor.walking_heart_rate_average` | beats per minute | The last recorded average heart rate while walking. Uses the last 7 days. |
+| `sensor.heart_rate_variability` | milliseconds | The last recorded heart rate variability. Uses the last 7 days. |
+| `sensor.blood_pressure_systolic` | millimeters of mercury | The last recorded systolic blood pressure, which is the higher of the two numbers. Uses the last 30 days. |
+| `sensor.blood_pressure_diastolic` | millimeters of mercury | The last recorded diastolic blood pressure, which is the lower of the two numbers. Uses the last 30 days. |
+
+### Nutrition sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.water` | milliliters | Total water intake since midnight. |
+
+### Respiratory sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.respiratory_rate` | breaths per minute | The last recorded respiratory rate. Uses the last 7 days. |
+| `sensor.blood_oxygen` | percent | The last recorded blood oxygen level. Uses the last 7 days. |
+
+### Sleep sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.sleep_duration` | minutes | Total time asleep last night, across all sleep stages. |
+| `sensor.in_bed` | minutes | Total time in bed last night. |
+| `sensor.awake` | minutes | Time awake during last night's sleep. |
+| `sensor.core_sleep` | minutes | Time in core sleep last night. |
+| `sensor.deep_sleep` | minutes | Time in deep sleep last night. |
+| `sensor.rem_sleep` | minutes | Time in REM sleep last night. |
+
+`sensor.awake`, `sensor.core_sleep`, `sensor.deep_sleep`, and `sensor.rem_sleep` need a source that records sleep stages, such as an Apple Watch. If your sleep data comes from a source that does not record stages, these sensors report `unavailable`, while `sensor.sleep_duration` still reports the total time asleep.
+
+Apple Watch records sleep stages but not time in bed, so `sensor.in_bed` reports `unavailable` until a source records it. To record it, open the **Health** app, go to **Sleep** > **Options**, and turn on **Track Time in Bed with iPhone**. You can also use a sleep tracking app that records time in bed.
+
+### Vitals sensor list
+
+| Sensor | Unit | Description |
+| --------- | ---- | --------- |
+| `sensor.body_temperature` | degrees Celsius | The last recorded body temperature. Uses the last 7 days. |
+| `sensor.basal_body_temperature` | degrees Celsius | The last recorded basal body temperature, which is your temperature at rest. Uses the last 7 days. |
+| `sensor.blood_glucose` | milligrams per deciliter | The last recorded blood glucose reading. Uses the last 24 hours. |
+
 ## Audio sensors
 ![Android](/assets/android.svg) <br />
 These sensors use the [AudioManager API](https://developer.android.com/reference/kotlin/android/media/AudioManager?hl=en) to retrieve their state. Look at the table below to find out more about each sensor including how often they update.
 
 | Sensor | Attributes | Description |
 | --------- | --------- | --------- |
-| `audio_mode` | None | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `call_redirect`, `communication_redirect`, `in_call`, `in_communication` or `unknown`. This sensor will update during the normal interval. |
+| `audio_mode` | None | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `call_redirect`, `communication_redirect`, `in_call`, `in_communication`, `assistant_conversation` (<span class="beta">BETA</span>), or `unknown`. This sensor will update during the normal interval. |
 | `is_headphones` | None | Boolean value if headsets or headphones are plugged in, will update as soon as the device detects the change. |
 | `is_mic_muted` | None | Boolean value if the microphone is currently muted, Android 10+ will update as this value changes. |
 | `is_music_active` | None | Boolean value if the device is actively playing music, this sensor will update during the normal interval. |
@@ -264,6 +387,7 @@ The current device volume level for the given volume streams (`volume_level_*`).
 Possible volume streams are:
 * `accessibility`
 * `alarm`
+* `assistant` <span class="beta">BETA</span> (Android 17+)
 * `call`
 * `dtmf`
 * `music`
@@ -342,6 +466,46 @@ Settings are available to change scan period and interval which can be useful to
 A Monitor setting toggle will start or stop the scans - this setting can also be adjusted via the [notification command](../notifications/commands.md#beacon-monitor).
 
 When the app is actively scanning for beacons a notification will be shown to make background scanning more reliable. If you are on Android 8.0+ you are free to minimize and/or turn off the notification channel for the `Beacon Monitor Scanning`.
+
+## Camera motion sensor
+
+![iOS](/assets/iOS.svg)`binary_sensor.camera_motion` reports motion detected by the device's front camera, using a lightweight comparison between consecutive camera images. It is designed for wall-mounted tablets, for example to trigger automations when someone walks up to the device, and works together with the [kiosk mode screensaver](../integrations/ios-kiosk-mode.md#wake-on-camera-motion).
+
+This sensor is disabled by default so the camera never turns on without your explicit choice. When you enable it, iOS asks for camera permission and shows the camera indicator (a green dot) in the status bar while the camera runs. Like all camera use, the sensor only works while the app is open and in the foreground.
+
+You can adjust the detection in the sensor's settings, under **Settings** > **Companion app** > **Sensors** > **Camera Motion**:
+
+- **Frame rate**: How many images per second are analyzed, from 1 to 30 (default 8). Higher frame rates may impact performance and make the device run hotter.
+- **Changed area threshold**: How much of the image must change for it to count as motion, from 1% to 100% (default 40%). Lower values make the sensor more sensitive, but also more likely to react to lighting changes, like a TV or a light turning on.
+- **Clear delay**: How long without motion before the sensor turns off again, from 2 seconds to 5 minutes (default 15 seconds).
+
+| Attribute | Description |
+| --------- | ----------- |
+| `Frame Rate` | The configured detection frame rate. |
+| `Area Threshold (%)` | The configured changed area threshold. |
+| `Clear Delay (s)` | The configured clear delay. |
+| `Last Changed Ratio (%)` | How much of the image changed in the last analyzed frame. Useful to tune the threshold. |
+| `Last Motion` | When motion was last detected. |
+
+## Camera stream sensor
+
+![iOS](/assets/iOS.svg)`sensor.camera_stream` reports the status of the camera stream: `streaming` while at least one client is watching, `idle` otherwise. The sensor is only available while the camera stream is enabled.
+
+The camera stream turns the device's front camera into a camera you can view in Home Assistant: while it is enabled, the app runs a small MJPEG server on the device. To enable it, turn on the **Camera Stream** sensor in the app, under **Settings** > **Companion app** > **Sensors**. It is disabled by default, so the camera never turns on without your explicit choice. While the stream is enabled, the camera runs continuously (foreground only) and iOS shows the camera indicator (a green dot) in the status bar.
+
+To view the camera in Home Assistant, add the [MJPEG camera integration](https://www.home-assistant.io/integrations/mjpeg/) and use the address from the sensor's `Stream URL` attribute, for example `http://192.168.1.20:8090/camera`. The device and your Home Assistant server must be on the same network, and giving the device a fixed IP address (a DHCP reservation) is recommended.
+
+You can adjust the stream in the sensor's settings, under **Settings** > **Companion app** > **Sensors** > **Camera Stream**:
+
+- **Frame rate**: The stream frame rate, from 1 to 30 (default 15). Higher frame rates may impact performance and make the device run hotter.
+- **Stream port**: The port the server listens on (default 8090).
+- **Username** and **Password**: Optional credentials. When set, clients must authenticate to view the stream; enter the same credentials in the MJPEG camera integration. When left empty, anyone on your network can view the stream.
+
+| Attribute | Description |
+| --------- | ----------- |
+| `Stream URL` | The address to use in the MJPEG camera integration. |
+| `Port` | The configured port. |
+| `Clients` | The number of clients currently watching the stream. |
 
 ## Car sensors
 ![Android](/assets/android.svg)
@@ -459,10 +623,26 @@ This sensor will represent the state of Do Not Disturb (DND) on the device. The 
 
 
 ## Dynamic color sensor
+
 ![Android](/assets/android.svg) Only available on devices with support for Material 3 Dynamic color.
 
-This sensors state will be a hexadecimal color value for the accent color used in the current device theme. [Dynamic color](https://m3.material.io/styles/color/dynamic-color/overview) can either be derived from the wallpaper or chosen by the user. An attribute also exists for `rgb_color` in case you wanted to use this color in an automation for the [`light.turn_on`](https://www.home-assistant.io/integrations/light/#service-lightturn_on) service call. This sensor uses the [Dynamic Colors API](https://developer.android.com/reference/com/google/android/material/color/DynamicColors).
+This sensor uses the [Dynamic Colors API](https://developer.android.com/reference/com/google/android/material/color/DynamicColors).
 
+### Accent color sensor
+
+This sensor's state will be a hexadecimal color value for the accent color used in the current device theme. An attribute also exists for `rgb_color` in case you wanted to use this color in an automation for the [`light.turn_on`](https://www.home-assistant.io/integrations/light/#service-lightturn_on) service call.
+
+### Tonal palette sensor (<span class='beta'>BETA</span>)
+
+This sensor's state will be the name of the tonal palette used for generating the current device theme. Expected values are:
+
+- `TONAL_SPOT`
+- `VIBRANT`
+- `EXPRESSIVE`
+- `SPRITZ`
+- `MONOCHROMATIC`
+- `FRUIT_SALAD`
+- `RAINBOW`
 
 ## Doze sensor
 ![Android](/assets/android.svg)<br />
@@ -523,23 +703,44 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
 | `health_connect_active_calories_burned` | kilocalories | The last estimate for number of active calories burned, excluding basal metabolic rate (BMR). |
+| `health_connect_basal_body_temperature` | celsus | The last recorded basal body temperature. |
+| `health_connect_basal_metabolic_rate` | kilocalories per day | The last recorded basal metabolic rate. |
 | `health_connect_blood_glucose` | milligrams per deciliter | The last recorded blood glucose reading. |
 | `health_connect_body_fat` | percent | The last recorded body fat percentage. |
+| `health_connect_body_temperature` | celsius | The last recorded body temperature. |
+| `health_connect_body_water_mass` | grams | The last recorded body water mass. |
+| `health_connect_bone_mass` | grams | The last recorded bone mass. |
+| `health_connect_daily_distance` | meters | Total distance traveled since midnight. |
+| `health_connect_daily_elevation_gained` | meters | Total elevation gained since midnight. |
+| `health_connect_daily_floors` | floors | Total floors climbed since midnight. |
+| `health_connect_daily_hydration` | milliliters | Total hydration since midnight. |
+| `health_connect_daily_steps` | steps | Total steps taken since midnight. |
 | `health_connect_diastolic_blood_pressure` | millimeters of Mercury | The last recorded diastolic blood pressure. |
-| `health_connect_distance` | meters | Total distance traveled since midnight. |
-| `health_connect_elevation_gained` | meters | Total elevation gained since midnight. |
-| `health_connect_floors_climbed` | floors | Total floors climbed since midnight. |
 | `health_connect_heart_rate` | beats per minute | The last recorded heart rate. |
 | `health_connect_heart_rate_variability` | milliseconds | The last recorded heart rate variability. |
+| `health_connect_height` | meters | The last recorded height. |
+| `health_connect_lean_body_mass` | grams | The last recorded lean body mass. |
 | `health_connect_oxygen_saturation` | percent | The last recorded oxygen saturation percentage. |
 | `health_connect_respiratory_rate` | breaths per minute | The last recorded respiratory rate. |
 | `health_connect_resting_heart_rate` | beats per minute | The last recorded resting heart rate. |
 | `health_connect_sleep_duration` | minutes | The last recorded sleep duration. |
-| `health_connect_steps` | steps | Total steps taken since midnight. |
+| `health_connect_sleep_start` | timestamp | <span class='beta'>BETA</span> The start time of the last recorded sleep session. |
+| `health_connect_sleep_end` | timestamp | <span class='beta'>BETA</span> The end time of the last recorded sleep session. |
+| `health_connect_sleep_light_duration` | minutes | <span class='beta'>BETA</span> The amount of light sleep in the last recorded sleep session. |
+| `health_connect_sleep_deep_duration` | minutes | <span class='beta'>BETA</span> The amount of deep sleep in the last recorded sleep session. |
+| `health_connect_sleep_rem_duration` | minutes | <span class='beta'>BETA</span> The amount of rapid eye movement (REM) sleep in the last recorded sleep session. |
+| `health_connect_sleep_awake_duration` | minutes | <span class='beta'>BETA</span> The amount of awake time in the last recorded sleep session. |
+| `health_connect_sleep_awake_in_bed_duration` | minutes | <span class='beta'>BETA</span> The amount of awake-in-bed time in the last recorded sleep session. |
+| `health_connect_sleep_out_of_bed_duration` | minutes | <span class='beta'>BETA</span> The amount of out-of-bed time in the last recorded sleep session. |
+| `health_connect_sleep_unspecified_duration` | minutes | <span class='beta'>BETA</span> The amount of sleeping time without a more specific sleep stage in the last recorded sleep session. |
+| `health_connect_sleep_unknown_duration` | minutes | <span class='beta'>BETA</span> The amount of time with an unknown sleep stage in the last recorded sleep session. |
 | `health_connect_systolic_blood_pressure` | millimeters of Mercury | The last recorded systolic blood pressure. |
 | `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
 | `health_connect_vo2_max` | milliliters per minute per kilogram | The last recorded VO2 max score. |
 | `health_connect_weight` | grams | The last recorded weight. |
+
+
+The `health_connect_sleep_duration` sensor also provides a sleep stage timeline through the `stageTypes`, `stageStartTimes`, and `stageEndTimes` attributes. These are parallel lists: entries at the same index identify a sleep stage and its corresponding start and end timestamps in ISO 8601 format. The timeline can be used to visualize sleep stages or analyze transitions between stages.
 
 ## High accuracy mode
 ![Android](/assets/android.svg) This sensors state will reflect if the device has [high accuracy mode](location.md#high-accuracy-mode) currently enabled or not. This sensor will update as soon as the state of high accuracy mode changes, the sensor will not appear until high accuracy mode is enabled for the first time.
@@ -556,6 +757,20 @@ Using the [History Stats Integration](https://www.home-assistant.io/integrations
 ![Android](/assets/android.svg)
 
 These sensors will reflect various states from the [Keyguard Manager](https://developer.android.com/reference/android/app/KeyguardManager). You will be able to determine if the device is actively locked, has a password setup or even if the device requires a password to unlock. These sensors will update with the periodic sensor interval.
+
+## Kiosk sensors
+![iOS](/assets/iOS.svg)<br />
+[Kiosk mode](../integrations/ios-kiosk-mode.md) adds sensors so automations can react to the state of the kiosk device.
+
+The `binary_sensor.kiosk_mode` sensor reports whether the device is currently acting as a kiosk (`on`) or running the app normally (`off`).
+
+The other kiosk sensors provide details about the device while it is in kiosk mode. When you turn on kiosk mode, the app enables them. When you turn off kiosk mode, the app disables them, because they don't provide reliable data outside kiosk mode. Their entities are then disabled in Home Assistant, instead of showing `unavailable`.
+
+| Sensor | Description |
+| ------ | ----------- |
+| `sensor.kiosk_brightness` | The current screen brightness, as a percentage. |
+| `binary_sensor.kiosk_screensaver` | `on` while the screensaver is visible on screen, `off` when it is not. |
+| `sensor.kiosk_volume` | The current device output volume, as a percentage. |
 
 ## Last reboot sensor
 ![Android](/assets/android.svg)<br />
