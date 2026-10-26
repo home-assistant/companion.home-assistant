@@ -936,7 +936,7 @@ On a folding iPhone, this sensor reports how the device is being held, worked ou
 - `closed`: the device is folded shut.
 - `book`: partially open and held upright, like a book.
 - `laptop`: partially open on its side, with one half resting flat and the other upright.
-- <span class="beta">BETA</span> `tent`: partially open on its side, standing on both edges with the hinge on top.
+- <span class="beta">BETA</span> `tent`: partially open and standing on both edges with the hinge on top, however wide it is open.
 - `partially_open`: partially open in any other position.
 - <span class="beta">BETA</span> `flat_portrait`: fully open and held upright, with the screen taller than it is wide.
 - <span class="beta">BETA</span> `flat_landscape`: fully open and held upright, with the screen wider than it is tall.
