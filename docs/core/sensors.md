@@ -61,6 +61,8 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
 | `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
+| `sensor.hinge_angle` | `status` | How far a folding iPhone is open, in degrees. Only updates while the app is open. [See Below](#hinge-sensors) |
+| `sensor.hinge_status` | `angle` | Whether a folding iPhone is closed, partially open, or fully open. Only updates while the app is open. [See Below](#hinge-sensors) |
 | [Kiosk sensors](#kiosk-sensors) | None | Sensors added by [Kiosk mode](../integrations/ios-kiosk-mode.md) that report the state of the kiosk device. |
 | `sensor.location_permission` | None | The current location permission that was selected by the user. The permission can be set via the location permission popup or modified in the iOS settings. |
 | `sensor.pose` | None | How a folding iPhone is being held. Only updates while the app is open. [See Below](#pose-sensor) |
@@ -747,6 +749,21 @@ The `health_connect_sleep_duration` sensor also provides a sleep stage timeline 
 
 ## High accuracy update interval
 ![Android](/assets/android.svg) This sensors state will reflect the update interval for the device in seconds for [high accuracy mode](location.md#high-accuracy-mode). This sensor will update as soon as the value changes either manually or by the [notification command](../notifications/commands.md#high-accuracy-mode).
+
+## Hinge sensors
+![iOS](/assets/iOS.svg)<br />
+On a folding iPhone, these sensors report the position of the hinge. They only update while the app is open. On an iPhone that does not fold, they are not available.
+
+The `sensor.hinge_angle` sensor reports how far the device is open, in degrees, rounded to one decimal place. Its `status` attribute holds the current state of `sensor.hinge_status`.
+
+The `sensor.hinge_status` sensor reports how far open the system considers the device. Its `angle` attribute holds the current angle in degrees. Possible states:
+
+- `closed`: the device is folded shut.
+- `partially_open`: the device is open, but not as far as it goes.
+- `fully_open`: the device is open as far as it goes.
+- `unknown`: the system cannot tell how far the hinge is open.
+
+To also know how the device is being held, such as upright like a book or on its side like a laptop, use the [Pose sensor](#pose-sensor).
 
 ## Interactive sensor
 ![Android](/assets/android.svg) This sensors state will reflect if the device is in an interactive state. This is typically when the screen comes on and off but may vary from device to device. This sensor will update as soon state changes are detected, data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
