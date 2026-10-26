@@ -53,6 +53,7 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | `sensor.distance` | None | The estimated distance walked by the user since midnight local time. Units: meters, m |
 | `sensor.floors_ascended` | None | The approximate number of floors ascended by walking since midnight local time. |
 | `sensor.floors_descended` | None | The approximate number of floors descended by walking. Since |
+| `sensor.pose` | None | How a folding iPhone is being held. Only updates while the app is open. [See Below](#pose-sensor) |
 | `sensor.location_permission` | None | The current location permission that was selected by the user. The permission can be set via the location permission popup or modified in the iOS settings. |
 | `sensor.sim_1` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
 | `sensor.sim_2` | [See Below](#cellular-provider-sensor) | Name of your cellular provider. |
@@ -711,6 +712,22 @@ This sensor will only show up if a user explicitly grants the `Phone` permission
 ![Android](/assets/android.svg)<br />
 
 A sensor that represents the cellular signal strength in dBm provided by the SIM slot. Attributes will exist for signal quality and also Arbritary Strength Units. Due to power saving this data may not always be current. Data is provided by [TelephonyManager](https://developer.android.com/reference/android/telephony/TelephonyManager?hl=en).
+
+
+## Pose sensor
+![iOS](/assets/iOS.svg)<br />
+On a folding iPhone, this sensor reports how the device is being held, worked out from its hinge and orientation. It only updates while the app is open. Possible states:
+
+- `closed`: the device is folded shut.
+- `book`: partially open and held upright, like a book.
+- `laptop`: partially open on its side, with one half resting flat and the other upright.
+- <span class="beta">BETA</span> `tent`: partially open on its side, standing on both edges with the hinge on top.
+- `partially_open`: partially open in any other position.
+- <span class="beta">BETA</span> `flat_portrait`: fully open and held upright, with the screen taller than it is wide.
+- <span class="beta">BETA</span> `flat_landscape`: fully open and held upright, with the screen wider than it is tall.
+- `flat`: fully open and lying face up.
+- `flat_face_down`: fully open and lying face down.
+- `unknown`: the system cannot tell how far the hinge is open.
 
 
 ## Power save sensor
