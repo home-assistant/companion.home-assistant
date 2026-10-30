@@ -670,6 +670,39 @@ On iOS, `notification_icon` instead sets the icon of a communication notificatio
             notification_icon: "mdi:cellphone"
 ```
 
+### Conversation notification icon
+
+![Android](/assets/android.svg) <span class='beta'>BETA</span><br />
+
+On Android 11 and later, `notification_style: conversation` opts a text notification into Android's conversation presentation. The `notification_icon` becomes the sender avatar. On Pixel devices where ordinary notifications show the app icon on the left, this can show your custom icon there, with a smaller Home Assistant badge. The exact layout depends on Android and the device manufacturer.
+
+Provide a `title` that remains nonempty after text formatting, a stable `tag`, and a valid `mdi:` `notification_icon`. The title names the sender, `color` sets the avatar background, and `notification_icon_color` sets the glyph color (white by default).
+
+<img alt="Dishwasher conversation notification on a Pixel, with a teal appliance icon on the left and a small Home Assistant debug badge" src="/assets/notifications/android-conversation-light.png" width="468" />
+
+On iOS, use [Notification icon and color](#notification-icon-and-color) instead; `notification_style` is an Android option.
+
+```yaml
+action: notify.mobile_app_<your_device_id_here>
+data:
+  title: "Dishwasher"
+  message: "The cycle has finished"
+  data:
+    notification_style: conversation
+    tag: dishwasher
+    notification_icon: "mdi:dishwasher"
+    notification_icon_color: "#FFFFFF"
+    color: "#009688"
+```
+
+Reuse the same tag for the same topic. This replaces the previous notification and reuses its conversation shortcut. Existing notification actions, `clickAction`, grouping, and `clear_notification` continue to work. The shortcut itself opens the server's default dashboard.
+
+:::info
+This changes how Android categorizes the notification, not just its icon. Android can show it in conversation settings and expose its long-lived shortcut in launcher or other system surfaces. Conversation shortcuts are scoped to the server and tag. Inactive dynamic shortcuts are retired when another conversation notification arrives; Android may retain cached conversations and their settings.
+
+The app keeps the ordinary notification style if a required field is missing or invalid, if the sending server cannot be identified, if Android's shortcut limit or rate limit prevents publication, or if the notification also uses `image`, `video`, `icon_url`, `subject`, progress, a chronometer, `live_update`, or `car_ui`. This style is unavailable on Android Automotive, Meta Quest, and Android versions older than 11. Existing launcher shortcuts are not evicted to make room. Saving a launcher shortcut can retire a conversation's dynamic shortcut to free a slot; Android may retain its cached conversation and settings.
+:::
+
 ### Android Auto visibility
 
 By default Home Assistant notifications do not show up in the Android Auto interface. By adding `car_ui: true`, notifications will become visible and opening them from Android Auto will start the driving interface. For more details on how notifications work in Android Auto, [review the Android Auto documentation](../android-auto/android-auto.md#notifications).
