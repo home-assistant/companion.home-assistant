@@ -676,7 +676,7 @@ On iOS, `notification_icon` instead sets the icon of a communication notificatio
 
 On Android 11 and later, `notification_style: conversation` opts a text notification into Android's conversation presentation. The `notification_icon` becomes the sender avatar. On Pixel devices where ordinary notifications show the app icon on the left, this can show your custom icon there, with a smaller Home Assistant badge. The exact layout depends on Android and the device manufacturer.
 
-Provide a nonempty `title`, a stable `tag`, and a valid `mdi:` `notification_icon`. The title names the sender, `color` sets the avatar background, and `notification_icon_color` sets the glyph color (white by default).
+Provide a `title` that remains nonempty after text formatting, a stable `tag`, and a valid `mdi:` `notification_icon`. The title names the sender, `color` sets the avatar background, and `notification_icon_color` sets the glyph color (white by default).
 
 <img alt="Dishwasher conversation notification on a Pixel, with a teal appliance icon on the left and a small Home Assistant debug badge" src="/assets/notifications/android-conversation-light.png" width="468" />
 
@@ -700,7 +700,7 @@ Reuse the same tag for the same topic. This replaces the previous notification a
 :::info
 This changes how Android categorizes the notification, not just its icon. Android can show it in conversation settings and expose its long-lived shortcut in launcher or other system surfaces. Conversation shortcuts are scoped to the server and tag. Inactive dynamic shortcuts are retired when another conversation notification arrives; Android may retain cached conversations and their settings.
 
-The app keeps the ordinary notification style if a required field is missing or invalid, if Android's shortcut limit or rate limit prevents publication, or if the notification also uses `image`, `video`, `icon_url`, `subject`, progress, a chronometer, `live_update`, or `car_ui`. This style is unavailable on Android Automotive, Meta Quest, and Android versions older than 11. Existing launcher shortcuts are not evicted to make room.
+The app keeps the ordinary notification style if a required field is missing or invalid, if the sending server cannot be identified, if Android's shortcut limit or rate limit prevents publication, or if the notification also uses `image`, `video`, `icon_url`, `subject`, progress, a chronometer, `live_update`, or `car_ui`. This style is unavailable on Android Automotive, Meta Quest, and Android versions older than 11. Existing launcher shortcuts are not evicted to make room. Saving a launcher shortcut can retire a conversation's dynamic shortcut to free a slot; Android may retain its cached conversation and settings.
 :::
 
 ### Android Auto visibility
