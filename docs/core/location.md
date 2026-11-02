@@ -77,7 +77,7 @@ Options available:
 - **Exact** sends the GPS coordinates of your device.
 - **Zone Name Only** sends just the zone name (or `not_home`), which can be useful for presence detection without exposing location. Only zones for the server in question are considered.
 
-  Starting with app version 2026.6.0 on iOS and Android, all matching zones are reported (not just one) when your Home Assistant Core version is 2026.6.0 or later. This includes [passive zones](https://www.home-assistant.io/integrations/zone/#passive), which were previously excluded. On older Core versions, a single non-passive zone name continues to be sent for backward compatibility.
+  All matching zones are reported (not just one) when your Home Assistant Core version is 2026.6.0 or later. This includes [passive zones](https://www.home-assistant.io/integrations/zone/#passive), which were previously excluded. On older Core versions, a single non-passive zone name continues to be sent for backward compatibility.
 - **![iOS](/assets/iOS.svg) Never** or **![Android](/assets/android.svg) Disabled** will not send GPS coordinates nor zone information.
 
 ## Location tracking when outside a Home Assistant zone
