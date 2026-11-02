@@ -1,9 +1,9 @@
 ---
-title: "Android Media Controls"
+title: "Android Media controls"
 id: 'android-media-controls'
 ---
 
-![Android](/assets/android.svg) <span class='beta'>BETA</span>
+![Android](/assets/android.svg)
 
 The Android app can show your Home Assistant `media_player` entities as native media controls in the notification shade, the same controls used by apps like Spotify or YouTube Music. You can control playback without opening the app.
 
