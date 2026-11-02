@@ -9,9 +9,13 @@ The Android app can show your Home Assistant `media_player` entities as native m
 
 <img src='/assets/android/media_controls.jpg' alt='Media control of a Home Assistant media player in the Android notification shade' width='400' />
 
+:::note
+The output indicator in the top right corner of the media control will show **This phone**, even though the media plays on the media player. You cannot play the media player's media on the device running the app.
+:::
+
 ## Setup
 
-1. In the Home Assistant app, go to **Settings** > **Companion App** > **Media controls**.
+1. In the Home Assistant app, go to **Settings** > **Companion app** > **Media controls**.
 2. If you have multiple servers, select the server of the media player.
 3. Tap **Add media player** and select a `media_player` entity.
 4. Repeat step 3 for each media player you want to control.
@@ -32,15 +36,12 @@ The media control shows the title, artist and artwork of the current media, and 
 - **Volume**: change the volume of the media player with Android's volume controls
 - **Mute**: mute or unmute the media player
 
-Controls the media player does not support are not shown. Tapping the media control opens the media player's more-info dialog in the app.
+Controls the media player does not support are not shown. Tapping the media control opens the media player in the app.
 
-## When the media control is shown
+:::tip
+The media controls reflect what Home Assistant reports. If the progress bar or the shuffle and repeat state look wrong, compare with the media player's state in Home Assistant before opening an issue.
+:::
 
-The media control is shown while the media player is playing, paused, buffering or idle. It is hidden while the media player is off, and comes back when it turns on again.
+## When the media controls are shown
 
-The media control is also shown on the lock screen.
-
-## Notes and limitations
-
-- The media control reflects what Home Assistant reports. If the progress bar or the shuffle and repeat state look wrong, compare with the media player's more-info dialog in Home Assistant before opening an issue.
-- The output indicator in the top right corner of the media control shows **This phone**, even though the media plays on the media player.
+The media controls are shown while the media player is playing, paused, buffering or idle. It is hidden while the media player is off, and comes back when it turns on again.
