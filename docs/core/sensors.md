@@ -371,7 +371,7 @@ These sensors use the [AudioManager API](https://developer.android.com/reference
 
 | Sensor | Attributes | Description |
 | --------- | --------- | --------- |
-| `audio_mode` | None | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `call_redirect`, `communication_redirect`, `in_call`, `in_communication`, `assistant_conversation` (<span class="beta">BETA</span>), or `unknown`. This sensor will update during the normal interval. |
+| `audio_mode` | None | The current audio mode of the device can be either: `normal`, `ringing` (identical to [phone sensor](#phone-state-sensor)), `call_redirect`, `communication_redirect`, `in_call`, `in_communication`, `assistant_conversation`, or `unknown`. This sensor will update during the normal interval. |
 | `is_headphones` | None | Boolean value if headsets or headphones are plugged in, will update as soon as the device detects the change. |
 | `is_mic_muted` | None | Boolean value if the microphone is currently muted, Android 10+ will update as this value changes. |
 | `is_music_active` | None | Boolean value if the device is actively playing music, this sensor will update during the normal interval. |
@@ -386,7 +386,7 @@ The current device volume level for the given volume streams (`volume_level_*`).
 Possible volume streams are:
 * `accessibility`
 * `alarm`
-* `assistant` <span class="beta">BETA</span> (Android 17+)
+* `assistant` (Android 17+)
 * `call`
 * `dtmf`
 * `music`
@@ -631,7 +631,7 @@ This sensor uses the [Dynamic Colors API](https://developer.android.com/referenc
 
 This sensor's state will be a hexadecimal color value for the accent color used in the current device theme. An attribute also exists for `rgb_color` in case you wanted to use this color in an automation for the [`light.turn_on`](https://www.home-assistant.io/integrations/light/#service-lightturn_on) service call.
 
-### Tonal palette sensor (<span class='beta'>BETA</span>)
+### Tonal palette sensor
 
 This sensor's state will be the name of the tonal palette used for generating the current device theme. Expected values are:
 
@@ -723,16 +723,16 @@ These sensors will reflect health and fitness data stored by other apps on your 
 | `health_connect_respiratory_rate` | breaths per minute | The last recorded respiratory rate. |
 | `health_connect_resting_heart_rate` | beats per minute | The last recorded resting heart rate. |
 | `health_connect_sleep_duration` | minutes | The last recorded sleep duration. |
-| `health_connect_sleep_start` | timestamp | <span class='beta'>BETA</span> The start time of the last recorded sleep session. |
-| `health_connect_sleep_end` | timestamp | <span class='beta'>BETA</span> The end time of the last recorded sleep session. |
-| `health_connect_sleep_light_duration` | minutes | <span class='beta'>BETA</span> The amount of light sleep in the last recorded sleep session. |
-| `health_connect_sleep_deep_duration` | minutes | <span class='beta'>BETA</span> The amount of deep sleep in the last recorded sleep session. |
-| `health_connect_sleep_rem_duration` | minutes | <span class='beta'>BETA</span> The amount of rapid eye movement (REM) sleep in the last recorded sleep session. |
-| `health_connect_sleep_awake_duration` | minutes | <span class='beta'>BETA</span> The amount of awake time in the last recorded sleep session. |
-| `health_connect_sleep_awake_in_bed_duration` | minutes | <span class='beta'>BETA</span> The amount of awake-in-bed time in the last recorded sleep session. |
-| `health_connect_sleep_out_of_bed_duration` | minutes | <span class='beta'>BETA</span> The amount of out-of-bed time in the last recorded sleep session. |
-| `health_connect_sleep_unspecified_duration` | minutes | <span class='beta'>BETA</span> The amount of sleeping time without a more specific sleep stage in the last recorded sleep session. |
-| `health_connect_sleep_unknown_duration` | minutes | <span class='beta'>BETA</span> The amount of time with an unknown sleep stage in the last recorded sleep session. |
+| `health_connect_sleep_start` | timestamp | The start time of the last recorded sleep session. |
+| `health_connect_sleep_end` | timestamp | The end time of the last recorded sleep session. |
+| `health_connect_sleep_light_duration` | minutes | The amount of light sleep in the last recorded sleep session. |
+| `health_connect_sleep_deep_duration` | minutes | The amount of deep sleep in the last recorded sleep session. |
+| `health_connect_sleep_rem_duration` | minutes | The amount of rapid eye movement (REM) sleep in the last recorded sleep session. |
+| `health_connect_sleep_awake_duration` | minutes | The amount of awake time in the last recorded sleep session. |
+| `health_connect_sleep_awake_in_bed_duration` | minutes | The amount of awake-in-bed time in the last recorded sleep session. |
+| `health_connect_sleep_out_of_bed_duration` | minutes | The amount of out-of-bed time in the last recorded sleep session. |
+| `health_connect_sleep_unspecified_duration` | minutes | The amount of sleeping time without a more specific sleep stage in the last recorded sleep session. |
+| `health_connect_sleep_unknown_duration` | minutes | The amount of time with an unknown sleep stage in the last recorded sleep session. |
 | `health_connect_systolic_blood_pressure` | millimeters of Mercury | The last recorded systolic blood pressure. |
 | `health_connect_total_calories_burned` | kilocalories | Total amount of calories burned since midnight, including active & basal energy burned (BMR). |
 | `health_connect_vo2_max` | milliliters per minute per kilogram | The last recorded VO2 max score. |
