@@ -244,7 +244,7 @@ The watch can tell you exactly what happened on the last refresh.
 A complication you built can also be used outside your watch face:
 
 - **On your watch home screen.** Add a **Complication** item to show a rectangular complication inline in your item list. See [Adding items](./home.md#adding-items).
-- **On your iPhone lock screen.** The **Details** widget can mirror a rectangular complication, and the **Gauge** widget can mirror a circular one. Choose **Complication** as the widget's source. See [Gauge widget](../integrations/iOS-widgets.md#gauge-widget) and [Details](../integrations/iOS-widgets.md#details).
+- **On your iPhone lock screen.** The **Details** widget can mirror a rectangular complication, and the **Gauge** widget can mirror a circular one. Choose **Complication** as the widget's source. See [Gauge sources](../integrations/iOS-widgets.md#gauge-sources) and [Details sources](../integrations/iOS-widgets.md#details-sources).
 
 This means you can build a gauge once and reuse it on your watch face, in your watch app, and on your iPhone lock screen.
 
