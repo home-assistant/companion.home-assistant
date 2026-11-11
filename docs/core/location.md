@@ -59,6 +59,9 @@ The newly created `device_tracker` entity may provide some of the following attr
 | `speed`             | meters per second                  |
 | `vertical_accuracy` | meters                             |
 | `floor`             | floors ![iOS](/assets/iOS.svg)     |
+| `location_time`     | date and time <span class="beta">BETA</span> |
+
+`location_time` is when your device obtained the reported location, which can be earlier than when Home Assistant received it (for example, when the operating system delivers a cached or deferred location). Compare it with the time you asked for a fresh location to tell whether a report is new. <span class="beta">BETA</span> It is sent by the app when your Home Assistant Core version is 2026.11.0 or later and **Location Sent** is set to **Exact**.
 
 If you want to know more about the specifics of these attributes, please refer to the relevant documentation of your operating system:
 
