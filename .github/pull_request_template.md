@@ -45,7 +45,20 @@ Select exactly one option that describes AI usage in this contribution:
 <!--
   Provide any additional context or details that may help maintainers review your PR. 
   Include links to relevant files, pull requests, or issues where applicable.
+
+  Under "This PR belongs together with", list the pull requests that are
+  part of the same change, in any repository: the code this documents, its
+  documentation or brands, or code that has to be merged together with it.
+  One pull request fits on the line itself; list several as indented
+  bullets below it, as `owner/repo#number` or a link:
+
+  - This PR belongs together with:
+    - home-assistant/core#12345
+    - home-assistant/home-assistant.io#67890
+
+  List this pull request on theirs too. Mention other pull requests and
+  issues, like one this builds on or a revert, in the proposed change above.
 -->
 
-- This PR fixes or closes issue: Fixes #
-- Link to relevant existing code or pull request: 
+- This PR fixes or closes issue: fixes #
+- This PR belongs together with: 
