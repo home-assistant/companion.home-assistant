@@ -41,6 +41,8 @@ You may set the checkbox "Require authentication". If it is set, device credenti
 6.  Supply a name and icon for the widget
 7.  Save the widget
 
+<span class='beta'>BETA</span> You can also add this widget from an entity's **Add to** menu by selecting **Add entity action to home screen**. The action and entity are filled in for you.
+
 ### Entity State
 
 This widget will be updated when the entity state changes or when it is manually refreshed. This widget will allow the user to select any entity they wish to get the state and an attribute from as well as setting the text size and adding a custom separator between the state and attributes.
