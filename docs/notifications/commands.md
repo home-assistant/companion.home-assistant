@@ -13,7 +13,7 @@ The Companion apps offer a lot of different notification options. In place of po
 | `clear_badge` | Silently removes the badge from the App icon without displaying a notification. |
 | `clear_notification` | Removes a notification or a live activity, [more details](basic.md#clearing). |
 | `update_complications` | Updates the complications on a paired Apple Watch. [More details](/apple-watch/complications.md). |
-| `update_widgets`* | Updates 'Gauge' and 'Details' widgets introduced on App v2024.7 (iOS will decide if the update is allowed or not, so don't worry if it doesn't work all the time). |
+| `update_widgets`* | Reloads the iOS widgets that show Home Assistant data. iOS decides whether the reload is allowed, so it might not happen every time. [More details](../integrations/iOS-widgets.md#how-often-widgets-update). |
 | `kiosk_show_screensaver` | Shows the kiosk screensaver. Only works while the app is open, [see below](#kiosk-mode-commands). Requires screensaver enabled in kiosk settings. |
 | `kiosk_hide_screensaver` | Hides the kiosk screensaver. Only works while the app is open, [see below](#kiosk-mode-commands). |
 | `kiosk_set_screensaver_mode` | Sets the screensaver mode (requires `mode`). Only works while the app is open, [see below](#kiosk-mode-commands). |
@@ -847,7 +847,7 @@ On Android you can control the device\'s volume level by sending `message: comma
 | `notification_stream` | Set the volume level for the notification stream. |
 | `ring_stream` | Set the volume level for the ring stream. |
 | `system_stream` | Set the volume level for the system stream. |
-| `assistant_stream` | <span class="beta">BETA</span> Set the volume level for the assistant stream. Only available on Android 17+ and requires the app to be set as the default assistant. |
+| `assistant_stream` | Set the volume level for the assistant stream. Only available on Android 17+ and requires the app to be set as the default assistant. |
 | Anything else | The notification will post as a normal notification and the command will not process. |
 <br />
 
