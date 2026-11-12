@@ -12,6 +12,10 @@ To view and change your gestures, go to [Settings](https://my.home-assistant.io/
 For Android devices: if your device has gestures that work in any app, such as for screenshots, they may override Home Assistant gestures.
 :::
 
+:::tip
+<span class='beta'>BETA</span> One-finger gestures from the edge on Android are only supported when using button navigation. If you use gesture navigation, they are not available as the system back gesture will be triggered when swiping from the edge.
+:::
+
 ## Available actions
 
  - **None**: Disable the gesture.
