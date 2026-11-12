@@ -451,11 +451,15 @@ On Android 15 and newer, Android will keep track of which apps are enabling/disa
 | `command` | Description |
 | ------- | ----------- |
 | `alarms_only` | Alarms only interruption filter - all notifications except those in the alarm category are suppressed. Some audio streams are muted. |
+| `mode_off` | <span class='beta'>BETA</span> Turn off the [Home Assistant mode](../core/sensors.md#home-assistant-mode-sensor). |
+| `mode_on` | <span class='beta'>BETA</span> Turn on the [Home Assistant mode](../core/sensors.md#home-assistant-mode-sensor), adding it to your device if it isn't there yet. |
 | `off` | Normal interruption filter - no notifications are suppressed. |
 | `priority_only` | Priority interruption filter - all notifications are suppressed except those that match the priority criteria. Some audio streams are muted. |
 | `total_silence` | No interruptions filter - all notifications are suppressed and all audio streams (except those used for phone calls) and vibrations are muted. |
 | Anything else | The notification will post as a normal notification and the command will not process. |
 <br />
+
+`mode_on` and `mode_off` turn the Home Assistant mode on and off like tapping the mode on your device, also after you changed it by hand. They don't change Do Not Disturb or your other modes. They only work on Android 15 or newer on devices with Modes, and other devices ignore them. If an automation should leave a manual change alone, use the [Home Assistant mode sensor](../core/sensors.md#home-assistant-mode-sensor) as a condition.
 
 ```yaml
 automation:
