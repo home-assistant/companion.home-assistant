@@ -129,6 +129,7 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | [Health Connect Sensors](#health-connect-sensors) | Varies | Health and fitness data stored by other apps on your device in Health Connect. |
 | `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
 | `sensor.high_accuracy_update_interval` | None | The update interval for high accuracy mode on the device. |
+| `binary_sensor.home_assistant_mode` | [See Below](#home-assistant-mode-sensor) | <span class='beta'>BETA</span> Whether the Home Assistant mode on the device is on. |
 | [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
 | `sensor.last_update` | None | The state will reflect the intent that caused the last update to get sent. |
@@ -746,6 +747,12 @@ The `health_connect_sleep_duration` sensor also provides a sleep stage timeline 
 
 ## High accuracy update interval
 ![Android](/assets/android.svg) This sensors state will reflect the update interval for the device in seconds for [high accuracy mode](location.md#high-accuracy-mode). This sensor will update as soon as the value changes either manually or by the [notification command](../notifications/commands.md#high-accuracy-mode).
+
+## Home Assistant mode sensor
+<span class='beta'>BETA</span> ![Android](/assets/android.svg) 15+ only, on devices with Modes<br />
+Enabling this sensor adds a mode named **Home Assistant** to the Modes of your device, and the sensor reports whether that mode is on. Unlike Do Not Disturb, you can turn this mode on and off yourself from **Settings** > **Modes** or Quick Settings, and Home Assistant can turn it on and off with the [Do Not Disturb notification command](../notifications/commands.md#do-not-disturb). For example, an automation can react when you turn the mode on as you go to sleep.
+
+Enabling the sensor requires Do Not Disturb access. What the mode silences is set on the mode's page in **Settings** > **Modes**, which also links to this sensor's settings in the app. Disabling the sensor keeps the mode on your device. To remove the mode, delete it in **Settings** > **Modes**. This also disables the sensor.
 
 ## Interactive sensor
 ![Android](/assets/android.svg) This sensors state will reflect if the device is in an interactive state. This is typically when the screen comes on and off but may vary from device to device. This sensor will update as soon state changes are detected, data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
