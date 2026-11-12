@@ -129,6 +129,7 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | [Health Connect Sensors](#health-connect-sensors) | Varies | Health and fitness data stored by other apps on your device in Health Connect. |
 | `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
 | `sensor.high_accuracy_update_interval` | None | The update interval for high accuracy mode on the device. |
+| `sensor.hinge_status` | None | <span class='beta'>BETA</span> Whether a foldable device is closed, partially open, or fully open. [See Below](#hinge-sensors) |
 | [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
 | `sensor.last_update` | None | The state will reflect the intent that caused the last update to get sent. |
@@ -746,6 +747,17 @@ The `health_connect_sleep_duration` sensor also provides a sleep stage timeline 
 
 ## High accuracy update interval
 ![Android](/assets/android.svg) This sensors state will reflect the update interval for the device in seconds for [high accuracy mode](location.md#high-accuracy-mode). This sensor will update as soon as the value changes either manually or by the [notification command](../notifications/commands.md#high-accuracy-mode).
+
+## Hinge sensors
+On a foldable device, these sensors report the position of the hinge. On a device that does not fold, they are not available.
+
+![Android](/assets/android.svg) <span class="beta">BETA</span> On Android 11 and later, the `sensor.hinge_status` sensor updates as soon as the device is folded or unfolded, even when the app is in the background. It uses the [WindowInfoTracker API](https://developer.android.com/reference/androidx/window/layout/WindowInfoTracker).
+
+The `sensor.hinge_status` sensor reports how far open the system considers the device. Possible states:
+
+- `closed`: the device is folded shut.
+- `partially_open`: the device is open, but not as far as it goes.
+- `fully_open`: the device is open as far as it goes.
 
 ## Interactive sensor
 ![Android](/assets/android.svg) This sensors state will reflect if the device is in an interactive state. This is typically when the screen comes on and off but may vary from device to device. This sensor will update as soon state changes are detected, data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
