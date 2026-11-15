@@ -403,7 +403,9 @@ actions:
       entity_id: media_player.living_room
 ```
 
-Include `actions` on each update that should show buttons. An update with an empty or omitted list removes them. The list uses the first three valid, unique identifiers. Action identifiers can use up to 64 UTF-8 bytes and titles and icons can use up to 96 bytes. Use the `url` field for navigation.
+Include `actions` on each update that should show buttons. An update with an empty or omitted list removes them. The list uses the first three valid, unique identifiers. Action identifiers can use up to 64 UTF-8 bytes and titles and icons can use up to 96 bytes. iOS limits the total size of a Live Activity payload. With large payloads, buttons at the end of the list may be omitted. Use the `url` field for navigation.
+
+If you have multiple Home Assistant servers, give each activity a distinct tag. An update from a different server cannot add buttons to an existing card. A card that was started without a server association needs to be cleared and started again before it can show buttons.
 
 #### Opening a page on tap
 
