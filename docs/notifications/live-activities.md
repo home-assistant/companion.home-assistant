@@ -385,7 +385,7 @@ data:
         show_title: false
 ```
 
-When playback pauses, update the same tag and replace `MUSIC_PAUSE` with an action for Play using `sfsymbols:play.fill`.
+Send music updates to one notification target and reuse the same tag as the track and room change. When playback pauses, replace `MUSIC_PAUSE` with an action for Play using `sfsymbols:play.fill`. When the queue stops, send `clear_notification` with the same tag. When changing notification targets, clear the tag on the previous target before sending to the new one.
 
 Tapping a button fires the [`mobile_app_notification_action` event](actionable.md) on the Home Assistant server that started the activity. Match `action` to the button identifier. `action_data.tag` contains the Live Activity tag. For example, this automation handles **Pause**.
 
