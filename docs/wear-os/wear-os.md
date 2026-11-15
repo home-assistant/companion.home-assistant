@@ -53,7 +53,7 @@ The settings screen can be found at the bottom of the home screen. This is where
 
 ## Tiles
 
-* The Shortcuts tile shows up to 7 shortcuts, which can be chosen from the settings section in the Wear OS app. You will be able to select the same set of entities you can access from the home screen.  Starting from Wear OS 3, any number of separately configurable tiles can be added, only limited by Wear OS's limit for the total number of tiles.
+* The Shortcuts tile shows up to 15 shortcuts, which can be chosen from the settings section in the Wear OS app. You will be able to select the same set of entities you can access from the home screen.  Starting from Wear OS 3, any number of separately configurable tiles can be added, only limited by Wear OS's limit for the total number of tiles.
 * The Template tile shows a rendered template. The template can only be set from the Android companion app. Note: it is not possible to scroll in a tile, the template should fit on the watch screen.
 * The Camera tile shows a snapshot of the selected camera.
 * The Assist tile allows you to quickly [open Assist on your watch](https://www.home-assistant.io/voice_control/android/#assist-on-wear-os).
