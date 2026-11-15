@@ -363,25 +363,29 @@ Two of the fields in this payload are not visible in this screenshot. `chronomet
 
 <span class='beta'>BETA</span> Add an `actions` list to show up to three buttons on the Lock Screen and in the expanded Dynamic Island. Each button has an `action` identifier, a `title`, and an optional `icon` from [SF Symbols](https://developer.apple.com/sf-symbols/) with the `sfsymbols:` prefix. iOS may ask you to authenticate when you tap a button.
 
+Set `show_title: false` to show just the icon. The `title` provides the VoiceOver label and appears as text if the icon is unavailable.
+
 ```yaml
 action: notify.mobile_app_your_iphone
 data:
   title: Now Playing
-  message: Music is playing in the living room
+  message: Track · Artist
   data:
     tag: now_playing
     live_update: true
+    critical_text: Living Room
     actions:
-      - action: MUSIC_PLAY
-        title: Play
-        icon: sfsymbols:play.fill
       - action: MUSIC_PAUSE
         title: Pause
         icon: sfsymbols:pause.fill
+        show_title: false
       - action: MUSIC_NEXT
         title: Next
         icon: sfsymbols:forward.end.fill
+        show_title: false
 ```
+
+When playback pauses, update the same tag and replace `MUSIC_PAUSE` with an action for Play using `sfsymbols:play.fill`.
 
 Tapping a button fires the [`mobile_app_notification_action` event](actionable.md) on the Home Assistant server that started the activity. Match `action` to the button identifier. `action_data.tag` contains the Live Activity tag. For example, this automation handles **Pause**.
 
