@@ -385,7 +385,7 @@ data:
         show_title: false
 ```
 
-Send music updates to one notification target and reuse the same tag as the track and room change. When playback pauses, replace `MUSIC_PAUSE` with an action for Play using `sfsymbols:play.fill`. When the queue stops, send `clear_notification` with the same tag. When changing notification targets, clear the tag on the previous target before sending to the new one.
+Send music updates to one notification target and reuse the same tag as the track and room change. When playback pauses, replace `MUSIC_PAUSE` with an action for Play using `sfsymbols:play.fill`. To give yourself time to resume from the Lock Screen, you can keep the Play button available for five minutes and send `clear_notification` with the same tag if playback is still paused. Cancel the timeout when playback resumes and clear the card when the queue stops. When changing notification targets, clear the tag on the previous target before sending to the new one.
 
 Tapping a button fires the [`mobile_app_notification_action` event](actionable.md) on the Home Assistant server that started the activity. Match `action` to the button identifier. `action_data.tag` contains the Live Activity tag. For example, this automation handles **Pause**.
 
@@ -403,7 +403,7 @@ actions:
       entity_id: media_player.living_room
 ```
 
-Include `actions` on each update that should show buttons. An update with an empty or omitted list removes them. The list uses the first three valid, unique identifiers. Action identifiers can use up to 64 UTF-8 bytes and titles and icons can use up to 96 bytes. iOS limits the total size of a Live Activity payload. With large payloads, buttons at the end of the list may be omitted. Use the `url` field for navigation.
+Include `actions` on each update that should show buttons. An update with an empty or omitted list removes them. The list uses the first three valid, unique identifiers. Action identifiers can use up to 64 UTF-8 bytes and titles and icons can use up to 96 bytes. iOS limits the total size of a Live Activity payload. With large payloads, buttons at the end of the list may be omitted. Live Activity buttons fire events. Use the card's `url` field to open a page.
 
 If you have multiple Home Assistant servers, give each activity a distinct tag. An update from a different server cannot add buttons to an existing card. A card that was started without a server association needs to be cleared and started again before it can show buttons.
 
