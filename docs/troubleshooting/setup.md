@@ -186,6 +186,13 @@ If you want to ensure that the sensors are updated when your device starts charg
 ## Text to speech notifications are not working
 ![Android](/assets/android.svg) Check that [Speech Recognition & Synthesis](https://play.google.com/store/apps/details?id=com.google.android.tts) is updated. Check that it is also set as the default Text to Speech engine, this may be required for certain manufacturers.
 
+## Android network request timeout
+![Android](/assets/android.svg) <span class='beta'>BETA</span> You can change the maximum time allowed for native Home Assistant API requests in **Settings > Companion app > Troubleshooting > Network request timeout**.
+
+Choose **5, 10, 15, 30, or 60 seconds**. The default is **30 seconds**. The setting is saved on this device and applies to all configured servers. It takes effect for new API requests, including authentication and token refresh, without restarting the app. Requests already in progress keep their original timeout.
+
+A shorter timeout reduces the wait before a request fails, but can also cause requests to fail on a slow connection. It does not repair a broken connection, add automatic retries, or change the dashboard loading timeout or existing WebSocket connections.
+
 ## Android Crash Logs
 ![Android](/assets/android.svg) The Android app makes use of Google's ADB [Logcat](https://developer.android.com/studio/command-line/logcat) feature to log errors. From time to time you may wish to inspect the logs or a developer may ask for crash logs in order to fix your issue. There is an option under [Settings](https://my.home-assistant.io/redirect/config/) Companion App > Troubleshooting > Show and Share Logs. This feature makes it a lot of easier to refresh, share and view the logs. The logs can then be used when you want to create an [issue](https://github.com/home-assistant/android/issues/new?assignees=&labels=bug&template=Bug_report.md&title=) or when a developer asks for them to troubleshoot an issue. It is important to note that the device logs may or may not contain sensitive information like your Home Assistant URL so make sure to remove sensitive information before sharing.
 
