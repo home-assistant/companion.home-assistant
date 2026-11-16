@@ -273,6 +273,7 @@ A platform badge (![iOS](/assets/iOS.svg) / ![Android](/assets/android.svg)) mar
 | ![Android](/assets/android.svg) `color` | string | Hex color for the icon, such as `#2196F3`. |
 | ![iOS](/assets/iOS.svg) `silent` | boolean | If `true`, an update arrives without a sound and at a lower, power-conserving priority that iOS may delay or batch, so use it for non-urgent updates. Has no effect when starting the activity. |
 | ![iOS](/assets/iOS.svg) `url` | string | Where to go when the activity is tapped. A relative Home Assistant path such as `/lovelace/0` opens that view in the app; a full `https://` URL opens in the browser. The tap always opens the server that started the activity. `url` applies to the update it is sent with, so include it on each update where you want a specific destination. See [Opening a page on tap](#opening-a-page-on-tap). |
+| ![iOS](/assets/iOS.svg) `actions` | list | <span class='beta'>BETA</span> Up to three event buttons on the Lock Screen and in the expanded Dynamic Island. See [Add action buttons](#add-action-buttons). |
 | ![iOS](/assets/iOS.svg) `background_color` | string | Lock Screen background color, such as `#101820`. Defaults to black. See [Custom colors](#custom-colors). |
 | ![iOS](/assets/iOS.svg) `text_color` | string | Lock Screen text color. Defaults to a color that contrasts the background. See [Custom colors](#custom-colors). |
 | ![iOS](/assets/iOS.svg) `progress_bar_color` | string | Progress bar color, same format as `notification_icon_color`. Falls back to `notification_icon_color` when omitted. |
@@ -357,6 +358,54 @@ action:
 :::tip
 Two of the fields in this payload are not visible in this screenshot. `chronometer` replaces the `message` line with the live timer, and `progress` replaces `critical_text` in the top-right corner. Remove `chronometer` and the `message` shows; remove `progress` and `progress_max` and `critical_text` ("5 min") shows instead of "42%". On the Dynamic Island compact view, `critical_text` always shows.
 :::
+
+#### Add action buttons
+
+<span class='beta'>BETA</span> Add an `actions` list to show up to three buttons on the Lock Screen and in the expanded Dynamic Island. Each button has an `action` identifier, a `title`, and an optional `icon` from [SF Symbols](https://developer.apple.com/sf-symbols/) with the `sfsymbols:` prefix. iOS may ask you to authenticate when you tap a button.
+
+Set `show_title: false` to show just the icon. The `title` provides the VoiceOver label and appears as text if the icon is unavailable.
+
+```yaml
+action: notify.mobile_app_your_iphone
+data:
+  title: Now Playing
+  message: Track · Artist
+  data:
+    tag: now_playing
+    live_update: true
+    critical_text: Living Room
+    actions:
+      - action: MUSIC_PAUSE
+        title: Pause
+        icon: sfsymbols:pause.fill
+        show_title: false
+      - action: MUSIC_NEXT
+        title: Next
+        icon: sfsymbols:forward.end.fill
+        show_title: false
+```
+
+Send music updates to one notification target and reuse the same tag as the track and room change. When playback pauses, replace `MUSIC_PAUSE` with an action for Play using `sfsymbols:play.fill`. To give yourself time to resume from the Lock Screen, you can keep the Play button available for five minutes and send `clear_notification` with the same tag if playback is still paused. Cancel the timeout when playback resumes and clear the card when the queue stops. When changing notification targets, clear the tag on the previous target before sending to the new one.
+
+Tapping a button fires the [`mobile_app_notification_action` event](actionable.md) on the Home Assistant server that started the activity. Match `action` to the button identifier. `action_data.tag` contains the Live Activity tag. For example, this automation handles **Pause**.
+
+```yaml
+triggers:
+  - trigger: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: MUSIC_PAUSE
+      action_data:
+        tag: now_playing
+actions:
+  - action: media_player.media_pause
+    target:
+      entity_id: media_player.living_room
+```
+
+Include `actions` on each update that should show buttons. An update with an empty or omitted list removes them. The list uses the first three valid, unique identifiers. Action identifiers can use up to 64 UTF-8 bytes and titles and icons can use up to 96 bytes. iOS limits the total size of a Live Activity payload. With large payloads, buttons at the end of the list may be omitted. Live Activity buttons fire events. Use the card's `url` field to open a page.
+
+If you have multiple Home Assistant servers, give each activity a distinct tag. An update from a different server cannot add buttons to an existing card. A card that was started without a server association needs to be cleared and started again before it can show buttons.
 
 #### Opening a page on tap
 
