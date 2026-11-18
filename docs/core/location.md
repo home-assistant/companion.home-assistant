@@ -43,6 +43,12 @@ automation:
           entity_id: light.frontdoor
 ```
 
+## Verified iBeacon entries on iOS <span class='beta'>BETA</span>
+
+![iOS](/assets/iOS.svg)In the proposed beta update, your app checks an iBeacon signal before accepting an entry. It limits background scans and does not start a new scan for every location update. This change does not apply to Android.
+
+Leaving beacon range does not send an empty location update. An outside transition resets entry detection so your next visit can be recognized. Radio conditions and iOS background execution still affect detection; immediate entry updates are not guaranteed.
+
 ## Entity attributes
 
 The newly created `device_tracker` entity may provide some of the following attributes depending on your operating system.
