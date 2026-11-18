@@ -104,6 +104,10 @@ Get a single still frame from a camera entity. The snapshot is returned as a PNG
 
 ### Opening the app
 
+#### Open Home Assistant <span class='beta'>BETA</span>
+
+Open the app. The same action is available as the **Open Home Assistant** [control](ios-controls.md) in Control Center.
+
 #### Open Page
 
 Open the app and navigate to a specific dashboard page.
