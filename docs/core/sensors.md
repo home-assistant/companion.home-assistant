@@ -701,7 +701,7 @@ These sensors will reflect health and fitness data stored by other apps on your 
 
 | Sensor | Unit | Description |
 | --------- | ---- | --------- |
-| `health_connect_active_calories_burned` | kilocalories | The last estimate for number of active calories burned, excluding basal metabolic rate (BMR). |
+| `health_connect_active_calories_burned` | kilocalories | <span class='beta'>BETA</span> Total amount of active calories burned since midnight, excluding basal metabolic rate (BMR). |
 | `health_connect_basal_body_temperature` | celsus | The last recorded basal body temperature. |
 | `health_connect_basal_metabolic_rate` | kilocalories per day | The last recorded basal metabolic rate. |
 | `health_connect_blood_glucose` | milligrams per deciliter | The last recorded blood glucose reading. |
