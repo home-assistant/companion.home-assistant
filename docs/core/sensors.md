@@ -750,9 +750,14 @@ The `health_connect_sleep_duration` sensor also provides a sleep stage timeline 
 
 ## Home Assistant mode sensor
 <span class='beta'>BETA</span> ![Android](/assets/android.svg) 15+ only, on devices with Modes<br />
-Enabling this sensor adds a mode named **Home Assistant** to the Modes of your device, and the sensor reports whether that mode is on. Unlike Do Not Disturb, you can turn this mode on and off yourself from **Settings** > **Modes** or Quick Settings, and Home Assistant can turn it on and off with the [Do Not Disturb notification command](../notifications/commands.md#do-not-disturb). For example, an automation can react when you turn the mode on as you go to sleep.
+The app can add a mode named **Home Assistant** to the Modes of your device. To add it, in the Home Assistant app go to **Settings** > **Companion app** and turn on **Home Assistant mode** under **Modes**. This requires Modes access, called Do Not Disturb access on some devices, and the app opens the screen to grant it. Unlike Do Not Disturb, you can turn this mode on and off yourself from **Settings** > **Modes** or Quick Settings, and Home Assistant can turn it on and off with the [Do Not Disturb notification command](../notifications/commands.md#do-not-disturb). What the mode silences is set on the mode's page in **Settings** > **Modes**, which also links back to the setting in the app. To keep receiving Home Assistant notifications while the mode is on, allow the Home Assistant app on that page.
 
-Enabling the sensor requires Do Not Disturb access. What the mode silences is set on the mode's page in **Settings** > **Modes**, which also links to this sensor's settings in the app. Disabling the sensor keeps the mode on your device. To remove the mode, delete it in **Settings** > **Modes**. This also disables the sensor.
+This sensor reports whether the mode is on, and is off while the mode is not added. For example, an automation can react when you turn the mode on as you go to sleep. Turning off **Home Assistant mode** in the app removes the mode from your device. Android can keep the settings you made for it, and bring them back when you add the mode again.
+
+| Attribute | Description |
+| --------- | ----------- |
+| `added` | Whether the mode is in the Modes of your device. |
+| `enabled` | Whether the mode is enabled on your device. A disabled mode can't be turned on, by you or by Home Assistant. |
 
 ## Interactive sensor
 ![Android](/assets/android.svg) This sensors state will reflect if the device is in an interactive state. This is typically when the screen comes on and off but may vary from device to device. This sensor will update as soon state changes are detected, data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
