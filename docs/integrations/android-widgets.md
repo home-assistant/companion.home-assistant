@@ -71,7 +71,7 @@ This widget will let the user control any media player on their home screen and 
 
 ### Picture
 
-This widget shows the latest snapshot of a camera or an image entity, and updates every hour or when the widget is tapped(based on the configured tap action).
+This widget shows the latest snapshot of a camera or an image entity, and updates every hour or when the widget is tapped (based on the configured tap action). <span class='beta'>BETA</span> A widget showing an image entity also updates when the image changes, while the screen is on.
 
 1.  Long press on any open space in the home screen
 2.  Scroll down to Home Assistant in the widget list
