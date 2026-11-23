@@ -361,9 +361,11 @@ Two of the fields in this payload are not visible in this screenshot. `chronomet
 
 #### Add action buttons
 
-<span class='beta'>BETA</span> Add an `actions` list to show up to three buttons on the Lock Screen and in the expanded Dynamic Island. Each button has an `action` identifier, a `title`, and an optional `icon` from [SF Symbols](https://developer.apple.com/sf-symbols/) with the `sfsymbols:` prefix. iOS may ask you to authenticate when you tap a button.
+<span class='beta'>BETA</span> Add an `actions` list to show up to three buttons on the Lock Screen and in the expanded Dynamic Island. Each button has an `action` identifier, a `title`, and an optional `icon` from [SF Symbols](https://developer.apple.com/sf-symbols/) with the `sfsymbols:` prefix.
 
 Set `show_title: false` to show just the icon. The `title` provides the VoiceOver label and appears as text if the icon is unavailable.
+
+Buttons require authentication by default. Set `authentication_required: false` on an individual button to let anyone with access to your iPhone trigger that action while the phone is locked. Include the setting on each update where that button should work while locked.
 
 ```yaml
 action: notify.mobile_app_your_iphone
@@ -379,10 +381,12 @@ data:
         title: Pause
         icon: sfsymbols:pause.fill
         show_title: false
+        authentication_required: false
       - action: MUSIC_NEXT
         title: Next
         icon: sfsymbols:forward.end.fill
         show_title: false
+        authentication_required: false
 ```
 
 Send music updates to one notification target and reuse the same tag as the track and room change. When playback pauses, replace `MUSIC_PAUSE` with an action for Play using `sfsymbols:play.fill`. To give yourself time to resume from the Lock Screen, you can keep the Play button available for five minutes and send `clear_notification` with the same tag if playback is still paused. Cancel the timeout when playback resumes and clear the card when the queue stops. When changing notification targets, clear the tag on the previous target before sending to the new one.
