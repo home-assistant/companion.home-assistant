@@ -129,7 +129,6 @@ You can change the frequency of sensor updates by navigating to [Settings](https
 | [Health Connect Sensors](#health-connect-sensors) | Varies | Health and fitness data stored by other apps on your device in Health Connect. |
 | `binary_sensor.high_accuracy_mode` | None | The state of high accuracy mode on the device. |
 | `sensor.high_accuracy_update_interval` | None | The update interval for high accuracy mode on the device. |
-| `binary_sensor.home_assistant_mode` | [See Below](#home-assistant-mode-sensor) | <span class='beta'>BETA</span> Whether the Home Assistant mode on the device is on. |
 | [Keyguard Sensors](#keyguard-sensors) | None | Sensors that represent various states about the device being locked or secured. |
 | `sensor.last_reboot` | [See Below](#last-reboot-sensor) | The timestamp of the device's last reboot. |
 | `sensor.last_update` | None | The state will reflect the intent that caused the last update to get sent. |
@@ -747,17 +746,6 @@ The `health_connect_sleep_duration` sensor also provides a sleep stage timeline 
 
 ## High accuracy update interval
 ![Android](/assets/android.svg) This sensors state will reflect the update interval for the device in seconds for [high accuracy mode](location.md#high-accuracy-mode). This sensor will update as soon as the value changes either manually or by the [notification command](../notifications/commands.md#high-accuracy-mode).
-
-## Home Assistant mode sensor
-<span class='beta'>BETA</span> ![Android](/assets/android.svg) 15+ only, on devices with Modes<br />
-The app can add a mode named **Home Assistant** to the Modes of your device. To add it, in the Home Assistant app go to **Settings** > **Companion app** and turn on **Home Assistant mode** under **Modes**. This requires Modes access, called Do Not Disturb access on some devices, and the app opens the screen to grant it. Unlike Do Not Disturb, you can turn this mode on and off yourself from **Settings** > **Modes** or Quick Settings, and Home Assistant can turn it on and off with the [Do Not Disturb notification command](../notifications/commands.md#do-not-disturb). What the mode silences is set on the mode's page in **Settings** > **Modes**, which also links back to the setting in the app. To keep receiving Home Assistant notifications while the mode is on, allow the Home Assistant app on that page.
-
-This sensor reports whether the mode is on, and is off while the mode is not added. For example, an automation can react when you turn the mode on as you go to sleep. Turning off **Home Assistant mode** in the app removes the mode from your device. Android can keep the settings you made for it, and bring them back when you add the mode again.
-
-| Attribute | Description |
-| --------- | ----------- |
-| `added` | Whether the mode is in the Modes of your device. |
-| `enabled` | Whether the mode is enabled on your device. A disabled mode can't be turned on, by you or by Home Assistant. |
 
 ## Interactive sensor
 ![Android](/assets/android.svg) This sensors state will reflect if the device is in an interactive state. This is typically when the screen comes on and off but may vary from device to device. This sensor will update as soon state changes are detected, data is provided by [PowerManager](https://developer.android.com/reference/android/os/PowerManager.html).
