@@ -112,6 +112,22 @@ With these beta enhancements, both layouts use asynchronous command processing i
 
 With automatic refresh enabled, both layouts can also receive live state changes from Home Assistant during a short observation period when the tile is in use. Changes made elsewhere in Home Assistant can therefore appear without waiting for the configured refresh interval. The live subscription is time-limited and stops when the watch is no longer interactive. The Manual refresh setting disables this live observation. Wear OS still controls when tiles can be refreshed, so immediate updates are not guaranteed.
 
+##### Temperature units
+
+Both Classic and Enhanced layouts support an individual temperature unit preference for each tile. Open the thermostat tile settings and select **Temperature unit** to choose:
+
+* **Home Assistant default**: Uses the temperatures provided by Home Assistant.
+* **Fahrenheit**: Displays and adjusts temperatures in Fahrenheit.
+* **Celsius**: Displays and adjusts temperatures in Celsius.
+
+When a different unit is selected, current temperatures, target temperatures, and temperature adjustments are converted automatically. Adjustments remain subject to the temperature limits and increments supported by the climate entity, so rounding may occur.
+
+Changing this preference does not change the temperature unit configured on the Home Assistant server or in other tiles.
+
+Temperature unit overrides require Home Assistant Core 2026.11 or newer. If the climate entity does not report its temperature unit, the tile retains the default behavior.
+
+Related development: Thanks to [@siemon-geeroms](https://github.com/siemon-geeroms) for his work on optional thermostat power controls and tile responsiveness in [Android PR #7877](https://github.com/home-assistant/android/pull/7877).
+
 ## Complications
 
 * An entity state complication can be displayed on your watchface. The complication will display the current state of the selected entity and optionally the name and unit of the measurement. Depending on the watchface, the complication may also show the entity name and icon, and supports 'short text' and 'long text' complication types.
