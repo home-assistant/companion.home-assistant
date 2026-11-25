@@ -84,6 +84,34 @@ You may use HTML to format the text displayed. The following tags are currently 
 ### Thermostat tile
 The thermostat tile can be used to change the target temperature of a climate entity up or down by the step size. Since tile refreshing is limited it can happen that the target temperature shown is no longer accurate. Therefor, if a user changes the temperature through the tile the current target temperature is always first refreshed. If a user changes the temperature multiple times quickly, each click changes the temperature relative to the result previous click instead of getting the target temperature from the server. This is done to counteract the delay in changing target temperature by some thermostats.
 
+
+#### Thermostat tile appearance and controls <span class='beta'>BETA</span>
+
+The thermostat tile offers two layouts. To choose a layout, open the Home Assistant app on your watch, go to the thermostat tile settings, and tap **Tile appearance**. You can configure each tile separately.
+
+* **Classic**: Keeps the original temperature controls and refresh button. You can optionally show a power button if the selected climate entity supports power control.
+* **Enhanced**: Shows the current temperature, target temperature, and direct controls for supported HVAC modes and fan settings. The name of the selected entity can be shown along the curved top of the tile.
+
+| Classic | Classic with power | Enhanced (Heat) |
+| --- | --- | --- |
+| ![Classic thermostat tile](/assets/wear-os/thermostat/thermostat-classic.png) | ![Classic thermostat tile with optional power button](/assets/wear-os/thermostat/thermostat-classic-with-power.png) | ![Enhanced thermostat tile in Heat mode](/assets/wear-os/thermostat/thermostat-enhanced-heat.png) |
+
+In the Enhanced layout:
+
+* Use **+** and **−** to adjust the target by one degree, subject to the temperature step and limits supported by the thermostat.
+* Use the outer temperature buttons for larger adjustments. Under **Secondary temperature step**, tap to cycle between 2, 3, 5, and 10 degrees.
+* Select Heat, Cool, or Auto (Heat/Cool) directly when supported. In Heat/Cool mode, separate rows let you adjust the heating and cooling targets independently.
+* Use the fan button to change the fan mode and the power button to turn the thermostat on or off, where supported. Fan mode is independent of HVAC mode; its available options and behavior depend on the climate entity.
+* Use **Show HVAC mode buttons**, **Show fan button if supported**, **Show HVAC activity**, and **Show name on tile** to customize the display. On smaller screens, the name may be hidden to make room for both temperature rows.
+
+| Enhanced (Cool) | Enhanced (Auto) | Enhanced (Off) |
+| --- | --- | --- |
+| ![Enhanced thermostat tile in Cool mode](/assets/wear-os/thermostat/thermostat-enhanced-cool.png) | ![Enhanced thermostat tile with separate heating and cooling targets](/assets/wear-os/thermostat/thermostat-enhanced-auto.png) | ![Enhanced thermostat tile in Off mode](/assets/wear-os/thermostat/thermostat-enhanced-off.png) |
+
+With these beta enhancements, both layouts use asynchronous command processing instead of always fetching the current target temperature before sending an adjustment. Rapid temperature adjustments build on pending changes instead of waiting for each command to finish. The tile can indicate that it is waiting for a thermostat response or that a change could not be confirmed.
+
+With automatic refresh enabled, both layouts can also receive live state changes from Home Assistant during a short observation period when the tile is in use. Changes made elsewhere in Home Assistant can therefore appear without waiting for the configured refresh interval. The live subscription is time-limited and stops when the watch is no longer interactive. The Manual refresh setting disables this live observation. Wear OS still controls when tiles can be refreshed, so immediate updates are not guaranteed.
+
 ## Complications
 
 * An entity state complication can be displayed on your watchface. The complication will display the current state of the selected entity and optionally the name and unit of the measurement. Depending on the watchface, the complication may also show the entity name and icon, and supports 'short text' and 'long text' complication types.
