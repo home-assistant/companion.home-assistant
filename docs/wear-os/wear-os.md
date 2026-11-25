@@ -104,9 +104,11 @@ In the Enhanced layout:
 * Use the fan button to change the fan mode and the power button to turn the thermostat on or off, where supported. Fan mode is independent of HVAC mode; its available options and behavior depend on the climate entity.
 * Use **Show HVAC mode buttons**, **Show fan button if supported**, **Show HVAC activity**, and **Show name on tile** to customize the display. On smaller screens, the name may be hidden to make room for both temperature rows.
 
-| Enhanced (Cool) | Enhanced (Auto) | Enhanced (Off) |
-| --- | --- | --- |
-| ![Enhanced thermostat tile in Cool mode](/assets/wear-os/thermostat/thermostat-enhanced-cool.png) | ![Enhanced thermostat tile with separate heating and cooling targets](/assets/wear-os/thermostat/thermostat-enhanced-auto.png) | ![Enhanced thermostat tile in Off mode](/assets/wear-os/thermostat/thermostat-enhanced-off.png) |
+| Enhanced (Cool) | Enhanced (Auto) | Enhanced (Off) | Enhanced (Off with fan activity) |
+| --- | --- | --- | --- |
+| ![Enhanced thermostat tile in Cool mode](/assets/wear-os/thermostat/thermostat-enhanced-cool.png) | ![Enhanced thermostat tile in Auto mode](/assets/wear-os/thermostat/thermostat-enhanced-auto.png) | ![Enhanced thermostat tile in Off mode](/assets/wear-os/thermostat/thermostat-enhanced-off.png) | ![Enhanced thermostat tile in Off mode with fan activity](/assets/wear-os/thermostat/thermostat-enhanced-fan-on.png) |
+
+When HVAC activity is enabled, the Enhanced layout displays Fan only even in Off mode if the climate entity reports active fan operation.
 
 With these beta enhancements, both layouts use asynchronous command processing instead of always fetching the current target temperature before sending an adjustment. Rapid temperature adjustments build on pending changes instead of waiting for each command to finish. The tile can indicate that it is waiting for a thermostat response or that a change could not be confirmed.
 
