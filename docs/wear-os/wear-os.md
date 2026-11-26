@@ -89,9 +89,9 @@ The thermostat tile lets you view and adjust the temperature of a climate entity
 
 The thermostat tile offers two layouts: Classic and Enhanced. Newly added tiles default to Enhanced. Existing configured tiles retain Classic and display a one-time invitation to try Enhanced. Select **Switch to Enhanced** or **Keep Classic** to dismiss the invitation. You can change layouts at any time by tapping **Tile appearance** in the thermostat tile settings. Changing the layout does not change the thermostat's operating mode.
 
-| Upgrade invitation | Classic | Classic with power |
-| --- | --- | --- |
-| ![Invitation to try Enhanced](/assets/wear-os/thermostat/thermostat-invitation.png) | ![Classic thermostat tile](/assets/wear-os/thermostat/thermostat-classic.png) | ![Classic thermostat tile with optional power button](/assets/wear-os/thermostat/thermostat-classic-with-power.png) |
+| Upgrade invitation | Classic |
+| --- | --- |
+| ![Invitation to try Enhanced](/assets/wear-os/thermostat/thermostat-invitation.png) | ![Classic thermostat tile](/assets/wear-os/thermostat/thermostat-classic.png) |
 
 ##### Classic layout
 
@@ -99,8 +99,7 @@ Classic retains the original temperature adjustment controls and refresh button.
 
 * Use **+** and **−** to adjust the target temperature. When using the Home Assistant default temperature unit, Classic uses the temperature step supported by the climate entity.
 * In Heat/Cool (AUTO) mode, when the entity provides both heating and cooling targets, the buttons shift both targets together while preserving the difference between them and respecting temperature limits.
-* Enable **Show power button** in the tile settings to turn the thermostat on or off, where supported. Even when this option is disabled, a power button appears when the thermostat is off if the entity supports turning it on. It disappears again when the thermostat is on. The mode restored on power-up depends on the climate integration.
-* To select a specific HVAC mode or control the fan directly, use Enhanced.
+* To select a specific HVAC mode, switch HVAC off, or control the fan directly, use Enhanced.
 
 ##### Enhanced layout
 
@@ -141,7 +140,7 @@ The Enhanced layout provides the following display options:
 * **Show HVAC activity**: Show the reported activity, such as heating, cooling, idle, or fan only.
 * **Show secondary temperature buttons**: Enable additional temperature adjustment buttons, with a configurable secondary step.
 
-Both layouts offer **Choose entity**, **Refresh interval**, **Tile appearance**, **Temperature unit**, and **Show name on tile**. Classic also offers its optional power button setting.
+Both layouts offer **Choose entity**, **Refresh interval**, **Tile appearance**, **Temperature unit**, and **Show name on tile**.
 
 ##### Temperature units
 
