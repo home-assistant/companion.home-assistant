@@ -3,7 +3,7 @@ title: "Local Push"
 id: "notification-local"
 ---
 
-Local Push uses the [WebSocket API](https://developers.home-assistant.io/docs/api/websocket) to deliver notifications to your device instead of using Apple's Push Notification Service or Google's Firebase Cloud Messaging.
+Local Push uses the [WebSocket API](https://contributors.home-assistant.io/core/internals/websocket-api/) to deliver notifications to your device instead of using Apple's Push Notification Service or Google's Firebase Cloud Messaging.
 
 | Platform | Version |
 | -------- | ------- |

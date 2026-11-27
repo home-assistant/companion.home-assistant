@@ -5,21 +5,6 @@ id: 'faqs'
 
 Below is a list of common issues and troubleshooting advice to address them. For more support please [look at the more help page](more-help.md)
 
-## App crashes on set up
-
-If you are running Home Assistant 0.110 and the app crashes after clicking "continue" during set up, you need to add values for `internal_url` and `external_url`. This can be done through the user interface via your [General Settings](https://my.home-assistant.io/redirect/general/). If you do not see this section, you may need to turn on "Advanced Mode" from your profile page first. If these fields are disabled it is likely you have have your configuration stored in `configuration.yaml`, in this case add the entries under `homeassistant:` i.e.:
-
-```yaml
-homeassistant:
-  ...
-  external_url: URL
-  internal_url: URL
-```
-
-Replacing `URL` with the address you use to access your Home Assistant instance. The values of `internal_url` and `external_url` can be the same and should be the same as you have for `url:` in the `http:` of `configuration.yaml`.
-
-When you have saved these changes, restart Home Assisant and, after Home Assistant has finished restarting, reopen the the app. 
-
 ## I don't see a `notify.mobile_app` action for my device in my `dev-services` panel
 Once you have [set up](/getting_started/index.mdx) the Companion app you will need to restart Home Assistant for the `notify.mobile_app` action to register. On iOS the `notify.mobile_app_<Device_ID>` action will be created provided you granted notification permissions during setup, on Android the action will appear after the restart. If you can't see this, [force quit on iOS](https://support.apple.com/HT201330) or force stop on Android. Then relaunch the Companion app and finally restart your Home Assistant instance. The action should now be listed in the `Developer Tools > Actions` panel.
 
@@ -60,7 +45,7 @@ This is probably not an issue with the Companion App but more likely with Home A
 3.  If the problem does not occur in Safari, please raise an issue on the [iOS Companion App GitHub](https://github.com/home-assistant/iOS/issues) or the [Android Companion App GitHub](https://github.com/home-assistant/android/issues). Please state you followed these steps and the problem only occurs in the Companion app.
 
 ## The status bar (top bar with cell/Wi-Fi strength) does not match my theme
-If you are using iOS app prior to version 2020.2 or the Android app, to change the color of the status bar to match your Home Assistant theme, please use the [`frontend.set_theme`](https://www.home-assistant.io/components/frontend/#theme-automation) action instead of the dropdown menu in the Home Assistant profile page. Using the action will generate an event allowing the Companion App to detect the theme change and apply the correct color to the status bar. See the [theming](../integrations/theming.md) documentation for details of which keys are used. Note that colors must be specified as hex values (e.g. `#0099ff`) in your theme and specifying element colors through variable names is not supported.
+![Android](/assets/android.svg) On Android, to change the color of the status bar to match your Home Assistant theme, please use the [`frontend.set_theme`](https://www.home-assistant.io/components/frontend/#theme-automation) action instead of the dropdown menu in the Home Assistant profile page. Using the action will generate an event allowing the Companion App to detect the theme change and apply the correct color to the status bar. See the [theming](../integrations/theming.md) documentation for details of which keys are used. Note that colors must be specified as hex values (e.g. `#0099ff`) in your theme and specifying element colors through variable names is not supported.
 
 ## I am running the Companion App on multiple devices, the `sensor` names are too similar and confusing, what can I do?
 Starting in Home Assistant Core 0.106, the default sensor names will be registered with your device name as set in the iOS settings app or the Android Companion App Configuration page. For now, you will need to rename each sensor from within the [Integrations Dashboard](https://my.home-assistant.io/redirect/integrations/) of Home Assistant's Configuration page by following these steps.
@@ -169,6 +154,17 @@ If you still do not receive location updates after following the above steps and
 1.  Check that data saver is disabled on the device, the widget will not work when it is enabled.
 2.  Check that background data for the Home Assistant app is enabled.
 3.  Remove and recreate the widget.
+
+## Android widgets, Quick Settings tiles, or actions work briefly then fail after the app is closed
+![Android](/assets/android.svg) If widgets, Quick Settings tiles, actionable notification, or shortcuts work for a moment right after you leave the app but then stop working a short time later (failing after about 10 seconds with a timeout), the device is most likely restricting the app's network while it is in the background. This has been seen on some devices and Android versions, for example Android 13 on some Samsung phones, but does not happen on all devices. On affected devices the app cannot reach the server unless it is allowed to keep a service running in the background.
+
+Keeping the app active in the background and exempting it from power restrictions may resolve the issue:
+
+1.  Enable notification access for Home Assistant (in the system settings app: **Notifications** > **Notification read, reply & control** > **Home Assistant** > **Allow notification access**). This keeps a service running in the background so the app is not put to sleep; it will not read your notifications unless you enable one of the notification sensors.
+2.  Turn off battery optimization for the app, and disable any manufacturer power-saving mode.
+3.  Disable Data Saver, or set the app to unrestricted data, and make sure background data is allowed.
+
+See [dontkillmyapp.com](https://dontkillmyapp.com/) for manufacturer-specific steps.
 
 ## Notify action is too similar or not showing up in Android
 If you have more than 1 device of the same model and you did not rename your device in Companion App Configuration after logging in then you may have a conflict.
