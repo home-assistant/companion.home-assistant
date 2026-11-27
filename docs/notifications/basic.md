@@ -637,7 +637,10 @@ The following parameters can be mixed and matched together to style the progress
 - `progress_segments`. A list of segments that make up the progress bar, each with its own length and optional color.
   - **Required property**: `length`. The length/size of the segment, any number larger than 0.
   - **Optional property**: `color`. Hex color code (including '#') for the segment (for example, `"#ff0000"` or `"#00ff00"`).
-  - **Note**: When using segments, `progress_max` is automatically calculated as the sum of all segment lengths.
+
+:::note
+When using segments, `progress_max` is automatically calculated as the sum of all segment lengths.
+:::
 
 ##### Progress points
 
@@ -647,12 +650,10 @@ The following parameters can be mixed and matched together to style the progress
 
 ##### Progress icons
 
+You can add icons to the progress bar, using Material Design Icons only. Use the format `mdi:icon-name` (for example: `mdi:home` or `mdi:walk`).
 - `progress_start_icon`: Icon displayed at the start of the progress bar. For example: `"mdi:battery-10"`.
-  - **Format**: Material Design Icons only, use format `mdi:icon-name` (for example, `mdi:home` or `mdi:download`).
-- `progress_end_icon`: Icon displayed at the end of the progress bar. For example: `"mdi:battery"`
-  - **Format**: Material Design Icons only, use format `mdi:icon-name` (for example, `mdi:flag-checkered` or `mdi:check-circle`).
+- `progress_end_icon`: Icon displayed at the end of the progress bar. For example: `"mdi:battery"` or `"mdi:flag-checkered"`.
 - `progress_tracker_icon`. Icon displayed in a circular badge that tracks the current progress position. For example: `"mdi:lightning-bolt"`.
-  - **Format**: Material Design Icons only, use format `mdi:icon-name` (for example, `mdi:car` or `mdi:walk`).
 
 **Icon colors**
 
