@@ -474,6 +474,8 @@ These options require Android 16 or later. The status bar chip appearance may va
 
 **Always-on display:** The Live Update appears pinned at the top of the notification shade, on the Lock Screen, and on the always-on display.
 
+![Always-on display showing progress and chronometer](/assets/android/live_updates_always_on_display.png)
+
 **Status bar chip:** The notification shows as a chip in the status bar. Use `critical_text` to display a short label in the chip. If `chronometer: true` is set, the timer replaces `critical_text` in the chip. If there is not enough space in the status bar, only the icon is shown.
 
 :::note Samsung devices
@@ -483,7 +485,11 @@ On Samsung, you may need to enable **Live notifications for all apps** in develo
 ![Status bar chip without critical text](/assets/android/live_updates_without_critical_text.png)
 ![Status bar chip with critical text](/assets/android/live_updates_with_critical_text.png)
 
-![Always-on display showing progress and chronometer](/assets/android/live_updates_always_on_display.png)
+**Styling the progress bar:** It is possible to style the progress bar with icons, segments, and points. Points and segments will also show on the always-on display (without color).
+
+See [the documentation](basic.md#styling-the-progress-bar) for more details on how to style the progress bar.
+
+![Customized progress bar notification](/assets/android/progress_bar_customized.png)
 
 ---
 
