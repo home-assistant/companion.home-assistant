@@ -1,0 +1,197 @@
+---
+title: "Home screen"
+id: "home"
+---
+
+![iOS](/assets/iOS.svg)
+
+The home screen is what you see when you open the Home Assistant app on your Apple Watch. It shows the items you chose, the areas of your home, and a button to start Assist.
+
+## What the home screen shows
+
+From top to bottom:
+
+- A header with a **reload** button on the left, the sync status in the middle, and the **Assist** button on the right. If you turned Assist off, the right button becomes an **add** button instead.
+- Your **items**: the entities, scripts, scenes, automations, folders, and complications you added.
+- Your **areas**, so you can browse rooms without adding each entity by hand. You can hide this.
+- A footer with the app version, an **edit** button, and a **settings** button. See [Watch settings and troubleshooting](./settings.md).
+
+## Adding items
+
+You can build your home screen from your iPhone or from the watch itself. Both offer the same item types.
+
+### From your iPhone
+
+1. On your iPhone, open the Home Assistant app and go to **Settings** > **Companion app** > **Configuration**. You find **Configuration** in the **Apple Watch & CarPlay** section.
+
+2. Under **Items**, select **Add item**.
+
+3. Choose what to add:
+
+   - **Entity**: any automation, binary sensor, button, climate entity, cover, fan, humidifier, input helper, light, lock, scene, script, sensor, switch, vacuum, or valve.
+   - **Area**: an entry that opens one room's entities.
+   - **Assist**: starts a conversation with a specific Assist pipeline.
+   - **Assist prompt**: sends a fixed sentence to Assist, such as `Good night`.
+   - **Complication**: shows one of your rectangular complications inline in the list. See [Using a complication elsewhere](./complications.md#using-a-complication-elsewhere).
+   - **Folder**: a group you can put other items into.
+
+4. Select **Save**.
+
+5. On your Apple Watch, select the reload button in the header to pull in the change. Keep your iPhone nearby.
+
+### On the watch
+
+1. On your Apple Watch, select **Add**. You will find it as a row at the bottom of your item list, or as the button in the top-right corner of the header when the Assist button is hidden.
+
+2. Choose **Entity**, **Area**, **Assist**, **Assist prompt**, **Complication**, or **Folder**. **Complication** only appears when you have created complications, and **Folder** only appears at the top level, not inside a folder.
+
+3. If you have more than one server, choose the server.
+
+4. Pick what you want to add. You can search, and you can filter entities by domain or by area.
+
+5. Optionally change the name and icon, then confirm.
+
+Changes you make on the watch are applied immediately, and are sent to your iPhone the next time it is reachable.
+
+:::note
+If you edit your configuration on both devices while they are apart, the watch asks which version to keep the next time they sync. Choose **Keep Watch Changes** or **Use iPhone**.
+:::
+
+## Customizing an item
+
+On your iPhone, select an existing item under **Settings** > **Companion app** > **Configuration** to change how it looks.
+
+- **Display text**: the name shown under or next to the icon.
+- **Icon**: any icon from the [Material Design Icons](https://pictogrammers.com/library/mdi/) set. Leave it unset to use the entity's own icon.
+- **Icon color**: choose **Default** to color the icon the same way the Home Assistant web interface does, so it changes with the entity's state. For example, a light's icon is lit when the light is on. Choose **Custom** to pick a fixed color that stays the same whatever the state.
+- **Use custom colors**: turn this on to also pick a **Background color** and a **Text color** for the item.
+- **Require confirmation**: shows a confirmation before the action runs. Useful for anything you do not want to trigger by accident.
+
+What happens when you tap an item depends on the type of entity. See [Controlling entities](#controlling-entities).
+
+:::note
+Items that run nothing, such as sensors, binary sensors, areas, and Assist items, do not offer **Require confirmation**. Opening a lock always asks for confirmation on the watch.
+:::
+
+## Editing on the watch
+
+You do not need your iPhone to rearrange your watch home screen.
+
+1. Scroll to the bottom of the home screen and select the pencil icon.
+
+2. Each item now shows up and down arrows. Use them to move the item, or swipe an item to delete it.
+
+3. Select an item to change its name or icon.
+
+4. Select **Done** — the checkmark in the header or at the bottom of the list — when you are finished.
+
+Reordering is saved when you select **Done**. The area rows and the **Add** row are hidden while you edit.
+
+## Folders
+
+Folders group items together, so a long list becomes a few tidy rows.
+
+- Create a folder from your iPhone under **Settings** > **Companion app** > **Configuration** > **Add item** > **Add Folder**, or on the watch through **Add** > **Folder**. On the watch, folders can only be created at the top level.
+- Give the folder a name, an icon, and a color.
+- Add items into it the same way you add them to the home screen.
+
+Folders do not nest: a folder cannot contain another folder.
+
+## Browsing areas
+
+The home screen lists the areas of your home below your items, so you can reach an entity you never added.
+
+Selecting an area shows its entities in two groups:
+
+- **Controls**: everything you can act on, ordered by how commonly it is used — lights, switches, locks, covers, climate entities, fans, and vacuums first.
+- **Sensors**: read-only entities. Selecting one opens its details.
+
+Entities are also grouped by device, so a device with several entities gets its own section. Select a device's section header to see all of that device's entities.
+
+Some devices are part of another device, such as one outlet of a power strip. Their section is listed under the parent device and shows which device it is part of. Opening the parent device also lists the entities of its parts.
+
+Areas with nothing the watch can show are left out, and entities hidden in Home Assistant do not appear.
+
+To hide the area rows, go to **Settings** > **Companion app** > **Configuration** on your iPhone and turn on **Hide areas in home**.
+
+## Controlling entities
+
+Most items run their action as soon as you tap them. Some entities have a control screen instead, with the same options the Home Assistant web interface offers.
+
+- **Climate**: target temperature, target humidity, and the HVAC, fan, swing, and preset modes.
+- **Covers**: open, stop, close, and position.
+- **Fans**: power and speed.
+- **Lights**: power, brightness, color, and color temperature.
+- **Locks**: lock, unlock, and open. Locks never toggle on a single tap, and opening always asks for confirmation.
+- **Vacuums**: start, pause, stop, return to dock, fan speed, and cleaning specific areas. To clean specific areas, select them and then select the start button at the top of the list.
+
+How you reach the control screen depends on the entity:
+
+- **Climate entities, locks, and vacuums**: tapping anywhere on the row opens the control screen. The row shows an arrow to indicate this.
+- **Covers, fans, and lights**: in the list layout, the row is split in two. Tapping the icon turns the entity on or off, and tapping the rest of the row opens the control screen. Entities that can only turn on and off, such as a light without brightness, just toggle. In the grid layout, tapping the icon toggles the entity.
+
+This works the same on the home screen, inside folders, and in the area and device lists.
+
+Sensors and binary sensors are read-only. Tapping one opens a details screen with its state, when it last changed and last updated, and its attributes.
+
+Scripts and automations do not have a meaningful state of their own, so their rows show their area instead of a state.
+
+:::note
+The lists above are only about control screens. Everything else the watch supports — automations, buttons, input helpers, scenes, scripts, switches, and valves — still runs on a single tap, it just has no extra screen. Entity types the watch does not support at all cannot be added, and if you reach one the app tells you so.
+:::
+
+## Choosing a layout
+
+The home screen can show your items as a list or as a grid.
+
+1. On your iPhone, go to **Settings** > **Companion app** > **Configuration**.
+2. Under **Layout**, choose **List** or **Grid**.
+
+The grid layout only shows icons, so give your items recognizable icons if you use it. You can also change the layout on the watch, under **Settings** > **Layout**.
+
+## Using Assist
+
+[Assist](https://www.home-assistant.io/voice_control/) is Home Assistant's voice assistant. On the watch you can talk to it or type to it.
+
+To show the Assist button in the header:
+
+1. On your iPhone, go to **Settings** > **Companion app** > **Configuration**.
+2. Turn on **Show Assist**.
+3. Choose the server and the pipeline the button should use.
+
+To run a different pipeline, or to send a fixed sentence, add an **Assist** or **Assist prompt** item to your home screen instead of using the header button.
+
+You can also change the pipeline directly on the watch. See [Assist settings on the watch](./settings.md#assist).
+
+### Talking to Assist
+
+1. Open Assist from the header button, an **Assist** item, or the **Assist** complication.
+
+2. Talk to Assist in one of these ways:
+
+   - **Tap** the screen to start recording, then tap again to send your request.
+   - **Press and hold** the screen while you speak, then release to send.
+   - On watchOS 11 or later, use the **Double Tap** hand gesture to start recording and again to send.
+
+   Recording also stops on its own when Assist hears that you stopped speaking.
+
+3. Assist shows what it understood and its answer. To ask a follow-up question, tap or hold the screen again.
+
+Assist on the watch goes through your iPhone, so your iPhone needs to be reachable. If it is not, the watch shows an iPhone icon with a slash instead of the microphone.
+
+The watch follows the Assist settings of the Home Assistant app on your iPhone: when you turn on on-device speech-to-text, on-device text-to-speech, or mute voice responses there, Assist on the watch does the same.
+
+### Assist from the Action button or Control Center
+
+On watchOS 26 or later, you can start Assist without opening the app first:
+
+- **Apple Watch Ultra Action button**: on your Apple Watch, open the **Settings** app, go to **Action Button** > **Controls**, and choose the Home Assistant **Assist** control.
+- **Control Center**: open Control Center on your watch, select **Edit**, and add the Home Assistant **Assist** control.
+
+The control uses the pipeline configured for the watch header button. If you have not set one, it uses the preferred pipeline of your first server.
+
+## When something does not appear
+
+- **A change you made on your iPhone is missing.** Select the reload button in the watch header with your iPhone nearby.
+- **An item shows no state.** The watch needs to reach your Home Assistant server to read entity states. See [Server URLs on the watch](./settings.md#server-urls).
+- **An action fails.** The watch tells you why. See [Common problems](./settings.md#common-problems).
