@@ -451,6 +451,8 @@ On Android 15 and newer, Android will keep track of which apps are enabling/disa
 | `command` | Description |
 | ------- | ----------- |
 | `alarms_only` | Alarms only interruption filter - all notifications except those in the alarm category are suppressed. Some audio streams are muted. |
+| `mode_off` | <span class='beta'>BETA</span> Turn off the [mode you added for Home Assistant](#mode-for-home-assistant). |
+| `mode_on` | <span class='beta'>BETA</span> Turn on the [mode you added for Home Assistant](#mode-for-home-assistant). |
 | `off` | Normal interruption filter - no notifications are suppressed. |
 | `priority_only` | Priority interruption filter - all notifications are suppressed except those that match the priority criteria. Some audio streams are muted. |
 | `total_silence` | No interruptions filter - all notifications are suppressed and all audio streams (except those used for phone calls) and vibrations are muted. |
@@ -468,6 +470,31 @@ automation:
           message: "command_dnd"
           data:
             command: "priority_only"
+```
+
+### Mode for Home Assistant
+
+<span class='beta'>BETA</span> ![Android](/assets/android.svg) 15+ only, on phones and tablets with Modes
+
+The app can add a mode to the Modes of your device that both you and Home Assistant can turn on and off. To add it, in the Home Assistant app go to **Settings** > **Companion app** and turn on **Add a mode for Home Assistant** under **Modes**. This requires Modes access, called Do Not Disturb access on some devices, and the app opens the screen to grant it.
+
+The mode is named **Home Assistant**, and you can rename it on your device. Unlike Do Not Disturb, you can turn it on and off yourself from **Settings** > **Modes** or Quick Settings. What the mode silences is set on its page in **Settings** > **Modes**, which also links back to the setting in the app. To keep receiving Home Assistant notifications while the mode is on, allow the Home Assistant app on that page.
+
+Turning off **Add a mode for Home Assistant** in the app removes the mode from your device. Android can keep the settings you made for it, and bring them back when you add the mode again.
+
+`mode_on` and `mode_off` turn this mode on and off like tapping it on your device, also after you changed it by hand. They don't change Do Not Disturb or your other modes, and they never add or remove the mode: nothing happens if you haven't added it in the app, or while you disabled it on its page in **Settings** > **Modes**, which is different from turning it off. Unlike the other values, they also do nothing, without asking, while the app has no Modes access: turn on **Add a mode for Home Assistant** in the app to grant it. Phones and tablets without Modes ignore them, and a Wear OS watch shows them as a notification, like the other `command_dnd` values.
+
+```yaml
+automation:
+  - alias: Turn on the mode for Home Assistant
+    trigger:
+      ...
+    action:
+      - action: notify.mobile_app_<your_device_id_here>
+        data:
+          message: "command_dnd"
+          data:
+            command: "mode_on"
 ```
 
 ## Flashlight
