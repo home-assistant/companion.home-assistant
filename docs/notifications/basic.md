@@ -651,6 +651,7 @@ When using segments, `progress_max` is automatically calculated as the sum of al
 ##### Progress icons
 
 You can add icons to the progress bar, using Material Design Icons only. Use the format `mdi:icon-name` (for example: `mdi:home` or `mdi:walk`).
+
 - `progress_start_icon`: Icon displayed at the start of the progress bar. For example: `"mdi:battery-10"`.
 - `progress_end_icon`: Icon displayed at the end of the progress bar. For example: `"mdi:battery"` or `"mdi:flag-checkered"`.
 - `progress_tracker_icon`. Icon displayed in a circular badge that tracks the current progress position. For example: `"mdi:lightning-bolt"`.
