@@ -103,27 +103,76 @@ Classic retains the original temperature adjustment controls and refresh button.
 
 ##### Enhanced layout
 
-Enhanced displays the current temperature prominently, along with the target temperature or separate heating and cooling targets. Controls depend on the capabilities and current state of the selected climate entity.
+Enhanced displays the current temperature prominently, along with the target temperature or separate heating and cooling targets. The available controls depend on the capabilities and current state of the selected climate entity and your tile settings.
+
+Enhanced automatically adapts its controls to the available screen size. On displays at least 234 dp wide and 234 dp high, temperature and HVAC controls are available directly on the main tile, with 40 × 40 dp buttons. On smaller displays, the tile uses 48 × 48 dp controls and separate selection pages for HVAC modes, fan control, and optional larger temperature adjustments. This keeps the controls easy to tap without crowding the screen. No layout setting is required to switch between these two arrangements. Density-independent pixels (dp) describe the logical display size, not the physical pixel resolution.
+
+###### Temperature adjustments and HVAC modes
+
+* Use **+** and **−** for one-degree target adjustments, subject to the climate entity's supported temperature steps and limits.
+* In Heat/Cool (AUTO) mode, when the entity provides both heating and cooling targets, the heating target is marked **H** and the cooling target **C**. Adjust each target independently using the buttons in its row.
+* Select a supported HVAC mode using the flame (Heat), snowflake (Cool), or combined flame and snowflake (AUTO) icon. On smaller displays, open the mode selection page first.
+* Use the power icon to turn HVAC off where supported. Select a supported HVAC mode to turn it back on. Temperature adjustments are not available while HVAC is off.
+* Enable **Show fan button if supported** to control the fan. If both On and Auto fan modes are available, the button switches between them; otherwise it cycles through the available fan modes. Fan mode is independent of HVAC mode, and its behavior depends on the climate entity. With HVAC activity enabled, the tile can display **Fan only** while HVAC is off if the entity reports active fan operation and the layout has room for activity text.
+* Enable **Show secondary temperature buttons** for larger adjustments. Tap **Secondary temperature step** in the tile settings to cycle through 3, 5, 2, and 10 degrees. The default secondary step is 3 degrees. The primary one-degree buttons remain available whether or not secondary adjustments are enabled.
+
+###### Larger displays: direct controls
+
+The main tile provides temperature adjustments and the enabled HVAC and fan controls without opening another page. With secondary adjustments enabled, the larger-step buttons appear on either side of the primary **−** and **+** controls.
 
 | Heat | Cool | Heat/Cool (AUTO) |
 | --- | --- | --- |
-| ![Enhanced thermostat tile in Heat mode](/assets/wear-os/thermostat/thermostat-enhanced-heat.png) | ![Enhanced thermostat tile in Cool mode](/assets/wear-os/thermostat/thermostat-enhanced-cool.png) | ![Enhanced thermostat tile in AUTO mode](/assets/wear-os/thermostat/thermostat-enhanced-auto.png) |
+| ![Enhanced Heat with secondary adjustment buttons](/assets/wear-os/thermostat/thermostat-enhanced-heat.png) | ![Enhanced Cool with secondary adjustment buttons](/assets/wear-os/thermostat/thermostat-enhanced-cool.png) | ![Enhanced AUTO with independent heating and cooling adjustment rows](/assets/wear-os/thermostat/thermostat-enhanced-auto.png) |
 
-* Use **+** and **−** for one-degree target adjustments, subject to the thermostat's supported temperature steps and limits.
-* Select Heat (flame), Cool (snowflake), or Heat/Cool (both icons) directly when supported. In Heat/Cool mode, separate temperature rows allow independent adjustment of the heating and cooling targets.
-* Enable **Show fan button if supported** to change the fan mode directly. The fan button is disabled by default. If both On and Auto fan modes are available, the button switches between them; otherwise it cycles through the available fan modes. Fan mode is independent of HVAC mode, and its behavior depends on the climate entity.
-* Use the power button to turn the thermostat off where supported. Select a supported HVAC mode to turn it back on. Temperature adjustments are not available while HVAC is off.
-* Enable **Show secondary temperature buttons** for larger adjustments. These buttons are disabled by default. Once enabled, tap **Secondary temperature step** to cycle through the available increments of 3, 5, 2, and 10 degrees. The default secondary step is 3 degrees.
-
-| Off | Small Round emulator (AUTO) |
+| HVAC off | Fan control enabled |
 | --- | --- |
-| ![Enhanced thermostat tile in Off mode](/assets/wear-os/thermostat/thermostat-enhanced-off.png) | ![Enhanced AUTO layout on a 384 by 384 pixel Small Round emulator using simulated thermostat data](/assets/wear-os/thermostat/thermostat-small-round-auto.png) |
+| ![Enhanced thermostat tile in Off mode](/assets/wear-os/thermostat/thermostat-enhanced-off.png) | ![Enhanced thermostat tile with fan control on](/assets/wear-os/thermostat/thermostat-enhanced-fan-on.png) |
 
-With HVAC activity enabled, the tile can display **Fan only** while HVAC is off if the climate entity reports active fan operation. On compact displays, Enhanced uses smaller text and omits the activity line in Heat, Cool, and Heat/Cool when HVAC mode buttons are enabled. In compact Heat/Cool mode, the entity name is also hidden to make room for the controls. Temporary command feedback replaces the current temperature without moving the controls. The Small Round example uses simulated data on a 192 dp display, with eight controls and both optional Fan and secondary temperature buttons disabled.
+Secondary adjustment buttons and fan control are disabled by default and can be enabled independently. When secondary adjustments are disabled, only the primary **−** and **+** buttons appear in each temperature row. When fan control is disabled, the fan button is hidden.
+
+| Heat | Cool | Heat/Cool (AUTO) |
+| --- | --- | --- |
+| ![Enhanced Heat with only primary temperature adjustment buttons](/assets/wear-os/thermostat/thermostat-enhanced-heat-primary-only.png) | ![Enhanced Cool with only primary temperature adjustment buttons](/assets/wear-os/thermostat/thermostat-enhanced-cool-primary-only.png) | ![Enhanced AUTO with only primary temperature adjustment buttons](/assets/wear-os/thermostat/thermostat-enhanced-auto-primary-only.png) |
+
+| Heat/Cool (AUTO) with default optional controls |
+| --- |
+| ![Enhanced AUTO with secondary adjustments and fan control disabled](/assets/wear-os/thermostat/thermostat-enhanced-auto-default.png) |
+
+###### Smaller displays: selection pages
+
+On a smaller watch, Enhanced keeps the primary temperature controls on the main tile. The supported HVAC mode and optional fan controls are available on a separate selection page within the tile. Optional larger temperature adjustments also have their own selection page. These pages provide the same thermostat functions while allowing larger touch targets.
+
+**To adjust the temperature:**
+
+1. Tap **−** or **+** beside the target temperature on the main tile for a one-degree adjustment. In Heat/Cool (AUTO) mode, use the corresponding heating or cooling row.
+2. If **Show secondary temperature buttons** is enabled, tap the target temperature itself (for example, **H70°**) to open its larger-step adjustment page.
+3. Tap the larger-step **−3** or **+3** button (or the configured step) to adjust that target, or tap **Back** to return without an adjustment.
+
+When secondary adjustments are disabled, the target temperature is a read-only value and does not open a selection page.
+
+| AUTO main tile | Heating target adjustment page |
+| --- | --- |
+| ![Small Round AUTO main tile with primary heating and cooling adjustments](/assets/wear-os/thermostat/thermostat-small-round-auto.png) | ![Small Round heating target adjustment page with larger-step buttons and Back](/assets/wear-os/thermostat/thermostat-small-round-heat.png) |
+
+**To change HVAC or fan mode:**
+
+1. Tap the button labeled with the current HVAC mode (for example, **Auto**, **Heat**, or **Off**) on the main tile to open the mode selection page.
+2. Tap the supported HVAC mode icon or the fan icon, if enabled and supported. Use the power icon to switch HVAC off.
+3. Tap **Back** to return to the main tile without making a change if you do not want to select a control.
+
+The mode selection button is available when at least one supported HVAC mode or fan control is enabled in the tile settings. Disabling HVAC mode buttons does not prevent access to an enabled, supported fan control.
+
+| HVAC mode selection | HVAC mode selection with optional fan control |
+| --- | --- |
+| ![Small Round HVAC mode selection page](/assets/wear-os/thermostat/thermostat-small-round-mode-selector.png) | ![Small Round HVAC and fan control selection page](/assets/wear-os/thermostat/thermostat-small-round-mode-selector-fan.png) |
+
+To make room for two target rows, the compact Heat/Cool (AUTO) main tile hides the entity name and, when the mode selection button is present, omits the separate activity line. Selection pages omit the entity name as well. Temporary command feedback can replace the current temperature without moving the temperature controls.
+
+The Small Round screenshots show a 192 dp (384 × 384 pixel) Wear OS emulator with simulated thermostat data. The main tile example has fan control and secondary adjustments disabled; the adjustment and mode selection examples demonstrate additional controls available when enabled.
 
 ##### Tile settings
 
-Open the Home Assistant app on your watch and navigate to the thermostat tile settings to customize each tile independently.
+Open the Home Assistant app on your watch and go to **Settings** > **Thermostat**, then select the tile to customize. Each tile has independent settings.
 
 | Entity and refresh | Appearance and units |
 | --- | --- |
@@ -135,12 +184,13 @@ Open the Home Assistant app on your watch and navigate to the thermostat tile se
 
 The Enhanced layout provides the following display options:
 
-* **Show HVAC mode buttons**: Show direct controls for supported HVAC modes.
-* **Show fan button if supported**: Show fan mode control for compatible climate entities. Disabled by default.
+* **Show HVAC mode buttons**: Show supported HVAC mode controls directly on larger displays or in the mode selection page on smaller displays.
+* **Show fan button if supported**: Show compatible fan controls directly on larger displays or in the mode selection page on smaller displays. Disabled by default.
 * **Show HVAC activity**: Show the reported activity, such as heating, cooling, idle, or fan only, where space permits.
-* **Show secondary temperature buttons**: Enable additional temperature adjustment buttons, with a configurable secondary step.
+* **Show secondary temperature buttons**: Enable larger temperature adjustments alongside the primary buttons on larger displays, or by tapping the target temperature on smaller displays. Disabled by default.
+* **Secondary temperature step**: Choose the size of the larger adjustments when secondary adjustments are enabled.
 
-Both layouts offer **Choose entity**, **Refresh interval**, **Tile appearance**, **Temperature unit**, and **Show name on tile**.
+Both layouts offer **Choose entity**, **Refresh interval**, **Tile appearance**, **Temperature unit**, and **Show name on tile**. The Enhanced layout may hide the name on smaller screens when additional space is needed for controls.
 
 ##### Temperature units
 
