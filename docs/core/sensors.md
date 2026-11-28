@@ -45,7 +45,7 @@ Not all ![iOS](/assets/iOS.svg) sensors are enabled by default. If you don't see
 | `binary_sensor.focus` | None | Whether focus is currently enabled. Requires iOS-2021.10 or later, macOS 12 update later this year. Will not work if Home Assistant is in the "Allowed Notifications" list, see [interruption level](../notifications/basic.md#interruption-level) for more. |
 | `sensor.geocoded_location` | [See Below](#geocoded-location-sensor) | Calculated address based on GPS data. |
 | `sensor.last_update_trigger` | None | The cause of the last update of location and sensor data from the device to Home Assistant |
-| `sensor.ssid` | None | The human-readable name of the Wi-Fi network the device is currently connected to. When off Wi-Fi, this sensor will report `Not Connected`. |
+| `sensor.ssid` | iOS: `IP Address` | The human-readable name of the Wi-Fi network the device is currently connected to. When off Wi-Fi, this sensor will report `Not Connected`. The `IP Address` attribute holds the IPv4 address the device has on the Wi-Fi network. |
 | `sensor.storage` | [See Below](#storage-sensor) | The amount of total and available storage on your device. |
 
 ![iOS](/assets/iOS.svg)specific sensors
