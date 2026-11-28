@@ -111,15 +111,15 @@ Enhanced displays the current temperature prominently, along with the target tem
 
 * Use **+** and **−** for one-degree target adjustments, subject to the thermostat's supported temperature steps and limits.
 * Select Heat (flame), Cool (snowflake), or Heat/Cool (both icons) directly when supported. In Heat/Cool mode, separate temperature rows allow independent adjustment of the heating and cooling targets.
-* Use the fan button to change the fan mode. If both On and Auto fan modes are available, the button switches between them; otherwise it cycles through the available fan modes. Fan mode is independent of HVAC mode, and its behavior depends on the climate entity.
-* Use the power button to turn the thermostat on or off where supported. Temperature adjustments are not available while HVAC is off.
+* Enable **Show fan button if supported** to change the fan mode directly. The fan button is disabled by default. If both On and Auto fan modes are available, the button switches between them; otherwise it cycles through the available fan modes. Fan mode is independent of HVAC mode, and its behavior depends on the climate entity.
+* Use the power button to turn the thermostat off where supported. Select a supported HVAC mode to turn it back on. Temperature adjustments are not available while HVAC is off.
 * Enable **Show secondary temperature buttons** for larger adjustments. These buttons are disabled by default. Once enabled, tap **Secondary temperature step** to cycle through the available increments of 3, 5, 2, and 10 degrees. The default secondary step is 3 degrees.
 
-| Off | Off with fan activity | Small Round emulator (AUTO) |
-| --- | --- | --- |
-| ![Enhanced thermostat tile in Off mode](/assets/wear-os/thermostat/thermostat-enhanced-off.png) | ![Enhanced thermostat tile with fan-only activity while HVAC is off](/assets/wear-os/thermostat/thermostat-enhanced-fan-on.png) | ![Enhanced AUTO layout on a 384 by 384 pixel Small Round emulator using simulated thermostat data](/assets/wear-os/thermostat/thermostat-small-round-auto.png) |
+| Off | Small Round emulator (AUTO) |
+| --- | --- |
+| ![Enhanced thermostat tile in Off mode](/assets/wear-os/thermostat/thermostat-enhanced-off.png) | ![Enhanced AUTO layout on a 384 by 384 pixel Small Round emulator using simulated thermostat data](/assets/wear-os/thermostat/thermostat-small-round-auto.png) |
 
-With HVAC activity enabled, the tile can display **Fan only** while HVAC is off if the climate entity reports active fan operation. The Enhanced layout adapts to smaller watch displays, hiding the entity name when necessary to make room for controls. The Small Round example shows nine default controls on a 384 × 384 pixel (192 dp) display using simulated data, with the optional secondary temperature buttons disabled.
+With HVAC activity enabled, the tile can display **Fan only** while HVAC is off if the climate entity reports active fan operation. On compact displays, Enhanced uses smaller text and omits the activity line in Heat, Cool, and Heat/Cool when HVAC mode buttons are enabled. In compact Heat/Cool mode, the entity name is also hidden to make room for the controls. Temporary command feedback replaces the current temperature without moving the controls. The Small Round example uses simulated data on a 192 dp display, with eight controls and both optional Fan and secondary temperature buttons disabled.
 
 ##### Tile settings
 
@@ -129,15 +129,15 @@ Open the Home Assistant app on your watch and navigate to the thermostat tile se
 | --- | --- |
 | ![Thermostat tile entity selection and refresh interval settings](/assets/wear-os/thermostat/thermostat-settings-1.png) | ![Thermostat tile appearance, temperature unit and HVAC mode settings](/assets/wear-os/thermostat/thermostat-settings-2.png) |
 
-| Fan, activity and secondary buttons | Secondary buttons and entity name |
+| Fan (enabled in this example), activity and secondary buttons | Secondary buttons and entity name |
 | --- | --- |
 | ![Enhanced thermostat fan, HVAC activity and secondary temperature button settings](/assets/wear-os/thermostat/thermostat-settings-3.png) | ![Enhanced thermostat secondary temperature buttons and entity name settings](/assets/wear-os/thermostat/thermostat-settings-4.png) |
 
 The Enhanced layout provides the following display options:
 
 * **Show HVAC mode buttons**: Show direct controls for supported HVAC modes.
-* **Show fan button if supported**: Show fan mode control for compatible climate entities.
-* **Show HVAC activity**: Show the reported activity, such as heating, cooling, idle, or fan only.
+* **Show fan button if supported**: Show fan mode control for compatible climate entities. Disabled by default.
+* **Show HVAC activity**: Show the reported activity, such as heating, cooling, idle, or fan only, where space permits.
 * **Show secondary temperature buttons**: Enable additional temperature adjustment buttons, with a configurable secondary step.
 
 Both layouts offer **Choose entity**, **Refresh interval**, **Tile appearance**, **Temperature unit**, and **Show name on tile**.
@@ -152,13 +152,13 @@ Both layouts support a temperature unit preference for each tile. Tap **Temperat
 
 When an explicit temperature unit is selected, the tile converts displayed temperatures and adjustments as needed. Temperature changes remain subject to the increments and limits supported by the climate entity, so rounding may occur. Changing this preference does not change the temperature unit configured on the Home Assistant server or on other tiles.
 
-Temperature unit overrides require the climate entity to report a supported temperature unit. Home Assistant Core 2026.11 or newer provides the temperature unit attribute for climate entities. If the unit is unavailable, the tile retains its default behavior.
+Temperature unit overrides require a supported source temperature unit. The tile uses the climate entity's temperature unit when available and otherwise uses the Home Assistant server's configured temperature unit. If neither provides a supported unit, the tile retains its default behavior.
 
 ##### Updates and thermostat responses
 
 Both layouts process commands asynchronously. Rapid temperature adjustments build on pending changes rather than waiting for each command to finish. The tile can indicate that it is waiting for a thermostat response or that a change could not be confirmed.
 
-With automatic refresh enabled, both layouts can receive live state changes from Home Assistant during a limited observation period while the tile is in use. Changes made elsewhere in Home Assistant may therefore appear before the next scheduled refresh. The observation period is bounded and stops when the watch is no longer interactive. Manual refresh disables this live observation, but commands can still be monitored for confirmation. Wear OS controls when tiles can be refreshed, so immediate updates are not guaranteed.
+With automatic refresh enabled, both layouts can receive live state changes from Home Assistant during a limited observation period while the tile is in use. Changes made elsewhere in Home Assistant may therefore appear before the next scheduled refresh. The observation period is bounded and stops when the watch is no longer interactive. Selecting a manual refresh interval disables this live observation, but commands can still be monitored for confirmation. Tap the refresh button in Classic or an empty area of the Enhanced tile to request an immediate refresh. Wear OS controls when tiles can be refreshed, so immediate updates are not guaranteed.
 
 ## Complications
 
